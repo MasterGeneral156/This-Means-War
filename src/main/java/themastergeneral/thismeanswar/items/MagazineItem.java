@@ -53,8 +53,8 @@ public class MagazineItem extends CTDItem {
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
 	{
-		double currentAmmo = Math.round(stack.getTag().getInt("currentAmmo"));
-		double maxAmmo = Math.round(stack.getTag().getInt("maxAmmo"));
+		int currentAmmo = getCurrentAmmo(stack);
+		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TranslationTextComponent("Ammo: " + currentAmmo + " / " + maxAmmo));
 	}
 	
@@ -85,12 +85,13 @@ public class MagazineItem extends CTDItem {
 	//Returns true if ammo is removed, false if not.
 	private boolean removeAmmoFromMag(ItemStack mag, int toRemove)
 	{
-		int currentAmmo = mag.getTag().getInt("currentAmmo");
+		int currentAmmo = getCurrentAmmo(mag);
 		if ((currentAmmo - toRemove) >= 0)
 		{
 			CompoundNBT compoundnbt = new CompoundNBT();
 			int newAmmo = currentAmmo - toRemove;
 			compoundnbt.putInt("currentAmmo", newAmmo);
+			mag.setTag(compoundnbt);
 			return true;
 		}
 		else
@@ -107,8 +108,20 @@ public class MagazineItem extends CTDItem {
 	@Override
     public double getDurabilityForDisplay(ItemStack stack) 
 	{
-		int currentAmmo = stack.getTag().getInt("currentAmmo");
-		int maxAmmo = stack.getTag().getInt("maxAmmo");
+		int currentAmmo = getCurrentAmmo(stack);
+		int maxAmmo = getMaxAmmo(stack);
 		return MathHelper.clamp(1.0D - ((double) currentAmmo / (double) maxAmmo), 0.0D, 1.0D);
+	}
+	
+	public static int getCurrentAmmo(ItemStack stackIn)
+	{
+		CompoundNBT nbt = stackIn.getTag();
+		return nbt.getInt("currentAmmo");
+	}
+	
+	public static int getMaxAmmo(ItemStack stackIn)
+	{
+		CompoundNBT nbt = stackIn.getTag();
+		return nbt.getInt("maxAmmo");
 	}
 }

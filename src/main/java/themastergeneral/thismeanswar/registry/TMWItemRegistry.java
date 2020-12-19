@@ -10,5 +10,6 @@ import themastergeneral.thismeanswar.items.TMWItems;
 public class TMWItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TMWMain.MODID);
 	
-	public static final RegistryObject<Item> item_teleporter = TMWItemRegistry.ITEMS.register("item_teleporter", () -> TMWItems.nine_mm_round);
+	public static final RegistryObject<Item> nine_mm_round = TMWItemRegistry.ITEMS.register("nine_mm_round", () -> TMWItems.nine_mm_round);
+	public static final RegistryObject<Item> nine_mm_magazine = TMWItemRegistry.ITEMS.register("nine_mm_magazine", () -> TMWItems.nine_mm_magazine);
 }
