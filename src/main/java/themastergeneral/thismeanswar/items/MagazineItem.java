@@ -66,33 +66,39 @@ public class MagazineItem extends CTDItem {
 		ItemStack mag = playerIn.getHeldItem(handIn);
 		if (playerIn.isSneaking())
 		{
-			TMWMain.LOGGER.info("Sneak");
-			removeAmmoFromMag(mag);
-			TMWMain.LOGGER.info("Ammo removed.");
-			playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
-			playerIn.getCooldownTracker().setCooldown(this, 8);
+			if (getCurrentAmmo(mag) > 0)
+			{
+				TMWMain.LOGGER.info("Sneak");
+				removeAmmoFromMag(mag);
+				TMWMain.LOGGER.info("Ammo removed.");
+				playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
+				playerIn.getCooldownTracker().setCooldown(this, 8);
+			}
 		}
 		else
 		{
-			int slotID = 0;
-			for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+			if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 			{
-				ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
-				if (itemstack1.getItem() == bulletRequired)
+				int slotID = 0;
+				for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
 				{
-					slotID=i;
-					break;
+					ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+					if (itemstack1.getItem() == bulletRequired)
+					{
+						slotID=i;
+						break;
+					}
 				}
-			}
-			
-			if (slotID > 0)
-			{
-				TMWMain.LOGGER.info("Ammo found.");
-				ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
-				addAmmoToMag(mag);
-				TMWMain.LOGGER.info("Ammo added to mag.");
-				ibullet.shrink(1);
-				playerIn.getCooldownTracker().setCooldown(this, 8);
+				
+				if (slotID > 0)
+				{
+					TMWMain.LOGGER.info("Ammo found.");
+					ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+					addAmmoToMag(mag);
+					TMWMain.LOGGER.info("Ammo added to mag.");
+					ibullet.shrink(1);
+					playerIn.getCooldownTracker().setCooldown(this, 8);
+				}
 			}
 		}
 		playerIn.addStat(Stats.ITEM_USED.get(this));

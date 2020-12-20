@@ -106,7 +106,7 @@ public class GunItem extends CTDItem
 				if (hasMag(mag) == 1)
 				{
 					int gunAmmo = getCurrentAmmo(mag);
-					int urmaxAmmo = getCurrentAmmo(mag);
+					int urmaxAmmo = getMaxAmmo(mag);
 					
 					ItemStack newmag = new ItemStack(magazine);
 					
@@ -295,7 +295,7 @@ public class GunItem extends CTDItem
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
-		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("maxAmmo", setTo);
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", magType);
 		mag.setTag(compoundnbt);
