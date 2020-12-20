@@ -1,6 +1,5 @@
 package themastergeneral.thismeanswar.items;
 
-import java.awt.Color;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -9,6 +8,7 @@ import com.themastergeneral.ctdcore.item.CTDItem;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -18,8 +18,9 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+import themastergeneral.thismeanswar.TMWMain;
 
 public class MagazineItem extends CTDItem {
 
@@ -62,12 +63,25 @@ public class MagazineItem extends CTDItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
 		ItemStack mag = playerIn.getHeldItem(handIn);
+		ItemStack lookfor = new ItemStack(bulletRequired);
 		if (playerIn.isSneaking())
 		{
 			if (removeAmmoFromMag(mag))
 			{
 				playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
 				playerIn.getCooldownTracker().setCooldown(this, 8);
+			}
+		}
+		else
+		{
+			if (playerIn.inventory.count(bulletRequired) > 1)
+			{
+				if (addAmmoToMag(mag))
+				{
+					int slotId = playerIn.inventory.getSlotFor(lookfor);
+					playerIn.inventory.decrStackSize(slotId, 1);
+					playerIn.getCooldownTracker().setCooldown(this, 8);
+				}
 			}
 		}
 		return ActionResult.resultPass(mag);
@@ -91,6 +105,31 @@ public class MagazineItem extends CTDItem {
 			CompoundNBT compoundnbt = new CompoundNBT();
 			int newAmmo = currentAmmo - toRemove;
 			compoundnbt.putInt("currentAmmo", newAmmo);
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			mag.setTag(compoundnbt);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	private boolean addAmmoToMag(ItemStack mag)
+	{
+		return addAmmoToMag(mag, 1);
+	}
+	
+	private boolean addAmmoToMag(ItemStack mag, int toAdd)
+	{
+		int currentAmmo = getCurrentAmmo(mag);
+		int maxAmmo = getMaxAmmo(mag);
+		if ((currentAmmo + toAdd) <= maxAmmo)
+		{
+			CompoundNBT compoundnbt = new CompoundNBT();
+			int newAmmo = currentAmmo + toAdd;
+			compoundnbt.putInt("currentAmmo", newAmmo);
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			mag.setTag(compoundnbt);
 			return true;
 		}
@@ -113,15 +152,39 @@ public class MagazineItem extends CTDItem {
 		return MathHelper.clamp(1.0D - ((double) currentAmmo / (double) maxAmmo), 0.0D, 1.0D);
 	}
 	
-	public static int getCurrentAmmo(ItemStack stackIn)
+	public int getCurrentAmmo(ItemStack stackIn)
 	{
-		CompoundNBT nbt = stackIn.getTag();
-		return nbt.getInt("currentAmmo");
+		if (stackIn.hasTag())
+		{
+			return stackIn.getTag().getInt("currentAmmo");
+		}
+		else
+		{
+			return 0;
+		}
 	}
 	
-	public static int getMaxAmmo(ItemStack stackIn)
+	public int getMaxAmmo(ItemStack stackIn)
 	{
-		CompoundNBT nbt = stackIn.getTag();
-		return nbt.getInt("maxAmmo");
+		if (stackIn.hasTag())
+		{
+			return stackIn.getTag().getInt("maxAmmo");
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	@Override
+	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) 
+	{
+	   if (!stack.hasTag())
+	   {
+			CompoundNBT compoundnbt = new CompoundNBT();
+			compoundnbt.putInt("currentAmmo", 0);
+			compoundnbt.putInt("maxAmmo", maxAmmo);
+			stack.setTag(compoundnbt);
+	   }
 	}
 }
