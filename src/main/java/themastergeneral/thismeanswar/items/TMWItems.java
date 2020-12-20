@@ -9,4 +9,5 @@ public class TMWItems {
 	public static MagazineItem nine_mm_magazine = new MagazineItem(nine_mm_round, 15);
 
 	public static GunItem beretta_92_fs = new GunItem(ModConstant.SINGLE_FIRE_SPEED, 35, nine_mm_magazine, nine_mm_round, ModConstant.BERETTA_FS_DMG);
+	public static GunItem glock_26 = new GunItem(ModConstant.SINGLE_FIRE_SPEED, 20, nine_mm_magazine, nine_mm_round, ModConstant.GLOCK_26_DMG);
 }

@@ -6,6 +6,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
@@ -60,6 +61,13 @@ public class BulletBaseEntity extends ProjectileItemEntity
 	         this.world.setEntityState(this, (byte)3);
 	         this.remove();
 	      }
+	}
+	
+	@Override
+	public void tick() 
+	{
+		super.tick();
+		this.getEntityWorld().addParticle(ParticleTypes.CLOUD, this.lastTickPosX, this.lastTickPosY+1.3, this.lastTickPosZ, 0.0D, 0.0D, 0.5D);
 	}
 
 }

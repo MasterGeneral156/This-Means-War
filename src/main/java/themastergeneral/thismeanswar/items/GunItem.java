@@ -37,7 +37,7 @@ public class GunItem extends CTDItem
 	
 	public GunItem(int shotTime, int reloadTime, MagazineItem magazine, Item bullet, float damage) 
 	{
-		super(new Properties().maxStackSize(1));
+		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
 		this.reloadTime=reloadTime;
 		this.magazine=magazine;
@@ -50,7 +50,7 @@ public class GunItem extends CTDItem
 	//For guns with internal mags
 	public GunItem(int shotTime, Item bullet, float damage, int maxAmmo) 
 	{
-		super(new Properties().maxStackSize(1));
+		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
 		this.reloadTime=0;
 		this.magazine=null;
@@ -140,6 +140,7 @@ public class GunItem extends CTDItem
 				}
 				shootUpdateMag(mag);
 				playerIn.addStat(Stats.ITEM_USED.get(this));
+				playerIn.getCooldownTracker().setCooldown(this, shotTime);
 				return ActionResult.resultPass(mag);
 			}
 		}

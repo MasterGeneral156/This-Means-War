@@ -30,7 +30,7 @@ public class MagazineItem extends CTDItem {
 	
 	public MagazineItem(BulletItem Ammo, int maxAmmoSize) 
 	{
-		super(new Properties().maxStackSize(1));
+		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
 	}

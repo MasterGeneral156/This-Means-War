@@ -1,6 +1,5 @@
 package themastergeneral.thismeanswar.entity;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 
@@ -10,6 +9,6 @@ public class TMWEntities {
 			.size(1F, 1F)
 			.setUpdateInterval(10)
 			.setShouldReceiveVelocityUpdates(true)
-			.trackingRange(1250)
+			.trackingRange(128)
 			.build("");
 }
