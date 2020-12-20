@@ -133,9 +133,9 @@ public class GunItem extends CTDItem
 			{
 				if (!worldIn.isRemote) 
 				{
-					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage);
+					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
 					bulletEntity.setItem(new ItemStack(bullet));
-					bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+					bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1000.0F, 0.0F);	
 					worldIn.addEntity(bulletEntity);
 				}
 				shootUpdateMag(mag);

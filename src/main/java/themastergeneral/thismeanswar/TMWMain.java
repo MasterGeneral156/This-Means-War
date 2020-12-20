@@ -7,6 +7,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
 
 @Mod("thismeanswar")
@@ -21,6 +22,7 @@ public class TMWMain
     	
     	MinecraftForge.EVENT_BUS.register(this);
         TMWItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TMWEntityRegistry.ENTITES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     private void setup(final FMLCommonSetupEvent event)

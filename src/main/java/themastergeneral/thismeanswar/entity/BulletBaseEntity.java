@@ -14,28 +14,35 @@ import net.minecraft.world.World;
 public class BulletBaseEntity extends ProjectileItemEntity 
 {
 	public float bulletDmg;
+	public Item bulletItm;
 	
 	public BulletBaseEntity(EntityType<? extends BulletBaseEntity> type, double x, double y, double z,
-			World worldIn, float damage) {
+			World worldIn, float damage, Item bullet) {
 		super(type, x, y, z, worldIn);
 		bulletDmg = damage;
+		bulletItm = bullet;
 	}
 	
-	public BulletBaseEntity(double x, double y, double z, World worldIn, float damage) 
+	public BulletBaseEntity(double x, double y, double z, World worldIn, float damage, Item bullet) 
 	{
-	      super(EntityType.SNOWBALL, x, y, z, worldIn);
+	      super(TMWEntities.BULLET_ENTITY, x, y, z, worldIn);
 	      bulletDmg = damage;
 	}
 
-	public BulletBaseEntity(World worldIn, LivingEntity throwerIn, float damage) {
-		super(EntityType.SNOWBALL, throwerIn, worldIn);
+	public BulletBaseEntity(World worldIn, LivingEntity throwerIn, float damage, Item bullet) {
+		super(TMWEntities.BULLET_ENTITY, throwerIn, worldIn);
       bulletDmg = damage;
    }
+	
+	public BulletBaseEntity(EntityType<BulletBaseEntity> type, World world) 
+	{
+		super(type, world);
+	}
 
 	@Override
 	protected Item getDefaultItem() 
 	{
-		return null;
+		return bulletItm;
 	}
 	
 	@Override
