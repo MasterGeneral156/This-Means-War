@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
@@ -84,6 +85,7 @@ public class MagazineItem extends CTDItem {
 				}
 			}
 		}
+		playerIn.addStat(Stats.ITEM_USED.get(this));
 		return ActionResult.resultPass(mag);
 	}
 	
