@@ -13,7 +13,7 @@ import themastergeneral.thismeanswar.registry.TMWItemRegistry;
 public class TMWMain
 {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "thismeanswar";
 
     public TMWMain() {
