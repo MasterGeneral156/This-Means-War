@@ -54,60 +54,88 @@ public class GunItem extends CTDItem
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
 		ItemStack mag = playerIn.getHeldItem(handIn);
-		ItemStack lookfor = new ItemStack(magazine);
-		if (playerIn.isOnGround())
+		if (playerIn.isSneaking())
 		{
-			TMWMain.LOGGER.info("On ground");
-			if (playerIn.isSneaking())
+			if (getMagType(mag) == 1)
 			{
-				TMWMain.LOGGER.info("Sneak");
-				if (getMagType(mag) == 1)
+				if (hasMag(mag) == 0)
 				{
-					TMWMain.LOGGER.info("Mag type = magazine");
-					if (hasMag(mag) == 0)
+					int slotID = 0;
+					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
 					{
-						TMWMain.LOGGER.info("Gun is empty");
-						if (playerIn.inventory.count(lookfor.getItem().asItem()) > 1)
-						{
-							TMWMain.LOGGER.info("Have valid magazine.");
-							int slotId = playerIn.inventory.getSlotFor(lookfor);
-							TMWMain.LOGGER.info(slotId);
-							ItemStack magazine = playerIn.inventory.getStackInSlot(slotId);
-							if (magazine.hasTag())
-							{
-								TMWMain.LOGGER.info("Updating gun, removing mag.");
-								CompoundNBT nbt = magazine.getTag();
-								int magAmmo = nbt.getInt("currentAmmo");
-								int magMaxAmmo = nbt.getInt("maxAmmo");
-								setGunAmmo(mag, magAmmo);
-								setGunMaxAmmo(mag, magMaxAmmo);
-								setGunMagLoad(mag, 1);
-								playerIn.inventory.decrStackSize(slotId, 1);
-								playerIn.getCooldownTracker().setCooldown(this, (int) (reloadTime * 0.75));
-							}
-						}
+			               ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+			               if (itemstack1.hasTag())
+			               {
+			            	   if (itemstack1.getItem() instanceof MagazineItem)
+			            	   {
+				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
+		            			   {
+				            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
+				            		   {
+					            		   slotID = i;
+					            		   break;
+				            		   }
+		            			   }
+			            	   }
+			               }
+			        }
+					if (slotID > 0)
+					{
+						ItemStack itemstack2 = playerIn.inventory.getStackInSlot(slotID);
+						CompoundNBT nbt = itemstack2.getTag();
+						int magAmmo = nbt.getInt("currentAmmo");
+						int magMaxAmmo = nbt.getInt("maxAmmo");
+						setGunAmmo(mag, magAmmo);
+						setGunMaxAmmo(mag, magMaxAmmo);
+						setGunMagLoad(mag, 1);
+						playerIn.inventory.decrStackSize(slotID, 1);
+						playerIn.getCooldownTracker().setCooldown(this, reloadTime);
+						return ActionResult.resultPass(mag);
 					}
 				}
-			}
-			else
-			{
-				TMWMain.LOGGER.info("No sneak");
-				if (canFire(mag))
+				if (hasMag(mag) == 1)
 				{
-					TMWMain.LOGGER.info("Firing");
-					if (!worldIn.isRemote) 
-					{
-						BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage);
-						bulletEntity.setItem(new ItemStack(bullet));
-						bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
-						worldIn.addEntity(bulletEntity);
-					}
-					shootUpdateMag(mag);
-					playerIn.addStat(Stats.ITEM_USED.get(this));
+					int gunAmmo = getCurrentAmmo(mag);
+					int urmaxAmmo = getCurrentAmmo(mag);
+					
+					ItemStack newmag = new ItemStack(magazine);
+					
+					
+					setGunAmmo(mag, 0);
+					setGunMaxAmmo(mag, 0);
+					setGunMagLoad(mag, 0);
+					
+					CompoundNBT compoundnbt = new CompoundNBT();
+					compoundnbt.putInt("currentAmmo", gunAmmo);
+					compoundnbt.putInt("maxAmmo", urmaxAmmo);
+					newmag.setTag(compoundnbt);
+					
+					playerIn.inventory.addItemStackToInventory(newmag);
+					
+					playerIn.getCooldownTracker().setCooldown(this, reloadTime);
+					return ActionResult.resultPass(mag);
 				}
 			}
 		}
-		return ActionResult.resultPass(mag);
+		else
+		{
+			TMWMain.LOGGER.info("No sneak");
+			if (canFire(mag))
+			{
+				TMWMain.LOGGER.info("Firing");
+				if (!worldIn.isRemote) 
+				{
+					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage);
+					bulletEntity.setItem(new ItemStack(bullet));
+					bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+					worldIn.addEntity(bulletEntity);
+				}
+				shootUpdateMag(mag);
+				playerIn.addStat(Stats.ITEM_USED.get(this));
+				return ActionResult.resultPass(mag);
+			}
+		}
+		return ActionResult.resultFail(mag);
 	}
 	
 	@Override
@@ -170,14 +198,10 @@ public class GunItem extends CTDItem
 	
 	public boolean canFire(ItemStack stackIn)
 	{
-		if (getCurrentAmmo(stackIn) == 0)
-			return false;
-		else if (getMaxAmmo(stackIn) == 0)
-			return false;
-		else if (hasMag(stackIn) == 0)
-			return false;
-		else
+		if (getCurrentAmmo(stackIn) > 0)
 			return true;
+		else
+			return false;
 	}
 	
 	@Override
