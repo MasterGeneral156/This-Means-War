@@ -64,25 +64,35 @@ public class MagazineItem extends CTDItem {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
 		ItemStack mag = playerIn.getHeldItem(handIn);
-		ItemStack lookfor = new ItemStack(bulletRequired);
 		if (playerIn.isSneaking())
 		{
-			if (removeAmmoFromMag(mag))
-			{
-				playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
-				playerIn.getCooldownTracker().setCooldown(this, 8);
-			}
+			TMWMain.LOGGER.info("Sneak");
+			removeAmmoFromMag(mag);
+			TMWMain.LOGGER.info("Ammo removed.");
+			playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
+			playerIn.getCooldownTracker().setCooldown(this, 8);
 		}
 		else
 		{
-			if (playerIn.inventory.count(bulletRequired) > 1)
+			int slotID = 0;
+			for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
 			{
-				if (addAmmoToMag(mag))
+				ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+				if (itemstack1.getItem() == bulletRequired)
 				{
-					int slotId = playerIn.inventory.getSlotFor(lookfor);
-					playerIn.inventory.decrStackSize(slotId, 1);
-					playerIn.getCooldownTracker().setCooldown(this, 8);
+					slotID=i;
+					break;
 				}
+			}
+			
+			if (slotID > 0)
+			{
+				TMWMain.LOGGER.info("Ammo found.");
+				ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+				addAmmoToMag(mag);
+				TMWMain.LOGGER.info("Ammo added to mag.");
+				ibullet.shrink(1);
+				playerIn.getCooldownTracker().setCooldown(this, 8);
 			}
 		}
 		playerIn.addStat(Stats.ITEM_USED.get(this));
@@ -92,14 +102,14 @@ public class MagazineItem extends CTDItem {
 	//Remove ammo one at a time... called when we manually unload the mags.
 	//Returns true if ammo is removed, false if not.
 	//See actual logic below.
-	private boolean removeAmmoFromMag(ItemStack mag)
+	private void removeAmmoFromMag(ItemStack mag)
 	{
-		return removeAmmoFromMag(mag, 1);
+		removeAmmoFromMag(mag, 1);
 	}
 	
 	//In case you wanna remove a lot more ammo at once...
 	//Returns true if ammo is removed, false if not.
-	private boolean removeAmmoFromMag(ItemStack mag, int toRemove)
+	private void removeAmmoFromMag(ItemStack mag, int toRemove)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		if ((currentAmmo - toRemove) >= 0)
@@ -109,20 +119,15 @@ public class MagazineItem extends CTDItem {
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			mag.setTag(compoundnbt);
-			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 	
-	private boolean addAmmoToMag(ItemStack mag)
+	private void addAmmoToMag(ItemStack mag)
 	{
-		return addAmmoToMag(mag, 1);
+		addAmmoToMag(mag, 1);
 	}
 	
-	private boolean addAmmoToMag(ItemStack mag, int toAdd)
+	private void addAmmoToMag(ItemStack mag, int toAdd)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		int maxAmmo = getMaxAmmo(mag);
@@ -133,11 +138,6 @@ public class MagazineItem extends CTDItem {
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			mag.setTag(compoundnbt);
-			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 	@Override

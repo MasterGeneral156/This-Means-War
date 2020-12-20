@@ -1,7 +1,13 @@
 package themastergeneral.thismeanswar.items;
 
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import com.themastergeneral.ctdcore.item.CTDItem;
 
+import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -11,7 +17,11 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
@@ -119,10 +129,8 @@ public class GunItem extends CTDItem
 		}
 		else
 		{
-			TMWMain.LOGGER.info("No sneak");
 			if (canFire(mag))
 			{
-				TMWMain.LOGGER.info("Firing");
 				if (!worldIn.isRemote) 
 				{
 					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage);
@@ -267,6 +275,12 @@ public class GunItem extends CTDItem
 		}
 	}
 	
+	@Override
+	public float getDestroySpeed(ItemStack stack, BlockState state) 
+	{
+	      return 0.0F;
+	}
+	
 	private void setGunAmmo(ItemStack mag, int setTo)
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
@@ -295,5 +309,15 @@ public class GunItem extends CTDItem
 		compoundnbt.putInt("magLoaded", setTo);
 		compoundnbt.putInt("magType", magType);
 		mag.setTag(compoundnbt);
+	}
+	
+	//Show ammo on the magazine
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
+	{
+		int currentAmmo = getCurrentAmmo(stack);
+		int maxAmmo = getMaxAmmo(stack);
+		tooltip.add(new TranslationTextComponent("Ammo: " + currentAmmo + " / " + maxAmmo));
 	}
 }
