@@ -11,11 +11,14 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import themastergeneral.thismeanswar.ModConstant;
 
 public class BulletBaseEntity extends ProjectileItemEntity 
 {
 	public float bulletDmg;
 	public Item bulletItm;
+	
+	protected int tick = 0;
 	
 	public BulletBaseEntity(EntityType<? extends BulletBaseEntity> type, double x, double y, double z,
 			World worldIn, float damage, Item bullet) {
@@ -51,6 +54,7 @@ public class BulletBaseEntity extends ProjectileItemEntity
 	      super.onEntityHit(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), bulletDmg);
+	      this.remove();
 	   }
 	
 	@Override
@@ -67,7 +71,9 @@ public class BulletBaseEntity extends ProjectileItemEntity
 	public void tick() 
 	{
 		super.tick();
-		this.getEntityWorld().addParticle(ParticleTypes.CLOUD, this.lastTickPosX, this.lastTickPosY+1.3, this.lastTickPosZ, 0.0D, 0.0D, 0.5D);
+		tick++;
+		if (tick >= ModConstant.BULLET_KILL_TICKS)
+			this.remove();
 	}
 
 }

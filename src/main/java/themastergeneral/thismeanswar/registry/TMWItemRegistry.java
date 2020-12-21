@@ -14,14 +14,21 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> twelve_gauge_shell = TMWItemRegistry.ITEMS.register("twelve_gauge_shell", () -> TMWItems.twelve_gauge_shell);
 	
 	public static final RegistryObject<Item> nine_mm_magazine = TMWItemRegistry.ITEMS.register("nine_mm_magazine", () -> TMWItems.nine_mm_magazine);
+	public static final RegistryObject<Item> nine_mm_magazine_large = TMWItemRegistry.ITEMS.register("nine_mm_magazine_large", () -> TMWItems.nine_mm_magazine_large);
 	
 	//Mag Fed
 	//Pistols
 	public static final RegistryObject<Item> beretta_92_fs = TMWItemRegistry.ITEMS.register("beretta_92_fs", () -> TMWItems.beretta_92_fs);
 	public static final RegistryObject<Item> glock_26 = TMWItemRegistry.ITEMS.register("glock_26", () -> TMWItems.glock_26);
 	
+	//Carbines
+	public static final RegistryObject<Item> tmg_carbine = TMWItemRegistry.ITEMS.register("tmg_carbine", () -> TMWItems.tmg_carbine);
+	
 	//Internal Mag
 	//Shotguns
 	public static final RegistryObject<Item> remmington_m870 = TMWItemRegistry.ITEMS.register("remmington_m870", () -> TMWItems.remmington_m870);
+	public static final RegistryObject<Item> sawn_off_remmington_m870 = TMWItemRegistry.ITEMS.register("sawn_off_remmington_m870", () -> TMWItems.sawn_off_remmington_m870);
+	public static final RegistryObject<Item> sawn_off_double_barrel_12g = TMWItemRegistry.ITEMS.register("sawn_off_double_barrel_12g", () -> TMWItems.sawn_off_double_barrel_12g);
+	public static final RegistryObject<Item> double_barrel_12g = TMWItemRegistry.ITEMS.register("double_barrel_12g", () -> TMWItems.double_barrel_12g);
 	
 }

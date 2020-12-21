@@ -1,8 +1,13 @@
 {
 	"item.thismeanswar.nine_mm_round": "9mm Round",
 	"item.thismeanswar.nine_mm_magazine": "9mm Magazine",
+	"item.thismeanswar.nine_mm_magazine_large": "9mm Magazine",
 	"item.thismeanswar.beretta_92_fs": "Beretta 92 FS",
 	"item.thismeanswar.glock_26": "Glock 26",
 	"item.thismeanswar.remmington_m870": "Remmington M870",
-	"item.thismeanswar.twelve_gauge_shell": "12 Gauge Shell"
+	"item.thismeanswar.twelve_gauge_shell": "12 Gauge Shell",
+	"item.thismeanswar.tmg_carbine": "TMG's Carbine",
+	"item.thismeanswar.sawn_off_double_barrel_12g": "Sawn-Off Double-Barrel 12G",
+	"item.thismeanswar.double_barrel_12g": "Double-Barrel 12G",
+	"item.thismeanswar.sawn_off_remmington_m870": "Sawn-Off Remmington M870"
 }

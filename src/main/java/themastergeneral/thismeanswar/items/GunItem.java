@@ -128,10 +128,8 @@ public class GunItem extends CTDItem
 			}
 			if (getMagType(mag) == 2)
 			{
-				TMWMain.LOGGER.info("Internal mag");
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
-					TMWMain.LOGGER.info("Have room to load.");
 					int slotID = -1;
 					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
 					{
@@ -142,10 +140,8 @@ public class GunItem extends CTDItem
 							break;
 						}
 					}
-					TMWMain.LOGGER.info(slotID);
 					if (slotID >= 0)
 					{
-						TMWMain.LOGGER.info("Loaded ammo.");
 						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
 						addAmmoToMag(mag);
 						ibullet.shrink(1);
@@ -153,7 +149,6 @@ public class GunItem extends CTDItem
 					}
 				}
 			}
-			TMWMain.LOGGER.info(getMagType(mag));
 		}
 		else
 		{
