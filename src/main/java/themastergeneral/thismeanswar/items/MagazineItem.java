@@ -68,9 +68,7 @@ public class MagazineItem extends CTDItem {
 		{
 			if (getCurrentAmmo(mag) > 0)
 			{
-				TMWMain.LOGGER.info("Sneak");
 				removeAmmoFromMag(mag);
-				TMWMain.LOGGER.info("Ammo removed.");
 				playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
 				playerIn.getCooldownTracker().setCooldown(this, 8);
 			}
@@ -79,7 +77,7 @@ public class MagazineItem extends CTDItem {
 		{
 			if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 			{
-				int slotID = 0;
+				int slotID = -1;
 				for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
 				{
 					ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
@@ -90,12 +88,10 @@ public class MagazineItem extends CTDItem {
 					}
 				}
 				
-				if (slotID > 0)
+				if (slotID > -1)
 				{
-					TMWMain.LOGGER.info("Ammo found.");
 					ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
 					addAmmoToMag(mag);
-					TMWMain.LOGGER.info("Ammo added to mag.");
 					ibullet.shrink(1);
 					playerIn.getCooldownTracker().setCooldown(this, 8);
 				}

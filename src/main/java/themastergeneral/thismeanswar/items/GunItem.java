@@ -126,6 +126,34 @@ public class GunItem extends CTDItem
 					return ActionResult.resultPass(mag);
 				}
 			}
+			if (getMagType(mag) == 2)
+			{
+				TMWMain.LOGGER.info("Internal mag");
+				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+				{
+					TMWMain.LOGGER.info("Have room to load.");
+					int slotID = -1;
+					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					{
+						ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+						if (itemstack1.getItem() == bullet)
+						{
+							slotID=i;
+							break;
+						}
+					}
+					TMWMain.LOGGER.info(slotID);
+					if (slotID >= 0)
+					{
+						TMWMain.LOGGER.info("Loaded ammo.");
+						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+						addAmmoToMag(mag);
+						ibullet.shrink(1);
+						playerIn.getCooldownTracker().setCooldown(this, 8);
+					}
+				}
+			}
+			TMWMain.LOGGER.info(getMagType(mag));
 		}
 		else
 		{
@@ -152,7 +180,7 @@ public class GunItem extends CTDItem
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", 0);
-		compoundnbt.putInt("maxAmmo", 0);
+		compoundnbt.putInt("maxAmmo", maxAmmo);
 		compoundnbt.putInt("magLoaded", 0);
 		compoundnbt.putInt("magType", magType);
 		stack.setTag(compoundnbt);
@@ -220,7 +248,7 @@ public class GunItem extends CTDItem
 	   {
 			CompoundNBT compoundnbt = new CompoundNBT();
 			compoundnbt.putInt("currentAmmo", 0);
-			compoundnbt.putInt("maxAmmo", 0);
+			compoundnbt.putInt("maxAmmo", maxAmmo);
 			compoundnbt.putInt("magLoaded", 0);
 			compoundnbt.putInt("magType", magType);
 			stack.setTag(compoundnbt);
@@ -276,6 +304,27 @@ public class GunItem extends CTDItem
 		}
 	}
 	
+	private void addAmmoToMag(ItemStack mag)
+	{
+		addAmmoToMag(mag, 1);
+	}
+	
+	private void addAmmoToMag(ItemStack mag, int toAdd)
+	{
+		int currentAmmo = getCurrentAmmo(mag);
+		int maxAmmo = getMaxAmmo(mag);
+		if ((currentAmmo + toAdd) <= maxAmmo)
+		{
+			CompoundNBT compoundnbt = new CompoundNBT();
+			int newAmmo = currentAmmo + toAdd;
+			compoundnbt.putInt("currentAmmo", newAmmo);
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("magLoaded", hasMag(mag));
+			compoundnbt.putInt("magType", getMagType(mag));
+			mag.setTag(compoundnbt);
+		}
+	}
+	
 	@Override
 	public float getDestroySpeed(ItemStack stack, BlockState state) 
 	{
@@ -288,7 +337,7 @@ public class GunItem extends CTDItem
 		compoundnbt.putInt("currentAmmo", setTo);
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
-		compoundnbt.putInt("magType", magType);
+		compoundnbt.putInt("magType", getMagType(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -298,7 +347,7 @@ public class GunItem extends CTDItem
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
 		compoundnbt.putInt("maxAmmo", setTo);
 		compoundnbt.putInt("magLoaded", hasMag(mag));
-		compoundnbt.putInt("magType", magType);
+		compoundnbt.putInt("magType", getMagType(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -308,7 +357,17 @@ public class GunItem extends CTDItem
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", setTo);
-		compoundnbt.putInt("magType", magType);
+		compoundnbt.putInt("magType", getMagType(mag));
+		mag.setTag(compoundnbt);
+	}
+	
+	private void setGunMagType(ItemStack mag, int setTo)
+	{
+		CompoundNBT compoundnbt = new CompoundNBT();
+		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("magLoaded", hasMag(mag));
+		compoundnbt.putInt("magType", setTo);
 		mag.setTag(compoundnbt);
 	}
 	
