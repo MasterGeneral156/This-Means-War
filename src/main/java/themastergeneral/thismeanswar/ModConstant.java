@@ -5,9 +5,11 @@ public class ModConstant {
 	//Fire Speed
 	public static int SINGLE_FIRE_SPEED = 10;
 	public static int AUTO_FIRE_SPEED = 2;
+	public static int GRENADE_THROW_COOLDOWN = 15;
 	
 	//Misc
 	public static int BULLET_KILL_TICKS = 2;
+	public static int CONTACT_EXPLOSIVE_KILL_TICKS = 200;
 	
 	//Base Bullet Damage
 	public static float NINE_MM_BASE_DMG = 3.4612F;
