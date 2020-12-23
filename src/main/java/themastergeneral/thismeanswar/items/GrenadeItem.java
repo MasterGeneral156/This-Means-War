@@ -40,6 +40,7 @@ public class GrenadeItem extends CTDItem {
 		worldIn.addEntity(bulletEntity);
 		playerIn.addStat(Stats.ITEM_USED.get(this));
 		playerIn.getCooldownTracker().setCooldown(this, ModConstant.GRENADE_THROW_COOLDOWN);
+		stackIn.shrink(1);
 		return ActionResult.resultPass(stackIn);
 	}
 
