@@ -48,7 +48,6 @@ public class ContactExplosiveEntity extends ProjectileItemEntity
 		super(type, world);
 	}
 
-	@Override
 	protected Item getDefaultItem() 
 	{
 		return bulletItm;
