@@ -31,4 +31,7 @@ public class ModConstant {
 	//Carbine
 	public static float TMG_CARBINE_DMG = 1.784F + NINE_MM_BASE_DMG;
 	
+	//Throwables
+	public static float DYNAMITE_STICK_DMG = 0.44F;
+	
 }

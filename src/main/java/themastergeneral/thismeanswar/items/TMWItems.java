@@ -26,5 +26,5 @@ public class TMWItems {
 	public static GunItem sawn_off_remmington_m870 = new GunItem(ModConstant.SINGLE_FIRE_SPEED, twelve_gauge_shell, ModConstant.REMMINGTON_M870_DMG, 8);
 
 	//Grenades
-	public static GrenadeItem dynamite_stick = new GrenadeItem(0.4F);
+	public static GrenadeItem dynamite_stick = new GrenadeItem(ModConstant.DYNAMITE_STICK_DMG);
 }
