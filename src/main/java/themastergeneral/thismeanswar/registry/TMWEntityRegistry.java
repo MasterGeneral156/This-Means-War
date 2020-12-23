@@ -11,5 +11,5 @@ public class TMWEntityRegistry {
 	public static final DeferredRegister<EntityType<?>> ENTITES = DeferredRegister.create(ForgeRegistries.ENTITIES, TMWMain.MODID);
 	
 	public static final RegistryObject<EntityType<?>> bullet_entity = TMWEntityRegistry.ENTITES.register("bullet_entity", () -> TMWEntities.BULLET_ENTITY);
-	public static final RegistryObject<EntityType<?>> contact_explosion_entity = TMWEntityRegistry.ENTITES.register("contact_explosion_entity", () -> TMWEntities.CONTACT_EXPLOSION_ENTITY);
+	public static final RegistryObject<EntityType<?>> contact_grenade_entity = TMWEntityRegistry.ENTITES.register("contact_grenade_entity", () -> TMWEntities.CONTACT_GRENADE_ENTITY);
 }

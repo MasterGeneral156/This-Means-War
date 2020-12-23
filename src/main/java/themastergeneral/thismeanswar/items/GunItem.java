@@ -30,12 +30,14 @@ public class GunItem extends CTDItem
 	protected int shotTime;
 	protected int reloadTime;
 	protected Item magazine;
-	protected Item bullet;
+	protected BulletItem bullet;
 	protected float damage;
 	protected int maxAmmo;
 	protected int magType;
+	protected float bulletSpeed;
+	protected float bulletSpread;
 	
-	public GunItem(int shotTime, int reloadTime, MagazineItem magazine, Item bullet, float damage) 
+	public GunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
@@ -45,10 +47,12 @@ public class GunItem extends CTDItem
 		this.damage=damage;
 		this.maxAmmo=0;
 		this.magType=1;
+		this.bulletSpread = bulletSpread;
+		this.bulletSpeed = bulletSpeed;
 	}
 	
 	//For guns with internal mags
-	public GunItem(int shotTime, Item bullet, float damage, int maxAmmo) 
+	public GunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
@@ -58,6 +62,8 @@ public class GunItem extends CTDItem
 		this.damage=damage;
 		this.maxAmmo=maxAmmo;
 		this.magType=2;
+		this.bulletSpread = bulletSpread;
+		this.bulletSpeed = bulletSpeed;
 	}
 
 	@Override
@@ -154,13 +160,10 @@ public class GunItem extends CTDItem
 		{
 			if (canFire(mag))
 			{
-				if (!worldIn.isRemote) 
-				{
-					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
-					bulletEntity.setItem(new ItemStack(bullet));
-					bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1000.0F, 0.0F);	
-					worldIn.addEntity(bulletEntity);
-				}
+				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
+				//Up+Down
+				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, bulletSpeed, bulletSpread);	
+				worldIn.addEntity(bulletEntity);
 				shootUpdateMag(mag);
 				playerIn.addStat(Stats.ITEM_USED.get(this));
 				playerIn.getCooldownTracker().setCooldown(this, shotTime);
@@ -253,7 +256,22 @@ public class GunItem extends CTDItem
 	@Override
 	public boolean showDurabilityBar(ItemStack stack)
 	{
-		return true;
+		if (getMagType(stack) == 1)
+		{
+			if (hasMag(stack) == 1)
+				return true;
+			else
+				return false;
+		}
+		else if (getMagType(stack) == 2)
+		{
+			if (this.getCurrentAmmo(stack) > 0)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
 	}
 	
 	@Override

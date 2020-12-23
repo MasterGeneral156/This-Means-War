@@ -9,14 +9,14 @@ public class TMWEntities {
 			.size(1F, 1F)
 			.setUpdateInterval(10)
 			.setShouldReceiveVelocityUpdates(true)
-			.trackingRange(128)
-			.build("");
+			.setTrackingRange(128)
+			.build("bullet_entity");
 	
-	public static final EntityType<ContactExplosiveEntity> CONTACT_EXPLOSION_ENTITY = EntityType.Builder.<ContactExplosiveEntity>create(
-			ContactExplosiveEntity::new, EntityClassification.MISC)
+	public static final EntityType<ContactGrenadeEntity> CONTACT_GRENADE_ENTITY = EntityType.Builder.<ContactGrenadeEntity>create(
+			ContactGrenadeEntity::new, EntityClassification.MISC)
 			.size(1F, 1F)
 			.setUpdateInterval(10)
 			.setShouldReceiveVelocityUpdates(true)
-			.trackingRange(128)
-			.build("");
+			.setTrackingRange(128)
+			.build("contact_grenade_entity");
 }

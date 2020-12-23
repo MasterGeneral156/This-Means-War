@@ -2,36 +2,93 @@ package themastergeneral.thismeanswar;
 
 public class ModConstant {
 	
-	//Fire Speed
-	public static int SINGLE_FIRE_SPEED = 10;
-	public static int AUTO_FIRE_SPEED = 2;
-	public static int GRENADE_THROW_COOLDOWN = 15;
+	public static class fireRate
+	{
+		public static int SINGLE_FIRE = 10;
+		public static int AUTO_FIRE = 2;
+	}
 	
-	//Misc
-	public static int BULLET_KILL_TICKS = 2;
-	public static int CONTACT_EXPLOSIVE_KILL_TICKS = 200;
+	public static class misc
+	{
+		public static int BULLET_KILL_TICKS = 200;
+		public static int CONTACT_EXPLOSIVE_KILL_TICKS = 200;
+		public static int GRENADE_THROW_COOLDOWN = 15;
+		public static float SAWN_OFF_SPREAD_ADD= 5.1356F;
+		public static float SAWN_OFF_DMG_ADD= 2.682F;
+		public static float BASE_SPREAD= 0.75F;
+	}
 	
-	//Base Bullet Damage
-	public static float NINE_MM_BASE_DMG = 3.4612F;
-	public static float TWELVE_GAUGE_BASE_DMG = 5.167F;
+	public static class bulletBase
+	{
+		public static class nine_mm
+		{
+			public static float dmg = 3.4612F;
+			public static float spd = 7.81243F;
+			public static float sprd = 0.11F + misc.BASE_SPREAD;
+		}
+		public static class twelve_gauge
+		{
+			public static float dmg = 5.167F;
+			public static float spd = 7.81243F;
+			public static float sprd = 0.7F + misc.BASE_SPREAD;
+		}
+	}
 	
-	
-	//Damage balance
-	
-	//Pistol
-	public static float BERETTA_FS_DMG = 2.7145F + NINE_MM_BASE_DMG;
-	public static float GLOCK_26_DMG = 2.31567F + NINE_MM_BASE_DMG;
-	
-	//Shotgun
-	public static float REMMINGTON_M870_DMG = 5.1561F + TWELVE_GAUGE_BASE_DMG;
-	public static float SAWN_OFF_REMMINGTON_M870_DMG = REMMINGTON_M870_DMG + 1.55F;
-	public static float DBL_BRL_DMG = 6.312F + TWELVE_GAUGE_BASE_DMG;
-	public static float SAWN_OFF_DBL_BRL_DMG = DBL_BRL_DMG + 1.864F;
-	
-	//Carbine
-	public static float TMG_CARBINE_DMG = 1.784F + NINE_MM_BASE_DMG;
-	
-	//Throwables
-	public static float DYNAMITE_STICK_DMG = 0.44F;
+	public static class weaponBalance
+	{
+		public static class beretta_fs
+		{
+			public static float DMG = 2.7145F + bulletBase.nine_mm.dmg;
+			public static float SPD = -0.1F + bulletBase.nine_mm.spd;
+			public static float SPRD = -0.21F + bulletBase.nine_mm.sprd;
+		}
+		
+		public static class glock_26
+		{
+			public static float DMG = 2.31567F + bulletBase.nine_mm.dmg;
+			public static float SPD = 0.15F + bulletBase.nine_mm.spd;
+			public static float SPRD = 0.17F + bulletBase.nine_mm.sprd;
+		}
+		
+		public static class remmington_m870
+		{
+			public static float DMG = 5.1561F + bulletBase.twelve_gauge.dmg;
+			public static float SPD = 0.16F + bulletBase.twelve_gauge.spd;
+			public static float SPRD = 0.6F + bulletBase.twelve_gauge.sprd;
+		}
+		
+		public static class remmington_m870_sawn_off
+		{
+			public static float DMG = weaponBalance.remmington_m870.DMG + misc.SAWN_OFF_DMG_ADD;
+			public static float SPD = weaponBalance.remmington_m870.SPD;
+			public static float SPRD = weaponBalance.remmington_m870.SPRD + misc.SAWN_OFF_DMG_ADD;
+		}
+		
+		public static class double_barrel_shotgun
+		{
+			public static float DMG = 6.312F + bulletBase.twelve_gauge.dmg;
+			public static float SPD = 3.556F + bulletBase.twelve_gauge.spd;
+			public static float SPRD = 1.3F + bulletBase.twelve_gauge.sprd;
+		}
+		
+		public static class double_barrel_shotgun_sawn_off
+		{
+			public static float DMG = weaponBalance.double_barrel_shotgun.DMG + misc.SAWN_OFF_DMG_ADD;
+			public static float SPD = weaponBalance.double_barrel_shotgun.SPD;
+			public static float SPRD = weaponBalance.double_barrel_shotgun.SPRD + misc.SAWN_OFF_DMG_ADD;
+		}
+		
+		public static class tmg_carbine
+		{
+			public static float DMG = -1.45F + bulletBase.nine_mm.dmg;
+			public static float SPD = 3.678F + bulletBase.nine_mm.spd;
+			public static float SPRD = -0.30F + bulletBase.nine_mm.sprd;
+		}
+		
+		public static class dynamite_stick
+		{
+			public static float EXPLOSION_RADIUS = 0.44F;
+		}
+	}
 	
 }

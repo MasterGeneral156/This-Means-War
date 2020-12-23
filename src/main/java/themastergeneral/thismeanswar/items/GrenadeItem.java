@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import themastergeneral.thismeanswar.ModConstant;
 import themastergeneral.thismeanswar.TMWMain;
-import themastergeneral.thismeanswar.entity.ContactExplosiveEntity;
+import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 
 public class GrenadeItem extends CTDItem {
 
@@ -34,12 +34,14 @@ public class GrenadeItem extends CTDItem {
 	{
 		ItemStack stackIn = playerIn.getHeldItem(handIn);
 		
-		ContactExplosiveEntity bulletEntity = new ContactExplosiveEntity(worldIn, playerIn, this.explosionRadius, stackIn.getItem());
+		ContactGrenadeEntity bulletEntity = new ContactGrenadeEntity(worldIn, playerIn, ModConstant.weaponBalance.dynamite_stick.EXPLOSION_RADIUS);
+		bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
 		bulletEntity.setItem(stackIn);
-		bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);	
 		worldIn.addEntity(bulletEntity);
+		
 		playerIn.addStat(Stats.ITEM_USED.get(this));
-		playerIn.getCooldownTracker().setCooldown(this, ModConstant.GRENADE_THROW_COOLDOWN);
+		playerIn.getCooldownTracker().setCooldown(this, ModConstant.misc.GRENADE_THROW_COOLDOWN);
+		
 		stackIn.shrink(1);
 		return ActionResult.resultPass(stackIn);
 	}
