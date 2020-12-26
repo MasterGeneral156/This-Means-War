@@ -15,7 +15,7 @@ public class ModConstant {
 		public static int GRENADE_THROW_COOLDOWN = 15;
 		public static float SAWN_OFF_SPREAD_ADD= 5.1356F;
 		public static float SAWN_OFF_DMG_ADD= 2.682F;
-		public static float BASE_SPREAD= 0.75F;
+		public static float BASE_SPREAD= 1.0F;
 	}
 	
 	public static class bulletBase
@@ -24,13 +24,13 @@ public class ModConstant {
 		{
 			public static float dmg = 3.4612F;
 			public static float spd = 7.81243F;
-			public static float sprd = 0.11F + misc.BASE_SPREAD;
+			public static float sprd = 0.011F + misc.BASE_SPREAD;
 		}
 		public static class twelve_gauge
 		{
 			public static float dmg = 5.167F;
 			public static float spd = 7.81243F;
-			public static float sprd = 0.7F + misc.BASE_SPREAD;
+			public static float sprd = 0.07F + misc.BASE_SPREAD;
 		}
 	}
 	
@@ -40,21 +40,21 @@ public class ModConstant {
 		{
 			public static float DMG = 2.7145F + bulletBase.nine_mm.dmg;
 			public static float SPD = -0.1F + bulletBase.nine_mm.spd;
-			public static float SPRD = -0.21F + bulletBase.nine_mm.sprd;
+			public static float SPRD = -0.021F + bulletBase.nine_mm.sprd;
 		}
 		
 		public static class glock_26
 		{
 			public static float DMG = 2.31567F + bulletBase.nine_mm.dmg;
 			public static float SPD = 0.15F + bulletBase.nine_mm.spd;
-			public static float SPRD = 0.17F + bulletBase.nine_mm.sprd;
+			public static float SPRD = 0.017F + bulletBase.nine_mm.sprd;
 		}
 		
 		public static class remmington_m870
 		{
 			public static float DMG = 5.1561F + bulletBase.twelve_gauge.dmg;
 			public static float SPD = 0.16F + bulletBase.twelve_gauge.spd;
-			public static float SPRD = 0.6F + bulletBase.twelve_gauge.sprd;
+			public static float SPRD = 0.06F + bulletBase.twelve_gauge.sprd;
 		}
 		
 		public static class remmington_m870_sawn_off
@@ -68,7 +68,7 @@ public class ModConstant {
 		{
 			public static float DMG = 6.312F + bulletBase.twelve_gauge.dmg;
 			public static float SPD = 3.556F + bulletBase.twelve_gauge.spd;
-			public static float SPRD = 1.3F + bulletBase.twelve_gauge.sprd;
+			public static float SPRD = 0.13F + bulletBase.twelve_gauge.sprd;
 		}
 		
 		public static class double_barrel_shotgun_sawn_off
@@ -82,12 +82,24 @@ public class ModConstant {
 		{
 			public static float DMG = -1.45F + bulletBase.nine_mm.dmg;
 			public static float SPD = 3.678F + bulletBase.nine_mm.spd;
-			public static float SPRD = -0.30F + bulletBase.nine_mm.sprd;
+			public static float SPRD = -0.03F + bulletBase.nine_mm.sprd;
 		}
 		
 		public static class dynamite_stick
 		{
 			public static float EXPLOSION_RADIUS = 0.44F;
+		}
+		
+		public static class warhead
+		{
+			public static float EXPLOSION_RADIUS = 81.41F;
+		}
+		
+		public static class bazooka
+		{
+			public static float EXPLOSION_RADIUS = 5.75F;
+			public static float SPEED = 6.53F;
+			public static int RLD_TIME = 35;
 		}
 	}
 	

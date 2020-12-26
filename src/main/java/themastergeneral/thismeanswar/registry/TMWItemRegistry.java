@@ -16,6 +16,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> nine_mm_magazine = TMWItemRegistry.ITEMS.register("nine_mm_magazine", () -> TMWItems.nine_mm_magazine);
 	public static final RegistryObject<Item> nine_mm_magazine_large = TMWItemRegistry.ITEMS.register("nine_mm_magazine_large", () -> TMWItems.nine_mm_magazine_large);
 	
+	public static final RegistryObject<Item> bazooka_rocket = TMWItemRegistry.ITEMS.register("bazooka_rocket", () -> TMWItems.bazooka_rocket);
+	
 	//Pistols
 	public static final RegistryObject<Item> beretta_92_fs = TMWItemRegistry.ITEMS.register("beretta_92_fs", () -> TMWItems.beretta_92_fs);
 	public static final RegistryObject<Item> glock_26 = TMWItemRegistry.ITEMS.register("glock_26", () -> TMWItems.glock_26);
@@ -28,6 +30,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> sawn_off_remmington_m870 = TMWItemRegistry.ITEMS.register("sawn_off_remmington_m870", () -> TMWItems.sawn_off_remmington_m870);
 	public static final RegistryObject<Item> sawn_off_double_barrel_12g = TMWItemRegistry.ITEMS.register("sawn_off_double_barrel_12g", () -> TMWItems.sawn_off_double_barrel_12g);
 	public static final RegistryObject<Item> double_barrel_12g = TMWItemRegistry.ITEMS.register("double_barrel_12g", () -> TMWItems.double_barrel_12g);
+	
+	//RPGs
+	public static final RegistryObject<Item> bazooka = TMWItemRegistry.ITEMS.register("bazooka", () -> TMWItems.bazooka);
 	
 	//Grenades
 	public static final RegistryObject<Item> dynamite_stick = TMWItemRegistry.ITEMS.register("dynamite_stick", () -> TMWItems.dynamite_stick);

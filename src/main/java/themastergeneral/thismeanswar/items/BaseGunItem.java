@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.Properties;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
@@ -25,8 +26,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
-public class GunItem extends CTDItem 
-{
+public class BaseGunItem extends CTDItem {
+
 	protected int shotTime;
 	protected int reloadTime;
 	protected Item magazine;
@@ -37,7 +38,7 @@ public class GunItem extends CTDItem
 	protected float bulletSpeed;
 	protected float bulletSpread;
 	
-	public GunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
+	public BaseGunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
@@ -52,7 +53,7 @@ public class GunItem extends CTDItem
 	}
 	
 	//For guns with internal mags
-	public GunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
+	public BaseGunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
@@ -64,113 +65,6 @@ public class GunItem extends CTDItem
 		this.magType=2;
 		this.bulletSpread = bulletSpread;
 		this.bulletSpeed = bulletSpeed;
-	}
-
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
-	{
-		ItemStack mag = playerIn.getHeldItem(handIn);
-		if (playerIn.isSneaking())
-		{
-			if (getMagType(mag) == 1)
-			{
-				if (hasMag(mag) == 0)
-				{
-					int slotID = 0;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
-					{
-			               ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
-			               if (itemstack1.hasTag())
-			               {
-			            	   if (itemstack1.getItem() instanceof MagazineItem)
-			            	   {
-				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
-		            			   {
-				            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
-				            		   {
-					            		   slotID = i;
-					            		   break;
-				            		   }
-		            			   }
-			            	   }
-			               }
-			        }
-					if (slotID > 0)
-					{
-						ItemStack itemstack2 = playerIn.inventory.getStackInSlot(slotID);
-						CompoundNBT nbt = itemstack2.getTag();
-						int magAmmo = nbt.getInt("currentAmmo");
-						int magMaxAmmo = nbt.getInt("maxAmmo");
-						setGunAmmo(mag, magAmmo);
-						setGunMaxAmmo(mag, magMaxAmmo);
-						setGunMagLoad(mag, 1);
-						playerIn.inventory.decrStackSize(slotID, 1);
-						playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-						return ActionResult.resultPass(mag);
-					}
-				}
-				if (hasMag(mag) == 1)
-				{
-					int gunAmmo = getCurrentAmmo(mag);
-					int urmaxAmmo = getMaxAmmo(mag);
-					
-					ItemStack newmag = new ItemStack(magazine);
-					
-					
-					setGunAmmo(mag, 0);
-					setGunMaxAmmo(mag, 0);
-					setGunMagLoad(mag, 0);
-					
-					CompoundNBT compoundnbt = new CompoundNBT();
-					compoundnbt.putInt("currentAmmo", gunAmmo);
-					compoundnbt.putInt("maxAmmo", urmaxAmmo);
-					newmag.setTag(compoundnbt);
-					
-					playerIn.inventory.addItemStackToInventory(newmag);
-					
-					playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-					return ActionResult.resultPass(mag);
-				}
-			}
-			if (getMagType(mag) == 2)
-			{
-				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
-				{
-					int slotID = -1;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
-					{
-						ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
-						if (itemstack1.getItem() == bullet)
-						{
-							slotID=i;
-							break;
-						}
-					}
-					if (slotID >= 0)
-					{
-						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
-						addAmmoToMag(mag);
-						ibullet.shrink(1);
-						playerIn.getCooldownTracker().setCooldown(this, 8);
-					}
-				}
-			}
-		}
-		else
-		{
-			if (canFire(mag))
-			{
-				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
-				//Up+Down
-				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, bulletSpeed, bulletSpread);	
-				worldIn.addEntity(bulletEntity);
-				shootUpdateMag(mag);
-				playerIn.addStat(Stats.ITEM_USED.get(this));
-				playerIn.getCooldownTracker().setCooldown(this, shotTime);
-				return ActionResult.resultPass(mag);
-			}
-		}
-		return ActionResult.resultFail(mag);
 	}
 	
 	@Override
@@ -317,7 +211,7 @@ public class GunItem extends CTDItem
 		}
 	}
 	
-	private void addAmmoToMag(ItemStack mag)
+	protected void addAmmoToMag(ItemStack mag)
 	{
 		addAmmoToMag(mag, 1);
 	}
@@ -344,7 +238,7 @@ public class GunItem extends CTDItem
 	      return 0.0F;
 	}
 	
-	private void setGunAmmo(ItemStack mag, int setTo)
+	protected void setGunAmmo(ItemStack mag, int setTo)
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", setTo);
@@ -354,7 +248,7 @@ public class GunItem extends CTDItem
 		mag.setTag(compoundnbt);
 	}
 	
-	private void setGunMaxAmmo(ItemStack mag, int setTo)
+	protected void setGunMaxAmmo(ItemStack mag, int setTo)
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -364,7 +258,7 @@ public class GunItem extends CTDItem
 		mag.setTag(compoundnbt);
 	}
 	
-	private void setGunMagLoad(ItemStack mag, int setTo)
+	protected void setGunMagLoad(ItemStack mag, int setTo)
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -374,7 +268,7 @@ public class GunItem extends CTDItem
 		mag.setTag(compoundnbt);
 	}
 	
-	private void setGunMagType(ItemStack mag, int setTo)
+	protected void setGunMagType(ItemStack mag, int setTo)
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -392,5 +286,115 @@ public class GunItem extends CTDItem
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TranslationTextComponent("Ammo: " + currentAmmo + " / " + maxAmmo));
+	}
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	{
+		ItemStack mag = playerIn.getHeldItem(handIn);
+		if (playerIn.isSneaking())
+		{
+			if (getMagType(mag) == 1)
+			{
+				if (hasMag(mag) == 0)
+				{
+					int slotID = 0;
+					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					{
+			               ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+			               if (itemstack1.hasTag())
+			               {
+			            	   if (itemstack1.getItem() instanceof MagazineItem)
+			            	   {
+				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
+		            			   {
+				            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
+				            		   {
+					            		   slotID = i;
+					            		   break;
+				            		   }
+		            			   }
+			            	   }
+			               }
+			        }
+					if (slotID > 0)
+					{
+						ItemStack itemstack2 = playerIn.inventory.getStackInSlot(slotID);
+						CompoundNBT nbt = itemstack2.getTag();
+						int magAmmo = nbt.getInt("currentAmmo");
+						int magMaxAmmo = nbt.getInt("maxAmmo");
+						setGunAmmo(mag, magAmmo);
+						setGunMaxAmmo(mag, magMaxAmmo);
+						setGunMagLoad(mag, 1);
+						playerIn.inventory.decrStackSize(slotID, 1);
+						playerIn.getCooldownTracker().setCooldown(this, reloadTime);
+						return ActionResult.resultPass(mag);
+					}
+				}
+				if (hasMag(mag) == 1)
+				{
+					int gunAmmo = getCurrentAmmo(mag);
+					int urmaxAmmo = getMaxAmmo(mag);
+					
+					ItemStack newmag = new ItemStack(magazine);
+					
+					
+					setGunAmmo(mag, 0);
+					setGunMaxAmmo(mag, 0);
+					setGunMagLoad(mag, 0);
+					
+					CompoundNBT compoundnbt = new CompoundNBT();
+					compoundnbt.putInt("currentAmmo", gunAmmo);
+					compoundnbt.putInt("maxAmmo", urmaxAmmo);
+					newmag.setTag(compoundnbt);
+					
+					playerIn.inventory.addItemStackToInventory(newmag);
+					
+					playerIn.getCooldownTracker().setCooldown(this, reloadTime);
+					return ActionResult.resultPass(mag);
+				}
+			}
+			if (getMagType(mag) == 2)
+			{
+				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+				{
+					int slotID = -1;
+					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					{
+						ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+						if (itemstack1.getItem() == bullet)
+						{
+							slotID=i;
+							break;
+						}
+					}
+					if (slotID >= 0)
+					{
+						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+						addAmmoToMag(mag);
+						ibullet.shrink(1);
+						playerIn.getCooldownTracker().setCooldown(this, 8);
+					}
+				}
+			}
+		}
+		else
+		{
+			if (canFire(mag))
+			{
+				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
+				bulletEntity.setItem(new ItemStack(bullet));
+				//Up+Down
+				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, 256.0F, 1.0F);	
+				bulletEntity.setInvisible(true);
+				worldIn.addEntity(bulletEntity);
+				
+				shootUpdateMag(mag);
+				playerIn.addStat(Stats.ITEM_USED.get(this));
+				playerIn.getCooldownTracker().setCooldown(this, shotTime);
+				return ActionResult.resultPass(mag);
+			}
+		}
+		return ActionResult.resultFail(mag);
 	}
 }

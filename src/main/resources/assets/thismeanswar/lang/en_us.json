@@ -11,5 +11,7 @@
 	"item.thismeanswar.double_barrel_12g": "Double-Barrel 12G",
 	"item.thismeanswar.sawn_off_remmington_m870": "Sawn-Off Remmington M870",
 	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
-	"itemGroup.thismeanswar": "This Means War!"
+	"itemGroup.thismeanswar": "This Means War!",
+	"item.thismeanswar.bazooka": "Bazooka",
+	"item.thismeanswar.bazooka_rocket": "Bazooka Rocket"
 }

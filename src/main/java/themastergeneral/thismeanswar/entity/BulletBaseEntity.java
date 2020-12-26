@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.EntityRayTraceResult;
@@ -48,6 +49,7 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	    */
 	   protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
 	      super.onEntityHit(p_213868_1_);
+	      this.world.setEntityState(this, (byte)3);
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), bulletDmg);
 	      this.remove();
@@ -58,6 +60,7 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	    */
 	   protected void onImpact(RayTraceResult result) {
 	      super.onImpact(result);
+	      this.world.setEntityState(this, (byte)3);
 	         this.remove();
 
 	   }
