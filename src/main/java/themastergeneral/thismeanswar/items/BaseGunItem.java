@@ -385,8 +385,7 @@ public class BaseGunItem extends CTDItem {
 				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
-				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, 256.0F, 1.0F);	
-				bulletEntity.setInvisible(true);
+				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, 1.5F, 1.0F);	
 				worldIn.addEntity(bulletEntity);
 				
 				shootUpdateMag(mag);

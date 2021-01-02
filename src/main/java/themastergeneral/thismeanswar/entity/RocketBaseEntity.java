@@ -65,7 +65,7 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 	      super.onImpact(result);
 	      if (!this.world.isRemote) {
 	         this.world.setEntityState(this, (byte)3);
-	         this.getEntityWorld().createExplosion(null, this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
+	         this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
 	         this.remove();
 	      }
 
@@ -75,6 +75,9 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 	   public void tick() {
 		   super.tick();
 		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, -0.3D, 0.0D);
+		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, +0.3D, 0.0D);
+		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, +0.3D);
+		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, -0.3D);
 	   }
 
 }
