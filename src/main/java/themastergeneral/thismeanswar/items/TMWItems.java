@@ -58,4 +58,5 @@ public class TMWItems {
 
 	//Grenades
 	public static GrenadeItem dynamite_stick = new GrenadeItem(ModConstant.weaponBalance.dynamite_stick.EXPLOSION_RADIUS);
+	public static GrenadeItem nuclear_warhead = new GrenadeItem(ModConstant.weaponBalance.nuclear_warhead.EXPLOSION_RADIUS);
 }
