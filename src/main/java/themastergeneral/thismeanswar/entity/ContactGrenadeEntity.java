@@ -37,21 +37,23 @@ public class ContactGrenadeEntity extends ProjectileItemEntity {
 	   /**
 	    * Called when the arrow hits an entity
 	    */
+	   @Override
 	   protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
 	      super.onEntityHit(p_213868_1_);
 	      this.world.setEntityState(this, (byte)3);
-         this.getEntityWorld().createExplosion(null, this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
+         this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
          this.remove();
 	   }
 
 	   /**
 	    * Called when this EntityFireball hits a block or entity.
 	    */
+	   @Override
 	   protected void onImpact(RayTraceResult result) {
 	      super.onImpact(result);
 	      if (!this.world.isRemote) {
 	         this.world.setEntityState(this, (byte)3);
-	         this.getEntityWorld().createExplosion(null, this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
+	         this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
 	         this.remove();
 	      }
 

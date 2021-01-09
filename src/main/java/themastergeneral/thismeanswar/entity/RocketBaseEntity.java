@@ -52,7 +52,7 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 	      super.onEntityHit(p_213868_1_);
 	      if (!this.world.isRemote) {
 		      this.world.setEntityState(this, (byte)3);
-		      this.getEntityWorld().createExplosion(null, this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
+		      this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
 		      this.remove();
 	      }
 	   }

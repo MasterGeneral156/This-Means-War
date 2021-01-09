@@ -36,4 +36,5 @@ public class TMWItemRegistry {
 	
 	//Grenades
 	public static final RegistryObject<Item> dynamite_stick = TMWItemRegistry.ITEMS.register("dynamite_stick", () -> TMWItems.dynamite_stick);
+	public static final RegistryObject<Item> nuclear_warhead = TMWItemRegistry.ITEMS.register("nuclear_warhead", () -> TMWItems.nuclear_warhead);
 }
