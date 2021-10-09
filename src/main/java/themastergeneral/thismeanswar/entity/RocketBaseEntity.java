@@ -13,6 +13,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.Explosion.Mode;
 import net.minecraftforge.fml.network.NetworkHooks;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class RocketBaseEntity extends ProjectileItemEntity {
 	
@@ -38,7 +39,7 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 
 	@Override
 	protected Item getDefaultItem() {
-		return null;
+		return TMWItems.bazooka_rocket;
 	}
 	
 	@Nonnull
@@ -78,6 +79,12 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, +0.3D, 0.0D);
 		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, +0.3D);
 		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, -0.3D);
+	   }
+	   
+	   @Override
+	   protected float getGravityVelocity() 
+	   {
+		      return 0.01F;
 	   }
 
 }
