@@ -39,7 +39,7 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 
 	@Override
 	protected Item getDefaultItem() {
-		return TMWItems.bazooka_rocket;
+		return null;	//fix this later?
 	}
 	
 	@Nonnull
@@ -72,19 +72,19 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 
 	   }
 	   
-	   @Override
-	   public void tick() {
-		   super.tick();
-		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, -0.3D, 0.0D);
-		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, +0.3D, 0.0D);
-		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, +0.3D);
-		   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, -0.3D);
-	   }
-	   
-	   @Override
-	   protected float getGravityVelocity() 
-	   {
-		      return 0.01F;
-	   }
+   @Override
+   public void tick() {
+	   super.tick();
+	   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, -0.3D, 0.0D);
+	   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, +0.3D, 0.0D);
+	   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, +0.3D);
+	   this.world.addParticle(ParticleTypes.SMOKE, this.lastTickPosX, this.lastTickPosY, this.lastTickPosZ, 0.0D, 0.0D, -0.3D);
+   }
+   
+   @Override
+   protected float getGravityVelocity() 
+   {
+	      return 0.01F;
+   }
 
 }
