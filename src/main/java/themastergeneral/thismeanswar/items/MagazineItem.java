@@ -8,6 +8,8 @@ import com.themastergeneral.ctdcore.item.CTDItem;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -39,6 +41,12 @@ public class MagazineItem extends CTDItem {
 	public float getDestroySpeed(ItemStack stack, BlockState state) 
 	{
 	      return 0.0F;
+	}
+	
+	@Override
+	public int getItemEnchantability(ItemStack stack)
+	{
+		return 10;
 	}
 	
 	@Override
@@ -172,7 +180,10 @@ public class MagazineItem extends CTDItem {
 	{
 		if (stackIn.hasTag())
 		{
-			return stackIn.getTag().getInt("maxAmmo");
+			int maxAmmo = stackIn.getTag().getInt("maxAmmo");
+			int enchant = EnchantmentHelper.getEnchantmentLevel(Enchantments.EFFICIENCY, stackIn);
+			
+			return (int) (maxAmmo + ((maxAmmo * 0.1) * enchant));	//10% extra ammo per level?
 		}
 		else
 		{
