@@ -41,7 +41,7 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	   }
 
 	   protected Item getDefaultItem() {
-	      return bulletItm;
+	      return null;
 	   }
 
 	   /**

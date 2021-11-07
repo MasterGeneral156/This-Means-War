@@ -39,7 +39,7 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 
 	@Override
 	protected Item getDefaultItem() {
-		return TMWItems.bazooka_rocket;
+		return null;
 	}
 	
 	@Nonnull
