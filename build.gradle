@@ -2,7 +2,6 @@ buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
-		flatDir { dirs './libs' }
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
@@ -70,6 +69,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.8'
+	implementation files("./libs/CTD-Core-1.16.5-2.1.1.jar")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
