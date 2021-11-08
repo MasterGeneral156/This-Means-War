@@ -97,14 +97,14 @@ public class ModConstant {
 		
 		public static class bazooka
 		{
-			public static float EXPLOSION_RADIUS = 9.75F;
+			public static float EXPLOSION_RADIUS = 5.75F;
 			public static float SPEED = 50.53F;
 			public static int RLD_TIME = 35;
 		}
 
 		public static class hand_grenade
 		{
-			public static float EXPLOSION_RADIUS = 3.75F;
+			public static float EXPLOSION_RADIUS = 2.9F;
 		}
 	}
 	
