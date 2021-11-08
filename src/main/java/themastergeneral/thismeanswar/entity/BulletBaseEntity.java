@@ -7,15 +7,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraft.world.Explosion.Mode;
 import net.minecraftforge.fml.network.NetworkHooks;
 import themastergeneral.thismeanswar.items.BulletItem;
 
@@ -59,7 +55,7 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	   /**
 	    * Called when this EntityFireball hits a block or entity.
 	    */
-	   protected void onHitBlock(BlockRayTraceResult p_230299_1_) 
+	   protected void onHitBlock(BlockRayTraceResult result) 
 	   {
 	         this.remove();
 	   }
