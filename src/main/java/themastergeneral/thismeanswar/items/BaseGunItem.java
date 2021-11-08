@@ -301,7 +301,7 @@ public class BaseGunItem extends BaseTMWItem {
 			               ItemStack itemstack1 = playerIn.inventory.getItem(i);
 			               if (itemstack1.hasTag())
 			               {
-			            	   if (itemstack1.getItem() instanceof MagazineItem)
+			            	   if (itemstack1.getItem() == magazine)
 			            	   {
 				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
 		            			   {
