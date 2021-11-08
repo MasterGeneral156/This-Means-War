@@ -12,9 +12,13 @@ public class TMWItemRegistry {
 	
 	public static final RegistryObject<Item> nine_mm_round = TMWItemRegistry.ITEMS.register("nine_mm_round", () -> TMWItems.nine_mm_round);
 	public static final RegistryObject<Item> twelve_gauge_shell = TMWItemRegistry.ITEMS.register("twelve_gauge_shell", () -> TMWItems.twelve_gauge_shell);
+	public static final RegistryObject<Item> five_five_six_round = TMWItemRegistry.ITEMS.register("five_five_six_round", () -> TMWItems.five_five_six_round);
+	public static final RegistryObject<Item> two_two_three_round = TMWItemRegistry.ITEMS.register("two_two_three_round", () -> TMWItems.two_two_three_round);
 	
 	public static final RegistryObject<Item> nine_mm_magazine = TMWItemRegistry.ITEMS.register("nine_mm_magazine", () -> TMWItems.nine_mm_magazine);
 	public static final RegistryObject<Item> nine_mm_magazine_large = TMWItemRegistry.ITEMS.register("nine_mm_magazine_large", () -> TMWItems.nine_mm_magazine_large);
+	public static final RegistryObject<Item> m4ar_mag_556 = TMWItemRegistry.ITEMS.register("m4ar_mag_556", () -> TMWItems.m4ar_mag_556);
+	public static final RegistryObject<Item> m4ar_mag_223 = TMWItemRegistry.ITEMS.register("m4ar_mag_223", () -> TMWItems.m4ar_mag_223);
 	
 	public static final RegistryObject<Item> bazooka_rocket = TMWItemRegistry.ITEMS.register("bazooka_rocket", () -> TMWItems.bazooka_rocket);
 	
@@ -24,6 +28,12 @@ public class TMWItemRegistry {
 	
 	//Carbines
 	public static final RegistryObject<Item> tmg_carbine = TMWItemRegistry.ITEMS.register("tmg_carbine", () -> TMWItems.tmg_carbine);
+	
+	//Rifles
+	public static final RegistryObject<Item> springfield_saint_556 = TMWItemRegistry.ITEMS.register("springfield_saint_556", () -> TMWItems.springfield_saint_556);
+	public static final RegistryObject<Item> springfield_saint_223 = TMWItemRegistry.ITEMS.register("springfield_saint_223", () -> TMWItems.springfield_saint_223);
+	
+	//Snipers
 	
 	//Shotguns
 	public static final RegistryObject<Item> remmington_m870 = TMWItemRegistry.ITEMS.register("remmington_m870", () -> TMWItems.remmington_m870);

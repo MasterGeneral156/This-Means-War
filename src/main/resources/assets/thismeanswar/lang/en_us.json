@@ -15,5 +15,11 @@
 	"item.thismeanswar.bazooka": "Bazooka",
 	"item.thismeanswar.bazooka_rocket": "Bazooka Rocket",
 	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
-	"item.thismeanswar.hand_grenade": "Hand Grenade"
+	"item.thismeanswar.hand_grenade": "Hand Grenade",
+	"item.thismeanswar.springfield_saint_223": "Springfield Saint (.223)",
+	"item.thismeanswar.springfield_saint_556": "Springfield Saint (5.56)",
+	"item.thismeanswar.five_five_six_round": "5.56 Round",
+	"item.thismeanswar.two_two_three_round": ".223 Round",
+	"item.thismeanswar.m4ar_mag_556": "M4/AR Magazine (5.56)",
+	"item.thismeanswar.m4ar_mag_223": "M4/AR Magazine (.223)"
 }
