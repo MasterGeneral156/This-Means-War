@@ -14,8 +14,7 @@ public class TMWItemGroup extends ItemGroup
 	}
 
 	@Override
-	public ItemStack createIcon() 
-	{
+	public ItemStack makeIcon() {
 		return new ItemStack((IItemProvider) TMWItems.glock_26);	//maybe works
 	}
 

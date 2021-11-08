@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.themastergeneral.ctdcore.item.CTDItem;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -26,7 +24,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
-public class BaseGunItem extends CTDItem {
+public class BaseGunItem extends BaseTMWItem {
 
 	protected int shotTime;
 	protected int reloadTime;
@@ -40,7 +38,7 @@ public class BaseGunItem extends CTDItem {
 	
 	public BaseGunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
-		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
 		this.reloadTime=reloadTime;
 		this.magazine=magazine;
@@ -55,7 +53,7 @@ public class BaseGunItem extends CTDItem {
 	//For guns with internal mags
 	public BaseGunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
-		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
 		this.reloadTime=0;
 		this.magazine=null;
@@ -68,7 +66,7 @@ public class BaseGunItem extends CTDItem {
 	}
 	
 	@Override
-	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) 
+	public void onCraftedBy(ItemStack stack, World worldIn, PlayerEntity playerIn) 
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", 0);
@@ -281,7 +279,7 @@ public class BaseGunItem extends CTDItem {
 	//Show ammo on the magazine
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
+	public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
@@ -289,19 +287,19 @@ public class BaseGunItem extends CTDItem {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
-		ItemStack mag = playerIn.getHeldItem(handIn);
-		if (playerIn.isSneaking())
+		ItemStack mag = playerIn.getItemInHand(handIn);
+		if (playerIn.isCrouching())
 		{
 			if (getMagType(mag) == 1)
 			{
 				if (hasMag(mag) == 0)
 				{
 					int slotID = 0;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 					{
-			               ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+			               ItemStack itemstack1 = playerIn.inventory.getItem(i);
 			               if (itemstack1.hasTag())
 			               {
 			            	   if (itemstack1.getItem() instanceof MagazineItem)
@@ -319,16 +317,16 @@ public class BaseGunItem extends CTDItem {
 			        }
 					if (slotID > 0)
 					{
-						ItemStack itemstack2 = playerIn.inventory.getStackInSlot(slotID);
+						ItemStack itemstack2 = playerIn.inventory.getItem(slotID);
 						CompoundNBT nbt = itemstack2.getTag();
 						int magAmmo = nbt.getInt("currentAmmo");
 						int magMaxAmmo = nbt.getInt("maxAmmo");
 						setGunAmmo(mag, magAmmo);
 						setGunMaxAmmo(mag, magMaxAmmo);
 						setGunMagLoad(mag, 1);
-						playerIn.inventory.decrStackSize(slotID, 1);
-						playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-						return ActionResult.resultPass(mag);
+						playerIn.inventory.removeItem(slotID, 1);
+						playerIn.getCooldowns().addCooldown(this, reloadTime);
+						return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
 				if (hasMag(mag) == 1)
@@ -348,10 +346,10 @@ public class BaseGunItem extends CTDItem {
 					compoundnbt.putInt("maxAmmo", urmaxAmmo);
 					newmag.setTag(compoundnbt);
 					
-					playerIn.inventory.addItemStackToInventory(newmag);
+					playerIn.inventory.add(newmag);
 					
-					playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-					return ActionResult.resultPass(mag);
+					playerIn.getCooldowns().addCooldown(this, reloadTime);
+					return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
 			if (getMagType(mag) == 2)
@@ -359,9 +357,9 @@ public class BaseGunItem extends CTDItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 					{
-						ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+						ItemStack itemstack1 = playerIn.inventory.getItem(i);
 						if (itemstack1.getItem() == bullet)
 						{
 							slotID=i;
@@ -370,10 +368,10 @@ public class BaseGunItem extends CTDItem {
 					}
 					if (slotID >= 0)
 					{
-						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+						ItemStack ibullet = playerIn.inventory.getItem(slotID);
 						addAmmoToMag(mag);
 						ibullet.shrink(1);
-						playerIn.getCooldownTracker().setCooldown(this, 8);
+						playerIn.getCooldowns().addCooldown(this, 8);
 					}
 				}
 			}
@@ -385,15 +383,15 @@ public class BaseGunItem extends CTDItem {
 				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
-				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, 1.5F, 1.0F);	
-				worldIn.addEntity(bulletEntity);
+				bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0F, 1.5F, 1.0F);	
+				worldIn.addFreshEntity(bulletEntity);
 				
 				shootUpdateMag(mag);
-				playerIn.addStat(Stats.ITEM_USED.get(this));
-				playerIn.getCooldownTracker().setCooldown(this, shotTime);
-				return ActionResult.resultPass(mag);
+				playerIn.awardStat(Stats.ITEM_USED.get(this));
+				playerIn.getCooldowns().addCooldown(this, shotTime);
+				return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
-		return ActionResult.resultFail(mag);
+		return ActionResult.fail(mag);
 	}
 }

@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.themastergeneral.ctdcore.item.CTDItem;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -25,14 +23,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class MagazineItem extends CTDItem {
+public class MagazineItem extends BaseTMWItem {
 
 	private int maxAmmo; 
 	private BulletItem bulletRequired;
 	
 	public MagazineItem(BulletItem Ammo, int maxAmmoSize) 
 	{
-		super(new Properties().maxStackSize(1).group(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
 	}
@@ -50,7 +48,7 @@ public class MagazineItem extends CTDItem {
 	}
 	
 	@Override
-	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) 
+	public void onCraftedBy(ItemStack stack, World worldIn, PlayerEntity playerIn) 
 	{
 		CompoundNBT compoundnbt = new CompoundNBT();
 		compoundnbt.putInt("currentAmmo", 0);
@@ -61,7 +59,7 @@ public class MagazineItem extends CTDItem {
 	//Show ammo on the magazine
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
+	public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
@@ -69,16 +67,16 @@ public class MagazineItem extends CTDItem {
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
-		ItemStack mag = playerIn.getHeldItem(handIn);
-		if (playerIn.isSneaking())
+		ItemStack mag = playerIn.getItemInHand(handIn);
+		if (playerIn.isCrouching())
 		{
 			if (getCurrentAmmo(mag) > 0)
 			{
 				removeAmmoFromMag(mag);
-				playerIn.inventory.addItemStackToInventory(new ItemStack(bulletRequired, 1));
-				playerIn.getCooldownTracker().setCooldown(this, 8);
+				playerIn.inventory.add(new ItemStack(bulletRequired, 1));
+				playerIn.getCooldowns().addCooldown(this, 8);
 			}
 		}
 		else
@@ -86,9 +84,9 @@ public class MagazineItem extends CTDItem {
 			if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 			{
 				int slotID = -1;
-				for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+				for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 				{
-					ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+					ItemStack itemstack1 = playerIn.inventory.getItem(i);
 					if (itemstack1.getItem() == bulletRequired)
 					{
 						slotID=i;
@@ -98,15 +96,15 @@ public class MagazineItem extends CTDItem {
 				
 				if (slotID > -1)
 				{
-					ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+					ItemStack ibullet = playerIn.inventory.getItem(slotID);
 					addAmmoToMag(mag);
 					ibullet.shrink(1);
-					playerIn.getCooldownTracker().setCooldown(this, 8);
+					playerIn.getCooldowns().addCooldown(this, 8);
 				}
 			}
 		}
-		playerIn.addStat(Stats.ITEM_USED.get(this));
-		return ActionResult.resultPass(mag);
+		playerIn.awardStat(Stats.ITEM_USED.get(this));
+		return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 	}
 	
 	//Remove ammo one at a time... called when we manually unload the mags.
@@ -181,7 +179,7 @@ public class MagazineItem extends CTDItem {
 		if (stackIn.hasTag())
 		{
 			int maxAmmo = stackIn.getTag().getInt("maxAmmo");
-			int enchant = EnchantmentHelper.getEnchantmentLevel(Enchantments.EFFICIENCY, stackIn);
+			int enchant = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_EFFICIENCY, stackIn);
 			
 			return (int) (maxAmmo + ((maxAmmo * 0.1) * enchant));	//10% extra ammo per level?
 		}

@@ -10,7 +10,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraft.world.Explosion.Mode;
@@ -47,27 +49,24 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	   /**
 	    * Called when the arrow hits an entity
 	    */
-	   protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
-	      super.onEntityHit(p_213868_1_);
-	      this.world.setEntityState(this, (byte)3);
+	   protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
+	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
-	      entity.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_234616_v_()), bulletDmg);
+	      entity.hurt(DamageSource.thrown(this, null), bulletDmg);
 	      this.remove();
 	   }
 
 	   /**
 	    * Called when this EntityFireball hits a block or entity.
 	    */
-	   protected void onImpact(RayTraceResult result) {
-	      super.onImpact(result);
-	      this.world.setEntityState(this, (byte)3);
+	   protected void onHitBlock(BlockRayTraceResult p_230299_1_) 
+	   {
 	         this.remove();
-
 	   }
 	   
 	   @Nonnull
 		@Override
-		public IPacket<?> createSpawnPacket() {
+		public IPacket<?> getAddEntityPacket() {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}
 	}

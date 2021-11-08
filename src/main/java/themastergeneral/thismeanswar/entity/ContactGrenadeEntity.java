@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.ProjectileItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.IPacket;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -38,22 +39,20 @@ public class ContactGrenadeEntity extends ProjectileItemEntity {
 	    * Called when the arrow hits an entity
 	    */
 	   @Override
-	   protected void onEntityHit(EntityRayTraceResult p_213868_1_) {
-	      super.onEntityHit(p_213868_1_);
-	      this.world.setEntityState(this, (byte)3);
-         this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
-         this.remove();
+	   protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
+	      super.onHitEntity(p_213868_1_);
+	      this.getCommandSenderWorld().explode(this.getEntity(), this.getX(), this.getY(), this.getZ(), bulletDmg, Mode.BREAK);
+	      this.remove();
 	   }
 
 	   /**
 	    * Called when this EntityFireball hits a block or entity.
 	    */
 	   @Override
-	   protected void onImpact(RayTraceResult result) {
-	      super.onImpact(result);
-	      if (!this.world.isRemote) {
-	         this.world.setEntityState(this, (byte)3);
-	         this.getEntityWorld().createExplosion(this.getEntity(), this.getPosX(), this.getPosY(), this.getPosZ(), bulletDmg, Mode.BREAK);
+	   protected void onHitBlock(BlockRayTraceResult p_230299_1_) {
+	      super.onHitBlock(p_230299_1_);
+	      if (!this.getCommandSenderWorld().isClientSide()) {
+	         this.getCommandSenderWorld().explode(this.getEntity(), this.getX(), this.getY(), this.getZ(), bulletDmg, Mode.BREAK);
 	         this.remove();
 	      }
 
@@ -61,7 +60,7 @@ public class ContactGrenadeEntity extends ProjectileItemEntity {
 	   
 	   @Nonnull
 		@Override
-		public IPacket<?> createSpawnPacket() {
+		public IPacket<?> getAddEntityPacket() {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}
 	}

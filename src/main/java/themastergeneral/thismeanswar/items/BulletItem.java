@@ -1,23 +1,21 @@
 package themastergeneral.thismeanswar.items;
 
-import com.themastergeneral.ctdcore.item.CTDItem;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class BulletItem extends CTDItem {
+public class BulletItem extends BaseTMWItem {
 
 	//No ammo stack limit...
 	public BulletItem() 
 	{
-		super(new Properties().group(TMWMain.ITEMGROUP));
+		super(new Properties().tab(TMWMain.ITEMGROUP));
 	}
 	
 	//Ammo stack limit...
 	public BulletItem(int maxSize) 
 	{
-		super(new Properties().maxStackSize(maxSize).group(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(maxSize).tab(TMWMain.ITEMGROUP));
 	}
 	
 	@Override

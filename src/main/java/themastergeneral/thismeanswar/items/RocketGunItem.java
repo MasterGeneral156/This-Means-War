@@ -23,19 +23,19 @@ public class RocketGunItem extends BaseGunItem {
 	}
 	
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
 	{
-		ItemStack mag = playerIn.getHeldItem(handIn);
-		if (playerIn.isSneaking())
+		ItemStack mag = playerIn.getItemInHand(handIn);
+		if (playerIn.isCrouching())
 		{
 			if (getMagType(mag) == 1)
 			{
 				if (hasMag(mag) == 0)
 				{
 					int slotID = 0;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 					{
-			               ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+			               ItemStack itemstack1 = playerIn.inventory.getItem(i);
 			               if (itemstack1.hasTag())
 			               {
 			            	   if (itemstack1.getItem() instanceof MagazineItem)
@@ -53,16 +53,16 @@ public class RocketGunItem extends BaseGunItem {
 			        }
 					if (slotID > 0)
 					{
-						ItemStack itemstack2 = playerIn.inventory.getStackInSlot(slotID);
+						ItemStack itemstack2 = playerIn.inventory.getItem(slotID);
 						CompoundNBT nbt = itemstack2.getTag();
 						int magAmmo = nbt.getInt("currentAmmo");
 						int magMaxAmmo = nbt.getInt("maxAmmo");
 						setGunAmmo(mag, magAmmo);
 						setGunMaxAmmo(mag, magMaxAmmo);
 						setGunMagLoad(mag, 1);
-						playerIn.inventory.decrStackSize(slotID, 1);
-						playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-						return ActionResult.resultPass(mag);
+						playerIn.inventory.removeItem(slotID, 1);
+						playerIn.getCooldowns().addCooldown(this, reloadTime);
+						return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
 				if (hasMag(mag) == 1)
@@ -82,10 +82,10 @@ public class RocketGunItem extends BaseGunItem {
 					compoundnbt.putInt("maxAmmo", urmaxAmmo);
 					newmag.setTag(compoundnbt);
 					
-					playerIn.inventory.addItemStackToInventory(newmag);
+					playerIn.inventory.add(newmag);
 					
-					playerIn.getCooldownTracker().setCooldown(this, reloadTime);
-					return ActionResult.resultPass(mag);
+					playerIn.getCooldowns().addCooldown(this, reloadTime);
+					return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
 			if (getMagType(mag) == 2)
@@ -93,9 +93,9 @@ public class RocketGunItem extends BaseGunItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
-					for(int i = 0; i < playerIn.inventory.getSizeInventory(); ++i) 
+					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 					{
-						ItemStack itemstack1 = playerIn.inventory.getStackInSlot(i);
+						ItemStack itemstack1 = playerIn.inventory.getItem(i);
 						if (itemstack1.getItem() == bullet)
 						{
 							slotID=i;
@@ -104,10 +104,10 @@ public class RocketGunItem extends BaseGunItem {
 					}
 					if (slotID >= 0)
 					{
-						ItemStack ibullet = playerIn.inventory.getStackInSlot(slotID);
+						ItemStack ibullet = playerIn.inventory.getItem(slotID);
 						addAmmoToMag(mag);
 						ibullet.shrink(1);
-						playerIn.getCooldownTracker().setCooldown(this, 8);
+						playerIn.getCooldowns().addCooldown(this, 8);
 					}
 				}
 			}
@@ -119,16 +119,16 @@ public class RocketGunItem extends BaseGunItem {
 				RocketBaseEntity bulletEntity = new RocketBaseEntity(worldIn, playerIn, damage, bullet, bulletSpeed);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
-				bulletEntity.func_234612_a_(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0F, 1.5F, 1.0F);
-				worldIn.addEntity(bulletEntity);
+				bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0F, 1.5F, 1.0F);
+				worldIn.addFreshEntity(bulletEntity);
 				
 				shootUpdateMag(mag);
-				playerIn.addStat(Stats.ITEM_USED.get(this));
-				playerIn.getCooldownTracker().setCooldown(this, shotTime);
-				return ActionResult.resultPass(mag);
+				playerIn.awardStat(Stats.ITEM_USED.get(this));
+				playerIn.getCooldowns().addCooldown(this, shotTime);
+				return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
-		return ActionResult.resultFail(mag);
+		return ActionResult.fail(mag);
 	}
 
 }
