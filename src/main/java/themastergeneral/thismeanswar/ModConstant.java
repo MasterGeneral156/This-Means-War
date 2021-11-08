@@ -4,8 +4,8 @@ public class ModConstant {
 	
 	public static class fireRate
 	{
-		public static int SINGLE_FIRE = 10;
-		public static int AUTO_FIRE = 2;
+		public static int SINGLE_FIRE = 7;
+		public static int AUTO_FIRE = 1;
 	}
 	
 	public static class misc
@@ -29,7 +29,7 @@ public class ModConstant {
 		public static class twelve_gauge
 		{
 			public static float dmg = 5.167F;
-			public static float spd = 7.81243F;
+			public static float spd = 52.81243F;
 			public static float sprd = 0.07F + misc.BASE_SPREAD;
 		}
 	}
@@ -92,14 +92,19 @@ public class ModConstant {
 		
 		public static class nuclear_warhead
 		{
-			public static float EXPLOSION_RADIUS = 6.0F;
+			public static float EXPLOSION_RADIUS = 350.0F;
 		}
 		
 		public static class bazooka
 		{
-			public static float EXPLOSION_RADIUS = 3.75F;
-			public static float SPEED = 6.53F;
+			public static float EXPLOSION_RADIUS = 9.75F;
+			public static float SPEED = 50.53F;
 			public static int RLD_TIME = 35;
+		}
+
+		public static class hand_grenade
+		{
+			public static float EXPLOSION_RADIUS = 3.75F;
 		}
 	}
 	
