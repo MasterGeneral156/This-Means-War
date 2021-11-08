@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "thismeanswar:m4ar_mag_223"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:m4ar_mag_556"
+  }
+}
