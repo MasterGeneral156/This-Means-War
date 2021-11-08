@@ -14,10 +14,3 @@ credits="TheMasterGeneral" #optional
 authors="TheMasterGeneral" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description="Its time for war, so lets have some guns, ammo and whatnot."
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.thismeanswar]] #optional
-    modId="ctdcore" #mandatory
-    mandatory=true #mandatory
-    versionRange="[2.1.1,)" #mandatory
-    ordering="NONE"
-    side="BOTH"
