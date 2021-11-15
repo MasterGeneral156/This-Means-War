@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:throwable",
+    "pattern": [
+        "SB ",
+        "GGG",
+		" B "
+    ],
+    "key": {
+		"S": { "tag": "forge:string" },
+		"G": { "tag": "forge:gunpowder" },
+		"B": { "item": "minecraft:bowl" }
+    },
+    "result": {
+        "item": "thismeanswar:hand_grenade",
+		"count": 2
+		}
+    }
+}
