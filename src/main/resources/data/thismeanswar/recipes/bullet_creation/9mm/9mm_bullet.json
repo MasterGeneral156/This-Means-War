@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:bullet_make",
+    "pattern": [
+        "BCP",
+        " G "
+    ],
+    "key": {
+		"C": { "tag": "thismeanswar:casing/9mm" },
+		"G": { "tag": "forge:gunpowder" },
+		"P": { "tag": "thismeanswar:primer/pistol" },
+		"B": { "tag": "thismeanswar:tip/9mm" }
+    },
+    "result": {
+        "item": "thismeanswar:nine_mm_round",
+		"count": 1
+		}
+    }
+}
