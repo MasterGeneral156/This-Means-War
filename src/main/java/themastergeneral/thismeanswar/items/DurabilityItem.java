@@ -23,4 +23,13 @@ public class DurabilityItem extends BaseTMWItem {
     {
         return true;
     }
+	
+	@Override
+	public boolean isFoil(ItemStack stack) 
+	{
+	      if (stack.getItem() == TMWItems.hammer_creative)
+	    	  return true;
+	      else
+	    	  return false;
+	}
 }
