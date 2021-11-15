@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:hammer",
+    "pattern": [
+        "CI ",
+        "IS ",
+		"  S"
+    ],
+    "key": {
+		"C": { "tag": "thismeanswar:casing/all" },
+		"S": { "tag": "forge:rods/wooden" },
+		"I": { "tag": "forge:ingots/iron" }
+    },
+    "result": {
+        "item": "thismeanswar:hammer_iron",
+		"count": 1
+		}
+    }
+}
