@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "thismeanswar:springfield_saint_223", "data": 32767
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:springfield_saint_556"
+  }
+}
