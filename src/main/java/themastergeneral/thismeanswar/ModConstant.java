@@ -104,7 +104,7 @@ public class ModConstant {
 
 		public static class hand_grenade
 		{
-			public static float EXPLOSION_RADIUS = 2.9F;
+			public static float EXPLOSION_RADIUS = 1.75F;
 		}
 	}
 	
