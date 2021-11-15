@@ -35,6 +35,16 @@ public class BaseGunItem extends BaseTMWItem {
 	protected float bulletSpeed;
 	protected float bulletSpread;
 	
+	/**
+	 * Use to create a firearm that's magazine fed.
+	 * @param Integer shotTime 			Ticks between shots
+	 * @param Integer reloadTime 		Ticks to reload magazine.
+	 * @param ItemStack magazine		Magazine ItemStack
+	 * @param BulletItem bullet			Bullet item, for the bullet sprite.
+	 * @param Float damage				Gun damage
+	 * @param Float bulletSpeed			Bullet speed
+	 * @param Float bulletSpread		Bullet spread
+	 */
 	public BaseGunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
@@ -49,7 +59,15 @@ public class BaseGunItem extends BaseTMWItem {
 		this.bulletSpeed = bulletSpeed;
 	}
 	
-	//For guns with internal mags
+	/**
+	 * Use to create a firearm that must have bullet fed directly inside.
+	 * @param Integer shotTime 			Ticks between shots
+	 * @param BulletItem bullet			Bullet item, for the bullet sprite.
+	 * @param Integer maxAmmo			Maximum bullets in gun.
+	 * @param Float damage				Gun damage
+	 * @param Float bulletSpeed			Bullet speed
+	 * @param Float bulletSpread		Bullet spread
+	 */
 	public BaseGunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
