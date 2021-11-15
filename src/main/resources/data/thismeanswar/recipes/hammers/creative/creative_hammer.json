@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:hammer",
+    "pattern": [
+        "CI ",
+        "IS ",
+		"  S"
+    ],
+    "key": {
+		"C": { "tag": "minecraft:bedrock" },
+		"S": { "tag": "forge:rods/wooden" },
+		"I": { "tag": "forge:gems/diamond" }
+    },
+    "result": {
+        "item": "thismeanswar:hammer_diamond",
+		"count": 1
+		}
+    }
+}
