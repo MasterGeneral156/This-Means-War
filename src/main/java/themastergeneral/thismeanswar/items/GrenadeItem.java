@@ -33,7 +33,7 @@ public class GrenadeItem extends BaseTMWItem {
 		ItemStack stackIn = playerIn.getItemInHand(handIn);
 		
 		ContactGrenadeEntity bulletEntity = new ContactGrenadeEntity(worldIn, playerIn, explosionRadius);
-		bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0.0F, 1.5F, 1.0F);
+		bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0.0F, 0.75F, 0.5F);
 		bulletEntity.setItem(stackIn);
 		worldIn.addFreshEntity(bulletEntity);
 		

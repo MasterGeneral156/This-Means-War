@@ -4,6 +4,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IItemProvider;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.define.TMWPistols;
 
 public class TMWItemGroup extends ItemGroup 
 {
@@ -15,7 +16,7 @@ public class TMWItemGroup extends ItemGroup
 
 	@Override
 	public ItemStack makeIcon() {
-		return new ItemStack((IItemProvider) TMWItems.glock_26);	//maybe works
+		return new ItemStack((IItemProvider) TMWPistols.glock_26);	//maybe works
 	}
 
 }

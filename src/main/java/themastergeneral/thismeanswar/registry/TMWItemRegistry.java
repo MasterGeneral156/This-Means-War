@@ -6,6 +6,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.define.TMWCarbines;
+import themastergeneral.thismeanswar.items.define.TMWExplosiveProjectile;
+import themastergeneral.thismeanswar.items.define.TMWPistols;
+import themastergeneral.thismeanswar.items.define.TMWRifles;
+import themastergeneral.thismeanswar.items.define.TMWShotguns;
+import themastergeneral.thismeanswar.items.define.TMWThrowables;
 
 public class TMWItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TMWMain.MODID);
@@ -23,29 +29,29 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bazooka_rocket = TMWItemRegistry.ITEMS.register("bazooka_rocket", () -> TMWItems.bazooka_rocket);
 	
 	//Pistols
-	public static final RegistryObject<Item> beretta_92_fs = TMWItemRegistry.ITEMS.register("beretta_92_fs", () -> TMWItems.beretta_92_fs);
-	public static final RegistryObject<Item> glock_26 = TMWItemRegistry.ITEMS.register("glock_26", () -> TMWItems.glock_26);
+	public static final RegistryObject<Item> beretta_92_fs = TMWItemRegistry.ITEMS.register("beretta_92_fs", () -> TMWPistols.beretta_92_fs);
+	public static final RegistryObject<Item> glock_26 = TMWItemRegistry.ITEMS.register("glock_26", () -> TMWPistols.glock_26);
 	
 	//Carbines
-	public static final RegistryObject<Item> tmg_carbine = TMWItemRegistry.ITEMS.register("tmg_carbine", () -> TMWItems.tmg_carbine);
+	public static final RegistryObject<Item> tmg_carbine = TMWItemRegistry.ITEMS.register("tmg_carbine", () -> TMWCarbines.tmg_carbine);
 	
 	//Rifles
-	public static final RegistryObject<Item> springfield_saint_556 = TMWItemRegistry.ITEMS.register("springfield_saint_556", () -> TMWItems.springfield_saint_556);
-	public static final RegistryObject<Item> springfield_saint_223 = TMWItemRegistry.ITEMS.register("springfield_saint_223", () -> TMWItems.springfield_saint_223);
+	public static final RegistryObject<Item> springfield_saint_556 = TMWItemRegistry.ITEMS.register("springfield_saint_556", () -> TMWRifles.springfield_saint_556);
+	public static final RegistryObject<Item> springfield_saint_223 = TMWItemRegistry.ITEMS.register("springfield_saint_223", () -> TMWRifles.springfield_saint_223);
 	
 	//Snipers
 	
 	//Shotguns
-	public static final RegistryObject<Item> remmington_m870 = TMWItemRegistry.ITEMS.register("remmington_m870", () -> TMWItems.remmington_m870);
-	public static final RegistryObject<Item> sawn_off_remmington_m870 = TMWItemRegistry.ITEMS.register("sawn_off_remmington_m870", () -> TMWItems.sawn_off_remmington_m870);
-	public static final RegistryObject<Item> sawn_off_double_barrel_12g = TMWItemRegistry.ITEMS.register("sawn_off_double_barrel_12g", () -> TMWItems.sawn_off_double_barrel_12g);
-	public static final RegistryObject<Item> double_barrel_12g = TMWItemRegistry.ITEMS.register("double_barrel_12g", () -> TMWItems.double_barrel_12g);
+	public static final RegistryObject<Item> remmington_m870 = TMWItemRegistry.ITEMS.register("remmington_m870", () -> TMWShotguns.remmington_m870);
+	public static final RegistryObject<Item> sawn_off_remmington_m870 = TMWItemRegistry.ITEMS.register("sawn_off_remmington_m870", () -> TMWShotguns.sawn_off_remmington_m870);
+	public static final RegistryObject<Item> sawn_off_double_barrel_12g = TMWItemRegistry.ITEMS.register("sawn_off_double_barrel_12g", () -> TMWShotguns.sawn_off_double_barrel_12g);
+	public static final RegistryObject<Item> double_barrel_12g = TMWItemRegistry.ITEMS.register("double_barrel_12g", () -> TMWShotguns.double_barrel_12g);
 	
 	//RPGs
-	public static final RegistryObject<Item> bazooka = TMWItemRegistry.ITEMS.register("bazooka", () -> TMWItems.bazooka);
+	public static final RegistryObject<Item> bazooka = TMWItemRegistry.ITEMS.register("bazooka", () -> TMWExplosiveProjectile.bazooka);
 	
 	//Grenades
-	public static final RegistryObject<Item> dynamite_stick = TMWItemRegistry.ITEMS.register("dynamite_stick", () -> TMWItems.dynamite_stick);
-	public static final RegistryObject<Item> nuclear_warhead = TMWItemRegistry.ITEMS.register("nuclear_warhead", () -> TMWItems.nuclear_warhead);
-	public static final RegistryObject<Item> hand_grenade = TMWItemRegistry.ITEMS.register("hand_grenade", () -> TMWItems.hand_grenade);
+	public static final RegistryObject<Item> dynamite_stick = TMWItemRegistry.ITEMS.register("dynamite_stick", () -> TMWThrowables.dynamite_stick);
+	public static final RegistryObject<Item> nuclear_warhead = TMWItemRegistry.ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);
+	public static final RegistryObject<Item> hand_grenade = TMWItemRegistry.ITEMS.register("hand_grenade", () -> TMWThrowables.hand_grenade);
 }
