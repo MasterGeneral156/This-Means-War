@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:bullet_tip_9mm",
+	"thismeanswar:bullet_tip_556",
+	"thismeanswar:bullet_tip_223",
+	"thismeanswar:bullet_tip_buckshot"
+  ]
+}
