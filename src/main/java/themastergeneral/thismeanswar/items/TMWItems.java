@@ -6,7 +6,7 @@ public class TMWItems {
 	
 	//Bullets & Shells
 	public static BulletItem nine_mm_round = new BulletItem();
-	public static BulletItem twelve_gauge_shell = new BulletItem();
+	public static BulletItem tweleve_gauge_shell = new BulletItem();
 	public static BulletItem bazooka_rocket = new BulletItem();
 	public static BulletItem five_five_six_round = new BulletItem();
 	public static BulletItem two_two_three_round = new BulletItem();
@@ -17,19 +17,34 @@ public class TMWItems {
 	public static MagazineItem m4ar_mag_556 = new MagazineItem(five_five_six_round, 20);
 	public static MagazineItem m4ar_mag_223 = new MagazineItem(two_two_three_round, 20);
 	
-	//Rifles
-	public static BaseGunItem springfield_saint_556 = new BaseGunItem(ModConstant.fireRate.SINGLE_FIRE, 33, m4ar_mag_556, 
-			five_five_six_round, ModConstant.weaponBalance.tmg_carbine.DMG, 
-			ModConstant.weaponBalance.tmg_carbine.SPD, 
-			ModConstant.weaponBalance.tmg_carbine.SPRD);
+	//Crafting items
+	public static BaseTMWItem lead_ingot = new BasicItem();
+	public static BaseTMWItem lead_nugget = new BasicItem();
 	
-	public static BaseGunItem springfield_saint_223 = new BaseGunItem(ModConstant.fireRate.SINGLE_FIRE, 34, m4ar_mag_223, 
-			two_two_three_round, ModConstant.weaponBalance.tmg_carbine.DMG, 
-			ModConstant.weaponBalance.tmg_carbine.SPD, 
-			ModConstant.weaponBalance.tmg_carbine.SPRD);
+	//Hammers for pressing
+	public static DurabilityItem hammer_iron = new DurabilityItem(128);
+	public static DurabilityItem hammer_diamond = new DurabilityItem(512);
+	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
 	
-	//RPGs
+	//Bullet Casts
+	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
+
+	//Casings
+	public static BaseTMWItem casing_9mm = new BasicItem();
+	public static BaseTMWItem casing_556 = new BasicItem();
+	public static BaseTMWItem casing_223 = new BasicItem();
+	public static BaseTMWItem casing_12g = new BasicItem();
 	
-	public static BaseGunItem bazooka = new RocketGunItem(ModConstant.fireRate.SINGLE_FIRE, bazooka_rocket, 
-			ModConstant.weaponBalance.bazooka.EXPLOSION_RADIUS, 1, ModConstant.weaponBalance.bazooka.SPEED);
+	//Primers
+	public static BaseTMWItem primer_pistol = new BasicItem();
+	public static BaseTMWItem primer_rifle = new BasicItem();
+	public static BaseTMWItem primer_shotgun = new BasicItem();
+	
+	//Bullet tips
+	public static BaseTMWItem bullet_tip_9mm = new BasicItem();
+	public static BaseTMWItem bullet_tip_556 = new BasicItem();
+	public static BaseTMWItem bullet_tip_223 = new BasicItem();
+	public static BaseTMWItem bullet_tip_buckshot = new BasicItem();
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/twelve_gauge_shell"
+        "layer0": "thismeanswar:items/tweleve_gauge_shell"
     }
 }
