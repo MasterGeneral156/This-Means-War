@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "thismeanswar:m4ar_mag_223"
+      "item": "thismeanswar:m4ar_mag_223", "data": 32767
     }
   ],
   "result": {

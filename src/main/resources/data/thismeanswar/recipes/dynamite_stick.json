@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:throwable",
+  "ingredients": [
+    {
+      "item": "minecraft:tnt"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:dynamite_stick",
+    "count": 9
+  }
+}
