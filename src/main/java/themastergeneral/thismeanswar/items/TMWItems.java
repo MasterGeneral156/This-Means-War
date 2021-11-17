@@ -1,6 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
-import themastergeneral.thismeanswar.ModConstant;
+import themastergeneral.thismeanswar.block.TMWBlocks;
 
 public class TMWItems {
 	
@@ -20,6 +20,7 @@ public class TMWItems {
 	//Crafting items
 	public static BaseTMWItem lead_ingot = new BasicItem();
 	public static BaseTMWItem lead_nugget = new BasicItem();
+	public static BaseTMWItem brass_ingot = new BasicItem();
 	
 	//Hammers for pressing
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
@@ -47,4 +48,8 @@ public class TMWItems {
 	public static BaseTMWItem bullet_tip_556 = new BasicItem();
 	public static BaseTMWItem bullet_tip_223 = new BasicItem();
 	public static BaseTMWItem bullet_tip_buckshot = new BasicItem();
+	
+	//Blocks
+	public static TMWBlockItem brass_ore = new TMWBlockItem(TMWBlocks.brass_ore);
+	public static TMWBlockItem lead_ore = new TMWBlockItem(TMWBlocks.lead_ore);
 }

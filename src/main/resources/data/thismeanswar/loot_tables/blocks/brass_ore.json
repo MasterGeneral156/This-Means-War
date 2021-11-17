@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+	  "name": "thismeanswar:brass_ore",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thismeanswar:brass_ore"
+        }
+      ]
+    }
+  ]
+}

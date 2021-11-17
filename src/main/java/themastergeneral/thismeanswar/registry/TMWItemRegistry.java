@@ -58,6 +58,7 @@ public class TMWItemRegistry {
 	//Crafting items
 	public static final RegistryObject<Item> lead_ingot = TMWItemRegistry.ITEMS.register("lead_ingot", () -> TMWItems.lead_ingot);
 	public static final RegistryObject<Item> lead_nugget = TMWItemRegistry.ITEMS.register("lead_nugget", () -> TMWItems.lead_nugget);
+	public static final RegistryObject<Item> brass_ingot = TMWItemRegistry.ITEMS.register("brass_ingot", () -> TMWItems.brass_ingot);
 	
 	//Hammers
 	public static final RegistryObject<Item> hammer_iron = TMWItemRegistry.ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);
@@ -86,5 +87,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_tip_556 = TMWItemRegistry.ITEMS.register("bullet_tip_556", () -> TMWItems.bullet_tip_556);
 	public static final RegistryObject<Item> bullet_tip_buckshot = TMWItemRegistry.ITEMS.register("bullet_tip_buckshot", () -> TMWItems.bullet_tip_buckshot);
 	
+	//Ores
+	public static final RegistryObject<Item> lead_ore = TMWItemRegistry.ITEMS.register("lead_ore", () -> TMWItems.lead_ore);
+	public static final RegistryObject<Item> brass_ore = TMWItemRegistry.ITEMS.register("brass_ore", () -> TMWItems.brass_ore);
 	
 }

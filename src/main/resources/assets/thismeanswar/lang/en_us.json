@@ -38,5 +38,10 @@
 	"item.thismeanswar.bullet_tip_9mm": "9mm Bullet Tip",
 	"item.thismeanswar.bullet_tip_223": "2.23 Bullet Tip",
 	"item.thismeanswar.bullet_tip_556": "5.56 Bullet Tip",
-	"item.thismeanswar.bullet_tip_buckshot": "Buckshot"
+	"item.thismeanswar.bullet_tip_buckshot": "Buckshot",
+	"item.thismeanswar.lead_ingot": "Lead Ingot",
+	"item.thismeanswar.lead_nugget": "Lead Nugget",
+	"item.thismeanswar.brass_ingot": "Brass Ingot",
+	"block.thismeanswar.brass_ore": "Brass Ore",
+	"block.thismeanswar.lead_ore": "Lead Ore"
 }
