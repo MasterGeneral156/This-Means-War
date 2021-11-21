@@ -3,7 +3,6 @@ package themastergeneral.thismeanswar;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IItemProvider;
-import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 
 public class TMWItemGroup extends ItemGroup 

@@ -2,7 +2,6 @@ package themastergeneral.thismeanswar.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import themastergeneral.thismeanswar.TMWMain;
 
 public class TMWBlockItem extends BlockItem {
