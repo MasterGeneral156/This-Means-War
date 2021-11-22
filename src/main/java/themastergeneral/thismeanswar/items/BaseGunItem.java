@@ -35,6 +35,9 @@ public class BaseGunItem extends BaseTMWItem {
 	protected float bulletSpeed;
 	protected float bulletSpread;
 	
+	protected int external_mag = 1;
+	protected int internal_mag = 2;
+	
 	/**
 	 * Use to create a firearm that's magazine fed.
 	 * @param Integer shotTime 			Ticks between shots
@@ -310,7 +313,7 @@ public class BaseGunItem extends BaseTMWItem {
 		ItemStack mag = playerIn.getItemInHand(handIn);
 		if (playerIn.isCrouching())
 		{
-			if (getMagType(mag) == 1)
+			if (getMagType(mag) == external_mag)
 			{
 				if (hasMag(mag) == 0)
 				{
@@ -370,7 +373,7 @@ public class BaseGunItem extends BaseTMWItem {
 					return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
-			if (getMagType(mag) == 2)
+			if (getMagType(mag) == internal_mag)
 			{
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
@@ -417,6 +420,7 @@ public class BaseGunItem extends BaseTMWItem {
 	public void giveBulletCasing(PlayerEntity player)
 	{
 		Item casing = bullet.returnCasingItem();
-		player.inventory.add(new ItemStack(casing));
+		if (casing != null)
+			player.inventory.add(new ItemStack(casing));
 	}
 }
