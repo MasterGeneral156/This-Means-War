@@ -300,7 +300,8 @@ public class BaseGunItem extends BaseTMWItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslationTextComponent("Ammo: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslationTextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslationTextComponent("Type: item.thismeanswar." + bullet));
 	}
 
 	@Override
@@ -406,9 +407,16 @@ public class BaseGunItem extends BaseTMWItem {
 				shootUpdateMag(mag);
 				playerIn.awardStat(Stats.ITEM_USED.get(this));
 				playerIn.getCooldowns().addCooldown(this, shotTime);
+				giveBulletCasing(playerIn);
 				return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
 		return ActionResult.fail(mag);
+	}
+	
+	public void giveBulletCasing(PlayerEntity player)
+	{
+		Item casing = bullet.returnCasingItem();
+		player.inventory.add(new ItemStack(casing));
 	}
 }

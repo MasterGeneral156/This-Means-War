@@ -10,6 +10,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.stats.Stats;
@@ -26,7 +27,7 @@ import themastergeneral.thismeanswar.TMWMain;
 public class MagazineItem extends BaseTMWItem {
 
 	private int maxAmmo; 
-	private BulletItem bulletRequired;
+	protected BulletItem bulletRequired;
 	
 	public MagazineItem(BulletItem Ammo, int maxAmmoSize) 
 	{
@@ -63,7 +64,8 @@ public class MagazineItem extends BaseTMWItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslationTextComponent("Ammo: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslationTextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslationTextComponent("Type: item.thismeanswar." + bulletRequired));
 	}
 	
 	@Override
@@ -75,7 +77,7 @@ public class MagazineItem extends BaseTMWItem {
 			if (getCurrentAmmo(mag) > 0)
 			{
 				removeAmmoFromMag(mag);
-				playerIn.inventory.add(new ItemStack(bulletRequired, 1));
+				playerIn.inventory.add(new ItemStack(returnBulletItem(), 1));
 				playerIn.getCooldowns().addCooldown(this, 8);
 			}
 		}
@@ -87,7 +89,7 @@ public class MagazineItem extends BaseTMWItem {
 				for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
 				{
 					ItemStack itemstack1 = playerIn.inventory.getItem(i);
-					if (itemstack1.getItem() == bulletRequired)
+					if (itemstack1.getItem() == returnBulletItem())
 					{
 						slotID=i;
 						break;
@@ -199,5 +201,10 @@ public class MagazineItem extends BaseTMWItem {
 			compoundnbt.putInt("maxAmmo", maxAmmo);
 			stack.setTag(compoundnbt);
 	   }
+	}
+	
+	public BulletItem returnBulletItem()
+	{
+		return bulletRequired;
 	}
 }
