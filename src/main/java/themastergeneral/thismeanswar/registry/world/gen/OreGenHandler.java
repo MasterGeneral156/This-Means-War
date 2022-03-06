@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -27,7 +28,7 @@ public class OreGenHandler {
  
     public static void registerOres(){
     	
-        overworldOres.add(register("lead_ore_gen", Feature.ORE.configured(new OreConfiguration(
+        /*overworldOres.add(register("lead_ore_gen", Feature.ORE.configured(new OreConfiguration(
         		OreFeatures.NATURAL_STONE, TMWBlocks.lead_ore.defaultBlockState(), 4)).range(64).squared().count(20)));
         
         overworldOres.add(register("brass_ore_gen", Feature.ORE.configured(new OreFeatureConfig(
@@ -47,23 +48,24 @@ public class OreGenHandler {
  
     @SubscribeEvent
     protected static void gen(BiomeLoadingEvent event) {
-        BiomeGenerationSettingsBuilder generation = event.getGeneration();
+        /*BiomeGenerationSettingsBuilder generation = event.getGeneration();
         if(event.getCategory().equals(Biome.BiomeCategory.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
-                if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+                if (ore != null) generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ore);
             }
         }
         if(event.getCategory().equals(Biome.BiomeCategory.THEEND)){
             for(ConfiguredFeature<?, ?> ore : endOres){
-                if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
+                if (ore != null) generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ore);
             }
         }
         for(ConfiguredFeature<?, ?> ore : overworldOres){
-            if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
-        }
+            if (ore != null) generation.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ore);
+        }*/
     }
  
+    /*
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
         return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, TMWMain.MODID + ":" + name, configuredFeature);
-    }
+    }*/
 }
