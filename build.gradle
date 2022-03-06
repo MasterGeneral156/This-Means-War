@@ -26,6 +26,18 @@ archivesBaseName = project.property('mod_name')
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+repositories {
+    maven {
+		name = "JEI"
+		url = "https://dvs1.progwml6.com/files/maven/"
+	}
+  maven {
+    name = "JEI Fallback"
+    url = "https://modmaven.dev"
+  }
+}
+
 minecraft {
     mappings channel: 'official', version: '1.18.2'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
@@ -78,6 +90,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + project.property('forge_version')
+	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + ":" + project.property('jei_version') + ":api")
+	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + ":" + project.property('jei_version'))
 
 }
 
