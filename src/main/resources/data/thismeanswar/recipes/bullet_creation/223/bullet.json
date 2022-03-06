@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:bullet_make",
+    "pattern": [
+        "BCP",
+        " G "
+    ],
+    "key": {
+		"C": { "tag": "thismeanswar:casing/223" },
+		"G": { "tag": "forge:gunpowder" },
+		"P": { "tag": "thismeanswar:primer/rifle" },
+		"B": { "tag": "thismeanswar:tip/223" }
+    },
+    "result": {
+        "item": "thismeanswar:two_two_three_round",
+		"count": 1
+		}
+    }
+}
