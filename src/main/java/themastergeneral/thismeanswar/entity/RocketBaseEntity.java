@@ -2,35 +2,36 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ProjectileItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.network.IPacket;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.world.World;
-import net.minecraft.world.Explosion.Mode;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.network.NetworkHooks;
 
-public class RocketBaseEntity extends ProjectileItemEntity {
+public class RocketBaseEntity extends ThrowableItemProjectile {
 	
 	protected float bulletDmg;
 	protected float maxSpeed;
-	   public RocketBaseEntity(EntityType<? extends RocketBaseEntity> p_i50159_1_, World p_i50159_2_) {
+	   public RocketBaseEntity(EntityType<? extends RocketBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.maxSpeed = 0.0F;
 	   }
 
-	   public RocketBaseEntity(World worldIn, LivingEntity throwerIn, float explosionRadius, Item bullet, float maxSpd) {
+	   public RocketBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, Item bullet, float maxSpd) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.maxSpeed = maxSpd;
 	   }
 
-	   public RocketBaseEntity(World worldIn, double x, double y, double z, float explosionRadius, float maxSpd) {
+	   public RocketBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, float maxSpd) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.maxSpeed = maxSpd;
@@ -43,16 +44,16 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 	
 	@Nonnull
 	@Override
-	public IPacket<?> getAddEntityPacket() {
+	public Packet<?> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
 	
 	@Override
-	protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
+	protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
 	      if (!this.getCommandSenderWorld().isClientSide()) {
-		      this.getCommandSenderWorld().explode(this.getEntity(), this.getX(), this.getY(), this.getZ(), bulletDmg, Mode.BREAK);
-		      this.remove();
+		      this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, Explosion.BlockInteraction.DESTROY);
+		      this.remove(Entity.RemovalReason.KILLED);
 	      }
 	   }
 
@@ -60,11 +61,11 @@ public class RocketBaseEntity extends ProjectileItemEntity {
 	    * Called when this EntityFireball hits a block or entity.
 	    */
 	@Override
-	   protected void onHitBlock(BlockRayTraceResult p_230299_1_) {
+	   protected void onHitBlock(BlockHitResult p_230299_1_) {
 	      super.onHitBlock(p_230299_1_);
 	      if (!this.getCommandSenderWorld().isClientSide()) {
-	         this.getCommandSenderWorld().explode(this.getEntity(), this.getX(), this.getY(), this.getZ(), bulletDmg, Mode.BREAK);
-	         this.remove();
+	         this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, Explosion.BlockInteraction.DESTROY);
+	         this.remove(Entity.RemovalReason.KILLED);
 	      }
 
 	   }
@@ -72,10 +73,13 @@ public class RocketBaseEntity extends ProjectileItemEntity {
    @Override
    public void tick() {
 	   super.tick();
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, -0.3D, 0.0D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
+	   if (this.getLevel().isClientSide)
+	   {
+		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, -0.3D, 0.0D);
+		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
+		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
+		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
+	   }
    }
 
 }

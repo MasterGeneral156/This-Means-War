@@ -1,9 +1,9 @@
 package themastergeneral.thismeanswar.registry;
 
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
@@ -59,6 +59,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> lead_ingot = TMWItemRegistry.ITEMS.register("lead_ingot", () -> TMWItems.lead_ingot);
 	public static final RegistryObject<Item> lead_nugget = TMWItemRegistry.ITEMS.register("lead_nugget", () -> TMWItems.lead_nugget);
 	public static final RegistryObject<Item> brass_ingot = TMWItemRegistry.ITEMS.register("brass_ingot", () -> TMWItems.brass_ingot);
+	public static final RegistryObject<Item> plate_lead = TMWItemRegistry.ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
 	
 	//Hammers
 	public static final RegistryObject<Item> hammer_iron = TMWItemRegistry.ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);

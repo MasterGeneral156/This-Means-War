@@ -2,36 +2,36 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ProjectileItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.network.IPacket;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.items.BulletItem;
 
-public class BulletBaseEntity extends ProjectileItemEntity {
+public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
 	protected BulletItem bulletItm;
-	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, World p_i50159_2_) {
+	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.setNoGravity(true);
 	   }
 
-	   public BulletBaseEntity(World worldIn, LivingEntity throwerIn, float explosionRadius, BulletItem bullet) {
+	   public BulletBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, BulletItem bullet) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	   }
 
-	   public BulletBaseEntity(World worldIn, double x, double y, double z, float explosionRadius, BulletItem bullet) {
+	   public BulletBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, BulletItem bullet) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
@@ -45,24 +45,25 @@ public class BulletBaseEntity extends ProjectileItemEntity {
 	   /**
 	    * Called when the arrow hits an entity
 	    */
-	   protected void onHitEntity(EntityRayTraceResult p_213868_1_) {
+	   protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.hurt(DamageSource.thrown(this, null), bulletDmg);
-	      this.remove();
+	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
 	   /**
 	    * Called when this EntityFireball hits a block or entity.
 	    */
-	   protected void onHitBlock(BlockRayTraceResult result) 
+	   protected void onHitBlock(BlockHitResult result) 
 	   {
-	         this.remove();
+	         this.remove(Entity.RemovalReason.KILLED);
 	   }
 	   
 	   @Nonnull
-		@Override
-		public IPacket<?> getAddEntityPacket() {
+	   @Override
+	   public Packet<?> getAddEntityPacket() 
+	   {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}
 	}

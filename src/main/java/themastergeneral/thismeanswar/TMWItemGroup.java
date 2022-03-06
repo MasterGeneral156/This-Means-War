@@ -1,11 +1,11 @@
 package themastergeneral.thismeanswar;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 
-public class TMWItemGroup extends ItemGroup 
+public class TMWItemGroup extends CreativeModeTab
 {
 
 	public TMWItemGroup() 
@@ -14,8 +14,9 @@ public class TMWItemGroup extends ItemGroup
 	}
 
 	@Override
-	public ItemStack makeIcon() {
-		return new ItemStack((IItemProvider) TMWPistols.glock_26);	//maybe works
+	public ItemStack makeIcon() 
+	{
+		return new ItemStack((ItemLike) TMWPistols.glock_26);	//maybe works
 	}
 
 }

@@ -3,7 +3,7 @@ package themastergeneral.thismeanswar;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.item.ItemGroup;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -19,7 +19,7 @@ public class TMWMain
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "thismeanswar";
-    public static final ItemGroup ITEMGROUP = new TMWItemGroup();
+    public static final CreativeModeTab ITEMGROUP = new TMWItemGroup();
 
     public TMWMain() {
     	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -33,6 +33,6 @@ public class TMWMain
     private void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("THIS MEANS WAR! RAWR! BOOM! PEW PEW!");
-        OreGenHandler.registerOres();
+        //OreGenHandler.registerOres();
     }
 }

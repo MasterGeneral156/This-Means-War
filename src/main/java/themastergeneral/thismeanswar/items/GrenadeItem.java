@@ -1,12 +1,13 @@
 package themastergeneral.thismeanswar.items;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.gui.screens.social.PlayerEntry;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.ModConstant;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
@@ -28,12 +29,12 @@ public class GrenadeItem extends BaseTMWItem {
 	}
 	
 	@Override
-	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack stackIn = playerIn.getItemInHand(handIn);
 		
 		ContactGrenadeEntity bulletEntity = new ContactGrenadeEntity(worldIn, playerIn, explosionRadius);
-		bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0.0F, 0.75F, 0.5F);
+		bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0.0F, 0.75F, 0.5F);
 		bulletEntity.setItem(stackIn);
 		worldIn.addFreshEntity(bulletEntity);
 		
@@ -41,7 +42,7 @@ public class GrenadeItem extends BaseTMWItem {
 		playerIn.getCooldowns().addCooldown(this, ModConstant.misc.GRENADE_THROW_COOLDOWN);
 		
 		stackIn.shrink(1);
-		return ActionResult.sidedSuccess(stackIn, worldIn.isClientSide());
+		return InteractionResultHolder.sidedSuccess(stackIn, worldIn.isClientSide());
 	}
 
 }

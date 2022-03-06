@@ -4,22 +4,22 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.property.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
@@ -85,10 +85,11 @@ public class BaseGunItem extends BaseTMWItem {
 		this.bulletSpeed = bulletSpeed;
 	}
 	
+	//TODO: Fix this
 	@Override
-	public void onCraftedBy(ItemStack stack, World worldIn, PlayerEntity playerIn) 
+	public void onCraftedBy(ItemStack stack, Level worldIn, Player playerIn) 
 	{
-		CompoundNBT compoundnbt = new CompoundNBT();
+		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", 0);
 		compoundnbt.putInt("maxAmmo", maxAmmo);
 		compoundnbt.putInt("magLoaded", 0);
@@ -152,11 +153,11 @@ public class BaseGunItem extends BaseTMWItem {
 	}
 	
 	@Override
-	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) 
+	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) 
 	{
 	   if (!stack.hasTag())
 	   {
-			CompoundNBT compoundnbt = new CompoundNBT();
+			CompoundTag compoundnbt = new CompoundTag();
 			compoundnbt.putInt("currentAmmo", 0);
 			compoundnbt.putInt("maxAmmo", maxAmmo);
 			compoundnbt.putInt("magLoaded", 0);
@@ -166,7 +167,7 @@ public class BaseGunItem extends BaseTMWItem {
 	}
 	
 	@Override
-	public boolean showDurabilityBar(ItemStack stack)
+	public boolean isBarVisible(ItemStack stack)
 	{
 		if (getMagType(stack) == 1)
 		{
@@ -187,11 +188,9 @@ public class BaseGunItem extends BaseTMWItem {
 	}
 	
 	@Override
-    public double getDurabilityForDisplay(ItemStack stack) 
+    public int getBarWidth(ItemStack stack) 
 	{
-		int currentAmmo = getCurrentAmmo(stack);
-		int maxAmmo = getMaxAmmo(stack);
-		return MathHelper.clamp(1.0D - ((double) currentAmmo / (double) maxAmmo), 0.0D, 1.0D);
+		return Math.round(13.0F - getCurrentAmmo(stack) * 13.0F / getMaxAmmo(stack));
 	}
 	
 	public void shootUpdateMag(ItemStack stack)
@@ -214,7 +213,7 @@ public class BaseGunItem extends BaseTMWItem {
 		int currentAmmo = getCurrentAmmo(mag);
 		if ((currentAmmo - toRemove) >= 0)
 		{
-			CompoundNBT compoundnbt = new CompoundNBT();
+			CompoundTag compoundnbt = new CompoundTag();
 			int newAmmo = currentAmmo - toRemove;
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
@@ -240,7 +239,7 @@ public class BaseGunItem extends BaseTMWItem {
 		int maxAmmo = getMaxAmmo(mag);
 		if ((currentAmmo + toAdd) <= maxAmmo)
 		{
-			CompoundNBT compoundnbt = new CompoundNBT();
+			CompoundTag compoundnbt = new CompoundTag();
 			int newAmmo = currentAmmo + toAdd;
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
@@ -258,7 +257,7 @@ public class BaseGunItem extends BaseTMWItem {
 	
 	protected void setGunAmmo(ItemStack mag, int setTo)
 	{
-		CompoundNBT compoundnbt = new CompoundNBT();
+		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", setTo);
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
@@ -268,7 +267,7 @@ public class BaseGunItem extends BaseTMWItem {
 	
 	protected void setGunMaxAmmo(ItemStack mag, int setTo)
 	{
-		CompoundNBT compoundnbt = new CompoundNBT();
+		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
 		compoundnbt.putInt("maxAmmo", setTo);
 		compoundnbt.putInt("magLoaded", hasMag(mag));
@@ -278,7 +277,7 @@ public class BaseGunItem extends BaseTMWItem {
 	
 	protected void setGunMagLoad(ItemStack mag, int setTo)
 	{
-		CompoundNBT compoundnbt = new CompoundNBT();
+		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", setTo);
@@ -288,7 +287,7 @@ public class BaseGunItem extends BaseTMWItem {
 	
 	protected void setGunMagType(ItemStack mag, int setTo)
 	{
-		CompoundNBT compoundnbt = new CompoundNBT();
+		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
@@ -299,16 +298,16 @@ public class BaseGunItem extends BaseTMWItem {
 	//Show ammo on the magazine
 	@Override
 	@OnlyIn(Dist.CLIENT)
-	public void appendHoverText(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) 
+	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslationTextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TranslationTextComponent("Type: item.thismeanswar." + bullet));
+		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslatableComponent("Type: item.thismeanswar." + bullet));
 	}
 
 	@Override
-	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
 		if (playerIn.isCrouching())
@@ -318,9 +317,9 @@ public class BaseGunItem extends BaseTMWItem {
 				if (hasMag(mag) == 0)
 				{
 					int slotID = 0;
-					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
+					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
-			               ItemStack itemstack1 = playerIn.inventory.getItem(i);
+			               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
 			               if (itemstack1.hasTag())
 			               {
 			            	   if (itemstack1.getItem() == magazine)
@@ -338,16 +337,16 @@ public class BaseGunItem extends BaseTMWItem {
 			        }
 					if (slotID > 0)
 					{
-						ItemStack itemstack2 = playerIn.inventory.getItem(slotID);
-						CompoundNBT nbt = itemstack2.getTag();
+						ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
+						CompoundTag nbt = itemstack2.getTag();
 						int magAmmo = nbt.getInt("currentAmmo");
 						int magMaxAmmo = nbt.getInt("maxAmmo");
 						setGunAmmo(mag, magAmmo);
 						setGunMaxAmmo(mag, magMaxAmmo);
 						setGunMagLoad(mag, 1);
-						playerIn.inventory.removeItem(slotID, 1);
+						playerIn.getInventory().removeItem(slotID, 1);
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
 				if (hasMag(mag) == 1)
@@ -362,15 +361,15 @@ public class BaseGunItem extends BaseTMWItem {
 					setGunMaxAmmo(mag, 0);
 					setGunMagLoad(mag, 0);
 					
-					CompoundNBT compoundnbt = new CompoundNBT();
+					CompoundTag compoundnbt = new CompoundTag();
 					compoundnbt.putInt("currentAmmo", gunAmmo);
 					compoundnbt.putInt("maxAmmo", urmaxAmmo);
 					newmag.setTag(compoundnbt);
 					
-					playerIn.inventory.add(newmag);
+					playerIn.getInventory().add(newmag);
 					
 					playerIn.getCooldowns().addCooldown(this, reloadTime);
-					return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
 			if (getMagType(mag) == internal_mag)
@@ -378,9 +377,9 @@ public class BaseGunItem extends BaseTMWItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
-					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
+					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
-						ItemStack itemstack1 = playerIn.inventory.getItem(i);
+						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
 						if (itemstack1.getItem() == bullet)
 						{
 							slotID=i;
@@ -389,7 +388,7 @@ public class BaseGunItem extends BaseTMWItem {
 					}
 					if (slotID >= 0)
 					{
-						ItemStack ibullet = playerIn.inventory.getItem(slotID);
+						ItemStack ibullet = playerIn.getInventory().getItem(slotID);
 						addAmmoToMag(mag);
 						ibullet.shrink(1);
 						playerIn.getCooldowns().addCooldown(this, 8);
@@ -404,23 +403,23 @@ public class BaseGunItem extends BaseTMWItem {
 				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
-				bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0F, 1.5F, 1.0F);	
+				bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
 				worldIn.addFreshEntity(bulletEntity);
 				
 				shootUpdateMag(mag);
 				playerIn.awardStat(Stats.ITEM_USED.get(this));
 				playerIn.getCooldowns().addCooldown(this, shotTime);
 				giveBulletCasing(playerIn);
-				return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+				return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
-		return ActionResult.fail(mag);
+		return InteractionResultHolder.fail(mag);
 	}
 	
-	public void giveBulletCasing(PlayerEntity player)
+	public void giveBulletCasing(Player player)
 	{
 		Item casing = bullet.returnCasingItem();
 		if (casing != null)
-			player.inventory.add(new ItemStack(casing));
+			player.getInventory().add(new ItemStack(casing));
 	}
 }

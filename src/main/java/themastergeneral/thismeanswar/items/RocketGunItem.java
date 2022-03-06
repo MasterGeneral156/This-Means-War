@@ -1,12 +1,12 @@
 package themastergeneral.thismeanswar.items;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import themastergeneral.thismeanswar.entity.RocketBaseEntity;
 
 public class RocketGunItem extends BaseGunItem {
@@ -23,7 +23,7 @@ public class RocketGunItem extends BaseGunItem {
 	}
 	
 	@Override
-	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) 
+	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn)
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
 		if (playerIn.isCrouching())
@@ -33,9 +33,9 @@ public class RocketGunItem extends BaseGunItem {
 				if (hasMag(mag) == 0)
 				{
 					int slotID = 0;
-					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
+					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
-			               ItemStack itemstack1 = playerIn.inventory.getItem(i);
+			               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
 			               if (itemstack1.hasTag())
 			               {
 			            	   if (itemstack1.getItem() instanceof MagazineItem)
@@ -53,16 +53,16 @@ public class RocketGunItem extends BaseGunItem {
 			        }
 					if (slotID > 0)
 					{
-						ItemStack itemstack2 = playerIn.inventory.getItem(slotID);
-						CompoundNBT nbt = itemstack2.getTag();
+						ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
+						CompoundTag nbt = itemstack2.getTag();
 						int magAmmo = nbt.getInt("currentAmmo");
 						int magMaxAmmo = nbt.getInt("maxAmmo");
 						setGunAmmo(mag, magAmmo);
 						setGunMaxAmmo(mag, magMaxAmmo);
 						setGunMagLoad(mag, 1);
-						playerIn.inventory.removeItem(slotID, 1);
+						playerIn.getInventory().removeItem(slotID, 1);
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
 				if (hasMag(mag) == 1)
@@ -77,15 +77,15 @@ public class RocketGunItem extends BaseGunItem {
 					setGunMaxAmmo(mag, 0);
 					setGunMagLoad(mag, 0);
 					
-					CompoundNBT compoundnbt = new CompoundNBT();
+					CompoundTag compoundnbt = new CompoundTag();
 					compoundnbt.putInt("currentAmmo", gunAmmo);
 					compoundnbt.putInt("maxAmmo", urmaxAmmo);
 					newmag.setTag(compoundnbt);
 					
-					playerIn.inventory.add(newmag);
+					playerIn.getInventory().add(newmag);
 					
 					playerIn.getCooldowns().addCooldown(this, reloadTime);
-					return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
 			if (getMagType(mag) == 2)
@@ -93,9 +93,9 @@ public class RocketGunItem extends BaseGunItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
-					for(int i = 0; i < playerIn.inventory.getContainerSize(); ++i) 
+					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
-						ItemStack itemstack1 = playerIn.inventory.getItem(i);
+						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
 						if (itemstack1.getItem() == bullet)
 						{
 							slotID=i;
@@ -104,7 +104,7 @@ public class RocketGunItem extends BaseGunItem {
 					}
 					if (slotID >= 0)
 					{
-						ItemStack ibullet = playerIn.inventory.getItem(slotID);
+						ItemStack ibullet = playerIn.getInventory().getItem(slotID);
 						addAmmoToMag(mag);
 						ibullet.shrink(1);
 						playerIn.getCooldowns().addCooldown(this, 8);
@@ -119,16 +119,16 @@ public class RocketGunItem extends BaseGunItem {
 				RocketBaseEntity bulletEntity = new RocketBaseEntity(worldIn, playerIn, damage, bullet, bulletSpeed);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
-				bulletEntity.shootFromRotation(playerIn, playerIn.xRot, playerIn.yRot, 0F, 1.5F, 1.0F);
+				bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 				worldIn.addFreshEntity(bulletEntity);
 				
 				shootUpdateMag(mag);
 				playerIn.awardStat(Stats.ITEM_USED.get(this));
 				playerIn.getCooldowns().addCooldown(this, shotTime);
-				return ActionResult.sidedSuccess(mag, worldIn.isClientSide());
+				return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
-		return ActionResult.fail(mag);
+		return InteractionResultHolder.fail(mag);
 	}
 
 }

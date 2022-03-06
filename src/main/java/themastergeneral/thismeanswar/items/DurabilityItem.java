@@ -1,6 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 import themastergeneral.thismeanswar.TMWMain;
 
 public class DurabilityItem extends BaseTMWItem {

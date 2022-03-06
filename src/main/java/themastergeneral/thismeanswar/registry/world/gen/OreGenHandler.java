@@ -2,14 +2,14 @@ package themastergeneral.thismeanswar.registry.world.gen;
 
 import java.util.ArrayList;
 
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStage;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.IFeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -27,9 +27,8 @@ public class OreGenHandler {
  
     public static void registerOres(){
     	
-        //Overworld Ore Register
-        overworldOres.add(register("lead_ore_gen", Feature.ORE.configured(new OreFeatureConfig(
-                OreFeatureConfig.FillerBlockType.NATURAL_STONE, TMWBlocks.lead_ore.defaultBlockState(), 4)).range(64).squared().count(20)));
+        overworldOres.add(register("lead_ore_gen", Feature.ORE.configured(new OreConfiguration(
+        		OreFeatures.NATURAL_STONE, TMWBlocks.lead_ore.defaultBlockState(), 4)).range(64).squared().count(20)));
         
         overworldOres.add(register("brass_ore_gen", Feature.ORE.configured(new OreFeatureConfig(
                 OreFeatureConfig.FillerBlockType.NATURAL_STONE, TMWBlocks.brass_ore.defaultBlockState(), 12)).range(32).squared().count(5)));
@@ -49,12 +48,12 @@ public class OreGenHandler {
     @SubscribeEvent
     protected static void gen(BiomeLoadingEvent event) {
         BiomeGenerationSettingsBuilder generation = event.getGeneration();
-        if(event.getCategory().equals(Biome.Category.NETHER)){
+        if(event.getCategory().equals(Biome.BiomeCategory.NETHER)){
             for(ConfiguredFeature<?, ?> ore : netherOres){
                 if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
         }
-        if(event.getCategory().equals(Biome.Category.THEEND)){
+        if(event.getCategory().equals(Biome.BiomeCategory.THEEND)){
             for(ConfiguredFeature<?, ?> ore : endOres){
                 if (ore != null) generation.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, ore);
             }
@@ -64,7 +63,7 @@ public class OreGenHandler {
         }
     }
  
-    private static <FC extends IFeatureConfig> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
-        return Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, TMWMain.MODID + ":" + name, configuredFeature);
+    private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String name, ConfiguredFeature<FC, ?> configuredFeature) {
+        return Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, TMWMain.MODID + ":" + name, configuredFeature);
     }
 }

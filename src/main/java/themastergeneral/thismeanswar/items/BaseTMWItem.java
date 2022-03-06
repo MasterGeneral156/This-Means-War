@@ -1,6 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class BaseTMWItem extends Item {
 
