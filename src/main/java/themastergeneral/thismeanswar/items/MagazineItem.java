@@ -56,6 +56,7 @@ public class MagazineItem extends BaseTMWItem {
 		stack.setTag(compoundnbt);
 	}
 	
+	//TODO: Fix the ammo type in tooltip
 	//Show ammo on the magazine
 	@Override
 	@OnlyIn(Dist.CLIENT)
@@ -64,7 +65,7 @@ public class MagazineItem extends BaseTMWItem {
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TranslatableComponent("Type: item.thismeanswar." + bulletRequired));
+		tooltip.add(new TextComponent("Type: item.thismeanswar." + bulletRequired));
 	}
 	
 	@Override
@@ -156,6 +157,7 @@ public class MagazineItem extends BaseTMWItem {
 		return true;
 	}
 	
+	//TODO: Fix the ammo bar.
 	@Override
     public int getBarWidth(ItemStack stack) 
 	{

@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -186,11 +187,11 @@ public class BaseGunItem extends BaseTMWItem {
 		else
 			return false;
 	}
-	
+	//TODO: Fix the ammo bar.
 	@Override
     public int getBarWidth(ItemStack stack) 
 	{
-		return Math.round(13.0F - getCurrentAmmo(stack) * 13.0F / getMaxAmmo(stack));
+		return Math.round(13.0F - getCurrentAmmo(stack) * 13.0F / getMaxAmmo(stack)) * -1;	//lol hacky
 	}
 	
 	public void shootUpdateMag(ItemStack stack)
@@ -295,6 +296,7 @@ public class BaseGunItem extends BaseTMWItem {
 		mag.setTag(compoundnbt);
 	}
 	
+	//TODO: Fix the ammo type in tooltip
 	//Show ammo on the magazine
 	@Override
 	@OnlyIn(Dist.CLIENT)
@@ -302,8 +304,8 @@ public class BaseGunItem extends BaseTMWItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TranslatableComponent("Type: item.thismeanswar." + bullet));
+		tooltip.add(new TextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TextComponent("Type: item.thismeanswar." + bullet));
 	}
 
 	@Override
