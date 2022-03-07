@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/nine_mm_magazine"
+        "layer0": "thismeanswar:items/round_9mm"
     }
 }

@@ -16,17 +16,17 @@ import themastergeneral.thismeanswar.items.define.TMWThrowables;
 public class TMWItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TMWMain.MODID);
 	
-	public static final RegistryObject<Item> nine_mm_round = TMWItemRegistry.ITEMS.register("nine_mm_round", () -> TMWItems.nine_mm_round);
-	public static final RegistryObject<Item> tweleve_gauge_shell = TMWItemRegistry.ITEMS.register("tweleve_gauge_shell", () -> TMWItems.tweleve_gauge_shell);
-	public static final RegistryObject<Item> five_five_six_round = TMWItemRegistry.ITEMS.register("five_five_six_round", () -> TMWItems.five_five_six_round);
-	public static final RegistryObject<Item> two_two_three_round = TMWItemRegistry.ITEMS.register("two_two_three_round", () -> TMWItems.two_two_three_round);
+	public static final RegistryObject<Item> round_9mm = TMWItemRegistry.ITEMS.register("round_9mm", () -> TMWItems.round_9mm);
+	public static final RegistryObject<Item> round_12g = TMWItemRegistry.ITEMS.register("round_12g", () -> TMWItems.round_12g);
+	public static final RegistryObject<Item> round_556 = TMWItemRegistry.ITEMS.register("round_556", () -> TMWItems.round_556);
+	public static final RegistryObject<Item> round_223 = TMWItemRegistry.ITEMS.register("round_223", () -> TMWItems.round_223);
 	
-	public static final RegistryObject<Item> nine_mm_magazine = TMWItemRegistry.ITEMS.register("nine_mm_magazine", () -> TMWItems.nine_mm_magazine);
-	public static final RegistryObject<Item> nine_mm_magazine_large = TMWItemRegistry.ITEMS.register("nine_mm_magazine_large", () -> TMWItems.nine_mm_magazine_large);
-	public static final RegistryObject<Item> m4ar_mag_556 = TMWItemRegistry.ITEMS.register("m4ar_mag_556", () -> TMWItems.m4ar_mag_556);
-	public static final RegistryObject<Item> m4ar_mag_223 = TMWItemRegistry.ITEMS.register("m4ar_mag_223", () -> TMWItems.m4ar_mag_223);
+	public static final RegistryObject<Item> magazine_9mm = TMWItemRegistry.ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
+	public static final RegistryObject<Item> magazine_9mm_large = TMWItemRegistry.ITEMS.register("magazine_9mm_large", () -> TMWItems.magazine_9mm_large);
+	public static final RegistryObject<Item> magazine_556 = TMWItemRegistry.ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
+	public static final RegistryObject<Item> magazine_223 = TMWItemRegistry.ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
 	
-	public static final RegistryObject<Item> bazooka_rocket = TMWItemRegistry.ITEMS.register("bazooka_rocket", () -> TMWItems.bazooka_rocket);
+	public static final RegistryObject<Item> rocket_bazooka = TMWItemRegistry.ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
 	
 	//Pistols
 	public static final RegistryObject<Item> beretta_92_fs = TMWItemRegistry.ITEMS.register("beretta_92_fs", () -> TMWPistols.beretta_92_fs);
@@ -56,9 +56,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> hand_grenade = TMWItemRegistry.ITEMS.register("hand_grenade", () -> TMWThrowables.hand_grenade);
 	
 	//Crafting items
-	public static final RegistryObject<Item> lead_ingot = TMWItemRegistry.ITEMS.register("lead_ingot", () -> TMWItems.lead_ingot);
-	public static final RegistryObject<Item> lead_nugget = TMWItemRegistry.ITEMS.register("lead_nugget", () -> TMWItems.lead_nugget);
-	public static final RegistryObject<Item> brass_ingot = TMWItemRegistry.ITEMS.register("brass_ingot", () -> TMWItems.brass_ingot);
+	public static final RegistryObject<Item> ingot_lead = TMWItemRegistry.ITEMS.register("ingot_lead", () -> TMWItems.ingot_lead);
+	public static final RegistryObject<Item> nugget_lead = TMWItemRegistry.ITEMS.register("nugget_lead", () -> TMWItems.nugget_lead);
+	public static final RegistryObject<Item> ingot_brass = TMWItemRegistry.ITEMS.register("ingot_brass", () -> TMWItems.ingot_brass);
 	public static final RegistryObject<Item> plate_lead = TMWItemRegistry.ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
 	
 	//Hammers
@@ -89,7 +89,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_tip_buckshot = TMWItemRegistry.ITEMS.register("bullet_tip_buckshot", () -> TMWItems.bullet_tip_buckshot);
 	
 	//Ores
-	public static final RegistryObject<Item> lead_ore = TMWItemRegistry.ITEMS.register("lead_ore", () -> TMWItems.lead_ore);
-	public static final RegistryObject<Item> brass_ore = TMWItemRegistry.ITEMS.register("brass_ore", () -> TMWItems.brass_ore);
+	public static final RegistryObject<Item> ore_lead = TMWItemRegistry.ITEMS.register("ore_lead", () -> TMWItems.ore_lead);
+	public static final RegistryObject<Item> ore_brass = TMWItemRegistry.ITEMS.register("ore_brass", () -> TMWItems.ore_brass);
 	
 }

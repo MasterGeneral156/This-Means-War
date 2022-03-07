@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:lead_ingot",
-    "thismeanswar:brass_ingot"
+    "thismeanswar:ingot_lead",
+    "thismeanswar:ingot_brass"
   ]
 }

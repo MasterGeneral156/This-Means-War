@@ -1,6 +1,0 @@
-{
-    "parent": "thismeanswar:block/lead_ore",
-    "textures": {
-        "inventory": "thismeanswar:block/lead_ore"
-    }
-}

@@ -22,22 +22,22 @@ public class TMWItems {
 	public static BaseTMWItem bullet_tip_buckshot = new BasicItem();
 	
 	//Bullets & Shells
-	public static BulletItem nine_mm_round = new BulletItem(casing_9mm, bullet_tip_9mm);
-	public static BulletItem tweleve_gauge_shell = new BulletItem(casing_12g, bullet_tip_buckshot);
-	public static BulletItem bazooka_rocket = new BulletItem();
-	public static BulletItem five_five_six_round = new BulletItem(casing_556, bullet_tip_556);
-	public static BulletItem two_two_three_round = new BulletItem(casing_223, bullet_tip_223);
+	public static BulletItem round_9mm = new BulletItem(casing_9mm, bullet_tip_9mm);
+	public static BulletItem round_12g = new BulletItem(casing_12g, bullet_tip_buckshot);
+	public static BulletItem rocket_bazooka = new BulletItem();
+	public static BulletItem round_556 = new BulletItem(casing_556, bullet_tip_556);
+	public static BulletItem round_223 = new BulletItem(casing_223, bullet_tip_223);
 	
 	//Magazines
-	public static MagazineItem nine_mm_magazine = new MagazineItem(nine_mm_round, 15);
-	public static MagazineItem nine_mm_magazine_large = new MagazineItem(nine_mm_round, 30);
-	public static MagazineItem m4ar_mag_556 = new MagazineItem(five_five_six_round, 20);
-	public static MagazineItem m4ar_mag_223 = new MagazineItem(two_two_three_round, 20);
+	public static MagazineItem magazine_9mm = new MagazineItem(round_9mm, 15);
+	public static MagazineItem magazine_9mm_large = new MagazineItem(round_9mm, 30);
+	public static MagazineItem magazine_556 = new MagazineItem(round_556, 20);
+	public static MagazineItem magazine_223 = new MagazineItem(round_223, 20);
 	
 	//Crafting items
-	public static BaseTMWItem lead_ingot = new BasicItem();
-	public static BaseTMWItem lead_nugget = new BasicItem();
-	public static BaseTMWItem brass_ingot = new BasicItem();
+	public static BaseTMWItem ingot_lead = new BasicItem();
+	public static BaseTMWItem nugget_lead = new BasicItem();
+	public static BaseTMWItem ingot_brass = new BasicItem();
 	
 	public static BaseTMWItem plate_lead = new BasicItem();
 	
@@ -52,6 +52,6 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	
 	//Blocks
-	public static TMWBlockItem brass_ore = new TMWBlockItem(TMWBlocks.brass_ore);
-	public static TMWBlockItem lead_ore = new TMWBlockItem(TMWBlocks.lead_ore);
+	public static TMWBlockItem ore_brass = new TMWBlockItem(TMWBlocks.ore_brass);
+	public static TMWBlockItem ore_lead = new TMWBlockItem(TMWBlocks.ore_lead);
 }

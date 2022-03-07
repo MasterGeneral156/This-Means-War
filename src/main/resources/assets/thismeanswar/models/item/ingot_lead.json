@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/lead_ingot"
+        "layer0": "thismeanswar:items/ingot_lead"
     }
 }

@@ -11,6 +11,6 @@ public class TMWBlockRegistry {
 
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, TMWMain.MODID);
 	
-	public static final RegistryObject<Block> brass_ore = BLOCKS.register("brass_ore", () ->TMWBlocks.brass_ore);
-	public static final RegistryObject<Block> lead_ore = BLOCKS.register("lead_ore", () ->TMWBlocks.lead_ore);
+	public static final RegistryObject<Block> brass_ore = BLOCKS.register("ore_brass", () ->TMWBlocks.ore_brass);
+	public static final RegistryObject<Block> lead_ore = BLOCKS.register("ore_lead", () ->TMWBlocks.ore_lead);
 }

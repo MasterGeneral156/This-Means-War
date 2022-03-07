@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "thismeanswar:lead_ore"
+    "item": "thismeanswar:ore_lead"
   },
-  "result": "thismeanswar:lead_ingot",
+  "result": "thismeanswar:ingot_lead",
   "experience": 0.7,
   "cookingtime": 200
 }

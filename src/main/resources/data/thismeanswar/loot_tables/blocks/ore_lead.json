@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-	  "name": "thismeanswar:lead_ore",
+	  "name": "thismeanswar:ore_lead",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "thismeanswar:lead_ore"
+          "name": "thismeanswar:ore_lead"
         }
       ]
     }
