@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:tip_cast_556",
+    "pattern": [
+        "H",
+        "T",
+        "B"
+    ],
+    "key": {
+		"H": { "item": "thismeanswar:hammer_diamond", "data": 32767 },
+		"T": { "tag": "thismeanswar:tip/556" },
+		"B": { "tag": "forge:plates/lead" }
+    },
+    "result": {
+        "item": "thismeanswar:bullet_cast_556",
+		"count": 1
+		}
+    }
+}
