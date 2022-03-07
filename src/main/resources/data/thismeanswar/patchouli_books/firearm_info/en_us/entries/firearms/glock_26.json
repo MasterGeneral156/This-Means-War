@@ -1,0 +1,12 @@
+{
+    "name": "Glock 26",
+    "icon": "thismeanswar:glock_26",
+    "category": "thismeanswar:firearms",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:glock_26",
+            "text": "Created in 1996 by Glock in hopes of creating an easily concealable pistol, the Glock 26 was found to be a favorite amongst conceal carriers. In game, its equipped with a 15 Round 9mm Magazine."
+        }
+    ]
+}

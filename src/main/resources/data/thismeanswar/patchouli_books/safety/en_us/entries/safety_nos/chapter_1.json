@@ -1,0 +1,11 @@
+{
+    "name": "General Advice",
+    "icon": "minecraft:writable_book",
+    "category": "thismeanswar:safety_nos",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Do not point your firearm at anything you aren't ready to destroy."
+        }
+    ]
+}

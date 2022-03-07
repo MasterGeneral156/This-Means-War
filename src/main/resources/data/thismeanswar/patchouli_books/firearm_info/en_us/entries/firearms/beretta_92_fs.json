@@ -1,0 +1,12 @@
+{
+    "name": "Beretta 92 FS",
+    "icon": "thismeanswar:beretta_92_fs",
+    "category": "thismeanswar:firearms",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:beretta_92_fs",
+            "text": "Issued to the US Army starting rolling out in 1985, replacing the Browning M1911. In game, its chambered in 9mm and has a 15 round magazine."
+        }
+    ]
+}
