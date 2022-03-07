@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:lead_plate",
+    "pattern": [
+        "H",
+        "B"
+    ],
+    "key": {
+		"H": { "item": "thismeanswar:hammer_diamond", "data": 32767 },
+		"B": { "tag": "forge:ingots/lead" }
+    },
+    "result": {
+        "item": "thismeanswar:plate_lead",
+		"count": 1
+		}
+    }
+}
