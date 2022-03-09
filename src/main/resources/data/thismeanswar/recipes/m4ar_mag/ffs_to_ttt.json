@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:magazines",
   "ingredients": [
     {
       "item": "thismeanswar:magazine_556", "data": 32767
