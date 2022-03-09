@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:lead_ore",
-    "thismeanswar:brass_ore"
+    "thismeanswar:ore_lead",
+    "thismeanswar:ore_brass"
   ]
 }

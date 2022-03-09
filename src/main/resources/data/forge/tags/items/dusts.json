@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:dust_lead",
+    "thismeanswar:dust_brass",
+    "thismeanswar:dust_steel",
+    "thismeanswar:dust_gold",
+    "thismeanswar:dust_iron",
+    "thismeanswar:dust_copper"
+  ]
+}

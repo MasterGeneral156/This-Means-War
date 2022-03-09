@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:nugget_lead",
-    "thismeanswar:nugget_brass",
     "thismeanswar:nugget_steel"
   ]
 }
