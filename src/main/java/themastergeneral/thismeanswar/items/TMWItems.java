@@ -37,7 +37,19 @@ public class TMWItems {
 	//Crafting items
 	public static BaseTMWItem ingot_lead = new BasicItem();
 	public static BaseTMWItem nugget_lead = new BasicItem();
+	public static BaseTMWItem dust_lead = new BasicItem();
+	
 	public static BaseTMWItem ingot_brass = new BasicItem();
+	public static BaseTMWItem nugget_brass = new BasicItem();
+	public static BaseTMWItem dust_brass = new BasicItem();
+	
+	public static BaseTMWItem ingot_steel = new BasicItem();
+	public static BaseTMWItem nugget_steel = new BasicItem();
+	public static BaseTMWItem dust_steel = new BasicItem();
+	
+	public static BaseTMWItem dust_iron = new BasicItem();
+	public static BaseTMWItem dust_gold = new BasicItem();
+	public static BaseTMWItem dust_copper = new BasicItem();
 	
 	public static BaseTMWItem plate_lead = new BasicItem();
 	
@@ -53,5 +65,10 @@ public class TMWItems {
 	
 	//Blocks
 	public static TMWBlockItem ore_brass = new TMWBlockItem(TMWBlocks.ore_brass);
+	public static TMWBlockItem block_brass = new TMWBlockItem(TMWBlocks.block_brass);
+	
+	public static TMWBlockItem block_lead = new TMWBlockItem(TMWBlocks.block_lead);
 	public static TMWBlockItem ore_lead = new TMWBlockItem(TMWBlocks.ore_lead);
+	
+	public static TMWBlockItem block_steel = new TMWBlockItem(TMWBlocks.block_steel);
 }
