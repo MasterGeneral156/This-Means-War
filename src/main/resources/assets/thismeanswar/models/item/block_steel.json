@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/block_steel",
+    "textures": {
+        "inventory": "thismeanswar:block/block_steel"
+    }
+}

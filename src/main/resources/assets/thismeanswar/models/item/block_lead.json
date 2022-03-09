@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/block_lead",
+    "textures": {
+        "inventory": "thismeanswar:block/block_lead"
+    }
+}

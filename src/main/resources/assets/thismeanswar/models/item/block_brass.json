@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/block_brass",
+    "textures": {
+        "inventory": "thismeanswar:block/block_brass"
+    }
+}
