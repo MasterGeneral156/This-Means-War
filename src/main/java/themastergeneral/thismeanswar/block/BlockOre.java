@@ -6,9 +6,9 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
-public class TMWBlockOre extends OreBlock {
+public class BlockOre extends OreBlock {
 
-	public TMWBlockOre(Integer harvestLevel) 
+	public BlockOre(Integer harvestLevel) 
 	{
 		super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE)
 				.sound(SoundType.STONE)
