@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:nugget_brass",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/brass"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:nugget_brass",
+    "count": 9
+  }
+}

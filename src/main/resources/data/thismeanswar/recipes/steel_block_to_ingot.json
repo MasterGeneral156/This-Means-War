@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:ingot_steel",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:ingot_steel",
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:ingot_brass",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/brass"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:ingot_brass",
+    "count": 9
+  }
+}

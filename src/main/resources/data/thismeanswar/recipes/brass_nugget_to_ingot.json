@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:ingot_brass",
+    "pattern": [
+        "NNN",
+        "NNN",
+		"NNN"
+    ],
+    "key": {
+		"N": { "tag": "forge:nuggets/brass" }
+    },
+    "result": {
+        "item": "thismeanswar:ingot_brass",
+		"count": 1
+    }
+}

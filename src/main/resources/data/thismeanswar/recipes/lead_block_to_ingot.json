@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:ingot_lead",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/lead"
+    }
+  ],
+  "result": {
+    "item": "thismeanswar:ingot_lead",
+    "count": 9
+  }
+}

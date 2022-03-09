@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:block_brass",
+    "pattern": [
+        "NNN",
+        "NNN",
+		"NNN"
+    ],
+    "key": {
+		"N": { "tag": "forge:ingots/brass" }
+    },
+    "result": {
+        "item": "thismeanswar:block_brass",
+		"count": 1
+    }
+}

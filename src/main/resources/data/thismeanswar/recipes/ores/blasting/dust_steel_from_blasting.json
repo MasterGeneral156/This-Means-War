@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "thismeanswar:dust_steel"
+  },
+  "result": "thismeanswar:ingot_steel",
+  "experience": 0.7,
+  "cookingtime": 100
+}

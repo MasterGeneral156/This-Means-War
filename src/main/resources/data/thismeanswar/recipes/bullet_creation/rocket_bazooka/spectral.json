@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:bullet_make",
+    "pattern": [
+        "  G",
+        "FA ",
+		"FF "
+    ],
+    "key": {
+		"G": { "item": "thismeanswar:hand_grenade" },
+		"A": { "item": "minecraft:spectral_arrow" },
+		"F": { "item": "minecraft:fire_charge" }
+    },
+    "result": {
+        "item": "thismeanswar:rocket_bazooka",
+		"count": 4
+		}
+    }
+}

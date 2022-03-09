@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dust_lead",
+  "ingredients": [
+    {
+      "tag": "forge:ores/lead"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_creative", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:dust_lead",
+    "count": 2
+  }
+}

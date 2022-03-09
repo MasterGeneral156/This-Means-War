@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "thismeanswar:dust_brass"
+  },
+  "result": "thismeanswar:ingot_brass",
+  "experience": 0.7,
+  "cookingtime": 200
+}

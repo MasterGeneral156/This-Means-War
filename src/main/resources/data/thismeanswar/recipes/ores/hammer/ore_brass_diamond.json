@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dust_brass",
+  "ingredients": [
+    {
+      "tag": "forge:ores/brass"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_diamond", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:dust_brass",
+    "count": 2
+  }
+}

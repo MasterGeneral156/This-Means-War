@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:block_lead",
+    "pattern": [
+        "NNN",
+        "NNN",
+		"NNN"
+    ],
+    "key": {
+		"N": { "tag": "forge:ingots/lead" }
+    },
+    "result": {
+        "item": "thismeanswar:block_lead",
+		"count": 1
+    }
+}
