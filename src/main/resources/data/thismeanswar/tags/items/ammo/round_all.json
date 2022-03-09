@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:round_9mm",
-    "thismeanswar:round_223",
-    "thismeanswar:round_556",
-    "thismeanswar:round_12g",
-    "thismeanswar:rocket_bazooka"
+    "#thismeanswar:ammo/explosive",
+    "#thismeanswar:ammo/round_12g",
+    "#thismeanswar:ammo/round_223",
+    "#thismeanswar:ammo/round_556",
+    "#thismeanswar:ammo/round_9mm"
   ]
 }
