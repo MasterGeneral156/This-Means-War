@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing",
+  "group": "thismeanswar:magazines",
+  "base": 
+  {
+    "item": "thismeanswar:magazine_9mm", "data": 32767
+  },
+  "addition": 
+  {
+    "item": "thismeanswar:magazine_9mm", "data": 32767
+  },
+  "result": 
+  {
+    "item": "thismeanswar:magazine_9mm_large"
+  }
+}
