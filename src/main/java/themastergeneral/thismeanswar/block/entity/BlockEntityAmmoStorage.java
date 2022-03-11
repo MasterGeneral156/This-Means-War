@@ -21,6 +21,10 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
+		if (tag.contains("AmmoItem"))
+		{
+			setAmmo(ItemStack.of(tag.getCompound("AmmoItem")).getItem(), tag.getInt("AmmoQty"));
+		}
 	}
 	
 	@Override
@@ -62,7 +66,14 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
 	//Call to update the ammo
 	public void updateAmmo(Item item, int count) {
-		
+		if (item != getAmmoItem())
+			setContainerAmmo(new ItemStack(item));
+		setContainerAmmoQty(getAmmoQuantity() + (count));
+	}
+	
+	public void setAmmo(Item item, int count) {
+		setContainerAmmo(new ItemStack(item));
+		setContainerAmmoQty(count);
 	}
 	
 	public Item getAmmoItem() {
