@@ -37,11 +37,18 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	@Override
 	public void clearContent() {
 		setContainerAmmo(ItemStack.EMPTY);
+		setContainerAmmoQty(0);
 	}
 	
 	//Set ammo type
 	public void setContainerAmmo(ItemStack stack) {
 		ammoType = new ItemStack(stack.getItem());
+		this.setChanged();
+	}
+	
+	public void setContainerAmmoQty(int quantity)
+	{
+		ammoCount = quantity;
 		this.setChanged();
 	}
 
