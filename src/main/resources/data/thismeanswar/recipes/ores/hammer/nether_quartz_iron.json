@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:nether_quartz",
+  "ingredients": [
+    {
+      "tag": "forge:ores/quartz"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_iron", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "minecraft:quartz",
+    "count": 2
+  }
+}

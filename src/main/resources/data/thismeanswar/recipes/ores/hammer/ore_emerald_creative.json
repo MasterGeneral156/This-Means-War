@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:hammer_emerald",
+  "ingredients": [
+    {
+      "tag": "forge:ores/emerald"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_creative", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 2
+  }
+}

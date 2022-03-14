@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:hammer_redstone",
+  "ingredients": [
+    {
+      "tag": "forge:ores/redstone"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_diamond", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 2
+  }
+}
