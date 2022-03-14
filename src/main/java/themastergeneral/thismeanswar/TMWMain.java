@@ -8,10 +8,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
-import themastergeneral.thismeanswar.registry.world.gen.OreGenHandler;
 
 @Mod("thismeanswar")
 public class TMWMain
@@ -28,11 +28,12 @@ public class TMWMain
         TMWItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         TMWEntityRegistry.ENTITES.register(FMLJavaModLoadingContext.get().getModEventBus());
         TMWBlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TMWBlockEntityRegistry.TILES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     private void setup(final FMLCommonSetupEvent event)
     {
-        LOGGER.info("THIS MEANS WAR! RAWR! BOOM! PEW PEW!");
+        LOGGER.info("This Means War, in active development.");
         //OreGenHandler.registerOres();
     }
 }

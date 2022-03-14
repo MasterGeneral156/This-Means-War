@@ -18,4 +18,6 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> ore_lead = BLOCKS.register("ore_lead", () ->TMWBlocks.ore_lead);
 	
 	public static final RegistryObject<Block> block_steel = BLOCKS.register("block_steel", () ->TMWBlocks.block_steel);
+	
+	public static final RegistryObject<Block> ammo_box = BLOCKS.register("ammo_box", () ->TMWBlocks.ammo_box);
 }

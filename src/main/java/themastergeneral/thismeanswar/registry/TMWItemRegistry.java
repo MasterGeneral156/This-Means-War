@@ -108,4 +108,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> block_lead = ITEMS.register("block_lead", () -> TMWItems.block_lead);
 	public static final RegistryObject<Item> block_brass = ITEMS.register("block_brass", () -> TMWItems.block_brass);
 	public static final RegistryObject<Item> block_steel = ITEMS.register("block_steel", () -> TMWItems.block_steel);
+	
+	//Ammo Box
+	public static final RegistryObject<Item> ammo_box = ITEMS.register("ammo_box", () -> TMWItems.ammo_box);
 }

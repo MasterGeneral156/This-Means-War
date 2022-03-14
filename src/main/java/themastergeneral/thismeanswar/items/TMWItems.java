@@ -1,5 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
+import themastergeneral.thismeanswar.block.BlockAmmoStorage;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 
 public class TMWItems {
@@ -71,4 +72,6 @@ public class TMWItems {
 	public static TMWBlockItem ore_lead = new TMWBlockItem(TMWBlocks.ore_lead);
 	
 	public static TMWBlockItem block_steel = new TMWBlockItem(TMWBlocks.block_steel);
+	
+	public static TMWBlockItem ammo_box = new TMWBlockItem(TMWBlocks.ammo_box);
 }
