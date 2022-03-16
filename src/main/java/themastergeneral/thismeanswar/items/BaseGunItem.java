@@ -304,8 +304,8 @@ public class BaseGunItem extends BaseTMWItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TextComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TextComponent("Type: item.thismeanswar." + bullet));
+		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(new TranslatableComponent("Type: item.thismeanswar." + bullet));
 	}
 
 	@Override
