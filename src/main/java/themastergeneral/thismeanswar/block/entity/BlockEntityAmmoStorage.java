@@ -11,52 +11,55 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.items.ItemStackHandler;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
 public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
-	private static ItemStack ammoType = ItemStack.EMPTY;
+	private static int maxAmmo;
+	private static ItemStackHandler ammoType = new ItemStackHandler(1);
 	private static int ammoCount = 0;
-	private static int ammoMax;
 
 	public BlockEntityAmmoStorage(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
 		super(p_155228_, p_155229_, p_155230_);
+		maxAmmo = 512;
 	}
 	
 	public BlockEntityAmmoStorage(BlockPos p_155229_, BlockState p_155230_) {
 		super(TMWBlockEntityRegistry.ammo_box.get(), p_155229_, p_155230_);
+		maxAmmo = 512;
 	}
+	
+	public BlockEntityAmmoStorage(BlockPos p_155229_, BlockState p_155230_, int ammoMax) {
+		super(TMWBlockEntityRegistry.ammo_box.get(), p_155229_, p_155230_);
+		maxAmmo = ammoMax;
+	}
+	
 	
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
-		if (tag.contains("AmmoItem", 8)) 
-		{
-			this.setAmmo(ItemStack.of(tag.getCompound("AmmoItem")).getItem(), tag.getInt("AmmoQty"));
-			this.setMaxAmmo(tag.getInt("AmmoMax"));
-		}
+		ammoType.deserializeNBT(tag.getCompound("AmmoItem"));
+		ammoCount = tag.getInt("AmmoQty");
+		maxAmmo = tag.getInt("AmmoMax");
 	}
 	
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
+	protected void saveAdditional(CompoundTag tag) 
+	{
+
 		super.saveAdditional(tag);
-		if (!getAmmo().isEmpty())
-		{
-			CompoundTag newTag = new CompoundTag();
-			tag.put("AmmoItem", getAmmo().save(newTag));
-			tag.putInt("AmmoQty", getAmmoQuantity());
-			tag.putInt("AmmoMax", getAmmoMaxQuantity());
-		}
+		tag.put("AmmoItem", getAmmo().serializeNBT());
+		tag.putInt("AmmoQty", getAmmoQuantity());
+		tag.putInt("AmmoMax", getAmmoMaxQuantity());
 	}
 	
 	@Override
 	public CompoundTag getUpdateTag() 
 	{
-		CompoundTag tag = new CompoundTag();
-		tag.put("AmmoItem", getAmmo().save(tag));
-		tag.putInt("AmmoQty", getAmmoQuantity());
-		tag.putInt("AmmoMax", getAmmoMaxQuantity());
-		return tag;
+		CompoundTag compound = new CompoundTag();
+        saveAdditional(compound);
+        return compound;
 	}
 
 	@Override
@@ -71,9 +74,17 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 		setContainerAmmoQty(0);
 	}
 	
+	@Override
+	public void handleUpdateTag(CompoundTag tag)
+	{
+		tag.put("AmmoItem", getAmmo().serializeNBT());
+		tag.putInt("AmmoQty", getAmmoQuantity());
+		tag.putInt("AmmoMax", getAmmoMaxQuantity());
+	}
+	
 	//Set ammo type
 	public void setContainerAmmo(ItemStack stack) {
-		ammoType = new ItemStack(stack.getItem());
+		ammoType.setStackInSlot(0, stack);
 		this.setChanged();
 	}
 	
@@ -84,7 +95,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	}
 
 	public ItemStack getAmmo() {
-		return ammoType;
+		return ammoType.getStackInSlot(0);
 	}
 	
 	public int getAmmoQuantity() {
@@ -92,7 +103,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	}
 	
 	public int getAmmoMaxQuantity() {
-		return ammoMax;
+		return maxAmmo;
 	}
 	
 	//Call to update the ammo
@@ -105,11 +116,6 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	public void setAmmo(Item item, int count) {
 		setContainerAmmo(new ItemStack(item));
 		setContainerAmmoQty(count);
-	}
-	
-	public void setMaxAmmo(int max) {
-		ammoMax = max;
-		this.setChanged();
 	}
 	
 	public Item getAmmoItem() {
