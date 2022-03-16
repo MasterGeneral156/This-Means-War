@@ -109,7 +109,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	//Call to update the ammo
 	public void updateAmmo(Item item, int count) {
 		if (item != getAmmoItem())
-			setContainerAmmo(new ItemStack(item));
+			setContainerAmmo(new ItemStack(item, 1));
 		setContainerAmmoQty(getAmmoQuantity() + (count));
 	}
 	
