@@ -8,9 +8,13 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemStackHandler;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
@@ -99,6 +103,11 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	}
 	
 	public int getAmmoQuantity() {
+		if (ammoCount < 0)
+		{
+			ammoCount = 0;
+			this.setChanged();
+		}
 		return ammoCount;
 	}
 	
@@ -108,8 +117,8 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
 	//Call to update the ammo
 	public void updateAmmo(Item item, int count) {
-		if (item != getAmmoItem())
-			setContainerAmmo(new ItemStack(item, 1));
+		if ((item != getAmmoItem()) && (getAmmo() == ItemStack.EMPTY))
+			setContainerAmmo(new ItemStack(item));
 		setContainerAmmoQty(getAmmoQuantity() + (count));
 	}
 	
@@ -118,7 +127,19 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 		setContainerAmmoQty(count);
 	}
 	
+	public void updateAmmoQty(int count)
+	{
+		ammoCount = ammoCount + count;
+		this.setChanged();
+	}
+	
 	public Item getAmmoItem() {
 		return getAmmo().getItem();
 	}
+	
+	@Override
+	public AABB getRenderBoundingBox()
+    {
+		return new AABB(getBlockPos(), getBlockPos().offset(2, 5, 2));
+    }
 }

@@ -70,7 +70,6 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		{
 			ItemStack stack = player.getItemInHand(hand);
 			BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
-		    CompoundTag tag = ammostorage.getTileData();
 		    
 	    	//Make sure the ammo item is actually set....
 	    	if (ammostorage.getAmmo() != ItemStack.EMPTY)
@@ -142,7 +141,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 			message.append(new TranslatableComponent(ammostorage.getAmmo().getItem().getDescriptionId()));
 			message.append(")");
 			player.displayClientMessage(message, true);
-	    	return InteractionResult.FAIL;
+	    	return InteractionResult.PASS;
 		}
 		return InteractionResult.FAIL;
 	}
@@ -172,5 +171,35 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 
 	public VoxelShape getVisualShape(BlockState p_56684_, BlockGetter p_56685_, BlockPos p_56686_, CollisionContext p_56687_) {
 		return Shapes.block();
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public void onRemove(BlockState blockstate, Level world, BlockPos blockpos, BlockState blockstate2, boolean bool)
+	{
+		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
+		int totalAvailable = ammostorage.getAmmoQuantity();
+		while (totalAvailable > 0)
+		{
+			float f = 0.7F;
+            double d0 = (double)(world.random.nextFloat() * f) + (double)0.15F;
+            double d1 = (double)(world.random.nextFloat() * f) + (double)0.060000002F + 0.6D;
+            double d2 = (double)(world.random.nextFloat() * f) + (double)0.15F;
+            ItemStack ammoDrop = new ItemStack(ammostorage.getAmmoItem(), 1);
+            ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
+            totalAvailable--;
+            
+			if (totalAvailable >= 64)
+			{
+				totalAvailable = totalAvailable - 63;
+                ammoDrop = new ItemStack(ammostorage.getAmmoItem(), 64);
+                ammostorage.updateAmmo(ammostorage.getAmmoItem(), -64);
+			}
+			TMWMain.LOGGER.info(totalAvailable);
+			ItemEntity itementity = new ItemEntity(world, (double)blockpos.getX() + d0, (double)blockpos.getY() + d1, (double)blockpos.getZ() + d2, ammoDrop);
+            itementity.setDefaultPickUpDelay();
+            world.addFreshEntity(itementity);
+		}
+		super.onRemove(blockstate, world, blockpos, blockstate2, bool);
 	}
 }
