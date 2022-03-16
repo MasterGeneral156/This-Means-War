@@ -52,6 +52,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	public BlockAmmoStorage(int maxStorage) {
 		super(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD)
 				.sound(SoundType.WOOD)
+				.noOcclusion()
 				.strength(3F));
 		this.maxStorage = maxStorage;
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
