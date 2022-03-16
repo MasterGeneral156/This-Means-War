@@ -89,7 +89,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		                itementity.setDefaultPickUpDelay();
 		                world.addFreshEntity(itementity);
 		                ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
-		                TMWMain.LOGGER.info("Dropped 1 bullet");
+		                sendUpdateMsg(player, world, blockpos);
 	                }
 	    		}
 	    		else
@@ -104,6 +104,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		    				{
 		    					ammostorage.updateAmmo(stack.getItem(), stack.getCount());
 		    					stack.shrink(stack.getCount());
+		    					sendUpdateMsg(player, world, blockpos);
 		    					return InteractionResult.PASS;
 		    				}
 		    				//Entire stack cannot fit, so lets try to fit what we can.
@@ -114,18 +115,21 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		    					{
 		    						ammostorage.updateAmmo(stack.getItem(), availablespace);
 			    					stack.shrink(availablespace);
+			    					sendUpdateMsg(player, world, blockpos);
 			    					return InteractionResult.PASS;
 		    					}
 		    					else
 		    					{
-		    						return InteractionResult.FAIL;
+		    						sendUpdateMsg(player, world, blockpos);
+		    		    	    	return InteractionResult.PASS;
 		    					}
 		    				}
 		    			}
 					}
 		    		else
 		    		{
-		    			return InteractionResult.PASS;
+		    			sendUpdateMsg(player, world, blockpos);
+		    	    	return InteractionResult.PASS;
 		    		}
 	    		}
 	    	}
@@ -137,11 +141,10 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    			stack.shrink(stack.getCount());
 	    			return InteractionResult.PASS;
 				}
+	    		sendUpdateMsg(player, world, blockpos);
+    	    	return InteractionResult.PASS;
 	    	}
-	    	TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
-			message.append(new TranslatableComponent(ammostorage.getAmmo().getItem().getDescriptionId()));
-			message.append(")");
-			player.displayClientMessage(message, true);
+	    	sendUpdateMsg(player, world, blockpos);
 	    	return InteractionResult.PASS;
 		}
 		return InteractionResult.FAIL;
@@ -202,5 +205,14 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
             world.addFreshEntity(itementity);
 		}
 		super.onRemove(blockstate, world, blockpos, blockstate2, bool);
+	}
+	
+	private void sendUpdateMsg(Player player, Level world, BlockPos blockpos)
+	{
+		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
+		TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
+		message.append(new TranslatableComponent(ammostorage.getAmmo().getItem().getDescriptionId()));
+		message.append(")");
+		player.displayClientMessage(message, true);
 	}
 }
