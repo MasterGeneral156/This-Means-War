@@ -23,6 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.items.BulletItem;
+import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
 public class BlockAmmoStorage extends BaseEntityBlock implements EntityBlock {
 
@@ -38,7 +39,7 @@ public class BlockAmmoStorage extends BaseEntityBlock implements EntityBlock {
 	
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockpos, BlockState blockstate) {
-		return new BlockEntityAmmoStorage(blockpos, blockstate);
+		return TMWBlockEntityRegistry.ammo_box.get().create(blockpos, blockstate);
 	}
 	
 	public InteractionResult use(BlockState blockstate, Level world, BlockPos blockpos, Player player, InteractionHand hand, BlockHitResult blockhit) {
