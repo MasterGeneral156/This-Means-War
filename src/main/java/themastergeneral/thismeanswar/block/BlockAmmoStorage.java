@@ -1,10 +1,14 @@
 package themastergeneral.thismeanswar.block;
 
+import java.text.NumberFormat;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -121,7 +125,6 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 					}
 		    		else
 		    		{
-		    			//display ammo type and quantity
 		    			return InteractionResult.PASS;
 		    		}
 	    		}
@@ -135,6 +138,10 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    			return InteractionResult.PASS;
 				}
 	    	}
+	    	TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
+			message.append(new TranslatableComponent(ammostorage.getAmmo().getItem().getDescriptionId()));
+			message.append(")");
+			player.displayClientMessage(message, true);
 	    	return InteractionResult.FAIL;
 		}
 		return InteractionResult.FAIL;
