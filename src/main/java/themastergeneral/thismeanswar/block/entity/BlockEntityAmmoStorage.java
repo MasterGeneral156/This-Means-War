@@ -20,9 +20,9 @@ import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
 public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
-	private static int maxAmmo;
-	private static ItemStackHandler ammoType = new ItemStackHandler(1);
-	private static int ammoCount = 0;
+	int maxAmmo;
+	ItemStackHandler ammoType = new ItemStackHandler(1);
+	int ammoCount = 0;
 
 	public BlockEntityAmmoStorage(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
 		super(p_155228_, p_155229_, p_155230_);
