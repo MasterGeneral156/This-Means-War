@@ -74,4 +74,6 @@ public class TMWItems {
 	public static TMWBlockItem block_steel = new TMWBlockItem(TMWBlocks.block_steel);
 	
 	public static TMWBlockItem ammo_box = new TMWBlockItem(TMWBlocks.ammo_box);
+	public static TMWBlockItem ammo_box_medium = new TMWBlockItem(TMWBlocks.ammo_box_medium);
+	public static TMWBlockItem ammo_box_large = new TMWBlockItem(TMWBlocks.ammo_box_large);
 }

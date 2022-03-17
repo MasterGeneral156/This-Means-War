@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "thismeanswar:block/ammo_box_large" },
+        "facing=south": { "model": "thismeanswar:block/ammo_box_large", "y": 180 },
+        "facing=west":  { "model": "thismeanswar:block/ammo_box_large", "y": 270 },
+        "facing=east":  { "model": "thismeanswar:block/ammo_box", "y": 90 }
+    }
+}

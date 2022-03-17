@@ -14,4 +14,6 @@ public class TMWBlocks {
 	public static BlockBase block_brass = new BlockBase(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL).sound(SoundType.METAL));
 	
 	public static BlockAmmoStorage ammo_box = new BlockAmmoStorage(512);
+	public static BlockAmmoStorage ammo_box_medium = new BlockAmmoStorage(1024);
+	public static BlockAmmoStorage ammo_box_large = new BlockAmmoStorage(2048);
 }

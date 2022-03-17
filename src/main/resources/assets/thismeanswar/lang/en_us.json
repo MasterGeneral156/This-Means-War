@@ -57,5 +57,7 @@
 	"item.thismeanswar.dust_copper": "Copper Dust",
 	"item.thismeanswar.dust_iron": "Iron Dust",
 	"item.thismeanswar.dust_gold": "Gold Dust",
-	"block.thismeanswar.ammo_box": "Small Ammo Container"
+	"block.thismeanswar.ammo_box": "Small Ammo Container",
+	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
+	"block.thismeanswar.ammo_box_large": "Large Ammo Container"
 }

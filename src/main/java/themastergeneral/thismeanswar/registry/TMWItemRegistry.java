@@ -111,4 +111,6 @@ public class TMWItemRegistry {
 	
 	//Ammo Box
 	public static final RegistryObject<Item> ammo_box = ITEMS.register("ammo_box", () -> TMWItems.ammo_box);
+	public static final RegistryObject<Item> ammo_box_medium = ITEMS.register("ammo_box_medium", () -> TMWItems.ammo_box_medium);
+	public static final RegistryObject<Item> ammo_box_large = ITEMS.register("ammo_box_large", () -> TMWItems.ammo_box_large);
 }
