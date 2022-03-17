@@ -1,0 +1,15 @@
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
+Version: 0.0.7-Indev
+(03/17/2022, hh:mm)
+-=-=-=-=-=-=-=-=-=-=-=-
++Added Ammo Containers to store your rounds of ammo inside.
+	i) Comes in three tiers: Small, Medium, Large
+		a) Small stores 512 rounds.
+		b) Medium stores 1,024 rounds.
+		c) Large stores 2,048 rounds.
+*Fixed localization issue with tooltips on guns/mags.
+-Removed bullet names from firearm and magazine names.
++Added Crusher Recipe support... to add crusher in next build.
+
+-=-=-=-=-=-=-=-=-=-=-=-
