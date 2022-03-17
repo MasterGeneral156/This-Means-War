@@ -1,0 +1,8 @@
+{
+  "type": "thismeanswar:crushing",
+  "ingredient": {
+    "item": "thismeanswar:ingot_brass"
+  },
+  "result": "thismeanswar:dust_brass",
+  "cookingtime": 200
+}
