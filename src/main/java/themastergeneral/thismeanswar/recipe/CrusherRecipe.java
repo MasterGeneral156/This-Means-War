@@ -109,7 +109,7 @@ public class CrusherRecipe implements Recipe<Container> {
     public static class CrusherRecipeType implements RecipeType<CrusherRecipe> {
         @Override
         public String toString() {
-            return "thismeanswar:crusher";
+            return "crusher";
         }
     }
     
