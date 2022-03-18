@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+	  "name": "thismeanswar:ammo_box_medium",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thismeanswar:ammo_box_medium"
+        }
+      ]
+    }
+  ]
+}
