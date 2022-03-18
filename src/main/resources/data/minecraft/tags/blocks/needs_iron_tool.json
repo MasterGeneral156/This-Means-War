@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:ore_lead",
+	"thismeanswar:block_lead",
+	"thismeanswar:block_steel"
+  ]
+}
