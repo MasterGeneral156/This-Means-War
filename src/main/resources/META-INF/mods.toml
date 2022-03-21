@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[40.0.18,)" #mandatory
+loaderVersion="[40,)" #mandatory
 license="https://github.com/MasterGeneral156/This-Means-War/blob/main/LICENSE"
 issueTrackerURL="https://github.com/MasterGeneral156/This-Means-War/issues" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
