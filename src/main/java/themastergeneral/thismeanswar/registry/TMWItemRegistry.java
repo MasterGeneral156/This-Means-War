@@ -73,6 +73,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> dust_iron = ITEMS.register("dust_iron", () -> TMWItems.dust_iron);
 	public static final RegistryObject<Item> dust_gold = ITEMS.register("dust_gold", () -> TMWItems.dust_gold);
 	
+	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
+	
 	//Hammers
 	public static final RegistryObject<Item> hammer_iron = ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);
 	public static final RegistryObject<Item> hammer_diamond = ITEMS.register("hammer_diamond", () -> TMWItems.hammer_diamond);
