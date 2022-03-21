@@ -59,5 +59,6 @@
 	"item.thismeanswar.dust_gold": "Gold Dust",
 	"block.thismeanswar.ammo_box": "Small Ammo Container",
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
-	"block.thismeanswar.ammo_box_large": "Large Ammo Container"
+	"block.thismeanswar.ammo_box_large": "Large Ammo Container",
+	"block.thismeanswar.crusher": "Burning Crusher"
 }

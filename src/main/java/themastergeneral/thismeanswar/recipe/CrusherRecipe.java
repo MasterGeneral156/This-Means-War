@@ -9,7 +9,6 @@ import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.protocol.Packet;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
@@ -21,10 +20,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.crafting.IIngredientSerializer;
-import net.minecraftforge.common.util.JsonUtils;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
@@ -100,10 +96,6 @@ public class CrusherRecipe implements Recipe<Container> {
     @Override
     public RecipeType<?> getType() {
         return TMWRecipeTypeRegistration.CRUSHING_RECIPE;
-    }
-
-    public ItemStack getSecondRecipeOutput() {
-        return ItemStack.EMPTY;
     }
 
     public static class CrusherRecipeType implements RecipeType<CrusherRecipe> {
