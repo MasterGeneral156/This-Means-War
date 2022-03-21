@@ -11,4 +11,6 @@ public class TMWBlocks {
 	public static BlockAmmoStorage ammo_box = new BlockAmmoStorage(512);
 	public static BlockAmmoStorage ammo_box_medium = new BlockAmmoStorage(1024);
 	public static BlockAmmoStorage ammo_box_large = new BlockAmmoStorage(2048);
+	
+	public static BlockCrusher crusher = new BlockCrusher();
 }

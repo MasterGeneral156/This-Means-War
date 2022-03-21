@@ -76,6 +76,7 @@ public class TMWItemRegistry {
 	//Hammers
 	public static final RegistryObject<Item> hammer_iron = ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);
 	public static final RegistryObject<Item> hammer_diamond = ITEMS.register("hammer_diamond", () -> TMWItems.hammer_diamond);
+	public static final RegistryObject<Item> hammer_steel = ITEMS.register("hammer_steel", () -> TMWItems.hammer_steel);
 	public static final RegistryObject<Item> hammer_creative = ITEMS.register("hammer_creative", () -> TMWItems.hammer_creative);
 	
 	//Bullet casts
@@ -113,4 +114,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> ammo_box = ITEMS.register("ammo_box", () -> TMWItems.ammo_box);
 	public static final RegistryObject<Item> ammo_box_medium = ITEMS.register("ammo_box_medium", () -> TMWItems.ammo_box_medium);
 	public static final RegistryObject<Item> ammo_box_large = ITEMS.register("ammo_box_large", () -> TMWItems.ammo_box_large);
+	
+	//Processing
+	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 }

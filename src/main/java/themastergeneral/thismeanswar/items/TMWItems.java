@@ -54,8 +54,12 @@ public class TMWItems {
 	
 	public static BaseTMWItem plate_lead = new BasicItem();
 	
+	//Parts for gun craftings
+	public static BaseTMWItem kevlar_raw = new BasicItem();
+	
 	//Hammers for pressing
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
+	public static DurabilityItem hammer_steel = new DurabilityItem(213);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(512);
 	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
 	
@@ -76,4 +80,5 @@ public class TMWItems {
 	public static TMWBlockItem ammo_box = new TMWBlockItem(TMWBlocks.ammo_box);
 	public static TMWBlockItem ammo_box_medium = new TMWBlockItem(TMWBlocks.ammo_box_medium);
 	public static TMWBlockItem ammo_box_large = new TMWBlockItem(TMWBlocks.ammo_box_large);
+	public static TMWBlockItem crusher = new TMWBlockItem(TMWBlocks.crusher);
 }
