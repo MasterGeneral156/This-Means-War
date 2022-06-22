@@ -9,7 +9,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -31,8 +33,10 @@ public class TMWMain
     public static final CreativeModeTab ITEMGROUP = new TMWItemGroup();
 
     public TMWMain() {
-    	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-    	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
+    	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+    	modBus.addListener(this::setup);
+    	
+    	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
     	MinecraftForge.EVENT_BUS.register(this);
         TMWItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
