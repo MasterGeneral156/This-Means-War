@@ -67,8 +67,8 @@ public class BaseGunItem extends BaseTMWItem {
 	 * Use to create a firearm that must have bullet fed directly inside.
 	 * @param Integer shotTime 			Ticks between shots
 	 * @param BulletItem bullet			Bullet item, for the bullet sprite.
-	 * @param Integer maxAmmo			Maximum bullets in gun.
 	 * @param Float damage				Gun damage
+	 * @param Integer maxAmmo			Maximum bullets in gun.
 	 * @param Float bulletSpeed			Bullet speed
 	 * @param Float bulletSpread		Bullet spread
 	 */
