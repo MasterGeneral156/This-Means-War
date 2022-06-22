@@ -92,6 +92,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_556 = ITEMS.register("casing_556", () -> TMWItems.casing_556);
 	public static final RegistryObject<Item> casing_12g = ITEMS.register("casing_12g", () -> TMWItems.casing_12g);
 	
+	//Health
+	public static final RegistryObject<Item> bandage = ITEMS.register("bandage", () -> TMWItems.bandage);
+	
 	//Primers
 	public static final RegistryObject<Item> primer_pistol = ITEMS.register("primer_pistol", () -> TMWItems.primer_pistol);
 	public static final RegistryObject<Item> primer_rifle = ITEMS.register("primer_rifle", () -> TMWItems.primer_rifle);
