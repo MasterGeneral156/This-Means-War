@@ -14,7 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import themastergeneral.thismeanswar.ModConstant;
 import themastergeneral.thismeanswar.TMWMain;
 
 public class BaseHealingItem extends BaseTMWItem {
