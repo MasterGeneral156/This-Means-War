@@ -94,6 +94,7 @@ public class TMWItemRegistry {
 	
 	//Health
 	public static final RegistryObject<Item> bandage = ITEMS.register("bandage", () -> TMWItems.bandage);
+	public static final RegistryObject<Item> gauze = ITEMS.register("gauze", () -> TMWItems.gauze);
 	
 	//Primers
 	public static final RegistryObject<Item> primer_pistol = ITEMS.register("primer_pistol", () -> TMWItems.primer_pistol);

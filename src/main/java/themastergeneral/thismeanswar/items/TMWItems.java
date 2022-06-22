@@ -69,7 +69,8 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	
 	//Health items
-	public static BaseHealingItem bandage = new BaseHealingItem(2.0F, 5);
+	public static BaseHealingItem bandage = new BaseHealingItem(2.5F, 3);
+	public static BaseHealingItem gauze = new BaseHealingItem(4.75F, 5);
 	
 	//Blocks
 	public static TMWBlockItem ore_brass = new TMWBlockItem(TMWBlocks.ore_brass);
