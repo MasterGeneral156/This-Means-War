@@ -8,8 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import themastergeneral.thismeanswar.ModConstant;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 
 public class GrenadeItem extends BaseTMWItem {
@@ -39,7 +39,7 @@ public class GrenadeItem extends BaseTMWItem {
 		worldIn.addFreshEntity(bulletEntity);
 		
 		playerIn.awardStat(Stats.ITEM_USED.get(this));
-		playerIn.getCooldowns().addCooldown(this, ModConstant.misc.GRENADE_THROW_COOLDOWN);
+		playerIn.getCooldowns().addCooldown(this, BalanceConfig.THROWABLE_COOLDOWN.get());
 		
 		stackIn.shrink(1);
 		return InteractionResultHolder.sidedSuccess(stackIn, worldIn.isClientSide());

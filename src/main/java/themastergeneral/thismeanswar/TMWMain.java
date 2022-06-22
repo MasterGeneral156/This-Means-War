@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.config.ModConfigs;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
@@ -39,6 +40,7 @@ public class TMWMain
         TMWBlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         TMWBlockEntityRegistry.TILES.register(FMLJavaModLoadingContext.get().getModEventBus());
         TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModConfigs.register();
     }
 
     @SubscribeEvent
