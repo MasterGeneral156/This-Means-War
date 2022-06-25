@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -187,17 +188,23 @@ public class BaseGunItem extends BaseTMWItem {
 		else
 			return false;
 	}
-	//TODO: Fix the ammo bar.
 	@Override
     public int getBarWidth(ItemStack stack) 
 	{
-		return Math.round(13.0F - getCurrentAmmo(stack) * 13.0F / getMaxAmmo(stack)) * -1;	//lol hacky
+		return Math.round(13.0F - (getMaxAmmo(stack) -getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
 	}
 	
 	public void shootUpdateMag(ItemStack stack)
 	{
 		removeAmmoFromGun(stack);
 	}
+
+   public int getBarColor(ItemStack stack) 
+   {
+      float stackMaxDamage = this.getMaxAmmo(stack);
+      float f = Math.max(0.0F, (stackMaxDamage - (float)this.getCurrentAmmo(stack)) / stackMaxDamage);
+      return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
+   }
 	
 	//Remove ammo one at a time... called when we manually unload the mags.
 	//Returns true if ammo is removed, false if not.
