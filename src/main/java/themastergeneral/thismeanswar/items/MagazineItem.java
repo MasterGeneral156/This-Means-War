@@ -159,7 +159,7 @@ public class MagazineItem extends BaseTMWItem {
 	@Override
     public int getBarWidth(ItemStack stack) 
 	{
-		return Math.round(13.0F - (getMaxAmmo(stack) -getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
+		return Math.round(13.0F - (getMaxAmmo(stack) - getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
 	}
 	
 	public int getCurrentAmmo(ItemStack stackIn)
