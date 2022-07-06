@@ -206,7 +206,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	{
 		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
 		TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
-		message.append(new TranslatableComponent(ammostorage.getAmmo().getItem().getDescriptionId()));
+		message.append(new TranslatableComponent(ammostorage.getAmmoItem().getDescriptionId()));
 		message.append(")");
 		player.displayClientMessage(message, true);
 	}
