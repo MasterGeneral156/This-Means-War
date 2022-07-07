@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:primer_pistol",
-	"thismeanswar:primer_rifle",
-	"thismeanswar:primer_shotgun"
+    "#thismeanswar:primer/pistol",
+	"#thismeanswar:primer/rifle",
+	"#thismeanswar:primer/shotgun"
   ]
 }
