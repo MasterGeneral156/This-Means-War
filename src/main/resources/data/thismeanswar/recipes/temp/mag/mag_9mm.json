@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:ingots/steel"
+  },
+  "result": "thismeanswar:magazine_9mm",
+  "count": 1
+}

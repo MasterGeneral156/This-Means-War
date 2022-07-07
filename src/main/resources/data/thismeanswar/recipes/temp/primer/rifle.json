@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:fire_charge"
+  },
+  "result": "thismeanswar:primer_rifle",
+  "count": 3
+}
