@@ -1,13 +1,33 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.0.15-Indev
+(07/06/2022, 22:12)
+-=-=-=-=-=-=-=-=-=-=-=-
+//Really bad at doing these lmao
+
++Added recipes for Medium and Large ammo containers.
++Added M1911.
+	#) 	Requires M1911 Magazine
+	#)	Chambered in .45 ACP
+	#)	7 round capacity
+	#) Slightly better than Glock 26
++Added Hand Saw.
+	i) Used in some crafting recipes.
++Added temp recipes for weapons, primers and magazines, to be removed later.
+*Fixed last remaining issues with mags/guns durability bars.
+*Tweaked Dynamite Stick's recipe to now use the Hand Saw.
+*Fixed ammo boxes not keeping their contents after reload.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.0.7-Indev
 (03/17/2022, hh:mm)
 -=-=-=-=-=-=-=-=-=-=-=-
 +Added Ammo Containers to store your rounds of ammo inside.
-	i) Comes in three tiers: Small, Medium, Large
-		a) Small stores 512 rounds.
-		b) Medium stores 1,024 rounds.
-		c) Large stores 2,048 rounds.
+	i) 	Comes in three tiers: Small, Medium, Large
+			a) 	Small stores 512 rounds.
+			b) 	Medium stores 1,024 rounds.
+			c) 	Large stores 2,048 rounds.
 *Fixed localization issue with tooltips on guns/mags.
 -Removed bullet names from firearm and magazine names.
 +Added Crusher Recipe support... to add crusher in next build.
