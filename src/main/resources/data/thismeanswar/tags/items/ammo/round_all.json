@@ -5,6 +5,7 @@
     "#thismeanswar:ammo/round_12g",
     "#thismeanswar:ammo/round_223",
     "#thismeanswar:ammo/round_556",
-    "#thismeanswar:ammo/round_9mm"
+    "#thismeanswar:ammo/round_9mm",
+	"#thismeanswar:ammo/round_45"
   ]
 }

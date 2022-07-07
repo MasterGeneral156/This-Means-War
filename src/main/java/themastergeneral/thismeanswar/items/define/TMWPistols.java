@@ -17,4 +17,10 @@ public class TMWPistols
 												TMWItems.round_9mm, BalanceConfig.GLOCK_26_DMG.get().floatValue(), 
 												BalanceConfig.GLOCK_26_SPD.get().floatValue(),
 												BalanceConfig.GLOCK_26_SPRD.get().floatValue());
+	
+	public static BaseGunItem m1911 = new BaseGunItem(BalanceConfig.M1911_FIRE_RATE.get(), 
+			BalanceConfig.M1911_RLD_TIME.get(), TMWItems.magazine_m1911, 
+			TMWItems.round_45, BalanceConfig.M1911_DMG.get().floatValue(), 
+			BalanceConfig.M1911_SPD.get().floatValue(),
+			BalanceConfig.M1911_SPRD.get().floatValue());
 }

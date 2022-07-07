@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:casing_9mm",
-	"thismeanswar:casing_556",
-	"thismeanswar:casing_223",
-	"thismeanswar:casing_12g"
+    "#thismeanswar:casing/9mm",
+	"#thismeanswar:casing/556",
+	"#thismeanswar:casing/223",
+	"#thismeanswar:casing/12g",
+	"#thismeanswar:casing/45"
   ]
 }
