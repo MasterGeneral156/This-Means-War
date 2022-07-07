@@ -1,64 +1,89 @@
 {
-	"item.thismeanswar.round_9mm": "9mm Round",
+	
+	"itemGroup.thismeanswar": "This Means War!",
+	
 	"item.thismeanswar.magazine_9mm": "9mm Magazine",
 	"item.thismeanswar.magazine_9mm_large": "9mm Magazine",
+	"item.thismeanswar.magazine_556": "M4/AR Magazine",
+	"item.thismeanswar.magazine_223": "M4/AR Magazine",
+	"item.thismeanswar.magazine_m1911": "M1911 Magazine",
+	
 	"item.thismeanswar.beretta_92_fs": "Beretta 92 FS",
 	"item.thismeanswar.glock_26": "Glock 26",
 	"item.thismeanswar.remmington_m870": "Remmington M870",
-	"item.thismeanswar.round_12g": "12g Shell",
 	"item.thismeanswar.tmg_carbine": "TMG's Carbine",
 	"item.thismeanswar.sawn_off_double_barrel_12g": "Sawn-Off Double-Barrel",
 	"item.thismeanswar.double_barrel_12g": "Double-Barrel",
 	"item.thismeanswar.sawn_off_remmington_m870": "Sawn-Off Remmington M870",
-	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
-	"itemGroup.thismeanswar": "This Means War!",
-	"item.thismeanswar.bazooka": "Bazooka",
-	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
-	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
-	"item.thismeanswar.hand_grenade": "Hand Grenade",
 	"item.thismeanswar.springfield_saint_223": "Springfield Saint",
 	"item.thismeanswar.springfield_saint_556": "Springfield Saint",
+	"item.thismeanswar.bazooka": "Bazooka",
+	"item.thismeanswar.m1911": "M1911",
+	
+	"item.thismeanswar.round_12g": "12g Shell",
+	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
+	"item.thismeanswar.round_9mm": "9mm Round",
 	"item.thismeanswar.round_556": "5.56 Round",
 	"item.thismeanswar.round_223": ".223 Round",
-	"item.thismeanswar.magazine_556": "M4/AR Magazine",
-	"item.thismeanswar.magazine_223": "M4/AR Magazine",
+	"item.thismeanswar.round_45": ".45ACP Round",
+	
+	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
+	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
+	"item.thismeanswar.hand_grenade": "Hand Grenade",
+
 	"item.thismeanswar.hammer_iron": "Iron Hammer",
+	"item.thismeanswar.hammer_steel": "Steel Hammer",
 	"item.thismeanswar.hammer_diamond": "Diamond Hammer",
 	"item.thismeanswar.hammer_creative": "Creative Hammer",
+	"item.thismeanswar.hand_saw": "Manual Saw",
+	
 	"item.thismeanswar.bullet_cast_9mm": "Bullet Cast (9mm)",
 	"item.thismeanswar.bullet_cast_556": "Bullet Cast (5.56)",
 	"item.thismeanswar.bullet_cast_223": "Bullet Cast (.223)",
+	
 	"item.thismeanswar.casing_9mm": "9mm Casing",
 	"item.thismeanswar.casing_223": ".223 Casing",
 	"item.thismeanswar.casing_556": "5.56 Casing",
 	"item.thismeanswar.casing_12g": "12g Casing",
+	"item.thismeanswar.casing_45": ".45ACP Casing",
+	
 	"item.thismeanswar.primer_pistol": "Pistol Primer",
 	"item.thismeanswar.primer_rifle": "Rifle Primer",
 	"item.thismeanswar.primer_shotgun": "Shotgun Primer",
+	
 	"item.thismeanswar.bullet_tip_9mm": "9mm Bullet Tip",
 	"item.thismeanswar.bullet_tip_223": "2.23 Bullet Tip",
 	"item.thismeanswar.bullet_tip_556": "5.56 Bullet Tip",
+	"item.thismeanswar.bullet_tip_45": ".45ACP Bullet Tip",
 	"item.thismeanswar.bullet_tip_buckshot": "Buckshot",
+	
 	"block.thismeanswar.ore_lead": "Lead Ore",
+		"block.thismeanswar.ore_brass": "Brass Ore",
+		
 	"block.thismeanswar.block_lead": "Block of Lead",
-	"item.thismeanswar.ingot_lead": "Lead Ingot",
-	"item.thismeanswar.nugget_lead": "Lead Nugget",
-	"item.thismeanswar.dust_lead": "Lead Dust",
-	"item.thismeanswar.plate_lead": "Lead Plate",
-	"block.thismeanswar.ore_brass": "Brass Ore",
 	"block.thismeanswar.block_brass": "Block of Brass",
-	"item.thismeanswar.ingot_brass": "Brass Ingot",
-	"item.thismeanswar.nugget_brass": "Brass Nugget",
-	"item.thismeanswar.dust_brass": "Brass Dust",
 	"block.thismeanswar.block_steel": "Block of Steel",
+	
+	"item.thismeanswar.ingot_lead": "Lead Ingot",
+	"item.thismeanswar.ingot_brass": "Brass Ingot",
 	"item.thismeanswar.ingot_steel": "Steel Ingot",
+	
+	"item.thismeanswar.nugget_lead": "Lead Nugget",
+	"item.thismeanswar.nugget_brass": "Brass Nugget",
 	"item.thismeanswar.nugget_steel": "Steel Nugget",
+	
+	"item.thismeanswar.dust_lead": "Lead Dust",
+	"item.thismeanswar.dust_brass": "Brass Dust",
 	"item.thismeanswar.dust_steel": "Steel Dust",
 	"item.thismeanswar.dust_copper": "Copper Dust",
 	"item.thismeanswar.dust_iron": "Iron Dust",
 	"item.thismeanswar.dust_gold": "Gold Dust",
+	
+	"item.thismeanswar.plate_lead": "Lead Plate",
+	
 	"block.thismeanswar.ammo_box": "Small Ammo Container",
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
 	"block.thismeanswar.ammo_box_large": "Large Ammo Container",
+	
 	"block.thismeanswar.crusher": "Burning Crusher"
 }
