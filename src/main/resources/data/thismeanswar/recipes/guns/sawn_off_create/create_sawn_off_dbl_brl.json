@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:create_sawn_off",
+  "ingredients": [
+    {
+      "item": "thismeanswar:double_barrel_12g", "data": 32767
+    },
+	{
+		"item": "thismeanswar:hand_saw", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:sawn_off_double_barrel_12g"
+  }
+}
