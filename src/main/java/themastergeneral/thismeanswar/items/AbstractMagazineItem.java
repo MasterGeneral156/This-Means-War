@@ -75,40 +75,56 @@ public class AbstractMagazineItem extends AbstractModItem {
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
-		if (playerIn.isCrouching())
+		//when in main hand...
+		if (handIn == InteractionHand.MAIN_HAND && playerIn.getOffhandItem().isEmpty())
 		{
-			if (getCurrentAmmo(mag) > 0)
+			if (playerIn.isCrouching())
 			{
-				removeAmmoFromMag(mag);
-				playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
-				playerIn.getCooldowns().addCooldown(this, 8);
-			}
-		}
-		else
-		{
-			if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
-			{
-				int slotID = -1;
-				for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+				if (getCurrentAmmo(mag) > 0)
 				{
-					ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-					if (itemstack1.getItem() == returnBulletItem())
+					removeAmmoFromMag(mag);
+					playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
+					playerIn.getCooldowns().addCooldown(this, 8);
+					playerIn.awardStat(Stats.ITEM_USED.get(this));
+				}
+			}
+			else
+			{
+				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+				{
+					int slotID = -1;
+					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
-						slotID=i;
-						break;
+						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
+						if (itemstack1.getItem() == returnBulletItem())
+						{
+							slotID=i;
+							break;
+						}
+					}
+					
+					if (slotID > -1)
+					{
+						ItemStack ibullet = playerIn.getInventory().getItem(slotID);
+						addAmmoToMag(mag);
+						ibullet.shrink(1);
+						playerIn.getCooldowns().addCooldown(this, 8);
+						playerIn.awardStat(Stats.ITEM_USED.get(this));
 					}
 				}
-				
-				if (slotID > -1)
+			}
+		}
+		if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.mag_capacity_upgrade))
+		{
+			if (playerIn.isCrouching())
+			{
+				if (getCapacityUpgrades(mag) < this.maxCapacityUpgrades)
 				{
-					ItemStack ibullet = playerIn.getInventory().getItem(slotID);
-					addAmmoToMag(mag);
-					ibullet.shrink(1);
-					playerIn.getCooldowns().addCooldown(this, 8);
+					upgradeMagCapacity(mag);
+					playerIn.getMainHandItem().shrink(1);
 				}
 			}
 		}
-		playerIn.awardStat(Stats.ITEM_USED.get(this));
 		return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 	}
 	
@@ -150,7 +166,8 @@ public class AbstractMagazineItem extends AbstractModItem {
 			CompoundTag compoundnbt = new CompoundTag();
 			int newAmmo = currentAmmo + toAdd;
 			compoundnbt.putInt("currentAmmo", newAmmo);
-			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("maxAmmo", maxAmmo);
+			compoundnbt.putInt("capUpgrades", getCapacityUpgrades(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -201,11 +218,19 @@ public class AbstractMagazineItem extends AbstractModItem {
 	
 	public int getMaxAmmo(ItemStack stackIn)
 	{
+		
 		if (stackIn.hasTag())
 		{
+			int capUpgrades = this.getCapacityUpgrades(stackIn);
 			int maxAmmo = stackIn.getTag().getInt("maxAmmo");
+			double capBonus = (maxAmmo * 0.1) * capUpgrades;
 			
-			return (int) (maxAmmo + (Math.round((maxAmmo * 0.1) * this.getCapacityUpgrades(stackIn))));	//10% extra ammo per level?
+			//Just in case the mags are too small ;)
+			//Yw you pistol users
+			if (capBonus < 3.0D && capUpgrades > 0)
+				capBonus = 3.0D;
+			
+			return (int) (maxAmmo + capBonus);	//10% extra ammo per level?
 		}
 		else
 		{

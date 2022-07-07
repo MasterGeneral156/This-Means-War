@@ -58,6 +58,8 @@ public class TMWItems {
 	
 	public static AbstractModItem plate_lead = new BasicItem();
 	
+	public static AbstractModItem mag_capacity_upgrade = new BasicItem(3);
+	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();
 	

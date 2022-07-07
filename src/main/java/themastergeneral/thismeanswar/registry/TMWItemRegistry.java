@@ -113,6 +113,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_tip_buckshot = ITEMS.register("bullet_tip_buckshot", () -> TMWItems.bullet_tip_buckshot);
 	public static final RegistryObject<Item> bullet_tip_45 = ITEMS.register("bullet_tip_45", () -> TMWItems.bullet_tip_45);
 	
+	//Upgrades
+	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
+	
 	//Ores
 	public static final RegistryObject<Item> ore_lead = ITEMS.register("ore_lead", () -> TMWItems.ore_lead);
 	public static final RegistryObject<Item> ore_brass = ITEMS.register("ore_brass", () -> TMWItems.ore_brass);
