@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:ammo_box",
+    "pattern": [
+        "SFS",
+        "WAW",
+		"WAW"
+    ],
+    "key": {
+		"S": { "item": "minecraft:netherite_scrap" },
+		"F": { "tag": "minecraft:carpets" },
+		"A": { "item": "thismeanswar:ammo_box_medium" },
+		"W": { "tag": "forge:storage_blocks/steel" }
+    },
+    "result": {
+        "item": "thismeanswar:ammo_box_large",
+		"count": 1
+    }
+}

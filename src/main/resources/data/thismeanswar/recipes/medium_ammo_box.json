@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:ammo_box",
+    "pattern": [
+        "SFS",
+        "WAW",
+		"WAW"
+    ],
+    "key": {
+		"S": { "item": "minecraft:smooth_stone_slab" },
+		"F": { "tag": "minecraft:carpets" },
+		"A": { "item": "thismeanswar:ammo_box" },
+		"W": { "tag": "minecraft:terracotta" }
+    },
+    "result": {
+        "item": "thismeanswar:ammo_box_medium",
+		"count": 1
+    }
+}
