@@ -68,7 +68,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 			BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
 		    
 	    	//Make sure the ammo item is actually set....
-	    	if (ammostorage.getAmmo() != ItemStack.EMPTY)
+	    	if (!ammostorage.getAmmo().isEmpty())
 	    	{
 	    		//Player is crouching, so they remove items.
 	    		if (player.isCrouching())

@@ -1,24 +1,25 @@
 package themastergeneral.thismeanswar.block.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Clearable;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.items.ItemStackHandler;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
 public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
 	int maxAmmo;
-	ItemStackHandler ammoType = new ItemStackHandler(1);
+	NonNullList<ItemStack> ammoType = NonNullList.withSize(1, ItemStack.EMPTY);
 	int ammoCount = 0;
 
 	public BlockEntityAmmoStorage(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
@@ -40,7 +41,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	@Override
 	public void load(CompoundTag tag) {
 		super.load(tag);
-		ammoType.deserializeNBT(tag.getCompound("AmmoItem"));
+		ContainerHelper.loadAllItems(tag, this.ammoType);
 		ammoCount = tag.getInt("AmmoQty");
 		maxAmmo = tag.getInt("AmmoMax");
 	}
@@ -48,9 +49,8 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	@Override
 	protected void saveAdditional(CompoundTag tag) 
 	{
-
 		super.saveAdditional(tag);
-		tag.put("AmmoItem", getAmmo().serializeNBT());
+		ContainerHelper.saveAllItems(tag, this.ammoType, true);
 		tag.putInt("AmmoQty", getAmmoQuantity());
 		tag.putInt("AmmoMax", getAmmoMaxQuantity());
 	}
@@ -58,6 +58,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	@Override
 	public CompoundTag getUpdateTag() 
 	{
+	      
 		CompoundTag compound = new CompoundTag();
         saveAdditional(compound);
         return compound;
@@ -85,7 +86,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
 	//Set ammo type
 	public void setContainerAmmo(ItemStack stack) {
-		ammoType.setStackInSlot(0, stack);
+		ammoType.set(0, new ItemStack(stack.getItem()));
 		this.setChanged();
 	}
 	
@@ -96,7 +97,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	}
 
 	public ItemStack getAmmo() {
-		return ammoType.getStackInSlot(0);
+		return ammoType.get(0);
 	}
 	
 	public int getAmmoQuantity() {
@@ -114,7 +115,7 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 	
 	//Call to update the ammo
 	public void updateAmmo(Item item, int count) {
-		if ((item != getAmmoItem()) && (getAmmo() == ItemStack.EMPTY))
+		if ((item != getAmmoItem()) && (getAmmo().isEmpty()))
 			setContainerAmmo(new ItemStack(item));
 		setContainerAmmoQty(getAmmoQuantity() + (count));
 	}
