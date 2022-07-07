@@ -13,81 +13,108 @@ public class BalanceConfig {
 	public static ForgeConfigSpec.DoubleValue SAWN_OFF_XTRA_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_SPREAD;
 	
+	//9mm Round
 	public static ForgeConfigSpec.DoubleValue BASE_9MM_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_9MM_SPD;
 	public static ForgeConfigSpec.DoubleValue BASE_9MM_SPRD;
 	
+	//12g round
 	public static ForgeConfigSpec.DoubleValue BASE_12G_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_12G_SPD;
 	public static ForgeConfigSpec.DoubleValue BASE_12G_SPRD;
 	
+	//5.56 Round
 	public static ForgeConfigSpec.DoubleValue BASE_556_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_556_SPD;
 	public static ForgeConfigSpec.DoubleValue BASE_556_SPRD;
 	
+	//.223 Round
 	public static ForgeConfigSpec.DoubleValue BASE_223_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_223_SPD;
 	public static ForgeConfigSpec.DoubleValue BASE_223_SPRD;
 	
+	//.45ACP Round
+	public static ForgeConfigSpec.DoubleValue BASE_45ACP_DMG;
+	public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPD;
+	public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPRD;
+	
+	//TMG Carbine
 	public static ForgeConfigSpec.IntValue TMG_CARBINE_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue TMG_CARBINE_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_DMG;
 	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPD;
 	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPRD;
 	
+	//Saint AR 223
 	public static ForgeConfigSpec.IntValue SAINT_AR_223_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue SAINT_AR_223_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_223_DMG;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_223_SPD;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_223_SPRD;
 	
+	//Saint AR 556
 	public static ForgeConfigSpec.IntValue SAINT_AR_556_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue SAINT_AR_556_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_556_DMG;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_556_SPD;
 	public static ForgeConfigSpec.DoubleValue SAINT_AR_556_SPRD;
 	
+	//Bazooka
 	public static ForgeConfigSpec.IntValue BAZOOKA_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue BAZOOKA_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue BAZOOKA_DMG;
 	public static ForgeConfigSpec.DoubleValue BAZOOKA_SPD;
 	
+	//Beretta 92 Fs
 	public static ForgeConfigSpec.IntValue BERETTA_92_FS_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue BERETTA_92_FS_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue BERETTA_92_FS_DMG;
 	public static ForgeConfigSpec.DoubleValue BERETTA_92_FS_SPD;
 	public static ForgeConfigSpec.DoubleValue BERETTA_92_FS_SPRD;
 	
+	//Glock 26
 	public static ForgeConfigSpec.IntValue GLOCK_26_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue GLOCK_26_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue GLOCK_26_DMG;
 	public static ForgeConfigSpec.DoubleValue GLOCK_26_SPD;
 	public static ForgeConfigSpec.DoubleValue GLOCK_26_SPRD;
 	
+	//M1911
+	public static ForgeConfigSpec.IntValue M1911_FIRE_RATE;
+	public static ForgeConfigSpec.IntValue M1911_RLD_TIME;
+	public static ForgeConfigSpec.DoubleValue M1911_DMG;
+	public static ForgeConfigSpec.DoubleValue M1911_SPD;
+	public static ForgeConfigSpec.DoubleValue M1911_SPRD;
+	
+	//Remmington M870
 	public static ForgeConfigSpec.IntValue M870_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue M870_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue M870_DMG;
 	public static ForgeConfigSpec.DoubleValue M870_SPD;
 	public static ForgeConfigSpec.DoubleValue M870_SPRD;
 	
+	//Sawn-Off Remmington M870
 	public static ForgeConfigSpec.IntValue SO_M870_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue SO_M870_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue SO_M870_DMG;
 	public static ForgeConfigSpec.DoubleValue SO_M870_SPD;
 	public static ForgeConfigSpec.DoubleValue SO_M870_SPRD;
 	
+	//Double-barreled shotgun
 	public static ForgeConfigSpec.IntValue DOUBLE_BARREL_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue DOUBLE_BARREL_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue DOUBLE_BARREL_DMG;
 	public static ForgeConfigSpec.DoubleValue DOUBLE_BARREL_SPD;
 	public static ForgeConfigSpec.DoubleValue DOUBLE_BARREL_SPRD;
 	
+	//Sawn-off double-barrled shotgun
 	public static ForgeConfigSpec.IntValue SO_DOUBLE_BARREL_FIRE_RATE;
 	public static ForgeConfigSpec.IntValue SO_DOUBLE_BARREL_RLD_TIME;
 	public static ForgeConfigSpec.DoubleValue SO_DOUBLE_BARREL_DMG;
 	public static ForgeConfigSpec.DoubleValue SO_DOUBLE_BARREL_SPD;
 	public static ForgeConfigSpec.DoubleValue SO_DOUBLE_BARREL_SPRD;
 	
+	//Throwables
 	public static ForgeConfigSpec.DoubleValue GRENADE_DMG;
 	public static ForgeConfigSpec.DoubleValue DYNA_STICK_DMG;
 	public static ForgeConfigSpec.DoubleValue NUKE_DMG;
@@ -128,6 +155,22 @@ public class BalanceConfig {
         BASE_9MM_SPRD = COMMON_BUILDER
                 .comment("Base spread for round.")
                 .defineInRange("Round Spread", 1.011, 1.011, 1.011);
+
+        COMMON_BUILDER.pop();
+    }
+    
+    public static void register45Config(ForgeConfigSpec.Builder COMMON_BUILDER) {
+    	COMMON_BUILDER.comment("Balance reference for the .45ACP round. Does not effect in-game at all.").push("45ACP Round");
+
+        BASE_45ACP_DMG = COMMON_BUILDER
+                .comment("Base damage for round.")
+                .defineInRange("Round Damage", 6.862, 6.862, 6.862);
+        BASE_45ACP_SPD = COMMON_BUILDER
+                .comment("Base speed for round.")
+                .defineInRange("Round Speed", 11.214, 11.214, 11.214);
+        BASE_45ACP_SPRD = COMMON_BUILDER
+                .comment("Base spread for round.")
+                .defineInRange("Round Spread", 1.023, 1.023, 1.023);
 
         COMMON_BUILDER.pop();
     }
@@ -305,6 +348,28 @@ public class BalanceConfig {
     	GLOCK_26_SPRD = COMMON_BUILDER
                 .comment("Bullet spread")
                 .defineInRange("spread", 1.028, 0, Double.MAX_VALUE);
+
+        COMMON_BUILDER.pop();
+    }
+    
+    public static void registerM1911Config(ForgeConfigSpec.Builder COMMON_BUILDER) {
+    	COMMON_BUILDER.comment("Balance settings for the M1911 weapon.").push("M1911 (45ACP)");
+
+    	M1911_FIRE_RATE = COMMON_BUILDER
+                .comment("Delay (in ticks) before firing again")
+                .defineInRange("fireRate", 7, 1, Integer.MAX_VALUE);
+    	M1911_RLD_TIME = COMMON_BUILDER
+                .comment("Time (in ticks) to reload")
+                .defineInRange("fireRate", 54, 1, Integer.MAX_VALUE);
+    	M1911_DMG = COMMON_BUILDER
+                .comment("Damage received when hit")
+                .defineInRange("damage", 7.1245, 0, Double.MAX_VALUE);
+    	M1911_SPD = COMMON_BUILDER
+                .comment("Bullet speed")
+                .defineInRange("speed", 14.124, 0, Double.MAX_VALUE);
+    	M1911_SPRD = COMMON_BUILDER
+                .comment("Bullet spread")
+                .defineInRange("spread", 1.1, 0, Double.MAX_VALUE);
 
         COMMON_BUILDER.pop();
     }

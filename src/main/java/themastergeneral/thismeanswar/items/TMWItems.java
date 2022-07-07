@@ -10,6 +10,7 @@ public class TMWItems {
 	public static BaseTMWItem casing_556 = new BasicItem();
 	public static BaseTMWItem casing_223 = new BasicItem();
 	public static BaseTMWItem casing_12g = new BasicItem();
+	public static BaseTMWItem casing_45 = new BasicItem();
 	
 	//Primers
 	public static BaseTMWItem primer_pistol = new BasicItem();
@@ -21,6 +22,7 @@ public class TMWItems {
 	public static BaseTMWItem bullet_tip_556 = new BasicItem();
 	public static BaseTMWItem bullet_tip_223 = new BasicItem();
 	public static BaseTMWItem bullet_tip_buckshot = new BasicItem();
+	public static BaseTMWItem bullet_tip_45 = new BasicItem();
 	
 	//Bullets & Shells
 	public static BulletItem round_9mm = new BulletItem(casing_9mm, bullet_tip_9mm);
@@ -28,12 +30,14 @@ public class TMWItems {
 	public static BulletItem rocket_bazooka = new BulletItem();
 	public static BulletItem round_556 = new BulletItem(casing_556, bullet_tip_556);
 	public static BulletItem round_223 = new BulletItem(casing_223, bullet_tip_223);
+	public static BulletItem round_45 = new BulletItem(casing_45, bullet_tip_45);
 	
 	//Magazines
 	public static MagazineItem magazine_9mm = new MagazineItem(round_9mm, 15);
 	public static MagazineItem magazine_9mm_large = new MagazineItem(round_9mm, 30);
 	public static MagazineItem magazine_556 = new MagazineItem(round_556, 20);
 	public static MagazineItem magazine_223 = new MagazineItem(round_223, 20);
+	public static MagazineItem magazine_m1911 = new MagazineItem(round_45, 7);
 	
 	//Crafting items
 	public static BaseTMWItem ingot_lead = new BasicItem();
