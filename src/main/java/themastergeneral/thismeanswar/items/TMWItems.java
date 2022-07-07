@@ -57,11 +57,12 @@ public class TMWItems {
 	//Parts for gun craftings
 	public static BaseTMWItem kevlar_raw = new BasicItem();
 	
-	//Hammers for pressing
+	//Durability crafting items
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
 	public static DurabilityItem hammer_steel = new DurabilityItem(213);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(512);
 	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
+	public static DurabilityItem hand_saw = new DurabilityItem(157);
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
