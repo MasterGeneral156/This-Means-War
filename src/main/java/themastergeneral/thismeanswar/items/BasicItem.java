@@ -2,7 +2,7 @@ package themastergeneral.thismeanswar.items;
 
 import themastergeneral.thismeanswar.TMWMain;
 
-public class BasicItem extends BaseTMWItem {
+public class BasicItem extends AbstractModItem {
 
 	public BasicItem() 
 	{

@@ -11,13 +11,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class BaseHealingItem extends BaseTMWItem {
+public class AbstractHealingItem extends AbstractModItem {
 
 	protected int ticksUsed = 0;
 	protected int ticks;
 	protected float health;
 	
-	public BaseHealingItem(float health, int seconds) 
+	public AbstractHealingItem(float health, int seconds) 
 	{
 		super(new Properties().tab(TMWMain.ITEMGROUP));
 		this.health = health;

@@ -24,12 +24,14 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class MagazineItem extends BaseTMWItem {
+public class AbstractMagazineItem extends AbstractModItem {
 
 	private int maxAmmo; 
-	protected BulletItem bulletRequired;
+	protected AbstractBulletItem bulletRequired;
+	private int capacityUpgrades = 0;
+	protected int maxCapacityUpgrades = 3;
 	
-	public MagazineItem(BulletItem Ammo, int maxAmmoSize) 
+	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
 	{
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.maxAmmo = maxAmmoSize;
@@ -45,7 +47,7 @@ public class MagazineItem extends BaseTMWItem {
 	@Override
 	public int getItemEnchantability(ItemStack stack)
 	{
-		return 10;
+		return 0;
 	}
 	
 	@Override
@@ -54,6 +56,7 @@ public class MagazineItem extends BaseTMWItem {
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", 0);
 		compoundnbt.putInt("maxAmmo", maxAmmo);
+		compoundnbt.putInt("capUpgrades", capacityUpgrades);
 		stack.setTag(compoundnbt);
 	}
 	
@@ -128,6 +131,7 @@ public class MagazineItem extends BaseTMWItem {
 			int newAmmo = currentAmmo - toRemove;
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("capUpgrades", getCapacityUpgrades(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -147,6 +151,19 @@ public class MagazineItem extends BaseTMWItem {
 			int newAmmo = currentAmmo + toAdd;
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			mag.setTag(compoundnbt);
+		}
+	}
+	
+	private void upgradeMagCapacity(ItemStack mag)
+	{
+		int capUpgrades = getCapacityUpgrades(mag);
+		if ((capUpgrades + 1) <= maxCapacityUpgrades)
+		{
+			CompoundTag compoundnbt = new CompoundTag();
+			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -187,14 +204,21 @@ public class MagazineItem extends BaseTMWItem {
 		if (stackIn.hasTag())
 		{
 			int maxAmmo = stackIn.getTag().getInt("maxAmmo");
-			int enchant = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.BLOCK_EFFICIENCY, stackIn);
 			
-			return (int) (maxAmmo + ((maxAmmo * 0.1) * enchant));	//10% extra ammo per level?
+			return (int) (maxAmmo + (Math.round((maxAmmo * 0.1) * this.getCapacityUpgrades(stackIn))));	//10% extra ammo per level?
 		}
 		else
 		{
 			return 0;
 		}
+	}
+	
+	public int getCapacityUpgrades(ItemStack stackIn)
+	{
+		if (stackIn.hasTag())
+			return stackIn.getTag().getInt("capUpgrades");
+		else
+			return 0;
 	}
 	
 	@Override
@@ -205,11 +229,12 @@ public class MagazineItem extends BaseTMWItem {
 			CompoundTag compoundnbt = new CompoundTag();
 			compoundnbt.putInt("currentAmmo", 0);
 			compoundnbt.putInt("maxAmmo", maxAmmo);
+			compoundnbt.putInt("capUpgrades", capacityUpgrades);
 			stack.setTag(compoundnbt);
 	   }
 	}
 	
-	public BulletItem returnBulletItem()
+	public AbstractBulletItem returnBulletItem()
 	{
 		return bulletRequired;
 	}

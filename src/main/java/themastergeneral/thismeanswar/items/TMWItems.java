@@ -6,60 +6,60 @@ import themastergeneral.thismeanswar.block.TMWBlocks;
 public class TMWItems {
 	
 	//Casings
-	public static BaseTMWItem casing_9mm = new BasicItem();
-	public static BaseTMWItem casing_556 = new BasicItem();
-	public static BaseTMWItem casing_223 = new BasicItem();
-	public static BaseTMWItem casing_12g = new BasicItem();
-	public static BaseTMWItem casing_45 = new BasicItem();
+	public static AbstractModItem casing_9mm = new BasicItem();
+	public static AbstractModItem casing_556 = new BasicItem();
+	public static AbstractModItem casing_223 = new BasicItem();
+	public static AbstractModItem casing_12g = new BasicItem();
+	public static AbstractModItem casing_45 = new BasicItem();
 	
 	//Primers
-	public static BaseTMWItem primer_pistol = new BasicItem();
-	public static BaseTMWItem primer_rifle = new BasicItem();
-	public static BaseTMWItem primer_shotgun = new BasicItem();
+	public static AbstractModItem primer_pistol = new BasicItem();
+	public static AbstractModItem primer_rifle = new BasicItem();
+	public static AbstractModItem primer_shotgun = new BasicItem();
 	
 	//Bullet tips
-	public static BaseTMWItem bullet_tip_9mm = new BasicItem();
-	public static BaseTMWItem bullet_tip_556 = new BasicItem();
-	public static BaseTMWItem bullet_tip_223 = new BasicItem();
-	public static BaseTMWItem bullet_tip_buckshot = new BasicItem();
-	public static BaseTMWItem bullet_tip_45 = new BasicItem();
+	public static AbstractModItem bullet_tip_9mm = new BasicItem();
+	public static AbstractModItem bullet_tip_556 = new BasicItem();
+	public static AbstractModItem bullet_tip_223 = new BasicItem();
+	public static AbstractModItem bullet_tip_buckshot = new BasicItem();
+	public static AbstractModItem bullet_tip_45 = new BasicItem();
 	
 	//Bullets & Shells
-	public static BulletItem round_9mm = new BulletItem(casing_9mm, bullet_tip_9mm);
-	public static BulletItem round_12g = new BulletItem(casing_12g, bullet_tip_buckshot);
-	public static BulletItem rocket_bazooka = new BulletItem();
-	public static BulletItem round_556 = new BulletItem(casing_556, bullet_tip_556);
-	public static BulletItem round_223 = new BulletItem(casing_223, bullet_tip_223);
-	public static BulletItem round_45 = new BulletItem(casing_45, bullet_tip_45);
+	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm);
+	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot);
+	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem();
+	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556);
+	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223);
+	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
 	
 	//Magazines
-	public static MagazineItem magazine_9mm = new MagazineItem(round_9mm, 15);
-	public static MagazineItem magazine_9mm_large = new MagazineItem(round_9mm, 30);
-	public static MagazineItem magazine_556 = new MagazineItem(round_556, 20);
-	public static MagazineItem magazine_223 = new MagazineItem(round_223, 20);
-	public static MagazineItem magazine_m1911 = new MagazineItem(round_45, 7);
+	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, 15);
+	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, 30);
+	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, 20);
+	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, 20);
+	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, 7);
 	
 	//Crafting items
-	public static BaseTMWItem ingot_lead = new BasicItem();
-	public static BaseTMWItem nugget_lead = new BasicItem();
-	public static BaseTMWItem dust_lead = new BasicItem();
+	public static AbstractModItem ingot_lead = new BasicItem();
+	public static AbstractModItem nugget_lead = new BasicItem();
+	public static AbstractModItem dust_lead = new BasicItem();
 	
-	public static BaseTMWItem ingot_brass = new BasicItem();
-	public static BaseTMWItem nugget_brass = new BasicItem();
-	public static BaseTMWItem dust_brass = new BasicItem();
+	public static AbstractModItem ingot_brass = new BasicItem();
+	public static AbstractModItem nugget_brass = new BasicItem();
+	public static AbstractModItem dust_brass = new BasicItem();
 	
-	public static BaseTMWItem ingot_steel = new BasicItem();
-	public static BaseTMWItem nugget_steel = new BasicItem();
-	public static BaseTMWItem dust_steel = new BasicItem();
+	public static AbstractModItem ingot_steel = new BasicItem();
+	public static AbstractModItem nugget_steel = new BasicItem();
+	public static AbstractModItem dust_steel = new BasicItem();
 	
-	public static BaseTMWItem dust_iron = new BasicItem();
-	public static BaseTMWItem dust_gold = new BasicItem();
-	public static BaseTMWItem dust_copper = new BasicItem();
+	public static AbstractModItem dust_iron = new BasicItem();
+	public static AbstractModItem dust_gold = new BasicItem();
+	public static AbstractModItem dust_copper = new BasicItem();
 	
-	public static BaseTMWItem plate_lead = new BasicItem();
+	public static AbstractModItem plate_lead = new BasicItem();
 	
 	//Parts for gun craftings
-	public static BaseTMWItem kevlar_raw = new BasicItem();
+	public static AbstractModItem kevlar_raw = new BasicItem();
 	
 	//Durability crafting items
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
@@ -74,20 +74,20 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	
 	//Health items
-	public static BaseHealingItem bandage = new BaseHealingItem(2.5F, 3);
-	public static BaseHealingItem gauze = new BaseHealingItem(4.75F, 5);
+	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
+	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
 	
 	//Blocks
-	public static TMWBlockItem ore_brass = new TMWBlockItem(TMWBlocks.ore_brass);
-	public static TMWBlockItem block_brass = new TMWBlockItem(TMWBlocks.block_brass);
+	public static AbstractBlockItem ore_brass = new AbstractBlockItem(TMWBlocks.ore_brass);
+	public static AbstractBlockItem block_brass = new AbstractBlockItem(TMWBlocks.block_brass);
 	
-	public static TMWBlockItem block_lead = new TMWBlockItem(TMWBlocks.block_lead);
-	public static TMWBlockItem ore_lead = new TMWBlockItem(TMWBlocks.ore_lead);
+	public static AbstractBlockItem block_lead = new AbstractBlockItem(TMWBlocks.block_lead);
+	public static AbstractBlockItem ore_lead = new AbstractBlockItem(TMWBlocks.ore_lead);
 	
-	public static TMWBlockItem block_steel = new TMWBlockItem(TMWBlocks.block_steel);
+	public static AbstractBlockItem block_steel = new AbstractBlockItem(TMWBlocks.block_steel);
 	
-	public static TMWBlockItem ammo_box = new TMWBlockItem(TMWBlocks.ammo_box);
-	public static TMWBlockItem ammo_box_medium = new TMWBlockItem(TMWBlocks.ammo_box_medium);
-	public static TMWBlockItem ammo_box_large = new TMWBlockItem(TMWBlocks.ammo_box_large);
-	public static TMWBlockItem crusher = new TMWBlockItem(TMWBlocks.crusher);
+	public static AbstractBlockItem ammo_box = new AbstractBlockItem(TMWBlocks.ammo_box);
+	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);
+	public static AbstractBlockItem ammo_box_large = new AbstractBlockItem(TMWBlocks.ammo_box_large);
+	public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
 }

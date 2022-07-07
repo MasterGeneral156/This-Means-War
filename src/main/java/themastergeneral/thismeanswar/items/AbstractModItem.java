@@ -2,9 +2,9 @@ package themastergeneral.thismeanswar.items;
 
 import net.minecraft.world.item.Item;
 
-public class BaseTMWItem extends Item {
+public class AbstractModItem extends Item {
 
-	public BaseTMWItem(Properties properties) {
+	public AbstractModItem(Properties properties) {
 		super(properties);
 	}
 

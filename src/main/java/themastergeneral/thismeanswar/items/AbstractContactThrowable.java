@@ -12,10 +12,10 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 
-public class GrenadeItem extends BaseTMWItem {
+public class AbstractContactThrowable extends AbstractModItem {
 
 	protected float explosionRadius;
-	public GrenadeItem(float explosionRadius) 
+	public AbstractContactThrowable(float explosionRadius) 
 	{
 		super(new Properties().tab(TMWMain.ITEMGROUP));
 		this.explosionRadius = explosionRadius;

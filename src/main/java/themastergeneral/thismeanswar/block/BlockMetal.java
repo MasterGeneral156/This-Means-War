@@ -5,7 +5,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
-public class BlockMetal extends BlockBase {
+public class BlockMetal extends AbstractTMWBlock {
 
 	public BlockMetal() {
 		super(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL)

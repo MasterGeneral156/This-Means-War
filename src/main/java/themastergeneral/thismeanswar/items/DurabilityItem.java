@@ -3,7 +3,7 @@ package themastergeneral.thismeanswar.items;
 import net.minecraft.world.item.ItemStack;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class DurabilityItem extends BaseTMWItem {
+public class DurabilityItem extends AbstractModItem {
 
 	public DurabilityItem(int durability) {
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP).defaultDurability(durability));

@@ -9,15 +9,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import themastergeneral.thismeanswar.entity.RocketBaseEntity;
 
-public class RocketGunItem extends BaseGunItem {
+public class RocketGunItem extends AbstractGunItem {
 
-	public RocketGunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed) 
+	public RocketGunItem(int shotTime, int reloadTime, AbstractMagazineItem magazine, AbstractBulletItem bullet, float damage, float bulletSpeed) 
 	{
 		super(shotTime, reloadTime, magazine, bullet, damage, bulletSpeed, 0.0F);
 	}
 	
 	//For guns with internal mags
-	public RocketGunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed) 
+	public RocketGunItem(int shotTime, AbstractBulletItem bullet, float damage, int maxAmmo, float bulletSpeed) 
 	{
 		super(shotTime, bullet, damage, maxAmmo, bulletSpeed, 0.0F);
 	}
@@ -38,7 +38,7 @@ public class RocketGunItem extends BaseGunItem {
 			               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
 			               if (itemstack1.hasTag())
 			               {
-			            	   if (itemstack1.getItem() instanceof MagazineItem)
+			            	   if (itemstack1.getItem() instanceof AbstractMagazineItem)
 			            	   {
 				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
 		            			   {

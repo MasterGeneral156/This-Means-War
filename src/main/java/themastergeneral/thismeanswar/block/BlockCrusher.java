@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 
-public class BlockCrusher extends BlockBase implements EntityBlock {
+public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	   public static final BooleanProperty LIT = BlockStateProperties.LIT;
 	   

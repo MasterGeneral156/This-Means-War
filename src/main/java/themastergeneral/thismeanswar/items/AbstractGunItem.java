@@ -25,12 +25,12 @@ import net.minecraftforge.common.property.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
-public class BaseGunItem extends BaseTMWItem {
+public class AbstractGunItem extends AbstractModItem {
 
 	protected int shotTime;
 	protected int reloadTime;
 	protected Item magazine;
-	protected BulletItem bullet;
+	protected AbstractBulletItem bullet;
 	protected float damage;
 	protected int maxAmmo;
 	protected int magType;
@@ -45,12 +45,12 @@ public class BaseGunItem extends BaseTMWItem {
 	 * @param Integer shotTime 			Ticks between shots
 	 * @param Integer reloadTime 		Ticks to reload magazine.
 	 * @param ItemStack magazine		Magazine ItemStack
-	 * @param BulletItem bullet			Bullet item, for the bullet sprite.
+	 * @param AbstractBulletItem bullet			Bullet item, for the bullet sprite.
 	 * @param Float damage				Gun damage
 	 * @param Float bulletSpeed			Bullet speed
 	 * @param Float bulletSpread		Bullet spread
 	 */
-	public BaseGunItem(int shotTime, int reloadTime, MagazineItem magazine, BulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
+	public AbstractGunItem(int shotTime, int reloadTime, AbstractMagazineItem magazine, AbstractBulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;
@@ -67,13 +67,13 @@ public class BaseGunItem extends BaseTMWItem {
 	/**
 	 * Use to create a firearm that must have bullet fed directly inside.
 	 * @param Integer shotTime 			Ticks between shots
-	 * @param BulletItem bullet			Bullet item, for the bullet sprite.
+	 * @param AbstractBulletItem bullet			Bullet item, for the bullet sprite.
 	 * @param Float damage				Gun damage
 	 * @param Integer maxAmmo			Maximum bullets in gun.
 	 * @param Float bulletSpeed			Bullet speed
 	 * @param Float bulletSpread		Bullet spread
 	 */
-	public BaseGunItem(int shotTime, BulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
+	public AbstractGunItem(int shotTime, AbstractBulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.shotTime=shotTime;

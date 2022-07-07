@@ -1,12 +1,12 @@
 package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.BalanceConfig;
-import themastergeneral.thismeanswar.items.BaseGunItem;
+import themastergeneral.thismeanswar.items.AbstractGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class TMWCarbines 
 {
-	public static BaseGunItem tmg_carbine = new BaseGunItem(
+	public static AbstractGunItem tmg_carbine = new AbstractGunItem(
 													BalanceConfig.FIRE_RATE_AUTO.get(), 
 													BalanceConfig.TMG_CARBINE_RLD_TIME.get(), 
 													TMWItems.magazine_9mm_large, TMWItems.round_9mm, 

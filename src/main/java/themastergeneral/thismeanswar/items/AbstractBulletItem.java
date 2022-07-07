@@ -5,12 +5,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class BulletItem extends BaseTMWItem {
+public class AbstractBulletItem extends AbstractModItem {
 
-	protected BaseTMWItem bulletCasing;
-	protected BaseTMWItem bulletTip;
+	protected AbstractModItem bulletCasing;
+	protected AbstractModItem bulletTip;
 	//No ammo stack limit...
-	public BulletItem(BaseTMWItem casing, BaseTMWItem tip) 
+	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip) 
 	{
 		super(new Properties().tab(TMWMain.ITEMGROUP));
 		bulletCasing = casing;
@@ -18,14 +18,14 @@ public class BulletItem extends BaseTMWItem {
 		
 	}
 	
-	public BulletItem() 
+	public AbstractBulletItem() 
 	{
 		super(new Properties().tab(TMWMain.ITEMGROUP));
 		
 	}
 	
 	//Ammo stack limit...
-	public BulletItem(BaseTMWItem casing, BaseTMWItem tip, int maxSize) 
+	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip, int maxSize) 
 	{
 		super(new Properties().stacksTo(maxSize).tab(TMWMain.ITEMGROUP));
 		bulletCasing = casing;

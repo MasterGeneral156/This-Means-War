@@ -35,7 +35,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
-import themastergeneral.thismeanswar.items.BulletItem;
+import themastergeneral.thismeanswar.items.AbstractBulletItem;
 
 public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 
@@ -89,7 +89,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    		}
 	    		else
 	    		{
-		    		if (stack.getItem() instanceof BulletItem)
+		    		if (stack.getItem() instanceof AbstractBulletItem)
 					{
 		    			//Check to see if ammo in the storage is the same ammo in hand.
 		    			if (ammostorage.getAmmoItem() == stack.getItem())
@@ -130,7 +130,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    	}
 	    	else
 	    	{
-	    		if (stack.getItem() instanceof BulletItem)
+	    		if (stack.getItem() instanceof AbstractBulletItem)
 				{
 	    			ammostorage.updateAmmo(stack.getItem(), stack.getCount());
 	    			stack.shrink(stack.getCount());

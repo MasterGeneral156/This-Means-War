@@ -13,25 +13,25 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
-import themastergeneral.thismeanswar.items.BulletItem;
+import themastergeneral.thismeanswar.items.AbstractBulletItem;
 
 public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
-	protected BulletItem bulletItm;
+	protected AbstractBulletItem bulletItm;
 	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.setNoGravity(true);
 	   }
 
-	   public BulletBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, BulletItem bullet) {
+	   public BulletBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	   }
 
-	   public BulletBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, BulletItem bullet) {
+	   public BulletBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
