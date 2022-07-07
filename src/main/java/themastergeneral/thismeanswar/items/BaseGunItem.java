@@ -202,7 +202,7 @@ public class BaseGunItem extends BaseTMWItem {
    public int getBarColor(ItemStack stack) 
    {
       float stackMaxDamage = this.getMaxAmmo(stack);
-      float f = Math.max(0.0F, (stackMaxDamage - (float)this.getCurrentAmmo(stack)) / stackMaxDamage);
+      float f = Math.max(0.0F, (stackMaxDamage - (float) (stackMaxDamage - this.getCurrentAmmo(stack))) / stackMaxDamage);
       return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
    }
 	

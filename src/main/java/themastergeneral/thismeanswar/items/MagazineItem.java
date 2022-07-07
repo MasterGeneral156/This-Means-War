@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -160,6 +161,13 @@ public class MagazineItem extends BaseTMWItem {
     public int getBarWidth(ItemStack stack) 
 	{
 		return Math.round(13.0F - (getMaxAmmo(stack) - getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
+	}
+	
+	public int getBarColor(ItemStack stack) 
+	{
+		float stackMaxDamage = this.getMaxAmmo(stack);
+		float f = Math.max(0.0F, (stackMaxDamage - (float) (stackMaxDamage - this.getCurrentAmmo(stack))) / stackMaxDamage);
+      	return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
 	}
 	
 	public int getCurrentAmmo(ItemStack stackIn)
