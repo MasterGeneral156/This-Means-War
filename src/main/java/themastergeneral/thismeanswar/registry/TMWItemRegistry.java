@@ -20,17 +20,20 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> round_12g = ITEMS.register("round_12g", () -> TMWItems.round_12g);
 	public static final RegistryObject<Item> round_556 = ITEMS.register("round_556", () -> TMWItems.round_556);
 	public static final RegistryObject<Item> round_223 = ITEMS.register("round_223", () -> TMWItems.round_223);
+	public static final RegistryObject<Item> round_45 = ITEMS.register("round_45", () -> TMWItems.round_45);
+	public static final RegistryObject<Item> rocket_bazooka = ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
 	
 	public static final RegistryObject<Item> magazine_9mm = ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
 	public static final RegistryObject<Item> magazine_9mm_large = ITEMS.register("magazine_9mm_large", () -> TMWItems.magazine_9mm_large);
 	public static final RegistryObject<Item> magazine_556 = ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
 	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
+	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
 	
-	public static final RegistryObject<Item> rocket_bazooka = ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
 	
 	//Pistols
 	public static final RegistryObject<Item> beretta_92_fs = ITEMS.register("beretta_92_fs", () -> TMWPistols.beretta_92_fs);
 	public static final RegistryObject<Item> glock_26 = ITEMS.register("glock_26", () -> TMWPistols.glock_26);
+	public static final RegistryObject<Item> m1911 = ITEMS.register("m1911", () -> TMWPistols.m1911);
 	
 	//Carbines
 	public static final RegistryObject<Item> tmg_carbine = ITEMS.register("tmg_carbine", () -> TMWCarbines.tmg_carbine);
@@ -92,6 +95,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_223 = ITEMS.register("casing_223", () -> TMWItems.casing_223);
 	public static final RegistryObject<Item> casing_556 = ITEMS.register("casing_556", () -> TMWItems.casing_556);
 	public static final RegistryObject<Item> casing_12g = ITEMS.register("casing_12g", () -> TMWItems.casing_12g);
+	public static final RegistryObject<Item> casing_45 = ITEMS.register("casing_45", () -> TMWItems.casing_45);
 	
 	//Health
 	public static final RegistryObject<Item> bandage = ITEMS.register("bandage", () -> TMWItems.bandage);
@@ -107,6 +111,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_tip_223 = ITEMS.register("bullet_tip_223", () -> TMWItems.bullet_tip_223);
 	public static final RegistryObject<Item> bullet_tip_556 = ITEMS.register("bullet_tip_556", () -> TMWItems.bullet_tip_556);
 	public static final RegistryObject<Item> bullet_tip_buckshot = ITEMS.register("bullet_tip_buckshot", () -> TMWItems.bullet_tip_buckshot);
+	public static final RegistryObject<Item> bullet_tip_45 = ITEMS.register("bullet_tip_45", () -> TMWItems.bullet_tip_45);
 	
 	//Ores
 	public static final RegistryObject<Item> ore_lead = ITEMS.register("ore_lead", () -> TMWItems.ore_lead);
