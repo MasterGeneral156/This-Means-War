@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "thismeanswar:items/mag_capacity_upgrade"
+    }
+}
