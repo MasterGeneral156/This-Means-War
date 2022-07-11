@@ -171,14 +171,14 @@ public class AbstractGunItem extends AbstractModItem {
 	@Override
 	public boolean isBarVisible(ItemStack stack)
 	{
-		if (getMagType(stack) == 1)
+		if (getMagType(stack) == external_mag)
 		{
 			if (hasMag(stack) == 1)
 				return true;
 			else
 				return false;
 		}
-		else if (getMagType(stack) == 2)
+		else if (getMagType(stack) == internal_mag)
 		{
 			if (this.getCurrentAmmo(stack) > 0)
 				return true;
@@ -311,7 +311,10 @@ public class AbstractGunItem extends AbstractModItem {
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
+		if (getMagType(stack) == external_mag)
+			tooltip.add(new TranslatableComponent(magazine.getDescriptionId()));
+		if (getMagType(stack) == internal_mag)
+			tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
 	}
 
 	@Override
