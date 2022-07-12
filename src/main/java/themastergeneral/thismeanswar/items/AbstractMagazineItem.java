@@ -227,8 +227,8 @@ public class AbstractMagazineItem extends AbstractModItem {
 			
 			//Just in case the mags are too small ;)
 			//Yw you pistol users
-			if (capBonus < 3.0D && capUpgrades > 0)
-				capBonus = 3.0D;
+			if (capBonus < 1.0D && capUpgrades > 0)
+				capBonus = 1.0D;
 			
 			return (int) (maxAmmo + capBonus);	//10% extra ammo per level?
 		}
