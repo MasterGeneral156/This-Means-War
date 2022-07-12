@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:medical",
+    "pattern": [
+        "SWS"
+    ],
+    "key": {
+		"S": { "tag": "forge:string" },
+		"W": { "tag": "minecraft:wool" }
+    },
+    "result": {
+        "item": "thismeanswar:gauze",
+		"count": 1
+    }
+}
