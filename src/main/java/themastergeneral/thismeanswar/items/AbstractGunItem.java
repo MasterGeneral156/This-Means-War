@@ -311,10 +311,11 @@ public class AbstractGunItem extends AbstractModItem {
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		if (getMagType(stack) == external_mag)
-			tooltip.add(new TranslatableComponent(magazine.getDescriptionId()));
-		if (getMagType(stack) == internal_mag)
+		if (magazine == null)
 			tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
+		else
+			tooltip.add(new TranslatableComponent(magazine.getDescriptionId()));
+			
 	}
 
 	@Override
