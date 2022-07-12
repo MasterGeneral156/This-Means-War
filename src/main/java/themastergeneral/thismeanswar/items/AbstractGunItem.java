@@ -1,5 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -23,6 +24,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.property.Properties;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
 public class AbstractGunItem extends AbstractModItem {
@@ -39,6 +41,8 @@ public class AbstractGunItem extends AbstractModItem {
 	
 	protected int external_mag = 1;
 	protected int internal_mag = 2;
+	
+	private int rofUpgradeScale = 0;
 	
 	/**
 	 * Use to create a firearm that's magazine fed.
@@ -96,6 +100,8 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", maxAmmo);
 		compoundnbt.putInt("magLoaded", 0);
 		compoundnbt.putInt("magType", magType);
+		compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
+		
 		stack.setTag(compoundnbt);
 	}
 	public int getCurrentAmmo(ItemStack stackIn)
@@ -164,6 +170,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", maxAmmo);
 			compoundnbt.putInt("magLoaded", 0);
 			compoundnbt.putInt("magType", magType);
+			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 			stack.setTag(compoundnbt);
 	   }
 	}
@@ -227,6 +234,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			compoundnbt.putInt("magLoaded", hasMag(mag));
 			compoundnbt.putInt("magType", magType);
+			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			mag.setTag(compoundnbt);
 			return true;
 		}
@@ -253,6 +261,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			compoundnbt.putInt("magLoaded", hasMag(mag));
 			compoundnbt.putInt("magType", getMagType(mag));
+			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -270,6 +279,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -280,6 +290,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", setTo);
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -290,6 +301,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", setTo);
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -300,6 +312,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", setTo);
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -322,107 +335,153 @@ public class AbstractGunItem extends AbstractModItem {
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
-		if (playerIn.isCrouching())
+		if (handIn == InteractionHand.MAIN_HAND && playerIn.getOffhandItem().isEmpty())
 		{
-			if (getMagType(mag) == external_mag)
+			if (playerIn.isCrouching())
 			{
-				if (hasMag(mag) == 0)
+				if (getMagType(mag) == external_mag)
 				{
-					int slotID = 0;
-					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+					if (hasMag(mag) == 0)
 					{
-			               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-			               if (itemstack1.hasTag())
-			               {
-			            	   if (itemstack1.getItem() == magazine)
-			            	   {
-				            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
-		            			   {
-				            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
-				            		   {
-					            		   slotID = i;
-					            		   break;
-				            		   }
-		            			   }
-			            	   }
-			               }
-			        }
-					if (slotID > 0)
+						int slotID = 0;
+						for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+						{
+				               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
+				               if (itemstack1.hasTag())
+				               {
+				            	   if (itemstack1.getItem() == magazine)
+				            	   {
+					            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
+			            			   {
+					            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
+					            		   {
+						            		   slotID = i;
+						            		   break;
+					            		   }
+			            			   }
+				            	   }
+				               }
+				        }
+						if (slotID > 0)
+						{
+							ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
+							CompoundTag nbt = itemstack2.getTag();
+							int magAmmo = nbt.getInt("currentAmmo");
+							int magMaxAmmo = nbt.getInt("maxAmmo");
+							setGunAmmo(mag, magAmmo);
+							setGunMaxAmmo(mag, magMaxAmmo);
+							setGunMagLoad(mag, 1);
+							setGunROF(mag, getRateOfFire(mag));
+							playerIn.getInventory().removeItem(slotID, 1);
+							playerIn.getCooldowns().addCooldown(this, reloadTime);
+							playerIn.displayClientMessage(new TextComponent("Magazine has been inserted."), true);
+							return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
+						}
+					}
+					if (hasMag(mag) == 1)
 					{
-						ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
-						CompoundTag nbt = itemstack2.getTag();
-						int magAmmo = nbt.getInt("currentAmmo");
-						int magMaxAmmo = nbt.getInt("maxAmmo");
-						setGunAmmo(mag, magAmmo);
-						setGunMaxAmmo(mag, magMaxAmmo);
-						setGunMagLoad(mag, 1);
-						playerIn.getInventory().removeItem(slotID, 1);
+						int gunAmmo = getCurrentAmmo(mag);
+						int urmaxAmmo = getMaxAmmo(mag);
+						
+						ItemStack newmag = new ItemStack(magazine);
+						
+						
+						setGunAmmo(mag, 0);
+						setGunMaxAmmo(mag, 0);
+						setGunMagLoad(mag, 0);
+						setGunROF(mag, getRateOfFire(mag));
+						
+						CompoundTag compoundnbt = new CompoundTag();
+						compoundnbt.putInt("currentAmmo", gunAmmo);
+						compoundnbt.putInt("maxAmmo", urmaxAmmo);
+						newmag.setTag(compoundnbt);
+						
+						playerIn.getInventory().add(newmag);
+						
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
+						playerIn.displayClientMessage(new TextComponent("Magazine has been unloaded."), true);
 						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
-				if (hasMag(mag) == 1)
+				if (getMagType(mag) == internal_mag)
 				{
-					int gunAmmo = getCurrentAmmo(mag);
-					int urmaxAmmo = getMaxAmmo(mag);
+					if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+					{
+						int slotID = -1;
+						for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+						{
+							ItemStack itemstack1 = playerIn.getInventory().getItem(i);
+							if (itemstack1.getItem() == bullet)
+							{
+								slotID=i;
+								break;
+							}
+						}
+						if (slotID >= 0)
+						{
+							ItemStack ibullet = playerIn.getInventory().getItem(slotID);
+							addAmmoToMag(mag);
+							ibullet.shrink(1);
+							playerIn.displayClientMessage(new TextComponent("Bullet has been inserted."), true);
+							playerIn.getCooldowns().addCooldown(this, 8);
+						}
+					}
+				}
+			}
+			else
+			{
+				if (canFire(mag))
+				{
+					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
+					bulletEntity.setItem(new ItemStack(bullet));
+					//Up+Down
+					bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
+					worldIn.addFreshEntity(bulletEntity);
 					
-					ItemStack newmag = new ItemStack(magazine);
-					
-					
-					setGunAmmo(mag, 0);
-					setGunMaxAmmo(mag, 0);
-					setGunMagLoad(mag, 0);
-					
-					CompoundTag compoundnbt = new CompoundTag();
-					compoundnbt.putInt("currentAmmo", gunAmmo);
-					compoundnbt.putInt("maxAmmo", urmaxAmmo);
-					newmag.setTag(compoundnbt);
-					
-					playerIn.getInventory().add(newmag);
-					
-					playerIn.getCooldowns().addCooldown(this, reloadTime);
+					shootUpdateMag(mag);
+					playerIn.awardStat(Stats.ITEM_USED.get(this));
+					playerIn.getCooldowns().addCooldown(this, getRateOfFire(mag));
+					giveBulletCasing(playerIn);
 					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
-			if (getMagType(mag) == internal_mag)
+		}
+		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_upgrade))
+		{
+			if (playerIn.isCrouching())
 			{
-				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_AUTO.get())
 				{
-					int slotID = -1;
-					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
-					{
-						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-						if (itemstack1.getItem() == bullet)
-						{
-							slotID=i;
-							break;
-						}
-					}
-					if (slotID >= 0)
-					{
-						ItemStack ibullet = playerIn.getInventory().getItem(slotID);
-						addAmmoToMag(mag);
-						ibullet.shrink(1);
-						playerIn.getCooldowns().addCooldown(this, 8);
-					}
+					//fail
+					TextComponent message = new TextComponent("Upgrade is not compatible with current weapon.");
+					playerIn.displayClientMessage(message, true);
+				}
+				else
+				{
+					TextComponent message = new TextComponent("Rate of Fire is now full-auto.");
+					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_AUTO.get());
+					playerIn.getMainHandItem().shrink(1);
+					playerIn.displayClientMessage(message, true);
 				}
 			}
 		}
-		else
+		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_downgrade))
 		{
-			if (canFire(mag))
+			if (playerIn.isCrouching())
 			{
-				BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
-				bulletEntity.setItem(new ItemStack(bullet));
-				//Up+Down
-				bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
-				worldIn.addFreshEntity(bulletEntity);
-				
-				shootUpdateMag(mag);
-				playerIn.awardStat(Stats.ITEM_USED.get(this));
-				playerIn.getCooldowns().addCooldown(this, shotTime);
-				giveBulletCasing(playerIn);
-				return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
+				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_SINGLE.get())
+				{
+					//fail
+					TextComponent message = new TextComponent("Upgrade is not compatible with current weapon.");
+					playerIn.displayClientMessage(message, true);
+				}
+				else
+				{
+					TextComponent message = new TextComponent("Rate of Fire is now 'fully semi-automatic'.");
+					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_SINGLE.get());
+					playerIn.getMainHandItem().shrink(1);
+					playerIn.displayClientMessage(message, true);
+				}
 			}
 		}
 		return InteractionResultHolder.fail(mag);
@@ -433,5 +492,28 @@ public class AbstractGunItem extends AbstractModItem {
 		Item casing = bullet.returnCasingItem();
 		if (casing != null)
 			player.getInventory().add(new ItemStack(casing));
+	}
+	
+	protected int getRateOfFire(ItemStack stack)
+	{
+		if (stack.hasTag())
+		{
+			return stack.getTag().getInt("rofUpgrade");
+		}
+		else
+		{
+			return this.shotTime;
+		}
+	}
+	
+	protected void setGunROF(ItemStack mag, int setTo)
+	{
+		CompoundTag compoundnbt = new CompoundTag();
+		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("magLoaded", hasMag(mag));
+		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("rofUpgrade", setTo);
+		mag.setTag(compoundnbt);
 	}
 }
