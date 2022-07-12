@@ -1,5 +1,27 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.0.16-Indev
+(07/12/2022, 18:55)
+-=-=-=-=-=-=-=-=-=-=-=-
++Added Magazine Capacity Upgrade.
+	#)	Only applicable to magazines (for now)
+	#)	Max 3 per magazine.
+	#) Increases mag capacity by 10% per upgrade. (Minimum change of 1)
+
++Added Firearm Full-Auto Upgrade.
+	#)	Upgrades firearm to full auto rate of fire.
+	
++Added Firearm Semi-Auto Upgrade.
+	#)	Upgrades firearm to semi auto rate of fire.
+	
++Added recipe for Bandage and Gauze, missing other assets.
++Added texture/model assets for the primer items.
++Added numerous new tags.
+*Tweaked Gun tooltip to display round/magazine depending on what it accepts.
+*Tweaked Bandage/Gauze tooltip to display total hitpoints restored.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.0.15-Indev
 (07/06/2022, 22:12)
 -=-=-=-=-=-=-=-=-=-=-=-
