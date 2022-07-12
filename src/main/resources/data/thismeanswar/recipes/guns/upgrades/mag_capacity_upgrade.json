@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:gun_upgrade",
+    "pattern": [
+        "SGS",
+        "GMG",
+		"SGS"
+    ],
+    "key": {
+		"G": { "tag": "forge:ingots/gold" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
+		"M": { "tag": "thismeanswar:magazines" }
+    },
+    "result": {
+        "item": "thismeanswar:mag_capacity_upgrade",
+		"count": 1
+    }
+}
