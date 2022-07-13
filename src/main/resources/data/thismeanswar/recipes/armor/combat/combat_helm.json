@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:combat_armor",
+    "pattern": [
+        "RRR",
+		"R R"
+    ],
+    "key": {
+		"R": { "item": "thismeanswar:raw_kevlar" }
+    },
+    "result": {
+        "item": "thismeanswar:kevlar_helmet",
+		"count": 1
+    }
+}
