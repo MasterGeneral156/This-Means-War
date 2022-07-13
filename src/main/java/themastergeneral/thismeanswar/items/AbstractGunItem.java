@@ -1,6 +1,5 @@
 package themastergeneral.thismeanswar.items;
 
-import java.text.NumberFormat;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -22,7 +21,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.property.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
