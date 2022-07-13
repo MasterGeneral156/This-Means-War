@@ -42,6 +42,11 @@
 	"item.thismeanswar.bullet_cast_223": "Bullet Cast (.223)",
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
 	
+	"item.thismeanswar.kevlar_helmet": "Combat Helmet",
+	"item.thismeanswar.kevlar_chest": "Combat Top",
+	"item.thismeanswar.kevlar_legs": "Combat Leggings",
+	"item.thismeanswar.kevlar_boots": "Combat Boots",
+	
 	"item.thismeanswar.casing_9mm": "9mm Casing",
 	"item.thismeanswar.casing_223": ".223 Casing",
 	"item.thismeanswar.casing_556": "5.56 Casing",
@@ -81,8 +86,9 @@
 	"item.thismeanswar.dust_gold": "Gold Dust",
 	
 	"item.thismeanswar.plate_lead": "Lead Plate",
+	"item.thismeanswar.kevlar_raw": "Raw Kevlar",
 	
-	"item.thismeanswar.mag_capacity_upgrade": "Magainze Capacity Upgrade",
+	"item.thismeanswar.mag_capacity_upgrade": "Magazine Capacity Upgrade",
 	"item.thismeanswar.gun_rof_upgrade": "Firearm Full-Auto Upgrade",
 	"item.thismeanswar.gun_rof_downgrade": "Firearm Semi-Auto Upgrade",
 	

@@ -55,6 +55,13 @@ public class TMWItemRegistry {
 	//RPGs
 	public static final RegistryObject<Item> bazooka = ITEMS.register("bazooka", () -> TMWExplosiveProjectile.bazooka);
 	
+	//Armor
+	//Kevlar
+	public static final RegistryObject<Item> kevlar_helmet = ITEMS.register("kevlar_helmet", () -> TMWItems.kevlar_helmet);
+	public static final RegistryObject<Item> kevlar_chest = ITEMS.register("kevlar_chest", () -> TMWItems.kevlar_chest);
+	public static final RegistryObject<Item> kevlar_legs = ITEMS.register("kevlar_legs", () -> TMWItems.kevlar_legs);
+	public static final RegistryObject<Item> kevlar_boots = ITEMS.register("kevlar_boots", () -> TMWItems.kevlar_boots);
+	
 	//Grenades
 	public static final RegistryObject<Item> dynamite_stick = ITEMS.register("dynamite_stick", () -> TMWThrowables.dynamite_stick);
 	public static final RegistryObject<Item> nuclear_warhead = ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);

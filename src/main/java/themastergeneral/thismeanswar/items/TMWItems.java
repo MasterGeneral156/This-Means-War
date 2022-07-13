@@ -1,9 +1,17 @@
 package themastergeneral.thismeanswar.items;
 
-import themastergeneral.thismeanswar.block.BlockAmmoStorage;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item.Properties;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 
 public class TMWItems {
+	
+	//Just in case
+	protected static Properties baseProp = new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP);
 	
 	//Casings
 	public static AbstractModItem casing_9mm = new BasicItem();
@@ -81,6 +89,14 @@ public class TMWItems {
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
 	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
+	
+	//Armor Material
+	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0, TMWItems.kevlar_raw);
+	
+	public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, EquipmentSlot.HEAD, baseProp);
+	public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, EquipmentSlot.CHEST, baseProp);
+	public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, EquipmentSlot.LEGS, baseProp);
+	public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, EquipmentSlot.FEET, baseProp);
 	
 	//Blocks
 	public static AbstractBlockItem ore_brass = new AbstractBlockItem(TMWBlocks.ore_brass);
