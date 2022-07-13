@@ -16,6 +16,7 @@ import themastergeneral.thismeanswar.items.define.TMWThrowables;
 public class TMWItemRegistry {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TMWMain.MODID);
 	
+	//Rounds
 	public static final RegistryObject<Item> round_9mm = ITEMS.register("round_9mm", () -> TMWItems.round_9mm);
 	public static final RegistryObject<Item> round_12g = ITEMS.register("round_12g", () -> TMWItems.round_12g);
 	public static final RegistryObject<Item> round_556 = ITEMS.register("round_556", () -> TMWItems.round_556);
@@ -23,6 +24,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> round_45 = ITEMS.register("round_45", () -> TMWItems.round_45);
 	public static final RegistryObject<Item> rocket_bazooka = ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
 	
+	//Mags
 	public static final RegistryObject<Item> magazine_9mm = ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
 	public static final RegistryObject<Item> magazine_9mm_large = ITEMS.register("magazine_9mm_large", () -> TMWItems.magazine_9mm_large);
 	public static final RegistryObject<Item> magazine_556 = ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
@@ -89,6 +91,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_cast_9mm = ITEMS.register("bullet_cast_9mm", () -> TMWItems.bullet_cast_9mm);
 	public static final RegistryObject<Item> bullet_cast_556 = ITEMS.register("bullet_cast_556", () -> TMWItems.bullet_cast_556);
 	public static final RegistryObject<Item> bullet_cast_223 = ITEMS.register("bullet_cast_223", () -> TMWItems.bullet_cast_223);
+	public static final RegistryObject<Item> bullet_cast_45 = ITEMS.register("bullet_cast_45", () -> TMWItems.bullet_cast_45);
 	
 	//Bullet Casings
 	public static final RegistryObject<Item> casing_9mm = ITEMS.register("casing_9mm", () -> TMWItems.casing_9mm);

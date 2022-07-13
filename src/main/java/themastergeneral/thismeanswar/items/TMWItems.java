@@ -76,6 +76,7 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
 	
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
