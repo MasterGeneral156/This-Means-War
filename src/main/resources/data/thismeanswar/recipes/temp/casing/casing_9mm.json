@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:nuggets/brass"
+  },
+  "result": "thismeanswar:casing_9mm",
+  "count": 1
+}
