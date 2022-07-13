@@ -7,7 +7,7 @@
 		"RRR"
     ],
     "key": {
-		"R": { "item": "thismeanswar:raw_kevlar" }
+		"R": { "item": "thismeanswar:kevlar_raw" }
     },
     "result": {
         "item": "thismeanswar:kevlar_chest",
