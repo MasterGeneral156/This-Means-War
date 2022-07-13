@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:tip_cast_9mm",
+    "pattern": [
+        "H",
+        "T",
+        "B"
+    ],
+    "key": {
+		"H": { "item": "thismeanswar:hammer_steel", "data": 32767 },
+		"T": { "tag": "thismeanswar:tip/9mm" },
+		"B": { "tag": "forge:plates/lead" }
+    },
+    "result": {
+        "item": "thismeanswar:bullet_cast_9mm",
+		"count": 1
+		}
+    }
+}
