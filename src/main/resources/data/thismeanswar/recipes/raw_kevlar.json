@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing",
+  "group": "thismeanswar:raw_kevlar",
+  "base": 
+  {
+    "tag": "forge:leather"
+  },
+  "addition": 
+  {
+    "tag": "forge:ingots/steel"
+  },
+  "result": 
+  {
+    "item": "thismeanswar:kevlar_raw"
+  }
+}
