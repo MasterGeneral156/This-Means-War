@@ -1,12 +1,25 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.0.17-Indev
+(07/xx/2022, xx:xx)
+-=-=-=-=-=-=-=-=-=-=-=-
++Added .45ACP Bullet tip cast and related recipes.
++Added Combat Armor.
+	Nothing special, just slight protection.
++Added hammer recipes for Steel Hammer.
++Added temporary recipe for casings.
+*Tweaked Diamond Hammer recipes to give 6 bullet tips.
+*Tweaked numerous item models.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.0.16-Indev
 (07/12/2022, 18:55)
 -=-=-=-=-=-=-=-=-=-=-=-
 +Added Magazine Capacity Upgrade.
 	#)	Only applicable to magazines (for now)
 	#)	Max 3 per magazine.
-	#) Increases mag capacity by 10% per upgrade. (Minimum change of 1)
+	#) 	Increases mag capacity by 10% per upgrade. (Minimum change of 1)
 
 +Added Firearm Full-Auto Upgrade.
 	#)	Upgrades firearm to full auto rate of fire.
