@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/MasterGeneral156/This-Means-War/issues" #opt
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]]
 modId="thismeanswar" #mandatory
-version="0.0.16-indev" #mandatory
+version="0.0.17-indev" #mandatory
 displayName="This Means WAR!" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/MasterGeneral156/Version/master/minecraft/this_means_war.json" #optional
 displayURL="https://github.com/MasterGeneral156/This-Means-War" #optional
