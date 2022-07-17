@@ -24,6 +24,7 @@ import themastergeneral.thismeanswar.TMWMain;
 public class AbstractMagazineItem extends AbstractModItem {
 
 	private int maxAmmo; 
+	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
 	private int capacityUpgrades = 0;
 	protected int maxCapacityUpgrades = 3;
@@ -33,6 +34,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
+		this.baseAmmoSize = maxAmmoSize;
 	}
 	
 	@Override
@@ -115,7 +117,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		{
 			if (playerIn.isCrouching())
 			{
-				if (getCapacityUpgrades(mag) < this.maxCapacityUpgrades)
+				if (getCapacityUpgrades(mag) < maxCapacityUpgrades)
 				{
 					upgradeMagCapacity(mag);
 					playerIn.getMainHandItem().shrink(1);
@@ -158,13 +160,14 @@ public class AbstractMagazineItem extends AbstractModItem {
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		int maxAmmo = getMaxAmmo(mag);
+		int magUpgrd = getCapacityUpgrades(mag);
 		if ((currentAmmo + toAdd) <= maxAmmo)
 		{
 			CompoundTag compoundnbt = new CompoundTag();
 			int newAmmo = currentAmmo + toAdd;
 			compoundnbt.putInt("currentAmmo", newAmmo);
 			compoundnbt.putInt("maxAmmo", maxAmmo);
-			compoundnbt.putInt("capUpgrades", getCapacityUpgrades(mag));
+			compoundnbt.putInt("capUpgrades", magUpgrd);
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -185,7 +188,10 @@ public class AbstractMagazineItem extends AbstractModItem {
 	@Override
 	public boolean isBarVisible(ItemStack stack)
 	{
-		return true;
+		if (getCurrentAmmo(stack) > 0)
+			return true;
+		else
+			return false;
 	}
 	
 	@Override
@@ -218,14 +224,14 @@ public class AbstractMagazineItem extends AbstractModItem {
 		
 		if (stackIn.hasTag())
 		{
-			int capUpgrades = this.getCapacityUpgrades(stackIn);
-			int maxAmmo = stackIn.getTag().getInt("maxAmmo");
+			int capUpgrades = getCapacityUpgrades(stackIn);
+			int maxAmmo = baseAmmoSize;
 			double capBonus = (maxAmmo * 0.1) * capUpgrades;
 			
 			//Just in case the mags are too small ;)
 			//Yw you pistol users
-			if (capBonus < 1.0D && capUpgrades > 0)
-				capBonus = 1.0D;
+			if ((capBonus < 1.0D * capUpgrades) && capUpgrades > 0)
+				capBonus = 1.0D * capUpgrades;
 			
 			return (int) (maxAmmo + capBonus);	//10% extra ammo per level?
 		}
@@ -250,7 +256,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	   {
 			CompoundTag compoundnbt = new CompoundTag();
 			compoundnbt.putInt("currentAmmo", 0);
-			compoundnbt.putInt("maxAmmo", maxAmmo);
+			compoundnbt.putInt("maxAmmo", baseAmmoSize);
 			compoundnbt.putInt("capUpgrades", capacityUpgrades);
 			stack.setTag(compoundnbt);
 	   }
