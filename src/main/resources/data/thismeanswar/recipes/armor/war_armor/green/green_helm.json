@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:war_armor",
+    "pattern": [
+        "NSN",
+		"S S"
+    ],
+    "key": {
+		"S": { "tag": "forge:storage_blocks/steel" },
+		"N": { "tag": "forge:ingots/netherite" }
+    },
+    "result": {
+        "item": "thismeanswar:green_war_armor_helm",
+		"count": 1
+    }
+}

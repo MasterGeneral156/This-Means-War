@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:war_armor",
+    "pattern": [
+        "N N",
+		"S S"
+    ],
+    "key": {
+		"S": { "tag": "forge:storage_blocks/steel" },
+		"N": { "tag": "forge:ingots/netherite" }
+    },
+    "result": {
+        "item": "thismeanswar:green_war_armor_boots",
+		"count": 1
+    }
+}

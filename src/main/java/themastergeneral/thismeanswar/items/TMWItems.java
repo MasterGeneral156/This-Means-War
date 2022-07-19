@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
+import themastergeneral.thismeanswar.items.tiers.WarArmor;
 
 public class TMWItems {
 	
@@ -92,11 +93,32 @@ public class TMWItems {
 	
 	//Armor Material
 	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0, TMWItems.kevlar_raw);
+	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
+	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
+	public static ArmorMaterial green_war_armor_material = new WarArmor("thismeanswar:green_war_armor");
 	
 	public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, EquipmentSlot.HEAD, baseProp);
 	public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, EquipmentSlot.CHEST, baseProp);
 	public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, EquipmentSlot.LEGS, baseProp);
 	public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, EquipmentSlot.FEET, baseProp);
+	
+	//Green War Armor
+	public static ArmorItem green_war_armor_helm = new ArmorItem(green_war_armor_material, EquipmentSlot.HEAD, baseProp);
+	public static ArmorItem green_war_armor_chest = new ArmorItem(green_war_armor_material, EquipmentSlot.CHEST, baseProp);
+	public static ArmorItem green_war_armor_legs = new ArmorItem(green_war_armor_material, EquipmentSlot.LEGS, baseProp);
+	public static ArmorItem green_war_armor_boots = new ArmorItem(green_war_armor_material, EquipmentSlot.FEET, baseProp);
+	
+	//Red War Armor
+	public static ArmorItem red_war_armor_helm = new ArmorItem(red_war_armor_material, EquipmentSlot.HEAD, baseProp);
+	public static ArmorItem red_war_armor_chest = new ArmorItem(red_war_armor_material, EquipmentSlot.CHEST, baseProp);
+	public static ArmorItem red_war_armor_legs = new ArmorItem(red_war_armor_material, EquipmentSlot.LEGS, baseProp);
+	public static ArmorItem red_war_armor_boots = new ArmorItem(red_war_armor_material, EquipmentSlot.FEET, baseProp);
+	
+	//Blue War Armor
+	public static ArmorItem blue_war_armor_helm = new ArmorItem(blue_war_armor_material, EquipmentSlot.HEAD, baseProp);
+	public static ArmorItem blue_war_armor_chest = new ArmorItem(blue_war_armor_material, EquipmentSlot.CHEST, baseProp);
+	public static ArmorItem blue_war_armor_legs = new ArmorItem(blue_war_armor_material, EquipmentSlot.LEGS, baseProp);
+	public static ArmorItem blue_war_armor_boots = new ArmorItem(blue_war_armor_material, EquipmentSlot.FEET, baseProp);
 	
 	//Blocks
 	public static AbstractBlockItem ore_brass = new AbstractBlockItem(TMWBlocks.ore_brass);

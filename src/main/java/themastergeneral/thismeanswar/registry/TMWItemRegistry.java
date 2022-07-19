@@ -62,6 +62,24 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> kevlar_legs = ITEMS.register("kevlar_legs", () -> TMWItems.kevlar_legs);
 	public static final RegistryObject<Item> kevlar_boots = ITEMS.register("kevlar_boots", () -> TMWItems.kevlar_boots);
 	
+	//green war armor
+	public static final RegistryObject<Item> green_war_armor_helm = ITEMS.register("green_war_armor_helm", () -> TMWItems.green_war_armor_helm);
+	public static final RegistryObject<Item> green_war_armor_chest = ITEMS.register("green_war_armor_chest", () -> TMWItems.green_war_armor_chest);
+	public static final RegistryObject<Item> green_war_armor_legs = ITEMS.register("green_war_armor_legs", () -> TMWItems.green_war_armor_legs);
+	public static final RegistryObject<Item> green_war_armor_boots = ITEMS.register("green_war_armor_boots", () -> TMWItems.green_war_armor_boots);
+	
+	//red war armor
+	public static final RegistryObject<Item> red_war_armor_helm = ITEMS.register("red_war_armor_helm", () -> TMWItems.red_war_armor_helm);
+	public static final RegistryObject<Item> red_war_armor_chest = ITEMS.register("red_war_armor_chest", () -> TMWItems.red_war_armor_chest);
+	public static final RegistryObject<Item> red_war_armor_legs = ITEMS.register("red_war_armor_legs", () -> TMWItems.red_war_armor_legs);
+	public static final RegistryObject<Item> red_war_armor_boots = ITEMS.register("red_war_armor_boots", () -> TMWItems.red_war_armor_boots);
+		
+	//blue war armor
+	public static final RegistryObject<Item> blue_war_armor_helm = ITEMS.register("blue_war_armor_helm", () -> TMWItems.blue_war_armor_helm);
+	public static final RegistryObject<Item> blue_war_armor_chest = ITEMS.register("blue_war_armor_chest", () -> TMWItems.blue_war_armor_chest);
+	public static final RegistryObject<Item> blue_war_armor_legs = ITEMS.register("blue_war_armor_legs", () -> TMWItems.blue_war_armor_legs);
+	public static final RegistryObject<Item> blue_war_armor_boots = ITEMS.register("blue_war_armor_boots", () -> TMWItems.blue_war_armor_boots);
+	
 	//Grenades
 	public static final RegistryObject<Item> dynamite_stick = ITEMS.register("dynamite_stick", () -> TMWThrowables.dynamite_stick);
 	public static final RegistryObject<Item> nuclear_warhead = ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);

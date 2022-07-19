@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing",
+  "group": "thismeanswar:war_armor",
+  "base": 
+  {
+    "item": "thismeanswar:green_war_armor_boots"
+  },
+  "addition": 
+  {
+    "tag": "forge:dyes/blue"
+  },
+  "result": 
+  {
+    "item": "thismeanswar:blue_war_armor_boots"
+  }
+}

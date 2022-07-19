@@ -47,6 +47,21 @@
 	"item.thismeanswar.kevlar_legs": "Combat Leggings",
 	"item.thismeanswar.kevlar_boots": "Combat Boots",
 	
+	"item.thismeanswar.green_war_armor_helm": "§2War Armor Helmet",
+	"item.thismeanswar.green_war_armor_chest": "§2War Armor Chestpiece",
+	"item.thismeanswar.green_war_armor_legs": "§2War Armor Legs",
+	"item.thismeanswar.green_war_armor_boots": "§2War Armor Boots",
+	
+	"item.thismeanswar.red_war_armor_helm": "§4War Armor Helmet",
+	"item.thismeanswar.red_war_armor_chest": "§4War Armor Chestpiece",
+	"item.thismeanswar.red_war_armor_legs": "§4War Armor Legs",
+	"item.thismeanswar.red_war_armor_boots": "§4War Armor Boots",
+	
+	"item.thismeanswar.blue_war_armor_helm": "§1War Armor Helmet",
+	"item.thismeanswar.blue_war_armor_chest": "§1War Armor Chestpiece",
+	"item.thismeanswar.blue_war_armor_legs": "§1War Armor Legs",
+	"item.thismeanswar.blue_war_armor_boots": "§1War Armor Boots",
+	
 	"item.thismeanswar.casing_9mm": "9mm Casing",
 	"item.thismeanswar.casing_223": ".223 Casing",
 	"item.thismeanswar.casing_556": "5.56 Casing",
