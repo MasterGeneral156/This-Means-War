@@ -9,7 +9,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public class KevlarArmor implements ArmorMaterial {
 
-	private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
     private final int durabilityMultiplier;
     private final int[] slotProtections;
@@ -30,7 +29,7 @@ public class KevlarArmor implements ArmorMaterial {
     
 	@Override
 	public int getDurabilityForSlot(EquipmentSlot slot) {
-		return HEALTH_PER_SLOT[slot.getIndex()] * this.durabilityMultiplier;
+		return slotProtections[slot.getIndex()] * this.durabilityMultiplier;
 	}
 
 	@Override
