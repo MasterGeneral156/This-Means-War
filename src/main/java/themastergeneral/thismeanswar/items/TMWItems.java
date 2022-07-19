@@ -6,6 +6,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.config.DurabilityItemConfig;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
 
@@ -42,11 +44,11 @@ public class TMWItems {
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
 	
 	//Magazines
-	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, 15);
-	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, 30);
-	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, 20);
-	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, 20);
-	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, 7);
+	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, MagazineConfigs.SML_9MM_MAG_SIZE.get());
+	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, MagazineConfigs.LRG_9MM_MAG_SIZE.get());
+	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, MagazineConfigs.AR_MAG_SIZE.get());
+	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, MagazineConfigs.AR_MAG_SIZE.get());
+	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, MagazineConfigs.M1911_MAG_SIZE.get());
 	
 	//Crafting items
 	public static AbstractModItem ingot_lead = new BasicItem();
@@ -67,7 +69,7 @@ public class TMWItems {
 	
 	public static AbstractModItem plate_lead = new BasicItem();
 	
-	public static AbstractModItem mag_capacity_upgrade = new BasicItem(3);
+	public static AbstractModItem mag_capacity_upgrade = new BasicItem(MagazineConfigs.MAX_MAG_CAP_UPGRADES.get());
 	public static AbstractModItem gun_rof_upgrade= new BasicItem(1);
 	public static AbstractModItem gun_rof_downgrade= new BasicItem(1);
 	
@@ -75,11 +77,11 @@ public class TMWItems {
 	public static AbstractModItem kevlar_raw = new BasicItem();
 	
 	//Durability crafting items
-	public static DurabilityItem hammer_iron = new DurabilityItem(128);
-	public static DurabilityItem hammer_steel = new DurabilityItem(213);
-	public static DurabilityItem hammer_diamond = new DurabilityItem(512);
+	public static DurabilityItem hammer_iron = new DurabilityItem(DurabilityItemConfig.IRON_HAMMER.get());
+	public static DurabilityItem hammer_steel = new DurabilityItem(DurabilityItemConfig.STEEL_HAMMER.get());
+	public static DurabilityItem hammer_diamond = new DurabilityItem(DurabilityItemConfig.DIAMOND_HAMMER.get());
 	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
-	public static DurabilityItem hand_saw = new DurabilityItem(157);
+	public static DurabilityItem hand_saw = new DurabilityItem(DurabilityItemConfig.HAND_SAW.get());
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
