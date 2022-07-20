@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
@@ -23,6 +23,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.BalanceConfig;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
 public class AbstractGunItem extends AbstractModItem {
@@ -32,6 +33,7 @@ public class AbstractGunItem extends AbstractModItem {
 	protected Item magazine;
 	protected AbstractBulletItem bullet;
 	protected float damage;
+	protected int baseAmmoSize;
 	protected int maxAmmo;
 	protected int magType;
 	protected float bulletSpeed;
@@ -87,6 +89,7 @@ public class AbstractGunItem extends AbstractModItem {
 		this.magType=2;
 		this.bulletSpread = bulletSpread;
 		this.bulletSpeed = bulletSpeed;
+		this.baseAmmoSize = maxAmmo;
 	}
 	
 	//TODO: Fix this
@@ -98,6 +101,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", maxAmmo);
 		compoundnbt.putInt("magLoaded", 0);
 		compoundnbt.putInt("magType", magType);
+		compoundnbt.putInt("capUpgrades", 0);
 		compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 		
 		stack.setTag(compoundnbt);
@@ -118,7 +122,23 @@ public class AbstractGunItem extends AbstractModItem {
 	{
 		if (stackIn.hasTag())
 		{
-			return stackIn.getTag().getInt("maxAmmo");
+			if (getMagType(stackIn) == internal_mag)
+			{
+				int capUpgrades = getCapUpgrades(stackIn);
+				int maxAmmo = baseAmmoSize;
+				double capBonus = (maxAmmo * 0.1) * capUpgrades;
+				
+				//Just in case the mags are too small ;)
+				//Yw you pistol users
+				if ((capBonus < 1.0D * capUpgrades) && capUpgrades > 0)
+					capBonus = 1.0D * capUpgrades;
+				
+				return (int) (maxAmmo + capBonus);	//10% extra ammo per level?
+			}
+			else
+			{
+				return stackIn.getTag().getInt("maxAmmo");
+			}
 		}
 		else
 		{
@@ -150,6 +170,18 @@ public class AbstractGunItem extends AbstractModItem {
 		}
 	}
 	
+	public int getCapUpgrades(ItemStack stackIn)
+	{
+		if (stackIn.hasTag())
+		{
+			return stackIn.getTag().getInt("capUpgrades");
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
 	public boolean canFire(ItemStack stackIn)
 	{
 		if (getCurrentAmmo(stackIn) > 0)
@@ -168,6 +200,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", maxAmmo);
 			compoundnbt.putInt("magLoaded", 0);
 			compoundnbt.putInt("magType", magType);
+			compoundnbt.putInt("capUpgrades", 0);
 			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 			stack.setTag(compoundnbt);
 	   }
@@ -232,6 +265,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			compoundnbt.putInt("magLoaded", hasMag(mag));
 			compoundnbt.putInt("magType", magType);
+			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			mag.setTag(compoundnbt);
 			return true;
@@ -259,6 +293,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 			compoundnbt.putInt("magLoaded", hasMag(mag));
 			compoundnbt.putInt("magType", getMagType(mag));
+			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			mag.setTag(compoundnbt);
 		}
@@ -277,6 +312,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
@@ -288,6 +324,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", setTo);
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
@@ -299,6 +336,19 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", setTo);
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		mag.setTag(compoundnbt);
+	}
+
+	protected void setGunCapUpgrades(ItemStack mag, int setTo)
+	{
+		CompoundTag compoundnbt = new CompoundTag();
+		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("magLoaded", hasMag(mag));
+		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", setTo);
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
@@ -310,6 +360,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", setTo);
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		mag.setTag(compoundnbt);
 	}
@@ -366,13 +417,16 @@ public class AbstractGunItem extends AbstractModItem {
 							CompoundTag nbt = itemstack2.getTag();
 							int magAmmo = nbt.getInt("currentAmmo");
 							int magMaxAmmo = nbt.getInt("maxAmmo");
+							int magCapUpgrades = nbt.getInt("capUpgrades");
 							setGunAmmo(mag, magAmmo);
 							setGunMaxAmmo(mag, magMaxAmmo);
 							setGunMagLoad(mag, 1);
 							setGunROF(mag, getRateOfFire(mag));
+							setGunCapUpgrades(mag, magCapUpgrades);
+							
 							playerIn.getInventory().removeItem(slotID, 1);
 							playerIn.getCooldowns().addCooldown(this, reloadTime);
-							playerIn.displayClientMessage(new TextComponent("thismeanswar.mag_loaded"), true);
+							playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.mag_loaded"), true);
 							return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 						}
 					}
@@ -380,24 +434,26 @@ public class AbstractGunItem extends AbstractModItem {
 					{
 						int gunAmmo = getCurrentAmmo(mag);
 						int urmaxAmmo = getMaxAmmo(mag);
-						
-						ItemStack newmag = new ItemStack(magazine);
-						
+						int capUpgrades = getCapUpgrades(mag);
 						
 						setGunAmmo(mag, 0);
 						setGunMaxAmmo(mag, 0);
 						setGunMagLoad(mag, 0);
 						setGunROF(mag, getRateOfFire(mag));
+						setGunCapUpgrades(mag, 0);
 						
-						CompoundTag compoundnbt = new CompoundTag();
-						compoundnbt.putInt("currentAmmo", gunAmmo);
-						compoundnbt.putInt("maxAmmo", urmaxAmmo);
-						newmag.setTag(compoundnbt);
+						ItemStack newmag = new ItemStack(magazine);
+						
+						CompoundTag nbt = new CompoundTag();
+							nbt.putInt("currentAmmo", gunAmmo);
+							nbt.putInt("maxAmmo", urmaxAmmo);
+							nbt.putInt("capUpgrades", capUpgrades);
+						newmag.setTag(nbt);
 						
 						playerIn.getInventory().add(newmag);
 						
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						playerIn.displayClientMessage(new TextComponent("thismeanswar.mag_unloaded"), true);
+						playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.mag_unloaded"), true);
 						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
@@ -420,7 +476,7 @@ public class AbstractGunItem extends AbstractModItem {
 							ItemStack ibullet = playerIn.getInventory().getItem(slotID);
 							addAmmoToMag(mag);
 							ibullet.shrink(1);
-							playerIn.displayClientMessage(new TextComponent("thismeanswar.bullet_loaded"), true);
+							playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.bullet_loaded"), true);
 							playerIn.getCooldowns().addCooldown(this, 8);
 						}
 					}
@@ -451,12 +507,12 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_AUTO.get())
 				{
 					//fail
-					TextComponent message = new TextComponent("thismeanswar.upgrade_nocompat");
+					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_nocompat");
 					playerIn.displayClientMessage(message, true);
 				}
 				else
 				{
-					TextComponent message = new TextComponent("thismeanswar.upgrade_rof_full");
+					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_rof_full");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_AUTO.get());
 					playerIn.getMainHandItem().shrink(1);
 					playerIn.displayClientMessage(message, true);
@@ -470,14 +526,34 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_SINGLE.get())
 				{
 					//fail
-					TextComponent message = new TextComponent("thismeanswar.upgrade_nocompat");
+					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_nocompat");
 					playerIn.displayClientMessage(message, true);
 				}
 				else
 				{
-					TextComponent message = new TextComponent("thismeanswar.upgrade_rof_semi");
+					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_rof_semi");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_SINGLE.get());
 					playerIn.getMainHandItem().shrink(1);
+					playerIn.displayClientMessage(message, true);
+				}
+			}
+		}
+		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.mag_capacity_upgrade))
+		{
+			if (playerIn.isCrouching())
+			{
+				if (getMagType(mag) == internal_mag)
+				{
+					if (getCapUpgrades(mag) < MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
+					{
+						upgradeMagCapacity(mag);
+						playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
+						playerIn.getMainHandItem().shrink(1);
+					}
+				}
+				else
+				{
+					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_mag_fail_invalid_gun");
 					playerIn.displayClientMessage(message, true);
 				}
 			}
@@ -511,7 +587,24 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
 		compoundnbt.putInt("magLoaded", hasMag(mag));
 		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", setTo);
 		mag.setTag(compoundnbt);
+	}
+	
+	protected void upgradeMagCapacity(ItemStack mag)
+	{
+		int capUpgrades = getCapUpgrades(mag);
+		if ((capUpgrades + 1) <= MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
+		{
+			CompoundTag compoundnbt = new CompoundTag();
+			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("magLoaded", hasMag(mag));
+			compoundnbt.putInt("magType", getMagType(mag));
+			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
+			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+			mag.setTag(compoundnbt);
+		}
 	}
 }

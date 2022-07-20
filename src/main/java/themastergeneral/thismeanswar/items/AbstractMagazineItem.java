@@ -27,7 +27,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	private int maxAmmo; 
 	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
-	private int capacityUpgrades = 0;
+	private int capacityUpgrades;
 	protected int maxCapacityUpgrades = MagazineConfigs.MAX_MAG_CAP_UPGRADES.get();
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
@@ -56,7 +56,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", 0);
 		compoundnbt.putInt("maxAmmo", maxAmmo);
-		compoundnbt.putInt("capUpgrades", capacityUpgrades);
+		compoundnbt.putInt("capUpgrades", 0);
 		stack.setTag(compoundnbt);
 	}
 	
