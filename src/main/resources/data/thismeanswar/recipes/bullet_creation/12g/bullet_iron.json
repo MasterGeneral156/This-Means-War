@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bullet_make_12g",
+  "ingredients": [
+    {
+      "tag": "thismeanswar:casing/12g" 
+    },
+	{
+      "tag": "forge:gunpowder" 
+    },
+	{
+      "tag": "thismeanswar:primer/shotgun" 
+    },
+	{
+      "tag": "thismeanswar:tip/12g" 
+    },
+	{
+		"item": "thismeanswar:hammer_iron", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:round_12g",
+    "count": 1
+  }
+}

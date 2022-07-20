@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bullet_make_45",
+  "ingredients": [
+    {
+      "tag": "thismeanswar:casing/45" 
+    },
+	{
+      "tag": "forge:gunpowder" 
+    },
+	{
+      "tag": "thismeanswar:primer/pistol" 
+    },
+	{
+      "tag": "thismeanswar:tip/45" 
+    },
+	{
+		"item": "thismeanswar:hammer_diamond", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:round_45",
+    "count": 1
+  }
+}

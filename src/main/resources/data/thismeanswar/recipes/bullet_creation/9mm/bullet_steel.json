@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bullet_make_9mm",
+  "ingredients": [
+    {
+      "tag": "thismeanswar:casing/9mm" 
+    },
+	{
+      "tag": "forge:gunpowder" 
+    },
+	{
+      "tag": "thismeanswar:primer/pistol" 
+    },
+	{
+      "tag": "thismeanswar:tip/9mm" 
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:round_9mm",
+    "count": 1
+  }
+}
