@@ -49,12 +49,13 @@ public class AbstractHealingItem extends AbstractModItem {
 			doTreatmentTick(playerIn);
 			stackIn.shrink(1);
 			
-			TextComponent message = new TextComponent(health + " thismeanswar.medic_success");
+			TextComponent message = new TextComponent("" + health + " ");
+			message.append(new TranslatableComponent("thismeanswar.medic_success"));
 			playerIn.displayClientMessage(message, true);
 		}
 		else
 		{
-			TextComponent message = new TextComponent("thismeanswar.medic_error");
+			TranslatableComponent message = new TranslatableComponent("thismeanswar.medic_error");
 			playerIn.displayClientMessage(message, true);
 		}
 		return InteractionResultHolder.sidedSuccess(stackIn, levelIn.isClientSide());
