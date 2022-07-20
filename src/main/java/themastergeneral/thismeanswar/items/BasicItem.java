@@ -31,17 +31,17 @@ public class BasicItem extends AbstractModItem {
 	{
 		if (stack.getItem() == TMWItems.mag_capacity_upgrade)
 		{
-			tooltip.add(new TranslatableComponent("Use while sneaking with magazine in off-hand."));
+			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_mag_directions"));
 			tooltip.add(new TranslatableComponent("Max Upgrades: 3"));
 		}
 		if (stack.getItem() == TMWItems.gun_rof_upgrade)
 		{
-			tooltip.add(new TranslatableComponent("Use while sneaking with gun in off-hand."));
+			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_rof_directions"));
 			tooltip.add(new TranslatableComponent("Converts gun to automatic."));
 		}
 		if (stack.getItem() == TMWItems.gun_rof_downgrade)
 		{
-			tooltip.add(new TranslatableComponent("Use while sneaking with gun in off-hand."));
+			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_rof_directions"));
 			tooltip.add(new TranslatableComponent("Converts gun to 'fully semi-automatic'."));
 		}
 	}

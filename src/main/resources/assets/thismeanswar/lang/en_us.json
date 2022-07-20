@@ -111,5 +111,17 @@
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
 	"block.thismeanswar.ammo_box_large": "Large Ammo Container",
 	
-	"block.thismeanswar.crusher": "Burning Crusher"
+	"block.thismeanswar.crusher": "Burning Crusher",
+	
+	"thismeanswar.mag_loaded": "Magazine has been inserted.",
+	"thismeanswar.mag_unloaded": "Magazine has been removed.",
+	"thismeanswar.bullet_loaded": "Round has been inserted.",
+	"thismeanswar.bullet_unloaded": "Round has been removed.",
+	"thismeanswar.upgrade_rof_full": "Firearm has been upgraded to full-auto.",
+	"thismeanswar.upgrade_rof_semi": "Firearm has been upgraded to 'fully semi-automatic'.",
+	"thismeanswar.upgrade_mag_directions": "Use while sneaking with magazine in off-hand.",
+	"thismeanswar.upgrade_rof_directions": "Use while sneaking with gun in off-hand.",
+	"thismeanswar.upgrade_nocompat": "Upgrade cannot be used with this Firearm.",
+	"thismeanswar.medic_error": "Cannot use medical item while your health is full.",
+	"thismeanswar.medic_success": "health has been recovered."
 }

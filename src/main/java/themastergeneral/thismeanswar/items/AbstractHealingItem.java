@@ -49,12 +49,12 @@ public class AbstractHealingItem extends AbstractModItem {
 			doTreatmentTick(playerIn);
 			stackIn.shrink(1);
 			
-			TextComponent message = new TextComponent(health + " health recovered.");
+			TextComponent message = new TextComponent(health + " thismeanswar.medic_success");
 			playerIn.displayClientMessage(message, true);
 		}
 		else
 		{
-			TextComponent message = new TextComponent("Cannot use item when fully healed.");
+			TextComponent message = new TextComponent("thismeanswar.medic_error");
 			playerIn.displayClientMessage(message, true);
 		}
 		return InteractionResultHolder.sidedSuccess(stackIn, levelIn.isClientSide());
