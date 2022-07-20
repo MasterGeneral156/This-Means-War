@@ -372,7 +372,7 @@ public class AbstractGunItem extends AbstractModItem {
 							setGunROF(mag, getRateOfFire(mag));
 							playerIn.getInventory().removeItem(slotID, 1);
 							playerIn.getCooldowns().addCooldown(this, reloadTime);
-							playerIn.displayClientMessage(new TextComponent("Magazine has been inserted."), true);
+							playerIn.displayClientMessage(new TextComponent("thismeanswar.mag_loaded"), true);
 							return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 						}
 					}
@@ -397,7 +397,7 @@ public class AbstractGunItem extends AbstractModItem {
 						playerIn.getInventory().add(newmag);
 						
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						playerIn.displayClientMessage(new TextComponent("Magazine has been unloaded."), true);
+						playerIn.displayClientMessage(new TextComponent("thismeanswar.mag_unloaded"), true);
 						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
@@ -420,7 +420,7 @@ public class AbstractGunItem extends AbstractModItem {
 							ItemStack ibullet = playerIn.getInventory().getItem(slotID);
 							addAmmoToMag(mag);
 							ibullet.shrink(1);
-							playerIn.displayClientMessage(new TextComponent("Bullet has been inserted."), true);
+							playerIn.displayClientMessage(new TextComponent("thismeanswar.bullet_loaded"), true);
 							playerIn.getCooldowns().addCooldown(this, 8);
 						}
 					}
@@ -451,12 +451,12 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_AUTO.get())
 				{
 					//fail
-					TextComponent message = new TextComponent("Upgrade is not compatible with current weapon.");
+					TextComponent message = new TextComponent("thismeanswar.upgrade_nocompat");
 					playerIn.displayClientMessage(message, true);
 				}
 				else
 				{
-					TextComponent message = new TextComponent("Rate of Fire is now full-auto.");
+					TextComponent message = new TextComponent("thismeanswar.upgrade_rof_full");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_AUTO.get());
 					playerIn.getMainHandItem().shrink(1);
 					playerIn.displayClientMessage(message, true);
@@ -470,12 +470,12 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_SINGLE.get())
 				{
 					//fail
-					TextComponent message = new TextComponent("Upgrade is not compatible with current weapon.");
+					TextComponent message = new TextComponent("thismeanswar.upgrade_nocompat");
 					playerIn.displayClientMessage(message, true);
 				}
 				else
 				{
-					TextComponent message = new TextComponent("Rate of Fire is now 'fully semi-automatic'.");
+					TextComponent message = new TextComponent("thismeanswar.upgrade_rof_semi");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_SINGLE.get());
 					playerIn.getMainHandItem().shrink(1);
 					playerIn.displayClientMessage(message, true);
