@@ -48,7 +48,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
-	      entity.hurt(DamageSource.thrown(this, null), bulletDmg);
+	      entity.hurt(DamageSource.thrown(this, this), bulletDmg);
 	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
