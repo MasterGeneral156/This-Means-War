@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
@@ -373,10 +374,9 @@ public class AbstractGunItem extends AbstractModItem {
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		if (magazine == null)
-			tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
-		else
+		if (magazine != null)
 			tooltip.add(new TranslatableComponent(magazine.getDescriptionId()));
+		tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
 			
 	}
 

@@ -47,6 +47,9 @@
 	"item.thismeanswar.kevlar_legs": "Combat Leggings",
 	"item.thismeanswar.kevlar_boots": "Combat Boots",
 	
+	"item.thismeanswar.bandage": "Bandage",
+	"item.thismeanswar.gauze": "Gauze",
+	
 	"item.thismeanswar.green_war_armor_helm": "§2War Armor Helmet",
 	"item.thismeanswar.green_war_armor_chest": "§2War Armor Chestpiece",
 	"item.thismeanswar.green_war_armor_legs": "§2War Armor Legs",
@@ -79,7 +82,7 @@
 	"item.thismeanswar.bullet_tip_buckshot": "Buckshot",
 	
 	"block.thismeanswar.ore_lead": "Lead Ore",
-		"block.thismeanswar.ore_brass": "Brass Ore",
+	"block.thismeanswar.ore_brass": "Brass Ore",
 		
 	"block.thismeanswar.block_lead": "Block of Lead",
 	"block.thismeanswar.block_brass": "Block of Brass",
@@ -119,9 +122,10 @@
 	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.upgrade_rof_full": "Firearm has been upgraded to full-auto.",
 	"thismeanswar.upgrade_rof_semi": "Firearm has been upgraded to 'fully semi-automatic'.",
-	"thismeanswar.upgrade_mag_directions": "Use while sneaking with magazine in off-hand.",
-	"thismeanswar.upgrade_rof_directions": "Use while sneaking with gun in off-hand.",
-	"thismeanswar.upgrade_nocompat": "Upgrade cannot be used with this Firearm.",
+	"thismeanswar.upgrade_mag_directions": "Use while sneaking with magazine/internal-fed firearm in off-hand.",
+	"thismeanswar.upgrade_mag_fail_invalid_gun": "This upgrade may only be only applied to magazines, or firearms with internal magazines.",
+	"thismeanswar.upgrade_rof_directions": "Use while sneaking with firearm in off-hand.",
+	"thismeanswar.upgrade_nocompat": "Upgrade cannot be used with this firearm.",
 	"thismeanswar.medic_error": "Cannot use medical item while your health is full.",
 	"thismeanswar.medic_success": "health has been recovered."
 }
