@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:bullet_make",
+    "pattern": [
+        "BCP",
+        " G "
+    ],
+    "key": {
+		"C": { "tag": "thismeanswar:casing/12g" },
+		"G": { "tag": "forge:gunpowder" },
+		"P": { "tag": "thismeanswar:primer/shotgun" },
+		"B": { "tag": "thismeanswar:tip/12g" }
+    },
+    "result": {
+        "item": "thismeanswar:round_12g",
+		"count": 1
+		}
+    }
+}

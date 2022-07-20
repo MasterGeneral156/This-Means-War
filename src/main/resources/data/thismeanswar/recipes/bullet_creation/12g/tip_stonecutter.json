@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:nuggets/lead"
+  },
+  "result": "thismeanswar:bullet_tip_buckshot",
+  "count": 8
+}
