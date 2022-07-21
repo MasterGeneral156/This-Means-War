@@ -33,7 +33,7 @@ repositories {
 		url = "https://dvs1.progwml6.com/files/maven/"
 	}
   maven {
-    name = "JEI Fallback"
+    name = "ModMaven"
     url = "https://modmaven.dev"
   }
   maven { 
@@ -42,7 +42,7 @@ repositories {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: project.property('mc_version')
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -95,8 +95,11 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + project.property('forge_version')
-	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + ":" + project.property('jei_version') + ":api")
-	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + ":" + project.property('jei_version'))
+	
+	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-common-api:" + project.property('jei_version'))
+	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-forge-api:" + project.property('jei_version'))
+	
+	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-forge:" + project.property('jei_version'))
 	
 	compileOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('mc_version') + "-" + project.property('patchouli_version') + ":api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('mc_version') + "-" + project.property('patchouli_version') + "")
