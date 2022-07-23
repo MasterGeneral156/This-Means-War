@@ -155,6 +155,10 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> block_brass = ITEMS.register("block_brass", () -> TMWItems.block_brass);
 	public static final RegistryObject<Item> block_steel = ITEMS.register("block_steel", () -> TMWItems.block_steel);
 	
+	//Misc Blocks
+	public static final RegistryObject<Item> red_stone_bricks = ITEMS.register("red_stone_bricks", () -> TMWItems.red_stone_bricks);
+	public static final RegistryObject<Item> blue_stone_bricks = ITEMS.register("blue_stone_bricks", () -> TMWItems.blue_stone_bricks);
+	
 	//Ammo Box
 	public static final RegistryObject<Item> ammo_box = ITEMS.register("ammo_box", () -> TMWItems.ammo_box);
 	public static final RegistryObject<Item> ammo_box_medium = ITEMS.register("ammo_box_medium", () -> TMWItems.ammo_box_medium);

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+	  "name": "thismeanswar:red_stone_bricks",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thismeanswar:red_stone_bricks"
+        }
+      ]
+    }
+  ]
+}

@@ -124,12 +124,14 @@ public class TMWItems {
 	
 	//Blocks
 	public static AbstractBlockItem ore_brass = new AbstractBlockItem(TMWBlocks.ore_brass);
-	public static AbstractBlockItem block_brass = new AbstractBlockItem(TMWBlocks.block_brass);
-	
-	public static AbstractBlockItem block_lead = new AbstractBlockItem(TMWBlocks.block_lead);
 	public static AbstractBlockItem ore_lead = new AbstractBlockItem(TMWBlocks.ore_lead);
 	
+	public static AbstractBlockItem block_brass = new AbstractBlockItem(TMWBlocks.block_brass);
+	public static AbstractBlockItem block_lead = new AbstractBlockItem(TMWBlocks.block_lead);
 	public static AbstractBlockItem block_steel = new AbstractBlockItem(TMWBlocks.block_steel);
+	
+	public static AbstractBlockItem blue_stone_bricks = new AbstractBlockItem(TMWBlocks.blue_stone_bricks);
+	public static AbstractBlockItem red_stone_bricks = new AbstractBlockItem(TMWBlocks.red_stone_bricks);
 	
 	public static AbstractBlockItem ammo_box = new AbstractBlockItem(TMWBlocks.ammo_box);
 	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);
