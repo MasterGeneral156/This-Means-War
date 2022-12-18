@@ -23,14 +23,14 @@ public class ModConfigs {
 		BalanceConfig.register223Config(SERVER_BUILDER);
 		BalanceConfig.register556Config(SERVER_BUILDER);
 		BalanceConfig.register45Config(SERVER_BUILDER);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "thismeanswar/reference.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "ctd/tmw/reference.toml");
 	}
 	
 	private static void registerDurabilityConfig()
 	{
 		ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
 		DurabilityItemConfig.registerHammerConfig(SERVER_BUILDER);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "thismeanswar/durability.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "ctd/tmw/durability.toml");
 	}
 	
 	private static void registerGunConfigs()
@@ -50,7 +50,7 @@ public class ModConfigs {
 		BalanceConfig.registerGrenadeConfig(SERVER_BUILDER);
 		BalanceConfig.registerDynamiteStickConfig(SERVER_BUILDER);
 		BalanceConfig.registerNukeConfig(SERVER_BUILDER);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "thismeanswar/guns.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "ctd/tmw/guns.toml");
 	}
 	
 	private static void registerMagConfig()
@@ -58,6 +58,6 @@ public class ModConfigs {
 		ForgeConfigSpec.Builder SERVER_BUILDER = new ForgeConfigSpec.Builder();
 		MagazineConfigs.registerMagConfig(SERVER_BUILDER);
 		
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "thismeanswar/mags.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SERVER_BUILDER.build(), "ctd/tmw/mags.toml");
 	}
 }
