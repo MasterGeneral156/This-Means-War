@@ -139,7 +139,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	
 	//In case you wanna remove a lot more ammo at once...
 	//Returns true if ammo is removed, false if not.
-	private void removeAmmoFromMag(ItemStack mag, int toRemove)
+	public void removeAmmoFromMag(ItemStack mag, int toRemove)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		if ((currentAmmo - toRemove) >= 0)
@@ -158,7 +158,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		addAmmoToMag(mag, 1);
 	}
 	
-	private void addAmmoToMag(ItemStack mag, int toAdd)
+	public void addAmmoToMag(ItemStack mag, int toAdd)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		int maxAmmo = getMaxAmmo(mag);

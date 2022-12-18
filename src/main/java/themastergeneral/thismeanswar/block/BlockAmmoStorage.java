@@ -36,6 +36,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.items.AbstractBulletItem;
+import themastergeneral.thismeanswar.items.AbstractMagazineItem;
 
 public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 
@@ -73,54 +74,21 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    		//Player is crouching, so they remove items.
 	    		if (player.isCrouching())
 	    		{
-	    			float f = 0.7F;
-	                double d0 = (double)(world.random.nextFloat() * f) + (double)0.15F;
-	                double d1 = (double)(world.random.nextFloat() * f) + (double)0.060000002F + 0.6D;
-	                double d2 = (double)(world.random.nextFloat() * f) + (double)0.15F;
-	                if (ammostorage.getAmmoQuantity() > 0)
-	                {
-		                ItemStack ammoDrop = new ItemStack(ammostorage.getAmmoItem(), 1);
-		                ItemEntity itementity = new ItemEntity(world, (double)blockpos.getX() + d0, (double)blockpos.getY() + d1, (double)blockpos.getZ() + d2, ammoDrop);
-		                itementity.setDefaultPickUpDelay();
-		                world.addFreshEntity(itementity);
-		                ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
-		                sendUpdateMsg(player, world, blockpos);
-	                }
+	    			removeAmmoFromStorage(ammostorage, world, player, blockpos);
 	    		}
 	    		else
 	    		{
+	    			//user holding rounds/ammo
 		    		if (stack.getItem() instanceof AbstractBulletItem)
 					{
 		    			//Check to see if ammo in the storage is the same ammo in hand.
-		    			if (ammostorage.getAmmoItem() == stack.getItem())
-		    			{
-		    				//Current stack CAN fit into the storage, so we fit the whole stack into it.
-		    				if (stack.getCount() + ammostorage.getAmmoQuantity() <= ammostorage.getAmmoMaxQuantity())
-		    				{
-		    					ammostorage.updateAmmo(stack.getItem(), stack.getCount());
-		    					stack.shrink(stack.getCount());
-		    					sendUpdateMsg(player, world, blockpos);
-		    					return InteractionResult.PASS;
-		    				}
-		    				//Entire stack cannot fit, so lets try to fit what we can.
-		    				else
-		    				{
-		    					int availablespace = ammostorage.getAmmoMaxQuantity() - ammostorage.getAmmoQuantity();
-		    					if (availablespace > 0)
-		    					{
-		    						ammostorage.updateAmmo(stack.getItem(), availablespace);
-			    					stack.shrink(availablespace);
-			    					sendUpdateMsg(player, world, blockpos);
-			    					return InteractionResult.PASS;
-		    					}
-		    					else
-		    					{
-		    						sendUpdateMsg(player, world, blockpos);
-		    		    	    	return InteractionResult.PASS;
-		    					}
-		    				}
-		    			}
+		    			return addAmmoToStorage(ammostorage, world, player, blockpos, stack);
 					}
+		    		//user holding magazine
+		    		if (stack.getItem() instanceof AbstractMagazineItem)
+		    		{
+		    			return fillHeldMagazine(ammostorage, player, stack);
+		    		}
 		    		else
 		    		{
 		    			sendUpdateMsg(player, world, blockpos);
@@ -132,6 +100,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	    	{
 	    		if (stack.getItem() instanceof AbstractBulletItem)
 				{
+	    			//add into box
 	    			ammostorage.updateAmmo(stack.getItem(), stack.getCount());
 	    			stack.shrink(stack.getCount());
 	    			return InteractionResult.PASS;
@@ -209,5 +178,71 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		message.append(new TranslatableComponent(ammostorage.getAmmoItem().getDescriptionId()));
 		message.append(")");
 		player.displayClientMessage(message, true);
+	}
+	
+	private void removeAmmoFromStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos)
+	{
+		float f = 0.7F;
+        double d0 = (double)(world.random.nextFloat() * f) + (double)0.15F;
+        double d1 = (double)(world.random.nextFloat() * f) + (double)0.060000002F + 0.6D;
+        double d2 = (double)(world.random.nextFloat() * f) + (double)0.15F;
+        if (ammostorage.getAmmoQuantity() > 0)
+        {
+            ItemStack ammoDrop = new ItemStack(ammostorage.getAmmoItem(), 1);
+            ItemEntity itementity = new ItemEntity(world, (double)blockpos.getX() + d0, (double)blockpos.getY() + d1, (double)blockpos.getZ() + d2, ammoDrop);
+            itementity.setDefaultPickUpDelay();
+            world.addFreshEntity(itementity);
+            ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
+            sendUpdateMsg(player, world, blockpos);
+        }
+	}
+	
+	private InteractionResult addAmmoToStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos, ItemStack stack)
+	{
+		if (ammostorage.getAmmoItem() == stack.getItem())
+		{
+			//Current stack CAN fit into the storage, so we fit the whole stack into it.
+			if (stack.getCount() + ammostorage.getAmmoQuantity() <= ammostorage.getAmmoMaxQuantity())
+			{
+				ammostorage.updateAmmo(stack.getItem(), stack.getCount());
+				stack.shrink(stack.getCount());
+				sendUpdateMsg(player, world, blockpos);
+				return InteractionResult.PASS;
+			}
+			//Entire stack cannot fit, so lets try to fit what we can.
+			else
+			{
+				int availablespace = ammostorage.getAmmoMaxQuantity() - ammostorage.getAmmoQuantity();
+				if (availablespace > 0)
+				{
+					ammostorage.updateAmmo(stack.getItem(), availablespace);
+					stack.shrink(availablespace);
+					sendUpdateMsg(player, world, blockpos);
+					return InteractionResult.PASS;
+				}
+				else
+				{
+					sendUpdateMsg(player, world, blockpos);
+	    	    	return InteractionResult.PASS;
+				}
+			}
+		}
+		return InteractionResult.FAIL;
+	}
+	
+	private InteractionResult fillHeldMagazine(BlockEntityAmmoStorage ammostorage, Player player, ItemStack stack)
+	{
+		AbstractMagazineItem magStack = (AbstractMagazineItem) stack.getItem();
+		//fill mag
+		if (magStack.getCurrentAmmo(stack) < magStack.getMaxAmmo(stack))
+		{
+			int toFill = (magStack.getMaxAmmo(stack) - magStack.getCurrentAmmo(stack));
+			magStack.addAmmoToMag(stack, toFill);
+			ammostorage.updateAmmo(stack.getItem(), toFill * -1);
+			player.getCooldowns().addCooldown(magStack, 20);
+			return InteractionResult.PASS;
+		}
+		else
+			return InteractionResult.FAIL;
 	}
 }
