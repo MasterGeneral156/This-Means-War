@@ -174,10 +174,18 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	private void sendUpdateMsg(Player player, Level world, BlockPos blockpos)
 	{
 		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
-		TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
-		message.append(new TranslatableComponent(ammostorage.getAmmoItem().getDescriptionId()));
-		message.append(")");
-		player.displayClientMessage(message, true);
+		if (ammostorage.getAmmo() == ItemStack.EMPTY)
+		{
+			TranslatableComponent message = new TranslatableComponent("thismeanswar.empty_ammo_storage");
+			player.displayClientMessage(message, true);
+		}
+		else
+		{
+			TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
+			message.append(new TranslatableComponent(ammostorage.getAmmoItem().getDescriptionId()));
+			message.append(")");
+			player.displayClientMessage(message, true);
+		}
 	}
 	
 	private void removeAmmoFromStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos)

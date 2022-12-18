@@ -130,5 +130,6 @@
 	"thismeanswar.upgrade_rof_directions": "Use while sneaking with firearm in off-hand.",
 	"thismeanswar.upgrade_nocompat": "Upgrade cannot be used with this firearm.",
 	"thismeanswar.medic_error": "Cannot use medical item while your health is full.",
-	"thismeanswar.medic_success": "health has been recovered."
+	"thismeanswar.medic_success": "health has been recovered.",
+	"thismeanswar.empty_ammo_storage": "This Ammo Storage is currently empty."
 }
