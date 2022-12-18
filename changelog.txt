@@ -1,19 +1,20 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
 Version: 0.0.18-Indev
-
+(12/18/2022, 18:20)
 -=-=-=-=-=-=-=-=-=-=-=-
 +Added War Armor.
 	Availble in Green, Red and Blue.
 +Added numerous new config options, along with tweaks to existing ones. 
-	Config files are now stored in 'config/thismeanswar'
+	Config files are now stored in 'config/ctd/tmw'
 +Added alternative recipe to upgrades, using CTD Tweak's Enchanted Gold Ingot.
 +Added Magazine Capacity Upgrade availability to firearms with internal magazines.
+*Clicking on an ammobox with a magazine will now fill that magazine.
 *Several images have been re-centered.
 *Numerous places of hard-coded text has been placed into the lang file.
 *Fixes for Magazine Capacity Upgrade. (Should be working in 99% of cases??)
-*Updated Forge target to 1.18.2-40.1.68
-*Updated JEI target to 10.1.2.231
+*Updated Forge target to 1.18.2-40.1.86
+*Updated JEI target to 10.2.1.283
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
