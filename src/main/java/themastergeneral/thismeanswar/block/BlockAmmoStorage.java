@@ -237,10 +237,15 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		if (magStack.getCurrentAmmo(stack) < magStack.getMaxAmmo(stack))
 		{
 			int toFill = (magStack.getMaxAmmo(stack) - magStack.getCurrentAmmo(stack));
-			magStack.addAmmoToMag(stack, toFill);
-			ammostorage.updateAmmo(stack.getItem(), toFill * -1);
-			player.getCooldowns().addCooldown(magStack, 20);
-			return InteractionResult.PASS;
+			if (ammostorage.getAmmoQuantity() >= toFill)
+			{
+				magStack.addAmmoToMag(stack, toFill);
+				ammostorage.updateAmmo(stack.getItem(), toFill * -1);
+				player.getCooldowns().addCooldown(magStack, 20);
+				return InteractionResult.PASS;
+			}
+			else
+				return InteractionResult.FAIL;
 		}
 		else
 			return InteractionResult.FAIL;
