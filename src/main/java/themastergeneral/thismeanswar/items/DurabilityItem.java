@@ -1,28 +1,15 @@
 package themastergeneral.thismeanswar.items;
 
+import com.themastergeneral.ctdcore.item.CTDDurabilityItem;
+
 import net.minecraft.world.item.ItemStack;
 import themastergeneral.thismeanswar.TMWMain;
 
-public class DurabilityItem extends AbstractModItem {
+public class DurabilityItem extends CTDDurabilityItem {
 
 	public DurabilityItem(int durability) {
-		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP).defaultDurability(durability));
+		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP), durability);
 	}
-	
-	@Override
-	public ItemStack getContainerItem(ItemStack itemStack)
-    {
-		ItemStack newStack = itemStack.copy();
-		newStack.setDamageValue(newStack.getDamageValue() + 1);
-		return newStack;
-        
-    }
-	
-	@Override
-	public boolean hasContainerItem(ItemStack stack)
-    {
-        return true;
-    }
 	
 	@Override
 	public boolean isFoil(ItemStack stack) 
