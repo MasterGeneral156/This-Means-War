@@ -39,6 +39,12 @@ repositories {
   maven { 
 	url 'https://maven.blamejared.com' 
   }
+  maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 minecraft {
@@ -95,6 +101,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + project.property('forge_version')
+	implementation fg.deobf('curse.maven:ctd-core-' + project.property('ctd_core_ver'))
 	
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-common-api:" + project.property('jei_version'))
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-forge-api:" + project.property('jei_version'))
