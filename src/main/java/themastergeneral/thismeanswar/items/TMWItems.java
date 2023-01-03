@@ -92,6 +92,7 @@ public class TMWItems {
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
 	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
+	public static AbstractHealingItem medic_kit = new AbstractHealingItem(12F, 10);
 	
 	//Armor Material
 	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0, TMWItems.kevlar_raw);

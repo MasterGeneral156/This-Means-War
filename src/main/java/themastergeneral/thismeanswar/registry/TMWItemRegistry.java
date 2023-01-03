@@ -31,7 +31,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
 	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
 	
-	
+	/**
+	 * Firearms
+	 */
 	//Pistols
 	public static final RegistryObject<Item> beretta_92_fs = ITEMS.register("beretta_92_fs", () -> TMWPistols.beretta_92_fs);
 	public static final RegistryObject<Item> glock_26 = ITEMS.register("glock_26", () -> TMWPistols.glock_26);
@@ -55,7 +57,9 @@ public class TMWItemRegistry {
 	//RPGs
 	public static final RegistryObject<Item> bazooka = ITEMS.register("bazooka", () -> TMWExplosiveProjectile.bazooka);
 	
-	//Armor
+	/**
+	 * Armor
+	 */
 	//Kevlar
 	public static final RegistryObject<Item> kevlar_helmet = ITEMS.register("kevlar_helmet", () -> TMWItems.kevlar_helmet);
 	public static final RegistryObject<Item> kevlar_chest = ITEMS.register("kevlar_chest", () -> TMWItems.kevlar_chest);
@@ -80,29 +84,54 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> blue_war_armor_legs = ITEMS.register("blue_war_armor_legs", () -> TMWItems.blue_war_armor_legs);
 	public static final RegistryObject<Item> blue_war_armor_boots = ITEMS.register("blue_war_armor_boots", () -> TMWItems.blue_war_armor_boots);
 	
+	/**
+	 * Throwables 
+	 */
 	//Grenades
 	public static final RegistryObject<Item> dynamite_stick = ITEMS.register("dynamite_stick", () -> TMWThrowables.dynamite_stick);
 	public static final RegistryObject<Item> nuclear_warhead = ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);
 	public static final RegistryObject<Item> hand_grenade = ITEMS.register("hand_grenade", () -> TMWThrowables.hand_grenade);
 	
-	//Crafting items
+	/**
+	 * Other Usable Items
+	 */
+	
+	//Medical
+	public static final RegistryObject<Item> bandage = ITEMS.register("bandage", () -> TMWItems.bandage);
+	public static final RegistryObject<Item> gauze = ITEMS.register("gauze", () -> TMWItems.gauze);
+	public static final RegistryObject<Item> medic_kit = ITEMS.register("medic_kit", () -> TMWItems.medic_kit);
+	
+	//Upgrades
+	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
+	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);
+	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
+	
+	/**
+	 * Crafting Items
+	 */
+	
+	//Lead
 	public static final RegistryObject<Item> plate_lead = ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
 	public static final RegistryObject<Item> ingot_lead = ITEMS.register("ingot_lead", () -> TMWItems.ingot_lead);
 	public static final RegistryObject<Item> nugget_lead = ITEMS.register("nugget_lead", () -> TMWItems.nugget_lead);
 	public static final RegistryObject<Item> dust_lead = ITEMS.register("dust_lead", () -> TMWItems.dust_lead);
 	
+	//Brass
 	public static final RegistryObject<Item> ingot_brass = ITEMS.register("ingot_brass", () -> TMWItems.ingot_brass);
 	public static final RegistryObject<Item> nugget_brass = ITEMS.register("nugget_brass", () -> TMWItems.nugget_brass);
 	public static final RegistryObject<Item> dust_brass = ITEMS.register("dust_brass", () -> TMWItems.dust_brass);
 	
+	//Steel
 	public static final RegistryObject<Item> ingot_steel = ITEMS.register("ingot_steel", () -> TMWItems.ingot_steel);
 	public static final RegistryObject<Item> nugget_steel = ITEMS.register("nugget_steel", () -> TMWItems.nugget_steel);
 	public static final RegistryObject<Item> dust_steel = ITEMS.register("dust_steel", () -> TMWItems.dust_steel);
 	
+	//Vanilla dusts
 	public static final RegistryObject<Item> dust_copper = ITEMS.register("dust_copper", () -> TMWItems.dust_copper);
 	public static final RegistryObject<Item> dust_iron = ITEMS.register("dust_iron", () -> TMWItems.dust_iron);
 	public static final RegistryObject<Item> dust_gold = ITEMS.register("dust_gold", () -> TMWItems.dust_gold);
 	
+	//Misc
 	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
 	
 	//Durability crafting items
@@ -125,10 +154,6 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_12g = ITEMS.register("casing_12g", () -> TMWItems.casing_12g);
 	public static final RegistryObject<Item> casing_45 = ITEMS.register("casing_45", () -> TMWItems.casing_45);
 	
-	//Health
-	public static final RegistryObject<Item> bandage = ITEMS.register("bandage", () -> TMWItems.bandage);
-	public static final RegistryObject<Item> gauze = ITEMS.register("gauze", () -> TMWItems.gauze);
-	
 	//Primers
 	public static final RegistryObject<Item> primer_pistol = ITEMS.register("primer_pistol", () -> TMWItems.primer_pistol);
 	public static final RegistryObject<Item> primer_rifle = ITEMS.register("primer_rifle", () -> TMWItems.primer_rifle);
@@ -141,10 +166,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_tip_buckshot = ITEMS.register("bullet_tip_buckshot", () -> TMWItems.bullet_tip_buckshot);
 	public static final RegistryObject<Item> bullet_tip_45 = ITEMS.register("bullet_tip_45", () -> TMWItems.bullet_tip_45);
 	
-	//Upgrades
-	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
-	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);
-	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
+	/**
+	 * Blocks
+	 */
 	
 	//Ores
 	public static final RegistryObject<Item> ore_lead = ITEMS.register("ore_lead", () -> TMWItems.ore_lead);
