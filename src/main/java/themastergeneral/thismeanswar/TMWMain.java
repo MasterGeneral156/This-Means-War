@@ -39,11 +39,11 @@ public class TMWMain
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
     	MinecraftForge.EVENT_BUS.register(this);
-        TMWItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWEntityRegistry.ENTITES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWBlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWBlockEntityRegistry.TILES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TMWItemRegistry.ITEMS.register(modBus);
+        TMWEntityRegistry.ENTITES.register(modBus);
+        TMWBlockRegistry.BLOCKS.register(modBus);
+        TMWBlockEntityRegistry.TILES.register(modBus);
+        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
         ModConfigs.register();
     }
 
