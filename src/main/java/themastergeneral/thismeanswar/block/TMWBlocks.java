@@ -9,6 +9,8 @@ public class TMWBlocks {
 	public static BlockMetal block_brass = new BlockMetal();
 	public static BlockStone red_stone_bricks = new BlockStone();
 	public static BlockStone blue_stone_bricks = new BlockStone();
+	public static BlockStone red_chiseled_brick = new BlockStone();
+	public static BlockStone blue_chiseled_brick = new BlockStone();
 	
 	public static BlockAmmoStorage ammo_box = new BlockAmmoStorage(512);
 	public static BlockAmmoStorage ammo_box_medium = new BlockAmmoStorage(1024);
