@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,6 +24,7 @@ import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
+import themastergeneral.thismeanswar.world.OreGen;
 
 @Mod("thismeanswar")
 public class TMWMain
@@ -39,11 +41,11 @@ public class TMWMain
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
     	MinecraftForge.EVENT_BUS.register(this);
-        TMWItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWEntityRegistry.ENTITES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWBlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWBlockEntityRegistry.TILES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TMWItemRegistry.ITEMS.register(modBus);
+        TMWEntityRegistry.ENTITES.register(modBus);
+        TMWBlockRegistry.BLOCKS.register(modBus);
+        TMWBlockEntityRegistry.TILES.register(modBus);
+        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
         ModConfigs.register();
     }
 
@@ -51,7 +53,9 @@ public class TMWMain
     public void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("This Means War, in active development.");
-        //OreGenHandler.registerOres();
+        event.enqueueWork(() -> {
+        	OreGen.registerOreFeatures();
+        });
     }
     
     @SubscribeEvent
