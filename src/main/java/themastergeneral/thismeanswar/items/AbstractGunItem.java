@@ -57,7 +57,7 @@ public class AbstractGunItem extends AbstractModItem {
 	 */
 	public AbstractGunItem(int shotTime, int reloadTime, AbstractMagazineItem magazine, AbstractBulletItem bullet, float damage, float bulletSpeed, float bulletSpread) 
 	{
-		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1));
 		this.shotTime=shotTime;
 		this.reloadTime=reloadTime;
 		this.magazine=magazine;
@@ -80,7 +80,7 @@ public class AbstractGunItem extends AbstractModItem {
 	 */
 	public AbstractGunItem(int shotTime, AbstractBulletItem bullet, float damage, int maxAmmo, float bulletSpeed, float bulletSpread) 
 	{
-		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1));
 		this.shotTime=shotTime;
 		this.reloadTime=0;
 		this.magazine=null;

@@ -14,7 +14,7 @@ import themastergeneral.thismeanswar.items.tiers.WarArmor;
 public class TMWItems {
 	
 	//Just in case
-	protected static Properties baseProp = new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP);
+	protected static Properties baseProp = new Properties().stacksTo(1);
 	
 	//Casings
 	public static AbstractModItem casing_9mm = new BasicItem();

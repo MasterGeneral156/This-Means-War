@@ -12,7 +12,7 @@ public class AbstractBulletItem extends AbstractModItem {
 	//No ammo stack limit...
 	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip) 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP));
+		super(new Properties());
 		bulletCasing = casing;
 		bulletTip = tip;
 		
@@ -20,14 +20,14 @@ public class AbstractBulletItem extends AbstractModItem {
 	
 	public AbstractBulletItem() 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP));
+		super(new Properties());
 		
 	}
 	
 	//Ammo stack limit...
 	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip, int maxSize) 
 	{
-		super(new Properties().stacksTo(maxSize).tab(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(maxSize));
 		bulletCasing = casing;
 		bulletTip = tip;
 	}

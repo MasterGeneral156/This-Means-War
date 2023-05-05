@@ -8,7 +8,7 @@ public class AbstractBlockItem extends BlockItem {
 
 	public AbstractBlockItem(Block p_i48527_1_) 
 	{
-		super(p_i48527_1_, new Properties().tab(TMWMain.ITEMGROUP));
+		super(p_i48527_1_, new Properties());
 	}
 
 }

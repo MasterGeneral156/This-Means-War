@@ -32,7 +32,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
 	{
-		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP));
+		super(new Properties().stacksTo(1));
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
 		this.baseAmmoSize = maxAmmoSize;

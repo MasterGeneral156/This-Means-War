@@ -16,7 +16,7 @@ public class AbstractContactThrowable extends AbstractModItem {
 	protected float explosionRadius;
 	public AbstractContactThrowable(float explosionRadius) 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP));
+		super(new Properties());
 		this.explosionRadius = explosionRadius;
 		
 	}

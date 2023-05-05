@@ -3,6 +3,7 @@ package themastergeneral.thismeanswar.items.tiers;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -26,16 +27,6 @@ public class KevlarArmor implements ArmorMaterial {
         this.knockbackResistance = knockbackResistance;
         this.repairIngredient = Ingredient.of(repairIngredient);
     }
-    
-	@Override
-	public int getDurabilityForSlot(EquipmentSlot slot) {
-		return slotProtections[slot.getIndex()] * this.durabilityMultiplier;
-	}
-
-	@Override
-	public int getDefenseForSlot(EquipmentSlot slot) {
-		return this.slotProtections[slot.getIndex()];
-	}
 
 	@Override
 	public int getEnchantmentValue() {
@@ -65,6 +56,16 @@ public class KevlarArmor implements ArmorMaterial {
 	@Override
 	public float getKnockbackResistance() {
 		return this.knockbackResistance;
+	}
+
+	@Override
+	public int getDurabilityForType(Type type) {
+		return this.slotProtections[type.getSlot().getIndex()] * this.durabilityMultiplier;
+	}
+
+	@Override
+	public int getDefenseForType(Type type) {
+		return this.slotProtections[type.getSlot().getIndex()];
 	}
 
 }

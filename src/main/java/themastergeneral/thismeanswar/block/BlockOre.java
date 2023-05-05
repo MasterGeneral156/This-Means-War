@@ -1,12 +1,13 @@
 package themastergeneral.thismeanswar.block;
 
-import net.minecraft.world.level.block.OreBlock;
+import com.themastergeneral.ctdcore.block.CTDBlock;
+
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 
-public class BlockOre extends OreBlock {
+public class BlockOre extends CTDBlock {
 
 	public BlockOre(Integer harvestLevel) 
 	{

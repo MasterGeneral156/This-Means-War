@@ -28,7 +28,7 @@ public class AbstractHealingItem extends AbstractModItem {
 	
 	public AbstractHealingItem(float health, int seconds) 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP));
+		super(new Properties());
 		this.health = health;
 		this.ticks = seconds * 20;
 	}

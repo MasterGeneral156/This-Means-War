@@ -17,12 +17,12 @@ public class BasicItem extends AbstractModItem {
 
 	public BasicItem() 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP));
+		super(new Properties());
 	}
 	
 	public BasicItem(int maxStackSize) 
 	{
-		super(new Properties().tab(TMWMain.ITEMGROUP).stacksTo(maxStackSize));
+		super(new Properties().stacksTo(maxStackSize));
 	}
 	
 	@Override

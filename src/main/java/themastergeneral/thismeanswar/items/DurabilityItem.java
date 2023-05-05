@@ -8,7 +8,7 @@ import themastergeneral.thismeanswar.TMWMain;
 public class DurabilityItem extends CTDDurabilityItem {
 
 	public DurabilityItem(int durability) {
-		super(new Properties().stacksTo(1).tab(TMWMain.ITEMGROUP), durability);
+		super(new Properties().stacksTo(1), durability);
 	}
 	
 	@Override
