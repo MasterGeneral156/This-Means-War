@@ -108,8 +108,8 @@ dependencies {
 	
 	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-forge:" + project.property('jei_version'))
 	
-	compileOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('mc_version') + "-" + project.property('patchouli_version') + ":api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('mc_version') + "-" + project.property('patchouli_version') + "")
+	compileOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('patchouli_mc_version') + "-" + project.property('patchouli_version') + ":api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('patchouli_mc_version') + "-" + project.property('patchouli_version') + "")
 
 }
 
