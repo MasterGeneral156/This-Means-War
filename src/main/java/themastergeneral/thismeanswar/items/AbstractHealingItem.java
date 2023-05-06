@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import themastergeneral.thismeanswar.TMWMain;
 
 public class AbstractHealingItem extends AbstractModItem {
 
@@ -49,14 +49,13 @@ public class AbstractHealingItem extends AbstractModItem {
 			doTreatmentTick(playerIn);
 			stackIn.shrink(1);
 			
-			TextComponent message = new TextComponent("" + health + " ");
-			message.append(new TranslatableComponent("thismeanswar.medic_success"));
+			MutableComponent message = ModUtils.displayString(health + " ");
+			message.append(ModUtils.displayTranslation("thismeanswar.medic_success"));
 			playerIn.displayClientMessage(message, true);
 		}
 		else
 		{
-			TranslatableComponent message = new TranslatableComponent("thismeanswar.medic_error");
-			playerIn.displayClientMessage(message, true);
+			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_error"), true);
 		}
 		return InteractionResultHolder.sidedSuccess(stackIn, levelIn.isClientSide());
 	}
@@ -72,7 +71,7 @@ public class AbstractHealingItem extends AbstractModItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		if (this.health > 0)
-			tooltip.add(new TranslatableComponent("Instantly recovers " + Math.round(this.health) + " health."));
+			tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health) + " health."));
 	}
 
 }

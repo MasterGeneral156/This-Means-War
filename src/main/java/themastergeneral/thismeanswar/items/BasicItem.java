@@ -4,8 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -31,18 +32,18 @@ public class BasicItem extends AbstractModItem {
 	{
 		if (stack.getItem() == TMWItems.mag_capacity_upgrade)
 		{
-			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_mag_directions"));
-			tooltip.add(new TranslatableComponent("Max Upgrades: 3"));
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_mag_directions"));
+			tooltip.add(ModUtils.displayString("Max Upgrades: 3"));
 		}
 		if (stack.getItem() == TMWItems.gun_rof_upgrade)
 		{
-			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_rof_directions"));
-			tooltip.add(new TranslatableComponent("Converts gun to automatic."));
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
+			tooltip.add(ModUtils.displayString("Converts gun to automatic."));
 		}
 		if (stack.getItem() == TMWItems.gun_rof_downgrade)
 		{
-			tooltip.add(new TranslatableComponent("thismeanswar.upgrade_rof_directions"));
-			tooltip.add(new TranslatableComponent("Converts gun to 'fully semi-automatic'."));
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
+			tooltip.add(ModUtils.displayString("Converts gun to 'fully semi-automatic'."));
 		}
 	}
 

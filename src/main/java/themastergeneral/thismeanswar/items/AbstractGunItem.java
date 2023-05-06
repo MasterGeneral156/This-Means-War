@@ -4,11 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -22,7 +21,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
@@ -373,10 +371,10 @@ public class AbstractGunItem extends AbstractModItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		if (magazine != null)
-			tooltip.add(new TranslatableComponent(magazine.getDescriptionId()));
-		tooltip.add(new TranslatableComponent(bullet.getDescriptionId()));
+			tooltip.add(ModUtils.displayString(magazine.getDescriptionId()));
+		tooltip.add(ModUtils.displayString(bullet.getDescriptionId()));
 			
 	}
 
@@ -426,7 +424,7 @@ public class AbstractGunItem extends AbstractModItem {
 							
 							playerIn.getInventory().removeItem(slotID, 1);
 							playerIn.getCooldowns().addCooldown(this, reloadTime);
-							playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.mag_loaded"), true);
+							playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_loaded"), true);
 							return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 						}
 					}
@@ -453,7 +451,7 @@ public class AbstractGunItem extends AbstractModItem {
 						playerIn.getInventory().add(newmag);
 						
 						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.mag_unloaded"), true);
+						playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_unloaded"), true);
 						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
@@ -476,7 +474,7 @@ public class AbstractGunItem extends AbstractModItem {
 							ItemStack ibullet = playerIn.getInventory().getItem(slotID);
 							addAmmoToMag(mag);
 							ibullet.shrink(1);
-							playerIn.displayClientMessage(new TranslatableComponent("thismeanswar.bullet_loaded"), true);
+							playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
 							playerIn.getCooldowns().addCooldown(this, 8);
 						}
 					}
@@ -507,15 +505,13 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_AUTO.get())
 				{
 					//fail
-					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_nocompat");
-					playerIn.displayClientMessage(message, true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
 				}
 				else
 				{
-					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_rof_full");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_AUTO.get());
 					playerIn.getMainHandItem().shrink(1);
-					playerIn.displayClientMessage(message, true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_full"), true);
 				}
 			}
 		}
@@ -526,15 +522,13 @@ public class AbstractGunItem extends AbstractModItem {
 				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_SINGLE.get())
 				{
 					//fail
-					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_nocompat");
-					playerIn.displayClientMessage(message, true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
 				}
 				else
 				{
-					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_rof_semi");
 					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_SINGLE.get());
 					playerIn.getMainHandItem().shrink(1);
-					playerIn.displayClientMessage(message, true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_semi"), true);
 				}
 			}
 		}
@@ -553,8 +547,7 @@ public class AbstractGunItem extends AbstractModItem {
 				}
 				else
 				{
-					TranslatableComponent message = new TranslatableComponent("thismeanswar.upgrade_mag_fail_invalid_gun");
-					playerIn.displayClientMessage(message, true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_mag_fail_invalid_gun"), true);
 				}
 			}
 		}

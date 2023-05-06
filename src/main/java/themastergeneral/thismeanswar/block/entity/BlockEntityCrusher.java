@@ -2,6 +2,8 @@ package themastergeneral.thismeanswar.block.entity;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -227,14 +229,14 @@ public class BlockEntityCrusher extends BaseContainerBlockEntity implements Worl
 	            e.litDuration = e.litTime;
 	            if (e.isLit()) {
 	               flag1 = true;
-	               if (itemstack.hasContainerItem())
-	                  e.items.set(1, itemstack.getContainerItem());
+	               if (itemstack.hasCraftingRemainingItem())
+	                  e.items.set(1, itemstack.getCraftingRemainingItem());
 	               else
 	               if (!itemstack.isEmpty()) {
 	                  Item item = itemstack.getItem();
 	                  itemstack.shrink(1);
 	                  if (itemstack.isEmpty()) {
-	                     e.items.set(1, itemstack.getContainerItem());
+	                     e.items.set(1, itemstack.getCraftingRemainingItem());
 	                  }
 	               }
 	            }
@@ -319,7 +321,7 @@ public class BlockEntityCrusher extends BaseContainerBlockEntity implements Worl
 	
 	@Override
 	protected Component getDefaultName() {
-		return new TranslatableComponent("thismeanswar.crusher");
+		return ModUtils.displayString("thismeanswar.crusher");
 	}
 	
 	@Override

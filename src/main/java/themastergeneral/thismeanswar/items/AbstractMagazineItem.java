@@ -4,9 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -67,8 +68,8 @@ public class AbstractMagazineItem extends AbstractModItem {
 	{
 		int currentAmmo = getCurrentAmmo(stack);
 		int maxAmmo = getMaxAmmo(stack);
-		tooltip.add(new TranslatableComponent("Capacity: " + currentAmmo + " / " + maxAmmo));
-		tooltip.add(new TranslatableComponent(bulletRequired.getDescriptionId()));
+		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
+		tooltip.add(ModUtils.displayTranslation(bulletRequired.getDescriptionId()));
 	}
 	
 	@Override

@@ -4,10 +4,11 @@ import java.text.NumberFormat;
 
 import javax.annotation.Nullable;
 
+import com.themastergeneral.ctdcore.helpers.ModUtils;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -176,13 +177,13 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) world.getBlockEntity(blockpos);
 		if (ammostorage.getAmmo() == ItemStack.EMPTY)
 		{
-			TranslatableComponent message = new TranslatableComponent("thismeanswar.empty_ammo_storage");
+			MutableComponent message = ModUtils.displayTranslation("thismeanswar.empty_ammo_storage");
 			player.displayClientMessage(message, true);
 		}
 		else
 		{
-			TextComponent message = new TextComponent(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
-			message.append(new TranslatableComponent(ammostorage.getAmmoItem().getDescriptionId()));
+			MutableComponent message = ModUtils.displayString(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
+			message.append(ModUtils.displayString(ammostorage.getAmmoItem().getDescriptionId()));
 			message.append(")");
 			player.displayClientMessage(message, true);
 		}
