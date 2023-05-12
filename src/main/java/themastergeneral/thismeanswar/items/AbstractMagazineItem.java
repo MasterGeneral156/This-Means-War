@@ -20,7 +20,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 
 public class AbstractMagazineItem extends AbstractModItem {
@@ -43,12 +42,6 @@ public class AbstractMagazineItem extends AbstractModItem {
 	public float getDestroySpeed(ItemStack stack, BlockState state) 
 	{
 	      return 0.0F;
-	}
-	
-	@Override
-	public int getItemEnchantability(ItemStack stack)
-	{
-		return 0;
 	}
 	
 	@Override

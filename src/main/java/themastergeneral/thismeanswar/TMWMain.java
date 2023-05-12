@@ -16,12 +16,14 @@ import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import themastergeneral.thismeanswar.block.TMWBlocks;
-import themastergeneral.thismeanswar.config.ModConfigs;
+import themastergeneral.thismeanswar.config.TMWConfig;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWExplosiveProjectile;
@@ -34,7 +36,6 @@ import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
-import themastergeneral.thismeanswar.world.OreGen;
 
 @Mod("thismeanswar")
 public class TMWMain
@@ -49,6 +50,7 @@ public class TMWMain
     	modBus.addListener(this::setup);
         modBus.addListener(this::registerTabs);
         modBus.addListener(this::fillTab);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TMWConfig.GENERAL_SPEC, "ctd/this-means-war.toml");
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
@@ -58,16 +60,15 @@ public class TMWMain
         TMWBlockRegistry.BLOCKS.register(modBus);
         TMWBlockEntityRegistry.TILES.register(modBus);
         TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
-        ModConfigs.register();
     }
 
     @SubscribeEvent
     public void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("This Means War, in active development.");
-        event.enqueueWork(() -> {
+        /*event.enqueueWork(() -> {
         	OreGen.registerOreFeatures();
-        });
+        });*/
     }
     
     @SubscribeEvent
@@ -178,7 +179,7 @@ public class TMWMain
 			ev.accept(TMWItems.ammo_box);
 			ev.accept(TMWItems.ammo_box_medium);
 			ev.accept(TMWItems.ammo_box_large);
-			ev.accept(TMWItems.crusher);
+			//ev.accept(TMWItems.crusher);
 			
 			ev.accept(TMWItems.block_brass);
 			ev.accept(TMWItems.ore_brass);

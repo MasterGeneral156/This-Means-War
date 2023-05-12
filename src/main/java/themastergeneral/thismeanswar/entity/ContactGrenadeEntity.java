@@ -3,12 +3,14 @@ package themastergeneral.thismeanswar.entity;
 import javax.annotation.Nonnull;
 
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
@@ -40,7 +42,7 @@ public class ContactGrenadeEntity extends ThrowableItemProjectile {
 	   @Override
 	   protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
-	      this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, Explosion.BlockInteraction.BREAK);
+	      this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, ExplosionInteraction.TNT);
 	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
@@ -51,7 +53,7 @@ public class ContactGrenadeEntity extends ThrowableItemProjectile {
 	   protected void onHitBlock(BlockHitResult p_230299_1_) {
 	      super.onHitBlock(p_230299_1_);
 	      if (!this.getCommandSenderWorld().isClientSide()) {
-	         this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, Explosion.BlockInteraction.BREAK);
+	         this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, ExplosionInteraction.TNT);
 	         this.remove(Entity.RemovalReason.KILLED);
 	      }
 
@@ -59,7 +61,7 @@ public class ContactGrenadeEntity extends ThrowableItemProjectile {
 	   
 	   @Nonnull
 	   @Override
-	   public Packet<?> getAddEntityPacket() {
+	   public Packet<ClientGamePacketListener> getAddEntityPacket() {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}
 	}

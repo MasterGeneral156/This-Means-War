@@ -120,7 +120,8 @@ public class BalanceConfig {
 	public static ForgeConfigSpec.DoubleValue NUKE_DMG;
 	
     public static void registerCommonConfig(ForgeConfigSpec.Builder COMMON_BUILDER) {
-    	COMMON_BUILDER.comment("Balance settings for the mod. Keep this synced between client and server.").push("Fire Rate Balance");
+    	COMMON_BUILDER.comment("Balance settings for the mod. Keep this synced between client and server.")
+    							.push("Fire Rate Balance");
 
         FIRE_RATE_AUTO = COMMON_BUILDER
                 .comment("Delay (in ticks) before firing next round in a fully automatic weapon")

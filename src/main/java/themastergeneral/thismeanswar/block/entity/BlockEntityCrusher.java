@@ -10,7 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
@@ -34,11 +33,10 @@ import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.block.BlockCrusher;
-import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
-public class BlockEntityCrusher extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
+/*public class BlockEntityCrusher extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
 
    protected static final int SLOT_INPUT = 0;
    protected static final int SLOT_FUEL = 1;
@@ -391,4 +389,4 @@ public class BlockEntityCrusher extends BaseContainerBlockEntity implements Worl
 	private boolean isLit() {
 	      return this.litTime > 0;
    }
-}
+}*/

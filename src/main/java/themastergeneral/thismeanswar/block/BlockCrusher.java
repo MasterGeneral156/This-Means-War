@@ -26,9 +26,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
-import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 
-public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
+public abstract class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	   public static final BooleanProperty LIT = BlockStateProperties.LIT;
 	   
@@ -39,7 +38,7 @@ public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 		      this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
 		   }
 
-	@Nullable
+	/*@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockpos, BlockState blockstate) {
 		return new BlockEntityCrusher(blockpos, blockstate);
@@ -79,6 +78,6 @@ public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	@Nullable
 	   protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level p_151988_, BlockEntityType<T> p_151989_, BlockEntityType<? extends BlockEntityCrusher> p_151990_) {
 	      return p_151988_.isClientSide ? null : createTicker(p_151988_, p_151989_, p_151990_);
-	   }
+	   }*/
 
 }

@@ -189,5 +189,5 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> ammo_box_large = ITEMS.register("ammo_box_large", () -> TMWItems.ammo_box_large);
 	
 	//Processing
-	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
+	//public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 }

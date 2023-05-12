@@ -3,6 +3,7 @@ package themastergeneral.thismeanswar.entity;
 import javax.annotation.Nonnull;
 
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -48,7 +49,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
-	      entity.hurt(DamageSource.thrown(this, this), bulletDmg);
+	      entity.hurt(this.damageSources().thrown(this, this), bulletDmg);
 	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
@@ -62,7 +63,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   
 	   @Nonnull
 	   @Override
-	   public Packet<?> getAddEntityPacket() 
+	   public Packet<ClientGamePacketListener> getAddEntityPacket() 
 	   {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}

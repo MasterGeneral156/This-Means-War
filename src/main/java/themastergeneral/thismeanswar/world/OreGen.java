@@ -16,17 +16,17 @@ import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
 import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 
-public class OreGen {
+/*public class OreGen {
 
 	public static Holder<PlacedFeature> BRASS_OREGEN;
 	public static Holder<PlacedFeature> LEAD_OREGEN;
 	
 	public static void registerOreFeatures() {
-        OreConfiguration brassConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, TMWBlocks.ore_brass.defaultBlockState(), 20);
+        OreConfiguration brassConfig = new OreConfiguration(OreRu, TMWBlocks.ore_brass.defaultBlockState(), 20);
         OreConfiguration leadConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, TMWBlocks.ore_lead.defaultBlockState(), 20);
         
         BRASS_OREGEN = registerPlacedOreFeature("overworld_brass_gen", new ConfiguredFeature<>(Feature.ORE, brassConfig),
@@ -60,4 +60,4 @@ public class OreGen {
             event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, LEAD_OREGEN);
         }
     }
-}
+}*/
