@@ -183,7 +183,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		else
 		{
 			MutableComponent message = ModUtils.displayString(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
-			message.append(ModUtils.displayString(ammostorage.getAmmoItem().getDescriptionId()));
+			message.append(ModUtils.displayTranslation(ammostorage.getAmmoItem().getDescriptionId()));
 			message.append(")");
 			player.displayClientMessage(message, true);
 		}

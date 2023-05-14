@@ -374,8 +374,8 @@ public class AbstractGunItem extends AbstractModItem {
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		if (magazine != null)
-			tooltip.add(ModUtils.displayString(magazine.getDescriptionId()));
-		tooltip.add(ModUtils.displayString(bullet.getDescriptionId()));
+			tooltip.add(ModUtils.displayTranslation(magazine.getDescriptionId()));
+		tooltip.add(ModUtils.displayTranslation(bullet.getDescriptionId()));
 			
 	}
 

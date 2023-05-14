@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.config.Constants;
 
 public class BasicItem extends AbstractModItem {
 
@@ -33,7 +34,7 @@ public class BasicItem extends AbstractModItem {
 		if (stack.getItem() == TMWItems.mag_capacity_upgrade)
 		{
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_mag_directions"));
-			tooltip.add(ModUtils.displayString("Max Upgrades: 3"));
+			tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
 		}
 		if (stack.getItem() == TMWItems.gun_rof_upgrade)
 		{
