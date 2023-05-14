@@ -185,6 +185,8 @@ public class TMWMain
 			
 			ev.accept(TMWItems.blue_stone_bricks);
 			ev.accept(TMWItems.red_stone_bricks);
+			ev.accept(TMWItems.blue_chiseled_bricks);
+			ev.accept(TMWItems.red_chiseled_bricks);
 			
 			ev.accept(TMWItems.green_war_armor_helm);
 			ev.accept(TMWItems.blue_war_armor_helm);

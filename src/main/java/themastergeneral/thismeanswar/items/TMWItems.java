@@ -135,6 +135,8 @@ public class TMWItems {
 	
 	public static AbstractBlockItem blue_stone_bricks = new AbstractBlockItem(TMWBlocks.blue_stone_bricks);
 	public static AbstractBlockItem red_stone_bricks = new AbstractBlockItem(TMWBlocks.red_stone_bricks);
+	public static AbstractBlockItem blue_chiseled_bricks = new AbstractBlockItem(TMWBlocks.blue_chiseled_brick);
+	public static AbstractBlockItem red_chiseled_bricks = new AbstractBlockItem(TMWBlocks.red_chiseled_brick);
 	
 	public static AbstractBlockItem ammo_box = new AbstractBlockItem(TMWBlocks.ammo_box);
 	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);

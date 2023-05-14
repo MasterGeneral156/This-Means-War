@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/blue_chiseled_bricks",
+    "textures": {
+        "inventory": "thismeanswar:block/blue_chiseled_bricks"
+    }
+}

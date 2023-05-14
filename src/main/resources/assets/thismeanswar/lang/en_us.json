@@ -91,6 +91,8 @@
 	
 	"block.thismeanswar.blue_stone_bricks": "§1Stone Bricks",
 	"block.thismeanswar.red_stone_bricks": "§4Stone Bricks",
+	"block.thismeanswar.blue_chiseled_brick": "§1Chiseled Brick",
+	"block.thismeanswar.red_chiseled_brick": "§4Chiseled Brick",
 	
 	"item.thismeanswar.ingot_lead": "Lead Ingot",
 	"item.thismeanswar.ingot_brass": "Brass Ingot",
