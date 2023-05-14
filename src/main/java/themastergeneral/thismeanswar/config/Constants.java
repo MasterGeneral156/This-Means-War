@@ -16,7 +16,7 @@ public class Constants
 	public static int magSize1911 = 7;
 	
 	//Mag Upgrade
-	public static int maxMagUpgrades = 15;
+	public static int maxMagUpgrades = 5;
 	public static double magIncreasePerLevel = 0.15;
 	
 	//Base Round Damage
