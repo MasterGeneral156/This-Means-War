@@ -223,7 +223,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		{
 			int capUpgrades = getCapacityUpgrades(stackIn);
 			int maxAmmo = baseAmmoSize;
-			double capBonus = (maxAmmo * 0.1) * capUpgrades;
+			double capBonus = (maxAmmo * Constants.magIncreasePerLevel) * capUpgrades;
 			
 			//Just in case the mags are too small ;)
 			//Yw you pistol users
