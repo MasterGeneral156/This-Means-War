@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -23,7 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
-
+/*
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 public class CrusherRecipe implements Recipe<Container> {
@@ -156,4 +157,17 @@ public class CrusherRecipe implements Recipe<Container> {
             buffer.writeVarInt(recipe.crushTime);
         }
     }
+
+	@Override
+	public ItemStack assemble(Container p_44001_, RegistryAccess p_267165_) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ItemStack getResultItem(RegistryAccess p_267052_) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
+*/

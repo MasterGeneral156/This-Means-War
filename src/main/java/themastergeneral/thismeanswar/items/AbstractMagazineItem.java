@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 
 public class AbstractMagazineItem extends AbstractModItem {
@@ -28,7 +29,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
 	private int capacityUpgrades;
-	protected int maxCapacityUpgrades = MagazineConfigs.MAX_MAG_CAP_UPGRADES.get();
+	protected int maxCapacityUpgrades = Constants.maxMagUpgrades;
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
 	{

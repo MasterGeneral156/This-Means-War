@@ -7,6 +7,7 @@ import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.Item.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
@@ -45,11 +46,11 @@ public class TMWItems {
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
 	
 	//Magazines
-	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, MagazineConfigs.SML_9MM_MAG_SIZE.getDefault());
-	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, MagazineConfigs.LRG_9MM_MAG_SIZE.get());
-	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, MagazineConfigs.AR_MAG_SIZE.get());
-	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, MagazineConfigs.AR_MAG_SIZE.get());
-	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, MagazineConfigs.M1911_MAG_SIZE.get());
+	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm);
+	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, Constants.magSizeLarge9mm);
+	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, Constants.magSizeAR15);
+	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15);
+	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, Constants.magSize1911);
 	
 	//Crafting items
 	public static AbstractModItem ingot_lead = new BasicItem();
@@ -70,7 +71,7 @@ public class TMWItems {
 	
 	public static AbstractModItem plate_lead = new BasicItem();
 	
-	public static AbstractModItem mag_capacity_upgrade = new BasicItem(MagazineConfigs.MAX_MAG_CAP_UPGRADES.get());
+	public static AbstractModItem mag_capacity_upgrade = new BasicItem(Constants.maxMagUpgrades);
 	public static AbstractModItem gun_rof_upgrade= new BasicItem(1);
 	public static AbstractModItem gun_rof_downgrade= new BasicItem(1);
 	
@@ -78,11 +79,11 @@ public class TMWItems {
 	public static AbstractModItem kevlar_raw = new BasicItem();
 	
 	//Durability crafting items
-	public static DurabilityItem hammer_iron = new DurabilityItem(DurabilityItemConfig.IRON_HAMMER.get());
-	public static DurabilityItem hammer_steel = new DurabilityItem(DurabilityItemConfig.STEEL_HAMMER.get());
-	public static DurabilityItem hammer_diamond = new DurabilityItem(DurabilityItemConfig.DIAMOND_HAMMER.get());
+	public static DurabilityItem hammer_iron = new DurabilityItem(128);
+	public static DurabilityItem hammer_steel = new DurabilityItem(224);
+	public static DurabilityItem hammer_diamond = new DurabilityItem(469);
 	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
-	public static DurabilityItem hand_saw = new DurabilityItem(DurabilityItemConfig.HAND_SAW.get());
+	public static DurabilityItem hand_saw = new DurabilityItem(175);
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
@@ -96,15 +97,15 @@ public class TMWItems {
 	public static AbstractHealingItem medic_kit = new AbstractHealingItem(12F, 10);
 	
 	//Armor Material
-	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0, TMWItems.kevlar_raw);
+	//public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0);
 	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
 	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
 	public static ArmorMaterial green_war_armor_material = new WarArmor("thismeanswar:green_war_armor");
 	
-	public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, Type.HELMET, baseProp);
-	public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, Type.CHESTPLATE, baseProp);
-	public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, Type.LEGGINGS, baseProp);
-	public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, Type.BOOTS, baseProp);
+	//public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, Type.HELMET, baseProp);
+	//public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, Type.CHESTPLATE, baseProp);
+	//public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, Type.LEGGINGS, baseProp);
+	//public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, Type.BOOTS, baseProp);
 	
 	//Green War Armor
 	public static ArmorItem green_war_armor_helm = new ArmorItem(green_war_armor_material, Type.HELMET, baseProp);

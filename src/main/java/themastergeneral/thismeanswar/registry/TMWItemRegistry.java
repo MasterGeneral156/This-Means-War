@@ -61,10 +61,10 @@ public class TMWItemRegistry {
 	 * Armor
 	 */
 	//Kevlar
-	public static final RegistryObject<Item> kevlar_helmet = ITEMS.register("kevlar_helmet", () -> TMWItems.kevlar_helmet);
-	public static final RegistryObject<Item> kevlar_chest = ITEMS.register("kevlar_chest", () -> TMWItems.kevlar_chest);
-	public static final RegistryObject<Item> kevlar_legs = ITEMS.register("kevlar_legs", () -> TMWItems.kevlar_legs);
-	public static final RegistryObject<Item> kevlar_boots = ITEMS.register("kevlar_boots", () -> TMWItems.kevlar_boots);
+	//public static final RegistryObject<Item> kevlar_helmet = ITEMS.register("kevlar_helmet", () -> TMWItems.kevlar_helmet);
+	//public static final RegistryObject<Item> kevlar_chest = ITEMS.register("kevlar_chest", () -> TMWItems.kevlar_chest);
+	//public static final RegistryObject<Item> kevlar_legs = ITEMS.register("kevlar_legs", () -> TMWItems.kevlar_legs);
+	//public static final RegistryObject<Item> kevlar_boots = ITEMS.register("kevlar_boots", () -> TMWItems.kevlar_boots);
 	
 	//green war armor
 	public static final RegistryObject<Item> green_war_armor_helm = ITEMS.register("green_war_armor_helm", () -> TMWItems.green_war_armor_helm);

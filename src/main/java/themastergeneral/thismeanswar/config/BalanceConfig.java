@@ -1,49 +1,50 @@
-package themastergeneral.thismeanswar.config;
+ package themastergeneral.thismeanswar.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class BalanceConfig {
 
-	public static ForgeConfigSpec.IntValue FIRE_RATE_AUTO;
-	public static ForgeConfigSpec.IntValue FIRE_RATE_SINGLE;
-	public static ForgeConfigSpec.IntValue BULLET_KILL_TICKS;
-	public static ForgeConfigSpec.IntValue CONTACT_EXPLOSIVE_KILL_TICKS;
-	public static ForgeConfigSpec.IntValue THROWABLE_COOLDOWN;
-	public static ForgeConfigSpec.DoubleValue SAWN_OFF_XTRA_SPREAD;
-	public static ForgeConfigSpec.DoubleValue SAWN_OFF_XTRA_DMG;
+	/*
+	//public static ForgeConfigSpec.IntValue FIRE_RATE_AUTO;
+	//public static ForgeConfigSpec.IntValue FIRE_RATE_SINGLE;
+	//public static ForgeConfigSpec.IntValue BULLET_KILL_TICKS;
+	//public static ForgeConfigSpec.IntValue CONTACT_EXPLOSIVE_KILL_TICKS;
+	//public static ForgeConfigSpec.IntValue THROWABLE_COOLDOWN;
+	//public static ForgeConfigSpec.DoubleValue SAWN_OFF_XTRA_SPREAD;
+	//public static ForgeConfigSpec.DoubleValue SAWN_OFF_XTRA_DMG;
 	public static ForgeConfigSpec.DoubleValue BASE_SPREAD;
 	
 	//9mm Round
-	public static ForgeConfigSpec.DoubleValue BASE_9MM_DMG;
-	public static ForgeConfigSpec.DoubleValue BASE_9MM_SPD;
-	public static ForgeConfigSpec.DoubleValue BASE_9MM_SPRD;
+	//public static ForgeConfigSpec.DoubleValue BASE_9MM_DMG;
+	//public static ForgeConfigSpec.DoubleValue BASE_9MM_SPD;
+	//public static ForgeConfigSpec.DoubleValue BASE_9MM_SPRD;
 	
 	//12g round
-	public static ForgeConfigSpec.DoubleValue BASE_12G_DMG;
-	public static ForgeConfigSpec.DoubleValue BASE_12G_SPD;
-	public static ForgeConfigSpec.DoubleValue BASE_12G_SPRD;
+	//public static ForgeConfigSpec.DoubleValue BASE_12G_DMG;
+	//public static ForgeConfigSpec.DoubleValue BASE_12G_SPD;
+	//public static ForgeConfigSpec.DoubleValue BASE_12G_SPRD;
 	
 	//5.56 Round
-	public static ForgeConfigSpec.DoubleValue BASE_556_DMG;
-	public static ForgeConfigSpec.DoubleValue BASE_556_SPD;
-	public static ForgeConfigSpec.DoubleValue BASE_556_SPRD;
+	//public static ForgeConfigSpec.DoubleValue BASE_556_DMG;
+	//public static ForgeConfigSpec.DoubleValue BASE_556_SPD;
+	//public static ForgeConfigSpec.DoubleValue BASE_556_SPRD;
 	
 	//.223 Round
-	public static ForgeConfigSpec.DoubleValue BASE_223_DMG;
-	public static ForgeConfigSpec.DoubleValue BASE_223_SPD;
-	public static ForgeConfigSpec.DoubleValue BASE_223_SPRD;
+	//public static ForgeConfigSpec.DoubleValue BASE_223_DMG;
+	//public static ForgeConfigSpec.DoubleValue BASE_223_SPD;
+	//public static ForgeConfigSpec.DoubleValue BASE_223_SPRD;
 	
 	//.45ACP Round
-	public static ForgeConfigSpec.DoubleValue BASE_45ACP_DMG;
-	public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPD;
-	public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPRD;
+	//public static ForgeConfigSpec.DoubleValue BASE_45ACP_DMG;
+	//public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPD;
+	//public static ForgeConfigSpec.DoubleValue BASE_45ACP_SPRD;
 	
 	//TMG Carbine
-	public static ForgeConfigSpec.IntValue TMG_CARBINE_FIRE_RATE;
-	public static ForgeConfigSpec.IntValue TMG_CARBINE_RLD_TIME;
-	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_DMG;
-	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPD;
-	public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPRD;
+	//public static ForgeConfigSpec.IntValue TMG_CARBINE_FIRE_RATE;
+	//public static ForgeConfigSpec.IntValue TMG_CARBINE_RLD_TIME;
+	//public static ForgeConfigSpec.DoubleValue TMG_CARBINE_DMG;
+	//public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPD;
+	//public static ForgeConfigSpec.DoubleValue TMG_CARBINE_SPRD;
 	
 	//Saint AR 223
 	public static ForgeConfigSpec.IntValue SAINT_AR_223_FIRE_RATE;
@@ -488,5 +489,5 @@ public class BalanceConfig {
                 .defineInRange("damage", 345.67, 0, Double.MAX_VALUE);
 
         COMMON_BUILDER.pop();
-    }
+    }*/
 }

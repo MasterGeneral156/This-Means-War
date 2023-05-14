@@ -50,7 +50,6 @@ public class TMWMain
     	modBus.addListener(this::setup);
         modBus.addListener(this::registerTabs);
         modBus.addListener(this::fillTab);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TMWConfig.GENERAL_SPEC, "ctd/this-means-war.toml");
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
@@ -66,9 +65,6 @@ public class TMWMain
     public void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("This Means War, in active development.");
-        /*event.enqueueWork(() -> {
-        	OreGen.registerOreFeatures();
-        });*/
     }
     
     @SubscribeEvent
@@ -193,22 +189,22 @@ public class TMWMain
 			ev.accept(TMWItems.green_war_armor_helm);
 			ev.accept(TMWItems.blue_war_armor_helm);
 			ev.accept(TMWItems.red_war_armor_helm);
-			ev.accept(TMWItems.kevlar_helmet);
+			//ev.accept(TMWItems.kevlar_helmet);
 			
 			ev.accept(TMWItems.green_war_armor_chest);
 			ev.accept(TMWItems.blue_war_armor_chest);
 			ev.accept(TMWItems.red_war_armor_chest);
-			ev.accept(TMWItems.kevlar_chest);
+			//ev.accept(TMWItems.kevlar_chest);
 			
 			ev.accept(TMWItems.green_war_armor_legs);
 			ev.accept(TMWItems.blue_war_armor_legs);
 			ev.accept(TMWItems.red_war_armor_legs);
-			ev.accept(TMWItems.kevlar_legs);
+			//ev.accept(TMWItems.kevlar_legs);
 			
 			ev.accept(TMWItems.green_war_armor_boots);
 			ev.accept(TMWItems.blue_war_armor_boots);
 			ev.accept(TMWItems.red_war_armor_boots);
-			ev.accept(TMWItems.kevlar_boots);
+			//ev.accept(TMWItems.kevlar_boots);
 		}
 	}
 }

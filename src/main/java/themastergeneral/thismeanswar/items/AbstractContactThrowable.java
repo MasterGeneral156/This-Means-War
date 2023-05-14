@@ -9,6 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.BalanceConfig;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 
 public class AbstractContactThrowable extends AbstractModItem {
@@ -38,7 +39,7 @@ public class AbstractContactThrowable extends AbstractModItem {
 		worldIn.addFreshEntity(bulletEntity);
 		
 		playerIn.awardStat(Stats.ITEM_USED.get(this));
-		playerIn.getCooldowns().addCooldown(this, BalanceConfig.THROWABLE_COOLDOWN.get());
+		playerIn.getCooldowns().addCooldown(this, Constants.cooldownThrowable);
 		
 		stackIn.shrink(1);
 		return InteractionResultHolder.sidedSuccess(stackIn, worldIn.isClientSide());

@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.config.BalanceConfig;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
@@ -502,14 +503,14 @@ public class AbstractGunItem extends AbstractModItem {
 		{
 			if (playerIn.isCrouching())
 			{
-				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_AUTO.get())
+				if (getRateOfFire(mag) == Constants.fireRateAuto)
 				{
 					//fail
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
 				}
 				else
 				{
-					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_AUTO.get());
+					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), Constants.fireRateAuto);
 					playerIn.getMainHandItem().shrink(1);
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_full"), true);
 				}
@@ -519,14 +520,14 @@ public class AbstractGunItem extends AbstractModItem {
 		{
 			if (playerIn.isCrouching())
 			{
-				if (getRateOfFire(mag) == BalanceConfig.FIRE_RATE_SINGLE.get())
+				if (getRateOfFire(mag) == Constants.fireRateSemi)
 				{
 					//fail
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
 				}
 				else
 				{
-					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), BalanceConfig.FIRE_RATE_SINGLE.get());
+					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), Constants.fireRateSemi);
 					playerIn.getMainHandItem().shrink(1);
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_semi"), true);
 				}
@@ -538,7 +539,7 @@ public class AbstractGunItem extends AbstractModItem {
 			{
 				if (getMagType(mag) == internal_mag)
 				{
-					if (getCapUpgrades(mag) < MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
+					if (getCapUpgrades(mag) < Constants.maxMagUpgrades)
 					{
 						upgradeMagCapacity(mag);
 						playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
@@ -588,7 +589,7 @@ public class AbstractGunItem extends AbstractModItem {
 	protected void upgradeMagCapacity(ItemStack mag)
 	{
 		int capUpgrades = getCapUpgrades(mag);
-		if ((capUpgrades + 1) <= MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
+		if ((capUpgrades + 1) <= Constants.maxMagUpgrades)
 		{
 			CompoundTag compoundnbt = new CompoundTag();
 			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));

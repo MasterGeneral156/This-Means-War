@@ -4,33 +4,35 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public class TMWConfig {
 
-	public static final ForgeConfigSpec GENERAL_SPEC;
+	public static final ForgeConfigSpec.Builder GENERAL_SPEC = new ForgeConfigSpec.Builder();
+	
+	public static ForgeConfigSpec COMMON;
     
 	static 
 	{
-	    ForgeConfigSpec.Builder configBuilder = new ForgeConfigSpec.Builder();
-	    BalanceConfig.registerCommonConfig(configBuilder);
-	    MagazineConfigs.registerMagConfig(configBuilder);
-	    DurabilityItemConfig.registerHammerConfig(configBuilder);
-	    BalanceConfig.register12gConfig(configBuilder);
-	    BalanceConfig.register223Config(configBuilder);
-	    BalanceConfig.register45Config(configBuilder);
-	    BalanceConfig.register556Config(configBuilder);
-	    BalanceConfig.register9mmConfig(configBuilder);
-	    BalanceConfig.registerBazookaConfig(configBuilder);
-	    BalanceConfig.registerBeretta92fsConfig(configBuilder);
-	    BalanceConfig.registerDoubleBarrelConfig(configBuilder);
-	    BalanceConfig.registerDynamiteStickConfig(configBuilder);
-	    BalanceConfig.registerGlock26Config(configBuilder);
-	    BalanceConfig.registerGrenadeConfig(configBuilder);
-	    BalanceConfig.registerM1911Config(configBuilder);
-	    BalanceConfig.registerM870Config(configBuilder);
-	    BalanceConfig.registerNukeConfig(configBuilder);
-	    BalanceConfig.registerSaintAR223Config(configBuilder);
-	    BalanceConfig.registerSaintAR556Config(configBuilder);
-	    BalanceConfig.registerSODoubleBarrelConfig(configBuilder);
-	    BalanceConfig.registerSOM870Config(configBuilder);
-	    BalanceConfig.registerTMGCarbineConfig(configBuilder);
-	    GENERAL_SPEC = configBuilder.build();
+	    //BalanceConfig.registerCommonConfig(GENERAL_SPEC);
+	    //MagazineConfigs.registerMagConfig(GENERAL_SPEC);
+	    //DurabilityItemConfig.registerHammerConfig(GENERAL_SPEC);
+	    //BalanceConfig.register12gConfig(GENERAL_SPEC);
+	    //BalanceConfig.register223Config(GENERAL_SPEC);
+	    //BalanceConfig.register45Config(GENERAL_SPEC);
+	    //BalanceConfig.register556Config(GENERAL_SPEC);
+	    //BalanceConfig.register9mmConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerBazookaConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerBeretta92fsConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerDoubleBarrelConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerDynamiteStickConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerGlock26Config(GENERAL_SPEC);
+	    //BalanceConfig.registerGrenadeConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerM1911Config(GENERAL_SPEC);
+	    //BalanceConfig.registerM870Config(GENERAL_SPEC);
+	    //BalanceConfig.registerNukeConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerSaintAR223Config(GENERAL_SPEC);
+	    //BalanceConfig.registerSaintAR556Config(GENERAL_SPEC);
+	    //BalanceConfig.registerSODoubleBarrelConfig(GENERAL_SPEC);
+	    //BalanceConfig.registerSOM870Config(GENERAL_SPEC);
+	    //BalanceConfig.registerTMGCarbineConfig(GENERAL_SPEC);
+	    
+	    COMMON = GENERAL_SPEC.build();
 	}
 }
