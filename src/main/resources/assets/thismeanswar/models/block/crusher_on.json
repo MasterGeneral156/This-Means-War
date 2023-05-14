@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "top": "minecraft:block/furnace_top",
-    "front": "minecraft:block/crusher_front_on",
+    "front": "thismeanswar:block/crusher_front_on",
     "side": "minecraft:block/furnace_side"
   }
 }

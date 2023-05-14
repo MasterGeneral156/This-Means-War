@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/remmington_m870"
+        "layer0": "thismeanswar:item/remmington_m870"
     }
 }

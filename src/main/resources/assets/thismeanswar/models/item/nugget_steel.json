@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/nugget_steel"
+        "layer0": "thismeanswar:item/nugget_steel"
     }
 }

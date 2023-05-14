@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "thismeanswar:blocks/red_chiseled_brick"
+        "all": "thismeanswar:block/red_chiseled_brick"
     }
 }

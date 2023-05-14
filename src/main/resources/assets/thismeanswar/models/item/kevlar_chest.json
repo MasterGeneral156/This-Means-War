@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/kevlar_chest"
+        "layer0": "thismeanswar:item/kevlar_chest"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/m1911"
+        "layer0": "thismeanswar:item/m1911"
     }
 }

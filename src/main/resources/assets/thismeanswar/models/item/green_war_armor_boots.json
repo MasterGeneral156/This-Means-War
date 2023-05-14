@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/green_war_armor_boots"
+        "layer0": "thismeanswar:item/green_war_armor_boots"
     }
 }

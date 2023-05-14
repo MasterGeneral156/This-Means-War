@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/bazooka"
+        "layer0": "thismeanswar:item/bazooka"
     }
 }

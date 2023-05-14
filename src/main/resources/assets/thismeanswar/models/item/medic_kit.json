@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/medic_kit"
+        "layer0": "thismeanswar:item/medic_kit"
     }
 }

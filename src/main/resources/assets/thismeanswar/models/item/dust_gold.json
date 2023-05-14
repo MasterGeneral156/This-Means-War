@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/dust_gold"
+        "layer0": "thismeanswar:item/dust_gold"
     }
 }

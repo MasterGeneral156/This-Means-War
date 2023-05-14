@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/glock_26"
+        "layer0": "thismeanswar:item/glock_26"
     }
 }

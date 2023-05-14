@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/hammer_steel"
+        "layer0": "thismeanswar:item/hammer_steel"
     }
 }

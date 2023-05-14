@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/round_12g"
+        "layer0": "thismeanswar:item/round_12g"
     }
 }

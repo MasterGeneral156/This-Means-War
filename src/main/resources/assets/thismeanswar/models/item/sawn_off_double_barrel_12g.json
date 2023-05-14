@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/sawn_off_double_barrel_12g"
+        "layer0": "thismeanswar:item/sawn_off_double_barrel_12g"
     }
 }

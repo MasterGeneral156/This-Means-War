@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "thismeanswar:items/primer_rifle"
+        "layer0": "thismeanswar:item/primer_rifle"
     }
 }

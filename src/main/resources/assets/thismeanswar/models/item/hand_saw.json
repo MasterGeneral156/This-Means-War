@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "thismeanswar:items/hand_saw"
+        "layer0": "thismeanswar:item/hand_saw"
     }
 }
