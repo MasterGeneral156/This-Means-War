@@ -73,5 +73,10 @@ public class AbstractHealingItem extends AbstractModItem {
 		if (this.health > 0)
 			tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health) + " health."));
 	}
+	
+	public float getRegeneratedHealth()
+	{
+		return health;
+	}
 
 }

@@ -141,5 +141,6 @@ public class TMWItems {
 	public static AbstractBlockItem ammo_box = new AbstractBlockItem(TMWBlocks.ammo_box);
 	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);
 	public static AbstractBlockItem ammo_box_large = new AbstractBlockItem(TMWBlocks.ammo_box_large);
+	public static AbstractBlockItem medic_box = new AbstractBlockItem(TMWBlocks.medic_box);
 	//public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
 }

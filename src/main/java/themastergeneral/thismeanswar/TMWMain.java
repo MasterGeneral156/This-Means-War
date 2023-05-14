@@ -175,6 +175,7 @@ public class TMWMain
 			ev.accept(TMWItems.ammo_box);
 			ev.accept(TMWItems.ammo_box_medium);
 			ev.accept(TMWItems.ammo_box_large);
+			ev.accept(TMWItems.medic_box);
 			//ev.accept(TMWItems.crusher);
 			
 			ev.accept(TMWItems.block_brass);
@@ -187,6 +188,7 @@ public class TMWMain
 			ev.accept(TMWItems.red_stone_bricks);
 			ev.accept(TMWItems.blue_chiseled_bricks);
 			ev.accept(TMWItems.red_chiseled_bricks);
+			
 			
 			ev.accept(TMWItems.green_war_armor_helm);
 			ev.accept(TMWItems.blue_war_armor_helm);

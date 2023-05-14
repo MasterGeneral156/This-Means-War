@@ -27,5 +27,7 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> ammo_box_medium = BLOCKS.register("ammo_box_medium", () ->TMWBlocks.ammo_box_medium);
 	public static final RegistryObject<Block> ammo_box_large = BLOCKS.register("ammo_box_large", () ->TMWBlocks.ammo_box_large);
 	
+	public static final RegistryObject<Block> medic_box = BLOCKS.register("medic_box", () ->TMWBlocks.medic_box);
+	
 	//public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 }
