@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -88,6 +89,11 @@ public class TMWMain
     
     private void fillTab(CreativeModeTabEvent.BuildContents ev)
 	{
+    	
+    	if (ev.getTab() == CreativeModeTabs.OP_BLOCKS)
+    	{
+    		ev.accept(TMWItems.creative_charm);
+    	}
 		if (ev.getTab() == TMWTab)
 		{	
 			ev.accept(TMWCarbines.tmg_carbine);
@@ -121,6 +127,7 @@ public class TMWMain
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.mag_capacity_upgrade);
+			ev.accept(TMWItems.creative_charm);
 			
 			ev.accept(TMWItems.bandage);
 			ev.accept(TMWItems.gauze);
