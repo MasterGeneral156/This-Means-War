@@ -91,26 +91,23 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 		{
 			ItemStack stack = player.getItemInHand(hand);
 			BlockEntityMedicBox medicBox = (BlockEntityMedicBox) world.getBlockEntity(blockpos);
-			if (player.isCrouching())
+			if (stack.getItem() instanceof AbstractHealingItem)
 			{
-				if (stack.getItem() instanceof AbstractHealingItem)
+				if (medicBox.getHealthStored() < 1024)
 				{
-					if (medicBox.getHealthStored() < 1024)
+					AbstractHealingItem healthItem = (AbstractHealingItem) stack.getItem();
+					if (healthItem.getRegeneratedHealth() > 0.0F)
 					{
-						AbstractHealingItem healthItem = (AbstractHealingItem) stack.getItem();
-						if (healthItem.getRegeneratedHealth() > 0.0F)
-						{
-							medicBox.updateHealthStored(healthItem.getRegeneratedHealth());
-							stack.shrink(1);
-							player.getCooldowns().addCooldown(player.getMainHandItem().getItem(), 10);
-							player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.success"), true);
-							return InteractionResult.PASS;
-						}
-						else
-						{
-							player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.fail"), true);
-							return InteractionResult.FAIL;
-						}
+						medicBox.updateHealthStored(healthItem.getRegeneratedHealth());
+						stack.shrink(1);
+						player.getCooldowns().addCooldown(player.getMainHandItem().getItem(), 10);
+						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.success"), true);
+						return InteractionResult.CONSUME;
+					}
+					else
+					{
+						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.fail"), true);
+						return InteractionResult.FAIL;
 					}
 				}
 			}
@@ -124,7 +121,7 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 						player.setHealth(player.getHealth() + medicBox.getHealthStored());
 						medicBox.updateHealthStored(medicBox.getHealthStored() * -1);
 						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.regenerated"), true);
-						return InteractionResult.PASS;
+						return InteractionResult.SUCCESS;
 					}
 					else
 					{
@@ -136,9 +133,14 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 				}
 				else
 				{
-					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / 1024"), true);
+					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / 1024 health currently stored."), true);
 					return InteractionResult.PASS;
 				}
+			}
+			else
+			{
+				player.displayClientMessage(ModUtils.displayString("You currently have full health."), true);
+				return InteractionResult.FAIL;
 			}
 		}
 		return InteractionResult.FAIL;
