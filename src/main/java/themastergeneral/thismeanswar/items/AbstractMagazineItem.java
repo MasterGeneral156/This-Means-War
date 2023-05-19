@@ -40,6 +40,20 @@ public class AbstractMagazineItem extends AbstractModItem {
 	}
 	
 	@Override
+	public boolean isFoil(ItemStack stack)
+	{
+		if (stack.hasTag())
+		{
+			if (this.getCapacityUpgrades(stack) > 0)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	
+	@Override
 	public float getDestroySpeed(ItemStack stack, BlockState state) 
 	{
 	      return 0.0F;
@@ -64,6 +78,11 @@ public class AbstractMagazineItem extends AbstractModItem {
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		tooltip.add(ModUtils.displayTranslation(bulletRequired.getDescriptionId()));
+		if (this.getCapacityUpgrades(stack) > 0)
+		{
+			double percDecrease = this.getCapacityUpgrades(stack) * (Constants.magDamageDecrease * 100);
+			tooltip.add(ModUtils.displayString("§4Firearm damage reduced by " + percDecrease + "% when inserted."));
+		}
 	}
 	
 	@Override

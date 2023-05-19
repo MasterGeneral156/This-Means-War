@@ -635,8 +635,22 @@ public class AbstractGunItem extends AbstractModItem {
 		{
 			int magUpgrades = this.getCapUpgrades(stack);
 			if (magUpgrades > 0)
-				returned = returned - ((returned * 0.06F) * magUpgrades);
+				returned = (float) (returned - ((returned * Constants.magDamageDecrease) * magUpgrades));
 		}
 		return returned;
+	}
+	
+	@Override
+	public boolean isFoil(ItemStack stack)
+	{
+		if (stack.hasTag())
+		{
+			if (this.getCapUpgrades(stack) > 0)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
 	}
 }
