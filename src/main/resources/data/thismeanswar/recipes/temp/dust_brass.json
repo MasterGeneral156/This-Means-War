@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dusts",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/copper"
+    },
+	{
+      "tag": "forge:dusts/copper"
+    },
+	{
+      "tag": "forge:dusts/gold"
+    },
+	{
+      "tag": "forge:dusts/iron"
+    }
+	
+  ],
+  "result": {
+    "item": "thismeanswar:dust_brass",
+    "count": 4
+  }
+}
