@@ -38,8 +38,8 @@ public class BasicItem extends AbstractModItem {
 			tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
 			if (Screen.hasShiftDown())
 			{
-				tooltip.add(ModUtils.displayString("§2+10% Magazine capacity"));
-				tooltip.add(ModUtils.displayString("§4-6% Bullet damage"));
+				tooltip.add(ModUtils.displayString("§2+" + Constants.magIncreasePerLevel * 100 + "% Magazine capacity"));
+				tooltip.add(ModUtils.displayString("§4-" + Constants.magDamageDecrease * 100 + "% Bullet damage"));
 			}
 		}
 		if (stack.getItem() == TMWItems.gun_rof_upgrade)
