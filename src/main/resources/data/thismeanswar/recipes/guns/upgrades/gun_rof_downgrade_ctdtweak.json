@@ -1,4 +1,10 @@
 {
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"ctdtweaks"
+        }
+    ],
     "type": "minecraft:crafting_shaped",
     "group": "thismeanswar:gun_upgrade",
     "pattern": [
@@ -7,12 +13,12 @@
 		"SGS"
     ],
     "key": {
-		"G": { "tag": "forge:ingots/gold" },
+		"G": { "item": "ctdtweaks:gold_ingot_enchanted" },
 		"S": { "item": "minecraft:smooth_stone_slab" },
 		"M": { "tag": "forge:dusts/redstone" }
     },
     "result": {
-        "item": "thismeanswar:gun_rof_upgrade",
-		"count": 1
+        "item": "thismeanswar:gun_rof_downgrade",
+		"count": 2
     }
 }
