@@ -1,11 +1,13 @@
 package themastergeneral.thismeanswar.items;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
@@ -96,15 +98,18 @@ public class AbstractGunItem extends AbstractModItem {
 	@Override
 	public void onCraftedBy(ItemStack stack, Level worldIn, Player playerIn) 
 	{
-		CompoundTag compoundnbt = new CompoundTag();
-		compoundnbt.putInt("currentAmmo", 0);
-		compoundnbt.putInt("maxAmmo", maxAmmo);
-		compoundnbt.putInt("magLoaded", 0);
-		compoundnbt.putInt("magType", magType);
-		compoundnbt.putInt("capUpgrades", 0);
-		compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
+		if (!stack.hasTag())
+		{
+			CompoundTag compoundnbt = new CompoundTag();
+			compoundnbt.putInt("currentAmmo", 0);
+			compoundnbt.putInt("maxAmmo", maxAmmo);
+			compoundnbt.putInt("magLoaded", 0);
+			compoundnbt.putInt("magType", magType);
+			compoundnbt.putInt("capUpgrades", 0);
+			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 		
-		stack.setTag(compoundnbt);
+			stack.setTag(compoundnbt);
+		}
 	}
 	public int getCurrentAmmo(ItemStack stackIn)
 	{
@@ -126,7 +131,7 @@ public class AbstractGunItem extends AbstractModItem {
 			{
 				int capUpgrades = getCapUpgrades(stackIn);
 				int maxAmmo = baseAmmoSize;
-				double capBonus = (maxAmmo * 0.1) * capUpgrades;
+				double capBonus = (maxAmmo * Constants.magIncreasePerLevel) * capUpgrades;
 				
 				//Just in case the mags are too small ;)
 				//Yw you pistol users
@@ -229,7 +234,7 @@ public class AbstractGunItem extends AbstractModItem {
 	@Override
     public int getBarWidth(ItemStack stack) 
 	{
-		return Math.round(13.0F - (getMaxAmmo(stack) -getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
+		return Math.round(13.0F - (getMaxAmmo(stack) - getCurrentAmmo(stack)) * 13.0F / getMaxAmmo(stack));
 	}
 	
 	public void shootUpdateMag(ItemStack stack)
@@ -371,11 +376,25 @@ public class AbstractGunItem extends AbstractModItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		int currentAmmo = getCurrentAmmo(stack);
+		String rofString = (getRateOfFire(stack) == Constants.fireRateAuto) ? "Full Auto" : "Semi-Auto";
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		if (magazine != null)
 			tooltip.add(ModUtils.displayTranslation(magazine.getDescriptionId()));
 		tooltip.add(ModUtils.displayTranslation(bullet.getDescriptionId()));
+		if (Screen.hasShiftDown())
+		{
+			String colorFormat = "";
+			if (returnBulletDamage(stack) < this.damage)
+				colorFormat = "§4";
+			else if (returnBulletDamage(stack) > this.damage)
+				colorFormat = "§2";
+			tooltip.add(ModUtils.displayString(rofString));
+			NumberFormat formatter = NumberFormat.getNumberInstance();
+			formatter.setMinimumFractionDigits(1);
+			formatter.setMaximumFractionDigits(2);
+			tooltip.add(ModUtils.displayString("Damage: " + colorFormat + formatter.format(returnBulletDamage(stack))));
+		}
 			
 	}
 
@@ -383,10 +402,14 @@ public class AbstractGunItem extends AbstractModItem {
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
+		//gun in main hand, and off hand empty...
 		if (handIn == InteractionHand.MAIN_HAND && playerIn.getOffhandItem().isEmpty())
 		{
+			//Player is crouching, so we search for a magazine that fits this gun AND
+			//has at least one round in it, then we add it to this gun.
 			if (playerIn.isCrouching())
 			{
+				//logic for external mag guns
 				if (getMagType(mag) == external_mag)
 				{
 					if (hasMag(mag) == 0)
@@ -456,8 +479,10 @@ public class AbstractGunItem extends AbstractModItem {
 						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 					}
 				}
+				//logic for internal mag guns
 				if (getMagType(mag) == internal_mag)
 				{
+					//Add ammo into internal fed firearms
 					if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 					{
 						int slotID = -1;
@@ -483,9 +508,10 @@ public class AbstractGunItem extends AbstractModItem {
 			}
 			else
 			{
+				//Fire gun logic
 				if (canFire(mag))
 				{
-					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, damage, bullet);
+					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 					bulletEntity.setItem(new ItemStack(bullet));
 					//Up+Down
 					bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
@@ -600,5 +626,17 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			mag.setTag(compoundnbt);
 		}
+	}
+	
+	protected float returnBulletDamage(ItemStack stack)
+	{
+		float returned = this.damage;
+		if (stack.hasTag())
+		{
+			int magUpgrades = this.getCapUpgrades(stack);
+			if (magUpgrades > 0)
+				returned = returned - ((returned * 0.06F) * magUpgrades);
+		}
+		return returned;
 	}
 }
