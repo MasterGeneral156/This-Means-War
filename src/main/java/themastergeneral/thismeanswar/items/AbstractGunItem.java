@@ -41,10 +41,12 @@ public class AbstractGunItem extends AbstractModItem {
 	protected float bulletSpeed;
 	protected float bulletSpread;
 	
-	protected int external_mag = 1;
-	protected int internal_mag = 2;
+	public int external_mag = 1;
+	public int internal_mag = 2;
 	
 	private int rofUpgradeScale = 0;
+	
+	protected int bayonetUpgradeLvl = 0;
 	
 	/**
 	 * Use to create a firearm that's magazine fed.
@@ -107,7 +109,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("magType", magType);
 			compoundnbt.putInt("capUpgrades", 0);
 			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
-		
+			compoundnbt.putInt("bayonetUpgradeLvl", bayonetUpgradeLvl);
 			stack.setTag(compoundnbt);
 		}
 	}
@@ -207,6 +209,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("magType", magType);
 			compoundnbt.putInt("capUpgrades", 0);
 			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
+			compoundnbt.putInt("bayonetUpgradeLvl", bayonetUpgradeLvl);
 			stack.setTag(compoundnbt);
 	   }
 	}
@@ -252,14 +255,14 @@ public class AbstractGunItem extends AbstractModItem {
 	//Remove ammo one at a time... called when we manually unload the mags.
 	//Returns true if ammo is removed, false if not.
 	//See actual logic below.
-	private boolean removeAmmoFromGun(ItemStack mag)
+	public boolean removeAmmoFromGun(ItemStack mag)
 	{
 		return removeAmmoFromGun(mag, 1);
 	}
 	
 	//In case you wanna remove a lot more ammo at once...
 	//Returns true if ammo is removed, false if not.
-	private boolean removeAmmoFromGun(ItemStack mag, int toRemove)
+	public boolean removeAmmoFromGun(ItemStack mag, int toRemove)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		if ((currentAmmo - toRemove) >= 0)
@@ -272,6 +275,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("magType", magType);
 			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+			compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 			mag.setTag(compoundnbt);
 			return true;
 		}
@@ -281,12 +285,12 @@ public class AbstractGunItem extends AbstractModItem {
 		}
 	}
 	
-	protected void addAmmoToMag(ItemStack mag)
+	public void addAmmoToMag(ItemStack mag)
 	{
 		addAmmoToMag(mag, 1);
 	}
 	
-	private void addAmmoToMag(ItemStack mag, int toAdd)
+	public void addAmmoToMag(ItemStack mag, int toAdd)
 	{
 		int currentAmmo = getCurrentAmmo(mag);
 		int maxAmmo = getMaxAmmo(mag);
@@ -300,6 +304,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("magType", getMagType(mag));
 			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+			compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -310,7 +315,7 @@ public class AbstractGunItem extends AbstractModItem {
 	      return 0.0F;
 	}
 	
-	protected void setGunAmmo(ItemStack mag, int setTo)
+	public void setGunAmmo(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", setTo);
@@ -319,10 +324,11 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", getMagType(mag));
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 	
-	protected void setGunMaxAmmo(ItemStack mag, int setTo)
+	public void setGunMaxAmmo(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -331,10 +337,11 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", getMagType(mag));
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 	
-	protected void setGunMagLoad(ItemStack mag, int setTo)
+	public void setGunMagLoad(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -343,10 +350,11 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", getMagType(mag));
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 
-	protected void setGunCapUpgrades(ItemStack mag, int setTo)
+	public void setGunCapUpgrades(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -355,10 +363,11 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", getMagType(mag));
 		compoundnbt.putInt("capUpgrades", setTo);
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 	
-	protected void setGunMagType(ItemStack mag, int setTo)
+	public void setGunMagType(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -367,6 +376,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", setTo);
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -394,6 +404,10 @@ public class AbstractGunItem extends AbstractModItem {
 			formatter.setMinimumFractionDigits(1);
 			formatter.setMaximumFractionDigits(2);
 			tooltip.add(ModUtils.displayString("Damage: " + colorFormat + formatter.format(returnBulletDamage(stack))));
+			if (this.getBayonetLevel(stack) > 0)
+			{
+				tooltip.add(ModUtils.displayString("Bayonet Damage: " + getBayonetLevel(stack)));
+			}
 		}
 			
 	}
@@ -525,7 +539,7 @@ public class AbstractGunItem extends AbstractModItem {
 				}
 			}
 		}
-		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_upgrade))
+		/*else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_upgrade))
 		{
 			if (playerIn.isCrouching())
 			{
@@ -558,26 +572,7 @@ public class AbstractGunItem extends AbstractModItem {
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_semi"), true);
 				}
 			}
-		}
-		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.mag_capacity_upgrade))
-		{
-			if (playerIn.isCrouching())
-			{
-				if (getMagType(mag) == internal_mag)
-				{
-					if (getCapUpgrades(mag) < Constants.maxMagUpgrades)
-					{
-						upgradeMagCapacity(mag);
-						playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
-						playerIn.getMainHandItem().shrink(1);
-					}
-				}
-				else
-				{
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_mag_fail_invalid_gun"), true);
-				}
-			}
-		}
+		}*/
 		return InteractionResultHolder.fail(mag);
 	}
 	
@@ -588,7 +583,7 @@ public class AbstractGunItem extends AbstractModItem {
 			player.getInventory().add(new ItemStack(casing));
 	}
 	
-	protected int getRateOfFire(ItemStack stack)
+	public int getRateOfFire(ItemStack stack)
 	{
 		if (stack.hasTag())
 		{
@@ -600,7 +595,7 @@ public class AbstractGunItem extends AbstractModItem {
 		}
 	}
 	
-	protected void setGunROF(ItemStack mag, int setTo)
+	public void setGunROF(ItemStack mag, int setTo)
 	{
 		CompoundTag compoundnbt = new CompoundTag();
 		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -609,10 +604,11 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("magType", getMagType(mag));
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", setTo);
+		compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 		mag.setTag(compoundnbt);
 	}
 	
-	protected void upgradeMagCapacity(ItemStack mag)
+	public void upgradeMagCapacity(ItemStack mag)
 	{
 		int capUpgrades = getCapUpgrades(mag);
 		if ((capUpgrades + 1) <= Constants.maxMagUpgrades)
@@ -624,11 +620,41 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("magType", getMagType(mag));
 			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+			compoundnbt.putInt("bayonetUpgradeLvl", getBayonetLevel(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
 	
-	protected float returnBulletDamage(ItemStack stack)
+	public void upgradeMusketLevel(ItemStack mag, int setTo)
+	{
+		int capUpgrades = getCapUpgrades(mag);
+		if ((capUpgrades + 1) <= Constants.maxMagUpgrades)
+		{
+			CompoundTag compoundnbt = new CompoundTag();
+			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+			compoundnbt.putInt("magLoaded", hasMag(mag));
+			compoundnbt.putInt("magType", getMagType(mag));
+			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
+			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+			compoundnbt.putInt("bayonetUpgradeLvl", setTo);
+			mag.setTag(compoundnbt);
+		}
+	}
+	
+	public int getBayonetLevel(ItemStack gun) 
+	{
+		if (gun.hasTag())
+		{
+			return gun.getTag().getInt("bayonetUpgradeLvl");
+		}
+		else
+		{
+			return 0;
+		}
+	}
+
+	public float returnBulletDamage(ItemStack stack)
 	{
 		float returned = this.damage;
 		if (stack.hasTag())
@@ -653,4 +679,16 @@ public class AbstractGunItem extends AbstractModItem {
 		else
 			return false;
 	}
+	
+	@Override
+	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity)
+    {
+        if (this.getBayonetLevel(stack) > 0)
+        {
+        	entity.hurt(player.damageSources().generic(), this.getBayonetLevel(stack));
+        	return true;
+        }
+        else
+        	return false;
+    }
 }

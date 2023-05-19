@@ -29,7 +29,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
 	private int capacityUpgrades;
-	protected int maxCapacityUpgrades = Constants.maxMagUpgrades;
+	public int maxCapacityUpgrades = Constants.maxMagUpgrades;
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
 	{
@@ -129,21 +129,6 @@ public class AbstractMagazineItem extends AbstractModItem {
 				}
 			}
 		}
-		
-		//add mag capacity upgrade to item if mag is in off-hand, and player is holding mag capacity upgrade in main hand
-		if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.mag_capacity_upgrade))
-		{
-			if (playerIn.isCrouching())
-			{
-				if (getCapacityUpgrades(mag) < maxCapacityUpgrades)
-				{
-					upgradeMagCapacity(mag);
-					playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
-					if (playerIn.getOffhandItem().getItem() != TMWItems.creative_charm)
-						playerIn.getMainHandItem().shrink(1);
-				}
-			}
-		}
 		return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 	}
 	
@@ -192,7 +177,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		}
 	}
 	
-	private void upgradeMagCapacity(ItemStack mag)
+	public void upgradeMagCapacity(ItemStack mag)
 	{
 		int capUpgrades = getCapacityUpgrades(mag);
 		if ((capUpgrades + 1) <= maxCapacityUpgrades)
