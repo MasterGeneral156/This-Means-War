@@ -70,7 +70,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ItemStack mag = playerIn.getItemInHand(handIn);
-		//when in main hand...
+		//when in main hand we empty the mag when crouching
 		if (handIn == InteractionHand.MAIN_HAND && playerIn.getOffhandItem().isEmpty())
 		{
 			if (playerIn.isCrouching())
@@ -83,6 +83,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
 				}
 			}
+			//fill mag when not crouching
 			else
 			{
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
@@ -109,6 +110,8 @@ public class AbstractMagazineItem extends AbstractModItem {
 				}
 			}
 		}
+		
+		//add mag capacity upgrade to item if mag is in off-hand, and player is holding mag capacity upgrade in main hand
 		if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.mag_capacity_upgrade))
 		{
 			if (playerIn.isCrouching())
