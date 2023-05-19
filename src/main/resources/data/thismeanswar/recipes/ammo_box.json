@@ -9,7 +9,7 @@
     "key": {
 		"C": { "tag": "forge:chests/wooden" },
 		"S": { "tag": "minecraft:wooden_slabs" },
-		"F": { "tag": "minecraft:carpets" },
+		"F": { "tag": "minecraft:wool_carpets" },
 		"A": { "tag": "thismeanswar:ammo/round_all" },
 		"W": { "tag": "minecraft:planks" }
     },

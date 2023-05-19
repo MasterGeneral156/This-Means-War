@@ -8,7 +8,7 @@
     ],
     "key": {
 		"S": { "item": "minecraft:netherite_scrap" },
-		"F": { "tag": "minecraft:carpets" },
+		"F": { "tag": "minecraft:wool_carpets" },
 		"A": { "item": "thismeanswar:ammo_box_medium" },
 		"W": { "tag": "forge:storage_blocks/steel" }
     },

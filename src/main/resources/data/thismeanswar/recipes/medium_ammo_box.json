@@ -8,7 +8,7 @@
     ],
     "key": {
 		"S": { "item": "minecraft:smooth_stone_slab" },
-		"F": { "tag": "minecraft:carpets" },
+		"F": { "tag": "minecraft:wool_carpets" },
 		"A": { "item": "thismeanswar:ammo_box" },
 		"W": { "tag": "minecraft:terracotta" }
     },
