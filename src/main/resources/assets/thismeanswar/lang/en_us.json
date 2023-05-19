@@ -139,4 +139,5 @@
 	"thismeanswar.medic_box.success": "Health item successfully deposited.",
 	"thismeanswar.medic_box.regenerated": "Your health has been refilled as the supplies allowed.",
 	"thismeanswar.empty_ammo_storage": "This Ammo Storage is currently empty."
+	"thismeanswar.creative_charm_directions": "Overrides many requirements with ammo, storages, ETC when in off-hand."
 }

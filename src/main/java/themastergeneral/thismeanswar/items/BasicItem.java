@@ -51,5 +51,14 @@ public class BasicItem extends AbstractModItem {
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.creative_charm_directions"));
 		}
 	}
+	
+	@Override
+	public boolean isFoil(ItemStack stack) 
+	{
+	      if (stack.getItem() == TMWItems.creative_charm)
+	    	  return true;
+	      else
+	    	  return false;
+	}
 
 }

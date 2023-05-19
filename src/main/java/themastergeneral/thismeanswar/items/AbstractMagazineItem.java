@@ -77,7 +77,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 			{
 				if (getCurrentAmmo(mag) > 0)
 				{
-					removeAmmoFromMag(mag);
+						removeAmmoFromMag(mag);
 					playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
 					playerIn.getCooldowns().addCooldown(this, 8);
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
@@ -117,7 +117,8 @@ public class AbstractMagazineItem extends AbstractModItem {
 				{
 					upgradeMagCapacity(mag);
 					playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
-					playerIn.getMainHandItem().shrink(1);
+					if (playerIn.getOffhandItem().getItem() != TMWItems.creative_charm)
+						playerIn.getMainHandItem().shrink(1);
 				}
 			}
 		}

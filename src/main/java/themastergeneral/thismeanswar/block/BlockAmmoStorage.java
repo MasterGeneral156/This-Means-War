@@ -38,6 +38,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.items.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.AbstractMagazineItem;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 
@@ -201,7 +202,8 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
             ItemEntity itementity = new ItemEntity(world, (double)blockpos.getX() + d0, (double)blockpos.getY() + d1, (double)blockpos.getZ() + d2, ammoDrop);
             itementity.setDefaultPickUpDelay();
             world.addFreshEntity(itementity);
-            ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
+            if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+            	ammostorage.updateAmmo(ammostorage.getAmmoItem(), -1);
             sendUpdateMsg(player, world, blockpos);
         }
 	}
@@ -225,7 +227,8 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 				if (availablespace > 0)
 				{
 					ammostorage.updateAmmo(stack.getItem(), availablespace);
-					stack.shrink(availablespace);
+					if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+						stack.shrink(availablespace);
 					sendUpdateMsg(player, world, blockpos);
 					return InteractionResult.PASS;
 				}
@@ -249,8 +252,11 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 			if (ammostorage.getAmmoQuantity() >= toFill)
 			{
 				magStack.addAmmoToMag(stack, toFill);
-				ammostorage.updateAmmo(stack.getItem(), toFill * -1);
-				player.getCooldowns().addCooldown(magStack, 20);
+				if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+				{
+					ammostorage.updateAmmo(stack.getItem(), toFill * -1);
+					player.getCooldowns().addCooldown(magStack, 20);
+				}
 				return InteractionResult.PASS;
 			}
 			else

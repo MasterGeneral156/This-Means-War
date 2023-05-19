@@ -31,6 +31,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.items.AbstractHealingItem;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class BlockMedicBox extends GlassBlock implements EntityBlock 
 {
@@ -100,7 +101,8 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 					{
 						medicBox.updateHealthStored(healthItem.getRegeneratedHealth());
 						stack.shrink(1);
-						player.getCooldowns().addCooldown(player.getMainHandItem().getItem(), 10);
+						if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+							player.getCooldowns().addCooldown(player.getMainHandItem().getItem(), 10);
 						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.success"), true);
 						return InteractionResult.CONSUME;
 					}
@@ -119,14 +121,16 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 					if (medicBox.getHealthStored() < healthHealed)
 					{
 						player.setHealth(player.getHealth() + medicBox.getHealthStored());
-						medicBox.updateHealthStored(medicBox.getHealthStored() * -1);
+						if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+							medicBox.updateHealthStored(medicBox.getHealthStored() * -1);
 						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.regenerated"), true);
 						return InteractionResult.SUCCESS;
 					}
 					else
 					{
 						player.setHealth(player.getHealth() + healthHealed);
-						medicBox.updateHealthStored(healthHealed * -1);
+						if (player.getOffhandItem().getItem() != TMWItems.creative_charm)
+							medicBox.updateHealthStored(healthHealed * -1);
 						player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.medic_box.regenerated"), true);
 						return InteractionResult.PASS;
 					}
