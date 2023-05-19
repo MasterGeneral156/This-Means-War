@@ -8,7 +8,7 @@
     ],
     "key": {
 		"S": { "tag": "forge:string" },
-		"G": { "tag": "forge:gunpowder" },
+		"G": { "item": "minecraft:fire_charge" },
 		"B": { "item": "minecraft:bowl" }
     },
     "result": {
