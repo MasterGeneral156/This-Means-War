@@ -3,7 +3,6 @@ package themastergeneral.thismeanswar.items;
 import com.themastergeneral.ctdcore.item.CTDDurabilityItem;
 
 import net.minecraft.world.item.ItemStack;
-import themastergeneral.thismeanswar.TMWMain;
 
 public class DurabilityItem extends CTDDurabilityItem {
 
