@@ -105,6 +105,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
 	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);
 	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
+	public static final RegistryObject<Item> creative_charm = ITEMS.register("creative_charm", () -> TMWItems.creative_charm);
 	
 	/**
 	 * Crafting Items

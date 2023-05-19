@@ -46,6 +46,10 @@ public class BasicItem extends AbstractModItem {
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
 			tooltip.add(ModUtils.displayString("Converts gun to 'fully semi-automatic'."));
 		}
+		if (stack.getItem() == TMWItems.creative_charm)
+		{
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.creative_charm_directions"));
+		}
 	}
 
 }

@@ -72,8 +72,9 @@ public class TMWItems {
 	public static AbstractModItem plate_lead = new BasicItem();
 	
 	public static AbstractModItem mag_capacity_upgrade = new BasicItem(Constants.maxMagUpgrades);
-	public static AbstractModItem gun_rof_upgrade= new BasicItem(1);
-	public static AbstractModItem gun_rof_downgrade= new BasicItem(1);
+	public static AbstractModItem gun_rof_upgrade = new BasicItem(1);
+	public static AbstractModItem gun_rof_downgrade = new BasicItem(1);
+	public static AbstractModItem creative_charm = new BasicItem();
 	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();
