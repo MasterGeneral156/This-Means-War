@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:hand_saw",
+    "pattern": [
+        "WWW",
+        "SSW"
+    ],
+    "key": {
+		"W": { "tag": "forge:rods/wooden" },
+		"S": { "tag": "forge:ingots/steel" }
+    },
+    "result": {
+        "item": "thismeanswar:hand_saw",
+		"count": 1
+		}
+    }
+}
