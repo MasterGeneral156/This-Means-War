@@ -9,13 +9,4 @@ public class DurabilityItem extends CTDDurabilityItem {
 	public DurabilityItem(int durability) {
 		super(new Properties().stacksTo(1), durability);
 	}
-	
-	@Override
-	public boolean isFoil(ItemStack stack) 
-	{
-	      if (stack.getItem() == TMWItems.hammer_creative)
-	    	  return true;
-	      else
-	    	  return false;
-	}
 }

@@ -83,7 +83,6 @@ public class TMWItems {
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
 	public static DurabilityItem hammer_steel = new DurabilityItem(224);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(469);
-	public static DurabilityItem hammer_creative = new DurabilityItem(Short.MAX_VALUE - 1);
 	public static DurabilityItem hand_saw = new DurabilityItem(175);
 	
 	//Bullet Casts

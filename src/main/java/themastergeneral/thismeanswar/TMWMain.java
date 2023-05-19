@@ -136,7 +136,6 @@ public class TMWMain
 			ev.accept(TMWItems.hammer_iron);
 			ev.accept(TMWItems.hammer_steel);
 			ev.accept(TMWItems.hammer_diamond);
-			ev.accept(TMWItems.hammer_creative);
 			ev.accept(TMWItems.hand_saw);
 			
 			ev.accept(TMWItems.bullet_cast_223);
