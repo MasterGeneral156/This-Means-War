@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -35,6 +36,11 @@ public class BasicItem extends AbstractModItem {
 		{
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_mag_directions"));
 			tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
+			if (Screen.hasShiftDown())
+			{
+				tooltip.add(ModUtils.displayString("§2+10% Magazine capacity"));
+				tooltip.add(ModUtils.displayString("§4-6% Bullet damage"));
+			}
 		}
 		if (stack.getItem() == TMWItems.gun_rof_upgrade)
 		{
