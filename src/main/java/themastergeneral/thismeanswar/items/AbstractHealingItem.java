@@ -71,7 +71,7 @@ public class AbstractHealingItem extends AbstractModItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		if (this.health > 0)
-			tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health) + " health."));
+			tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health / 2) + " hearts."));
 	}
 	
 	public float getRegeneratedHealth()
