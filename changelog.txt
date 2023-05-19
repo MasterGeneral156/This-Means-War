@@ -1,5 +1,23 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.1.1-Indev
+(05/19/2023, 17:23)
+-=-=-=-=-=-=-=-=-=-=-=-
+*Mag capacity upgrades now give 15% mag capacity per level.
++Mag capacity upgrades now decrease the firearm's damage by 6% per upgrade.
+*Mag capacity upgrades maximum changed to 5.
++Added Medic Box.
+	You may right click with medical items to store them inside.
+	Click the Medic Box to get that health back instantly.
++Added recipe for Manual Saw.
+-Removed Creative Hammer and related recipes.
++Added Creative Charm. (WIP)
+	Numerous "creative" effects when in offhand and performing actions.
+*Hand Grenade recipe now requires Fire Charges instead of Gunpowder.
+*Weapons and Magazines with upgrade magazine capacity are now foiled.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.0.18-Indev
 (12/18/2022, 18:20)
 -=-=-=-=-=-=-=-=-=-=-=-
