@@ -45,6 +45,8 @@ public class TMWMain
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "thismeanswar";
     public static CreativeModeTab TMWTab;
+    public static CreativeModeTab TMWGunTab;
+    public static CreativeModeTab TMWAmmoTab;
 
     public TMWMain() {
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -82,8 +84,16 @@ public class TMWMain
     private void registerTabs(CreativeModeTabEvent.Register event)
     {
 		TMWTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab"), builder -> builder
-                .icon(() -> new ItemStack(TMWCarbines.tmg_carbine))
+                .icon(() -> new ItemStack(TMWItems.ammo_box))
                 .title(Component.translatable("itemGroup.thismeanswar"))
+                .build());
+		TMWGunTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab_gun"), builder -> builder
+                .icon(() -> new ItemStack(TMWCarbines.tmg_carbine))
+                .title(Component.translatable("itemGroup.thismeanswar.guns"))
+                .build());
+		TMWAmmoTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab_ammo"), builder -> builder
+                .icon(() -> new ItemStack(TMWItems.round_9mm))
+                .title(Component.translatable("itemGroup.thismeanswar.ammo"))
                 .build());
     }
     
@@ -94,39 +104,44 @@ public class TMWMain
     	{
     		ev.accept(TMWItems.creative_charm);
     	}
-		if (ev.getTab() == TMWTab)
-		{	
-			ev.accept(TMWCarbines.tmg_carbine);
-			ev.accept(TMWItems.magazine_9mm_large);
-			ev.accept(TMWPistols.beretta_92_fs);
+    	if (ev.getTab() == TMWGunTab)
+    	{
+    		ev.accept(TMWCarbines.tmg_carbine);
+    		ev.accept(TMWPistols.beretta_92_fs);
 			ev.accept(TMWPistols.glock_26);
-			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWPistols.m1911);
-			ev.accept(TMWItems.magazine_m1911);
 			ev.accept(TMWRifles.springfield_saint_223);
-			ev.accept(TMWItems.magazine_223);
 			ev.accept(TMWRifles.springfield_saint_556);
-			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);
 			ev.accept(TMWShotguns.sawn_off_double_barrel_12g);
 			ev.accept(TMWShotguns.sawn_off_remmington_m870);
 			ev.accept(TMWExplosiveProjectile.bazooka);
-			
-			ev.accept(TMWItems.round_12g);
+			ev.accept(TMWItems.gun_rof_upgrade);
+			ev.accept(TMWItems.gun_rof_downgrade);
+    	}
+    	if (ev.getTab() == TMWAmmoTab)
+    	{
+    		ev.accept(TMWItems.round_12g);
 			ev.accept(TMWItems.round_223);
 			ev.accept(TMWItems.round_556);
 			ev.accept(TMWItems.round_45);
 			ev.accept(TMWItems.round_9mm);
 			ev.accept(TMWItems.rocket_bazooka);
+			ev.accept(TMWItems.magazine_9mm_large);
+			ev.accept(TMWItems.magazine_9mm);
+			ev.accept(TMWItems.magazine_m1911);
+			ev.accept(TMWItems.magazine_223);
+			ev.accept(TMWItems.magazine_556);
+			ev.accept(TMWItems.mag_capacity_upgrade);
+    	}
+		if (ev.getTab() == TMWTab)
+		{	
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);
 			ev.accept(TMWThrowables.nuclear_warhead);
 			
-			ev.accept(TMWItems.gun_rof_upgrade);
-			ev.accept(TMWItems.gun_rof_downgrade);
-			ev.accept(TMWItems.mag_capacity_upgrade);
 			ev.accept(TMWItems.creative_charm);
 			
 			ev.accept(TMWItems.bandage);
