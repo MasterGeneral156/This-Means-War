@@ -1,6 +1,18 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
 Version: 0.1.2-Indev
+(xx/xx/2023, xx:xx)
+-=-=-=-=-=-=-=-=-=-=-=-
+*Fixed Iron Bayonet Upgrade recipe.
+*Removed floating pixel from 9mm Magazine texture.
++Added model and texture for 12G Casing.
++Added 12G Buckshot Bullet Cast.
+*Renamed 12g Shell -> 12G Buckshot.
+*Reduced Bullet Tips in Stone Cutter from 8 -> 1.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
+Version: 0.1.2-Indev
 (05/19/2023, 20:09)
 -=-=-=-=-=-=-=-=-=-=-=-
 +Added two new creative tabs, "Ammo/Mags" and "Guns".
