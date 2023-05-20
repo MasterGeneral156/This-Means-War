@@ -116,7 +116,7 @@ public class RocketGunItem extends AbstractGunItem {
 		{
 			if (canFire(mag))
 			{
-				RocketBaseEntity bulletEntity = new RocketBaseEntity(worldIn, playerIn, damage, bullet, bulletSpeed);
+				RocketBaseEntity bulletEntity = new RocketBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet, bulletSpeed);
 				bulletEntity.setItem(new ItemStack(bullet));
 				//Up+Down
 				bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
