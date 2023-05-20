@@ -30,7 +30,7 @@ import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
 public class AbstractGunItem extends AbstractModItem {
 
-	protected int shotTime;
+	public int shotTime;
 	protected int reloadTime;
 	protected Item magazine;
 	protected AbstractBulletItem bullet;
@@ -539,40 +539,6 @@ public class AbstractGunItem extends AbstractModItem {
 				}
 			}
 		}
-		/*else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_upgrade))
-		{
-			if (playerIn.isCrouching())
-			{
-				if (getRateOfFire(mag) == Constants.fireRateAuto)
-				{
-					//fail
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
-				}
-				else
-				{
-					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), Constants.fireRateAuto);
-					playerIn.getMainHandItem().shrink(1);
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_full"), true);
-				}
-			}
-		}
-		else if (handIn == InteractionHand.OFF_HAND && (playerIn.getMainHandItem().getItem() == TMWItems.gun_rof_downgrade))
-		{
-			if (playerIn.isCrouching())
-			{
-				if (getRateOfFire(mag) == Constants.fireRateSemi)
-				{
-					//fail
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
-				}
-				else
-				{
-					setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), Constants.fireRateSemi);
-					playerIn.getMainHandItem().shrink(1);
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_semi"), true);
-				}
-			}
-		}*/
 		return InteractionResultHolder.fail(mag);
 	}
 	
@@ -585,9 +551,16 @@ public class AbstractGunItem extends AbstractModItem {
 	
 	public int getRateOfFire(ItemStack stack)
 	{
-		if (stack.hasTag())
+		if (stack.hasTag() && (stack.getTag().getInt("rofUpgrade") == Constants.fireRateAuto))
 		{
-			return stack.getTag().getInt("rofUpgrade");
+			return 1;
+		}
+		else if (stack.hasTag() && (stack.getTag().getInt("rofUpgrade") == Constants.fireRateSemi))
+		{
+			if (this.shotTime > 1)
+				return this.shotTime;
+			else
+				return Constants.fireRateSemi;
 		}
 		else
 		{
@@ -657,8 +630,21 @@ public class AbstractGunItem extends AbstractModItem {
 		if (stack.hasTag())
 		{
 			int magUpgrades = this.getCapUpgrades(stack);
+			int rof = this.getRateOfFire(stack);
 			if (magUpgrades > 0)
 				returned = (float) (returned - ((returned * Constants.magDamageDecrease) * magUpgrades));
+			//damage increase for converting full auto to semi...
+			if (this.shotTime == Constants.fireRateAuto)
+			{
+				if (this.getRateOfFire(stack) == Constants.fireRateSemi)
+					returned = (float) returned + (returned * 0.25F);
+			}
+			//damage decrease for converting semi to full auto
+			if (this.shotTime > Constants.fireRateAuto)
+			{
+				if (this.getRateOfFire(stack) == Constants.fireRateAuto)
+					returned = (float) returned - (returned * 0.5F);
+			}
 		}
 		return returned;
 	}

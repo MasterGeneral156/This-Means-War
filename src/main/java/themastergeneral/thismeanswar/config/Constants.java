@@ -3,7 +3,9 @@ package themastergeneral.thismeanswar.config;
 public class Constants 
 {
 	public static int fireRateAuto = 1;
-	public static int fireRateSemi = 5;
+	public static int fireRateSemi = 2;
+	public static int fireRateBurst = 3;
+	
 	public static int cooldownThrowable = 15;
 	public static float sawnOffBonusSpread = 5.1356F;
 	public static float sawnOffBonusDamage = 2.682F;

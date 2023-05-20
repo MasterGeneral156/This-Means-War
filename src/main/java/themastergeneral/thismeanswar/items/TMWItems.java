@@ -14,6 +14,8 @@ import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeROFAutoItem;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeROFSemiItem;
 
 public class TMWItems {
 	
@@ -74,8 +76,8 @@ public class TMWItems {
 	public static AbstractModItem plate_lead = new BasicItem();
 	
 	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
-	public static AbstractModItem gun_rof_upgrade = new BasicItem(16);
-	public static AbstractModItem gun_rof_downgrade = new BasicItem(16);
+	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
+	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
 	public static AbstractModItem creative_charm = new BasicItem(1);
 	
 	//Parts for gun craftings
