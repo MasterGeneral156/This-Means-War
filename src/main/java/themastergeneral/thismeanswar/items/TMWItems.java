@@ -12,6 +12,8 @@ import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacity;
 
 public class TMWItems {
 	
@@ -71,10 +73,10 @@ public class TMWItems {
 	
 	public static AbstractModItem plate_lead = new BasicItem();
 	
-	public static AbstractModItem mag_capacity_upgrade = new BasicItem(Constants.maxMagUpgrades);
-	public static AbstractModItem gun_rof_upgrade = new BasicItem(1);
-	public static AbstractModItem gun_rof_downgrade = new BasicItem(1);
-	public static AbstractModItem creative_charm = new BasicItem();
+	public static UpgradeMagCapacity mag_capacity_upgrade = new UpgradeMagCapacity();
+	public static AbstractModItem gun_rof_upgrade = new BasicItem(16);
+	public static AbstractModItem gun_rof_downgrade = new BasicItem(16);
+	public static AbstractModItem creative_charm = new BasicItem(1);
 	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();
@@ -90,6 +92,14 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
+	
+	//Musket Upgrade
+	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2);
+	public static UpgradeBayonetItem bayonet_stone = new UpgradeBayonetItem(4);
+	public static UpgradeBayonetItem bayonet_iron = new UpgradeBayonetItem(6);
+	public static UpgradeBayonetItem bayonet_gold = new UpgradeBayonetItem(7);
+	public static UpgradeBayonetItem bayonet_diamond = new UpgradeBayonetItem(8);
+	public static UpgradeBayonetItem bayonet_netherrite = new UpgradeBayonetItem(10);
 	
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:iron_bayonet",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_sword", "data": 32767
+    },
+	{
+      "item": "thismeanswar:hammer_iron", "data": 32767
+    }
+	
+  ],
+  "result": {
+    "item": "thismeanswar:bayonet_iron"
+  }
+}

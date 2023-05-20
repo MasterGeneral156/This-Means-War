@@ -154,6 +154,14 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_12g = ITEMS.register("casing_12g", () -> TMWItems.casing_12g);
 	public static final RegistryObject<Item> casing_45 = ITEMS.register("casing_45", () -> TMWItems.casing_45);
 	
+	//Bayonet Upgrade
+	public static final RegistryObject<Item> bayonet_wood = ITEMS.register("bayonet_wood", () -> TMWItems.bayonet_wood);
+	public static final RegistryObject<Item> bayonet_stone = ITEMS.register("bayonet_stone", () -> TMWItems.bayonet_stone);
+	public static final RegistryObject<Item> bayonet_iron = ITEMS.register("bayonet_iron", () -> TMWItems.bayonet_iron);
+	public static final RegistryObject<Item> bayonet_gold = ITEMS.register("bayonet_gold", () -> TMWItems.bayonet_gold);
+	public static final RegistryObject<Item> bayonet_diamond = ITEMS.register("bayonet_diamond", () -> TMWItems.bayonet_diamond);
+	public static final RegistryObject<Item> bayonet_netherrite = ITEMS.register("bayonet_netherrite", () -> TMWItems.bayonet_netherrite);
+	
 	//Primers
 	public static final RegistryObject<Item> primer_pistol = ITEMS.register("primer_pistol", () -> TMWItems.primer_pistol);
 	public static final RegistryObject<Item> primer_rifle = ITEMS.register("primer_rifle", () -> TMWItems.primer_rifle);

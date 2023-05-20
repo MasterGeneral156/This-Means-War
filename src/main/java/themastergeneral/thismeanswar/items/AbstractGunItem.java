@@ -627,19 +627,16 @@ public class AbstractGunItem extends AbstractModItem {
 	
 	public void upgradeMusketLevel(ItemStack mag, int setTo)
 	{
-		int capUpgrades = getCapUpgrades(mag);
-		if ((capUpgrades + 1) <= Constants.maxMagUpgrades)
-		{
-			CompoundTag compoundnbt = new CompoundTag();
-			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
-			compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
-			compoundnbt.putInt("magLoaded", hasMag(mag));
-			compoundnbt.putInt("magType", getMagType(mag));
-			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
-			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
-			compoundnbt.putInt("bayonetUpgradeLvl", setTo);
-			mag.setTag(compoundnbt);
-		}
+
+		CompoundTag compoundnbt = new CompoundTag();
+		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("magLoaded", hasMag(mag));
+		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putInt("bayonetUpgradeLvl", setTo);
+		mag.setTag(compoundnbt);
 	}
 	
 	public int getBayonetLevel(ItemStack gun) 

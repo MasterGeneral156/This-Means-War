@@ -119,6 +119,12 @@ public class TMWMain
 			ev.accept(TMWExplosiveProjectile.bazooka);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
+			ev.accept(TMWItems.bayonet_wood);
+			ev.accept(TMWItems.bayonet_stone);
+			ev.accept(TMWItems.bayonet_iron);
+			ev.accept(TMWItems.bayonet_gold);
+			ev.accept(TMWItems.bayonet_diamond);
+			ev.accept(TMWItems.bayonet_netherrite);
     	}
     	if (ev.getTab() == TMWAmmoTab)
     	{
