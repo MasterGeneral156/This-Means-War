@@ -163,6 +163,7 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_cast_556);
 			ev.accept(TMWItems.bullet_cast_9mm);
 			ev.accept(TMWItems.bullet_cast_45);
+			ev.accept(TMWItems.bullet_cast_12g);
 			
 			ev.accept(TMWItems.bullet_tip_223);
 			ev.accept(TMWItems.bullet_tip_556);

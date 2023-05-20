@@ -92,6 +92,7 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_12g = new DurabilityItem(256);
 	
 	//Musket Upgrade
 	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2);
