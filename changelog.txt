@@ -1,5 +1,37 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.1.2-Indev
+(05/19/2023, 20:09)
+-=-=-=-=-=-=-=-=-=-=-=-
++Added two new creative tabs, "Ammo/Mags" and "Guns".
+	*Houses the respective items.
++Added temp recipe for Lead and Brass dusts.
+-Removed the Furnace recipe for Steel Dust -> Steel Ingot.
+-Removed the Furnace recipe for Brass Dust -> Brass Ingot.
+-Removed the Furnace recipe for Lead Dust -> Lead Ingot.
+*Increased the smelt time for the Blast Furnace recipe for Steel Dust -> Steel Ingot to 200 ticks.
+*Increased the smelt time for the Blast Furnace recipe for Brass Dust -> Brass Ingot to 200 ticks.
+*Increased the smelt time for the Blast Furnace recipe for Lead Dust -> Lead Ingot to 200 ticks.
+*Gun ROF Downgrade/Upgrade items now stack to 16.
+*Magazine Capacity upgrade now stacks to 64.
+*Creative Charm now stacks to 1.
++Added six bayonet upgrades, which increase melee damage done with firearms.
+	*Wooden = 1 Heart
+	*Stone = 2 Hearts
+	*Iron = 3 Hearts
+	*Gold = 3.5 Hearts
+	*Diamond = 4 Hearts
+	*Netherrite = 5 Hearts
+	
+*******************************************************************************
+***	Firearm/Mag upgrades have been broken into their own item classes 		***
+***	and handle the logic there. This is to declutter the firearm classes	*** 
+***	as best as possible. 													***
+*******************************************************************************
+
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.1.1-Indev
 (05/19/2023, 17:23)
 -=-=-=-=-=-=-=-=-=-=-=-
