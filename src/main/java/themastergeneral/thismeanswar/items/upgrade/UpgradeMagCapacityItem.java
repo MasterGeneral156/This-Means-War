@@ -22,7 +22,7 @@ import themastergeneral.thismeanswar.items.AbstractMagazineItem;
 import themastergeneral.thismeanswar.items.BasicItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
-public class UpgradeMagCapacity extends BasicItem 
+public class UpgradeMagCapacityItem extends BasicItem 
 {
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
