@@ -22,8 +22,8 @@ import themastergeneral.thismeanswar.items.BasicItem;
 
 public class UpgradeBayonetItem extends BasicItem 
 {
-	public int increaseMusketLevel;
-	public UpgradeBayonetItem(int increaseMusketLevel) 
+	public double increaseMusketLevel;
+	public UpgradeBayonetItem(double increaseMusketLevel) 
 	{
 		super();
 		this.increaseMusketLevel = increaseMusketLevel;
@@ -35,10 +35,10 @@ public class UpgradeBayonetItem extends BasicItem
 		if (playerIn.getOffhandItem().getItem() instanceof AbstractGunItem)
 		{
 			AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
-			int musketLevel = offhand.getBayonetLevel(playerIn.getOffhandItem());
+			double musketLevel = offhand.getBayonetLevel(playerIn.getOffhandItem());
 			if (offhand.hasMag(playerIn.getOffhandItem()) == 0)
 			{
-				if (musketLevel == 0)
+				if (musketLevel == Double.NaN)
 				{
 					offhand.upgradeMusketLevel(playerIn.getOffhandItem(), increaseMusketLevel);
 					playerIn.getCooldowns().addCooldown(this, 20);
