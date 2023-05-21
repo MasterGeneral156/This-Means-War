@@ -134,11 +134,16 @@ public class TMWMain
 			ev.accept(TMWItems.round_45);
 			ev.accept(TMWItems.round_9mm);
 			ev.accept(TMWItems.rocket_bazooka);
-			ev.accept(TMWItems.magazine_9mm_large);
+			
 			ev.accept(TMWItems.magazine_9mm);
+			ev.accept(TMWItems.magazine_9mm_clip);
+			ev.accept(TMWItems.magazine_9mm_large);
 			ev.accept(TMWItems.magazine_m1911);
+			ev.accept(TMWItems.magazine_45_clip);
 			ev.accept(TMWItems.magazine_223);
+			ev.accept(TMWItems.magazine_223_clip);
 			ev.accept(TMWItems.magazine_556);
+			ev.accept(TMWItems.magazine_556_clip);
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTab)

@@ -6,9 +6,13 @@
 	
 	"item.thismeanswar.magazine_9mm": "9mm Magazine",
 	"item.thismeanswar.magazine_9mm_large": "9mm Stick Magazine",
+	"item.thismeanswar.magazine_9mm_clip": "9mm Clip",
 	"item.thismeanswar.magazine_556": "M4/AR Magazine",
 	"item.thismeanswar.magazine_223": "M4/AR Magazine",
+	"item.thismeanswar.magazine_556_clip": "5.56 Clip",
+	"item.thismeanswar.magazine_223_clip": ".223 Clip",
 	"item.thismeanswar.magazine_m1911": "M1911 Magazine",
+	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
 	
 	"item.thismeanswar.beretta_92_fs": "Beretta 92 FS",
 	"item.thismeanswar.glock_26": "Glock 26",
