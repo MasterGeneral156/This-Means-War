@@ -32,26 +32,6 @@ public class BasicItem extends AbstractModItem {
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
-		if (stack.getItem() == TMWItems.mag_capacity_upgrade)
-		{
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_mag_directions"));
-			tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
-			if (Screen.hasShiftDown())
-			{
-				tooltip.add(ModUtils.displayString("§2+" + Constants.magIncreasePerLevel * 100 + "% Magazine capacity"));
-				tooltip.add(ModUtils.displayString("§4-" + Constants.magDamageDecrease * 100 + "% Bullet damage"));
-			}
-		}
-		if (stack.getItem() == TMWItems.gun_rof_upgrade)
-		{
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
-			tooltip.add(ModUtils.displayString("Converts gun to automatic."));
-		}
-		if (stack.getItem() == TMWItems.gun_rof_downgrade)
-		{
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
-			tooltip.add(ModUtils.displayString("Converts gun to 'fully semi-automatic'."));
-		}
 		if (stack.getItem() == TMWItems.creative_charm)
 		{
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.creative_charm_directions"));

@@ -395,11 +395,19 @@ public class AbstractGunItem extends AbstractModItem {
 		if (Screen.hasShiftDown())
 		{
 			String colorFormat = "";
+			String colorFormat2 = "";
 			if (returnBulletDamage(stack) < this.damage)
 				colorFormat = "§4";
 			else if (returnBulletDamage(stack) > this.damage)
 				colorFormat = "§2";
-			tooltip.add(ModUtils.displayString(rofString));
+			if (this.getRateOfFire(stack) != this.shotTime)
+			{
+				if (this.getRateOfFire(stack) == Constants.fireRateAuto)
+					colorFormat2 = "§2";
+				else
+					colorFormat2 = "§4";
+			}
+			tooltip.add(ModUtils.displayString(colorFormat2 + rofString));
 			NumberFormat formatter = NumberFormat.getNumberInstance();
 			formatter.setMinimumFractionDigits(1);
 			formatter.setMaximumFractionDigits(2);
