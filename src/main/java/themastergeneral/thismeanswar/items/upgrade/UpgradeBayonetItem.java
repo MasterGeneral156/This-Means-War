@@ -38,7 +38,7 @@ public class UpgradeBayonetItem extends BasicItem
 			double musketLevel = offhand.getBayonetLevel(playerIn.getOffhandItem());
 			if (offhand.hasMag(playerIn.getOffhandItem()) == 0)
 			{
-				if (musketLevel == Double.NaN)
+				if (musketLevel == 0.0)
 				{
 					offhand.upgradeMusketLevel(playerIn.getOffhandItem(), increaseMusketLevel);
 					playerIn.getCooldowns().addCooldown(this, 20);

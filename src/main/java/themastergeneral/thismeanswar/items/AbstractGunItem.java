@@ -46,7 +46,7 @@ public class AbstractGunItem extends AbstractModItem {
 	
 	private int rofUpgradeScale = 0;
 	
-	protected double bayonetUpgradeLvl = Double.NaN;
+	protected double bayonetUpgradeLvl = 0.0;
 	
 	/**
 	 * Use to create a firearm that's magazine fed.
@@ -628,7 +628,7 @@ public class AbstractGunItem extends AbstractModItem {
 		}
 		else
 		{
-			return Double.NaN;
+			return 0.0;
 		}
 	}
 
