@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#thismeanswar:guns/launchers",
+	"#thismeanswar:guns/pistols",
+	"#thismeanswar:guns/rifles",
+	"#thismeanswar:guns/shotguns"
+  ]
+}
