@@ -108,17 +108,21 @@ public class TMWMain
     	if (ev.getTab() == TMWGunTab)
     	{
     		ev.accept(TMWCarbines.tmg_carbine);
+    		
     		ev.accept(TMWPistols.beretta_92_fs);
 			ev.accept(TMWPistols.glock_26);
 			ev.accept(TMWPistols.m1911);
+			
 			ev.accept(TMWRifles.springfield_saint_223);
 			ev.accept(TMWRifles.springfield_saint_556);
+			ev.accept(TMWRifles.m16);
+			
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);
 			ev.accept(TMWShotguns.sawn_off_double_barrel_12g);
 			ev.accept(TMWShotguns.sawn_off_remmington_m870);
+			
 			ev.accept(TMWExplosiveProjectile.bazooka);
-			ev.accept(TMWRifles.m16);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bayonet_wood);
