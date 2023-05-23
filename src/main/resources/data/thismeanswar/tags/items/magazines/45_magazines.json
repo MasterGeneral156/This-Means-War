@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:magazine_m1911"
+    "thismeanswar:magazine_m1911",
+	"thismeanswar:magazine_45_clip"
   ]
 }
