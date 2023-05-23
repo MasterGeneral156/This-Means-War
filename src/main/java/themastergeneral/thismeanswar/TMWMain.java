@@ -112,6 +112,7 @@ public class TMWMain
     		ev.accept(TMWPistols.beretta_92_fs);
 			ev.accept(TMWPistols.glock_26);
 			ev.accept(TMWPistols.m1911);
+			ev.accept(TMWPistols.m17_viper);
 			
 			ev.accept(TMWRifles.springfield_saint_223);
 			ev.accept(TMWRifles.springfield_saint_556);

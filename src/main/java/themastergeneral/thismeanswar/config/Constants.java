@@ -79,6 +79,13 @@ public class Constants
 	public static float beretta92Speed = 7.71243F + baseSpeed9mm;
 	public static float beretta92Spread = 0.99F + baseSpread9mm;
 	
+	//Beretta 92
+		public static int m17viperFireRate = fireRateAuto;
+		public static int m17viperReloadTime = 30;
+		public static float m17viperDamage = 2.412F + baseDamage9mm;
+		public static float m17viperSpeed = 3.41235F + baseSpeed9mm;
+		public static float m17viperSpread = 1.45F + baseSpread9mm;
+	
 	//Glock 26
 	public static int glock26FireRate = cooldownSemiAuto;
 	public static int glock26ReloadTime = 40;

@@ -43,6 +43,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> beretta_92_fs = ITEMS.register("beretta_92_fs", () -> TMWPistols.beretta_92_fs);
 	public static final RegistryObject<Item> glock_26 = ITEMS.register("glock_26", () -> TMWPistols.glock_26);
 	public static final RegistryObject<Item> m1911 = ITEMS.register("m1911", () -> TMWPistols.m1911);
+	public static final RegistryObject<Item> m17_viper = ITEMS.register("m17_viper", () -> TMWPistols.m17_viper);
 	
 	//Carbines
 	public static final RegistryObject<Item> tmg_carbine = ITEMS.register("tmg_carbine", () -> TMWCarbines.tmg_carbine);
