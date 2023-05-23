@@ -16,6 +16,19 @@ Version: 0.1.3-Indev
 +Added clips for .45ACP/9mm/.223/5.56/12G Buckshot rounds.
 *Tweaked bayonet upgrades to be half their sword damage.
 +Added recipe for .223 Magazine directly.
+*Beretta 92 texture is now 32x32
++Added M16 firearm
+	i)		M4/AR platform variant (Rifle)
+	ii) 	Uses 5.56 Rounds/Mag
+	iii) 	Full Auto
+	iv) 	Otherwise same stats as 5.56 AR15
+*Semi auto now takes 25 ticks between each shot.
+*Populated the 'thismeanswar:guns' tag.
++Added M17 'Viper' firearm.
+	i)		Small pistol
+	ii)		9mm Round/Mag
+	iii)	Full Auto
+	iv) Weaker base stats than Beretta 92
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
