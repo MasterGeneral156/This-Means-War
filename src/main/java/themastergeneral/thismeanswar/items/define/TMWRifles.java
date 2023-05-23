@@ -18,4 +18,10 @@ public class TMWRifles
 															TMWItems.round_223, Constants.ar15Damage223,
 															Constants.ar15Speed223, 
 															Constants.ar15Spread223);
+	
+	public static AbstractGunItem m16 = new AbstractGunItem(Constants.fireRateAuto, 
+			Constants.ar15ReloadTime556, TMWItems.magazine_556, 
+			TMWItems.round_556, Constants.ar15Damage556,
+			Constants.ar15Speed556, 
+			Constants.ar15Spread556);
 }

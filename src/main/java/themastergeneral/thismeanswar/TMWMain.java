@@ -117,6 +117,7 @@ public class TMWMain
 			ev.accept(TMWShotguns.sawn_off_double_barrel_12g);
 			ev.accept(TMWShotguns.sawn_off_remmington_m870);
 			ev.accept(TMWExplosiveProjectile.bazooka);
+			ev.accept(TMWRifles.m16);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bayonet_wood);
