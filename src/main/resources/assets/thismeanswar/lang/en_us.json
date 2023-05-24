@@ -166,5 +166,6 @@
 	"thismeanswar.upgrade_bayonet_fail_nocompat": "The item in your offhand may not receive a bayonet upgrade.",
 	"thismeanswar.upgrade_bayonet_fail_already_done": "The item in your offhand already has a bayonet upgrade.",
 	"thismeanswar.upgrade_bayonet_fail_mag_inserted": "Please remove the magazine from your firearm before adding this upgrade.",
-	"thismeanswar.creative_charm_directions": "Overrides many requirements with ammo, storages, etc when in off-hand."
+	"thismeanswar.creative_charm_directions": "Overrides many requirements with ammo, storages, etc when in off-hand.",
+	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later"
 }
