@@ -22,6 +22,7 @@ Version: 0.1.3-Indev
 *Populated the 'thismeanswar:guns' tag.
 +Added 40mm HE Round.
 	i) Craftable with grenades in stone cutter. (TEMP RECIPE)
++Added 40mm HE Clip.
 +Added "M17 'Viper'" firearm.
 	i)		Small pistol
 	ii)		9mm Round/Mag
