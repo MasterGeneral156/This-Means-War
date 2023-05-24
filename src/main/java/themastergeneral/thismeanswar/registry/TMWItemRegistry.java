@@ -23,6 +23,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> round_223 = ITEMS.register("round_223", () -> TMWItems.round_223);
 	public static final RegistryObject<Item> round_45 = ITEMS.register("round_45", () -> TMWItems.round_45);
 	public static final RegistryObject<Item> rocket_bazooka = ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
+	public static final RegistryObject<Item> round_40mm = ITEMS.register("round_40mm", () -> TMWItems.round_40mm);
 	
 	//Mags
 	public static final RegistryObject<Item> magazine_9mm = ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
@@ -65,6 +66,7 @@ public class TMWItemRegistry {
 	
 	//RPGs
 	public static final RegistryObject<Item> bazooka = ITEMS.register("bazooka", () -> TMWExplosiveProjectile.bazooka);
+	public static final RegistryObject<Item> volcanic_thunder = ITEMS.register("volcanic_thunder", () -> TMWExplosiveProjectile.volcanic_thunder);
 	
 	/**
 	 * Armor

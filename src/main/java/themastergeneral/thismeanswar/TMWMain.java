@@ -126,6 +126,8 @@ public class TMWMain
 			ev.accept(TMWShotguns.sawn_off_remmington_m870);
 			
 			ev.accept(TMWExplosiveProjectile.bazooka);
+			ev.accept(TMWExplosiveProjectile.volcanic_thunder);
+			
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bayonet_wood);
@@ -143,6 +145,7 @@ public class TMWMain
 			ev.accept(TMWItems.round_45);
 			ev.accept(TMWItems.round_9mm);
 			ev.accept(TMWItems.rocket_bazooka);
+			ev.accept(TMWItems.round_40mm);
 			
 			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWItems.magazine_9mm_clip);

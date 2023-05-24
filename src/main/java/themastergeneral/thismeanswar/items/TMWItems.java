@@ -48,6 +48,7 @@ public class TMWItems {
 	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556);
 	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223);
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
+	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
 	
 	//Magazines
 	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm);

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "thismeanswar:hand_grenade"
+  },
+  "result": "thismeanswar:round_40mm",
+  "count": 1
+}
