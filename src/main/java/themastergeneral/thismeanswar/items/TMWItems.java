@@ -49,6 +49,7 @@ public class TMWItems {
 	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223);
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
 	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
+	public static AbstractBulletItem energy_bolt = new AbstractBulletItem();
 	
 	//Magazines
 	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm);
@@ -62,6 +63,7 @@ public class TMWItems {
 	public static AbstractMagazineItem magazine_45_clip = new AbstractMagazineItem(round_45, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_12g_clip = new AbstractMagazineItem(round_12g, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_40mm_clip = new AbstractMagazineItem(round_40mm, Constants.magSizeClips);
+	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell);
 	
 	//Crafting items
 	public static AbstractModItem ingot_lead = new BasicItem();

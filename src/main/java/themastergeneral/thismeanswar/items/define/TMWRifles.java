@@ -55,4 +55,14 @@ public class TMWRifles
 												Constants.ar15Damage223,
 												Constants.ar15Speed223, 
 												Constants.ar15Spread223);
+	
+	public static AbstractGunItem quantum_disruptor = new 
+				AbstractGunItem(
+					Constants.quantumDisruptorRate, 
+					Constants.quantumDisruptorReloadTime, 
+					TMWItems.energy_cell, 
+					TMWItems.energy_bolt, 
+					Constants.quantumDisruptorDamage,
+					Constants.quantumDisruptorSpeed, 
+					Constants.quantumDisruptorSpread);
 }

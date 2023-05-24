@@ -18,6 +18,7 @@ public class Constants
 	public static int magSizeAR15 = 30;
 	public static int magSize1911 = 7;
 	public static int magSizeClips = 5;
+	public static int magSizeEnergyCell = 19;
 	
 	//Mag Upgrade
 	public static int maxMagUpgrades = 5;
@@ -30,6 +31,7 @@ public class Constants
 	public static float baseDamage556 = 7.2348F;
 	public static float baseDamage223 = 4.015F;
 	public static float baseDamage12g = 5.167F;
+	public static float baseDamageEnergy = 8.9124F;
 	
 	//Base Round Speed
 	public static float baseSpeed9mm = 7.81243F;
@@ -37,6 +39,7 @@ public class Constants
 	public static float baseSpeed556 = 11.454F;
 	public static float baseSpeed223 = 8.241F;
 	public static float baseSpeed12g = 52.81243F;
+	public static float baseSpeedEnergy = 75.34F;
 	
 	//Base Round Spread
 	public static float baseSpread9mm = 1.011F;
@@ -44,6 +47,7 @@ public class Constants
 	public static float baseSpread556 = 1.655F;
 	public static float baseSpread223 = 1.414F;
 	public static float baseSpread12g = 1.07F;
+	public static float baseSpreadEnergy = 0.71F;
 
 	//TMG Carbine
 	public static int tmgCarbineFireRate = fireRateAuto;
@@ -106,6 +110,13 @@ public class Constants
 	public static float thunderclawDamage = 4.671F + baseDamage45;
 	public static float thunderclawSpeed = 21.4123F + baseSpeed45;
 	public static float thunderclawSpread = 0.86F + baseSpread45;
+	
+	//Quantum Disruptor
+	public static int quantumDisruptorRate = cooldownSemiAuto;
+	public static int quantumDisruptorReloadTime = 70;
+	public static float quantumDisruptorDamage = 1.454F + baseDamageEnergy;
+	public static float quantumDisruptorSpeed = 34.6434124F + baseSpeedEnergy;
+	public static float quantumDisruptorSpread = 0.01F + baseSpreadEnergy;
 	
 	//M870
 	public static int m870FireRate = cooldownSemiAuto;

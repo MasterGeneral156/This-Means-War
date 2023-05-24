@@ -119,6 +119,7 @@ public class TMWMain
 			ev.accept(TMWRifles.m16);
 			ev.accept(TMWRifles.m16_223);
 			ev.accept(TMWRifles.thunderclaw);
+			ev.accept(TMWRifles.quantum_disruptor);
 			
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);
@@ -146,6 +147,7 @@ public class TMWMain
 			ev.accept(TMWItems.round_9mm);
 			ev.accept(TMWItems.rocket_bazooka);
 			ev.accept(TMWItems.round_40mm);
+			ev.accept(TMWItems.energy_bolt);
 			
 			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWItems.magazine_9mm_clip);
@@ -158,6 +160,7 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_556_clip);
 			ev.accept(TMWItems.magazine_12g_clip);
 			ev.accept(TMWItems.magazine_40mm_clip);
+			ev.accept(TMWItems.energy_cell);
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTab)

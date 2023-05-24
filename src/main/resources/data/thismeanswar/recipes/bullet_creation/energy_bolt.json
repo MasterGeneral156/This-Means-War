@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "minecraft:iron_bars"
+  },
+  "addition": {
+		"item": "minecraft:redstone_block"
+  },
+  "result":
+    {
+		"item": "thismeanswar:energy_bolt",
+		"count": 1
+    }
+}

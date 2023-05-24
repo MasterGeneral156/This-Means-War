@@ -4,6 +4,7 @@
     "#thismeanswar:guns/launchers",
 	"#thismeanswar:guns/pistols",
 	"#thismeanswar:guns/rifles",
-	"#thismeanswar:guns/shotguns"
+	"#thismeanswar:guns/shotguns",
+	"#thismeanswar:guns/energy"
   ]
 }

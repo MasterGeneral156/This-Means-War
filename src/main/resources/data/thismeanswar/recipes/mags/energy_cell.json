@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:energy_cell",
+    "pattern": [
+        "GGG",
+        "GRG",
+		"BSB"
+    ],
+    "key": {
+		"S": { "tag": "forge:ingots/steel" },
+		"B": { "tag": "forge:nuggets/brass" },
+		"G": { "tag": "forge:glass_panes" },
+		"R": { "tag": "forge:storage_blocks/redstone" }
+    },
+    "result": {
+        "item": "thismeanswar:energy_cell",
+		"count": 1
+    }
+}

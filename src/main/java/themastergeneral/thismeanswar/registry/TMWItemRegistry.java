@@ -24,6 +24,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> round_45 = ITEMS.register("round_45", () -> TMWItems.round_45);
 	public static final RegistryObject<Item> rocket_bazooka = ITEMS.register("rocket_bazooka", () -> TMWItems.rocket_bazooka);
 	public static final RegistryObject<Item> round_40mm = ITEMS.register("round_40mm", () -> TMWItems.round_40mm);
+	public static final RegistryObject<Item> energy_bolt = ITEMS.register("energy_bolt", () -> TMWItems.energy_bolt);
 	
 	//Mags
 	public static final RegistryObject<Item> magazine_9mm = ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
@@ -37,6 +38,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_45_clip = ITEMS.register("magazine_45_clip", () -> TMWItems.magazine_45_clip);
 	public static final RegistryObject<Item> magazine_12g_clip = ITEMS.register("magazine_12g_clip", () -> TMWItems.magazine_12g_clip);
 	public static final RegistryObject<Item> magazine_40mm_clip = ITEMS.register("magazine_40mm_clip", () -> TMWItems.magazine_40mm_clip);
+	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
 	
 	/**
 	 * Firearms
@@ -56,6 +58,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> m16 = ITEMS.register("m16", () -> TMWRifles.m16);
 	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
 	public static final RegistryObject<Item> m16_223 = ITEMS.register("m16_223", () -> TMWRifles.m16_223);
+	public static final RegistryObject<Item> quantum_disruptor = ITEMS.register("quantum_disruptor", () -> TMWRifles.quantum_disruptor);
 	
 	//Snipers
 	

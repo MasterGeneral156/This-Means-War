@@ -15,6 +15,7 @@
 	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
 	"item.thismeanswar.magazine_12g_clip": "12G Buckshot Clip",
 	"item.thismeanswar.magazine_40mm_clip": "40mm HE Clip",
+	"item.thismeanswar.energy_cell": "Energy Cell",
 	
 	"item.thismeanswar.beretta_92_fs": "Beretta 92 FS",
 	"item.thismeanswar.glock_26": "Glock 26",
@@ -32,6 +33,7 @@
 	"item.thismeanswar.thunderclaw": "Thunderclaw 45",
 	"item.thismeanswar.m16_223": "M16",
 	"item.thismeanswar.volcanic_thunder": "Volcanic Thunder",
+	"item.thismeanswar.quantum_disruptor": "Quantum Disruptor",
 	
 	"item.thismeanswar.round_12g": "12G Buckshot",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
@@ -40,6 +42,7 @@
 	"item.thismeanswar.round_223": ".223 Round",
 	"item.thismeanswar.round_45": ".45ACP Round",
 	"item.thismeanswar.round_40mm": "40mm HE Round",
+	"item.thismeanswar.energy_bolt": "Energy Bolt",
 	
 	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
 	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
