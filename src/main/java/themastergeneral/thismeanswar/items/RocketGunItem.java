@@ -124,7 +124,7 @@ public class RocketGunItem extends AbstractGunItem {
 				
 				shootUpdateMag(mag);
 				playerIn.awardStat(Stats.ITEM_USED.get(this));
-				playerIn.getCooldowns().addCooldown(this, shotTime);
+				playerIn.getCooldowns().addCooldown(this, getRateOfFire(mag));
 				return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 			}
 		}
