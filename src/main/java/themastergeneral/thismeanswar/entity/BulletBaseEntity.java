@@ -16,6 +16,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.items.AbstractBulletItem;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
@@ -25,6 +26,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
+	      this.bulletItm = TMWItems.round_12g;
 	      this.setNoGravity(true);
 	   }
 
@@ -43,7 +45,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   }
 
 	   protected Item getDefaultItem() {
-	      return null;
+	      return this.bulletItm;
 	   }
 
 	   /**
