@@ -46,4 +46,13 @@ public class TMWRifles
 														Constants.thunderclawDamage,
 														Constants.thunderclawSpeed, 
 														Constants.thunderclawSpread);
+	public static AbstractGunItem m16_223 = new 
+											AbstractGunItem(
+												Constants.fireRateAuto, 
+												Constants.ar15ReloadTime223, 
+												TMWItems.magazine_223, 
+												TMWItems.round_223, 
+												Constants.ar15Damage223,
+												Constants.ar15Speed223, 
+												Constants.ar15Spread223);
 }
