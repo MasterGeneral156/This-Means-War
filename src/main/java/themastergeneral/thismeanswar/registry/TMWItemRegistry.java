@@ -36,6 +36,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_223_clip = ITEMS.register("magazine_223_clip", () -> TMWItems.magazine_223_clip);
 	public static final RegistryObject<Item> magazine_45_clip = ITEMS.register("magazine_45_clip", () -> TMWItems.magazine_45_clip);
 	public static final RegistryObject<Item> magazine_12g_clip = ITEMS.register("magazine_12g_clip", () -> TMWItems.magazine_12g_clip);
+	public static final RegistryObject<Item> magazine_40mm_clip = ITEMS.register("magazine_40mm_clip", () -> TMWItems.magazine_40mm_clip);
 	
 	/**
 	 * Firearms

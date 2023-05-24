@@ -157,6 +157,7 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWItems.magazine_556_clip);
 			ev.accept(TMWItems.magazine_12g_clip);
+			ev.accept(TMWItems.magazine_40mm_clip);
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTab)
