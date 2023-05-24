@@ -20,6 +20,8 @@ Version: 0.1.3-Indev
 *Semi auto now takes 25 ticks between each shot.
 	**WHEN CONVERTING FROM FULL TO SEMI**
 *Populated the 'thismeanswar:guns' tag.
++Added 40mm HE Round.
+	i) Craftable with grenades in stone cutter. (TEMP RECIPE)
 +Added "M17 'Viper'" firearm.
 	i)		Small pistol
 	ii)		9mm Round/Mag
@@ -40,6 +42,11 @@ Version: 0.1.3-Indev
 	ii) 	Uses .223 Rounds/Mag
 	iii) 	Full Auto
 	iv) 	Otherwise same stats as .223 AR15
++Added "Volcanic Thunder" firearm
+	i)		Explosive/Projectile Firearm
+	ii) 	Uses new 40mm HE Round
+	iii) 	Full Auto
+	iv) 	Slightly stronger than a grenade
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
