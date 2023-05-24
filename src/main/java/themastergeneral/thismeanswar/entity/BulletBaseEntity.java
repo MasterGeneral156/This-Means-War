@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
@@ -19,6 +20,8 @@ import themastergeneral.thismeanswar.items.AbstractBulletItem;
 public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
 	protected AbstractBulletItem bulletItm;
+	
+	protected int ticksAlive = 0;
 	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;

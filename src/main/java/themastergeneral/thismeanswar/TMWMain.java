@@ -117,6 +117,7 @@ public class TMWMain
 			ev.accept(TMWRifles.springfield_saint_223);
 			ev.accept(TMWRifles.springfield_saint_556);
 			ev.accept(TMWRifles.m16);
+			ev.accept(TMWRifles.thunderclaw);
 			
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);

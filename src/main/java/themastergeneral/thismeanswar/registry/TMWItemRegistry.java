@@ -52,6 +52,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> springfield_saint_556 = ITEMS.register("springfield_saint_556", () -> TMWRifles.springfield_saint_556);
 	public static final RegistryObject<Item> springfield_saint_223 = ITEMS.register("springfield_saint_223", () -> TMWRifles.springfield_saint_223);
 	public static final RegistryObject<Item> m16 = ITEMS.register("m16", () -> TMWRifles.m16);
+	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
 	
 	//Snipers
 	

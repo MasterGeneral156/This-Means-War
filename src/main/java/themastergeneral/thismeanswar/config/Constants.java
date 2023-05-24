@@ -79,12 +79,12 @@ public class Constants
 	public static float beretta92Speed = 7.71243F + baseSpeed9mm;
 	public static float beretta92Spread = 0.99F + baseSpread9mm;
 	
-	//Beretta 92
-		public static int m17viperFireRate = fireRateAuto;
-		public static int m17viperReloadTime = 30;
-		public static float m17viperDamage = 2.412F + baseDamage9mm;
-		public static float m17viperSpeed = 3.41235F + baseSpeed9mm;
-		public static float m17viperSpread = 1.45F + baseSpread9mm;
+	//M17 'Viper'
+	public static int m17viperFireRate = fireRateAuto;
+	public static int m17viperReloadTime = 30;
+	public static float m17viperDamage = 2.412F + baseDamage9mm;
+	public static float m17viperSpeed = 3.41235F + baseSpeed9mm;
+	public static float m17viperSpread = 1.45F + baseSpread9mm;
 	
 	//Glock 26
 	public static int glock26FireRate = cooldownSemiAuto;
@@ -99,6 +99,13 @@ public class Constants
 	public static float m1911Damage = 7.1245F + baseDamage45;
 	public static float m1911Speed = 14.124F + baseSpeed45;
 	public static float m1911Spread = 1.1F + baseSpread45;
+	
+	//Thuderclaw 45
+	public static int thunderclawireRate = cooldownSemiAuto;
+	public static int thunderclawReloadTime = 35;
+	public static float thunderclawDamage = 4.671F + baseDamage45;
+	public static float thunderclawSpeed = 21.4123F + baseSpeed45;
+	public static float thunderclawSpread = 0.86F + baseSpread45;
 	
 	//M870
 	public static int m870FireRate = cooldownSemiAuto;
