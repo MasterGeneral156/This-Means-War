@@ -45,7 +45,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   }
 
 	   protected Item getDefaultItem() {
-	      return this.bulletItm;
+	      return null;
 	   }
 
 	   /**
