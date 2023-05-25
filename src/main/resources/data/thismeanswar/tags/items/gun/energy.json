@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:quantum_disruptor"
+    "thismeanswar:quantum_disruptor",
+	"thismeanswar:bfg_8001"
   ]
 }

@@ -59,6 +59,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
 	public static final RegistryObject<Item> m16_223 = ITEMS.register("m16_223", () -> TMWRifles.m16_223);
 	public static final RegistryObject<Item> quantum_disruptor = ITEMS.register("quantum_disruptor", () -> TMWRifles.quantum_disruptor);
+	public static final RegistryObject<Item> bfg_8001 = ITEMS.register("bfg_8001", () -> TMWRifles.bfg_8001);
 	
 	//Snipers
 	

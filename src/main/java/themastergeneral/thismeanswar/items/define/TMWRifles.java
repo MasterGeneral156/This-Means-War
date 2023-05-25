@@ -3,6 +3,7 @@ package themastergeneral.thismeanswar.items.define;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.AbstractGunItem;
+import themastergeneral.thismeanswar.items.MultiAmmoCostGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class TMWRifles 
@@ -65,4 +66,14 @@ public class TMWRifles
 					Constants.quantumDisruptorDamage,
 					Constants.quantumDisruptorSpeed, 
 					Constants.quantumDisruptorSpread);
+	
+	public static MultiAmmoCostGunItem bfg_8001 = new 
+				MultiAmmoCostGunItem(
+						Constants.bfg8001Rate, 
+						TMWItems.energy_bolt, 
+						Constants.bfg8001Damage, 
+						Constants.bfg8001MaxAmmo, 
+						Constants.bfg8001Speed, 
+						Constants.bfg8001Spread, 
+						Constants.bfg8001Cost);
 }

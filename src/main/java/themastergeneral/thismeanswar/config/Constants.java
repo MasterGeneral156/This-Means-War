@@ -1,5 +1,12 @@
 package themastergeneral.thismeanswar.config;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.tags.ITag;
+import themastergeneral.thismeanswar.TMWMain;
+
 public class Constants 
 {
 	public static int fireRateAuto = 1;
@@ -117,6 +124,15 @@ public class Constants
 	public static float quantumDisruptorDamage = 1.454F + baseDamageEnergy;
 	public static float quantumDisruptorSpeed = 34.6434124F + baseSpeedEnergy;
 	public static float quantumDisruptorSpread = 0.01F + baseSpreadEnergy;
+	
+	//Quantum Disruptor
+	public static int bfg8001Rate = cooldownSemiAuto;
+	public static int bfg8001ReloadTime = 70;
+	public static float bfg8001Damage = 11.4124F + baseDamageEnergy;
+	public static float bfg8001Speed = 0.124F + baseSpeedEnergy;
+	public static float bfg8001Spread = 0F + baseSpreadEnergy;
+	public static int bfg8001MaxAmmo = 100;
+	public static int bfg8001Cost = 5;
 	
 	//M870
 	public static int m870FireRate = cooldownSemiAuto;

@@ -34,6 +34,7 @@
 	"item.thismeanswar.m16_223": "M16",
 	"item.thismeanswar.volcanic_thunder": "Volcanic Thunder",
 	"item.thismeanswar.quantum_disruptor": "Quantum Disruptor",
+	"item.thismeanswar.bfg_8001": "BFG-8K1",
 	
 	"item.thismeanswar.round_12g": "12G Buckshot",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
@@ -156,7 +157,7 @@
 	"thismeanswar.upgrade_rof_semi": "Firearm has been upgraded to 'fully semi-automatic'.",
 	"thismeanswar.upgrade_mag_directions": "Apply to internally-fed firearm or magazine in your off-hand.",
 	"thismeanswar.upgrade_mag_fail_invalid_gun": "This upgrade may only be only applied to magazines, or firearms with internal magazines.",
-	"thismeanswar.upgrade_mag_fail_disabled": "This upgrade is not valid for this item.",
+	"thismeanswar.upgrade_fail_disabled": "This upgrade is not valid for this item.",
 	"thismeanswar.upgrade_rof_directions": "Use while sneaking with firearm in off-hand.",
 	"thismeanswar.upgrade_nocompat": "Upgrade cannot be used with this firearm.",
 	"thismeanswar.medic_error": "Cannot use medical item while your health is full.",

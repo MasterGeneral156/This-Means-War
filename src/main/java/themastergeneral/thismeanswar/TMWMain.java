@@ -120,6 +120,7 @@ public class TMWMain
 			ev.accept(TMWRifles.m16_223);
 			ev.accept(TMWRifles.thunderclaw);
 			ev.accept(TMWRifles.quantum_disruptor);
+			ev.accept(TMWRifles.bfg_8001);
 			
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);
