@@ -80,7 +80,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 		}
 		else
 		{
-			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_mag_fail_disabled"), true);
+			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}
