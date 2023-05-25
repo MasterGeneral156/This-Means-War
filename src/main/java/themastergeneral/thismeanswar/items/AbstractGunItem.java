@@ -191,7 +191,7 @@ public class AbstractGunItem extends AbstractModItem {
 	
 	public boolean canFire(ItemStack stackIn)
 	{
-		if (getCurrentAmmo(stackIn) > 0)
+		if (getCurrentAmmo(stackIn) >= this.roundsFired())
 			return true;
 		else
 			return false;
@@ -243,6 +243,11 @@ public class AbstractGunItem extends AbstractModItem {
 	public void shootUpdateMag(ItemStack stack)
 	{
 		removeAmmoFromGun(stack);
+	}
+	
+	public void shootUpdateMag(ItemStack stack, int remove)
+	{
+		removeAmmoFromGun(stack, remove);
 	}
 
    public int getBarColor(ItemStack stack) 
@@ -539,7 +544,7 @@ public class AbstractGunItem extends AbstractModItem {
 					bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
 					worldIn.addFreshEntity(bulletEntity);
 					
-					shootUpdateMag(mag);
+					shootUpdateMag(mag, this.roundsFired());
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
 					playerIn.getCooldowns().addCooldown(this, getRateOfFire(mag));
 					giveBulletCasing(playerIn);
@@ -682,4 +687,9 @@ public class AbstractGunItem extends AbstractModItem {
         else
         	return false;
     }
+	
+	public int roundsFired()
+	{
+		return 1;
+	}
 }
