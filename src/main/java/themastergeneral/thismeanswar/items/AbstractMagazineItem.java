@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.config.MagazineConfigs;
 
 public class AbstractMagazineItem extends AbstractModItem {
 
