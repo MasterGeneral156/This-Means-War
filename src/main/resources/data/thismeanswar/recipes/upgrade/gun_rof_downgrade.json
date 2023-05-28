@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "thismeanswar:base_upgrade"
+  },
+  "addition": {
+		"tag": "forge:dusts/redstone"
+  },
+  "result":
+    {
+	    "item": "thismeanswar:gun_rof_downgrade",
+		"count": 1
+    }
+}

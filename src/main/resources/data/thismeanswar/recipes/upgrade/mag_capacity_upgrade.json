@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "thismeanswar:base_upgrade"
+  },
+  "addition": {
+		"tag": "thismeanswar:magazines"
+  },
+  "result":
+    {
+	    "item": "thismeanswar:mag_capacity_upgrade",
+		"count": 1
+    }
+}
