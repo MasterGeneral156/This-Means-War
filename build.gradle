@@ -102,6 +102,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     minecraft 'net.minecraftforge:forge:' + project.property('forge_version')
 	implementation fg.deobf('curse.maven:ctd-core-' + project.property('ctd_core_ver'))
+	implementation fg.deobf('curse.maven:patchouli-' + project.property('patchouli_version'))
 	
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-common-api:" + project.property('jei_version'))
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('mc_version') + "-forge-api:" + project.property('jei_version'))
