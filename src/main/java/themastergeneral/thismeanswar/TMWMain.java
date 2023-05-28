@@ -130,6 +130,7 @@ public class TMWMain
 			ev.accept(TMWExplosiveProjectile.bazooka);
 			ev.accept(TMWExplosiveProjectile.volcanic_thunder);
 			
+			ev.accept(TMWItems.base_upgrade);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bayonet_wood);

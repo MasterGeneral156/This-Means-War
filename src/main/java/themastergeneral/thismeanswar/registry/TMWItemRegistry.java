@@ -122,6 +122,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);
 	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
 	public static final RegistryObject<Item> creative_charm = ITEMS.register("creative_charm", () -> TMWItems.creative_charm);
+	public static final RegistryObject<Item> base_upgrade = ITEMS.register("base_upgrade", () -> TMWItems.base_upgrade);
 	
 	/**
 	 * Crafting Items

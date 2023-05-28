@@ -88,6 +88,7 @@ public class TMWItems {
 	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
 	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
 	public static AbstractModItem creative_charm = new BasicItem(1);
+	public static AbstractModItem base_upgrade = new BasicItem();
 	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();
