@@ -21,13 +21,15 @@ Version: 0.1.3-Indev
 	**WHEN CONVERTING FROM FULL TO SEMI**
 *Populated the 'thismeanswar:guns' tag.
 +Added 40mm HE Round.
-	i) Craftable with grenades in stone cutter. (TEMP RECIPE)
+	i) 	Craftable with grenades in stone cutter. (TEMP RECIPE)
++Added Energy Bolt.
 +Added 40mm HE Clip.
++Added Energy Cell. (Holds Energy Bolts)
 +Added "M17 'Viper'" firearm.
 	i)		Small pistol
 	ii)		9mm Round/Mag
 	iii)	Full Auto
-	iv) Weaker base stats than Beretta 92
+	iv) 	Weaker base stats than Beretta 92
 +Added "Thunderclaw 45" firearm.
 	i)		Bolt Action Rifle
 	ii)		45 ACP Round / Clip
@@ -48,6 +50,18 @@ Version: 0.1.3-Indev
 	ii) 	Uses new 40mm HE Round
 	iii) 	Full Auto
 	iv) 	Slightly stronger than a grenade
++Added "BFG-8K1" firearm
+	i)		"Energy" Rifle
+	ii) 	Uses new Energy Bolt
+	iii) 	Semi Auto
+	iv) 	Strong af
+	v) Uses 5 bolts per round
++Added "Quantum Disruptor" firearm
+	i)		"Energy" Rifle
+	ii) 	Uses new Energy Cell (Energy Bolts)
+	iii) 	Semi Auto
+	iv) 	Strong af
+*Updated bandage texture.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
