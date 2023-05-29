@@ -1,0 +1,12 @@
+{
+    "name": "Volcanic Thunder",
+    "icon": "thismeanswar:m1911",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:volcanic_thunder",
+            "text": "Conveys a sense of both awe-inspiring force and controlled firepower. Holds six 40mm High Explosive Rounds. Less explosive than bazooka."
+        }
+    ]
+}

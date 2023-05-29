@@ -1,7 +1,7 @@
 {
     "name": "Glock 26",
     "icon": "thismeanswar:glock_26",
-    "category": "thismeanswar:firearms",
+    "category": "thismeanswar:firearm_category",
     "pages": [
         {
             "type": "patchouli:spotlight",

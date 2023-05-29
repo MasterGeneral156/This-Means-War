@@ -1,7 +1,7 @@
 {
     "name": "Beretta 92 FS",
     "icon": "thismeanswar:beretta_92_fs",
-    "category": "thismeanswar:firearms",
+    "category": "thismeanswar:firearm_category",
     "pages": [
         {
             "type": "patchouli:spotlight",

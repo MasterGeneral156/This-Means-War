@@ -1,0 +1,12 @@
+{
+    "name": "M1911",
+    "icon": "thismeanswar:m1911",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:m1911",
+            "text": "Originating in the late 1800s with the Colt 45, the M1911 was developed in hopes to replace the aging revolvers at the time. In game, it's chambered with a 7-round 45ACP magazine."
+        }
+    ]
+}

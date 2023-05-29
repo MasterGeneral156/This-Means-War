@@ -1,0 +1,21 @@
+{
+    "name": "AR/M4 Platform",
+    "icon": "thismeanswar:springfield_saint_556",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+		{
+			"type": "patchouli:text",
+			"text": "The AR/M4 platform is widely used and each rifle based on it shares similar characteristics. Note that they accept the same standard M4/AR Magazines, and are chambered in both 5.56 and .223"
+		},
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:springfield_saint_556",
+            "text": "The AR-15 rifle is a semi-automatic rifle based on the AR/M4 platform."
+        },
+		{
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:m16",
+            "text": "The M16 rifle shares the same platform as the AR-15, but is fully automatic for military use."
+        }
+    ]
+}
