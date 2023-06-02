@@ -14,7 +14,9 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:hammer_iron"
+							"thismeanswar:hammer_iron",
+							"thismeanswar:hammer_diamond",
+							"thismeanswar:hammer_steel"
 						]
 					}
 				]
