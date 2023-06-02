@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_223"
+		},
+		"title": ".223 Bullet Tip",
+		"description": "Craft a .223 Bullet Tip",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_223",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_223"
+						]
+					}
+				]
+			}
+		}
+	}
+}

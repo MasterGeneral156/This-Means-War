@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_9mm"
+		},
+		"title": "9mm Bullet Tip",
+		"description": "Craft a 9mm Bullet Tip",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_9mm",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_9mm"
+						]
+					}
+				]
+			}
+		}
+	}
+}

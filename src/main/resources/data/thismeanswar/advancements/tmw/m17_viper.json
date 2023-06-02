@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:m17_viper"
+		},
+		"title": "Lightweight and Potent",
+		"description": "Obtain a M17 'Viper'"
+	},
+	"parent": "thismeanswar:tmw/beretta",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:m17_viper"
+						]
+					}
+				]
+			}
+		}
+	}
+}

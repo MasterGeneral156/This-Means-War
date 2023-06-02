@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:casing_12g"
+		},
+		"title": "12G Casing",
+		"description": "Craft a 12G Casing",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_12g",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:casing_12g"
+						]
+					}
+				]
+			}
+		}
+	}
+}

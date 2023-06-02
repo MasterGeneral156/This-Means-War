@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:beretta_92_fs"
+		},
+		"title": "Modern Handgun",
+		"description": "Obtain a Beretta 92"
+	},
+	"parent": "thismeanswar:tmw/m1911",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:beretta_92_fs"
+						]
+					}
+				]
+			}
+		}
+	}
+}

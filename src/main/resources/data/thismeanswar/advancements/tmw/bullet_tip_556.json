@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_556"
+		},
+		"title": "5.56 Bullet Tip",
+		"description": "Craft a 5.56 Bullet Tip",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_556",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_556"
+						]
+					}
+				]
+			}
+		}
+	}
+}

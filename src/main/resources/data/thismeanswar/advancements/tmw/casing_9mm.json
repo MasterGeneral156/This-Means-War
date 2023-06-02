@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:casing_9mm"
+		},
+		"title": "9mm Casing",
+		"description": "Craft a 9mm Casing",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_9mm",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:casing_9mm"
+						]
+					}
+				]
+			}
+		}
+	}
+}

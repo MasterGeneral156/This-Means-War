@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_45"
+		},
+		"title": ".45ACP Bullet Tip",
+		"description": "Craft a .45ACP Bullet Tip",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_45",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_45"
+						]
+					}
+				]
+			}
+		}
+	}
+}

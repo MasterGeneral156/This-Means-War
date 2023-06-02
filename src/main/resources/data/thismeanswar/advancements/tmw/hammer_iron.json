@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:hammer_iron"
+		},
+		"title": "Hammer Time",
+		"description": "Obtain a Hammer, used for bullet creation."
+	},
+	"parent": "thismeanswar:tmw/root",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:hammer_iron"
+						]
+					}
+				]
+			}
+		}
+	}
+}

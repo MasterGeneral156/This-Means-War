@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:m1911"
+		},
+		"title": "American Strong",
+		"description": "Obtain an M1911"
+	},
+	"parent": "thismeanswar:tmw/root",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:m1911"
+						]
+					}
+				]
+			}
+		}
+	}
+}

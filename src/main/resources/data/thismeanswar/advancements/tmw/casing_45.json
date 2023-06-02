@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:casing_45"
+		},
+		"title": ".45ACP Casing",
+		"description": "Craft a .45ACP Casing",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_45",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:casing_45"
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_buckshot"
+		},
+		"title": "12G Buckshot",
+		"description": "Craft a 12G Buckshot Cast",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_12g",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_buckshot"
+						]
+					}
+				]
+			}
+		}
+	}
+}
