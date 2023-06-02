@@ -7,7 +7,7 @@
 		"description": "Craft a 12G Casing",
 		"announce_to_chat": false
 	},
-	"parent": "thismeanswar:tmw/bullet_cast_12g",
+	"parent": "thismeanswar:tmw/bullet_tip_12g",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",

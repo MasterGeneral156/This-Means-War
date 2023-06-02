@@ -7,7 +7,7 @@
 		"description": "Craft a .223 Casing",
 		"announce_to_chat": false
 	},
-	"parent": "thismeanswar:tmw/bullet_cast_223",
+	"parent": "thismeanswar:tmw/bullet_tip_223",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",

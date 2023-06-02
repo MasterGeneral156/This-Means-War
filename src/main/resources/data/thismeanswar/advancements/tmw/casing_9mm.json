@@ -7,7 +7,7 @@
 		"description": "Craft a 9mm Casing",
 		"announce_to_chat": false
 	},
-	"parent": "thismeanswar:tmw/bullet_cast_9mm",
+	"parent": "thismeanswar:tmw/bullet_tip_9mm",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",

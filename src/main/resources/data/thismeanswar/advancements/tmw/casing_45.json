@@ -7,7 +7,7 @@
 		"description": "Craft a .45ACP Casing",
 		"announce_to_chat": false
 	},
-	"parent": "thismeanswar:tmw/bullet_cast_45",
+	"parent": "thismeanswar:tmw/bullet_tip_45",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
