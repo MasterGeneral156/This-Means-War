@@ -6,7 +6,7 @@
 		"title": "American Strong",
 		"description": "Obtain an M1911"
 	},
-	"parent": "thismeanswar:tmw/root",
+	"parent": "thismeanswar:tmw/steel_block",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",

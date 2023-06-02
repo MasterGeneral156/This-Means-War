@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:block_steel"
+		},
+		"title": "Firearm Manufacturing",
+		"description": "Steel blocks are needed to create your firearms.",
+		"frame": "goal"
+	},
+	"parent": "thismeanswar:tmw/root",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:block_steel"
+						]
+					}
+				]
+			}
+		}
+	}
+}
