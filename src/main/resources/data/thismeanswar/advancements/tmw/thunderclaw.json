@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:thunderclaw"
+		},
+		"title": "Riflemarkmanship",
+		"description": "Obtain an Thunderclaw 45"
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:thunderclaw"
+						]
+					}
+				]
+			}
+		}
+	}
+}

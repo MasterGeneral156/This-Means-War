@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:rocket_bazooka"
+		},
+		"title": "Rocketted Explosion",
+		"description": "Craft a Bazooka Rocket"
+	},
+	"parent": "thismeanswar:tmw/grenade",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:rocket_bazooka"
+						]
+					}
+				]
+			}
+		}
+	}
+}

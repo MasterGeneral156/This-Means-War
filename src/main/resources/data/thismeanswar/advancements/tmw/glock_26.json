@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:glock_26"
+		},
+		"title": "Glock Lobster",
+		"description": "Obtain a Glock 26"
+	},
+	"parent": "thismeanswar:tmw/m17_viper",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:glock_26"
+						]
+					}
+				]
+			}
+		}
+	}
+}

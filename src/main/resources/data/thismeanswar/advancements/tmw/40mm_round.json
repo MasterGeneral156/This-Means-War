@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:round_40mm"
+		},
+		"title": "Propelled Explosion",
+		"description": "Craft a 40mm HE Round"
+	},
+	"parent": "thismeanswar:tmw/grenade",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:round_40mm"
+						]
+					}
+				]
+			}
+		}
+	}
+}

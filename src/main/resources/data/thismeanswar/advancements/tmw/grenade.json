@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:hand_grenade"
+		},
+		"title": "Potent Explosion",
+		"description": "Craft a Hand Grenade"
+	},
+	"parent": "thismeanswar:tmw/lead_plate",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:hand_grenade"
+						]
+					}
+				]
+			}
+		}
+	}
+}

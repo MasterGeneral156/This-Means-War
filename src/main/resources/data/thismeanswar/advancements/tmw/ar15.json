@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:springfield_saint_556"
+		},
+		"title": "tErRoRiSt!",
+		"description": "Obtain an AR15"
+	},
+	"parent": "thismeanswar:tmw/tmg_carbine",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:springfield_saint_223",
+							"thismeanswar:springfield_saint_556"
+						]
+					}
+				]
+			}
+		}
+	}
+}

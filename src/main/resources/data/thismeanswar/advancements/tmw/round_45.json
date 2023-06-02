@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:round_45"
+		},
+		"title": ".45ACP Rounds Galore",
+		"description": "Craft a .45ACP Round",
+		"frame": "goal"
+	},
+	"parent": "thismeanswar:tmw/casing_45",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:round_45"
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:quantum_disruptor"
+		},
+		"title": "Energy Sniper",
+		"description": "Obtain an Quantum Disruptor"
+	},
+	"parent": "thismeanswar:tmw/thunderclaw",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:quantum_disruptor"
+						]
+					}
+				]
+			}
+		}
+	}
+}

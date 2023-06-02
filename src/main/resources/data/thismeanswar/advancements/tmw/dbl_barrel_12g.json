@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:double_barrel_12g"
+		},
+		"title": "Double Trouble",
+		"description": "Obtain the Double Barreled Shotgun"
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:double_barrel_12g"
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:round_12g"
+		},
+		"title": "12G Buckshot Galore",
+		"description": "Craft a 12G Buckshot Round",
+		"frame": "goal"
+	},
+	"parent": "thismeanswar:tmw/casing_12g",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:round_12g"
+						]
+					}
+				]
+			}
+		}
+	}
+}

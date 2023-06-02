@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:round_9mm"
+		},
+		"title": "9mm Rounds Galore",
+		"description": "Craft a 12G Buckshot Round",
+		"frame": "goal"
+	},
+	"parent": "thismeanswar:tmw/casing_9mm",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:round_9mm"
+						]
+					}
+				]
+			}
+		}
+	}
+}

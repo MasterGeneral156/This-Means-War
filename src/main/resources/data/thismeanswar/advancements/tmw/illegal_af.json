@@ -1,0 +1,27 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:sawn_off_double_barrel_12g"
+		},
+		"title": "ILLEGAL",
+		"description": "What you just did is illegal...",
+		"hidden": true,
+		"frame": "challenge"
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:sawn_off_remmington_m870",
+							"thismeanswar:sawn_off_double_barrel_12g"
+						]
+					}
+				]
+			}
+		}
+	}
+}

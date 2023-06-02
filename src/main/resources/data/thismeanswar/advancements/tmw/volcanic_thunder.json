@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:volcanic_thunder"
+		},
+		"title": "Rapid Fire Explosions",
+		"description": "Obtain the Volcanic Thunder"
+	},
+	"parent": "thismeanswar:tmw/bazooka",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:volcanic_thunder"
+						]
+					}
+				]
+			}
+		}
+	}
+}

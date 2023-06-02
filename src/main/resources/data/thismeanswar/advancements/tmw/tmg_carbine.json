@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:tmg_carbine"
+		},
+		"title": "Actually Fake",
+		"description": "Obtain TMG's Carbine"
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:tmg_carbine"
+						]
+					}
+				]
+			}
+		}
+	}
+}

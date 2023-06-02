@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bazooka"
+		},
+		"title": "The OG",
+		"description": "Obtain the Bazooka"
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bazooka"
+						]
+					}
+				]
+			}
+		}
+	}
+}

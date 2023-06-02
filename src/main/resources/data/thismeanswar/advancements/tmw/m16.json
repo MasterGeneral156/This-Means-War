@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:m16"
+		},
+		"title": "bRaVe HeRo!",
+		"description": "Obtain an M16"
+	},
+	"parent": "thismeanswar:tmw/ar15",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:m16",
+							"thismeanswar:m16_223"
+						]
+					}
+				]
+			}
+		}
+	}
+}

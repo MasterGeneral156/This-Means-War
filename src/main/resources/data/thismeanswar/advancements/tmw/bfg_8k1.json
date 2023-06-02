@@ -1,0 +1,26 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bfg_8001"
+		},
+		"title": "Big !@#$ Gun",
+		"description": "Obtain a BFG-8K1",
+		"frame": "challenge",
+		"hidden": true
+	},
+	"parent": "thismeanswar:tmw/steel_block",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bfg_8001"
+						]
+					}
+				]
+			}
+		}
+	}
+}
