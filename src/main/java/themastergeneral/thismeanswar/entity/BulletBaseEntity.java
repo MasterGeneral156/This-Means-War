@@ -28,6 +28,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.bulletDmg = 0.0F;
 	      this.bulletItm = TMWItems.round_12g;
 	      this.setNoGravity(true);
+	      this.setInvulnerable(true);
 	   }
 
 	   public BulletBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
@@ -35,6 +36,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
+	      this.setInvulnerable(true);
 	   }
 
 	   public BulletBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
@@ -42,6 +44,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
+	      this.setInvulnerable(true);
 	   }
 
 	   protected Item getDefaultItem() {
