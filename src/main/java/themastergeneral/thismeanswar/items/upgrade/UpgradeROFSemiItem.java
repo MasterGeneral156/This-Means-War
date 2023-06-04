@@ -41,22 +41,28 @@ public class UpgradeROFSemiItem extends BasicItem {
 				{
 					//fail
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_nocompat"), true);
+					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
 				else
 				{
 					offhand.setGunROF(playerIn.getItemInHand(InteractionHand.OFF_HAND), Constants.fireRateSemi);
 					playerIn.getMainHandItem().shrink(1);
+					playerIn.getCooldowns().addCooldown(this, 20);
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_rof_semi"), true);
 					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 			}
 			else
+			{
+				playerIn.getCooldowns().addCooldown(this, 10);
 				return InteractionResultHolder.fail(playerIn.getMainHandItem());
+			}
 		}
 		else
 		{
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
+			playerIn.getCooldowns().addCooldown(this, 10);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}

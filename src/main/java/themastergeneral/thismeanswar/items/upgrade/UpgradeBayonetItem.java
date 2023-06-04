@@ -55,24 +55,28 @@ public class UpgradeBayonetItem extends BasicItem
 					else
 					{
 						playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_already_done"), true);
+						playerIn.getCooldowns().addCooldown(this, 10);
 						return InteractionResultHolder.fail(playerIn.getMainHandItem());
 					}
 				}
 				else
 				{
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_mag_inserted"), true);
+					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
 			}
 			else
 			{
 				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_nocompat"), true);
+				playerIn.getCooldowns().addCooldown(this, 10);
 				return InteractionResultHolder.fail(playerIn.getMainHandItem());
 			}
 		}
 		else
 		{
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
+			playerIn.getCooldowns().addCooldown(this, 10);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}

@@ -52,11 +52,15 @@ public class UpgradeMagCapacityItem extends BasicItem
 						return InteractionResultHolder.pass(playerIn.getMainHandItem());
 					}
 					else
+					{
+						playerIn.getCooldowns().addCooldown(this, 10);
 						return InteractionResultHolder.fail(playerIn.getMainHandItem());
+					}
 				}
 				else
 				{
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_mag_fail_invalid_gun"), true);
+					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
 			}
@@ -73,14 +77,21 @@ public class UpgradeMagCapacityItem extends BasicItem
 					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else
+				{
+					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
+				}
 			}
 			else
+			{
+				playerIn.getCooldowns().addCooldown(this, 10);
 				return InteractionResultHolder.fail(playerIn.getMainHandItem());
+			}
 		}
 		else
 		{
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
+			playerIn.getCooldowns().addCooldown(this, 10);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}
