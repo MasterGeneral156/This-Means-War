@@ -25,18 +25,21 @@ public class RocketBaseEntity extends ThrowableItemProjectile {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.maxSpeed = 0.0F;
+	      this.setInvulnerable(true);
 	   }
 
 	   public RocketBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, Item bullet, float maxSpd) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.maxSpeed = maxSpd;
+	      this.setInvulnerable(true);
 	   }
 
 	   public RocketBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, float maxSpd) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.maxSpeed = maxSpd;
+	      this.setInvulnerable(true);
 	   }
 
 	@Override
@@ -73,9 +76,10 @@ public class RocketBaseEntity extends ThrowableItemProjectile {
 	   }
 	   
    @Override
-   public void tick() {
+   public void tick() 
+   {
 	   super.tick();
-	   if (this.getLevel().isClientSide)
+	   if (this.getLevel().isClientSide())
 	   {
 		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, -0.3D, 0.0D);
 		   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
