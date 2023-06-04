@@ -66,6 +66,8 @@ Version: 0.1.3-Indev
 	*Used in Smithing table to craft the upgrades now.
 -Removed previous upgrades's recipes.
 +Blue/Red War Armors now have effects given to its wearer when on Blue/Red team blocks.
++Added Advancements to help with mod progression.
+*Fixed hitbox on ammo and medic boxes.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
