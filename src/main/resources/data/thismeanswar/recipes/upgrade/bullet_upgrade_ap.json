@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "thismeanswar:base_upgrade"
+  },
+  "addition": {
+		"tag": "minecraft:arrows"
+  },
+  "result":
+    {
+	    "item": "thismeanswar:bullet_upgrade_ap",
+		"count": 1
+    }
+}

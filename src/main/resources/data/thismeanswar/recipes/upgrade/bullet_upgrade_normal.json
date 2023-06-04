@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "thismeanswar:base_upgrade"
+  },
+  "addition": {
+		"tag": "forge:feathers"
+  },
+  "result":
+    {
+	    "item": "thismeanswar:bullet_upgrade_normal",
+		"count": 1
+    }
+}
