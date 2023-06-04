@@ -142,6 +142,8 @@
 	"item.thismeanswar.gun_rof_downgrade": "Firearm Semi-Auto Upgrade",
 	"item.thismeanswar.creative_charm": "Creative Charm",
 	"item.thismeanswar.base_upgrade": "Upgrade Base",
+	"item.thismeanswar.bullet_upgrade_ap": "Armor Piercing Upgrade",
+	"item.thismeanswar.bullet_upgrade_normal": "Bullet Upgrade Nullifier",
 	
 	"block.thismeanswar.ammo_box": "Small Ammo Container",
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
@@ -171,7 +173,12 @@
 	"thismeanswar.upgrade_bayonet_warning": "Please remove your magazine on applicable firearms before upgrading.",
 	"thismeanswar.upgrade_bayonet_fail_nocompat": "The item in your offhand may not receive a bayonet upgrade.",
 	"thismeanswar.upgrade_bayonet_fail_already_done": "The item in your offhand already has a bayonet upgrade.",
+	"thismeanswar.upgrade_bullet_fail_already_done": "This firearm already has a bullet upgrade installed.",
+	"thismeanswar.upgrade_bullet_fail_nocompat": "The item in your offhand may not receive any bullet upgrades.",
+	"thismeanswar.upgrade_bullet_fail_same": "This firearm has already received this bullet upgrade.",
 	"thismeanswar.upgrade_bayonet_fail_mag_inserted": "Please remove the magazine from your firearm before adding this upgrade.",
+	"thismeanswar.upgrade_ap_directions": "Apply to firearm in off-hand to make bullet pierce armor.",
+	"thismeanswar.upgrade_normal_directions": "Apply to firearm in off-hand to remove any bullet upgrades.",
 	"thismeanswar.creative_charm_directions": "Overrides many requirements with ammo, storages, etc when in off-hand.",
 	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later"
 }

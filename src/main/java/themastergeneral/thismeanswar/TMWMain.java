@@ -131,6 +131,7 @@ public class TMWMain
 			ev.accept(TMWExplosiveProjectile.volcanic_thunder);
 			
 			ev.accept(TMWItems.base_upgrade);
+			ev.accept(TMWItems.mag_capacity_upgrade);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bayonet_wood);
@@ -139,6 +140,8 @@ public class TMWMain
 			ev.accept(TMWItems.bayonet_gold);
 			ev.accept(TMWItems.bayonet_diamond);
 			ev.accept(TMWItems.bayonet_netherrite);
+			ev.accept(TMWItems.bullet_upgrade_ap);
+			ev.accept(TMWItems.bullet_upgrade_normal);
     	}
     	if (ev.getTab() == TMWAmmoTab)
     	{

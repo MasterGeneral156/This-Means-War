@@ -123,6 +123,11 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
 	public static final RegistryObject<Item> creative_charm = ITEMS.register("creative_charm", () -> TMWItems.creative_charm);
 	public static final RegistryObject<Item> base_upgrade = ITEMS.register("base_upgrade", () -> TMWItems.base_upgrade);
+	public static final RegistryObject<Item> bullet_upgrade_ap = ITEMS.register("bullet_upgrade_ap", () -> TMWItems.bullet_upgrade_ap);
+	public static final RegistryObject<Item> bullet_upgrade_normal = ITEMS.register("bullet_upgrade_normal", () -> TMWItems.bullet_upgrade_normal);
+	
+	//Charms
+	public static final RegistryObject<Item> charm_stealth = ITEMS.register("charm_stealth", () -> TMWItems.charm_stealth);
 	
 	/**
 	 * Crafting Items

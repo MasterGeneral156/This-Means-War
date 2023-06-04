@@ -26,6 +26,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.entity.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 
 public class AbstractGunItem extends AbstractModItem {
@@ -45,6 +46,7 @@ public class AbstractGunItem extends AbstractModItem {
 	public int internal_mag = 2;
 	
 	private int rofUpgradeScale = 0;
+	private int bulletUpgrade = 0;
 	
 	protected double bayonetUpgradeLvl = 0.0;
 	
@@ -110,6 +112,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("capUpgrades", 0);
 			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 			compoundnbt.putDouble("bayonetUpgradeLvl", bayonetUpgradeLvl);
+			compoundnbt.putInt("bulletUpgrade", bulletUpgrade);
 			stack.setTag(compoundnbt);
 		}
 	}
@@ -210,6 +213,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("capUpgrades", 0);
 			compoundnbt.putInt("rofUpgrade", rofUpgradeScale);
 			compoundnbt.putDouble("bayonetUpgradeLvl", bayonetUpgradeLvl);
+			compoundnbt.putInt("bulletUpgrade", bulletUpgrade);
 			stack.setTag(compoundnbt);
 	   }
 	}
@@ -281,6 +285,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+			compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 			mag.setTag(compoundnbt);
 			return true;
 		}
@@ -310,6 +315,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+			compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -330,6 +336,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -343,6 +350,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -356,6 +364,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 
@@ -369,6 +378,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", setTo);
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -382,6 +392,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -393,6 +404,7 @@ public class AbstractGunItem extends AbstractModItem {
 		int currentAmmo = getCurrentAmmo(stack);
 		String rofString = (getRateOfFire(stack) == Constants.fireRateAuto) ? "Full Auto" : "Semi-Auto";
 		int maxAmmo = getMaxAmmo(stack);
+		int bulletUpgrade = getBulletUpgrade(stack);
 		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		if (magazine != null)
 			tooltip.add(ModUtils.displayTranslation(magazine.getDescriptionId()));
@@ -421,6 +433,8 @@ public class AbstractGunItem extends AbstractModItem {
 			{
 				tooltip.add(ModUtils.displayString("Bayonet Damage: " + getBayonetLevel(stack)));
 			}
+			if (bulletUpgrade == 1)
+				tooltip.add(ModUtils.displayString("Bullet Upgrade: Armor Piercing"));
 		}
 			
 	}
@@ -539,10 +553,21 @@ public class AbstractGunItem extends AbstractModItem {
 				if (canFire(mag))
 				{
 					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
-					bulletEntity.setItem(new ItemStack(bullet));
-					//Up+Down
-					bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
-					worldIn.addFreshEntity(bulletEntity);
+					//AP Rounds
+					if (this.getBulletUpgrade(mag) == 1)
+					{
+						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.setItem(new ItemStack(bullet));
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						worldIn.addFreshEntity(apBullet);
+					}
+					else
+					{
+						bulletEntity.setItem(new ItemStack(bullet));
+						//Up+Down
+						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	
+						worldIn.addFreshEntity(bulletEntity);
+					}
 					
 					shootUpdateMag(mag, this.roundsFired());
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
@@ -591,6 +616,7 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", setTo);
 		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 		mag.setTag(compoundnbt);
 	}
 	
@@ -607,6 +633,7 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putInt("capUpgrades", capUpgrades + 1);
 			compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 			compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+			compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
 			mag.setTag(compoundnbt);
 		}
 	}
@@ -622,6 +649,22 @@ public class AbstractGunItem extends AbstractModItem {
 		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
 		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
 		compoundnbt.putDouble("bayonetUpgradeLvl", setTo);
+		compoundnbt.putInt("bulletUpgrade", getBulletUpgrade(mag));
+		mag.setTag(compoundnbt);
+	}
+	
+	public void upgradeBullet(ItemStack mag, int setTo)
+	{
+
+		CompoundTag compoundnbt = new CompoundTag();
+		compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
+		compoundnbt.putInt("maxAmmo", getMaxAmmo(mag));
+		compoundnbt.putInt("magLoaded", hasMag(mag));
+		compoundnbt.putInt("magType", getMagType(mag));
+		compoundnbt.putInt("capUpgrades", getCapUpgrades(mag));
+		compoundnbt.putInt("rofUpgrade", getRateOfFire(mag));
+		compoundnbt.putDouble("bayonetUpgradeLvl", getBayonetLevel(mag));
+		compoundnbt.putInt("bulletUpgrade", setTo);
 		mag.setTag(compoundnbt);
 	}
 	
@@ -636,6 +679,18 @@ public class AbstractGunItem extends AbstractModItem {
 			return 0.0;
 		}
 	}
+	
+	public int getBulletUpgrade(ItemStack gun) 
+	{
+		if (gun.hasTag())
+		{
+			return gun.getTag().getInt("bulletUpgrade");
+		}
+		else
+		{
+			return 0;
+		}
+	}
 
 	public float returnBulletDamage(ItemStack stack)
 	{
@@ -644,6 +699,7 @@ public class AbstractGunItem extends AbstractModItem {
 		{
 			int magUpgrades = this.getCapUpgrades(stack);
 			int rof = this.getRateOfFire(stack);
+			int bulletUpgrade = this.getBulletUpgrade(stack);
 			if (magUpgrades > 0)
 				returned = (float) (returned - ((returned * Constants.magDamageDecrease) * magUpgrades));
 			//damage increase for converting full auto to semi...
@@ -658,6 +714,9 @@ public class AbstractGunItem extends AbstractModItem {
 				if (this.getRateOfFire(stack) == Constants.fireRateAuto)
 					returned = (float) returned - (returned * 0.5F);
 			}
+			//AP Rounds
+			if (bulletUpgrade == 1)
+				returned = (float) returned - (returned * 0.18F);
 		}
 		return returned;
 	}
