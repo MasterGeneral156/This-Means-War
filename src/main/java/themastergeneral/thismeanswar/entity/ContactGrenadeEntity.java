@@ -20,16 +20,19 @@ public class ContactGrenadeEntity extends ThrowableItemProjectile {
 	   public ContactGrenadeEntity(EntityType<? extends ContactGrenadeEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
+	      this.setInvulnerable(true);
 	   }
 
 	   public ContactGrenadeEntity(Level worldIn, net.minecraft.world.entity.LivingEntity throwerIn, float explosionRadius) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
+	      this.setInvulnerable(true);
 	   }
 
 	   public ContactGrenadeEntity(Level worldIn, double x, double y, double z, float explosionRadius) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
+	      this.setInvulnerable(true);
 	   }
 
 	   protected Item getDefaultItem() {
