@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#thismeanswar:guns/launchers",
-	"#thismeanswar:guns/pistols",
-	"#thismeanswar:guns/rifles",
-	"#thismeanswar:guns/shotguns",
-	"#thismeanswar:guns/energy"
+    "#thismeanswar:gun/launchers",
+	"#thismeanswar:gun/pistols",
+	"#thismeanswar:gun/rifles",
+	"#thismeanswar:gun/shotguns",
+	"#thismeanswar:gun/energy"
   ]
 }
