@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-	  "name": "thismeanswar:red_chiseled_brick",
+	  "name": "thismeanswar:red_chiseled_bricks",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "thismeanswar:red_chiseled_brick"
+          "name": "thismeanswar:red_chiseled_bricks"
         }
       ]
     }
