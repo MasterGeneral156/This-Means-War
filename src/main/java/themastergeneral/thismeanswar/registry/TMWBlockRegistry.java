@@ -16,8 +16,8 @@ public class TMWBlockRegistry {
 	
 	public static final RegistryObject<Block> red_stone_bricks = BLOCKS.register("red_stone_bricks", () ->TMWBlocks.red_stone_bricks);
 	public static final RegistryObject<Block> blue_stone_bricks = BLOCKS.register("blue_stone_bricks", () ->TMWBlocks.blue_stone_bricks);
-	public static final RegistryObject<Block> red_chiseled_brick = BLOCKS.register("red_chiseled_brick", () ->TMWBlocks.red_chiseled_brick);
-	public static final RegistryObject<Block> blue_chiseled_brick = BLOCKS.register("blue_chiseled_brick", () ->TMWBlocks.blue_chiseled_brick);
+	public static final RegistryObject<Block> red_chiseled_brick = BLOCKS.register("red_chiseled_brick", () ->TMWBlocks.red_chiseled_bricks);
+	public static final RegistryObject<Block> blue_chiseled_brick = BLOCKS.register("blue_chiseled_brick", () ->TMWBlocks.blue_chiseled_bricks);
 	
 	public static final RegistryObject<Block> block_lead = BLOCKS.register("block_lead", () ->TMWBlocks.block_lead);
 	public static final RegistryObject<Block> block_brass = BLOCKS.register("block_brass", () ->TMWBlocks.block_brass);
