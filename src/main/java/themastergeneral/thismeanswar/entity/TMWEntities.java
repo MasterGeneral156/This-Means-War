@@ -12,6 +12,7 @@ public class TMWEntities {
 			.setTrackingRange(128)
 			.clientTrackingRange(128)
 			.noSummon()
+			.fireImmune()
 			.build("bullet_entity");
 	
 	public static final EntityType<BulletAPEntity> AP_BULLET_ENTITY = EntityType.Builder.<BulletAPEntity>of(
@@ -22,6 +23,7 @@ public class TMWEntities {
 			.setTrackingRange(128)
 			.clientTrackingRange(128)
 			.noSummon()
+			.fireImmune()
 			.build("ap_bullet_entity");
 	
 	public static final EntityType<ContactGrenadeEntity> CONTACT_GRENADE_ENTITY = EntityType.Builder.<ContactGrenadeEntity>of(
@@ -31,6 +33,7 @@ public class TMWEntities {
 			.setShouldReceiveVelocityUpdates(true)
 			.setTrackingRange(128)
 			.clientTrackingRange(128)
+			.fireImmune()
 			.noSummon()
 			.build("contact_grenade_entity");
 	
@@ -42,5 +45,6 @@ public class TMWEntities {
 			.setTrackingRange(128)
 			.clientTrackingRange(128)
 			.noSummon()
+			.fireImmune()
 			.build("rocket_entity");
 }
