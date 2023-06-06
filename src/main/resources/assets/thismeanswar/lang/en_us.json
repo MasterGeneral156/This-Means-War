@@ -184,5 +184,16 @@
 	"thismeanswar.creative_charm_failed_ammo": "Ammo box must have at least one round in it before you can apply this upgrade.",
 	"thismeanswar.creative_charm_applied_medic": "Creative charm applied to Medical Box.",
 	"thismeanswar.creative_charm_failed": "This block is not applicable for this charm.",
-	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later"
+	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later",
+	
+	"thismeanswar.firearm_no_mag_warning": "§4Missing magazine",
+	"thismeanswar.firearm_no_rounds_warning": "§4Missing rounds",
+	"thismeanswar.firearm_more_info": "§9§oHold shift for more info",
+	"thismeanswar.firearm_more_info_display": "§9=====Firearm Info=====",
+	"thismeanswar.firearm_bullet_dmg": "Bullet Damage: ",
+	"thismeanswar.firearm_melee_dmg": "Bayonet Damage: ",
+	"thismeanswar.firearm_upgrade_ap": "Bullet Upgrade: AP Rounds",
+	"thismeanswar.firearm_rof_full": "Full Auto",
+	"thismeanswar.firearm_rof_semi": "Semi Auto",
+	"thismeanswar.firearm_fail_two_hand": "You need your off-hand open to shoot a firearm."
 }

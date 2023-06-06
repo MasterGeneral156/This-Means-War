@@ -10,6 +10,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -41,9 +42,6 @@ public class AbstractGunItem extends AbstractModItem {
 	protected int magType;
 	protected float bulletSpeed;
 	protected float bulletSpread;
-	
-	public int external_mag = 1;
-	public int internal_mag = 2;
 	
 	private int rofUpgradeScale = 0;
 	private int bulletUpgrade = 0;
@@ -132,7 +130,7 @@ public class AbstractGunItem extends AbstractModItem {
 	{
 		if (stackIn.hasTag())
 		{
-			if (getMagType(stackIn) == internal_mag)
+			if (getMagType(stackIn) == Constants.internal_mag)
 			{
 				int capUpgrades = getCapUpgrades(stackIn);
 				int maxAmmo = baseAmmoSize;
@@ -221,14 +219,14 @@ public class AbstractGunItem extends AbstractModItem {
 	@Override
 	public boolean isBarVisible(ItemStack stack)
 	{
-		if (getMagType(stack) == external_mag)
+		if (getMagType(stack) == Constants.external_mag)
 		{
 			if (hasMag(stack) == 1)
 				return true;
 			else
 				return false;
 		}
-		else if (getMagType(stack) == internal_mag)
+		else if (getMagType(stack) == Constants.internal_mag)
 		{
 			if (this.getCurrentAmmo(stack) > 0)
 				return true;
@@ -402,41 +400,61 @@ public class AbstractGunItem extends AbstractModItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		int currentAmmo = getCurrentAmmo(stack);
-		String rofString = (getRateOfFire(stack) == Constants.fireRateAuto) ? "Full Auto" : "Semi-Auto";
+		String rofString = (getRateOfFire(stack) == Constants.fireRateAuto) ? "thismeanswar.firearm_rof_full" : "thismeanswar.firearm_rof_semi";
 		int maxAmmo = getMaxAmmo(stack);
 		int bulletUpgrade = getBulletUpgrade(stack);
-		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
+		//Show the current firearm capacity if its max ammo is greater than 0
+		if (maxAmmo > 0)
+			tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
+		else if (maxAmmo == 0)
+		{
+			//Missing magazine, no ammo.
+			if (this.getMagType(stack) == Constants.external_mag)
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_no_mag_warning"));
+			//Missing rounds, no ammo.
+			if (this.getMagType(stack) == Constants.internal_mag)
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_no_rounds_warning"));
+		}
+		//display magazine AND round on one line. useful for the externally fed guns.
 		if (magazine != null)
-			tooltip.add(ModUtils.displayTranslation(magazine.getDescriptionId()));
-		tooltip.add(ModUtils.displayTranslation(bullet.getDescriptionId()));
+		{
+			MutableComponent magComp = ModUtils.displayTranslation(magazine.getDescriptionId());
+			MutableComponent bulletComp = ModUtils.displayTranslation(bullet.getDescriptionId());
+			MutableComponent merged = magComp.append(" (");
+			merged = merged.append(bulletComp);
+			merged = merged.append(")");
+			tooltip.add(merged);
+		}
+		//Display just the round for internally fed guns
+		else
+			tooltip.add(ModUtils.displayTranslation(bullet.getDescriptionId()));
 		if (!Screen.hasShiftDown())
-			tooltip.add(ModUtils.displayString("Hold shift for more info"));
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_more_info"));
 		if (Screen.hasShiftDown())
 		{
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_more_info_display"));
 			String colorFormat = "";
-			String colorFormat2 = "";
 			if (returnBulletDamage(stack) < this.damage)
 				colorFormat = "§4";
 			else if (returnBulletDamage(stack) > this.damage)
 				colorFormat = "§2";
-			if (this.getRateOfFire(stack) != this.shotTime)
-			{
-				if (this.getRateOfFire(stack) == Constants.fireRateAuto)
-					colorFormat2 = "§2";
-				else
-					colorFormat2 = "§4";
-			}
-			tooltip.add(ModUtils.displayString(colorFormat2 + rofString));
+			tooltip.add(ModUtils.displayTranslation(rofString));
 			NumberFormat formatter = NumberFormat.getNumberInstance();
 			formatter.setMinimumFractionDigits(1);
 			formatter.setMaximumFractionDigits(2);
-			tooltip.add(ModUtils.displayString("Damage: " + colorFormat + formatter.format(returnBulletDamage(stack))));
+			MutableComponent bulletDmgString = ModUtils.displayTranslation("thismeanswar.firearm_bullet_dmg");
+			bulletDmgString = bulletDmgString.append(colorFormat + formatter.format(returnBulletDamage(stack)));
+			tooltip.add(bulletDmgString);
+			//display bayonet damage
 			if (this.getBayonetLevel(stack) > 0)
 			{
-				tooltip.add(ModUtils.displayString("Bayonet Damage: " + getBayonetLevel(stack)));
+				MutableComponent bayonetString = ModUtils.displayTranslation("thismeanswar.firearm_melee_dmg");
+				bayonetString = bayonetString.append(Double.toString(getBayonetLevel(stack)));
+				tooltip.add(bayonetString);
 			}
+			//display bullet damage upgrade type
 			if (bulletUpgrade == 1)
-				tooltip.add(ModUtils.displayString("Bullet Upgrade: Armor Piercing"));
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
 		}
 			
 	}
@@ -453,7 +471,7 @@ public class AbstractGunItem extends AbstractModItem {
 			if (playerIn.isCrouching())
 			{
 				//logic for external mag guns
-				if (getMagType(mag) == external_mag)
+				if (getMagType(mag) == Constants.external_mag)
 				{
 					if (hasMag(mag) == 0)
 					{
@@ -523,7 +541,7 @@ public class AbstractGunItem extends AbstractModItem {
 					}
 				}
 				//logic for internal mag guns
-				if (getMagType(mag) == internal_mag)
+				if (getMagType(mag) == Constants.internal_mag)
 				{
 					//Add ammo into internal fed firearms
 					if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
@@ -578,6 +596,11 @@ public class AbstractGunItem extends AbstractModItem {
 					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
+		}
+		else
+		{
+			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.firearm_fail_two_hand"), true);
+			return InteractionResultHolder.fail(mag);
 		}
 		return InteractionResultHolder.fail(mag);
 	}
