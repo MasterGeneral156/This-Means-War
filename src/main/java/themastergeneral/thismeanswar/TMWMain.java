@@ -249,11 +249,13 @@ public class TMWMain
 			ev.accept(TMWItems.blue_war_armor_helm);
 			ev.accept(TMWItems.red_war_armor_helm);
 			ev.accept(TMWItems.kevlar_helmet);
+			ev.accept(TMWItems.basic_prot_goggles);
 			
 			ev.accept(TMWItems.green_war_armor_chest);
 			ev.accept(TMWItems.blue_war_armor_chest);
 			ev.accept(TMWItems.red_war_armor_chest);
 			ev.accept(TMWItems.kevlar_chest);
+			ev.accept(TMWItems.basic_prot_chest);
 			
 			ev.accept(TMWItems.green_war_armor_legs);
 			ev.accept(TMWItems.blue_war_armor_legs);

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:basic_prot_armor",
+    "pattern": [
+        "R R",
+		"RSR",
+		"RSR"
+    ],
+    "key": {
+		"R": { "tag":"forge:nuggets/steel" },
+		"S": { "tag":"forge:tools/shields" }
+    },
+    "result": {
+        "item": "thismeanswar:basic_prot_chest",
+		"count": 1
+    }
+}

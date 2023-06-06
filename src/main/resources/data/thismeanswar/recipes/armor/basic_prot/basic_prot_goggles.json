@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:basic_prot_armor",
+    "pattern": [
+        "RRR",
+		"GRG"
+    ],
+    "key": {
+		"R": { "tag":"forge:nuggets/steel" },
+		"G": { "tag":"forge:glass_panes" }
+    },
+    "result": {
+        "item": "thismeanswar:basic_prot_goggles",
+		"count": 1
+    }
+}

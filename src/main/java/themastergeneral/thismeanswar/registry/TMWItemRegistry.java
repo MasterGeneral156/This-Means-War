@@ -100,6 +100,10 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> blue_war_armor_legs = ITEMS.register("blue_war_armor_legs", () -> TMWItems.blue_war_armor_legs);
 	public static final RegistryObject<Item> blue_war_armor_boots = ITEMS.register("blue_war_armor_boots", () -> TMWItems.blue_war_armor_boots);
 	
+	//Misc Armor
+	public static final RegistryObject<Item> basic_prot_goggles = ITEMS.register("basic_prot_goggles", () -> TMWItems.basic_prot_goggles);
+	public static final RegistryObject<Item> basic_prot_chest = ITEMS.register("basic_prot_chest", () -> TMWItems.basic_prot_chest);
+	
 	/**
 	 * Throwables 
 	 */

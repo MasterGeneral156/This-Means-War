@@ -12,6 +12,7 @@ import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.charms.CharmStealth;
+import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeAP;
@@ -130,6 +131,7 @@ public class TMWItems {
 	
 	//Armor Material
 	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor");
+	public static ArmorMaterial basic_prot_material = new BasicProtArmor("thismeanswar:basic_prot");
 	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
 	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
 	public static ArmorMaterial green_war_armor_material = new WarArmor("thismeanswar:green_war_armor");
@@ -156,6 +158,10 @@ public class TMWItems {
 	public static ArmorItem blue_war_armor_chest = new ArmorItem(blue_war_armor_material, Type.CHESTPLATE, baseProp);
 	public static ArmorItem blue_war_armor_legs = new ArmorItem(blue_war_armor_material, Type.LEGGINGS, baseProp);
 	public static ArmorItem blue_war_armor_boots = new ArmorItem(blue_war_armor_material, Type.BOOTS, baseProp);
+	
+	//Misc Armor
+	public static ArmorItem basic_prot_chest = new ArmorItem(basic_prot_material, Type.CHESTPLATE, baseProp);
+	public static ArmorItem basic_prot_goggles = new ArmorItem(basic_prot_material, Type.HELMET, baseProp);
 	
 	//Blocks
 	public static AbstractBlockItem ore_brass = new AbstractBlockItem(TMWBlocks.ore_brass);
