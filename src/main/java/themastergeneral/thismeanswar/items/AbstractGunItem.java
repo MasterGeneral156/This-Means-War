@@ -409,6 +409,8 @@ public class AbstractGunItem extends AbstractModItem {
 		if (magazine != null)
 			tooltip.add(ModUtils.displayTranslation(magazine.getDescriptionId()));
 		tooltip.add(ModUtils.displayTranslation(bullet.getDescriptionId()));
+		if (!Screen.hasShiftDown())
+			tooltip.add(ModUtils.displayString("Hold shift for more info"));
 		if (Screen.hasShiftDown())
 		{
 			String colorFormat = "";
