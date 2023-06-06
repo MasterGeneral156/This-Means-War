@@ -113,18 +113,18 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
 		return maxAmmo;
 	}
 	
-	//Call to update the ammo
+	
 	public void updateAmmo(Item item, int count) {
 		if ((item != getAmmoItem()) && (getAmmo().isEmpty()))
 			setContainerAmmo(new ItemStack(item));
 		setContainerAmmoQty(getAmmoQuantity() + (count));
 	}
-	
+	//Set ammo type
 	public void setAmmo(Item item, int count) {
 		setContainerAmmo(new ItemStack(item));
 		setContainerAmmoQty(count);
 	}
-	
+	//Update ammo quantity from current value
 	public void updateAmmoQty(int count)
 	{
 		ammoCount = ammoCount + count;
@@ -140,4 +140,14 @@ public class BlockEntityAmmoStorage extends BlockEntity implements Clearable {
     {
 		return new AABB(getBlockPos(), getBlockPos().offset(2, 5, 2));
     }
+	
+	public void applyCreativeCharm()
+	{
+		if (getAmmoItem() != null)
+		{
+			ammoCount = Short.MAX_VALUE;
+			maxAmmo = Short.MAX_VALUE;
+			this.setChanged();
+		}
+	}
 }

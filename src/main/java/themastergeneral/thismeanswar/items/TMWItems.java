@@ -10,6 +10,7 @@ import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.charms.CharmStealth;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
@@ -90,13 +91,13 @@ public class TMWItems {
 	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
 	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
 	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
-	public static AbstractModItem creative_charm = new BasicItem(1);
 	public static AbstractModItem base_upgrade = new BasicItem();
 	public static UpgradeAP bullet_upgrade_ap = new UpgradeAP(1);
 	public static UpgradeAP bullet_upgrade_normal = new UpgradeAP(0);
 	
 	//Charms
 	public static CharmStealth charm_stealth = new CharmStealth();
+	public static CharmCreative creative_charm = new CharmCreative();
 	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();

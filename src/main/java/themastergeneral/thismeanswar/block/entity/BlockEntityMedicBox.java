@@ -84,5 +84,10 @@ public class BlockEntityMedicBox extends BlockEntity
     {
 		return new AABB(getBlockPos(), getBlockPos().offset(2, 5, 2));
     }
-
+	
+	public void applyCreativeCharm()
+	{
+		healthStored = Short.MAX_VALUE;
+		this.setChanged();
+	}
 }

@@ -179,6 +179,10 @@
 	"thismeanswar.upgrade_bayonet_fail_mag_inserted": "Please remove the magazine from your firearm before adding this upgrade.",
 	"thismeanswar.upgrade_ap_directions": "Apply to firearm in off-hand to make bullet pierce armor.",
 	"thismeanswar.upgrade_normal_directions": "Apply to firearm in off-hand to remove any bullet upgrades.",
-	"thismeanswar.creative_charm_directions": "Overrides many requirements with ammo, storages, etc when in off-hand.",
+	"thismeanswar.creative_charm_directions": "Fills ammo box and medic boxes.",
+	"thismeanswar.creative_charm_applied_ammo": "Creative charm applied to Ammo Storage.",
+	"thismeanswar.creative_charm_failed_ammo": "Ammo box must have at least one round in it before you can apply this upgrade.",
+	"thismeanswar.creative_charm_applied_medic": "Creative charm applied to Medical Box.",
+	"thismeanswar.creative_charm_failed": "This block is not applicable for this charm.",
 	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later"
 }
