@@ -19,6 +19,9 @@ public class Constants
 	public static float sawnOffBonusDamage = 2.682F;
 	public static float baseSpread = 1.4F;
 	
+	public static int external_mag = 1;
+	public static int internal_mag = 2;
+	
 	//Magazine Sizes
 	public static int magSize9mm = 15;
 	public static int magSizeLarge9mm = 30;
