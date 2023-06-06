@@ -31,12 +31,12 @@ public class TMWRifles
 	public static AbstractGunItem m16 = new 
 											AbstractGunItem(
 												Constants.fireRateAuto, 
-												Constants.ar15ReloadTime556, 
+												(int) Math.round(Constants.ar15ReloadTime223 * 0.9), 
 												TMWItems.magazine_556, 
 												TMWItems.round_556, 
-												Constants.ar15Damage556,
-												Constants.ar15Speed556, 
-												Constants.ar15Spread556);
+												Constants.ar15Damage556 * 1.1F,
+												Constants.ar15Speed556 * 0.9F, 
+												Constants.ar15Spread556 * 0.9F);
 	
 	public static AbstractGunItem thunderclaw = new 
 													AbstractGunItem(
@@ -50,12 +50,12 @@ public class TMWRifles
 	public static AbstractGunItem m16_223 = new 
 											AbstractGunItem(
 												Constants.fireRateAuto, 
-												Constants.ar15ReloadTime223, 
+												(int) Math.round(Constants.ar15ReloadTime223 * 0.9), 
 												TMWItems.magazine_223, 
 												TMWItems.round_223, 
-												Constants.ar15Damage223,
-												Constants.ar15Speed223, 
-												Constants.ar15Spread223);
+												Constants.ar15Damage223 * 1.1F,
+												Constants.ar15Speed223 * 0.9F, 
+												Constants.ar15Spread223 * 0.9F);
 	
 	public static AbstractGunItem quantum_disruptor = new 
 				AbstractGunItem(
