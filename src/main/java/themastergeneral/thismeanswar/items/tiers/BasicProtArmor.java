@@ -48,7 +48,7 @@ public class BasicProtArmor implements ArmorMaterial {
 
 	@Override
 	public float getToughness() {
-		return 0.0F;
+		return 0.1F;
 	}
 
 	@Override
