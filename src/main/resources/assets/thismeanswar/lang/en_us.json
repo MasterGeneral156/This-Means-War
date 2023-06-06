@@ -60,10 +60,10 @@
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
 	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
 	
-	"item.thismeanswar.kevlar_helmet": "Combat Helmet",
-	"item.thismeanswar.kevlar_chest": "Combat Top",
-	"item.thismeanswar.kevlar_legs": "Combat Leggings",
-	"item.thismeanswar.kevlar_boots": "Combat Boots",
+	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
+	"item.thismeanswar.kevlar_chest": "US Army Top",
+	"item.thismeanswar.kevlar_legs": "US Army Leggings",
+	"item.thismeanswar.kevlar_boots": "US Army Boots",
 	
 	"item.thismeanswar.bandage": "Bandage",
 	"item.thismeanswar.gauze": "Gauze",
@@ -184,6 +184,9 @@
 	"thismeanswar.creative_charm_failed_ammo": "Ammo box must have at least one round in it before you can apply this upgrade.",
 	"thismeanswar.creative_charm_applied_medic": "Creative charm applied to Medical Box.",
 	"thismeanswar.creative_charm_failed": "This block is not applicable for this charm.",
+	"thismeanswar.creative_charm_failed_item": "Cannot apply Creative Charm to off-hand item.",
+	"thismeanswar.creative_charm_failed_mag_external": "Cannot apply Creative Charm to firearms with external magazines.",
+	"thismeanswar.creative_charm_applied_pew": "Creative Charm successfully applied to off-hand item.",
 	"thismeanswar.medic_box_desc": "Stores medic items for instant health regeneration later",
 	
 	"thismeanswar.firearm_no_mag_warning": "§4Missing magazine",
