@@ -36,13 +36,15 @@ public class UpgradeMagCapacityItem extends BasicItem
 	{
 		ItemStack offHandStack = playerIn.getOffhandItem();
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+		
+		//thismeanswar:upgrades/disable_mag_capacity
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHandStack.getItem())) && 
 				(!tagManager.getTag(TMWTags.disableMagUpgrade).contains(offHandStack.getItem())))
 		{
 			if (offHandStack.getItem() instanceof AbstractGunItem)
 			{
 				AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
-				if (offhand.getMagType(offHandStack) == offhand.internal_mag)
+				if (offhand.getMagType(offHandStack) == Constants.internal_mag)
 				{
 					if (offhand.getCapUpgrades(offHandStack) < Constants.maxMagUpgrades)
 					{
@@ -67,8 +69,6 @@ public class UpgradeMagCapacityItem extends BasicItem
 			else if (offHandStack.getItem() instanceof AbstractMagazineItem)
 			{
 				AbstractMagazineItem offhand = (AbstractMagazineItem) playerIn.getOffhandItem().getItem();
-				//thismeanswar:tags/items/upgrades
-				
 				if (offhand.getCapacityUpgrades(offHandStack) < offhand.maxCapacityUpgrades)
 				{
 					offhand.upgradeMagCapacity(offHandStack);
