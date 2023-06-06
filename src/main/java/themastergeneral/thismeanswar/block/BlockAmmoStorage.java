@@ -187,7 +187,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		}
 	}
 	
-	private void removeAmmoFromStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos)
+	public void removeAmmoFromStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos)
 	{
 		float f = 0.7F;
         double d0 = (double)(world.random.nextFloat() * f) + (double)0.15F;
@@ -205,7 +205,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
         }
 	}
 	
-	private InteractionResult addAmmoToStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos, ItemStack stack)
+	public InteractionResult addAmmoToStorage(BlockEntityAmmoStorage ammostorage, Level world, Player player, BlockPos blockpos, ItemStack stack)
 	{
 		if (ammostorage.getAmmoItem() == stack.getItem())
 		{
