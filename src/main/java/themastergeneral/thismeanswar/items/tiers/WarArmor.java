@@ -19,7 +19,7 @@ public class WarArmor implements ArmorMaterial {
     
     @Override
 	public int getDurabilityForType(Type type) {
-		return this.slotProtections[type.getSlot().getIndex()] * 124;
+		return 128;
 	}
 
 	@Override

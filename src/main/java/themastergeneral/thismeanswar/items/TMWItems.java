@@ -10,6 +10,7 @@ import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.items.armors.WarArmorItem;
 import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.charms.CharmStealth;
 import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
@@ -142,22 +143,22 @@ public class TMWItems {
 	public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, Type.BOOTS, baseProp);
 	
 	//Green War Armor
-	public static ArmorItem green_war_armor_helm = new ArmorItem(green_war_armor_material, Type.HELMET, baseProp);
-	public static ArmorItem green_war_armor_chest = new ArmorItem(green_war_armor_material, Type.CHESTPLATE, baseProp);
-	public static ArmorItem green_war_armor_legs = new ArmorItem(green_war_armor_material, Type.LEGGINGS, baseProp);
-	public static ArmorItem green_war_armor_boots = new ArmorItem(green_war_armor_material, Type.BOOTS, baseProp);
+	public static ArmorItem green_war_armor_helm = new WarArmorItem(green_war_armor_material, Type.HELMET);
+	public static ArmorItem green_war_armor_chest = new WarArmorItem(green_war_armor_material, Type.CHESTPLATE);
+	public static ArmorItem green_war_armor_legs = new WarArmorItem(green_war_armor_material, Type.LEGGINGS);
+	public static ArmorItem green_war_armor_boots = new WarArmorItem(green_war_armor_material, Type.BOOTS);
 	
 	//Red War Armor
-	public static ArmorItem red_war_armor_helm = new ArmorItem(red_war_armor_material, Type.HELMET, baseProp);
-	public static ArmorItem red_war_armor_chest = new ArmorItem(red_war_armor_material, Type.CHESTPLATE, baseProp);
-	public static ArmorItem red_war_armor_legs = new ArmorItem(red_war_armor_material, Type.LEGGINGS, baseProp);
-	public static ArmorItem red_war_armor_boots = new ArmorItem(red_war_armor_material, Type.BOOTS, baseProp);
+	public static ArmorItem red_war_armor_helm = new WarArmorItem(red_war_armor_material, Type.HELMET);
+	public static ArmorItem red_war_armor_chest = new WarArmorItem(red_war_armor_material, Type.CHESTPLATE);
+	public static ArmorItem red_war_armor_legs = new WarArmorItem(red_war_armor_material, Type.LEGGINGS);
+	public static ArmorItem red_war_armor_boots = new WarArmorItem(red_war_armor_material, Type.BOOTS);
 	
 	//Blue War Armor
-	public static ArmorItem blue_war_armor_helm = new ArmorItem(blue_war_armor_material, Type.HELMET, baseProp);
-	public static ArmorItem blue_war_armor_chest = new ArmorItem(blue_war_armor_material, Type.CHESTPLATE, baseProp);
-	public static ArmorItem blue_war_armor_legs = new ArmorItem(blue_war_armor_material, Type.LEGGINGS, baseProp);
-	public static ArmorItem blue_war_armor_boots = new ArmorItem(blue_war_armor_material, Type.BOOTS, baseProp);
+	public static ArmorItem blue_war_armor_helm = new WarArmorItem(blue_war_armor_material, Type.HELMET);
+	public static ArmorItem blue_war_armor_chest = new WarArmorItem(blue_war_armor_material, Type.CHESTPLATE);
+	public static ArmorItem blue_war_armor_legs = new WarArmorItem(blue_war_armor_material, Type.LEGGINGS);
+	public static ArmorItem blue_war_armor_boots = new WarArmorItem(blue_war_armor_material, Type.BOOTS);
 	
 	//Misc Armor
 	public static ArmorItem basic_prot_chest = new ArmorItem(basic_prot_material, Type.CHESTPLATE, baseProp);
