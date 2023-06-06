@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bfg_8001",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+		"item": "thismeanswar:hammer_diamond", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:bfg_8001",
+    "count": 1
+  }
+}

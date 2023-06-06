@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:glock_26",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:glock_26",
+    "count": 1
+  }
+}

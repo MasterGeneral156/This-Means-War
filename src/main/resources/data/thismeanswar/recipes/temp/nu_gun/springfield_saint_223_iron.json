@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:springfield_saint_223",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+		"item": "thismeanswar:hammer_iron", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:springfield_saint_223",
+    "count": 1
+  }
+}

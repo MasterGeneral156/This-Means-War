@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:m16",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:m16",
+    "count": 1
+  }
+}

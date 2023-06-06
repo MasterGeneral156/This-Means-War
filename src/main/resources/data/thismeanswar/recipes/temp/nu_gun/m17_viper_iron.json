@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:m17_viper",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+      "tag": "forge:storage_blocks/steel"
+    },
+	{
+		"item": "thismeanswar:hammer_iron", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:m17_viper",
+    "count": 1
+  }
+}

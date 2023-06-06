@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "tag": "forge:storage_blocks/steel"
-  },
-  "result": "thismeanswar:glock_26",
-  "count": 1
-}
