@@ -3,7 +3,11 @@ package themastergeneral.thismeanswar.items.charms;
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +16,9 @@ import themastergeneral.thismeanswar.block.BlockAmmoStorage;
 import themastergeneral.thismeanswar.block.BlockMedicBox;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
+import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.items.AbstractGunItem;
+import themastergeneral.thismeanswar.items.AbstractMagazineItem;
 import themastergeneral.thismeanswar.items.BasicItem;
 
 public class CharmCreative extends BasicItem 
@@ -50,7 +57,9 @@ public class CharmCreative extends BasicItem
 			return InteractionResult.PASS;
 		}
 		else
+		{
 			context.getPlayer().displayClientMessage(ModUtils.displayTranslation("thismeanswar.creative_charm_failed"), true);
 			return InteractionResult.FAIL;
+		}
 	   }
 }
