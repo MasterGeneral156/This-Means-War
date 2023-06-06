@@ -129,15 +129,15 @@ public class TMWItems {
 	public static AbstractHealingItem medic_kit = new AbstractHealingItem(12F, 10);
 	
 	//Armor Material
-	//public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor", 128, new int[]{4, 7, 9, 4}, 2, 0, 0);
+	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor");
 	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
 	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
 	public static ArmorMaterial green_war_armor_material = new WarArmor("thismeanswar:green_war_armor");
 	
-	//public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, Type.HELMET, baseProp);
-	//public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, Type.CHESTPLATE, baseProp);
-	//public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, Type.LEGGINGS, baseProp);
-	//public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, Type.BOOTS, baseProp);
+	public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, Type.HELMET, baseProp);
+	public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, Type.CHESTPLATE, baseProp);
+	public static ArmorItem kevlar_legs = new ArmorItem(kevlar_material, Type.LEGGINGS, baseProp);
+	public static ArmorItem kevlar_boots = new ArmorItem(kevlar_material, Type.BOOTS, baseProp);
 	
 	//Green War Armor
 	public static ArmorItem green_war_armor_helm = new ArmorItem(green_war_armor_material, Type.HELMET, baseProp);

@@ -2,45 +2,43 @@ package themastergeneral.thismeanswar.items.tiers;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class KevlarArmor implements ArmorMaterial {
 
     private final String name;
-    private final int durabilityMultiplier;
-    private final int[] slotProtections;
-    private final int enchantmentValue;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Ingredient repairIngredient;
+    private final int[] slotProtections = new int[]{2, 3, 5, 2};
 
-    public KevlarArmor(String name, int durability, int[] protection, int enchantability, float toughness, float knockbackResistance, Item repairIngredient) {
+    public KevlarArmor(String name) {
         this.name = name;
-        this.durabilityMultiplier = durability;
-        this.slotProtections = protection;
-        this.enchantmentValue = enchantability;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = Ingredient.of(repairIngredient);
     }
+    
+    @Override
+	public int getDurabilityForType(Type type) {
+		return this.slotProtections[type.getSlot().getIndex()] * 128;
+	}
+
+	@Override
+	public int getDefenseForType(Type type) {
+		return this.slotProtections[type.getSlot().getIndex()];
+	}
 
 	@Override
 	public int getEnchantmentValue() {
-		return this.enchantmentValue;
+		return 2;
 	}
 
 	@Override
 	public SoundEvent getEquipSound() {
-		return SoundEvents.ARMOR_EQUIP_GENERIC;
+		return SoundEvents.ARMOR_EQUIP_LEATHER;
 	}
 
 	@Override
 	public Ingredient getRepairIngredient() {
-		return this.repairIngredient;
+		return Ingredient.of(TMWItems.kevlar_raw);
 	}
 
 	@Override
@@ -50,22 +48,13 @@ public class KevlarArmor implements ArmorMaterial {
 
 	@Override
 	public float getToughness() {
-		return this.toughness;
+		return 0.5F;
 	}
 
 	@Override
 	public float getKnockbackResistance() {
-		return this.knockbackResistance;
-	}
-
-	@Override
-	public int getDurabilityForType(Type type) {
-		return this.slotProtections[type.getSlot().getIndex()] * this.durabilityMultiplier;
-	}
-
-	@Override
-	public int getDefenseForType(Type type) {
-		return this.slotProtections[type.getSlot().getIndex()];
+		return 0.5F;
 	}
 
 }
+
