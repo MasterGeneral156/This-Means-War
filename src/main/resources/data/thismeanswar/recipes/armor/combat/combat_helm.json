@@ -3,10 +3,11 @@
     "group": "thismeanswar:combat_armor",
     "pattern": [
         "RRR",
-		"R R"
+		"RGR"
     ],
     "key": {
-		"R": { "item": "thismeanswar:kevlar_raw" }
+		"R": { "item": "thismeanswar:kevlar_raw" },
+		"G": { "item": "thismeanswar:basic_prot_goggles" }
     },
     "result": {
         "item": "thismeanswar:kevlar_helmet",

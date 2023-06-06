@@ -3,11 +3,12 @@
     "group": "thismeanswar:combat_armor",
     "pattern": [
         "R R",
-		"RRR",
+		"RAR",
 		"RRR"
     ],
     "key": {
-		"R": { "item": "thismeanswar:kevlar_raw" }
+		"R": { "item": "thismeanswar:kevlar_raw" },
+		"A": { "item": "thismeanswar:basic_prot_chest" }
     },
     "result": {
         "item": "thismeanswar:kevlar_chest",
