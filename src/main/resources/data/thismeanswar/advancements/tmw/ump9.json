@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:ump9"
+		},
+		"title": "For the UMP-teenth Time",
+		"description": "Obtain an UMP9"
+	},
+	"parent": "thismeanswar:tmw/tmg_carbine",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:ump9"
+						]
+					}
+				]
+			}
+		}
+	}
+}

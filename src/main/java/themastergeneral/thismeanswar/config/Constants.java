@@ -66,6 +66,20 @@ public class Constants
 	public static float tmgCarbineSpeed = 11.49043F + baseSpeed9mm;
 	public static float tmgCarbineSpread = 0.981F + baseSpread9mm;
 	
+	//UMP9 TODO FINISH UZI CONSTANTS AND REGISTRY
+	//TODO FINISH UMP9 REGISTRY
+	public static int ump9FireRate = fireRateAuto;
+	public static int ump9ReloadTime = 48;
+	public static float ump9Damage = 2.345F + baseDamage9mm;
+	public static float ump9Speed = 9.01521F + baseSpeed9mm;
+	public static float ump9Spread = 0.975F + baseSpread9mm;
+	
+	public static int uziFireRate = fireRateAuto;
+	public static int uziReloadTime = 25;
+	public static float uziDamage = 1.3511F + baseDamage9mm;
+	public static float uziSpeed = 21.5152F + baseSpeed9mm;
+	public static float uziSpread = 3.511F + baseSpread9mm;
+	
 	//AR15 (223)
 	public static int ar15FireRate223 = cooldownSemiAuto;
 	public static int ar15ReloadTime223 = 45;

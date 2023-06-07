@@ -14,4 +14,20 @@ public class TMWCarbines
 													Constants.tmgCarbineDamage,
 													Constants.tmgCarbineSpeed,
 													Constants.tmgCarbineSpread);
+	
+	public static AbstractGunItem ump9 = new AbstractGunItem(
+			Constants.ump9FireRate, 
+			Constants.ump9ReloadTime,
+			TMWItems.magazine_9mm_large, TMWItems.round_9mm, 
+			Constants.ump9Damage,
+			Constants.ump9Speed,
+			Constants.ump9Spread);
+	
+	public static AbstractGunItem uzi = new AbstractGunItem(
+			Constants.uziFireRate, 
+			Constants.uziReloadTime,
+			TMWItems.magazine_9mm_large, TMWItems.round_9mm, 
+			Constants.uziDamage,
+			Constants.uziSpeed,
+			Constants.uziSpread);
 }
