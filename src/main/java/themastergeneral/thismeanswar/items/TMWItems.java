@@ -1,5 +1,6 @@
 package themastergeneral.thismeanswar.items;
 
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -10,6 +11,7 @@ import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.DurabilityItemConfig;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.armors.WarArmorItem;
 import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.charms.CharmStealth;
@@ -74,19 +76,15 @@ public class TMWItems {
 	public static AbstractModItem ingot_lead = new BasicItem();
 	public static AbstractModItem nugget_lead = new BasicItem();
 	public static AbstractModItem dust_lead = new BasicItem();
-	
 	public static AbstractModItem ingot_brass = new BasicItem();
 	public static AbstractModItem nugget_brass = new BasicItem();
 	public static AbstractModItem dust_brass = new BasicItem();
-	
 	public static AbstractModItem ingot_steel = new BasicItem();
 	public static AbstractModItem nugget_steel = new BasicItem();
 	public static AbstractModItem dust_steel = new BasicItem();
-	
 	public static AbstractModItem dust_iron = new BasicItem();
 	public static AbstractModItem dust_gold = new BasicItem();
 	public static AbstractModItem dust_copper = new BasicItem();
-	
 	public static AbstractModItem plate_lead = new BasicItem();
 	
 	//Upgrades
@@ -94,8 +92,9 @@ public class TMWItems {
 	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
 	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
-	public static UpgradeAP bullet_upgrade_ap = new UpgradeAP(1);
-	public static UpgradeAP bullet_upgrade_normal = new UpgradeAP(0);
+	public static UpgradeAP bullet_upgrade_ap = new UpgradeAP(1, TMWTags.disableAPUpgrade);
+	public static UpgradeAP bullet_upgrade_normal = new UpgradeAP(0, TMWTags.disableAPUpgrade);
+	public static UpgradeAP bullet_upgrade_fire = new UpgradeAP(2, TMWTags.disableFireUpgrade);
 	
 	//Charms
 	public static CharmStealth charm_stealth = new CharmStealth();

@@ -143,6 +143,7 @@ public class TMWMain
 			ev.accept(TMWItems.bayonet_diamond);
 			ev.accept(TMWItems.bayonet_netherrite);
 			ev.accept(TMWItems.bullet_upgrade_ap);
+			ev.accept(TMWItems.bullet_upgrade_fire);
 			ev.accept(TMWItems.bullet_upgrade_normal);
     	}
     	if (ev.getTab() == TMWAmmoTab)

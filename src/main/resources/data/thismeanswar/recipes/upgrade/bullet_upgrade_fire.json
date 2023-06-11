@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+		"item": "thismeanswar:base_upgrade"
+  },
+  "addition": {
+		"item": "minecraft:fire_charge"
+  },
+  "result":
+    {
+	    "item": "thismeanswar:bullet_upgrade_fire",
+		"count": 1
+    }
+}

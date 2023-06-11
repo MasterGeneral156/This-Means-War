@@ -29,6 +29,7 @@ import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.entity.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
+import themastergeneral.thismeanswar.entity.BulletFireEntity;
 
 public class AbstractGunItem extends AbstractModItem {
 
@@ -455,6 +456,8 @@ public class AbstractGunItem extends AbstractModItem {
 			//display bullet damage upgrade type
 			if (bulletUpgrade == 1)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
+			if (bulletUpgrade == 2)
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
 		}
 			
 	}
@@ -577,6 +580,14 @@ public class AbstractGunItem extends AbstractModItem {
 					if (this.getBulletUpgrade(mag) == 1)
 					{
 						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.setItem(new ItemStack(bullet));
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						worldIn.addFreshEntity(apBullet);
+					}
+					//fire rounds
+					else if (this.getBulletUpgrade(mag) == 2)
+					{
+						BulletFireEntity apBullet = new BulletFireEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 						worldIn.addFreshEntity(apBullet);
