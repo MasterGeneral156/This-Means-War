@@ -47,14 +47,14 @@ public class UpgradeAP extends BasicItem {
 				{
 					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
 					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getOffhandItem().shrink(1);
+					playerIn.getMainHandItem().shrink(1);
 					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else if (upgradeLevel > 0 || bulletUpgradeLvl == 0)
 				{
 					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
 					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getOffhandItem().shrink(1);
+					playerIn.getMainHandItem().shrink(1);
 					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else if (upgradeLevel == bulletUpgradeLvl)
