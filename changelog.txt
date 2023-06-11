@@ -13,6 +13,7 @@ Version: 0.1.3-Indev
 *Downgrading a full-auto to semi-auto will increase its damage by 25%.
 *Upgrading a semi-auto to full-auto will decrease damage by 50%.
 *Fixes the orientation of the m1911 in 3rd person.
+*Changed Mag Capacity Upgrades damage decrease from 6% to 3%
 +Added clips for .45ACP/9mm/.223/5.56/12G Buckshot rounds.
 *Tweaked bayonet upgrades to be half their sword damage.
 +Added recipe for .223 Magazine directly.
