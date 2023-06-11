@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.world.entity.Entity;
@@ -11,8 +12,11 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.HitResult.Type;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.items.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.TMWItems;
@@ -67,6 +71,11 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 	   
 	protected void onHitBlock(BlockHitResult result) 
     {
+		Level world = this.getLevel();
+		BlockPos pos = result.getBlockPos();
+		BlockState state = world.getBlockState(pos);
+		world.setBlock(pos, Blocks.FIRE.defaultBlockState(), 0);
+		
 		this.remove(Entity.RemovalReason.KILLED);
     }
 	   
