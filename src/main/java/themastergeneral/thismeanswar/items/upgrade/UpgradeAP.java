@@ -101,6 +101,12 @@ public class UpgradeAP extends BasicItem {
 				tooltip.add(ModUtils.displayString("§4-18% bullet damage"));
 			}
 		}
+		if (stack.getItem() == TMWItems.bullet_upgrade_fire)
+		{
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_fire_directions"));
+			if (Screen.hasShiftDown())
+				tooltip.add(ModUtils.displayString("§2Flamable Rounds Conversion"));
+		}
 		if (stack.getItem() == TMWItems.bullet_upgrade_normal)
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_normal_directions"));
 	}
