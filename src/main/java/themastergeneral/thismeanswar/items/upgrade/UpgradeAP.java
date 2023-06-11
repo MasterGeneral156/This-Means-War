@@ -8,6 +8,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -27,41 +28,43 @@ import themastergeneral.thismeanswar.items.TMWItems;
 public class UpgradeAP extends BasicItem {
 
 	public int bulletUpgradeLvl;
-	public UpgradeAP(int bulletUpgrade) 
+	protected TagKey<Item> disableUpgrade;
+	public UpgradeAP(int bulletUpgrade, TagKey<Item> blockItemTag) 
 	{
 		super();
 		this.bulletUpgradeLvl = bulletUpgrade;
+		this.disableUpgrade = blockItemTag;
 	}
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(playerIn.getOffhandItem().getItem())) && 
-				(!tagManager.getTag(TMWTags.disableAPUpgrade).contains(playerIn.getOffhandItem().getItem())))
+				(!tagManager.getTag(disableUpgrade).contains(playerIn.getOffhandItem().getItem())))
 		{
 			if (playerIn.getOffhandItem().getItem() instanceof AbstractGunItem)
 			{
 				AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
 				int upgradeLevel = offhand.getBulletUpgrade(playerIn.getOffhandItem());
-				if (upgradeLevel == 0 || bulletUpgradeLvl > 0)
-				{
-					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
-					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getMainHandItem().shrink(1);
-					return InteractionResultHolder.pass(playerIn.getMainHandItem());
-				}
-				else if (upgradeLevel > 0 || bulletUpgradeLvl == 0)
-				{
-					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
-					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getMainHandItem().shrink(1);
-					return InteractionResultHolder.pass(playerIn.getMainHandItem());
-				}
-				else if (upgradeLevel == bulletUpgradeLvl)
+				if (upgradeLevel == bulletUpgradeLvl)
 				{
 					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bullet_fail_same"), true);
 					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
+				}
+				else if (upgradeLevel == 0 && bulletUpgradeLvl > 0)
+				{
+					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
+					playerIn.getCooldowns().addCooldown(this, 20);
+					playerIn.getMainHandItem().shrink(1);
+					return InteractionResultHolder.pass(playerIn.getMainHandItem());
+				}
+				else if (upgradeLevel > 0 && bulletUpgradeLvl == 0)
+				{
+					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
+					playerIn.getCooldowns().addCooldown(this, 20);
+					playerIn.getMainHandItem().shrink(1);
+					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else
 				{
