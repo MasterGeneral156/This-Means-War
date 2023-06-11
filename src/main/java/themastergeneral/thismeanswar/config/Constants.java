@@ -18,6 +18,7 @@ public class Constants
 	public static float sawnOffBonusSpread = 5.1356F;
 	public static float sawnOffBonusDamage = 2.682F;
 	public static float baseSpread = 1.4F;
+	public static float directHitExplosionMulti = 10F;
 	
 	public static int external_mag = 1;
 	public static int internal_mag = 2;

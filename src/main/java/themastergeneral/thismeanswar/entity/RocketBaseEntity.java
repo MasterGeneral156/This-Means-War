@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import themastergeneral.thismeanswar.config.Constants;
 
 public class RocketBaseEntity extends ThrowableItemProjectile {
 	
@@ -56,7 +57,10 @@ public class RocketBaseEntity extends ThrowableItemProjectile {
 	@Override
 	protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
-	      if (!this.getCommandSenderWorld().isClientSide()) {
+	      if (!this.getCommandSenderWorld().isClientSide()) 
+	      {
+	    	  Entity entity = p_213868_1_.getEntity();
+	    	  entity.hurt(this.damageSources().explosion(this, this), bulletDmg * Constants.directHitExplosionMulti);
 		      this.getCommandSenderWorld().explode(this, this.getX(), this.getY(), this.getZ(), bulletDmg, ExplosionInteraction.TNT);
 		      this.remove(Entity.RemovalReason.KILLED);
 	      }
