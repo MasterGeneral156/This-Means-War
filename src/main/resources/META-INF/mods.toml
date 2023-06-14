@@ -1,23 +1,21 @@
 modLoader="javafml" #mandatory
-loaderVersion="[45,)" #mandatory
-license="https://github.com/MasterGeneral156/This-Means-War/blob/main/LICENSE"
+loaderVersion="${loader_version_range}" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+license="${mod_license}"
 issueTrackerURL="https://github.com/MasterGeneral156/This-Means-War/issues" #optional
-# A list of mods - how many allowed here is determined by the individual mod loader
-[[mods]]
-modId="thismeanswar" #mandatory
-version="0.1.3-indev-5" #mandatory
-displayName="This Means WAR!" #mandatory
+[[mods]] #mandatory
+modId="${mod_id}" #mandatory
+version="${mod_version}" #mandatory
+displayName="${mod_name}" #mandatory
 updateJSONURL="https://raw.githubusercontent.com/MasterGeneral156/Version/master/this_means_war.json" #optional
 displayURL="https://github.com/MasterGeneral156/This-Means-War" #optional
-logoFile="logo.png" #optional
-credits="TheMasterGeneral" #optional
-authors="TheMasterGeneral" #optional
-# The description text for the mod (multi line!) (#mandatory)
-description="Its time for war, so lets have some guns, ammo and whatnot."
+#logoFile="logo-new.png" #optional
+authors="${mod_authors}" #optional
+#displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
+description='''${mod_description}'''
 
-[[dependencies.thismeanswar]]
-    modId="ctdcore"
+[[dependencies.${mod_id}]] #optional
+    modId="ctdcore" #mandatory
     mandatory=true
-    versionRange="[2.3,]"
-    ordering="NONE"
+    versionRange="[2.4,)" #mandatory
+    ordering="AFTER"
     side="BOTH"
