@@ -71,7 +71,7 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 	   
 	protected void onHitBlock(BlockHitResult result) 
     {
-		Level world = this.getLevel();
+		Level world = this.level();
 		BlockPos pos = result.getBlockPos();
 		BlockState state = world.getBlockState(pos);
 		world.setBlock(pos, Blocks.FIRE.defaultBlockState(), 0);
