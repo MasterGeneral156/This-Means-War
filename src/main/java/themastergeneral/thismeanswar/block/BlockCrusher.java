@@ -23,8 +23,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
 public abstract class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
@@ -32,8 +31,9 @@ public abstract class BlockCrusher extends AbstractTMWBlock implements EntityBlo
 	   public static final BooleanProperty LIT = BlockStateProperties.LIT;
 	   
 	   public BlockCrusher() {
-		      super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE)
+		      super(BlockBehaviour.Properties.of()
 		    		  .requiresCorrectToolForDrops()
+		    		  .mapColor(MapColor.STONE)
 		    		  .strength(3.5F));
 		      this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
 		   }

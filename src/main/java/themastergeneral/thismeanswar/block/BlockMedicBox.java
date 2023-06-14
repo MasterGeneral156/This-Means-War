@@ -22,8 +22,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -41,9 +40,10 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 
 	public BlockMedicBox() 
 	{
-		super(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD)
+		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.WOOD)
 				.noOcclusion()
+				.mapColor(MapColor.WOOD)
 				.strength(2.25F));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
 	}

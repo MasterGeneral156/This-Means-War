@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -44,14 +44,10 @@ public class TMWMain
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "thismeanswar";
-    public static CreativeModeTab TMWTab;
-    public static CreativeModeTab TMWGunTab;
-    public static CreativeModeTab TMWAmmoTab;
 
     public TMWMain() {
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modBus.addListener(this::setup);
-        modBus.addListener(this::registerTabs);
         modBus.addListener(this::fillTab);
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
@@ -62,6 +58,7 @@ public class TMWMain
         TMWBlockRegistry.BLOCKS.register(modBus);
         TMWBlockEntityRegistry.TILES.register(modBus);
         TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
+        TMWTabs.CREATIVE_MODE_TABS.register(modBus);
     }
 
     @SubscribeEvent
@@ -82,30 +79,10 @@ public class TMWMain
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box, RenderType.translucent());
     }
     
-    private void registerTabs(CreativeModeTabEvent.Register event)
-    {
-		TMWTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab"), builder -> builder
-                .icon(() -> new ItemStack(TMWItems.ammo_box))
-                .title(Component.translatable("itemGroup.thismeanswar"))
-                .build());
-		TMWGunTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab_gun"), builder -> builder
-                .icon(() -> new ItemStack(TMWCarbines.tmg_carbine))
-                .title(Component.translatable("itemGroup.thismeanswar.guns"))
-                .build());
-		TMWAmmoTab = event.registerCreativeModeTab(new ResourceLocation(MODID, "thismeanswar_tab_ammo"), builder -> builder
-                .icon(() -> new ItemStack(TMWItems.round_9mm))
-                .title(Component.translatable("itemGroup.thismeanswar.ammo"))
-                .build());
-    }
-    
-    private void fillTab(CreativeModeTabEvent.BuildContents ev)
+    private void fillTab(BuildCreativeModeTabContentsEvent ev)
 	{
     	
-    	if (ev.getTab() == CreativeModeTabs.OP_BLOCKS)
-    	{
-    		ev.accept(TMWItems.creative_charm);
-    	}
-    	if (ev.getTab() == TMWGunTab)
+    	if (ev.getTab() == TMWTabs.GUN_TAB.get())
     	{
     		ev.accept(TMWCarbines.tmg_carbine);
     		ev.accept(TMWCarbines.uzi);
@@ -146,7 +123,7 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_upgrade_fire);
 			ev.accept(TMWItems.bullet_upgrade_normal);
     	}
-    	if (ev.getTab() == TMWAmmoTab)
+    	if (ev.getTab() == TMWTabs.AMMO_TAB.get())
     	{
     		ev.accept(TMWItems.round_12g);
 			ev.accept(TMWItems.round_223);
@@ -171,7 +148,7 @@ public class TMWMain
 			ev.accept(TMWItems.energy_cell);
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
-		if (ev.getTab() == TMWTab)
+		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	
 			
 			ev.accept(TMWThrowables.dynamite_stick);

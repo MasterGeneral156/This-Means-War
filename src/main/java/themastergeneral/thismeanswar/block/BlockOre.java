@@ -4,16 +4,16 @@ import com.themastergeneral.ctdcore.block.CTDBlock;
 
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 
 public class BlockOre extends CTDBlock {
 
 	public BlockOre(Integer harvestLevel) 
 	{
-		super(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE)
+		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.STONE)
 				.strength(3F)
+				.mapColor(MapColor.STONE)
 				.requiresCorrectToolForDrops());
 	}
 
