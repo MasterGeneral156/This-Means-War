@@ -1,7 +1,7 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
 Version: 0.1.3-Indev
-(xx/xx/2023, xx:xx)
+(06/13/2023, 21:53)
 -=-=-=-=-=-=-=-=-=-=-=-
 *Fixed Iron Bayonet Upgrade recipe.
 *Removed floating pixel from 9mm Magazine texture.
@@ -84,6 +84,7 @@ Version: 0.1.3-Indev
 	#thismeanswar:upgrades/disable_bayonet
 	#thismeanswar:upgrades/disable_mag_capacity
 	#thismeanswar:upgrades/disable_armor_piercing
+	#thismeanswar:upgrades/disable_flame_rounds
 +Added Armor Piercing Upgrade
 	*Firearm will fire bullets that bypass armor.
 	*Lowers bullet damage by -18%
@@ -103,6 +104,7 @@ Version: 0.1.3-Indev
 *Changed US Army recipes to require Bulletproof Vest and Protection Goggles in Helmet/Chest recipes.
 *Cleaned up and localized the gun tooltip.
 *Updated Hand Grenade texture.
++Added critical damage if you "eat" an explosive projectile.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
