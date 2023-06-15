@@ -121,10 +121,10 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 	implementation fg.deobf('curse.maven:ctd-core-' + project.property('ctd_core_ver'))
-	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-common-api:" + project.property('jei_version'))
-	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge-api:" + project.property('jei_version'))
+	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-common-api:" + project.property('jei_ver'))
+	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge-api:" + project.property('jei_ver'))
 	
-	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge:" + project.property('jei_version'))
+	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge:" + project.property('jei_ver'))
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
