@@ -1,14 +1,16 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "thismeanswar:base_upgrade"
+  },
   "base": {
-		"item": "thismeanswar:base_upgrade"
+    "tag": "thismeanswar:ammo/round_all"
   },
   "addition": {
-		"item": "minecraft:fire_charge"
+    "item": "minecraft:fire_charge"
   },
-  "result":
-    {
-	    "item": "thismeanswar:bullet_upgrade_fire",
-		"count": 1
-    }
+  "result": {
+    "item": "thismeanswar:bullet_upgrade_fire",
+	"count": 1
+  }
 }

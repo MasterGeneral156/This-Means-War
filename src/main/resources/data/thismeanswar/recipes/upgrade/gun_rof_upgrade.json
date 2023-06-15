@@ -1,14 +1,16 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "thismeanswar:base_upgrade"
+  },
   "base": {
-		"item": "thismeanswar:base_upgrade"
+    "tag": "thismeanswar:ammo/round_all"
   },
   "addition": {
-		"item": "minecraft:sugar"
+	"item": "minecraft:sugar"
   },
-  "result":
-    {
-	    "item": "thismeanswar:gun_rof_upgrade",
-		"count": 1
-    }
+  "result": {
+    "item": "thismeanswar:gun_rof_upgrade",
+	"count": 1
+  }
 }
