@@ -134,7 +134,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_upgrade_fire = ITEMS.register("bullet_upgrade_fire", () -> TMWItems.bullet_upgrade_fire);
 	
 	//Charms
-	public static final RegistryObject<Item> charm_stealth = ITEMS.register("charm_stealth", () -> TMWItems.charm_stealth);
+	//public static final RegistryObject<Item> charm_stealth = ITEMS.register("charm_stealth", () -> TMWItems.charm_stealth);
 	
 	/**
 	 * Crafting Items

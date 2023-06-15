@@ -14,7 +14,7 @@ import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.armors.WarArmorItem;
 import themastergeneral.thismeanswar.items.charms.CharmCreative;
-import themastergeneral.thismeanswar.items.charms.CharmStealth;
+//import themastergeneral.thismeanswar.items.charms.CharmStealth;
 import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
@@ -97,7 +97,7 @@ public class TMWItems {
 	public static UpgradeAP bullet_upgrade_fire = new UpgradeAP(2, TMWTags.disableFireUpgrade);
 	
 	//Charms
-	public static CharmStealth charm_stealth = new CharmStealth();
+	//public static CharmStealth charm_stealth = new CharmStealth();
 	public static CharmCreative creative_charm = new CharmCreative();
 	
 	//Parts for gun craftings
