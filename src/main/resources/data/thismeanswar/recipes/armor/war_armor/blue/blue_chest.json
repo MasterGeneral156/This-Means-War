@@ -1,9 +1,12 @@
 {
-  "type": "minecraft:smithing",
-  "group": "thismeanswar:war_armor",
-  "base": 
+  "type": "thismeanswar:smithing_table",
+  "template": 
   {
     "item": "thismeanswar:green_war_armor_chest"
+  },
+  "base": 
+  {
+    "tag": "forge:dyes/blue"
   },
   "addition": 
   {
