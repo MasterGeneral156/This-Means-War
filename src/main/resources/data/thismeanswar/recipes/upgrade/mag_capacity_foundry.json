@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "item": "thismeanswar:base_upgrade"
+  },
+  "base": {
+    "tag": "thismeanswar:magazines"
+  },
+  "addition": {
+    "tag": "thismeanswar:magazines"
+  },
+  "result": {
+    "item": "thismeanswar:mag_capacity_upgrade",
+	"count": 1
+  }
+}
