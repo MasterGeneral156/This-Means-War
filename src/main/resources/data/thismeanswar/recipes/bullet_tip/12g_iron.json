@@ -4,7 +4,7 @@
     "item": "thismeanswar:bullet_cast_12g", "data": 32767
   },
   "base": {
-    "tag": "forge:nuggets/brass"
+    "tag": "forge:nuggets/lead"
   },
   "addition": {
 	"item": "thismeanswar:hammer_iron", "data": 32767

@@ -4,7 +4,7 @@
     "item": "thismeanswar:bullet_cast_9mm", "data": 32767
   },
   "base": {
-    "tag": "forge:nuggets/brass"
+    "tag": "forge:nuggets/lead"
   },
   "addition": {
 	"item": "thismeanswar:hammer_diamond", "data": 32767
