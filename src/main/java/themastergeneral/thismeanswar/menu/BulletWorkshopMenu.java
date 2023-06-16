@@ -12,7 +12,9 @@ import net.minecraft.world.inventory.ItemCombinerMenu;
 import net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.SmithingMenu;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
@@ -74,7 +76,7 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 	      ItemStack itemstack = this.inputSlots.getItem(p_40271_);
 	      if (!itemstack.isEmpty()) 
 	      {
-	    	  if (!itemstack.isDamageableItem())
+	    	  if ((!itemstack.isDamageableItem()) || (itemstack.getItem() instanceof ArmorItem) || (itemstack.getItem() instanceof TieredItem))
 	    	  {
 	    		  itemstack.shrink(1);
 	    		  this.inputSlots.setItem(p_40271_, itemstack);
