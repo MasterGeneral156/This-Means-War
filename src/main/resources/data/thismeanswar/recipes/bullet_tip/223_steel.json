@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "item": "thismeanswar:bullet_cast_223", "data": 32767
+  },
+  "base": {
+    "tag": "forge:nuggets/brass"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_steel", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bullet_tip_223", "count": 1
+  }
+}
