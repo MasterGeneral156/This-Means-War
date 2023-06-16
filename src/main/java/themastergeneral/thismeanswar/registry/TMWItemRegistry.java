@@ -232,4 +232,5 @@ public class TMWItemRegistry {
 	
 	//Processing
 	//public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
+	public static final RegistryObject<Item> smithing_table = ITEMS.register("smithing_table", () -> TMWItems.smithing_table);
 }

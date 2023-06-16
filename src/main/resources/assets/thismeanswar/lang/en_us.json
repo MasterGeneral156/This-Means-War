@@ -157,6 +157,8 @@
 	"block.thismeanswar.medic_box": "Medical Container",
 	
 	"block.thismeanswar.crusher": "Burning Crusher",
+	"block.thismeanswar.smithing_table": "Bullet Foundary",
+	"thismeanswar.container.smithing_table": "Bullet Foundary",
 	
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",

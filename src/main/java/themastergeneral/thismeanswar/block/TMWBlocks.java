@@ -20,4 +20,6 @@ public class TMWBlocks {
 	public static BlockMedicBox medic_box = new BlockMedicBox();
 	
 	//public static BlockCrusher crusher = new BlockCrusher();
+	
+	public static BlockSmithing smithing_table = new BlockSmithing();
 }

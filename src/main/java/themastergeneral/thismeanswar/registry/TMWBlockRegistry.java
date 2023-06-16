@@ -30,4 +30,5 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> medic_box = BLOCKS.register("medic_box", () ->TMWBlocks.medic_box);
 	
 	//public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
+	public static final RegistryObject<Block> smithing_table = BLOCKS.register("smithing_table", () ->TMWBlocks.smithing_table);
 }

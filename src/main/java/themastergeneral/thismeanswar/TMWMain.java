@@ -58,6 +58,7 @@ public class TMWMain
         TMWBlockRegistry.BLOCKS.register(modBus);
         TMWBlockEntityRegistry.TILES.register(modBus);
         TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
+        TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
         TMWTabs.CREATIVE_MODE_TABS.register(modBus);
     }
 
@@ -113,15 +114,15 @@ public class TMWMain
 			ev.accept(TMWItems.mag_capacity_upgrade);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
+			ev.accept(TMWItems.bullet_upgrade_ap);
+			ev.accept(TMWItems.bullet_upgrade_fire);
+			ev.accept(TMWItems.bullet_upgrade_normal);
 			ev.accept(TMWItems.bayonet_wood);
 			ev.accept(TMWItems.bayonet_stone);
 			ev.accept(TMWItems.bayonet_iron);
 			ev.accept(TMWItems.bayonet_gold);
 			ev.accept(TMWItems.bayonet_diamond);
 			ev.accept(TMWItems.bayonet_netherrite);
-			ev.accept(TMWItems.bullet_upgrade_ap);
-			ev.accept(TMWItems.bullet_upgrade_fire);
-			ev.accept(TMWItems.bullet_upgrade_normal);
     	}
     	if (ev.getTab() == TMWTabs.AMMO_TAB.get())
     	{
@@ -146,10 +147,18 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_12g_clip);
 			ev.accept(TMWItems.magazine_40mm_clip);
 			ev.accept(TMWItems.energy_cell);
+			ev.accept(TMWItems.base_upgrade);
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	
+			
+			ev.accept(TMWItems.ammo_box);
+			ev.accept(TMWItems.ammo_box_medium);
+			ev.accept(TMWItems.ammo_box_large);
+			ev.accept(TMWItems.medic_box);
+			//ev.accept(TMWItems.crusher);
+			ev.accept(TMWItems.smithing_table);
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);
@@ -206,12 +215,6 @@ public class TMWMain
 			ev.accept(TMWItems.dust_copper);
 			ev.accept(TMWItems.dust_iron);
 			ev.accept(TMWItems.dust_gold);
-			
-			ev.accept(TMWItems.ammo_box);
-			ev.accept(TMWItems.ammo_box_medium);
-			ev.accept(TMWItems.ammo_box_large);
-			ev.accept(TMWItems.medic_box);
-			//ev.accept(TMWItems.crusher);
 			
 			ev.accept(TMWItems.block_brass);
 			ev.accept(TMWItems.ore_brass);
