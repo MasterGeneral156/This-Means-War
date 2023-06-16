@@ -1,5 +1,17 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.2.1-Indev
+
+-=-=-=-=-=-=-=-=-=-=-=-
+***Updated to MC 1.20.1***
++Added Bullet Foundary
+	*Used for many crafting recipes now.
+	*JSON expandable
+	#thismeanswar:smithing_table
+	*Similar to Smithing Table in Vanilla, but damages items rather than consumes them.
+
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.2.0-Indev
 (06/13/2023, 22:00)
 -=-=-=-=-=-=-=-=-=-=-=-
