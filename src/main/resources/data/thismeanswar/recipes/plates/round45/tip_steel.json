@@ -9,7 +9,7 @@
     "key": {
 		"H": { "item": "thismeanswar:hammer_steel", "data": 32767 },
 		"T": { "tag": "thismeanswar:tip/45" },
-		"B": { "tag": "forge:plates/lead" }
+		"B": { "tag": "forge:plates/steel" }
     },
     "result": {
         "item": "thismeanswar:bullet_cast_45",

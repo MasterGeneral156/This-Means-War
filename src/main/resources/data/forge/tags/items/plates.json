@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:plate_lead"
+    "thismeanswar:plate_lead",
+	"thismeanswar:plate_steel"
   ]
 }

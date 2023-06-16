@@ -155,6 +155,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> ingot_steel = ITEMS.register("ingot_steel", () -> TMWItems.ingot_steel);
 	public static final RegistryObject<Item> nugget_steel = ITEMS.register("nugget_steel", () -> TMWItems.nugget_steel);
 	public static final RegistryObject<Item> dust_steel = ITEMS.register("dust_steel", () -> TMWItems.dust_steel);
+	public static final RegistryObject<Item> plate_steel = ITEMS.register("plate_steel", () -> TMWItems.plate_steel);
 	
 	//Vanilla dusts
 	public static final RegistryObject<Item> dust_copper = ITEMS.register("dust_copper", () -> TMWItems.dust_copper);

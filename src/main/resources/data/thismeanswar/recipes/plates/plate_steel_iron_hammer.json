@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:steel_plate",
+    "pattern": [
+        " H",
+        "BB"
+    ],
+    "key": {
+		"H": { "item": "thismeanswar:hammer_steel", "data": 32767 },
+		"B": { "tag": "forge:ingots/steel" }
+    },
+    "result": {
+        "item": "thismeanswar:plate_steel",
+		"count": 1
+		}
+    }
+}

@@ -74,18 +74,22 @@ public class TMWItems {
 	
 	//Crafting items
 	public static AbstractModItem ingot_lead = new BasicItem();
-	public static AbstractModItem nugget_lead = new BasicItem();
-	public static AbstractModItem dust_lead = new BasicItem();
 	public static AbstractModItem ingot_brass = new BasicItem();
-	public static AbstractModItem nugget_brass = new BasicItem();
-	public static AbstractModItem dust_brass = new BasicItem();
 	public static AbstractModItem ingot_steel = new BasicItem();
+	
 	public static AbstractModItem nugget_steel = new BasicItem();
+	public static AbstractModItem nugget_brass = new BasicItem();
+	public static AbstractModItem nugget_lead = new BasicItem();
+	
 	public static AbstractModItem dust_steel = new BasicItem();
 	public static AbstractModItem dust_iron = new BasicItem();
 	public static AbstractModItem dust_gold = new BasicItem();
 	public static AbstractModItem dust_copper = new BasicItem();
+	public static AbstractModItem dust_brass = new BasicItem();
+	public static AbstractModItem dust_lead = new BasicItem();
+	
 	public static AbstractModItem plate_lead = new BasicItem();
+	public static AbstractModItem plate_steel = new BasicItem();
 	
 	//Upgrades
 	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
