@@ -116,15 +116,15 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 	protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
       return ItemCombinerMenuSlotDefinition.create().withSlot(0, 8, 48, (p_266643_) -> {
          return this.recipes.stream().anyMatch((p_266642_) -> {
-            return p_266642_.isTemplateIngredient(p_266643_);
+            return true;
          });
       }).withSlot(1, 26, 48, (p_286208_) -> {
          return this.recipes.stream().anyMatch((p_286206_) -> {
-            return p_286206_.isBaseIngredient(p_286208_);
+            return true;
          });
       }).withSlot(2, 44, 48, (p_286207_) -> {
          return this.recipes.stream().anyMatch((p_286204_) -> {
-            return p_286204_.isAdditionIngredient(p_286207_);
+            return true;
          });
       }).withResultSlot(3, 98, 48).build();
    }
