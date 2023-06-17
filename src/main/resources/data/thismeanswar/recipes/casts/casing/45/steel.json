@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "tag": "forge:plates/steel"
+  },
+  "base": {
+    "tag": "thismeanswar:casing/45"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_steel", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_cast_45", "count": 1
+  }
+}

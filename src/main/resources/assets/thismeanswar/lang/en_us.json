@@ -62,6 +62,12 @@
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
 	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
 	
+	"item.thismeanswar.casing_cast_9mm": "Casing Cast (9mm)",
+	"item.thismeanswar.casing_cast_556": "Casing Cast (5.56)",
+	"item.thismeanswar.casing_cast_223": "Casing Cast (.223)",
+	"item.thismeanswar.casing_cast_45": "Casing Cast (.45ACP)",
+	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Buckshot)",
+	
 	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
 	"item.thismeanswar.kevlar_chest": "US Army Top",
 	"item.thismeanswar.kevlar_legs": "US Army Leggings",

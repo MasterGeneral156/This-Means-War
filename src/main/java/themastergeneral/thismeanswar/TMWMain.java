@@ -187,6 +187,12 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_tip_45);
 			ev.accept(TMWItems.bullet_tip_buckshot);
 			
+			ev.accept(TMWItems.casing_cast_223);
+			ev.accept(TMWItems.casing_cast_556);
+			ev.accept(TMWItems.casing_cast_9mm);
+			ev.accept(TMWItems.casing_cast_45);
+			ev.accept(TMWItems.casing_cast_12g);
+			
 			ev.accept(TMWItems.casing_223);
 			ev.accept(TMWItems.casing_556);
 			ev.accept(TMWItems.casing_9mm);

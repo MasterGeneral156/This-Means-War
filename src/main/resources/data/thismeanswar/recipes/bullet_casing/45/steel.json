@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "item": "thismeanswar:casing_cast_45", "data": 32767
+  },
+  "base": {
+    "tag": "forge:nuggets/brass"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_steel", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_45", "count": 1
+  }
+}

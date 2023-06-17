@@ -178,6 +178,13 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_cast_45 = ITEMS.register("bullet_cast_45", () -> TMWItems.bullet_cast_45);
 	public static final RegistryObject<Item> bullet_cast_12g = ITEMS.register("bullet_cast_12g", () -> TMWItems.bullet_cast_12g);
 	
+	//Casing casts
+	public static final RegistryObject<Item> casing_cast_9mm = ITEMS.register("casing_cast_9mm", () -> TMWItems.casing_cast_9mm);
+	public static final RegistryObject<Item> casing_cast_556 = ITEMS.register("casing_cast_556", () -> TMWItems.casing_cast_556);
+	public static final RegistryObject<Item> casing_cast_223 = ITEMS.register("casing_cast_223", () -> TMWItems.casing_cast_223);
+	public static final RegistryObject<Item> casing_cast_45 = ITEMS.register("casing_cast_45", () -> TMWItems.casing_cast_45);
+	public static final RegistryObject<Item> casing_cast_12g = ITEMS.register("casing_cast_12g", () -> TMWItems.casing_cast_12g);
+	
 	//Bullet Casings
 	public static final RegistryObject<Item> casing_9mm = ITEMS.register("casing_9mm", () -> TMWItems.casing_9mm);
 	public static final RegistryObject<Item> casing_223 = ITEMS.register("casing_223", () -> TMWItems.casing_223);

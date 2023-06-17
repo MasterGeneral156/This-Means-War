@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "tag": "forge:plates/steel"
+  },
+  "base": {
+    "tag": "thismeanswar:casing/223"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_diamond", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_cast_223", "count": 1
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "item": "thismeanswar:casing_cast_9mm", "data": 32767
+  },
+  "base": {
+    "tag": "forge:nuggets/brass"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_diamond", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_9mm", "count": 1
+  }
+}
