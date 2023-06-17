@@ -9,6 +9,14 @@ Version: 0.2.1-Indev
 	*JSON expandable
 	#thismeanswar:smithing_table
 	*Similar to Smithing Table in Vanilla, but damages items rather than consumes them.
++Added Steel Plate.
+*Changed "casts" to use Steel Plate as base, rather than lead.
+*Bullet tips casts are now "Steel" colored.
+*Raw Kevlar is now made in Bullet Foundary
+	1 Steel Ingot, 1 Leather and any of the mod hammers.
+*Bullet crafting recipes are now built in the Bullet Foundry.
++Added Casing Casts.
+-Removed old/temporary recipes for casings and bullet tips.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
