@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "tag": "minecraft:iron_bars"
+  },
+  "base": {
+    "tag": "forge:storage_blocks/redstone"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_diamond", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:energy_bolt", "count": 3
+  }
+}
