@@ -13,6 +13,7 @@ public class Constants
 	public static int fireRateSemi = 2;
 	public static int fireRateBurst = 3;
 	
+	public static int projectileKillTime = 1200;
 	public static int cooldownThrowable = 15;
 	public static int cooldownSemiAuto = 25;
 	public static float sawnOffBonusSpread = 5.1356F;
@@ -22,6 +23,8 @@ public class Constants
 	
 	public static int external_mag = 1;
 	public static int internal_mag = 2;
+	
+	public static float modVolume = 0.25F;
 	
 	//Magazine Sizes
 	public static int magSize9mm = 15;
@@ -67,14 +70,14 @@ public class Constants
 	public static float tmgCarbineSpeed = 11.49043F + baseSpeed9mm;
 	public static float tmgCarbineSpread = 0.981F + baseSpread9mm;
 	
-	//UMP9 TODO FINISH UZI CONSTANTS AND REGISTRY
-	//TODO FINISH UMP9 REGISTRY
+	//UMP9
 	public static int ump9FireRate = fireRateAuto;
 	public static int ump9ReloadTime = 48;
 	public static float ump9Damage = 2.345F + baseDamage9mm;
 	public static float ump9Speed = 9.01521F + baseSpeed9mm;
 	public static float ump9Spread = 0.975F + baseSpread9mm;
 	
+	//Uzi
 	public static int uziFireRate = fireRateAuto;
 	public static int uziReloadTime = 25;
 	public static float uziDamage = 1.3511F + baseDamage9mm;

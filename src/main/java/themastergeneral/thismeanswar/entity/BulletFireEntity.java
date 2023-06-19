@@ -5,6 +5,7 @@ import javax.annotation.Nonnull;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -60,6 +61,7 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.setSecondsOnFire((int) this.bulletDmg);
 	      entity.hurt(this.damageSources().magic(), bulletDmg);
+	      this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
@@ -73,9 +75,8 @@ public class BulletFireEntity extends ThrowableItemProjectile {
     {
 		Level world = this.level();
 		BlockPos pos = result.getBlockPos();
-		BlockState state = world.getBlockState(pos);
 		world.setBlock(pos, Blocks.FIRE.defaultBlockState(), 0);
-		
+		this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 		this.remove(Entity.RemovalReason.KILLED);
     }
 	   

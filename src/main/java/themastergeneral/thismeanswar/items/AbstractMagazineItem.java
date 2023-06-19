@@ -8,6 +8,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -99,6 +100,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 					playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
 					playerIn.getCooldowns().addCooldown(this, 8);
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
+					playerIn.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
 				}
 			}
 			//fill mag when not crouching
@@ -124,6 +126,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 						ibullet.shrink(1);
 						playerIn.getCooldowns().addCooldown(this, 8);
 						playerIn.awardStat(Stats.ITEM_USED.get(this));
+						playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
 					}
 				}
 			}

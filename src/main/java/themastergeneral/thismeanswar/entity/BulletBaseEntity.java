@@ -2,8 +2,10 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
@@ -61,6 +64,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.hurt(this.damageSources().thrown(this, this), bulletDmg);
+	      this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 	      this.remove(Entity.RemovalReason.KILLED);
 	   }
 
@@ -69,7 +73,8 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	    */
 	   protected void onHitBlock(BlockHitResult result) 
 	   {
-	         this.remove(Entity.RemovalReason.KILLED);
+		   this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
+		   this.remove(Entity.RemovalReason.KILLED);
 	   }
 	   
 	   @Nonnull
@@ -78,4 +83,16 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   {
 			return NetworkHooks.getEntitySpawningPacket(this);
 		}
+	   
+	   @Override
+	   public void tick() 
+	   {
+		   super.tick();
+		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, -0.3D, 0.0D);
+		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
+		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
+		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
+		   if (this.ticksAlive > Constants.projectileKillTime)
+			   this.remove(Entity.RemovalReason.DISCARDED);
+	   }
 	}

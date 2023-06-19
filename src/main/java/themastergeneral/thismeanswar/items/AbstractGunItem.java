@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import org.joml.Random;
+
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
@@ -566,6 +569,7 @@ public class AbstractGunItem extends AbstractModItem {
 							ibullet.shrink(1);
 							playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
 							playerIn.getCooldowns().addCooldown(this, 8);
+							playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
 						}
 					}
 				}
@@ -604,7 +608,15 @@ public class AbstractGunItem extends AbstractModItem {
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
 					playerIn.getCooldowns().addCooldown(this, getRateOfFire(mag));
 					giveBulletCasing(playerIn);
+					float minPitch = 0F;
+				    float maxPitch = 1F;
+				    float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
+					playerIn.playSound(SoundEvents.GENERIC_EXPLODE, 0.1F, randPitch);
 					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
+				}
+				else
+				{
+					playerIn.playSound(SoundEvents.FLINTANDSTEEL_USE, Constants.modVolume, 0.75F);
 				}
 			}
 		}
