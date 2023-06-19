@@ -3,6 +3,7 @@
 	"itemGroup.thismeanswar": "This Means War!",
 	"itemGroup.thismeanswar.guns": "This Means War! - Firearms",
 	"itemGroup.thismeanswar.ammo": "This Means War! - Mags & Ammo",
+	"itemGroup.thismeanswar.ammo": "This Means War! - Armors",
 	
 	"item.thismeanswar.magazine_9mm": "9mm Magazine",
 	"item.thismeanswar.magazine_9mm_large": "9mm Stick Magazine",
@@ -94,6 +95,11 @@
 	"item.thismeanswar.ww2_russian_chest": "Russian Soldier Top [WWII]",
 	"item.thismeanswar.ww2_russian_legs": "Russian Solider Pants [WWII]",
 	"item.thismeanswar.ww2_russian_boots": "Russian Soldier Boots [WWII]",
+	
+	"item.thismeanswar.ww2_british_helm": "British Beret [WWII]",
+	"item.thismeanswar.ww2_british_chest": "British Soldier Top [WWII]",
+	"item.thismeanswar.ww2_british_legs": "British Solider Pants [WWII]",
+	"item.thismeanswar.ww2_british_boots": "British Soldier Boots [WWII]",
 	
 	"item.thismeanswar.swat_helm": "SWAT Mask",
 	"item.thismeanswar.swat_chest": "SWAT Uniform",

@@ -97,6 +97,12 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> ww2_russian_legs = ITEMS.register("ww2_russian_legs", () -> TMWItems.ww2_russian_legs);
 	public static final RegistryObject<Item> ww2_russian_boots = ITEMS.register("ww2_russian_boots", () -> TMWItems.ww2_russian_boots);
 	
+	//British WW2 Armor
+	public static final RegistryObject<Item> ww2_british_helmet = ITEMS.register("ww2_british_helm", () -> TMWItems.ww2_british_helm);
+	public static final RegistryObject<Item> ww2_british_chest = ITEMS.register("ww2_british_chest", () -> TMWItems.ww2_british_chest);
+	public static final RegistryObject<Item> ww2_british_legs = ITEMS.register("ww2_british_legs", () -> TMWItems.ww2_british_legs);
+	public static final RegistryObject<Item> ww2_british_boots = ITEMS.register("ww2_british_boots", () -> TMWItems.ww2_british_boots);
+	
 	//green war armor
 	public static final RegistryObject<Item> green_war_armor_helm = ITEMS.register("green_war_armor_helm", () -> TMWItems.green_war_armor_helm);
 	public static final RegistryObject<Item> green_war_armor_chest = ITEMS.register("green_war_armor_chest", () -> TMWItems.green_war_armor_chest);
