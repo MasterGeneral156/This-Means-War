@@ -241,6 +241,7 @@ public class TMWMain
 			ev.accept(TMWItems.basic_prot_goggles);
 			ev.accept(TMWItems.kevlar_helmet);
 			ev.accept(TMWItems.ww2_russian_helm);
+			ev.accept(TMWItems.swat_helm);
 			
 			ev.accept(TMWItems.green_war_armor_chest);
 			ev.accept(TMWItems.blue_war_armor_chest);
@@ -248,18 +249,21 @@ public class TMWMain
 			ev.accept(TMWItems.basic_prot_chest);
 			ev.accept(TMWItems.kevlar_chest);
 			ev.accept(TMWItems.ww2_russian_chest);
+			ev.accept(TMWItems.swat_chest);
 			
 			ev.accept(TMWItems.green_war_armor_legs);
 			ev.accept(TMWItems.blue_war_armor_legs);
 			ev.accept(TMWItems.red_war_armor_legs);
 			ev.accept(TMWItems.kevlar_legs);
 			ev.accept(TMWItems.ww2_russian_legs);
+			ev.accept(TMWItems.swat_legs);
 			
 			ev.accept(TMWItems.green_war_armor_boots);
 			ev.accept(TMWItems.blue_war_armor_boots);
 			ev.accept(TMWItems.red_war_armor_boots);
 			ev.accept(TMWItems.kevlar_boots);
 			ev.accept(TMWItems.ww2_russian_boots);
+			ev.accept(TMWItems.swat_boots);
 		}
 	}
 }

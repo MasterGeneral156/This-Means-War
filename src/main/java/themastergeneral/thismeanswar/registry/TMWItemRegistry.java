@@ -84,6 +84,12 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> kevlar_legs = ITEMS.register("kevlar_legs", () -> TMWItems.kevlar_legs);
 	public static final RegistryObject<Item> kevlar_boots = ITEMS.register("kevlar_boots", () -> TMWItems.kevlar_boots);
 	
+	//SWAT Armors
+	public static final RegistryObject<Item> swat_helmet = ITEMS.register("swat_helm", () -> TMWItems.swat_helm);
+	public static final RegistryObject<Item> swat_chest = ITEMS.register("swat_chest", () -> TMWItems.swat_chest);
+	public static final RegistryObject<Item> swat_legs = ITEMS.register("swat_legs", () -> TMWItems.swat_legs);
+	public static final RegistryObject<Item> swat_boots = ITEMS.register("swat_boots", () -> TMWItems.swat_boots);
+	
 	//WW2 ARmors
 	//Russian WW2 Armor
 	public static final RegistryObject<Item> ww2_russian_helmet = ITEMS.register("ww2_russian_helm", () -> TMWItems.ww2_russian_helm);

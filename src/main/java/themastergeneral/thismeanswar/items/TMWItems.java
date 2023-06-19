@@ -143,6 +143,7 @@ public class TMWItems {
 	//Armor Material
 	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor");
 	public static ArmorMaterial ww2_russian_mat = new KevlarArmor("thismeanswar:ww2_russian_armor");
+	public static ArmorMaterial swat_mat = new KevlarArmor("thismeanswar:swat_armor");
 	public static ArmorMaterial basic_prot_material = new BasicProtArmor("thismeanswar:basic_prot");
 	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
 	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
@@ -152,6 +153,11 @@ public class TMWItems {
 	public static ArmorItem ww2_russian_chest = new ArmorItem(ww2_russian_mat, Type.CHESTPLATE, baseProp);
 	public static ArmorItem ww2_russian_legs = new ArmorItem(ww2_russian_mat, Type.LEGGINGS, baseProp);
 	public static ArmorItem ww2_russian_boots = new ArmorItem(ww2_russian_mat, Type.BOOTS, baseProp);
+	
+	public static ArmorItem swat_helm = new ArmorItem(swat_mat, Type.HELMET, baseProp);
+	public static ArmorItem swat_chest = new ArmorItem(swat_mat, Type.CHESTPLATE, baseProp);
+	public static ArmorItem swat_legs = new ArmorItem(swat_mat, Type.LEGGINGS, baseProp);
+	public static ArmorItem swat_boots = new ArmorItem(swat_mat, Type.BOOTS, baseProp);
 	
 	public static ArmorItem kevlar_helmet = new ArmorItem(kevlar_material, Type.HELMET, baseProp);
 	public static ArmorItem kevlar_chest = new ArmorItem(kevlar_material, Type.CHESTPLATE, baseProp);

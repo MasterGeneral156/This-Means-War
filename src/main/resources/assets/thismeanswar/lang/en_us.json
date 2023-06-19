@@ -92,8 +92,13 @@
 	
 	"item.thismeanswar.ww2_russian_helm": "Russian Furrhat [WWII]",
 	"item.thismeanswar.ww2_russian_chest": "Russian Soldier Top [WWII]",
-	"item.thismeanswar.ww2_russian_legs": "Russian Solider Legs [WWII]",
+	"item.thismeanswar.ww2_russian_legs": "Russian Solider Pants [WWII]",
 	"item.thismeanswar.ww2_russian_boots": "Russian Soldier Boots [WWII]",
+	
+	"item.thismeanswar.swat_helm": "SWAT Mask",
+	"item.thismeanswar.swat_chest": "SWAT Uniform",
+	"item.thismeanswar.swat_legs": "SWAT Pants",
+	"item.thismeanswar.swat_boots": "SWAT Boots",
 	
 	"item.thismeanswar.blue_war_armor_helm": "§1War Armor Helmet",
 	"item.thismeanswar.blue_war_armor_chest": "§1War Armor Chestpiece",
