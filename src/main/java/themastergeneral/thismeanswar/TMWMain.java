@@ -233,8 +233,10 @@ public class TMWMain
 			ev.accept(TMWItems.red_stone_bricks);
 			ev.accept(TMWItems.blue_chiseled_bricks);
 			ev.accept(TMWItems.red_chiseled_bricks);
-			
-			
+		}
+		
+		if (ev.getTab() == TMWTabs.ARMOR_TAB.get())
+		{
 			ev.accept(TMWItems.green_war_armor_helm);
 			ev.accept(TMWItems.blue_war_armor_helm);
 			ev.accept(TMWItems.red_war_armor_helm);

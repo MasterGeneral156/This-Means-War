@@ -30,4 +30,10 @@ public class TMWTabs {
 			.icon(() -> TMWPistols.m1911.getDefaultInstance())
             .title(Component.translatable("itemGroup.thismeanswar.guns"))
             .build());
+	
+	public static final RegistryObject<CreativeModeTab> ARMOR_TAB = CREATIVE_MODE_TABS.register("tmw_armor", () -> CreativeModeTab.builder()
+            .withTabsBefore(AMMO_TAB.getKey())
+			.icon(() -> TMWItems.basic_prot_chest.getDefaultInstance())
+            .title(Component.translatable("itemGroup.thismeanswar.armor"))
+            .build());
 }
