@@ -225,5 +225,7 @@
 	"thismeanswar.firearm_upgrade_fire": "Upgrade: Flamable Rounds",
 	"thismeanswar.firearm_rof_full": "Full Auto",
 	"thismeanswar.firearm_rof_semi": "Semi Auto",
-	"thismeanswar.firearm_fail_two_hand": "You need your off-hand open to shoot a firearm."
+	"thismeanswar.firearm_fail_two_hand": "You need your off-hand open to shoot a firearm.",
+	
+	"thismeanswar.jei.bullet_foundary": "Bullet Foundary"
 }

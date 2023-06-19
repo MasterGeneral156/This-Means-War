@@ -1,6 +1,8 @@
 package themastergeneral.thismeanswar.recipe;
 
 import com.google.gson.JsonObject;
+import com.mojang.datafixers.types.templates.List;
+
 import java.util.stream.Stream;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
@@ -18,6 +20,7 @@ import net.minecraft.world.level.Level;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
 public class BulletRecipe implements SmithingRecipe {
+	
    private final ResourceLocation id;
    final Ingredient template;
    final Ingredient base;
@@ -78,6 +81,21 @@ public class BulletRecipe implements SmithingRecipe {
    public RecipeType<BulletRecipe> getType() {
        // Return an instance of your recipe type
        return TMWRecipeTypeRegistration.SMITHING_TYPE.get();
+   }
+   
+   public Ingredient returnTemplate()
+   {
+	   return this.template;
+   }
+   
+   public Ingredient returnBase()
+   {
+	   return this.base;
+   }
+   
+   public Ingredient returnAddon()
+   {
+	   return this.addition;
    }
 
    public static class Serializer implements RecipeSerializer<BulletRecipe> {

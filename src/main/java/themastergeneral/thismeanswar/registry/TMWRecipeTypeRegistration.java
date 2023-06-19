@@ -16,6 +16,6 @@ public class TMWRecipeTypeRegistration
 	
 	//public static final RegistryObject<CrusherRecipe.Serializer> CRUSHER_SERIALIZER = RECIPE_SERIALIZER.register("crusher", CrusherRecipe.Serializer::new);
 	public static final RegistryObject<RecipeSerializer<?>> SMITHING_TABLE = RECIPE_SERIALIZER.register("smithing_table", () -> new BulletRecipe.Serializer());
-	public static final RegistryObject<RecipeType> SMITHING_TYPE = RECIPE_TYPES.register("smithing_table_type", () -> new BulletRecipeType());
+	public static final RegistryObject<RecipeType> SMITHING_TYPE = RECIPE_TYPES.register("smithing_table", () -> new BulletRecipeType());
 	
 }
