@@ -269,6 +269,11 @@ public class TMWMain
 			ev.accept(TMWItems.swat_chest);
 			ev.accept(TMWItems.swat_legs);
 			ev.accept(TMWItems.swat_boots);
+			
+			ev.accept(TMWItems.ww2_british_helm);
+			ev.accept(TMWItems.ww2_british_chest);
+			ev.accept(TMWItems.ww2_british_legs);
+			ev.accept(TMWItems.ww2_british_boots);
 		}
 	}
 }
