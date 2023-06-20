@@ -96,9 +96,9 @@ public class TMWItems {
 	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
 	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
-	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(1, TMWTags.disableAPUpgrade);
-	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(0, TMWTags.disableAPUpgrade);
-	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(2, TMWTags.disableFireUpgrade);
+	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(Constants.bulletUpgradeAP, TMWTags.disableAPUpgrade);
+	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(Constants.bulletUpgradeNull, TMWTags.disableAPUpgrade);
+	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(Constants.bulletUpgradeFire, TMWTags.disableFireUpgrade);
 	
 	//Charms
 	//public static CharmStealth charm_stealth = new CharmStealth();

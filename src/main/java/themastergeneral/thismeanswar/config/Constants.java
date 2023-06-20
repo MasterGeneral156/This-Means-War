@@ -26,6 +26,11 @@ public class Constants
 	
 	public static float modVolume = 0.25F;
 	
+	//Upgrade constants
+	public static int bulletUpgradeNull = 0;
+	public static int bulletUpgradeAP = 1;
+	public static int bulletUpgradeFire = 2;
+	
 	//Magazine Sizes
 	public static int magSize9mm = 15;
 	public static int magSizeLarge9mm = 30;
