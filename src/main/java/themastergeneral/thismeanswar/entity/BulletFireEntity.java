@@ -82,7 +82,6 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 		this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 		this.kill();
     }
-	
 	@Nonnull
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() 
