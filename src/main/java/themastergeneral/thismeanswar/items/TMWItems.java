@@ -18,7 +18,7 @@ import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeAP;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeROFAutoItem;
@@ -96,9 +96,9 @@ public class TMWItems {
 	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
 	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
-	public static UpgradeAP bullet_upgrade_ap = new UpgradeAP(1, TMWTags.disableAPUpgrade);
-	public static UpgradeAP bullet_upgrade_normal = new UpgradeAP(0, TMWTags.disableAPUpgrade);
-	public static UpgradeAP bullet_upgrade_fire = new UpgradeAP(2, TMWTags.disableFireUpgrade);
+	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(1, TMWTags.disableAPUpgrade);
+	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(0, TMWTags.disableAPUpgrade);
+	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(2, TMWTags.disableFireUpgrade);
 	
 	//Charms
 	//public static CharmStealth charm_stealth = new CharmStealth();

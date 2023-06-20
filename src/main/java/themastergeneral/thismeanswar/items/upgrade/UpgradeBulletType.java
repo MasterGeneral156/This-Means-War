@@ -25,11 +25,11 @@ import themastergeneral.thismeanswar.items.AbstractGunItem;
 import themastergeneral.thismeanswar.items.BasicItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
-public class UpgradeAP extends BasicItem {
+public class UpgradeBulletType extends BasicItem {
 
 	public int bulletUpgradeLvl;
 	protected TagKey<Item> disableUpgrade;
-	public UpgradeAP(int bulletUpgrade, TagKey<Item> blockItemTag) 
+	public UpgradeBulletType(int bulletUpgrade, TagKey<Item> blockItemTag) 
 	{
 		super();
 		this.bulletUpgradeLvl = bulletUpgrade;
