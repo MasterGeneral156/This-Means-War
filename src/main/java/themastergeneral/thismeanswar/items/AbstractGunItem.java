@@ -33,6 +33,7 @@ import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.entity.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 import themastergeneral.thismeanswar.entity.BulletFireEntity;
+import themastergeneral.thismeanswar.entity.BulletTracerEntity;
 
 public class AbstractGunItem extends AbstractModItem {
 
@@ -461,6 +462,8 @@ public class AbstractGunItem extends AbstractModItem {
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
 			if (bulletUpgrade == 2)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
+			if (bulletUpgrade == 3)
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_tracer"));
 		}
 			
 	}
@@ -579,7 +582,6 @@ public class AbstractGunItem extends AbstractModItem {
 				//Fire gun logic
 				if (canFire(mag))
 				{
-					BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 					//AP Rounds
 					if (this.getBulletUpgrade(mag) == 1)
 					{
@@ -596,8 +598,16 @@ public class AbstractGunItem extends AbstractModItem {
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 						worldIn.addFreshEntity(apBullet);
 					}
+					else if (this.getBulletUpgrade(mag) == 3)
+					{
+						BulletTracerEntity apBullet = new BulletTracerEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.setItem(new ItemStack(bullet));
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						worldIn.addFreshEntity(apBullet);
+					}
 					else
 					{
+						BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
 						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	

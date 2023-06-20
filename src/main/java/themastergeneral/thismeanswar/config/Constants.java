@@ -30,6 +30,7 @@ public class Constants
 	public static int bulletUpgradeNull = 0;
 	public static int bulletUpgradeAP = 1;
 	public static int bulletUpgradeFire = 2;
+	public static int bulletUpgradeTracer = 3;
 	
 	//Magazine Sizes
 	public static int magSize9mm = 15;

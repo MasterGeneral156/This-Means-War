@@ -116,6 +116,7 @@ public class TMWMain
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bullet_upgrade_ap);
 			ev.accept(TMWItems.bullet_upgrade_fire);
+			ev.accept(TMWItems.bullet_upgrade_tracer);
 			ev.accept(TMWItems.bullet_upgrade_normal);
 			ev.accept(TMWItems.bayonet_wood);
 			ev.accept(TMWItems.bayonet_stone);

@@ -99,6 +99,7 @@ public class TMWItems {
 	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(Constants.bulletUpgradeAP, TMWTags.disableAPUpgrade);
 	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(Constants.bulletUpgradeNull, TMWTags.disableAPUpgrade);
 	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(Constants.bulletUpgradeFire, TMWTags.disableFireUpgrade);
+	public static UpgradeBulletType bullet_upgrade_tracer = new UpgradeBulletType(Constants.bulletUpgradeTracer, TMWTags.disableTracerUpgrade);
 	
 	//Charms
 	//public static CharmStealth charm_stealth = new CharmStealth();
