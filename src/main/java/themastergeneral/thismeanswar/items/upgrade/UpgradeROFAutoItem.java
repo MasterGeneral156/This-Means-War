@@ -71,8 +71,7 @@ public class UpgradeROFAutoItem extends BasicItem {
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
-		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_rof_directions"));
-		tooltip.add(ModUtils.displayString("Converts firearm's rate of fire to full-auto."));
+		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
 		if (Screen.hasShiftDown())
 		{
 			tooltip.add(ModUtils.displayString("§2Full-auto Conversion"));

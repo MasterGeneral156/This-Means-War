@@ -44,25 +44,16 @@ public class UpgradeBayonetItem extends BasicItem
 			{
 				AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
 				double musketLevel = offhand.getBayonetLevel(playerIn.getOffhandItem());
-				if (offhand.hasMag(playerIn.getOffhandItem()) == 0)
+				if (musketLevel == 0.0)
 				{
-					if (musketLevel == 0.0)
-					{
-						offhand.upgradeMusketLevel(playerIn.getOffhandItem(), increaseMusketLevel);
-						playerIn.getCooldowns().addCooldown(this, 20);
-						playerIn.getMainHandItem().shrink(1);
-						return InteractionResultHolder.pass(playerIn.getMainHandItem());
-					}
-					else
-					{
-						playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_already_done"), true);
-						playerIn.getCooldowns().addCooldown(this, 10);
-						return InteractionResultHolder.fail(playerIn.getMainHandItem());
-					}
+					offhand.upgradeMusketLevel(playerIn.getOffhandItem(), increaseMusketLevel);
+					playerIn.getCooldowns().addCooldown(this, 20);
+					playerIn.getMainHandItem().shrink(1);
+					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else
 				{
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_mag_inserted"), true);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_already_done"), true);
 					playerIn.getCooldowns().addCooldown(this, 10);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
@@ -86,8 +77,7 @@ public class UpgradeBayonetItem extends BasicItem
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
-		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_directions"));
-		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_warning"));
+		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
 		if (Screen.hasShiftDown())
 		{
 			tooltip.add(ModUtils.displayString("§2" + this.increaseMusketLevel + " Melee Damage"));

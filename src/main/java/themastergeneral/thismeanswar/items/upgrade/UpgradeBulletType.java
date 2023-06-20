@@ -92,9 +92,9 @@ public class UpgradeBulletType extends BasicItem {
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
+		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
 		if (stack.getItem() == TMWItems.bullet_upgrade_ap)
 		{
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_ap_directions"));
 			if (Screen.hasShiftDown())
 			{
 				tooltip.add(ModUtils.displayString("§2Armor Piercing Conversion"));
@@ -103,11 +103,13 @@ public class UpgradeBulletType extends BasicItem {
 		}
 		if (stack.getItem() == TMWItems.bullet_upgrade_fire)
 		{
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_fire_directions"));
 			if (Screen.hasShiftDown())
 				tooltip.add(ModUtils.displayString("§2Flamable Rounds Conversion"));
 		}
-		if (stack.getItem() == TMWItems.bullet_upgrade_normal)
-			tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_normal_directions"));
+		if (stack.getItem() == TMWItems.bullet_upgrade_tracer)
+		{
+			if (Screen.hasShiftDown())
+				tooltip.add(ModUtils.displayString("§2Tracer Rounds Conversion"));
+		}
 	}
 }

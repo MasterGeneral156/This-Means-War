@@ -100,7 +100,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
-		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_mag_directions"));
+		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
 		tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
 		if (Screen.hasShiftDown())
 		{
