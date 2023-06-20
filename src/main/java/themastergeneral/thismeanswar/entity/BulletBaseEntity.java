@@ -65,7 +65,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      Entity entity = p_213868_1_.getEntity();
 	      entity.hurt(this.damageSources().thrown(this, this), bulletDmg);
 	      this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
-	      this.remove(Entity.RemovalReason.KILLED);
+	      this.kill();
 	   }
 
 	   /**
@@ -74,7 +74,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   protected void onHitBlock(BlockHitResult result) 
 	   {
 		   this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
-		   this.remove(Entity.RemovalReason.KILLED);
+		   this.kill();
 	   }
 	   
 	   @Nonnull
@@ -93,6 +93,6 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
 		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
 		   if (this.ticksAlive > Constants.projectileKillTime)
-			   this.remove(Entity.RemovalReason.DISCARDED);
+			   this.kill();
 	   }
 	}
