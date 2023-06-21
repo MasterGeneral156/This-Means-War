@@ -104,6 +104,20 @@ public class Constants
 	public static float ar15Speed556 = 15.312F + baseSpeed556;
 	public static float ar15Spread556 = 1.625F + baseSpread556;
 	
+	//SCAR
+	public static int scarFireRate = cooldownSemiAuto;
+	public static int scarReloadTime = 50;
+	public static float scarDamage = 5.7848F + baseDamage556;
+	public static float scarSpeed = 16.451F + baseSpeed556;
+	public static float scarSpread = 1.845F + baseSpread556;
+	
+	//Mosin
+	public static int mosinFireRate = cooldownSemiAuto;
+	public static int mosinReloadTime = 65;
+	public static float mosinDamage = 5.7848F + baseDamage223;
+	public static float mosinSpeed = 16.451F + baseSpeed223;
+	public static float mosinSpread = 1.845F + baseSpread223;
+	
 	//Bazooka
 	public static int bazookaFireRate = cooldownSemiAuto;
 	public static int bazookaReloadTime = 35;

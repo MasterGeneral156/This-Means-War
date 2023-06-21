@@ -98,7 +98,9 @@ public class TMWMain
 			ev.accept(TMWRifles.springfield_saint_556);
 			ev.accept(TMWRifles.m16);
 			ev.accept(TMWRifles.m16_223);
+			ev.accept(TMWRifles.scar);
 			ev.accept(TMWRifles.thunderclaw);
+			ev.accept(TMWRifles.mosin_nagant);
 			ev.accept(TMWRifles.quantum_disruptor);
 			ev.accept(TMWRifles.bfg_8001);
 			

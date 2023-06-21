@@ -67,6 +67,26 @@ public class TMWRifles
 					Constants.quantumDisruptorSpeed, 
 					Constants.quantumDisruptorSpread);
 	
+	public static AbstractGunItem mosin_nagant = new 
+			AbstractGunItem(
+				Constants.mosinFireRate, 
+				Constants.mosinReloadTime, 
+				TMWItems.magazine_223_clip, 
+				TMWItems.round_223, 
+				Constants.mosinDamage,
+				Constants.mosinSpeed, 
+				Constants.mosinSpread);
+	
+	public static AbstractGunItem scar = new 
+			AbstractGunItem(
+				Constants.scarFireRate, 
+				Constants.scarReloadTime, 
+				TMWItems.magazine_556, 
+				TMWItems.round_556, 
+				Constants.scarDamage,
+				Constants.scarSpeed, 
+				Constants.scarSpread);
+	
 	public static MultiAmmoCostGunItem bfg_8001 = new 
 				MultiAmmoCostGunItem(
 						Constants.bfg8001Rate, 

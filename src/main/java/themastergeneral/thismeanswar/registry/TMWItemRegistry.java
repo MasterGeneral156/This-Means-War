@@ -58,12 +58,14 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> springfield_saint_556 = ITEMS.register("springfield_saint_556", () -> TMWRifles.springfield_saint_556);
 	public static final RegistryObject<Item> springfield_saint_223 = ITEMS.register("springfield_saint_223", () -> TMWRifles.springfield_saint_223);
 	public static final RegistryObject<Item> m16 = ITEMS.register("m16", () -> TMWRifles.m16);
-	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
 	public static final RegistryObject<Item> m16_223 = ITEMS.register("m16_223", () -> TMWRifles.m16_223);
 	public static final RegistryObject<Item> quantum_disruptor = ITEMS.register("quantum_disruptor", () -> TMWRifles.quantum_disruptor);
 	public static final RegistryObject<Item> bfg_8001 = ITEMS.register("bfg_8001", () -> TMWRifles.bfg_8001);
+	public static final RegistryObject<Item> scar = ITEMS.register("scar", () -> TMWRifles.scar);
 	
 	//Snipers
+	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
+	public static final RegistryObject<Item> mosin_nagant = ITEMS.register("mosin_nagant", () -> TMWRifles.mosin_nagant);
 	
 	//Shotguns
 	public static final RegistryObject<Item> remmington_m870 = ITEMS.register("remmington_m870", () -> TMWShotguns.remmington_m870);
