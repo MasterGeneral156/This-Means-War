@@ -458,12 +458,14 @@ public class AbstractGunItem extends AbstractModItem {
 				tooltip.add(bayonetString);
 			}
 			//display bullet damage upgrade type
-			if (bulletUpgrade == 1)
+			if (bulletUpgrade == Constants.bulletUpgradeAP)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
-			if (bulletUpgrade == 2)
+			if (bulletUpgrade == Constants.bulletUpgradeFire)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
-			if (bulletUpgrade == 3)
+			if (bulletUpgrade == Constants.bulletUpgradeTracer)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_tracer"));
+			if (bulletUpgrade == Constants.bulletUpgradeInert)
+				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_inert"));
 		}
 			
 	}
@@ -773,8 +775,11 @@ public class AbstractGunItem extends AbstractModItem {
 					returned = (float) returned - (returned * 0.5F);
 			}
 			//AP Rounds
-			if (bulletUpgrade == 1)
+			if (bulletUpgrade == Constants.bulletUpgradeAP)
 				returned = (float) returned - (returned * 0.18F);
+			//Inert rounds
+			if (bulletUpgrade == Constants.bulletUpgradeInert)
+				returned = returned * 0.05F;
 		}
 		return returned;
 	}

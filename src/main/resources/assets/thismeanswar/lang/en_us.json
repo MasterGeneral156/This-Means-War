@@ -176,6 +176,7 @@
 	"item.thismeanswar.bullet_upgrade_normal": "Bullet Upgrade Nullifier",
 	"item.thismeanswar.bullet_upgrade_fire": "Flamable Rounds Upgrade",
 	"item.thismeanswar.bullet_upgrade_tracer": "Tracer Rounds Upgrade",
+	"item.thismeanswar.bullet_upgrade_inert": "Inert Rounds Upgrade",
 	
 	"block.thismeanswar.ammo_box": "Small Ammo Container",
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
@@ -228,6 +229,7 @@
 	"thismeanswar.firearm_upgrade_ap": "Upgrade: AP Rounds",
 	"thismeanswar.firearm_upgrade_fire": "Upgrade: Flamable Rounds",
 	"thismeanswar.firearm_upgrade_tracer": "Upgrade: Tracer Rounds",
+	"thismeanswar.firearm_upgrade_inert": "Upgrade: Inert Rounds",
 	"thismeanswar.firearm_rof_full": "Full Auto",
 	"thismeanswar.firearm_rof_semi": "Semi Auto",
 	"thismeanswar.firearm_fail_two_hand": "You need your off-hand open to shoot a firearm.",

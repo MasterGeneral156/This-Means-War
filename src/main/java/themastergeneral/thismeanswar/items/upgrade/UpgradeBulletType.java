@@ -93,23 +93,22 @@ public class UpgradeBulletType extends BasicItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
-		if (stack.getItem() == TMWItems.bullet_upgrade_ap)
+		if (Screen.hasShiftDown())
 		{
-			if (Screen.hasShiftDown())
+			if (stack.getItem() == TMWItems.bullet_upgrade_ap)
 			{
-				tooltip.add(ModUtils.displayString("§2Armor Piercing Conversion"));
-				tooltip.add(ModUtils.displayString("§4-18% bullet damage"));
+					tooltip.add(ModUtils.displayString("§2Armor Piercing Conversion"));
+					tooltip.add(ModUtils.displayString("§4-18% bullet damage"));
 			}
-		}
-		if (stack.getItem() == TMWItems.bullet_upgrade_fire)
-		{
-			if (Screen.hasShiftDown())
+			if (stack.getItem() == TMWItems.bullet_upgrade_fire)
 				tooltip.add(ModUtils.displayString("§2Flamable Rounds Conversion"));
-		}
-		if (stack.getItem() == TMWItems.bullet_upgrade_tracer)
-		{
-			if (Screen.hasShiftDown())
+			if (stack.getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayString("§2Tracer Rounds Conversion"));
+			if (stack.getItem() == TMWItems.bullet_upgrade_inert)
+			{
+				tooltip.add(ModUtils.displayString("§2Inert Rounds Conversion"));
+				tooltip.add(ModUtils.displayString("§4-95% bullet damage"));
+			}
 		}
 	}
 }
