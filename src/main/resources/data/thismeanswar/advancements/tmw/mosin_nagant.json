@@ -1,12 +1,12 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:quantum_disruptor"
+			"item": "thismeanswar:mosin_nagant"
 		},
-		"title": "Energy Sniper",
-		"description": "Obtain an Quantum Disruptor"
+		"title": "Old Tech",
+		"description": "Obtain a Mosin Nagant"
 	},
-	"parent": "thismeanswar:tmw/mosin_nagant",
+	"parent": "thismeanswar:tmw/thunderclaw",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -14,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:quantum_disruptor"
+							"thismeanswar:mosin_nagant"
 						]
 					}
 				]

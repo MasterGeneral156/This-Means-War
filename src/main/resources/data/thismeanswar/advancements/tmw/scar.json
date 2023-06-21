@@ -1,12 +1,12 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:quantum_disruptor"
+			"item": "thismeanswar:scar"
 		},
-		"title": "Energy Sniper",
-		"description": "Obtain an Quantum Disruptor"
+		"title": "Modern Solutions",
+		"description": "Obtain a SCAR rifle"
 	},
-	"parent": "thismeanswar:tmw/mosin_nagant",
+	"parent": "thismeanswar:tmw/m16",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -14,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:quantum_disruptor"
+							"thismeanswar:scar"
 						]
 					}
 				]
