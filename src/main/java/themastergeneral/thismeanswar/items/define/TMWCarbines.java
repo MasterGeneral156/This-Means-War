@@ -34,7 +34,7 @@ public class TMWCarbines
 	public static AbstractGunItem g36 = new AbstractGunItem(
 			Constants.g36FireRate, 
 			Constants.g36ReloadTime,
-			TMWItems.magazine_9mm_large, TMWItems.round_9mm, 
+			TMWItems.magazine_556, TMWItems.round_556, 
 			Constants.g36Damage,
 			Constants.g36Speed,
 			Constants.g36Spread);
