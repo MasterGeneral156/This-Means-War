@@ -53,6 +53,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> tmg_carbine = ITEMS.register("tmg_carbine", () -> TMWCarbines.tmg_carbine);
 	public static final RegistryObject<Item> ump9 = ITEMS.register("ump9", () -> TMWCarbines.ump9);
 	public static final RegistryObject<Item> uzi = ITEMS.register("uzi", () -> TMWCarbines.uzi);
+	public static final RegistryObject<Item> g36 = ITEMS.register("g36", () -> TMWCarbines.g36);
 	
 	//Rifles
 	public static final RegistryObject<Item> springfield_saint_556 = ITEMS.register("springfield_saint_556", () -> TMWRifles.springfield_saint_556);

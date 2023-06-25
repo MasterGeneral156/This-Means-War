@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:uzi"
+		},
+		"title": "Like a G Six",
+		"description": "Obtain an G36"
+	},
+	"parent": "thismeanswar:tmw/uzi",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:g36"
+						]
+					}
+				]
+			}
+		}
+	}
+}

@@ -88,6 +88,7 @@ public class TMWMain
     		ev.accept(TMWCarbines.tmg_carbine);
     		ev.accept(TMWCarbines.uzi);
     		ev.accept(TMWCarbines.ump9);
+    		ev.accept(TMWCarbines.g36);
     		
     		ev.accept(TMWPistols.beretta_92_fs);
 			ev.accept(TMWPistols.glock_26);

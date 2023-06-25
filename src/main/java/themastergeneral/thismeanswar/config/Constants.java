@@ -91,6 +91,13 @@ public class Constants
 	public static float uziSpeed = 21.5152F + baseSpeed9mm;
 	public static float uziSpread = 3.511F + baseSpread9mm;
 	
+	//G36
+	public static int g36FireRate = fireRateAuto;
+	public static int g36ReloadTime = 36;
+	public static float g36Damage = 2.5153F + baseDamage9mm;
+	public static float g36Speed = 32.1532F + baseSpeed9mm;
+	public static float g36Spread = 5.23525F + baseSpread9mm;
+	
 	//AR15 (223)
 	public static int ar15FireRate223 = cooldownSemiAuto;
 	public static int ar15ReloadTime223 = 45;
