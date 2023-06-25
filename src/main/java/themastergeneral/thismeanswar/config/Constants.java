@@ -40,6 +40,7 @@ public class Constants
 	public static int magSize1911 = 7;
 	public static int magSizeClips = 5;
 	public static int magSizeEnergyCell = 19;
+	public static int magSizeG36 = 25;
 	
 	//Mag Upgrade
 	public static int maxMagUpgrades = 5;
