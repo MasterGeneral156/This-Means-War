@@ -40,6 +40,7 @@ public class Constants
 	public static int magSize1911 = 7;
 	public static int magSizeClips = 5;
 	public static int magSizeEnergyCell = 19;
+	public static int magSizeG36 = 25;
 	
 	//Mag Upgrade
 	public static int maxMagUpgrades = 5;
@@ -94,9 +95,9 @@ public class Constants
 	//G36
 	public static int g36FireRate = fireRateAuto;
 	public static int g36ReloadTime = 36;
-	public static float g36Damage = 2.5153F + baseDamage9mm;
-	public static float g36Speed = 32.1532F + baseSpeed9mm;
-	public static float g36Spread = 5.23525F + baseSpread9mm;
+	public static float g36Damage = 2.5153F + baseDamage556;
+	public static float g36Speed = 32.1532F + baseSpeed556;
+	public static float g36Spread = 5.23525F + baseSpread556;
 	
 	//AR15 (223)
 	public static int ar15FireRate223 = cooldownSemiAuto;

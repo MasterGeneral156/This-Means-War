@@ -145,6 +145,7 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_9mm_large);
 			ev.accept(TMWItems.magazine_m1911);
 			ev.accept(TMWItems.magazine_45_clip);
+			ev.accept(TMWItems.magazine_g36);
 			ev.accept(TMWItems.magazine_223);
 			ev.accept(TMWItems.magazine_223_clip);
 			ev.accept(TMWItems.magazine_556);
