@@ -26,7 +26,6 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
 	protected AbstractBulletItem bulletItm;
 	
-	protected int ticksAlive = 0;
 	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
@@ -92,7 +91,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
 		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
 		   this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
-		   if (this.ticksAlive > Constants.projectileKillTime)
+		   if (this.tickCount > Constants.projectileKillTime)
 			   this.kill();
 	   }
 	}

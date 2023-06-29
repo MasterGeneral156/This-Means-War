@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:smithing_table",
+  "template": {
+    "item": "thismeanswar:hand_grenade"
+  },
+  "base": {
+    "tag": "forge:dyes/green"
+  },
+  "addition": {
+	"item": "minecraft:firework_rocket", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:smoke_grenade_green", "count": 1
+  }
+}

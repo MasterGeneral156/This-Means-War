@@ -69,4 +69,15 @@ public class TMWEntities {
 			.noSummon()
 			.fireImmune()
 			.build("rocket_entity");
+	
+	public static final EntityType<SmokeThrowableEntity> SMOKE_GRENADE_ENTITY = EntityType.Builder.<SmokeThrowableEntity>of(
+			SmokeThrowableEntity::new, MobCategory.MISC)
+			.sized(0.25F, 0.25F)
+			.setUpdateInterval(2)
+			.setShouldReceiveVelocityUpdates(true)
+			.setTrackingRange(128)
+			.clientTrackingRange(128)
+			.noSummon()
+			.fireImmune()
+			.build("smoke_grenade_entity");
 }

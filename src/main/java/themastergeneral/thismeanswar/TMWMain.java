@@ -169,6 +169,9 @@ public class TMWMain
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);
 			ev.accept(TMWThrowables.nuclear_warhead);
+			ev.accept(TMWThrowables.smoke_grenade_green);
+			ev.accept(TMWThrowables.smoke_grenade_red);
+			ev.accept(TMWThrowables.smoke_grenade_orange);
 			
 			ev.accept(TMWItems.creative_charm);
 			

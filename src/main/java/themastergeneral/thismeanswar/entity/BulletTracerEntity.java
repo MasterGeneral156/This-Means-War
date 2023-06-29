@@ -84,7 +84,7 @@ public class BulletTracerEntity extends ThrowableItemProjectile {
 	   	this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
 	   	this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
 	   	this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
-	   	if (this.ticksAlive > Constants.projectileKillTime)
+	   	if (this.tickCount > Constants.projectileKillTime)
 	   		this.kill();
 	}	   
 }

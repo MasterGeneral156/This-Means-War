@@ -38,8 +38,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_45_clip = ITEMS.register("magazine_45_clip", () -> TMWItems.magazine_45_clip);
 	public static final RegistryObject<Item> magazine_12g_clip = ITEMS.register("magazine_12g_clip", () -> TMWItems.magazine_12g_clip);
 	public static final RegistryObject<Item> magazine_40mm_clip = ITEMS.register("magazine_40mm_clip", () -> TMWItems.magazine_40mm_clip);
-	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
 	public static final RegistryObject<Item> magazine_g36 = ITEMS.register("magazine_g36", () -> TMWItems.magazine_g36);
+	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
 	
 	/**
 	 * Firearms
@@ -136,6 +136,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> dynamite_stick = ITEMS.register("dynamite_stick", () -> TMWThrowables.dynamite_stick);
 	public static final RegistryObject<Item> nuclear_warhead = ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);
 	public static final RegistryObject<Item> hand_grenade = ITEMS.register("hand_grenade", () -> TMWThrowables.hand_grenade);
+	public static final RegistryObject<Item> smoke_grenade_red = ITEMS.register("smoke_grenade_red", () -> TMWThrowables.smoke_grenade_red);
+	public static final RegistryObject<Item> smoke_grenade_green = ITEMS.register("smoke_grenade_green", () -> TMWThrowables.smoke_grenade_green);
+	public static final RegistryObject<Item> smoke_grenade_orange = ITEMS.register("smoke_grenade_orange", () -> TMWThrowables.smoke_grenade_orange);
 	
 	/**
 	 * Other Usable Items
