@@ -13,7 +13,7 @@ public class TMWEvents {
     public void onLevelTick(TickEvent.LevelTickEvent event) {
         if (event.phase == TickEvent.Phase.START) 
         {
-        	for (Entity entity : event.level.getEntitiesOfClass(SmokeThrowableEntity.class, null)) 
+        	for (Entity entity : event.level.getEntitiesOfClass(SmokeThrowableEntity.class, AABB.of(BoundingBox.infinite()))) 
         	{
                 if (entity instanceof SmokeThrowableEntity) 
                 {
