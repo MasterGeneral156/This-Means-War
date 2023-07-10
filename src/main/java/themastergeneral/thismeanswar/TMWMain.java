@@ -49,10 +49,12 @@ public class TMWMain
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modBus.addListener(this::setup);
         modBus.addListener(this::fillTab);
+        //modBus.addListener(new TMWEvents());
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
     	MinecraftForge.EVENT_BUS.register(this);
+    	MinecraftForge.EVENT_BUS.register(new TMWEvents());
         TMWItemRegistry.ITEMS.register(modBus);
         TMWEntityRegistry.ENTITES.register(modBus);
         TMWBlockRegistry.BLOCKS.register(modBus);
