@@ -13,6 +13,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.MagazineConfigs;
@@ -34,6 +36,9 @@ import themastergeneral.thismeanswar.entity.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 import themastergeneral.thismeanswar.entity.BulletFireEntity;
 import themastergeneral.thismeanswar.entity.BulletTracerEntity;
+import themastergeneral.thismeanswar.items.define.TMWCarbines;
+import themastergeneral.thismeanswar.items.define.TMWPistols;
+import themastergeneral.thismeanswar.items.define.TMWRifles;
 
 public class AbstractGunItem extends AbstractModItem {
 
@@ -623,7 +628,7 @@ public class AbstractGunItem extends AbstractModItem {
 					float minPitch = 0F;
 				    float maxPitch = 1F;
 				    float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
-					playerIn.playSound(SoundEvents.GENERIC_EXPLODE, 0.1F, randPitch);
+					playerIn.playSound(getGunFireSound(), 0.1F, randPitch);
 					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 				else
@@ -813,5 +818,17 @@ public class AbstractGunItem extends AbstractModItem {
 	public int roundsFired()
 	{
 		return 1;
+	}
+	
+	private SoundEvent getGunFireSound()
+	{
+		if (asItem() == TMWPistols.m1911)
+			return TMWSounds.shot_1911;
+		else if (asItem() == TMWCarbines.tmg_carbine)
+			return TMWSounds.shot_tmg_carbine;
+		else if (asItem() == TMWRifles.thunderclaw)
+			return TMWSounds.shot_thunderclaw;
+		else
+			return SoundEvents.GENERIC_EXPLODE;
 	}
 }

@@ -239,5 +239,9 @@
 	"thismeanswar.firearm_rof_semi": "Semi Auto",
 	"thismeanswar.firearm_fail_two_hand": "You need your off-hand open to shoot a firearm.",
 	
-	"thismeanswar.jei.bullet_foundary": "Bullet Foundary"
+	"thismeanswar.jei.bullet_foundary": "Bullet Foundary",
+	
+	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw shot",
+	"thismeanswar.subtitle.shot_1911": "M1911 shot",
+	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine shot"
 }

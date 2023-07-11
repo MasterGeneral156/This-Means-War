@@ -1,0 +1,29 @@
+{
+	"shot_1911": {
+		"sounds": [
+			{
+				"name": "thismeanswar:shot_1911",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.shot_1911"
+	},
+	"shot_tmg_carbine": {
+		"sounds": [
+			{
+				"name": "thismeanswar:shot_tmg_carbine",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.shot_tmg_carbine"
+	},
+	"shot_thunderclaw": {
+		"sounds": [
+			{
+				"name": "thismeanswar:shot_thunderclaw",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.shot_thunderclaw"
+	}
+}
