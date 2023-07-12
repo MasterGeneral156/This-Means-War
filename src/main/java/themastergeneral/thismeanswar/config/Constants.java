@@ -147,6 +147,13 @@ public class Constants
 	public static float m17viperSpeed = 3.41235F + baseSpeed9mm;
 	public static float m17viperSpread = 1.45F + baseSpread9mm;
 	
+	//Mauser C98
+	public static int c98viperFireRate = fireRateAuto;
+	public static int c98viperReloadTime = 10;
+	public static float c98viperDamage = 1.962F + baseDamage9mm;
+	public static float c98viperSpeed = 6.124F + baseSpeed9mm;
+	public static float c98viperSpread = 2.145F + baseSpread9mm;
+	
 	//Glock 26
 	public static int glock26FireRate = cooldownSemiAuto;
 	public static int glock26ReloadTime = 40;

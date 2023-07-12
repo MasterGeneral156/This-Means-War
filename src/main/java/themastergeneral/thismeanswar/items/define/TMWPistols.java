@@ -46,4 +46,14 @@ public class TMWPistols
 													Constants.m17viperDamage, 
 													Constants.m17viperSpeed, 
 													Constants.m17viperSpread);
+	
+	public static AbstractGunItem mauser_c98 = new 
+			AbstractGunItem(
+				Constants.c98viperFireRate, 
+				Constants.c98viperReloadTime, 
+				TMWItems.magazine_9mm_clip, 
+				TMWItems.round_9mm, 
+				Constants.c98viperDamage, 
+				Constants.c98viperSpeed, 
+				Constants.c98viperSpread);
 }
