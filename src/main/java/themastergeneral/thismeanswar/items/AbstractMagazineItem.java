@@ -10,24 +10,30 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
 import net.minecraftforge.api.distmarker.Dist;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.TMWTags;
 
 public class AbstractMagazineItem extends AbstractModItem {
 
 	private int maxAmmo; 
 	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
+	private TagKey<Item> compatMags;
 	private int capacityUpgrades;
 	public int maxCapacityUpgrades = Constants.maxMagUpgrades;
 	
@@ -37,6 +43,15 @@ public class AbstractMagazineItem extends AbstractModItem {
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
 		this.baseAmmoSize = maxAmmoSize;
+	}
+	
+	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize, TagKey<Item> compatMag) 
+	{
+		super(new Properties().stacksTo(1));
+		this.maxAmmo = maxAmmoSize;
+		this.bulletRequired = Ammo;
+		this.baseAmmoSize = maxAmmoSize;
+		this.compatMags = compatMag;
 	}
 	
 	@Override
@@ -109,10 +124,11 @@ public class AbstractMagazineItem extends AbstractModItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
+					ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
 						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-						if (itemstack1.getItem() == returnBulletItem())
+						if ((itemstack1.getItem()) == returnBulletItem() || (tagManager.getTag(this.returnBulletItem().getCompatBullet()).contains(itemstack1.getItem())))
 						{
 							slotID=i;
 							break;
@@ -272,5 +288,13 @@ public class AbstractMagazineItem extends AbstractModItem {
 	public AbstractBulletItem returnBulletItem()
 	{
 		return bulletRequired;
+	}
+	
+	public TagKey<Item> getCompatMag()
+	{
+		if (compatMags != null)
+			return compatMags;
+		else
+			return null;
 	}
 }

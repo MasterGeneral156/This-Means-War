@@ -49,28 +49,31 @@ public class TMWItems {
 	public static AbstractModItem bullet_tip_45 = new BasicItem();
 	
 	//Bullets & Shells
-	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm);
-	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot);
+	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm, TMWTags.rounds9mm);
+	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot, TMWTags.rounds12g);
 	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem();
-	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556);
-	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223);
-	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45);
+	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556, TMWTags.rounds556);
+	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, TMWTags.rounds223);
+	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, TMWTags.rounds45);
 	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
 	public static AbstractBulletItem energy_bolt = new AbstractBulletItem();
 	
 	//Magazines
-	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm);
-	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, Constants.magSizeLarge9mm);
+	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);
+	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, Constants.magSizeLarge9mm, TMWTags.mags9mm);
+	public static AbstractMagazineItem magazine_9mm_short = new AbstractMagazineItem(round_9mm, Constants.magSizeShort9mm, TMWTags.mags9mm);
+	public static AbstractMagazineItem magazine_9mm_drum = new AbstractMagazineItem(round_9mm, Constants.magSizeDrum9mm, TMWTags.mags9mm);
+	
 	public static AbstractMagazineItem magazine_9mm_clip = new AbstractMagazineItem(round_9mm, Constants.magSizeClips);
-	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, Constants.magSizeAR15);
+	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
 	public static AbstractMagazineItem magazine_556_clip = new AbstractMagazineItem(round_556, Constants.magSizeClips);
-	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15);
+	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
 	public static AbstractMagazineItem magazine_223_clip = new AbstractMagazineItem(round_223, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, Constants.magSize1911);
 	public static AbstractMagazineItem magazine_45_clip = new AbstractMagazineItem(round_45, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_12g_clip = new AbstractMagazineItem(round_12g, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_40mm_clip = new AbstractMagazineItem(round_40mm, Constants.magSizeClips);
-	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell);
+	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
 	public static AbstractMagazineItem magazine_g36 = new AbstractMagazineItem(round_556, Constants.magSizeG36);
 	
 	//Crafting items

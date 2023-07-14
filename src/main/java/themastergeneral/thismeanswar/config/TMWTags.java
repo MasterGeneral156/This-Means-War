@@ -29,10 +29,10 @@ public class TMWTags {
 	public static TagKey<Item> roundsexplosive = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/explosive"));
 	
 	//Magazine Tags
-	public static TagKey<Item> mags9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/9mm_magazines"));
-	public static TagKey<Item> mags12g = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/12g_magazines"));
-	public static TagKey<Item> mags45 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/45_magazines"));
-	public static TagKey<Item> mags223 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/223_magazines"));
-	public static TagKey<Item> mags556 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/556_magazines"));
-	public static TagKey<Item> magsEnergy = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/energy_magazines"));
+	public static TagKey<Item> mags9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/9mm_magazines"));
+	public static TagKey<Item> mags12g = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/12g_magazines"));
+	public static TagKey<Item> mags45 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/45_magazines"));
+	public static TagKey<Item> mags223 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/223_magazines"));
+	public static TagKey<Item> mags556 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/556_magazines"));
+	public static TagKey<Item> magsEnergy = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/energy_magazines"));
 }

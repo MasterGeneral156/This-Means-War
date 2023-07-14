@@ -28,6 +28,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
@@ -44,7 +47,7 @@ public class AbstractGunItem extends AbstractModItem {
 
 	public int shotTime;
 	protected int reloadTime;
-	protected Item magazine;
+	protected AbstractMagazineItem magazine;
 	protected AbstractBulletItem bullet;
 	protected float damage;
 	protected int baseAmmoSize;
@@ -57,6 +60,8 @@ public class AbstractGunItem extends AbstractModItem {
 	private int bulletUpgrade = 0;
 	
 	protected double bayonetUpgradeLvl = 0.0;
+	
+	protected int counter = 0;
 	
 	/**
 	 * Use to create a firearm that's magazine fed.
@@ -211,6 +216,7 @@ public class AbstractGunItem extends AbstractModItem {
 	@Override
 	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) 
 	{
+		counter++;
 	   if (!stack.hasTag())
 	   {
 			CompoundTag compoundnbt = new CompoundTag();
@@ -223,6 +229,11 @@ public class AbstractGunItem extends AbstractModItem {
 			compoundnbt.putDouble("bayonetUpgradeLvl", bayonetUpgradeLvl);
 			compoundnbt.putInt("bulletUpgrade", bulletUpgrade);
 			stack.setTag(compoundnbt);
+	   }
+	   if (counter == 20)
+	   {
+		   TMWMain.LOGGER.info(hasMag(stack));
+		   counter = 0;
 	   }
 	}
 	
@@ -489,99 +500,14 @@ public class AbstractGunItem extends AbstractModItem {
 				//logic for external mag guns
 				if (getMagType(mag) == Constants.external_mag)
 				{
-					if (hasMag(mag) == 0)
-					{
-						int slotID = 0;
-						for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
-						{
-				               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-				               if (itemstack1.hasTag())
-				               {
-				            	   if (itemstack1.getItem() == magazine)
-				            	   {
-					            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
-			            			   {
-					            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
-					            		   {
-						            		   slotID = i;
-						            		   break;
-					            		   }
-			            			   }
-				            	   }
-				               }
-				        }
-						if (slotID > 0)
-						{
-							ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
-							CompoundTag nbt = itemstack2.getTag();
-							int magAmmo = nbt.getInt("currentAmmo");
-							int magMaxAmmo = nbt.getInt("maxAmmo");
-							int magCapUpgrades = nbt.getInt("capUpgrades");
-							setGunAmmo(mag, magAmmo);
-							setGunMaxAmmo(mag, magMaxAmmo);
-							setGunMagLoad(mag, 1);
-							setGunROF(mag, getRateOfFire(mag));
-							setGunCapUpgrades(mag, magCapUpgrades);
-							
-							playerIn.getInventory().removeItem(slotID, 1);
-							playerIn.getCooldowns().addCooldown(this, reloadTime);
-							playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_loaded"), true);
-							return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
-						}
-					}
-					if (hasMag(mag) == 1)
-					{
-						int gunAmmo = getCurrentAmmo(mag);
-						int urmaxAmmo = getMaxAmmo(mag);
-						int capUpgrades = getCapUpgrades(mag);
-						
-						setGunAmmo(mag, 0);
-						setGunMaxAmmo(mag, 0);
-						setGunMagLoad(mag, 0);
-						setGunROF(mag, getRateOfFire(mag));
-						setGunCapUpgrades(mag, 0);
-						
-						ItemStack newmag = new ItemStack(magazine);
-						
-						CompoundTag nbt = new CompoundTag();
-							nbt.putInt("currentAmmo", gunAmmo);
-							nbt.putInt("maxAmmo", urmaxAmmo);
-							nbt.putInt("capUpgrades", capUpgrades);
-						newmag.setTag(nbt);
-						
-						playerIn.getInventory().add(newmag);
-						
-						playerIn.getCooldowns().addCooldown(this, reloadTime);
-						playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_unloaded"), true);
-						return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
-					}
+					handleMagazineInsertion(mag, playerIn);
+					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 				//logic for internal mag guns
 				if (getMagType(mag) == Constants.internal_mag)
 				{
-					//Add ammo into internal fed firearms
-					if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
-					{
-						int slotID = -1;
-						for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
-						{
-							ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-							if (itemstack1.getItem() == bullet)
-							{
-								slotID=i;
-								break;
-							}
-						}
-						if (slotID >= 0)
-						{
-							ItemStack ibullet = playerIn.getInventory().getItem(slotID);
-							addAmmoToMag(mag);
-							ibullet.shrink(1);
-							playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
-							playerIn.getCooldowns().addCooldown(this, 8);
-							playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
-						}
-					}
+					handleFillInternalMag(mag, playerIn);
+					return InteractionResultHolder.sidedSuccess(mag, worldIn.isClientSide());
 				}
 			}
 			else
@@ -830,5 +756,103 @@ public class AbstractGunItem extends AbstractModItem {
 			return TMWSounds.shot_thunderclaw;
 		else
 			return SoundEvents.GENERIC_EXPLODE;
+	}
+	
+	protected void handleFillInternalMag(ItemStack mag, Player playerIn)
+	{
+		
+		//Add ammo into internal fed firearms
+		if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
+		{
+			int slotID = -1;
+			ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+			for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+			{
+				ItemStack itemstack1 = playerIn.getInventory().getItem(i);
+				if ((itemstack1.getItem() == bullet) || (tagManager.getTag(bullet.getCompatBullet()).contains(itemstack1.getItem())))
+				{
+					slotID=i;
+					break;
+				}
+			}
+			if (slotID >= 0)
+			{
+				ItemStack ibullet = playerIn.getInventory().getItem(slotID);
+				addAmmoToMag(mag);
+				ibullet.shrink(1);
+				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
+				playerIn.getCooldowns().addCooldown(this, 8);
+				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
+			}
+		}
+	}
+	
+	protected void handleMagazineInsertion(ItemStack mag, Player playerIn)
+	{
+		if (hasMag(mag) == 0)
+		{
+			int slotID = 0;
+			for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
+			{
+	               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
+	               ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+	               if (itemstack1.hasTag())
+	               {
+	            	   if ((itemstack1.getItem() == magazine) || (tagManager.getTag(magazine.getCompatMag()).contains(itemstack1.getItem())))
+	            	   {
+		            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
+            			   {
+		            		   if (itemstack1.getTag().getInt("currentAmmo") > 0)
+		            		   {
+			            		   slotID = i;
+			            		   break;
+		            		   }
+            			   }
+	            	   }
+	               }
+	        }
+			if (slotID > 0)
+			{
+				ItemStack itemstack2 = playerIn.getInventory().getItem(slotID);
+				CompoundTag nbt = itemstack2.getTag();
+				int magAmmo = nbt.getInt("currentAmmo");
+				int magMaxAmmo = nbt.getInt("maxAmmo");
+				int magCapUpgrades = nbt.getInt("capUpgrades");
+				setGunAmmo(mag, magAmmo);
+				setGunMaxAmmo(mag, magMaxAmmo);
+				setGunMagLoad(mag, 1);
+				setGunROF(mag, getRateOfFire(mag));
+				setGunCapUpgrades(mag, magCapUpgrades);
+				
+				playerIn.getInventory().removeItem(slotID, 1);
+				playerIn.getCooldowns().addCooldown(this, reloadTime);
+				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_loaded"), true);
+			}
+		}
+		else if (hasMag(mag) == 1)
+		{
+			int gunAmmo = getCurrentAmmo(mag);
+			int urmaxAmmo = getMaxAmmo(mag);
+			int capUpgrades = getCapUpgrades(mag);
+			
+			setGunAmmo(mag, 0);
+			setGunMaxAmmo(mag, 0);
+			setGunMagLoad(mag, 0);
+			setGunROF(mag, getRateOfFire(mag));
+			setGunCapUpgrades(mag, 0);
+			
+			ItemStack newmag = new ItemStack(magazine);
+			
+			CompoundTag nbt = new CompoundTag();
+			nbt.putInt("currentAmmo", gunAmmo);
+			nbt.putInt("maxAmmo", urmaxAmmo);
+			nbt.putInt("capUpgrades", capUpgrades);
+			newmag.setTag(nbt);
+			
+			playerIn.getInventory().add(newmag);
+			
+			playerIn.getCooldowns().addCooldown(this, reloadTime);
+			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_unloaded"), true);
+		}
 	}
 }

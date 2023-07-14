@@ -1,20 +1,34 @@
 package themastergeneral.thismeanswar.items;
 
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWMain;
 
 public class AbstractBulletItem extends AbstractModItem {
 
 	protected AbstractModItem bulletCasing;
 	protected AbstractModItem bulletTip;
+	protected TagKey<Item> compatBullet;
 	//No ammo stack limit...
 	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip) 
 	{
 		super(new Properties());
-		bulletCasing = casing;
-		bulletTip = tip;
+		this.bulletCasing = casing;
+		this.bulletTip = tip;
+		
+	}
+	
+	//No ammo stack limit, but has tag for bullet compatibily.
+	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip, TagKey<Item> compatBullet) 
+	{
+		super(new Properties());
+		this.bulletCasing = casing;
+		this.bulletTip = tip;
+		this.compatBullet = compatBullet;
 		
 	}
 	
@@ -24,12 +38,28 @@ public class AbstractBulletItem extends AbstractModItem {
 		
 	}
 	
+	public AbstractBulletItem(TagKey<Item> compatBullet) 
+	{
+		super(new Properties());
+		this.compatBullet = compatBullet;
+		
+	}
+	
 	//Ammo stack limit...
 	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip, int maxSize) 
 	{
 		super(new Properties().stacksTo(maxSize));
-		bulletCasing = casing;
-		bulletTip = tip;
+		this.bulletCasing = casing;
+		this.bulletTip = tip;
+	}
+	
+	//Ammo stack limit with bullet share tag
+	public AbstractBulletItem(AbstractModItem casing, AbstractModItem tip, int maxSize, TagKey<Item> compatBullet) 
+	{
+		super(new Properties().stacksTo(maxSize));
+		this.bulletCasing = casing;
+		this.bulletTip = tip;
+		this.compatBullet = compatBullet;
 	}
 	
 	@Override
@@ -46,6 +76,14 @@ public class AbstractBulletItem extends AbstractModItem {
 	public Item returnTipItem()
 	{
 		return bulletTip;
+	}
+	
+	public TagKey<Item> getCompatBullet()
+	{
+		if (compatBullet != null)
+			return compatBullet;
+		else
+			return null;
 	}
 
 }
