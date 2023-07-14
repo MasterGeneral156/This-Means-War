@@ -1,10 +1,10 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:plate_lead"
+			"item": "thismeanswar:plate_steel"
 		},
 		"title": "Casting and Plates",
-		"description": "Craft a lead plate to create casts for bullet creation."
+		"description": "Craft a steel plate to create casts for bullet creation."
 	},
 	"parent": "thismeanswar:tmw/hammer_iron",
 	"criteria": {
@@ -14,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:plate_lead"
+							"thismeanswar:plate_steel"
 						]
 					}
 				]
