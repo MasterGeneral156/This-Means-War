@@ -10,16 +10,14 @@ import themastergeneral.thismeanswar.entity.SmokeThrowableEntity;
 public class TMWEvents {
 
 	@SubscribeEvent
-    public void onLevelTick(TickEvent.LevelTickEvent event) {
-        if (event.phase == TickEvent.Phase.START) 
-        {
-        	for (Entity entity : event.level.getEntitiesOfClass(SmokeThrowableEntity.class, AABB.of(BoundingBox.infinite()))) 
-        	{
-                if (entity instanceof SmokeThrowableEntity) 
-                {
-                	SmokeThrowableEntity yourEntity = (SmokeThrowableEntity) entity;
-                    yourEntity.tick();
-                }
+    public void onLevelTick(TickEvent.LevelTickEvent event) 
+	{
+        for (Entity entity : event.level.getEntitiesOfClass(SmokeThrowableEntity.class, AABB.of(BoundingBox.infinite()))) 
+    	{
+            if (entity instanceof SmokeThrowableEntity) 
+            {
+            	SmokeThrowableEntity yourEntity = (SmokeThrowableEntity) entity;
+                yourEntity.tick();
             }
         }
     }

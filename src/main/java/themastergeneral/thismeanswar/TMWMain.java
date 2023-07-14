@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -50,7 +51,7 @@ public class TMWMain
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modBus.addListener(this::setup);
         modBus.addListener(this::fillTab);
-        //modBus.addListener(new TMWEvents());
+        modBus.addListener(this::clientSetup);
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
@@ -148,22 +149,31 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWItems.magazine_9mm_clip);
 			ev.accept(TMWItems.magazine_9mm_large);
+			ev.accept(TMWItems.magazine_9mm_short);
+			ev.accept(TMWItems.magazine_9mm_drum);
+			
 			ev.accept(TMWItems.magazine_m1911);
 			ev.accept(TMWItems.magazine_45_clip);
+			
 			ev.accept(TMWItems.magazine_g36);
+			
 			ev.accept(TMWItems.magazine_223);
 			ev.accept(TMWItems.magazine_223_clip);
+			
 			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWItems.magazine_556_clip);
+			
 			ev.accept(TMWItems.magazine_12g_clip);
+			
 			ev.accept(TMWItems.magazine_40mm_clip);
 			ev.accept(TMWItems.energy_cell);
+			
 			ev.accept(TMWItems.base_upgrade);
+			
 			ev.accept(TMWItems.mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	
-			
 			ev.accept(TMWItems.ammo_box);
 			ev.accept(TMWItems.ammo_box_medium);
 			ev.accept(TMWItems.ammo_box_large);

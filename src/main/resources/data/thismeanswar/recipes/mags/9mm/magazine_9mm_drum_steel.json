@@ -1,0 +1,19 @@
+{
+  "type": "thismeanswar:smithing_table"
+  "template": 
+  {
+    "item": "thismeanswar:magazine_9mm_large", "data": 32767
+  },
+  "base": 
+  {
+    "item": "thismeanswar:magazine_9mm_large", "data": 32767
+  },
+  "addition": 
+  {
+    "item": "thismeanswar:hammer_steel", "data": 32767
+  },
+  "result": 
+  {
+    "item": "thismeanswar:magazine_9mm_drum"
+  }
+}

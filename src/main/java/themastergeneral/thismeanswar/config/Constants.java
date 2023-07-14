@@ -36,11 +36,20 @@ public class Constants
 	//Magazine Sizes
 	public static int magSize9mm = 15;
 	public static int magSizeLarge9mm = 30;
+	public static int magSizeShort9mm = 8;
+	public static int magSizeDrum9mm = 64;
+	
 	public static int magSizeAR15 = 30;
+	public static int magSizeLargeAR15 = 60;
+	public static int magSizeShortAR15 = 15;
+	public static int magSizeDrumAR15 = 100;
+	
 	public static int magSize1911 = 7;
 	public static int magSizeClips = 5;
 	public static int magSizeEnergyCell = 19;
 	public static int magSizeG36 = 25;
+	public static int magSizeShortG36 = 10;
+	public static int magSizeLargeG36 = 52;
 	
 	//Mag Upgrade
 	public static int maxMagUpgrades = 5;
@@ -56,19 +65,19 @@ public class Constants
 	public static float baseDamageEnergy = 8.9124F;
 	
 	//Base Round Speed
-	public static float baseSpeed9mm = 7.81243F;
-	public static float baseSpeed45 = 11.214F;
-	public static float baseSpeed556 = 11.454F;
-	public static float baseSpeed223 = 8.241F;
-	public static float baseSpeed12g = 52.81243F;
-	public static float baseSpeedEnergy = 75.34F;
+	public static float baseSpeed9mm = 14.81243F;
+	public static float baseSpeed45 = 22.214F;
+	public static float baseSpeed556 = 22.454F;
+	public static float baseSpeed223 = 16.241F;
+	public static float baseSpeed12g = 104.81243F;
+	public static float baseSpeedEnergy = 160.34F;
 	
 	//Base Round Spread
-	public static float baseSpread9mm = 1.011F;
-	public static float baseSpread45 = 1.023F;
-	public static float baseSpread556 = 1.655F;
-	public static float baseSpread223 = 1.414F;
-	public static float baseSpread12g = 1.07F;
+	public static float baseSpread9mm = 2.011F;
+	public static float baseSpread45 = 2.023F;
+	public static float baseSpread556 = 2.655F;
+	public static float baseSpread223 = 2.414F;
+	public static float baseSpread12g = 2.07F;
 	public static float baseSpreadEnergy = 0.71F;
 
 	//TMG Carbine
