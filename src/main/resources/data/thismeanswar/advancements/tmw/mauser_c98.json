@@ -1,0 +1,24 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:mauser_c98"
+		},
+		"title": "Cat and Mauser",
+		"description": "Obtain a Mauser C98"
+	},
+	"parent": "thismeanswar:tmw/glock_26",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:mauser_c98"
+						]
+					}
+				]
+			}
+		}
+	}
+}
