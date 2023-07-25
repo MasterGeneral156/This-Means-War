@@ -25,5 +25,14 @@
 			}
 		],
 		"subtitle": "thismeanswar.subtitle.shot_thunderclaw"
+	},
+	"use_foundary": {
+		"sounds": [
+			{
+				"name": "thismeanswar:use_foundary",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.use_foundary"
 	}
 }
