@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-	  "name": "thismeanswar:smithing_table",
+	  "name": "thismeanswar:bullet_foundary",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "thismeanswar:smithing_table"
+          "name": "thismeanswar:bullet_foundary"
         }
       ]
     }

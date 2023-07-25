@@ -1,5 +1,5 @@
 {
-  "type": "thismeanswar:smithing_table",
+  "type": "thismeanswar:bullet_foundary",
   "template": {
     "item": "thismeanswar:casing_cast_223", "data": 32767
   },
