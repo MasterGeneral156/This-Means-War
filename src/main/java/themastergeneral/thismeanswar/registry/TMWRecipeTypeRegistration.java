@@ -15,7 +15,7 @@ public class TMWRecipeTypeRegistration
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, TMWMain.MODID);
 	
 	//public static final RegistryObject<CrusherRecipe.Serializer> CRUSHER_SERIALIZER = RECIPE_SERIALIZER.register("crusher", CrusherRecipe.Serializer::new);
-	public static final RegistryObject<RecipeSerializer<?>> SMITHING_TABLE = RECIPE_SERIALIZER.register("smithing_table", () -> new BulletRecipe.Serializer());
-	public static final RegistryObject<RecipeType> SMITHING_TYPE = RECIPE_TYPES.register("smithing_table", () -> new BulletRecipeType());
+	public static final RegistryObject<RecipeSerializer<?>> BULLET_FOUNDARY = RECIPE_SERIALIZER.register("bullet_foundary", () -> new BulletRecipe.Serializer());
+	public static final RegistryObject<RecipeType> FOUNDARY_TYPE = RECIPE_TYPES.register("bullet_foundary", () -> new BulletRecipeType());
 	
 }

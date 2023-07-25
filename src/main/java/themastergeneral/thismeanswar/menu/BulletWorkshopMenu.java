@@ -48,7 +48,7 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 	public BulletWorkshopMenu(int p_40248_, Inventory p_40249_, ContainerLevelAccess p_40250_) {
 		super(MenuType.SMITHING, p_40248_, p_40249_, p_40250_);
 		this.level = p_40249_.player.level();
-		this.recipes = this.level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.SMITHING_TYPE.get());
+		this.recipes = this.level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get());
 	}
 
 	@Override
@@ -93,12 +93,12 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 	   
 	@Override
 	protected boolean isValidBlock(BlockState state) {
-		return state.is(TMWBlocks.smithing_table);
+		return state.is(TMWBlocks.bullet_foundary);
 	}
 
 	@Override
 	public void createResult() {
-		List<BulletRecipe> list = this.level.getRecipeManager().getRecipesFor(TMWRecipeTypeRegistration.SMITHING_TYPE.get(), this.inputSlots, this.level);
+		List<BulletRecipe> list = this.level.getRecipeManager().getRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get(), this.inputSlots, this.level);
 	      if (list.isEmpty()) {
 	         this.resultSlots.setItem(0, ItemStack.EMPTY);
 	      } else {

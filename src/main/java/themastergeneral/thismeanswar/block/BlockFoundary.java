@@ -17,10 +17,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import themastergeneral.thismeanswar.menu.BulletWorkshopMenu;
 
-public class BlockSmithing extends CraftingTableBlock {
+public class BlockFoundary extends CraftingTableBlock {
 	   private static final Component CONTAINER_TITLE = Component.translatable("thismeanswar.container.smithing_table");
 
-	   public BlockSmithing() {
+	   public BlockFoundary() {
 	      super(BlockBehaviour.Properties.of()
 					.sound(SoundType.WOOD)
 					.noOcclusion()

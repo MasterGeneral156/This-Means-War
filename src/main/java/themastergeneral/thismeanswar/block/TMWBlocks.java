@@ -21,5 +21,5 @@ public class TMWBlocks {
 	
 	//public static BlockCrusher crusher = new BlockCrusher();
 	
-	public static BlockSmithing smithing_table = new BlockSmithing();
+	public static BlockFoundary bullet_foundary = new BlockFoundary();
 }

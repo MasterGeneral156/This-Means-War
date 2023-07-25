@@ -179,7 +179,7 @@ public class TMWMain
 			ev.accept(TMWItems.ammo_box_large);
 			ev.accept(TMWItems.medic_box);
 			//ev.accept(TMWItems.crusher);
-			ev.accept(TMWItems.smithing_table);
+			ev.accept(TMWItems.bullet_foundary);
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);

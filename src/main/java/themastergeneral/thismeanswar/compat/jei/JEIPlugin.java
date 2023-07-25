@@ -36,11 +36,11 @@ public class JEIPlugin implements IModPlugin {
   public void registerRecipes(@Nonnull final IRecipeRegistration registration) 
 	{
 		TMWMain.LOGGER.info("Adding recipes to JEI!!");
-		registration.addRecipes(RecipeTypes.BULLET_FOUNDARY, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.SMITHING_TYPE.get()));
+		registration.addRecipes(RecipeTypes.BULLET_FOUNDARY, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get()));
 	}
 	
 	@Override
 	public void registerRecipeCatalysts(@Nonnull final IRecipeCatalystRegistration registration) {
-		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.smithing_table), RecipeTypes.BULLET_FOUNDARY);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.bullet_foundary), RecipeTypes.BULLET_FOUNDARY);
 	}
 }

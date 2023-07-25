@@ -70,7 +70,7 @@ public class BulletRecipe implements SmithingRecipe {
    }
 
    public RecipeSerializer<?> getSerializer() {
-      return TMWRecipeTypeRegistration.SMITHING_TABLE.get();
+      return TMWRecipeTypeRegistration.BULLET_FOUNDARY.get();
    }
 
    public boolean isIncomplete() {
@@ -80,7 +80,7 @@ public class BulletRecipe implements SmithingRecipe {
    @Override
    public RecipeType<BulletRecipe> getType() {
        // Return an instance of your recipe type
-       return TMWRecipeTypeRegistration.SMITHING_TYPE.get();
+       return TMWRecipeTypeRegistration.FOUNDARY_TYPE.get();
    }
    
    public Ingredient returnTemplate()

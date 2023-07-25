@@ -25,7 +25,7 @@ public class BulletFoundaryCategory implements IRecipeCategory<BulletRecipe> {
 	
 	public BulletFoundaryCategory(@Nonnull final IGuiHelper guiHelper) {
 	    background = guiHelper.createDrawable(new ResourceLocation("jei", "textures/jei/gui/gui_vanilla.png"), 0, 168, 108, 18);
-	    icon = guiHelper.createDrawableItemStack(new ItemStack(TMWBlocks.smithing_table));
+	    icon = guiHelper.createDrawableItemStack(new ItemStack(TMWBlocks.bullet_foundary));
 	  }
 	@Override
 	public RecipeType<BulletRecipe> getRecipeType() {
