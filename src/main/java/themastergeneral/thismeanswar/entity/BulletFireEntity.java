@@ -21,8 +21,8 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult.Type;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.items.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
 public class BulletFireEntity extends ThrowableItemProjectile {
 

@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.items;
+package themastergeneral.thismeanswar.items.interfaces;
 
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;

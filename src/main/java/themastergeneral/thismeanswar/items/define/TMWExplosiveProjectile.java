@@ -2,9 +2,9 @@ package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.items.AbstractGunItem;
 import themastergeneral.thismeanswar.items.RocketGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
 
 public class TMWExplosiveProjectile {
 	

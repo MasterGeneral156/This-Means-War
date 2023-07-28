@@ -16,8 +16,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.items.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
 public class BulletTracerEntity extends ThrowableItemProjectile {
 

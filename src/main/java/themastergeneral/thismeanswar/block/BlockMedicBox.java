@@ -29,8 +29,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
-import themastergeneral.thismeanswar.items.AbstractHealingItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.interfaces.AbstractHealingItem;
 
 public class BlockMedicBox extends GlassBlock implements EntityBlock 
 {

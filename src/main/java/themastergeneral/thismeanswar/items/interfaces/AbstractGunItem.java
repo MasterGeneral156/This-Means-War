@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.items;
+package themastergeneral.thismeanswar.items.interfaces;
 
 import java.text.NumberFormat;
 import java.util.List;

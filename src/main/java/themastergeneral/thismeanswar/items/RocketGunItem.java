@@ -8,6 +8,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import themastergeneral.thismeanswar.entity.RocketBaseEntity;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 
 public class RocketGunItem extends AbstractGunItem {
 

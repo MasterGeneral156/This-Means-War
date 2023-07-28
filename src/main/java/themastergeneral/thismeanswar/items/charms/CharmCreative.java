@@ -17,9 +17,9 @@ import themastergeneral.thismeanswar.block.BlockMedicBox;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.items.AbstractGunItem;
-import themastergeneral.thismeanswar.items.AbstractMagazineItem;
 import themastergeneral.thismeanswar.items.BasicItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 
 public class CharmCreative extends BasicItem 
 {

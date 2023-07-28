@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.items;
+package themastergeneral.thismeanswar.items.interfaces;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.items.TMWItems;
 
 public class AbstractBlockItem extends BlockItem {
 

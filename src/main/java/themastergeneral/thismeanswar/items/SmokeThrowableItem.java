@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 import themastergeneral.thismeanswar.entity.SmokeThrowableEntity;
+import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 
 public class SmokeThrowableItem extends AbstractModItem {
 

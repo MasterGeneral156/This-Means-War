@@ -15,6 +15,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 
 public class BasicItem extends AbstractModItem {
 

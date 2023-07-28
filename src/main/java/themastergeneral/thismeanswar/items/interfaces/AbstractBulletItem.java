@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.items;
+package themastergeneral.thismeanswar.items.interfaces;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;

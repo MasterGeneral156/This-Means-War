@@ -34,9 +34,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
-import themastergeneral.thismeanswar.items.AbstractBulletItem;
-import themastergeneral.thismeanswar.items.AbstractMagazineItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 
 public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 

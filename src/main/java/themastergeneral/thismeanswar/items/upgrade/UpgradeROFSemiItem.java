@@ -21,8 +21,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
-import themastergeneral.thismeanswar.items.AbstractGunItem;
 import themastergeneral.thismeanswar.items.BasicItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
 
 public class UpgradeROFSemiItem extends BasicItem {
 

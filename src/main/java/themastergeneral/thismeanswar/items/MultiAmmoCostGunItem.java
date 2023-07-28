@@ -1,5 +1,9 @@
 package themastergeneral.thismeanswar.items;
 
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
+import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
+
 public class MultiAmmoCostGunItem extends AbstractGunItem 
 {
 
