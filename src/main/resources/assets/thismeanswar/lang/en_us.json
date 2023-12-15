@@ -8,15 +8,21 @@
 	"item.thismeanswar.magazine_9mm": "9mm Magazine",
 	"item.thismeanswar.magazine_9mm_large": "9mm Stick Magazine",
 	"item.thismeanswar.magazine_9mm_clip": "9mm Clip",
+	"item.thismeanswar.magazine_9mm_drum": "9mm Drum Magazine",
+	"item.thismeanswar.magazine_9mm_short": "9mm Short Magazine",
+	
 	"item.thismeanswar.magazine_556": "M4/AR Magazine",
-	"item.thismeanswar.magazine_223": "M4/AR Magazine",
 	"item.thismeanswar.magazine_556_clip": "5.56 Clip",
+	
+	"item.thismeanswar.magazine_223": "M4/AR Magazine",
 	"item.thismeanswar.magazine_223_clip": ".223 Clip",
+	
 	"item.thismeanswar.magazine_m1911": "M1911 Magazine",
+	"item.thismeanswar.magazine_g36": "G36 Magazine",
+	
 	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
 	"item.thismeanswar.magazine_12g_clip": "12G Buckshot Clip",
 	"item.thismeanswar.magazine_40mm_clip": "40mm HE Clip",
-	"item.thismeanswar.magazine_g36": "G36 Magazine",
 	"item.thismeanswar.energy_cell": "Energy Cell",
 	
 	"item.thismeanswar.beretta_92_fs": "Beretta 92 FS",
@@ -43,7 +49,7 @@
 	"item.thismeanswar.mosin_nagant": "Mosin Nagant",
 	"item.thismeanswar.g36": "G36",
 	"item.thismeanswar.mauser_c98": "Mauser C98",
-	"item.thismeanswar.vespera": "Mauser C98",
+	"item.thismeanswar.vespera": "Vespera 38",
 	
 	"item.thismeanswar.round_12g": "12G Buckshot",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
