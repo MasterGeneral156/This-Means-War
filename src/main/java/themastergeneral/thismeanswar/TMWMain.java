@@ -61,8 +61,8 @@ public class TMWMain
         TMWEntityRegistry.ENTITES.register(modBus);
         TMWBlockRegistry.BLOCKS.register(modBus);
         TMWBlockEntityRegistry.TILES.register(modBus);
-        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
-        TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
+        //TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
+        //TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
         TMWTabs.CREATIVE_MODE_TABS.register(modBus);
         TMWSoundRegistry.SOUNDS.register(modBus);
     }
