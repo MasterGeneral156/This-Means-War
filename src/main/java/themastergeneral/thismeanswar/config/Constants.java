@@ -57,18 +57,20 @@ public class Constants
 	public static double magDamageDecrease = 0.03;
 	
 	//Base Round Damage
-	public static float baseDamage9mm = 3.4612F;
-	public static float baseDamage45 = 6.862F;
-	public static float baseDamage556 = 7.2348F;
-	public static float baseDamage223 = 4.015F;
-	public static float baseDamage12g = 5.167F;
-	public static float baseDamageEnergy = 8.9124F;
+	public static float baseDamage9mm = 3.8712F;		//updated 12/15/2023
+	public static float baseDamage45 = 4.432F;			//updated 12/15/2023
+	public static float baseDamage38spec = 4.944F;		//updated 12/15/2023
+	public static float baseDamage223 = 6.432F;			//updated 12/15/2023
+	public static float baseDamage556 = 8.3441F;		//updated 12/15/2023
+	public static float baseDamage12g = 9.8981F;		//updated 12/15/2023
+	public static float baseDamageEnergy = 14.5124F;	//updated 12/15/2013
 	
 	//Base Round Speed
 	public static float baseSpeed9mm = 14.81243F;
 	public static float baseSpeed45 = 22.214F;
-	public static float baseSpeed556 = 22.454F;
-	public static float baseSpeed223 = 16.241F;
+	public static float baseSpeed38spec = 38.324F;
+	public static float baseSpeed223 = 45.241F;
+	public static float baseSpeed556 = 66.454F;
 	public static float baseSpeed12g = 104.81243F;
 	public static float baseSpeedEnergy = 160.34F;
 	
@@ -78,6 +80,7 @@ public class Constants
 	public static float baseSpread556 = 2.655F;
 	public static float baseSpread223 = 2.414F;
 	public static float baseSpread12g = 2.07F;
+	public static float baseSpread38spec = 5.41F;
 	public static float baseSpreadEnergy = 0.71F;
 
 	//TMG Carbine
@@ -213,6 +216,13 @@ public class Constants
 	public static float doubleBarrelDamage = 11.479F + baseDamage12g;
 	public static float doubleBarrelSpeed = 56.36843F + baseSpeed12g;
 	public static float doubleBarrelSpread = 1.5F + baseSpread12g;
+	
+	//Vespera
+	public static int vesperaFireRate = cooldownSemiAuto;
+	public static int vesperaReloadTime = 5;
+	public static float vesperaDamage = 11.479F + baseDamage38spec;
+	public static float vesperaSpeed = 14.36843F + baseSpeed38spec;
+	public static float vesperaSpread = (float) (baseSpread38spec + (baseSpread38spec*1.25));
 	
 	//Throwables
 	public static float grenadeDamage = 1.75F;

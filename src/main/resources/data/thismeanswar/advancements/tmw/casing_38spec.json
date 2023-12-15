@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:casing_38spec"
+		},
+		"title": "38 Special Casing",
+		"description": "Craft a 38 Special Casing",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_tip_38spec",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:casing_38spec"
+						]
+					}
+				]
+			}
+		}
+	}
+}

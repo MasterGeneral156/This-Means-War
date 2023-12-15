@@ -90,16 +90,17 @@ public class TMWMain
     	
     	if (ev.getTab() == TMWTabs.GUN_TAB.get())
     	{
-    		ev.accept(TMWCarbines.tmg_carbine);
-    		ev.accept(TMWCarbines.uzi);
-    		ev.accept(TMWCarbines.ump9);
-    		ev.accept(TMWCarbines.g36);
-    		
     		ev.accept(TMWPistols.beretta_92_fs);
 			ev.accept(TMWPistols.glock_26);
 			ev.accept(TMWPistols.m1911);
 			ev.accept(TMWPistols.m17_viper);
 			ev.accept(TMWPistols.mauser_c98);
+			ev.accept(TMWPistols.vespera);
+    		
+    		ev.accept(TMWCarbines.tmg_carbine);
+    		ev.accept(TMWCarbines.uzi);
+    		ev.accept(TMWCarbines.ump9);
+    		ev.accept(TMWCarbines.g36);
 			
 			ev.accept(TMWRifles.springfield_saint_223);
 			ev.accept(TMWRifles.springfield_saint_556);
@@ -142,6 +143,7 @@ public class TMWMain
 			ev.accept(TMWItems.round_556);
 			ev.accept(TMWItems.round_45);
 			ev.accept(TMWItems.round_9mm);
+			ev.accept(TMWItems.round_38spec);
 			ev.accept(TMWItems.rocket_bazooka);
 			ev.accept(TMWItems.round_40mm);
 			ev.accept(TMWItems.energy_bolt);
@@ -203,24 +205,28 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_cast_556);
 			ev.accept(TMWItems.bullet_cast_9mm);
 			ev.accept(TMWItems.bullet_cast_45);
+			ev.accept(TMWItems.bullet_cast_38spec);
 			ev.accept(TMWItems.bullet_cast_12g);
 			
 			ev.accept(TMWItems.bullet_tip_223);
 			ev.accept(TMWItems.bullet_tip_556);
 			ev.accept(TMWItems.bullet_tip_9mm);
 			ev.accept(TMWItems.bullet_tip_45);
+			ev.accept(TMWItems.bullet_tip_38spec);
 			ev.accept(TMWItems.bullet_tip_buckshot);
 			
 			ev.accept(TMWItems.casing_cast_223);
 			ev.accept(TMWItems.casing_cast_556);
 			ev.accept(TMWItems.casing_cast_9mm);
 			ev.accept(TMWItems.casing_cast_45);
+			ev.accept(TMWItems.casing_cast_38spec);
 			ev.accept(TMWItems.casing_cast_12g);
 			
 			ev.accept(TMWItems.casing_223);
 			ev.accept(TMWItems.casing_556);
 			ev.accept(TMWItems.casing_9mm);
 			ev.accept(TMWItems.casing_45);
+			ev.accept(TMWItems.casing_38spec);
 			ev.accept(TMWItems.casing_12g);
 			
 			ev.accept(TMWItems.primer_pistol);

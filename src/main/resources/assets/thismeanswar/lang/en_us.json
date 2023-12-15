@@ -43,6 +43,7 @@
 	"item.thismeanswar.mosin_nagant": "Mosin Nagant",
 	"item.thismeanswar.g36": "G36",
 	"item.thismeanswar.mauser_c98": "Mauser C98",
+	"item.thismeanswar.vespera": "Mauser C98",
 	
 	"item.thismeanswar.round_12g": "12G Buckshot",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
@@ -51,6 +52,7 @@
 	"item.thismeanswar.round_223": ".223 Round",
 	"item.thismeanswar.round_45": ".45ACP Round",
 	"item.thismeanswar.round_40mm": "40mm HE Round",
+	"item.thismeanswar.round_38spec": "38 Special",
 	"item.thismeanswar.energy_bolt": "Energy Bolt",
 	
 	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
@@ -69,12 +71,14 @@
 	"item.thismeanswar.bullet_cast_556": "Bullet Cast (5.56)",
 	"item.thismeanswar.bullet_cast_223": "Bullet Cast (.223)",
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
+	"item.thismeanswar.bullet_cast_38spec": "Bullet Cast (38 Special)",
 	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
 	
 	"item.thismeanswar.casing_cast_9mm": "Casing Cast (9mm)",
 	"item.thismeanswar.casing_cast_556": "Casing Cast (5.56)",
 	"item.thismeanswar.casing_cast_223": "Casing Cast (.223)",
 	"item.thismeanswar.casing_cast_45": "Casing Cast (.45ACP)",
+	"item.thismeanswar.casing_cast_38spec": "Casing Cast (38 Special)",
 	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Buckshot)",
 	
 	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
@@ -123,6 +127,7 @@
 	"item.thismeanswar.casing_223": ".223 Casing",
 	"item.thismeanswar.casing_556": "5.56 Casing",
 	"item.thismeanswar.casing_12g": "12g Casing",
+	"item.thismeanswar.casing_38spec": "38 Special Casing",
 	"item.thismeanswar.casing_45": ".45ACP Casing",
 	
 	"item.thismeanswar.primer_pistol": "Pistol Primer",
@@ -133,6 +138,7 @@
 	"item.thismeanswar.bullet_tip_223": "2.23 Bullet Tip",
 	"item.thismeanswar.bullet_tip_556": "5.56 Bullet Tip",
 	"item.thismeanswar.bullet_tip_45": ".45ACP Bullet Tip",
+	"item.thismeanswar.bullet_tip_38spec": "38 Special Bullet Tip",
 	"item.thismeanswar.bullet_tip_buckshot": "Buckshot",
 	
 	"block.thismeanswar.ore_lead": "Lead Ore",

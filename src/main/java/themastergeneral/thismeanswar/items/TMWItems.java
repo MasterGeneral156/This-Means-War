@@ -40,6 +40,7 @@ public class TMWItems {
 	public static AbstractModItem casing_223 = new BasicItem();
 	public static AbstractModItem casing_12g = new BasicItem();
 	public static AbstractModItem casing_45 = new BasicItem();
+	public static AbstractModItem casing_38spec = new BasicItem();
 	
 	//Primers
 	public static AbstractModItem primer_pistol = new BasicItem();
@@ -52,6 +53,7 @@ public class TMWItems {
 	public static AbstractModItem bullet_tip_223 = new BasicItem();
 	public static AbstractModItem bullet_tip_buckshot = new BasicItem();
 	public static AbstractModItem bullet_tip_45 = new BasicItem();
+	public static AbstractModItem bullet_tip_38spec = new BasicItem();
 	
 	//Bullets & Shells
 	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm, TMWTags.rounds9mm);
@@ -60,6 +62,7 @@ public class TMWItems {
 	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556, TMWTags.rounds556);
 	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, TMWTags.rounds223);
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, TMWTags.rounds45);
+	public static AbstractBulletItem round_38spec = new AbstractBulletItem(casing_38spec, bullet_tip_38spec, TMWTags.rounds38spec);
 	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
 	public static AbstractBulletItem energy_bolt = new AbstractBulletItem();
 	
@@ -129,6 +132,7 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_38spec = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_12g = new DurabilityItem(256);
 	
 	//Casing Casts
@@ -136,6 +140,7 @@ public class TMWItems {
 	public static DurabilityItem casing_cast_556 = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_223 = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_45 = new DurabilityItem(256);
+	public static DurabilityItem casing_cast_38spec = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_12g = new DurabilityItem(256);
 	
 	//Musket Upgrade

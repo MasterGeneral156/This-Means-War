@@ -1,13 +1,12 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:round_9mm"
+			"item": "thismeanswar:vespera"
 		},
-		"title": "9mm Rounds Galore",
-		"description": "Craft a 9mm Round",
-		"frame": "goal"
+		"title": "Vespera-citing",
+		"description": "Obtain the Vespera"
 	},
-	"parent": "thismeanswar:tmw/casing_9mm",
+	"parent": "thismeanswar:tmw/mauser_c98",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -15,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:round_9mm"
+							"thismeanswar:vespera"
 						]
 					}
 				]

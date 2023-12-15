@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_tip_38spec"
+		},
+		"title": "38 Special Bullet Tip",
+		"description": "Craft a 38 Special Bullet Tip",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_cast_38spec",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_tip_38spec"
+						]
+					}
+				]
+			}
+		}
+	}
+}
