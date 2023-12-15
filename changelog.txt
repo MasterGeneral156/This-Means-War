@@ -1,13 +1,16 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
 Version: 0.2.1-Indev
-(06/19/2023, xxxx)
+(xx/xx/2023, xxxx)
 -=-=-=-=-=-=-=-=-=-=-=-
 *Energy Bolt tweaked to use bullet foundary.
 +Added JEI Category for Bullet Foundary.
 +Added Russian WWII Armors
 +Added British WWII Armors
 +Added SWAT Armors
+*Temp disabled Bullet Foundary recipes until I can figure out the new codec system :T
+*Removed extra pixels from Scar texture.
++Added Vespera (Revolver) and 38 Special rounds.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
