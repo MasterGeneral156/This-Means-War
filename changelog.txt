@@ -11,7 +11,11 @@ Version: 0.2.1-Indev
 *Temp disabled Bullet Foundary recipes until I can figure out the new codec system :T
 *Removed extra pixels from Scar texture.
 +Added Vespera (Revolver) and 38 Special rounds.
++Added 38 Special Rounds crafting.
 +Added texture for 9mm Short Magazine and Drum Magazine.
+*Rebalanced the mags given in the stone cutter.
++Added "temp" recipe for 9mm Stick Mag.
+-Removed old "temp" mag recipes (that don't uses stone cutter)
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
