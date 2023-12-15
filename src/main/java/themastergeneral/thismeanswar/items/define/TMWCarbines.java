@@ -7,12 +7,9 @@ import themastergeneral.thismeanswar.items.TMWItems;
 public class TMWCarbines 
 {
 	public static ExternalAmmoGunItem tmg_carbine = new ExternalAmmoGunItem(
-													Constants.tmgCarbineFireRate, 
-													Constants.tmgCarbineReloadTime,
-													TMWItems.magazine_9mm_large,  
-													Constants.tmgCarbineDamage,
-													Constants.tmgCarbineSpeed,
-													Constants.tmgCarbineSpread);
+														Constants.tmgCarbineFireRate, Constants.tmgCarbineReloadTime,
+														TMWItems.magazine_9mm_large,  Constants.tmgCarbineDamage,
+														Constants.tmgCarbineSpeed, Constants.tmgCarbineSpread);
 	
 	public static ExternalAmmoGunItem ump9 = new ExternalAmmoGunItem(
 			Constants.ump9FireRate, 
