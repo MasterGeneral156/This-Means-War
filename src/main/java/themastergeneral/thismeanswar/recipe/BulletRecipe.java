@@ -2,8 +2,12 @@ package themastergeneral.thismeanswar.recipe;
 
 import com.google.gson.JsonObject;
 import com.mojang.datafixers.types.templates.List;
+import com.mojang.serialization.Codec;
 
 import java.util.stream.Stream;
+
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -21,18 +25,16 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
 public class BulletRecipe implements SmithingRecipe {
 	
-   private final ResourceLocation id;
    final Ingredient template;
    final Ingredient base;
    final Ingredient addition;
    final ItemStack result;
-
-   public BulletRecipe(ResourceLocation p_267143_, Ingredient p_266750_, Ingredient p_266787_, Ingredient p_267292_, ItemStack p_267031_) {
-      this.id = p_267143_;
-      this.template = p_266750_;
-      this.base = p_266787_;
-      this.addition = p_267292_;
-      this.result = p_267031_;
+   
+   public BulletRecipe(Ingredient p_266750_, Ingredient p_266787_, Ingredient p_267292_, ItemStack p_267031_) {
+	      this.template = p_266750_;
+	      this.base = p_266787_;
+	      this.addition = p_267292_;
+	      this.result = p_267031_;
    }
 
    public boolean matches(Container p_266855_, Level p_266781_) {
@@ -65,10 +67,6 @@ public class BulletRecipe implements SmithingRecipe {
       return this.addition.test(p_267260_);
    }
 
-   public ResourceLocation getId() {
-      return this.id;
-   }
-
    public RecipeSerializer<?> getSerializer() {
       return TMWRecipeTypeRegistration.BULLET_FOUNDARY.get();
    }
@@ -99,21 +97,6 @@ public class BulletRecipe implements SmithingRecipe {
    }
 
    public static class Serializer implements RecipeSerializer<BulletRecipe> {
-      public BulletRecipe fromJson(ResourceLocation p_266953_, JsonObject p_266720_) {
-         Ingredient ingredient = Ingredient.fromJson(GsonHelper.getNonNull(p_266720_, "template"));
-         Ingredient ingredient1 = Ingredient.fromJson(GsonHelper.getNonNull(p_266720_, "base"));
-         Ingredient ingredient2 = Ingredient.fromJson(GsonHelper.getNonNull(p_266720_, "addition"));
-         ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(p_266720_, "result"));
-         return new BulletRecipe(p_266953_, ingredient, ingredient1, ingredient2, itemstack);
-      }
-
-      public BulletRecipe fromNetwork(ResourceLocation p_267117_, FriendlyByteBuf p_267316_) {
-         Ingredient ingredient = Ingredient.fromNetwork(p_267316_);
-         Ingredient ingredient1 = Ingredient.fromNetwork(p_267316_);
-         Ingredient ingredient2 = Ingredient.fromNetwork(p_267316_);
-         ItemStack itemstack = p_267316_.readItem();
-         return new BulletRecipe(p_267117_, ingredient, ingredient1, ingredient2, itemstack);
-      }
 
       public void toNetwork(FriendlyByteBuf p_266746_, BulletRecipe p_266927_) {
          p_266927_.template.toNetwork(p_266746_);
@@ -121,5 +104,19 @@ public class BulletRecipe implements SmithingRecipe {
          p_266927_.addition.toNetwork(p_266746_);
          p_266746_.writeItem(p_266927_.result);
       }
+
+	@Override
+	public Codec<BulletRecipe> codec() {
+		return null;
+	}
+
+	@Override
+	public @Nullable BulletRecipe fromNetwork(FriendlyByteBuf p_267316_) {
+		Ingredient ingredient = Ingredient.fromNetwork(p_267316_);
+        Ingredient ingredient1 = Ingredient.fromNetwork(p_267316_);
+        Ingredient ingredient2 = Ingredient.fromNetwork(p_267316_);
+        ItemStack itemstack = p_267316_.readItem();
+        return new BulletRecipe(ingredient, ingredient1, ingredient2, itemstack);
+	}
    }
 }
