@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult.Type;
-import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
@@ -85,7 +85,8 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() 
 	{
-		return NetworkHooks.getEntitySpawningPacket(this);
+		Entity entity = this.getOwner();
+		return new ClientboundAddEntityPacket(this, entity == null ? 0 : entity.getId());
 	}
 	
 	@Override

@@ -11,6 +11,7 @@ import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -26,7 +27,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.define.TMWThrowables;
 
@@ -100,7 +100,8 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() 
 	{
-		return NetworkHooks.getEntitySpawningPacket(this);
+		Entity entity = this.getOwner();
+		return new ClientboundAddEntityPacket(this, entity == null ? 0 : entity.getId());
 	}
    
 	@Override
