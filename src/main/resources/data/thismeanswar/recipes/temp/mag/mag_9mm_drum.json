@@ -3,6 +3,6 @@
   "ingredient": {
     "tag": "forge:ingots/steel"
   },
-  "result": "thismeanswar:magazine_g36",
-  "count": 6
+  "result": "thismeanswar:magazine_9mm_drum",
+  "count": 1
 }
