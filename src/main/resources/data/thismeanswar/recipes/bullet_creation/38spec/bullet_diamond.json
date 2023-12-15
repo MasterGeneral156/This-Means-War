@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bullet_make_38spec",
+  "ingredients": [
+    {
+      "tag": "thismeanswar:casing/38spec" 
+    },
+	{
+      "tag": "forge:gunpowder" 
+    },
+	{
+      "tag": "thismeanswar:primer/pistol" 
+    },
+	{
+      "tag": "thismeanswar:tip/38spec" 
+    },
+	{
+		"item": "thismeanswar:hammer_diamond", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:round_38spec",
+    "count": 1
+  }
+}
