@@ -16,6 +16,7 @@ Version: 0.2.1-Indev
 *Rebalanced the mags given in the stone cutter.
 +Added "temp" recipe for 9mm Stick Mag.
 -Removed old "temp" mag recipes (that don't uses stone cutter)
+*M17 'Viper' now uses short 9mm Mags.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
