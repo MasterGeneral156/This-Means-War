@@ -35,15 +35,19 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_9mm_clip = ITEMS.register("magazine_9mm_clip", () -> TMWItems.magazine_9mm_clip);
 	
 	public static final RegistryObject<Item> magazine_556 = ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
-	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
-	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
 	public static final RegistryObject<Item> magazine_556_clip = ITEMS.register("magazine_556_clip", () -> TMWItems.magazine_556_clip);
+	
+	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
 	public static final RegistryObject<Item> magazine_223_clip = ITEMS.register("magazine_223_clip", () -> TMWItems.magazine_223_clip);
+	
+	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
+	public static final RegistryObject<Item> magazine_g36 = ITEMS.register("magazine_g36", () -> TMWItems.magazine_g36);
+	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
+	
 	public static final RegistryObject<Item> magazine_45_clip = ITEMS.register("magazine_45_clip", () -> TMWItems.magazine_45_clip);
 	public static final RegistryObject<Item> magazine_12g_clip = ITEMS.register("magazine_12g_clip", () -> TMWItems.magazine_12g_clip);
 	public static final RegistryObject<Item> magazine_40mm_clip = ITEMS.register("magazine_40mm_clip", () -> TMWItems.magazine_40mm_clip);
-	public static final RegistryObject<Item> magazine_g36 = ITEMS.register("magazine_g36", () -> TMWItems.magazine_g36);
-	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
+	public static final RegistryObject<Item> magazine_38spec_clip = ITEMS.register("magazine_38spec_clip", () -> TMWItems.magazine_38spec_clip);
 	
 	/**
 	 * Firearms

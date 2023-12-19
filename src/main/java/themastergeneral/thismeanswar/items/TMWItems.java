@@ -71,18 +71,22 @@ public class TMWItems {
 	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, Constants.magSizeLarge9mm, TMWTags.mags9mm);
 	public static AbstractMagazineItem magazine_9mm_short = new AbstractMagazineItem(round_9mm, Constants.magSizeShort9mm, TMWTags.mags9mm);
 	public static AbstractMagazineItem magazine_9mm_drum = new AbstractMagazineItem(round_9mm, Constants.magSizeDrum9mm, TMWTags.mags9mm);
-	
 	public static AbstractMagazineItem magazine_9mm_clip = new AbstractMagazineItem(round_9mm, Constants.magSizeClips);
+	
 	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
 	public static AbstractMagazineItem magazine_556_clip = new AbstractMagazineItem(round_556, Constants.magSizeClips);
+	
 	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
 	public static AbstractMagazineItem magazine_223_clip = new AbstractMagazineItem(round_223, Constants.magSizeClips);
+	
 	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, Constants.magSize1911);
+	public static AbstractMagazineItem magazine_g36 = new AbstractMagazineItem(round_556, Constants.magSizeG36);
+	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
+	
 	public static AbstractMagazineItem magazine_45_clip = new AbstractMagazineItem(round_45, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_12g_clip = new AbstractMagazineItem(round_12g, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_40mm_clip = new AbstractMagazineItem(round_40mm, Constants.magSizeClips);
-	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
-	public static AbstractMagazineItem magazine_g36 = new AbstractMagazineItem(round_556, Constants.magSizeG36);
+	public static AbstractMagazineItem magazine_38spec_clip = new AbstractMagazineItem(round_38spec, Constants.magSizeClips);
 	
 	//Crafting items
 	public static AbstractModItem ingot_lead = new BasicItem();
