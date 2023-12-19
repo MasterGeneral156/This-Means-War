@@ -25,7 +25,7 @@ public class TMWPistols
 	
 	public static ExternalAmmoGunItem m17_viper = new ExternalAmmoGunItem(
 													Constants.m17viperFireRate, Constants.m17viperReloadTime, 
-													TMWItems.magazine_9mm, Constants.m17viperDamage, 
+													TMWItems.magazine_9mm_short, Constants.m17viperDamage, 
 													Constants.m17viperSpeed, Constants.m17viperSpread);
 	
 	public static ExternalAmmoGunItem mauser_c98 = new ExternalAmmoGunItem(
