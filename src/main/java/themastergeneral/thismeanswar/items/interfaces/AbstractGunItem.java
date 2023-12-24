@@ -795,10 +795,10 @@ public class AbstractGunItem extends AbstractModItem {
 			for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 			{
 	               ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-	               ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+	               //ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 	               if (itemstack1.hasTag())
 	               {
-	            	   if ((itemstack1.getItem() == magazine) || (tagManager.getTag(magazine.getCompatMag()).contains(itemstack1.getItem())))
+	            	   if ((itemstack1.getItem() == magazine))
 	            	   {
 		            	   if ((itemstack1.getTag().contains("maxAmmo")) && (itemstack1.getTag().contains("currentAmmo")))
             			   {
