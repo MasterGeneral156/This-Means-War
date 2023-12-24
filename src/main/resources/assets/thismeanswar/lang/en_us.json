@@ -19,6 +19,7 @@
 	
 	"item.thismeanswar.magazine_m1911": "M1911 Magazine",
 	"item.thismeanswar.magazine_g36": "G36 Magazine",
+	"item.thismeanswar.magazine_dragunov": "Dragunov Magazine",
 	
 	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
 	"item.thismeanswar.magazine_38spec_clip": "38 Special Clip",
@@ -51,6 +52,7 @@
 	"item.thismeanswar.g36": "G36",
 	"item.thismeanswar.mauser_c98": "Mauser C98",
 	"item.thismeanswar.vespera": "Vespera 38",
+	"item.thismeanswar.dragunov": "SVD Dragunov",
 	
 	"item.thismeanswar.round_12g": "12G Buckshot",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
@@ -59,6 +61,7 @@
 	"item.thismeanswar.round_223": ".223 Round",
 	"item.thismeanswar.round_45": ".45ACP Round",
 	"item.thismeanswar.round_40mm": "40mm HE Round",
+	"item.thismeanswar.round_762": "7.62 Round",
 	"item.thismeanswar.round_38spec": "38 Special Round",
 	"item.thismeanswar.energy_bolt": "Energy Bolt",
 	
@@ -80,6 +83,7 @@
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
 	"item.thismeanswar.bullet_cast_38spec": "Bullet Cast (38 Special)",
 	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
+	"item.thismeanswar.bullet_cast_762": "Bullet Cast (7.62)",
 	
 	"item.thismeanswar.casing_cast_9mm": "Casing Cast (9mm)",
 	"item.thismeanswar.casing_cast_556": "Casing Cast (5.56)",
@@ -87,6 +91,7 @@
 	"item.thismeanswar.casing_cast_45": "Casing Cast (.45ACP)",
 	"item.thismeanswar.casing_cast_38spec": "Casing Cast (38 Special)",
 	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Buckshot)",
+	"item.thismeanswar.casing_cast_762": "Casing Cast (7.62)",
 	
 	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
 	"item.thismeanswar.kevlar_chest": "US Army Top",
@@ -136,6 +141,7 @@
 	"item.thismeanswar.casing_12g": "12g Casing",
 	"item.thismeanswar.casing_38spec": "38 Special Casing",
 	"item.thismeanswar.casing_45": ".45ACP Casing",
+	"item.thismeanswar.casing_762": "7.62 Casing",
 	
 	"item.thismeanswar.primer_pistol": "Pistol Primer",
 	"item.thismeanswar.primer_rifle": "Rifle Primer",
@@ -147,6 +153,7 @@
 	"item.thismeanswar.bullet_tip_45": ".45ACP Bullet Tip",
 	"item.thismeanswar.bullet_tip_38spec": "38 Special Bullet Tip",
 	"item.thismeanswar.bullet_tip_buckshot": "Buckshot",
+	"item.thismeanswar.bullet_tip_762": "7.62 Bullet Tip",
 	
 	"block.thismeanswar.ore_lead": "Lead Ore",
 	"block.thismeanswar.ore_brass": "Brass Ore",
@@ -255,7 +262,7 @@
 	
 	"thismeanswar.jei.bullet_foundary": "Bullet Foundary",
 	
-	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw shot",
-	"thismeanswar.subtitle.shot_1911": "M1911 shot",
-	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine shot"
+	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw discharged",
+	"thismeanswar.subtitle.shot_1911": "M1911 discharged",
+	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine discharged"
 }

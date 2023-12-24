@@ -107,8 +107,11 @@ public class TMWMain
 			ev.accept(TMWRifles.m16);
 			ev.accept(TMWRifles.m16_223);
 			ev.accept(TMWRifles.scar);
+			
 			ev.accept(TMWRifles.thunderclaw);
 			ev.accept(TMWRifles.mosin_nagant);
+			ev.accept(TMWRifles.dragunov);
+			
 			ev.accept(TMWRifles.quantum_disruptor);
 			ev.accept(TMWRifles.bfg_8001);
 			
@@ -141,6 +144,7 @@ public class TMWMain
     		ev.accept(TMWItems.round_12g);
 			ev.accept(TMWItems.round_223);
 			ev.accept(TMWItems.round_556);
+			ev.accept(TMWItems.round_762);
 			ev.accept(TMWItems.round_45);
 			ev.accept(TMWItems.round_9mm);
 			ev.accept(TMWItems.round_38spec);
@@ -163,6 +167,8 @@ public class TMWMain
 			
 			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWItems.magazine_556_clip);
+			
+			ev.accept(TMWItems.magazine_dragunov);
 			
 			ev.accept(TMWItems.magazine_12g_clip);
 			ev.accept(TMWItems.magazine_38spec_clip);
@@ -205,6 +211,7 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_cast_9mm);
 			ev.accept(TMWItems.bullet_cast_45);
 			ev.accept(TMWItems.bullet_cast_38spec);
+			ev.accept(TMWItems.bullet_cast_762);
 			ev.accept(TMWItems.bullet_cast_12g);
 			
 			ev.accept(TMWItems.bullet_tip_223);
@@ -212,6 +219,7 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_tip_9mm);
 			ev.accept(TMWItems.bullet_tip_45);
 			ev.accept(TMWItems.bullet_tip_38spec);
+			ev.accept(TMWItems.bullet_tip_762);
 			ev.accept(TMWItems.bullet_tip_buckshot);
 			
 			ev.accept(TMWItems.casing_cast_223);
@@ -219,6 +227,7 @@ public class TMWMain
 			ev.accept(TMWItems.casing_cast_9mm);
 			ev.accept(TMWItems.casing_cast_45);
 			ev.accept(TMWItems.casing_cast_38spec);
+			ev.accept(TMWItems.casing_cast_762);
 			ev.accept(TMWItems.casing_cast_12g);
 			
 			ev.accept(TMWItems.casing_223);
@@ -226,6 +235,7 @@ public class TMWMain
 			ev.accept(TMWItems.casing_9mm);
 			ev.accept(TMWItems.casing_45);
 			ev.accept(TMWItems.casing_38spec);
+			ev.accept(TMWItems.casing_762);
 			ev.accept(TMWItems.casing_12g);
 			
 			ev.accept(TMWItems.primer_pistol);

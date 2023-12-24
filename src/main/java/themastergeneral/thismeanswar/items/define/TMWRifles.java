@@ -89,4 +89,13 @@ public class TMWRifles
 				Constants.bfg8001Speed, 
 				Constants.bfg8001Spread, 
 				Constants.bfg8001Cost);
+	
+	public static ExternalAmmoGunItem dragunov = new 
+			ExternalAmmoGunItem(
+				Constants.dragunovFireRate, 
+				Constants.dragunovReloadTime, 
+				TMWItems.magazine_dragunov, 
+				Constants.dragunovDamage,
+				Constants.dragunovSpeed, 
+				Constants.dragunovSpread);
 }

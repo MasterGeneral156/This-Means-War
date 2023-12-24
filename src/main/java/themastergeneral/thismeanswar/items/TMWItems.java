@@ -40,6 +40,7 @@ public class TMWItems {
 	public static AbstractModItem casing_223 = new BasicItem();
 	public static AbstractModItem casing_12g = new BasicItem();
 	public static AbstractModItem casing_45 = new BasicItem();
+	public static AbstractModItem casing_762 = new BasicItem();
 	public static AbstractModItem casing_38spec = new BasicItem();
 	
 	//Primers
@@ -53,6 +54,7 @@ public class TMWItems {
 	public static AbstractModItem bullet_tip_223 = new BasicItem();
 	public static AbstractModItem bullet_tip_buckshot = new BasicItem();
 	public static AbstractModItem bullet_tip_45 = new BasicItem();
+	public static AbstractModItem bullet_tip_762 = new BasicItem();
 	public static AbstractModItem bullet_tip_38spec = new BasicItem();
 	
 	//Bullets & Shells
@@ -64,6 +66,7 @@ public class TMWItems {
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, TMWTags.rounds45);
 	public static AbstractBulletItem round_38spec = new AbstractBulletItem(casing_38spec, bullet_tip_38spec, TMWTags.rounds38spec);
 	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
+	public static AbstractBulletItem round_762 = new AbstractBulletItem(casing_762, bullet_tip_762, TMWTags.rounds762);
 	public static AbstractBulletItem energy_bolt = new AbstractBulletItem();
 	
 	//Magazines
@@ -79,6 +82,7 @@ public class TMWItems {
 	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
 	public static AbstractMagazineItem magazine_223_clip = new AbstractMagazineItem(round_223, Constants.magSizeClips);
 	
+	public static AbstractMagazineItem magazine_dragunov = new AbstractMagazineItem(round_762, Constants.magSizeDragunov);
 	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, Constants.magSize1911);
 	public static AbstractMagazineItem magazine_g36 = new AbstractMagazineItem(round_556, Constants.magSizeG36);
 	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
@@ -138,6 +142,7 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_38spec = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_12g = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_762 = new DurabilityItem(256);
 	
 	//Casing Casts
 	public static DurabilityItem casing_cast_9mm = new DurabilityItem(256);
@@ -146,6 +151,7 @@ public class TMWItems {
 	public static DurabilityItem casing_cast_45 = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_38spec = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_12g = new DurabilityItem(256);
+	public static DurabilityItem casing_cast_762 = new DurabilityItem(256);
 	
 	//Musket Upgrade
 	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2);

@@ -45,6 +45,7 @@ public class Constants
 	public static int magSizeDrumAR15 = 100;
 	
 	public static int magSize1911 = 7;
+	public static int magSizeDragunov = 10;
 	public static int magSizeClips = 5;
 	public static int magSizeEnergyCell = 19;
 	public static int magSizeG36 = 25;
@@ -62,8 +63,9 @@ public class Constants
 	public static float baseDamage38spec = 4.944F;		//updated 12/15/2023
 	public static float baseDamage223 = 6.432F;			//updated 12/15/2023
 	public static float baseDamage556 = 8.3441F;		//updated 12/15/2023
-	public static float baseDamage12g = 9.8981F;		//updated 12/15/2023
-	public static float baseDamageEnergy = 14.5124F;	//updated 12/15/2013
+	public static float baseDamage762 = 9.1244F;		//updated 12/23/2023
+	public static float baseDamage12g = 11.8981F;		//updated 12/23/2023
+	public static float baseDamageEnergy = 21.5124F;	//updated 12/23/2013
 	
 	//Base Round Speed
 	public static float baseSpeed9mm = 14.81243F;
@@ -71,6 +73,7 @@ public class Constants
 	public static float baseSpeed38spec = 38.324F;
 	public static float baseSpeed223 = 45.241F;
 	public static float baseSpeed556 = 66.454F;
+	public static float baseSpeed762 = 78.971F;
 	public static float baseSpeed12g = 104.81243F;
 	public static float baseSpeedEnergy = 160.34F;
 	
@@ -80,6 +83,7 @@ public class Constants
 	public static float baseSpread556 = 2.655F;
 	public static float baseSpread223 = 2.414F;
 	public static float baseSpread12g = 2.07F;
+	public static float baseSpread762 = 2.984F;
 	public static float baseSpread38spec = 5.41F;
 	public static float baseSpreadEnergy = 0.71F;
 
@@ -223,6 +227,13 @@ public class Constants
 	public static float vesperaDamage = 11.479F + baseDamage38spec;
 	public static float vesperaSpeed = 14.36843F + baseSpeed38spec;
 	public static float vesperaSpread = (float) (baseSpread38spec + (baseSpread38spec*1.25));
+	
+	//Dragunov
+	public static int dragunovFireRate = cooldownSemiAuto;
+	public static int dragunovReloadTime = 35;
+	public static float dragunovDamage = 11.479F + baseDamage762;
+	public static float dragunovSpeed = 14.36843F + baseSpeed762;
+	public static float dragunovSpread = 2.4141F + baseSpread762;
 	
 	//Throwables
 	public static float grenadeDamage = 1.75F;

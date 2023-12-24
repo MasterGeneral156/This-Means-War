@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:casing_cast_762", "data": 32767
+  },
+  "base": {
+    "tag": "forge:nuggets/brass"
+  },
+  "addition": {
+	"item": "thismeanswar:hammer_steel", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_762", "count": 1
+  }
+}

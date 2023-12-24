@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:bullet_make_762",
+  "ingredients": [
+    {
+      "tag": "thismeanswar:casing/762" 
+    },
+	{
+      "tag": "forge:gunpowder" 
+    },
+	{
+      "tag": "thismeanswar:primer/rifle" 
+    },
+	{
+      "tag": "thismeanswar:tip/762" 
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:round_762",
+    "count": 1
+  }
+}
