@@ -3,6 +3,7 @@ package themastergeneral.thismeanswar.items.define;
 import themastergeneral.thismeanswar.config.BalanceConfig;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.ExternalAmmoGunItem;
+import themastergeneral.thismeanswar.items.InternalAmmoGunItem;
 import themastergeneral.thismeanswar.items.MultiAmmoCostGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
@@ -98,4 +99,7 @@ public class TMWRifles
 				Constants.dragunovDamage,
 				Constants.dragunovSpeed, 
 				Constants.dragunovSpread);
+	
+	public static InternalAmmoGunItem k98 = new 
+			InternalAmmoGunItem(Constants.k98FireRate, TMWItems.round_762, Constants.k98Damage, 5, Constants.k98Speed, Constants.k98Spread);
 }

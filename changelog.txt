@@ -11,6 +11,9 @@ Version: 0.2.1-Indev
 *Temp disabled Bullet Foundary recipes until I can figure out the new codec system :T
 *Removed extra pixels from Scar texture.
 +Added Vespera (Revolver) and 38 Special rounds.
++Added Dragunov and 7.62 Rounds.
++Added K98 (Internal 7.62 Rounds)
++Added Winchester 1776 (12G Clip)
 +Added 38 Special Rounds crafting.
 +Added texture for 9mm Short Magazine and Drum Magazine.
 *Rebalanced the mags given in the stone cutter.

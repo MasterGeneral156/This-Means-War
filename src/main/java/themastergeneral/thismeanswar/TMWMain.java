@@ -111,10 +111,12 @@ public class TMWMain
 			ev.accept(TMWRifles.thunderclaw);
 			ev.accept(TMWRifles.mosin_nagant);
 			ev.accept(TMWRifles.dragunov);
+			ev.accept(TMWRifles.k98);
 			
 			ev.accept(TMWRifles.quantum_disruptor);
 			ev.accept(TMWRifles.bfg_8001);
 			
+			ev.accept(TMWShotguns.winchester);
 			ev.accept(TMWShotguns.double_barrel_12g);
 			ev.accept(TMWShotguns.remmington_m870);
 			ev.accept(TMWShotguns.sawn_off_double_barrel_12g);

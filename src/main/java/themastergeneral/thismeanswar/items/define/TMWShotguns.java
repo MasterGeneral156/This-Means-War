@@ -1,6 +1,7 @@
 package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.items.ExternalAmmoGunItem;
 import themastergeneral.thismeanswar.items.InternalAmmoGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
@@ -41,4 +42,13 @@ public class TMWShotguns {
 				8, 
 				Constants.m870Speed, 
 				Constants.m870Spread + Constants.sawnOffBonusSpread);
+	
+	public static ExternalAmmoGunItem winchester = new 
+			ExternalAmmoGunItem(
+				Constants.winchesterFireRate, 
+				Constants.winchesterReloadTime, 
+				TMWItems.magazine_12g_clip, 
+				Constants.winchesterDamage,
+				Constants.winchesterSpeed, 
+				Constants.winchesterSpread);
 }

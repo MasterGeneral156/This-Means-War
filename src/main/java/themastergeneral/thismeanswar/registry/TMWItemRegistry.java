@@ -81,8 +81,10 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> thunderclaw = ITEMS.register("thunderclaw", () -> TMWRifles.thunderclaw);
 	public static final RegistryObject<Item> mosin_nagant = ITEMS.register("mosin_nagant", () -> TMWRifles.mosin_nagant);
 	public static final RegistryObject<Item> dragunov = ITEMS.register("dragunov", () -> TMWRifles.dragunov);
+	public static final RegistryObject<Item> k98 = ITEMS.register("k98", () -> TMWRifles.k98);
 	
 	//Shotguns
+	public static final RegistryObject<Item> winchester = ITEMS.register("winchester", () -> TMWShotguns.winchester);
 	public static final RegistryObject<Item> remmington_m870 = ITEMS.register("remmington_m870", () -> TMWShotguns.remmington_m870);
 	public static final RegistryObject<Item> sawn_off_remmington_m870 = ITEMS.register("sawn_off_remmington_m870", () -> TMWShotguns.sawn_off_remmington_m870);
 	public static final RegistryObject<Item> sawn_off_double_barrel_12g = ITEMS.register("sawn_off_double_barrel_12g", () -> TMWShotguns.sawn_off_double_barrel_12g);

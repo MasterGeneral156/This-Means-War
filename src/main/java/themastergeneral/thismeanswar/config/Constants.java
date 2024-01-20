@@ -214,6 +214,13 @@ public class Constants
 	public static float m870Speed = 52.65243F + baseSpeed12g;
 	public static float m870Spread = 1.13F + baseSpread12g;
 	
+	//Winchester
+	public static int winchesterFireRate = cooldownSemiAuto;
+	public static int winchesterReloadTime = 10;
+	public static float winchesterDamage = 9.914F + baseDamage12g;
+	public static float winchesterSpeed = 65.65243F + baseSpeed12g;
+	public static float winchesterSpread = 4.13F + baseSpread12g;
+
 	//Double Barrel
 	public static int doubleBarrelFireRate = cooldownSemiAuto;
 	public static int doubleBarrelReloadTime = 8;
@@ -234,6 +241,13 @@ public class Constants
 	public static float dragunovDamage = 11.479F + baseDamage762;
 	public static float dragunovSpeed = 14.36843F + baseSpeed762;
 	public static float dragunovSpread = 2.4141F + baseSpread762;
+	
+	//K98
+	public static int k98FireRate = cooldownSemiAuto;
+	public static int k98ReloadTime = 15;
+	public static float k98Damage = 12.191F + baseDamage762;
+	public static float k98Speed = 11.36843F + baseSpeed762;
+	public static float k98Spread = 4.4141F + baseSpread762;
 	
 	//Throwables
 	public static float grenadeDamage = 1.75F;
