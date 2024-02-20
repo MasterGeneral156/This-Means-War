@@ -519,6 +519,7 @@ public class AbstractGunItem extends AbstractModItem {
 					if (this.getBulletUpgrade(mag) == 1)
 					{
 						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.applyRandomSpread(this.bulletSpread);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 						worldIn.addFreshEntity(apBullet);
@@ -527,6 +528,7 @@ public class AbstractGunItem extends AbstractModItem {
 					else if (this.getBulletUpgrade(mag) == 2)
 					{
 						BulletFireEntity apBullet = new BulletFireEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.applyRandomSpread(this.bulletSpread);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 						worldIn.addFreshEntity(apBullet);
@@ -534,6 +536,7 @@ public class AbstractGunItem extends AbstractModItem {
 					else if (this.getBulletUpgrade(mag) == 3)
 					{
 						BulletTracerEntity apBullet = new BulletTracerEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						apBullet.applyRandomSpread(this.bulletSpread);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
 						worldIn.addFreshEntity(apBullet);
@@ -541,6 +544,7 @@ public class AbstractGunItem extends AbstractModItem {
 					else
 					{
 						BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
+						bulletEntity.applyRandomSpread(this.bulletSpread);
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
 						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);	

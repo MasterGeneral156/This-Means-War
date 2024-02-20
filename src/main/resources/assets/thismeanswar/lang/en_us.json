@@ -253,6 +253,8 @@
 	"thismeanswar.firearm_more_info": "§9§oHold shift for more info",
 	"thismeanswar.firearm_more_info_display": "§9=====Firearm Info=====",
 	"thismeanswar.firearm_bullet_dmg": "Bullet Damage: ",
+	"thismeanswar.firearm_bullet_sprd": "Bullet Spread: ",
+	"thismeanswar.firearm_bullet_spd": "Bullet Speed: ",
 	"thismeanswar.firearm_melee_dmg": "Bayonet Damage: ",
 	"thismeanswar.firearm_upgrade_ap": "Upgrade: AP Rounds",
 	"thismeanswar.firearm_upgrade_fire": "Upgrade: Flamable Rounds",

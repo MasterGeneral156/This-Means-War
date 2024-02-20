@@ -76,6 +76,15 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 		   this.kill();
 	   }
 	   
+	   public void applyRandomSpread(float spreadAmount) {
+	        // Adjust the motion (velocity) based on random spread
+	        this.setDeltaMovement(this.getDeltaMovement().add(
+	                (this.random.nextFloat() - 0.5F) * spreadAmount,
+	                (this.random.nextFloat() - 0.5F) * spreadAmount,
+	                (this.random.nextFloat() - 0.5F) * spreadAmount
+	        ));
+	    }
+	   
 	   @Nonnull
 	   @Override
 	   public Packet<ClientGamePacketListener> getAddEntityPacket() 

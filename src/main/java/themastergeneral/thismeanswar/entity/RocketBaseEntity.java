@@ -54,6 +54,15 @@ public class RocketBaseEntity extends ThrowableItemProjectile {
 		return new ClientboundAddEntityPacket(this, entity == null ? 0 : entity.getId());
 	}
 	
+	public void applyRandomSpread(float spreadAmount) {
+        // Adjust the motion (velocity) based on random spread
+        this.setDeltaMovement(this.getDeltaMovement().add(
+                (this.random.nextFloat() - 0.5F) * spreadAmount,
+                (this.random.nextFloat() - 0.5F) * spreadAmount,
+                (this.random.nextFloat() - 0.5F) * spreadAmount
+        ));
+    }
+	
 	@Override
 	protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
