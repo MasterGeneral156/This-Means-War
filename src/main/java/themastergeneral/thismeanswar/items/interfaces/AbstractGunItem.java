@@ -466,6 +466,16 @@ public class AbstractGunItem extends AbstractModItem {
 			MutableComponent bulletDmgString = ModUtils.displayTranslation("thismeanswar.firearm_bullet_dmg");
 			bulletDmgString = bulletDmgString.append(colorFormat + formatter.format(returnBulletDamage(stack)));
 			tooltip.add(bulletDmgString);
+			if (Screen.hasControlDown())
+			{
+				MutableComponent bulletSprdString = ModUtils.displayTranslation("thismeanswar.firearm_bullet_sprd");
+				bulletSprdString = bulletSprdString.append(colorFormat + formatter.format(this.bulletSpread));
+				tooltip.add(bulletSprdString);
+				
+				MutableComponent bulletSpdString = ModUtils.displayTranslation("thismeanswar.firearm_bullet_spd");
+				bulletSpdString = bulletSpdString.append(colorFormat + formatter.format(this.bulletSpeed));
+				tooltip.add(bulletSpdString);
+			}
 			//display bayonet damage
 			if (this.getBayonetLevel(stack) > 0)
 			{
