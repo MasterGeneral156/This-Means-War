@@ -154,12 +154,12 @@ public class TMWItems {
 	public static DurabilityItem casing_cast_762 = new DurabilityItem(256);
 	
 	//Musket Upgrade
-	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2);
-	public static UpgradeBayonetItem bayonet_stone = new UpgradeBayonetItem(2.5);
-	public static UpgradeBayonetItem bayonet_iron = new UpgradeBayonetItem(3);
-	public static UpgradeBayonetItem bayonet_gold = new UpgradeBayonetItem(2.75);
-	public static UpgradeBayonetItem bayonet_diamond = new UpgradeBayonetItem(3.5);
-	public static UpgradeBayonetItem bayonet_netherrite = new UpgradeBayonetItem(4);
+	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2.5);
+	public static UpgradeBayonetItem bayonet_stone = new UpgradeBayonetItem(4.5);
+	public static UpgradeBayonetItem bayonet_iron = new UpgradeBayonetItem(6.5);
+	public static UpgradeBayonetItem bayonet_gold = new UpgradeBayonetItem(5.5);
+	public static UpgradeBayonetItem bayonet_diamond = new UpgradeBayonetItem(8.5);
+	public static UpgradeBayonetItem bayonet_netherrite = new UpgradeBayonetItem(10.5);
 	
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
