@@ -76,6 +76,7 @@ public class UpgradeROFSemiItem extends BasicItem {
 		{
 			tooltip.add(ModUtils.displayString("§4Semi-auto Conversion"));
 			tooltip.add(ModUtils.displayString("§2+25% bullet damage"));
+			tooltip.add(ModUtils.displayString("§2-20% recoil"));
 		}
 	}
 }

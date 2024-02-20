@@ -76,6 +76,7 @@ public class UpgradeROFAutoItem extends BasicItem {
 		{
 			tooltip.add(ModUtils.displayString("§2Full-auto Conversion"));
 			tooltip.add(ModUtils.displayString("§4-50% bullet damage"));
+			tooltip.add(ModUtils.displayString("§4+10% recoil"));
 		}
 	}
 }

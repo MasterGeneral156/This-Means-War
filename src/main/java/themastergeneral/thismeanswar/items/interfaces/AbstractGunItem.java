@@ -509,41 +509,6 @@ public class AbstractGunItem extends AbstractModItem {
 			
 	}
 
-	public float returnBulletSpread(ItemStack stack) 
-	{
-		float returned = this.bulletSpread;
-		if (stack.hasTag())
-		{
-			int bulletUpgrade = this.getBulletUpgrade(stack);
-			int rof = this.getRateOfFire(stack);
-			
-			if (this.shotTime == Constants.fireRateAuto)
-			{
-				if (rof == Constants.fireRateSemi)
-					returned += returned * 0.101F;
-			}
-			if (this.shotTime > Constants.fireRateAuto)
-			{
-				if (rof == Constants.fireRateAuto)
-					returned -= returned * 0.2F;
-			}
-			if (bulletUpgrade == Constants.bulletUpgradeAP)
-				returned -= returned * 0.18F;
-		}
-		return returned;
-	}
-	
-	public float returnBulletSpeed(ItemStack stack) 
-	{
-		float returned = this.bulletSpeed;
-		if (stack.hasTag())
-		{
-			if (bulletUpgrade == Constants.bulletUpgradeAP)
-				returned += returned * 0.18F;
-		}
-		return returned;
-	}
-
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
@@ -579,7 +544,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.bulletSpread);
+						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					//fire rounds
@@ -588,7 +553,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletFireEntity apBullet = new BulletFireEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.bulletSpread);
+						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					else if (this.getBulletUpgrade(mag) == 3)
@@ -596,7 +561,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletTracerEntity apBullet = new BulletTracerEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.bulletSpread);
+						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					else
@@ -605,7 +570,7 @@ public class AbstractGunItem extends AbstractModItem {
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
 						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						bulletEntity.applyRandomSpread(this.bulletSpread);
+						bulletEntity.applyRandomSpread(this.returnBulletSpread(mag));
 						worldIn.addFreshEntity(bulletEntity);
 					}
 					
@@ -756,20 +721,61 @@ public class AbstractGunItem extends AbstractModItem {
 			if (this.shotTime == Constants.fireRateAuto)
 			{
 				if (rof == Constants.fireRateSemi)
-					returned += returned * 0.25F;
+					returned *= 0.25F;
 			}
 			//damage decrease for converting semi to full auto
 			if (this.shotTime > Constants.fireRateAuto)
 			{
 				if (rof == Constants.fireRateAuto)
-					returned -= returned * 0.5F;
+					returned *= 0.5F;
 			}
 			//AP Rounds
 			if (bulletUpgrade == Constants.bulletUpgradeAP)
-				returned -= returned * 0.18F;
+				returned *= 1.18F;
 			//Inert rounds
 			if (bulletUpgrade == Constants.bulletUpgradeInert)
 				returned *= 0.05F;
+		}
+		return returned;
+	}
+	
+	public float returnBulletSpread(ItemStack stack) 
+	{
+		float returned = this.bulletSpread;
+		if (stack.hasTag())
+		{
+			int bulletUpgrade = this.getBulletUpgrade(stack);
+			int rof = this.getRateOfFire(stack);
+			
+			//Add 10.1% for full auto conversion
+			if (this.shotTime == Constants.fireRateAuto)
+			{
+				if (rof == Constants.fireRateSemi)
+					returned *= 1.101F;
+			}
+			//Minus 20% for semi auto conversion
+			if (this.shotTime > Constants.fireRateAuto)
+			{
+				if (rof == Constants.fireRateAuto)
+					returned *= 0.8F;
+			}
+			//Add 11% for AP
+			if (bulletUpgrade == Constants.bulletUpgradeAP)
+				returned *= 1.11F;
+		}
+		return returned;
+	}
+	
+	public float returnBulletSpeed(ItemStack stack) 
+	{
+		float returned = this.bulletSpeed;
+		if (stack.hasTag())
+		{
+			int bulletUpgrade = this.getBulletUpgrade(stack);
+			
+			//Add 21% for AP upgrade
+			if (bulletUpgrade == Constants.bulletUpgradeAP)
+				returned *= 1.21F;
 		}
 		return returned;
 	}
