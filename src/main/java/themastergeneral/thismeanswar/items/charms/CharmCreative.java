@@ -39,7 +39,7 @@ public class CharmCreative extends BasicItem
 			{
 				ammoBlockEntity.applyCreativeCharm();
 				context.getPlayer().displayClientMessage(ModUtils.displayTranslation("thismeanswar.creative_charm_applied_ammo"), true);
-				context.getPlayer().getCooldowns().addCooldown(this, 100);
+				context.getPlayer().getCooldowns().addCooldown(this, 10);
 				return InteractionResult.PASS;
 			}
 			else
@@ -53,7 +53,7 @@ public class CharmCreative extends BasicItem
 			BlockEntityMedicBox medicBoxEntity = (BlockEntityMedicBox) level.getBlockEntity(pos);
 			medicBoxEntity.applyCreativeCharm();
 			context.getPlayer().displayClientMessage(ModUtils.displayTranslation("thismeanswar.creative_charm_applied_medic"), true);
-			context.getPlayer().getCooldowns().addCooldown(this, 100);
+			context.getPlayer().getCooldowns().addCooldown(this, 10);
 			return InteractionResult.PASS;
 		}
 		else
