@@ -32,7 +32,7 @@ public class TMWShotguns {
 				Constants.doubleBarrelDamage + Constants.sawnOffBonusDamage, 
 				2, 
 				Constants.doubleBarrelSpeed, 
-				Constants.doubleBarrelSpread + Constants.sawnOffBonusSpread);
+				Constants.doubleBarrelSpread * Constants.sawnOffBonusSpread);
 
 	public static InternalAmmoGunItem sawn_off_remmington_m870 = 
 			new InternalAmmoGunItem(
@@ -41,7 +41,7 @@ public class TMWShotguns {
 				Constants.m870Damage + Constants.sawnOffBonusDamage, 
 				8, 
 				Constants.m870Speed, 
-				Constants.m870Spread + Constants.sawnOffBonusSpread);
+				Constants.m870Spread * Constants.sawnOffBonusSpread);
 	
 	public static ExternalAmmoGunItem winchester = new 
 			ExternalAmmoGunItem(

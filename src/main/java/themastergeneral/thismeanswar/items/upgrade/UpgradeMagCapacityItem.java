@@ -105,7 +105,6 @@ public class UpgradeMagCapacityItem extends BasicItem
 		if (Screen.hasShiftDown())
 		{
 			tooltip.add(ModUtils.displayString("§2+" + Constants.magIncreasePerLevel * 100 + "% Magazine capacity"));
-			tooltip.add(ModUtils.displayString("§4-" + Constants.magDamageDecrease * 100 + "% Bullet damage"));
 		}
 	}
 }

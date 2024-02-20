@@ -93,11 +93,6 @@ public class AbstractMagazineItem extends AbstractModItem {
 		int maxAmmo = getMaxAmmo(stack);
 		tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
 		tooltip.add(ModUtils.displayTranslation(bulletRequired.getDescriptionId()));
-		if (this.getCapacityUpgrades(stack) > 0)
-		{
-			double percDecrease = this.getCapacityUpgrades(stack) * (Constants.magDamageDecrease * 100);
-			tooltip.add(ModUtils.displayString("§4Firearm damage reduced by " + percDecrease + "% when inserted."));
-		}
 	}
 	
 	@Override
