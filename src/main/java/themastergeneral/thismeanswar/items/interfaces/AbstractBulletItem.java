@@ -4,9 +4,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.tags.ITagManager;
-import themastergeneral.thismeanswar.TMWMain;
 
 public class AbstractBulletItem extends AbstractModItem {
 
