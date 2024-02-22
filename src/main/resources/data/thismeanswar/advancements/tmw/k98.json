@@ -1,12 +1,12 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:mosin_nagant"
+			"item": "thismeanswar:k98"
 		},
-		"title": "Old Tech",
-		"description": "Obtain a Mosin Nagant"
+		"title": "Grandpa?",
+		"description": "Obtain a K98"
 	},
-	"parent": "thismeanswar:tmw/k98",
+	"parent": "thismeanswar:tmw/thunderclaw",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -14,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:mosin_nagant"
+							"thismeanswar:k98"
 						]
 					}
 				]

@@ -1,12 +1,13 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:mosin_nagant"
+			"item": "thismeanswar:round_762"
 		},
-		"title": "Old Tech",
-		"description": "Obtain a Mosin Nagant"
+		"title": "7.62 Rounds Galore",
+		"description": "Craft a 7.62 Round",
+		"frame": "goal"
 	},
-	"parent": "thismeanswar:tmw/k98",
+	"parent": "thismeanswar:tmw/casing_762",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -14,7 +15,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:mosin_nagant"
+							"thismeanswar:round_762"
 						]
 					}
 				]

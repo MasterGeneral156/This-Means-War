@@ -1,12 +1,12 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:mosin_nagant"
+			"item": "thismeanswar:dragunov"
 		},
-		"title": "Old Tech",
+		"title": "Puff the Magic Dragunov",
 		"description": "Obtain a Mosin Nagant"
 	},
-	"parent": "thismeanswar:tmw/k98",
+	"parent": "thismeanswar:tmw/mosin_nagant",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -14,7 +14,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:mosin_nagant"
+							"thismeanswar:dragunov"
 						]
 					}
 				]

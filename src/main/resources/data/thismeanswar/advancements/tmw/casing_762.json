@@ -1,0 +1,25 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:casing_762"
+		},
+		"title": "7.62 Casing",
+		"description": "Craft a 7.62 Casing",
+		"announce_to_chat": false
+	},
+	"parent": "thismeanswar:tmw/bullet_tip_762",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:casing_762"
+						]
+					}
+				]
+			}
+		}
+	}
+}
