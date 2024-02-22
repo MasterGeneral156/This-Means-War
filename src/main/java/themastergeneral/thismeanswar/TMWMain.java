@@ -28,6 +28,7 @@ import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
+import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 import themastergeneral.thismeanswar.registry.TMWSoundRegistry;
 
 @Mod("thismeanswar")
@@ -51,8 +52,8 @@ public class TMWMain
         TMWEntityRegistry.ENTITES.register(modBus);
         TMWBlockRegistry.BLOCKS.register(modBus);
         TMWBlockEntityRegistry.TILES.register(modBus);
-        //TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
-        //TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
+        TMWRecipeTypeRegistration.RECIPE_SERIALIZER.register(modBus);
+        TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
         TMWTabs.CREATIVE_MODE_TABS.register(modBus);
         TMWSoundRegistry.SOUNDS.register(modBus);
     }
