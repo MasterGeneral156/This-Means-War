@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/bullet_foundary",
+    "textures": {
+        "inventory": "thismeanswar:block/bullet_foundary"
+    }
+}
