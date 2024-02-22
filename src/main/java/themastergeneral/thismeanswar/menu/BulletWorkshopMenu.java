@@ -15,7 +15,6 @@ import net.minecraft.world.inventory.SmithingMenu;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingRecipe;
 import net.minecraft.world.level.Level;
@@ -39,8 +38,8 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 	public static final int SLOT_Y_PLACEMENT = 48;
 	private final Level level;
 	@Nullable
-	private RecipeHolder<BulletRecipe> selectedRecipe;
-	private final List<RecipeHolder<BulletRecipe>> recipes;
+	private BulletRecipe selectedRecipe;
+	private final List<BulletRecipe> recipes;
    
 	public BulletWorkshopMenu(int p_40245_, Inventory p_40246_) {
 		this(p_40245_, p_40246_, ContainerLevelAccess.NULL);
@@ -54,7 +53,7 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 
 	@Override
 	protected boolean mayPickup(Player player, boolean bool) {
-		return this.selectedRecipe != null && this.selectedRecipe.value().matches(this.inputSlots, this.level);
+		return this.selectedRecipe != null && this.selectedRecipe.matches(this.inputSlots, this.level);
 	}
 
 	@Override
@@ -99,12 +98,12 @@ public class BulletWorkshopMenu extends ItemCombinerMenu {
 
 	@Override
 	public void createResult() {
-		List<RecipeHolder<BulletRecipe>> list = this.level.getRecipeManager().getRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get(), this.inputSlots, this.level);
+		List<BulletRecipe> list = this.level.getRecipeManager().getRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get(), this.inputSlots, this.level);
 	      if (list.isEmpty()) {
 	         this.resultSlots.setItem(0, ItemStack.EMPTY);
 	      } else {
-	    	  RecipeHolder<BulletRecipe> smithingrecipe = list.get(0);
-	         ItemStack itemstack = smithingrecipe.value().assemble(this.inputSlots, this.level.registryAccess());
+	    	  BulletRecipe smithingrecipe = list.get(0);
+	         ItemStack itemstack = smithingrecipe.assemble(this.inputSlots, this.level.registryAccess());
 	         if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
 	            this.selectedRecipe = smithingrecipe;
 	            this.resultSlots.setRecipeUsed(smithingrecipe);
