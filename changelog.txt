@@ -1,6 +1,6 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
-Version: 0.2.1-Indev
+Version: 0.2.2-Indev
 (xx/xx/2023, xxxx)
 Target: Forge 1.20.1
 -=-=-=-=-=-=-=-=-=-=-=-
@@ -10,10 +10,18 @@ Target: Forge 1.20.1
 +Added British WWII Armors
 +Added SWAT Armors
 *Removed extra pixels from Scar texture.
-+Added Vespera (Revolver) and 38 Special rounds.
-+Added Dragunov and 7.62 Rounds.
-+Added K98 (Internal 7.62 Rounds)
++Added Vespera
+	*Uses new 38 Special Rounds
+	*Internal magazine
++Added Dragunov
+	*Uses new 7.62 Rounds
+	*External magazine
++Added K98
+	*Uses new 7.62 rounds
+	*Internal magazine
 +Added Winchester 1776 (12G Clip)
+	*Uses 12G Shells
+	*Requires 12G Clip
 +Added 38 Special Rounds crafting.
 +Added texture for 9mm Short Magazine and Drum Magazine.
 *Rebalanced the mags given in the stone cutter.
@@ -42,6 +50,7 @@ Target: Forge 1.20.1
 +Added Medium and Large Medical Containers.
 	*2,048 and 4,096 capacity respectively.
 *CTD Core 2.4.5 (or greater) required.
++Added sounds for MP40 & K98.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
