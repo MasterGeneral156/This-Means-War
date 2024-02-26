@@ -25,20 +25,22 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
+import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 
-public abstract class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
+public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	   public static final BooleanProperty LIT = BlockStateProperties.LIT;
 	   
-	   public BlockCrusher() {
+	   public BlockCrusher() 
+	   {
 		      super(BlockBehaviour.Properties.of()
 		    		  .requiresCorrectToolForDrops()
 		    		  .mapColor(MapColor.STONE)
 		    		  .strength(3.5F));
 		      this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
-		   }
+	   }
 
-	/*@Nullable
+	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockpos, BlockState blockstate) {
 		return new BlockEntityCrusher(blockpos, blockstate);
@@ -78,6 +80,6 @@ public abstract class BlockCrusher extends AbstractTMWBlock implements EntityBlo
 	@Nullable
 	   protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level p_151988_, BlockEntityType<T> p_151989_, BlockEntityType<? extends BlockEntityCrusher> p_151990_) {
 	      return p_151988_.isClientSide ? null : createTicker(p_151988_, p_151989_, p_151990_);
-	   }*/
+	   }
 
 }

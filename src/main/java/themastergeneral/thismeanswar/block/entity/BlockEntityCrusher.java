@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -32,10 +33,11 @@ import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.block.BlockCrusher;
+import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
-/*public class BlockEntityCrusher extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
+public class BlockEntityCrusher extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible {
 
    protected static final int SLOT_INPUT = 0;
    protected static final int SLOT_FUEL = 1;
@@ -98,7 +100,7 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
    	};
    	
    	private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
-    private final RecipeType<? extends CrusherRecipe> recipeType = TMWRecipeTypeRegistration.CRUSHING_RECIPE;
+    private final RecipeType<? extends CrusherRecipe> recipeType = TMWRecipeTypeRegistration.CRUSHER_TYPE.get();
     
     public BlockEntityCrusher(BlockEntityType<?> p_155076_, BlockPos p_155077_, BlockState p_155078_, RecipeType<? extends CrusherRecipe> p_154994_) {
 		super(p_155076_, p_155077_, p_155078_);
@@ -141,7 +143,7 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 	@Override
 	public void setItem(int slot, ItemStack stack) {
 		ItemStack itemstack = this.items.get(slot);
-		boolean flag = !stack.isEmpty() && stack.sameItem(itemstack) && ItemStack.tagMatches(stack, itemstack);
+		boolean flag = !stack.isEmpty() && stack.matches(stack, itemstack) && ItemStack.isSameItemSameTags(stack, itemstack);
 		this.items.set(slot, stack);
 		if (stack.getCount() > this.getMaxStackSize()) {
 			stack.setCount(this.getMaxStackSize());
@@ -276,7 +278,7 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 	            ItemStack itemstack1 = stack.get(2);
 	            if (itemstack1.isEmpty()) {
 	               return true;
-	            } else if (!itemstack1.sameItem(itemstack)) {
+	            } else if (!itemstack1.matches(itemstack1, itemstack)) {
 	               return false;
 	            } else if (itemstack1.getCount() + itemstack.getCount() <= slot && itemstack1.getCount() + itemstack.getCount() <= itemstack1.getMaxStackSize()) {
 	               return true;
@@ -366,7 +368,7 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 	}
 	
 	private static int getTotalCookTime(Level p_155010_, RecipeType<? extends CrusherRecipe> p_155011_, Container p_155012_) {
-	   return p_155010_.getRecipeManager().getRecipeFor((RecipeType<CrusherRecipe>)p_155011_, p_155012_, p_155010_).map(CrusherRecipe::getCrushTime).orElse(200);
+	   return p_155010_.getRecipeManager().getRecipeFor((RecipeType<CrusherRecipe>)p_155011_, p_155012_, p_155010_).map(CrusherRecipe::getCookTime).orElse(200);
 	}
 	
 	public static boolean isFuel(ItemStack p_58400_) {
@@ -388,4 +390,4 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 	private boolean isLit() {
 	      return this.litTime > 0;
    }
-}*/
+}

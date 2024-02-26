@@ -7,6 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
+import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 
 public class TMWBlockEntityRegistry {
@@ -19,5 +20,5 @@ public class TMWBlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<BlockEntityMedicBox>> medic_box = TILES.register("medic_box", () -> BlockEntityType.Builder.of(BlockEntityMedicBox::new, TMWBlocks.medic_box).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityMedicBox>> medic_box_medium = TILES.register("medic_box_medium", () -> BlockEntityType.Builder.of(BlockEntityMedicBox::new, TMWBlocks.medic_box_medium).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityMedicBox>> medic_box_large = TILES.register("medic_box_large", () -> BlockEntityType.Builder.of(BlockEntityMedicBox::new, TMWBlocks.medic_box_large).build(null));
-	//public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> crusher = TILES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null));
+	public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> crusher = TILES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null));
 }
