@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dust_iron",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/iron"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:dust_iron",
+    "count": 1
+  }
+}

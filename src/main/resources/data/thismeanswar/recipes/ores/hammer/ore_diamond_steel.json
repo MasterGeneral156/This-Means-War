@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:hammer_diamond",
+  "ingredients": [
+    {
+      "tag": "forge:ores/diamond"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "minecraft:diamond",
+    "count": 2
+  }
+}

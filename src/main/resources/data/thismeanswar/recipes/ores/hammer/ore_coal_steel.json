@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:hammer_coal",
+  "ingredients": [
+    {
+      "tag": "forge:ores/coal"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "minecraft:coal",
+    "count": 2
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dust_gold",
+  "ingredients": [
+    {
+      "tag": "forge:raw_materials/gold"
+	  
+    },
+	{
+		"item": "thismeanswar:hammer_steel", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:dust_gold",
+    "count": 2
+  }
+}

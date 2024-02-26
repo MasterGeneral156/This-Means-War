@@ -8,7 +8,7 @@ import net.minecraft.world.level.material.MapColor;
 
 public class BlockOre extends CTDBlock {
 
-	public BlockOre(Integer harvestLevel) 
+	public BlockOre() 
 	{
 		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.STONE)
