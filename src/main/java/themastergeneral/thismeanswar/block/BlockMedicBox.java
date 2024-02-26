@@ -27,6 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.items.TMWItems;
@@ -37,8 +38,10 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 3.0D, 15.0D, 10.0D, 13.0D);
 	protected static final VoxelShape SHAPE_ROT = Block.box(3.0D, 0.0D, 1.0D, 13.0D, 10.0D, 15.0D);
+	
+	protected float healthMax;
 
-	public BlockMedicBox() 
+	public BlockMedicBox(float maxHealth) 
 	{
 		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.WOOD)
@@ -46,6 +49,7 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 				.mapColor(MapColor.WOOD)
 				.strength(2.25F));
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+		this.healthMax = maxHealth;
 	}
 
 	@Override
@@ -92,7 +96,7 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 				AbstractHealingItem healthItem = (AbstractHealingItem) stack.getItem();
 				if (healthItem.getRegeneratedHealth() > 0.0F)
 				{
-					if ((medicBox.getHealthStored() + healthItem.getRegeneratedHealth()) < 1024)
+					if ((medicBox.getHealthStored() + healthItem.getRegeneratedHealth()) < healthMax)
 					{
 					
 						medicBox.updateHealthStored(healthItem.getRegeneratedHealth());
@@ -127,7 +131,7 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 				}
 				else
 				{
-					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / 1024 health currently stored."), true);
+					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / " + healthMax + " health currently stored."), true);
 					return InteractionResult.PASS;
 				}
 			}
@@ -138,6 +142,19 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 			}
 		}
 		return InteractionResult.FAIL;
+	}
+	
+	@Override
+	public int getSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction dir) 
+	{
+		BlockEntityMedicBox medicBox = (BlockEntityMedicBox) getter.getBlockEntity(pos);
+		return Math.round((medicBox.getHealthStored() / healthMax) * 15);
+	}
+	
+	@Override
+	public boolean isSignalSource(BlockState p_55213_) 
+	{
+	      return true;
 	}
 
 }
