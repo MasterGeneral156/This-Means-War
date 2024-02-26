@@ -93,6 +93,13 @@ public class Constants
 	public static float tmgCarbineSpeed = 11.49043F + baseSpeed9mm;
 	public static float tmgCarbineSpread = baseSpread9mm * 0.981F;
 	
+	//MP40
+	public static int mp40FireRate = fireRateAuto;
+	public static int mp40ReloadTime = 55;
+	public static float mp40Damage = 1.75355F + baseDamage9mm;
+	public static float mp40Speed = 9.8144F + baseSpeed9mm;
+	public static float mp40Spread = baseSpread9mm * 0.895F;
+	
 	//UMP9
 	public static int ump9FireRate = fireRateAuto;
 	public static int ump9ReloadTime = 48;

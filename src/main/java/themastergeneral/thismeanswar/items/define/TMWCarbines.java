@@ -11,6 +11,11 @@ public class TMWCarbines
 														TMWItems.magazine_9mm_large,  Constants.tmgCarbineDamage,
 														Constants.tmgCarbineSpeed, Constants.tmgCarbineSpread);
 	
+	public static ExternalAmmoGunItem mp40 = new ExternalAmmoGunItem(
+			Constants.mp40FireRate, Constants.mp40ReloadTime,
+			TMWItems.magazine_9mm_large,  Constants.mp40Damage,
+			Constants.mp40Speed, Constants.mp40Spread);
+	
 	public static ExternalAmmoGunItem ump9 = new ExternalAmmoGunItem(
 			Constants.ump9FireRate, 
 			Constants.ump9ReloadTime,
