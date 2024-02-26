@@ -2,13 +2,13 @@
 This Means War
 Version: 0.2.1-Indev
 (xx/xx/2023, xxxx)
+Target: Forge 1.20.1
 -=-=-=-=-=-=-=-=-=-=-=-
 *Energy Bolt tweaked to use bullet foundary.
 +Added JEI Category for Bullet Foundary.
 +Added Russian WWII Armors
 +Added British WWII Armors
 +Added SWAT Armors
-*Temp disabled Bullet Foundary recipes until I can figure out the new codec system :T
 *Removed extra pixels from Scar texture.
 +Added Vespera (Revolver) and 38 Special rounds.
 +Added Dragunov and 7.62 Rounds.
@@ -20,6 +20,27 @@ Version: 0.2.1-Indev
 +Added "temp" recipe for 9mm Stick Mag.
 -Removed old "temp" mag recipes (that don't uses stone cutter)
 *M17 'Viper' now uses short 9mm Mags.
++Added bullet spread.
+	*Will need input on balancing*
+	*Firearms should be most effective in their logic ranges.
+*Pressing control on a firearm will now dispaly extra information
+-Removed damage decrease on magagzine capacity upgrades.
+*Creative Charm has cooldown of 10 ticks instead of 100.
+*Bayonets have been buffed.
++Added Stick Grenade
+*Upgrade textures have been tweaked.
++Added "Mc'Stubby" Pistol
+	-Internal 9mm pistol
+	-SHORT AF
+	-NO BAYONETS
+*Updated the shotgun textures.
++Added MP40
++Added recipes to smelt casings/guns into brass/steel nuggets, respectively
+*Updated the brass color on select casings
++Added ore recipes with steel hammer.
+*Holding shift while hovering over a medical item will now display the exact health recovered.
++Added Medium and Large Medical Containers.
+	*2,048 and 4,096 capacity respectively.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
