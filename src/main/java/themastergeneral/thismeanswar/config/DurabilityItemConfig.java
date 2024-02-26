@@ -3,7 +3,7 @@ package themastergeneral.thismeanswar.config;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class DurabilityItemConfig {
-	/*public static ForgeConfigSpec.IntValue IRON_HAMMER;
+	public static ForgeConfigSpec.IntValue IRON_HAMMER;
 	public static ForgeConfigSpec.IntValue STEEL_HAMMER;
 	public static ForgeConfigSpec.IntValue DIAMOND_HAMMER;
 	public static ForgeConfigSpec.IntValue HAND_SAW;
@@ -25,6 +25,6 @@ public class DurabilityItemConfig {
 		
 		HAND_SAW = COMMON_BUILDER
                 .comment("Max durability for Hand Saw")
-                .defineInRange("durability", 174, 16, Integer.MAX_VALUE);
-	}*/
+                .defineInRange("durability", 175, 16, Integer.MAX_VALUE);
+	}
 }

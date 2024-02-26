@@ -1,7 +1,11 @@
 package themastergeneral.thismeanswar.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
+@Mod.EventBusSubscriber
 public class TMWConfig {
 
 	public static final ForgeConfigSpec.Builder GENERAL_SPEC = new ForgeConfigSpec.Builder();
@@ -11,8 +15,8 @@ public class TMWConfig {
 	static 
 	{
 	    //BalanceConfig.registerCommonConfig(GENERAL_SPEC);
-	    //MagazineConfigs.registerMagConfig(GENERAL_SPEC);
-	    //DurabilityItemConfig.registerHammerConfig(GENERAL_SPEC);
+	    MagazineConfigs.registerMagConfig(GENERAL_SPEC);
+	    DurabilityItemConfig.registerHammerConfig(GENERAL_SPEC);
 	    //BalanceConfig.register12gConfig(GENERAL_SPEC);
 	    //BalanceConfig.register223Config(GENERAL_SPEC);
 	    //BalanceConfig.register45Config(GENERAL_SPEC);

@@ -3,7 +3,7 @@ package themastergeneral.thismeanswar.config;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class MagazineConfigs {
-	/*public static ForgeConfigSpec.IntValue AR_MAG_SIZE;
+	public static ForgeConfigSpec.IntValue AR_MAG_SIZE;
 	public static ForgeConfigSpec.IntValue SML_9MM_MAG_SIZE;
 	public static ForgeConfigSpec.IntValue LRG_9MM_MAG_SIZE;
 	public static ForgeConfigSpec.IntValue M1911_MAG_SIZE;
@@ -29,5 +29,5 @@ public class MagazineConfigs {
 		MAX_MAG_CAP_UPGRADES = COMMON_BUILDER
                 .comment("Max amount of Capacity Upgrades to be applied on a magazine")
                 .defineInRange("Max Mag Cap Upgrades", 3, 1, 15);
-	}*/
+	}
 }

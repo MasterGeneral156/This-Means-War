@@ -12,11 +12,14 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.config.TMWConfig;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWExplosiveProjectile;
@@ -43,6 +46,7 @@ public class TMWMain
     	modBus.addListener(this::setup);
         modBus.addListener(this::fillTab);
         modBus.addListener(this::clientSetup);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TMWConfig.COMMON);
     	
     	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
     	
