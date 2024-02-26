@@ -7,36 +7,27 @@ import themastergeneral.thismeanswar.items.TMWItems;
 public class TMWCarbines 
 {
 	public static ExternalAmmoGunItem tmg_carbine = new ExternalAmmoGunItem(
-														Constants.tmgCarbineFireRate, Constants.tmgCarbineReloadTime,
-														TMWItems.magazine_9mm_large,  Constants.tmgCarbineDamage,
-														Constants.tmgCarbineSpeed, Constants.tmgCarbineSpread);
+		Constants.tmgCarbineFireRate, Constants.tmgCarbineReloadTime,
+		TMWItems.magazine_9mm_large,  Constants.tmgCarbineDamage,
+		Constants.tmgCarbineSpeed, Constants.tmgCarbineSpread);
 	
 	public static ExternalAmmoGunItem mp40 = new ExternalAmmoGunItem(
-			Constants.mp40FireRate, Constants.mp40ReloadTime,
-			TMWItems.magazine_9mm_large,  Constants.mp40Damage,
-			Constants.mp40Speed, Constants.mp40Spread);
+		Constants.mp40FireRate, Constants.mp40ReloadTime,
+		TMWItems.magazine_9mm_large,  Constants.mp40Damage,
+		Constants.mp40Speed, Constants.mp40Spread);
 	
 	public static ExternalAmmoGunItem ump9 = new ExternalAmmoGunItem(
-			Constants.ump9FireRate, 
-			Constants.ump9ReloadTime,
-			TMWItems.magazine_9mm_large, 
-			Constants.ump9Damage,
-			Constants.ump9Speed,
-			Constants.ump9Spread);
+		Constants.ump9FireRate, Constants.ump9ReloadTime,
+		TMWItems.magazine_9mm_large, Constants.ump9Damage,
+		Constants.ump9Speed, Constants.ump9Spread);
 	
 	public static ExternalAmmoGunItem uzi = new ExternalAmmoGunItem(
-			Constants.uziFireRate, 
-			Constants.uziReloadTime,
-			TMWItems.magazine_9mm_large, 
-			Constants.uziDamage,
-			Constants.uziSpeed,
-			Constants.uziSpread);
+		Constants.uziFireRate, Constants.uziReloadTime,
+		TMWItems.magazine_9mm_large, Constants.uziDamage,
+		Constants.uziSpeed, Constants.uziSpread);
 	
 	public static ExternalAmmoGunItem g36 = new ExternalAmmoGunItem(
-			Constants.g36FireRate, 
-			Constants.g36ReloadTime,
-			TMWItems.magazine_g36, 
-			Constants.g36Damage,
-			Constants.g36Speed,
-			Constants.g36Spread);
+		Constants.g36FireRate, Constants.g36ReloadTime,
+		TMWItems.magazine_g36, Constants.g36Damage,
+		Constants.g36Speed, Constants.g36Spread);
 }
