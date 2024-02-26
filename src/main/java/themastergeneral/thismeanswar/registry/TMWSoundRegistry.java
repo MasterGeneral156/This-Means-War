@@ -14,5 +14,8 @@ public class TMWSoundRegistry
 	public static final RegistryObject<SoundEvent> shot_1911 = SOUNDS.register("shot_1911", () -> TMWSounds.shot_1911);
 	public static final RegistryObject<SoundEvent> shot_tmg_carbine = SOUNDS.register("shot_tmg_carbine", () -> TMWSounds.shot_tmg_carbine);
 	public static final RegistryObject<SoundEvent> shot_thunderclaw = SOUNDS.register("shot_thunderclaw", () -> TMWSounds.shot_thunderclaw);
+	public static final RegistryObject<SoundEvent> shot_mp40 = SOUNDS.register("shot_mp40", () -> TMWSounds.shot_mp40);
+	public static final RegistryObject<SoundEvent> shot_k98 = SOUNDS.register("shot_k98", () -> TMWSounds.shot_k98);
+	
 	public static final RegistryObject<SoundEvent> use_foundary = SOUNDS.register("use_foundary", () -> TMWSounds.use_foundary);
 }

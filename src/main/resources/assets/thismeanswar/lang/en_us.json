@@ -274,5 +274,7 @@
 	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw fired",
 	"thismeanswar.subtitle.shot_1911": "M1911 fired",
 	"thismeanswar.subtitle.shot_mp40": "MP40 fired",
-	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine fired"
+	"thismeanswar.subtitle.shot_k98": "K98 fired",
+	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine fired",
+	"thismeanswar.subtitle.use_foundary": "Bullet Foundary crafting",
 }

@@ -821,6 +821,8 @@ public class AbstractGunItem extends AbstractModItem {
 			return TMWSounds.shot_thunderclaw;
 		else if (asItem() == TMWCarbines.mp40)
 			return TMWSounds.shot_mp40;
+		else if (asItem() == TMWRifles.k98)
+			return TMWSounds.shot_k98;
 		else
 			return SoundEvents.GENERIC_EXPLODE;
 	}
