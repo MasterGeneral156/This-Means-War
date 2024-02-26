@@ -131,7 +131,7 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 				}
 				else
 				{
-					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / " + healthMax + " health currently stored."), true);
+					player.displayClientMessage(ModUtils.displayString(medicBox.getHealthStored() + " / " + ModUtils.returnShortenedNumber(healthMax) + " health currently stored."), true);
 					return InteractionResult.PASS;
 				}
 			}
