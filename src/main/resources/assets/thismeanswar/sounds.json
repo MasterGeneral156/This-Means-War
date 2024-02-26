@@ -26,6 +26,15 @@
 		],
 		"subtitle": "thismeanswar.subtitle.shot_thunderclaw"
 	},
+	"shot_mp40": {
+		"sounds": [
+			{
+				"name": "thismeanswar:shot_mp40",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.shot_mp40"
+	},
 	"use_foundary": {
 		"sounds": [
 			{
