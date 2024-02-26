@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.InteractionHand;
@@ -71,7 +72,12 @@ public class AbstractHealingItem extends AbstractModItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		if (this.health > 0)
-			tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health / 2) + " hearts."));
+		{
+			if (Screen.hasShiftDown())
+				tooltip.add(ModUtils.displayString("Instantly recovers " + this.health + " health."));
+			else
+				tooltip.add(ModUtils.displayString("Instantly recovers " + Math.round(this.health / 2) + " hearts."));
+		}
 	}
 	
 	public float getRegeneratedHealth()
