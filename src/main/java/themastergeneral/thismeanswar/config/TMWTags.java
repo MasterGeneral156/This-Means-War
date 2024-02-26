@@ -28,6 +28,7 @@ public class TMWTags {
 	public static TagKey<Item> rounds38spec = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_38"));
 	public static TagKey<Item> roundsenergy = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_energy"));
 	public static TagKey<Item> rounds762 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_762"));
+	public static TagKey<Item> rounds40mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_40mm"));
 	public static TagKey<Item> roundsexplosive = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/explosive"));
 	
 	//Magazine Tags
