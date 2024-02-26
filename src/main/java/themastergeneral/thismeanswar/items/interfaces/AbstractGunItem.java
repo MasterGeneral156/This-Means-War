@@ -231,10 +231,7 @@ public class AbstractGunItem extends AbstractModItem {
 			stack.setTag(compoundnbt);
 	   }
 	   if (counter == 20)
-	   {
-		   TMWMain.LOGGER.info(hasMag(stack));
 		   counter = 0;
-	   }
 	}
 	
 	@Override

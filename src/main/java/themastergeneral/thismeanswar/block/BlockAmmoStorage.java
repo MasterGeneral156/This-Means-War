@@ -163,7 +163,6 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
                 ammoDrop = new ItemStack(ammostorage.getAmmoItem(), 64);
                 ammostorage.updateAmmo(ammostorage.getAmmoItem(), -64);
 			}
-			TMWMain.LOGGER.info(totalAvailable);
 			ItemEntity itementity = new ItemEntity(world, (double)blockpos.getX() + d0, (double)blockpos.getY() + d1, (double)blockpos.getZ() + d2, ammoDrop);
             itementity.setDefaultPickUpDelay();
             world.addFreshEntity(itementity);
@@ -237,7 +236,6 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 				}
 			}
 		}
-		TMWMain.LOGGER.info(Math.round((ammostorage.getAmmoQuantity() / ammostorage.getAmmoMaxQuantity()) * 15));
 		return InteractionResult.FAIL;
 	}
 	
