@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "thismeanswar:casing/all"
+  },
+  "result": "thismeanswar:nugget_brass",
+  "experience": 0.7,
+  "cookingtime": 200
+}

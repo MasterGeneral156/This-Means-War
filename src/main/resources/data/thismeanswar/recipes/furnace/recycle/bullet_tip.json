@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "thismeanswar:tip/all"
+  },
+  "result": "thismeanswar:nugget_lead",
+  "experience": 0.7,
+  "cookingtime": 200
+}

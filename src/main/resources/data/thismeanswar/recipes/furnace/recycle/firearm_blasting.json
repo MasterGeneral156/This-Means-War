@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "thismeanswar:guns"
+  },
+  "result": "thismeanswar:nugget_steel",
+  "experience": 0.7,
+  "cookingtime": 100
+}
