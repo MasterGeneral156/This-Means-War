@@ -4,6 +4,8 @@
     "thismeanswar:ammo_box",
 	"thismeanswar:ammo_box_medium",
 	"thismeanswar:ammo_box_large",
-	"thismeanswar:medic_box"
+	"thismeanswar:medic_box",
+	"thismeanswar:medic_box_medium",
+	"thismeanswar:medic_box_large"
   ]
 }
