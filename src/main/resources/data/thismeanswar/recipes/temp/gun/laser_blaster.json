@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/steel"
+  },
+  "result": "thismeanswar:laser_blaster",
+  "count": 1
+}

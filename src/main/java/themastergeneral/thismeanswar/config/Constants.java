@@ -162,6 +162,13 @@ public class Constants
 	public static float beretta92Speed = 7.71243F + baseSpeed9mm;
 	public static float beretta92Spread = baseSpread9mm * 0.99F;
 	
+	//BFG8k1
+	public static int laserblasterFireRate = cooldownSemiAuto;
+	public static int laserblasterReloadTime = 38;
+	public static float laserblasterDamage = baseDamageEnergy * 0.7417f;
+	public static float laserblasterSpeed = baseSpeedEnergy * 1.1f;
+	public static float laserblasterSpread = baseSpreadEnergy * 1.4f;
+	
 	//M17 'Viper'
 	public static int m17viperFireRate = fireRateAuto;
 	public static int m17viperReloadTime = 30;
@@ -210,7 +217,7 @@ public class Constants
 	public static float quantumDisruptorSpeed = 34.6434124F + baseSpeedEnergy;
 	public static float quantumDisruptorSpread = 0.01F + baseSpreadEnergy;
 	
-	//Quantum Disruptor
+	//BFG8k1
 	public static int bfg8001Rate = cooldownSemiAuto;
 	public static int bfg8001ReloadTime = 70;
 	public static float bfg8001Damage = 11.4124F + baseDamageEnergy;

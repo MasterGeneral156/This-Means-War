@@ -32,6 +32,11 @@ public class TMWPistols
 		TMWItems.magazine_9mm_clip, Constants.c98viperDamage, 
 		Constants.c98viperSpeed, Constants.c98viperSpread);
 	
+	public static ExternalAmmoGunItem laser_blaster = new ExternalAmmoGunItem(
+			Constants.laserblasterFireRate, Constants.laserblasterReloadTime, 
+			TMWItems.energy_cell, Constants.laserblasterDamage, 
+			Constants.laserblasterSpeed, Constants.laserblasterSpread);
+	
 	public static InternalAmmoGunItem vespera = new InternalAmmoGunItem(
 		Constants.vesperaFireRate, TMWItems.round_38spec, 
 		Constants.vesperaDamage, 5, 

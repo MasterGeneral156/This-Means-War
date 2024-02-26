@@ -74,6 +74,8 @@ public class TMWMain
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_medium, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_large, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box, RenderType.translucent());
+    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_medium, RenderType.translucent());
+    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_large, RenderType.translucent());
     }
     
     private void fillTab(BuildCreativeModeTabContentsEvent ev)
@@ -88,6 +90,7 @@ public class TMWMain
 			ev.accept(TMWPistols.mauser_c98);
 			ev.accept(TMWPistols.vespera);
 			ev.accept(TMWPistols.mcstubby);
+			ev.accept(TMWPistols.laser_blaster);
     		
     		ev.accept(TMWCarbines.tmg_carbine);
     		ev.accept(TMWCarbines.uzi);

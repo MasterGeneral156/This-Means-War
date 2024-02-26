@@ -62,6 +62,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> mauser_c98 = ITEMS.register("mauser_c98", () -> TMWPistols.mauser_c98);
 	public static final RegistryObject<Item> vespera = ITEMS.register("vespera", () -> TMWPistols.vespera);
 	public static final RegistryObject<Item> mcstubby = ITEMS.register("mcstubby", () -> TMWPistols.mcstubby);
+	public static final RegistryObject<Item> laser_blaster = ITEMS.register("laser_blaster", () -> TMWPistols.laser_blaster);
 	
 	//Carbines
 	public static final RegistryObject<Item> tmg_carbine = ITEMS.register("tmg_carbine", () -> TMWCarbines.tmg_carbine);
