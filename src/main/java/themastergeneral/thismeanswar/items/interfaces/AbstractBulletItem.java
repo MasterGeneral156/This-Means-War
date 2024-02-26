@@ -16,6 +16,7 @@ public class AbstractBulletItem extends AbstractModItem {
 		super(new Properties());
 		this.bulletCasing = casing;
 		this.bulletTip = tip;
+		this.compatBullet = null;
 		
 	}
 	
@@ -32,6 +33,9 @@ public class AbstractBulletItem extends AbstractModItem {
 	public AbstractBulletItem() 
 	{
 		super(new Properties());
+		this.bulletCasing = null;
+		this.bulletTip = null;
+		this.compatBullet = null;
 		
 	}
 	
@@ -48,6 +52,7 @@ public class AbstractBulletItem extends AbstractModItem {
 		super(new Properties().stacksTo(maxSize));
 		this.bulletCasing = casing;
 		this.bulletTip = tip;
+		this.compatBullet = null;
 	}
 	
 	//Ammo stack limit with bullet share tag

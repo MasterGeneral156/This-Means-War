@@ -43,6 +43,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		this.maxAmmo = maxAmmoSize;
 		this.bulletRequired = Ammo;
 		this.baseAmmoSize = maxAmmoSize;
+		this.compatMags = null;
 	}
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize, TagKey<Item> compatMag) 
@@ -106,7 +107,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 			{
 				if (getCurrentAmmo(mag) > 0)
 				{
-						removeAmmoFromMag(mag);
+					removeAmmoFromMag(mag);
 					playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
 					playerIn.getCooldowns().addCooldown(this, 8);
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
@@ -119,14 +120,25 @@ public class AbstractMagazineItem extends AbstractModItem {
 				if ((getCurrentAmmo(mag) < getMaxAmmo(mag)) && (getMaxAmmo(mag) > 0))
 				{
 					int slotID = -1;
-					ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 					for(int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) 
 					{
 						ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-						if ((itemstack1.getItem()) == returnBulletItem() || (tagManager.getTag(this.returnBulletItem().getCompatBullet()).contains(itemstack1.getItem())))
+						if (compatMags != null)
 						{
-							slotID=i;
-							break;
+							ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+							if ((itemstack1.getItem()) == returnBulletItem() || (tagManager.getTag(this.returnBulletItem().getCompatBullet()).contains(itemstack1.getItem())))
+							{
+								slotID=i;
+								break;
+							}
+						}
+						else
+						{
+							if (itemstack1.getItem() == returnBulletItem())
+							{
+								slotID=i;
+								break;
+							}
 						}
 					}
 					
