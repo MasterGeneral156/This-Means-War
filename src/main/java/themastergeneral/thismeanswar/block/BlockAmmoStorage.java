@@ -34,6 +34,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
+import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
@@ -180,7 +181,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		}
 		else
 		{
-			MutableComponent message = ModUtils.displayString(NumberFormat.getInstance().format(ammostorage.getAmmoQuantity()) + " / " + NumberFormat.getInstance().format(ammostorage.getAmmoMaxQuantity()) + " (");
+			MutableComponent message = ModUtils.displayString(ModUtils.returnShortenedNumber(ammostorage.getAmmoQuantity()) + " / " + ModUtils.returnShortenedNumber(ammostorage.getAmmoMaxQuantity()) + " (");
 			message.append(ModUtils.displayTranslation(ammostorage.getAmmoItem().getDescriptionId()));
 			message.append(")");
 			player.displayClientMessage(message, true);
@@ -236,6 +237,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 				}
 			}
 		}
+		TMWMain.LOGGER.info(Math.round((ammostorage.getAmmoQuantity() / ammostorage.getAmmoMaxQuantity()) * 15));
 		return InteractionResult.FAIL;
 	}
 	
@@ -261,5 +263,18 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		}
 		else
 			return InteractionResult.FAIL;
+	}
+	
+	@Override
+	public int getSignal(BlockState state, BlockGetter getter, BlockPos pos, Direction dir) 
+	{
+		BlockEntityAmmoStorage ammostorage = (BlockEntityAmmoStorage) getter.getBlockEntity(pos);
+		return Math.round((ammostorage.getAmmoQuantity() / ammostorage.getAmmoMaxQuantity()) * 15);
+	}
+	
+	@Override
+	public boolean isSignalSource(BlockState p_55213_) 
+	{
+	      return true;
 	}
 }
