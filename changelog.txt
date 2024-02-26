@@ -41,6 +41,7 @@ Target: Forge 1.20.1
 *Holding shift while hovering over a medical item will now display the exact health recovered.
 +Added Medium and Large Medical Containers.
 	*2,048 and 4,096 capacity respectively.
+*CTD Core 2.4.5 (or greater) required.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
