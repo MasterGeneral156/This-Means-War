@@ -162,6 +162,12 @@ public class Constants
 	public static float m17viperSpeed = 3.41235F + baseSpeed9mm;
 	public static float m17viperSpread = baseSpread9mm * 1.45F;
 	
+	//Mc'Stubby
+	public static int mcstubbyFireRate = cooldownSemiAuto;
+	public static float mcstubbyDamage = 2.79114F + baseDamage9mm;
+	public static float mcstubbySpeed = 2.98571F + baseSpeed9mm;
+	public static float mcstubbySpread = baseSpread9mm * 1.65F;
+	
 	//Mauser C98
 	public static int c98viperFireRate = fireRateAuto;
 	public static int c98viperReloadTime = 10;

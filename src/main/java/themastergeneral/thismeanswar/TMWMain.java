@@ -87,6 +87,7 @@ public class TMWMain
 			ev.accept(TMWPistols.m17_viper);
 			ev.accept(TMWPistols.mauser_c98);
 			ev.accept(TMWPistols.vespera);
+			ev.accept(TMWPistols.mcstubby);
     		
     		ev.accept(TMWCarbines.tmg_carbine);
     		ev.accept(TMWCarbines.uzi);

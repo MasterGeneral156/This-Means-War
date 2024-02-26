@@ -37,4 +37,9 @@ public class TMWPistols
 													Constants.vesperaFireRate, TMWItems.round_38spec, 
 													Constants.vesperaDamage, 5, 
 													Constants.vesperaSpeed, Constants.vesperaSpread);
+	
+	public static InternalAmmoGunItem mcstubby = new InternalAmmoGunItem(
+			Constants.mcstubbyFireRate, TMWItems.round_9mm, 
+			Constants.mcstubbyDamage, 2, 
+			Constants.mcstubbySpeed, Constants.mcstubbySpread);
 }
