@@ -541,7 +541,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
+						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					//fire rounds
@@ -550,7 +550,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletFireEntity apBullet = new BulletFireEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
+						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					else if (this.getBulletUpgrade(mag) == 3)
@@ -558,7 +558,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletTracerEntity apBullet = new BulletTracerEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
 						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						apBullet.applyRandomSpread(this.returnBulletSpread(mag));
+						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
 					else
@@ -567,7 +567,7 @@ public class AbstractGunItem extends AbstractModItem {
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
 						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
-						bulletEntity.applyRandomSpread(this.returnBulletSpread(mag));
+						bulletEntity.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(bulletEntity);
 					}
 					
@@ -760,6 +760,17 @@ public class AbstractGunItem extends AbstractModItem {
 			if (bulletUpgrade == Constants.bulletUpgradeAP)
 				returned *= 1.11F;
 		}
+		return returned;
+	}
+	
+	public float returnPlayerBulletSpread(Player player, ItemStack stack) 
+	{
+		float returned = returnBulletSpread(stack);
+		//50% spread when sprinting
+		if (player.isSprinting() || player.isSwimming())
+			returned *= 1.5F;
+		if (player.isVisuallyCrawling())
+			returned *= 0.75F;
 		return returned;
 	}
 	
