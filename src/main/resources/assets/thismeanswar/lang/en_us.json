@@ -212,7 +212,9 @@
 	"block.thismeanswar.ammo_box": "Small Ammo Container",
 	"block.thismeanswar.ammo_box_medium": "Medium Ammo Container",
 	"block.thismeanswar.ammo_box_large": "Large Ammo Container",
-	"block.thismeanswar.medic_box": "Medical Container",
+	"block.thismeanswar.medic_box": "Small Medical Container",
+	"block.thismeanswar.medic_box_medium": "Medium Medical Container",
+	"block.thismeanswar.medic_box_large": "Large Medical Container",
 	
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",

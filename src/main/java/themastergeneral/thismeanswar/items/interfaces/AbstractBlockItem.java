@@ -37,7 +37,17 @@ public class AbstractBlockItem extends BlockItem {
 		if (stack.getItem() == TMWItems.medic_box)
 		{
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.medic_box_desc"));
-			tooltip.add(ModUtils.displayString("Maximum Health: 1024"));
+			tooltip.add(ModUtils.displayString("Maximum Health: 1,024"));
+		}
+		if (stack.getItem() == TMWItems.medic_box_medium)
+		{
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.medic_box_desc"));
+			tooltip.add(ModUtils.displayString("Maximum Health: 2,048"));
+		}
+		if (stack.getItem() == TMWItems.medic_box_large)
+		{
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.medic_box_desc"));
+			tooltip.add(ModUtils.displayString("Maximum Health: 4,096"));
 		}
 	}
 }

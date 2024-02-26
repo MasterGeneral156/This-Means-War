@@ -180,6 +180,8 @@ public class TMWMain
 			ev.accept(TMWItems.ammo_box_medium);
 			ev.accept(TMWItems.ammo_box_large);
 			ev.accept(TMWItems.medic_box);
+			ev.accept(TMWItems.medic_box_medium);
+			ev.accept(TMWItems.medic_box_large);
 			//ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.bullet_foundary);
 			

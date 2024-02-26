@@ -65,9 +65,9 @@ public class TMWItems {
 	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, TMWTags.rounds223);
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, TMWTags.rounds45);
 	public static AbstractBulletItem round_38spec = new AbstractBulletItem(casing_38spec, bullet_tip_38spec, TMWTags.rounds38spec);
-	public static AbstractBulletItem round_40mm = new AbstractBulletItem();
+	public static AbstractBulletItem round_40mm = new AbstractBulletItem(TMWTags.rounds40mm);
 	public static AbstractBulletItem round_762 = new AbstractBulletItem(casing_762, bullet_tip_762, TMWTags.rounds762);
-	public static AbstractBulletItem energy_bolt = new AbstractBulletItem();
+	public static AbstractBulletItem energy_bolt = new AbstractBulletItem(TMWTags.roundsenergy);
 	
 	//Magazines
 	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);
@@ -235,6 +235,8 @@ public class TMWItems {
 	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);
 	public static AbstractBlockItem ammo_box_large = new AbstractBlockItem(TMWBlocks.ammo_box_large);
 	public static AbstractBlockItem medic_box = new AbstractBlockItem(TMWBlocks.medic_box);
+	public static AbstractBlockItem medic_box_medium = new AbstractBlockItem(TMWBlocks.medic_box_medium);
+	public static AbstractBlockItem medic_box_large = new AbstractBlockItem(TMWBlocks.medic_box_large);
 	//public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
 	public static AbstractBlockItem bullet_foundary = new AbstractBlockItem(TMWBlocks.bullet_foundary);
 }
