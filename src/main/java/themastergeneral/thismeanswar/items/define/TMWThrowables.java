@@ -10,6 +10,7 @@ public class TMWThrowables {
 	public static AbstractContactThrowable nuclear_warhead = new AbstractContactThrowable(Constants.nukeDamage);
 	
 	public static AbstractContactThrowable hand_grenade = new AbstractContactThrowable(Constants.grenadeDamage);
+	public static AbstractContactThrowable stick_grenade = new AbstractContactThrowable(Constants.grenadeDamage);
 	
 	public static SmokeThrowableItem smoke_grenade_red = new SmokeThrowableItem(14423100);
 	public static SmokeThrowableItem smoke_grenade_green = new SmokeThrowableItem(8388352);
