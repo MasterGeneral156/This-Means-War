@@ -5,6 +5,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.block.BlockBarbedWire;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 
 public class TMWBlockRegistry {
@@ -30,6 +31,8 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> medic_box = BLOCKS.register("medic_box", () ->TMWBlocks.medic_box);
 	public static final RegistryObject<Block> medic_box_medium = BLOCKS.register("medic_box_medium", () ->TMWBlocks.medic_box_medium);
 	public static final RegistryObject<Block> medic_box_large = BLOCKS.register("medic_box_large", () ->TMWBlocks.medic_box_large);
+	
+	public static final RegistryObject<Block> barbed_wire = BLOCKS.register("barbed_wire", () ->TMWBlocks.barbed_wire);
 	
 	//public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 	public static final RegistryObject<Block> bullet_foundary = BLOCKS.register("bullet_foundary", () ->TMWBlocks.bullet_foundary);

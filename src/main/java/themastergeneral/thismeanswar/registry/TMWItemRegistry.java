@@ -295,6 +295,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> medic_box_medium = ITEMS.register("medic_box_medium", () -> TMWItems.medic_box_medium);
 	public static final RegistryObject<Item> medic_box_large = ITEMS.register("medic_box_large", () -> TMWItems.medic_box_large);
 	
+	public static final RegistryObject<Item> barbed_wire = ITEMS.register("barbed_wire", () -> TMWItems.barbed_wire);
+	
 	//Processing
 	//public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 	public static final RegistryObject<Item> bullet_foundary = ITEMS.register("bullet_foundary", () -> TMWItems.bullet_foundary);

@@ -1,6 +1,6 @@
 package themastergeneral.thismeanswar.block;
 
-import javax.annotation.Nullable;
+/*import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
-import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
+//import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 
 public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -43,7 +43,8 @@ public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockpos, BlockState blockstate) {
-		return new BlockEntityCrusher(blockpos, blockstate);
+		//return new BlockEntityCrusher(blockpos, blockstate);
+		return null;
 	}
 	
 	public InteractionResult use(BlockState p_48706_, Level p_48707_, BlockPos p_48708_, Player p_48709_, InteractionHand p_48710_, BlockHitResult p_48711_) {
@@ -77,9 +78,9 @@ public class BlockCrusher extends AbstractTMWBlock implements EntityBlock {
 	      return p_48719_.rotate(p_48720_.getRotation(p_48719_.getValue(FACING)));
 	   }
 	   
-	@Nullable
+	/*@Nullable
 	   protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level p_151988_, BlockEntityType<T> p_151989_, BlockEntityType<? extends BlockEntityCrusher> p_151990_) {
 	      return p_151988_.isClientSide ? null : createTicker(p_151988_, p_151989_, p_151990_);
 	   }
 
-}
+}*/

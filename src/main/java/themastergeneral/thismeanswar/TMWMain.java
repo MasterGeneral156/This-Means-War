@@ -80,6 +80,7 @@ public class TMWMain
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_medium, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_large, RenderType.translucent());
+    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.barbed_wire, RenderType.translucent());
     }
     
     private void fillTab(BuildCreativeModeTabContentsEvent ev)
@@ -190,6 +191,7 @@ public class TMWMain
 			ev.accept(TMWItems.medic_box_medium);
 			ev.accept(TMWItems.medic_box_large);
 			//ev.accept(TMWItems.crusher);
+			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.bullet_foundary);
 			
 			ev.accept(TMWThrowables.dynamite_stick);

@@ -238,5 +238,6 @@ public class TMWItems {
 	public static AbstractBlockItem medic_box_medium = new AbstractBlockItem(TMWBlocks.medic_box_medium);
 	public static AbstractBlockItem medic_box_large = new AbstractBlockItem(TMWBlocks.medic_box_large);
 	//public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
+	public static AbstractBlockItem barbed_wire = new AbstractBlockItem(TMWBlocks.barbed_wire);
 	public static AbstractBlockItem bullet_foundary = new AbstractBlockItem(TMWBlocks.bullet_foundary);
 }

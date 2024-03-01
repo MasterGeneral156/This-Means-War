@@ -21,7 +21,8 @@ public class TMWBlocks {
 	public static BlockMedicBox medic_box_medium = new BlockMedicBox(2048F);
 	public static BlockMedicBox medic_box_large = new BlockMedicBox(4096F);
 	
-	public static BlockCrusher crusher = new BlockCrusher();
+	public static BlockBarbedWire barbed_wire = new BlockBarbedWire();
 	
+	//public static BlockCrusher crusher = new BlockCrusher();
 	public static BlockFoundary bullet_foundary = new BlockFoundary();
 }
