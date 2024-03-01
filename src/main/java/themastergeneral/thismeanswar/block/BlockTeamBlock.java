@@ -26,7 +26,9 @@ public class BlockTeamBlock extends BlockStone implements ITeamBlock {
 	{
 		if (entity instanceof LivingEntity)
 		{
-			
+			LivingEntity mob = (LivingEntity) entity;
+			EntityHelper.
+			player.addEffect(new MobEffectInstance(MobEffects.JUMP, 20, 0, true, false));
 		}
 		if (entity instanceof Player)
 		{
