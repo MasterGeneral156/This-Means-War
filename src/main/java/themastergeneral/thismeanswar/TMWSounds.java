@@ -15,6 +15,8 @@ public class TMWSounds {
 	
 	public static final SoundEvent use_foundary = makeSoundEvent("use_foundary");
 	
+	public static final SoundEvent loop_alarm = makeSoundEvent("alarm_loop");
+	
 	private static SoundEvent makeSoundEvent(String name) {
 		SoundEvent event = SoundEvent.createVariableRangeEvent(new ResourceLocation(TMWMain.MODID, name));
 		return event;
