@@ -29,6 +29,8 @@ import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeROFAutoItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeROFSemiItem;
 
+import com.themastergeneral.ctdcore.item.CTDConsumableItem;
+
 public class TMWItems {
 	
 	//Just in case
@@ -165,6 +167,9 @@ public class TMWItems {
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
 	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
 	public static AbstractHealingItem medic_kit = new AbstractHealingItem(12F, 10);
+	
+	//Food
+	public static CTDConsumableItem mre = new CTDConsumableItem(2, 5.25F);
 	
 	//Armor Material
 	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor");

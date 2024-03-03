@@ -168,6 +168,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> gauze = ITEMS.register("gauze", () -> TMWItems.gauze);
 	public static final RegistryObject<Item> medic_kit = ITEMS.register("medic_kit", () -> TMWItems.medic_kit);
 	
+	//Food
+	public static final RegistryObject<Item> mre = ITEMS.register("mre", () -> TMWItems.mre);
+	
 	//Upgrades
 	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
 	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);

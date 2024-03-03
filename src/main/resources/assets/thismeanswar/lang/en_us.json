@@ -117,6 +117,8 @@
 	"item.thismeanswar.gauze": "Gauze",
 	"item.thismeanswar.medic_kit": "Medic Kit",
 	
+	"item.thismeanswar.mre": "MRE Meal",
+	
 	"item.thismeanswar.green_war_armor_helm": "§2War Armor Helmet",
 	"item.thismeanswar.green_war_armor_chest": "§2War Armor Chestpiece",
 	"item.thismeanswar.green_war_armor_legs": "§2War Armor Legs",
@@ -222,6 +224,7 @@
 	"block.thismeanswar.medic_box": "Small Medical Container",
 	"block.thismeanswar.medic_box_medium": "Medium Medical Container",
 	"block.thismeanswar.medic_box_large": "Large Medical Container",
+	"block.thismeanswar.barbed_wire": "Barbed Wire",
 	
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",

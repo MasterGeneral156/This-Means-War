@@ -208,6 +208,8 @@ public class TMWMain
 			ev.accept(TMWItems.gauze);
 			ev.accept(TMWItems.medic_kit);
 			
+			ev.accept(TMWItems.mre);
+			
 			ev.accept(TMWItems.hammer_iron);
 			ev.accept(TMWItems.hammer_steel);
 			ev.accept(TMWItems.hammer_diamond);
