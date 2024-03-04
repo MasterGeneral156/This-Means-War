@@ -46,10 +46,10 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
       
       this.setInvulnerable(true);
       this.canBeCollidedWith();
-      //setBounces(0);
-      //setAliveTick(0);
       setItem(new ItemStack(getDefaultItem()));
-      //setColor(2551600);
+      this.entityData.define(COLOR, 2551600);
+      this.entityData.define(TICKS_ALIVE, 0);
+      this.entityData.define(BOUNCES_DONE, 0);
    }
 
    public SmokeThrowableEntity(Level worldIn, LivingEntity throwerIn, int Colors) {
@@ -58,9 +58,9 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
       
       this.setInvulnerable(true);
       this.canBeCollidedWith();
-      //setBounces(0);
-      //setAliveTick(0);
-      //setColor(Colors);
+      this.entityData.define(COLOR, 2551600);
+      this.entityData.define(TICKS_ALIVE, 0);
+      this.entityData.define(BOUNCES_DONE, 0);
       setItem(new ItemStack(getDefaultItem()));
    }
 
@@ -70,9 +70,9 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
       
       this.setInvulnerable(true);
       this.canBeCollidedWith();
-      //setBounces(0);
-      //setAliveTick(0);
-      //setColor(Colors);
+      this.entityData.define(COLOR, 2551600);
+      this.entityData.define(TICKS_ALIVE, 0);
+      this.entityData.define(BOUNCES_DONE, 0);
       setItem(new ItemStack(getDefaultItem()));
    }
 
@@ -88,7 +88,7 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
 	   if (this.getBounces() + 1 <= 5)
 	   {
 		   this.moveTowardsClosestSpace(pos.getX(), pos.getY(), pos.getZ());
-		   setBounces(1);
+		   setBounces();
 	   }
 	   else
 	   {
@@ -119,79 +119,56 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
 			failCon++;
 		if (this.isInLava())
 			failCon++;
+		if (this.isInWall())
+			failCon++;
 		int aliveTick = getTicksAlive();
 		if ((aliveTick > 100) && (failCon == 0))
 		{
-			this.getCommandSenderWorld().addParticle(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 2.5D, 100D, 1D);
+			getCommandSenderWorld().addParticle(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 2.5D, 100D, 1D);
 			if (aliveTick >= (60 * 60 * 20) + 100)	//72100 ticks we die
 				kill();
 		}
 		//kill earlier if its wet or on fire...
 		if ((failCon > 0) || (aliveTick >= 700))
 			kill();
-		if (aliveTick < Integer.MAX_VALUE)
-			setAliveTick(1);
-		TMWMain.LOGGER.info("Alive: " + getTicksAlive());
-		TMWMain.LOGGER.info("Bounces: " + getBounces());
-		TMWMain.LOGGER.info("Color: " + getColor());
+		TMWMain.debugLogger("Alive: " + getTicksAlive());
+		TMWMain.debugLogger("Bounces: " + getBounces());
+		TMWMain.debugLogger("Color: " + getColor());
+		this.setAliveTick();
 	}
 	
 	protected int getTicksAlive()
 	{
-		return ticksAlive;
+		return this.entityData.get(TICKS_ALIVE);
 	}
 	
-	protected void setAliveTick(int tick)
+	protected void setAliveTick()
 	{
-		ticksAlive = ticksAlive + tick;
+		ticksAlive++;
+		this.entityData.set(TICKS_ALIVE, ticksAlive);
 		
 	}
 	
-	protected void setBounces(int bounce)
+	protected void setBounces()
 	{
-		bounces = bounces + bounce;
+		bounces++;
+		this.entityData.set(BOUNCES_DONE, bounces);
 	}
 	
 	protected int getBounces()
 	{
-		return bounces;
+		return this.entityData.get(BOUNCES_DONE);
 	}
 	
 	protected void setColor(int color)
 	{
 		intColors = color;
+		this.entityData.set(COLOR, intColors);
 		
 	}
 	
 	protected int getColor()
 	{
-		return intColors;
-	}
-	
-	@Override
-	public void addAdditionalSaveData(CompoundTag tag)
-	{
-		super.addAdditionalSaveData(tag);
-		tag.putInt("ticksAlive", getTicksAlive());
-		tag.putInt("bounces", getBounces());
-		tag.putInt("color", getColor());
-	}
-	
-	@Override
-	public void readAdditionalSaveData(CompoundTag tag)
-	{
-		super.readAdditionalSaveData(tag);
-		setAliveTick(tag.getInt("ticksAlive"));
-		setBounces(tag.getInt("bounces"));
-		setColor(tag.getInt("color"));
-	}
-	
-	@Override
-	public void kill() 
-	{
-		this.setInvulnerable(false);
-		this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0.1F, ExplosionInteraction.NONE);
-		super.kill();
-	}
-		
+		return this.entityData.get(COLOR);
+	}	
 }
