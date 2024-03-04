@@ -540,7 +540,7 @@ public class AbstractGunItem extends AbstractModItem {
 					{
 						BulletAPEntity apBullet = new BulletAPEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
-						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, this.bulletSpeed);
 						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
@@ -549,7 +549,7 @@ public class AbstractGunItem extends AbstractModItem {
 					{
 						BulletFireEntity apBullet = new BulletFireEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
-						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, this.bulletSpeed);
 						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
@@ -557,7 +557,7 @@ public class AbstractGunItem extends AbstractModItem {
 					{
 						BulletTracerEntity apBullet = new BulletTracerEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						apBullet.setItem(new ItemStack(bullet));
-						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						apBullet.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, this.bulletSpeed);
 						apBullet.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(apBullet);
 					}
@@ -566,7 +566,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
-						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, 1.0F);
+						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, this.bulletSpeed);
 						bulletEntity.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(bulletEntity);
 					}
