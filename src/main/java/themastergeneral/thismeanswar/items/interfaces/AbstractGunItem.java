@@ -566,7 +566,7 @@ public class AbstractGunItem extends AbstractModItem {
 						BulletBaseEntity bulletEntity = new BulletBaseEntity(worldIn, playerIn, this.returnBulletDamage(mag), bullet);
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
-						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 1.5F, this.bulletSpeed);
+						bulletEntity.shootFromRotation(playerIn, playerIn.getXRot(), playerIn.getYRot(), 0F, 0F, this.bulletSpeed);
 						bulletEntity.applyRandomSpread(this.returnPlayerBulletSpread(playerIn, mag));
 						worldIn.addFreshEntity(bulletEntity);
 					}
