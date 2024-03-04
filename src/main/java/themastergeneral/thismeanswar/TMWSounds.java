@@ -19,6 +19,7 @@ public class TMWSounds {
 	
 	private static SoundEvent makeSoundEvent(String name) {
 		SoundEvent event = SoundEvent.createVariableRangeEvent(new ResourceLocation(TMWMain.MODID, name));
+		TMWMain.debugLogger("Sound event: " + name + " has been registered.");
 		return event;
 	}
 	
