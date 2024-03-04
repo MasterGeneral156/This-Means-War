@@ -156,5 +156,23 @@ public class BlockMedicBox extends GlassBlock implements EntityBlock
 	{
 	      return true;
 	}
+	
+	@Override
+	public boolean hasAnalogOutputSignal(BlockState p_54275_) 
+	{
+		return true;
+	}
+	
+	@Override
+	public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos)
+	{
+		BlockEntity entity = level.getBlockEntity(pos);
+		if (entity instanceof BlockEntityMedicBox medic)
+		{
+			return Math.round((medic.getHealthStored() / healthMax) * 15);
+		}
+		else
+			return 0;
+	}
 
 }
