@@ -51,6 +51,17 @@ Target: Forge 1.20.1
 	*2,048 and 4,096 capacity respectively.
 *CTD Core 2.4.5 (or greater) required.
 +Added sounds for MP40 & K98.
+*Fixed a bug with the ammo storage block state.
++Added item descriptions to JEI info.
+*Updated numerous firearm textures.
++Added Laser Blaster
+	*Pistol, internal energy ammo
++Add bullet spread!!!!
++Added missing 7.62 round assets.
++Added Barbed Wire
+	*Slows down entity
+	*Damages said entity.
++Added MRE food.
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
