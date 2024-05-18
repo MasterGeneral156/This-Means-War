@@ -4,7 +4,7 @@
 			"item": "thismeanswar:dragunov"
 		},
 		"title": "Puff the Magic Dragunov",
-		"description": "Obtain a Mosin Nagant"
+		"description": "Obtain the Dragunov"
 	},
 	"parent": "thismeanswar:tmw/mosin_nagant",
 	"criteria": {
