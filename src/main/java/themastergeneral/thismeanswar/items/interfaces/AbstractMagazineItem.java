@@ -30,7 +30,7 @@ import themastergeneral.thismeanswar.config.TMWTags;
 
 public class AbstractMagazineItem extends AbstractModItem {
 
-	private int maxAmmo; 
+	protected int maxAmmo; 
 	private int baseAmmoSize;
 	protected AbstractBulletItem bulletRequired;
 	private TagKey<Item> compatMags;
