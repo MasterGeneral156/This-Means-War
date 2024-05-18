@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.entity.ContactGrenadeEntity;
 import themastergeneral.thismeanswar.entity.SmokeThrowableEntity;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 
