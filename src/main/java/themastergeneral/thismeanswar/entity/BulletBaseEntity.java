@@ -7,7 +7,6 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,7 +14,6 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import themastergeneral.thismeanswar.config.Constants;
@@ -75,15 +73,6 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 		   this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 		   this.kill();
 	   }
-	   
-	   public void applyRandomSpread(float spreadAmount) {
-	        // Adjust the motion (velocity) based on random spread
-	        this.setDeltaMovement(this.getDeltaMovement().add(
-	                this.random.nextFloat() * spreadAmount,
-	                this.random.nextFloat() * spreadAmount,
-	                this.random.nextFloat() * spreadAmount
-	        ));
-	    }
 	   
 	   @Nonnull
 	   @Override

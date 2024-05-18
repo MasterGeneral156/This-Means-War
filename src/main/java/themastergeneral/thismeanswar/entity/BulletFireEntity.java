@@ -71,15 +71,6 @@ public class BulletFireEntity extends ThrowableItemProjectile {
 	{
 		return null;
 	}
-	
-	public void applyRandomSpread(float spreadAmount) {
-        // Adjust the motion (velocity) based on random spread
-        this.setDeltaMovement(this.getDeltaMovement().add(
-                this.random.nextFloat() * spreadAmount,
-                this.random.nextFloat() * spreadAmount,
-                this.random.nextFloat() * spreadAmount
-        ));
-    }
 	  
 	@Override
 	protected void onHitBlock(BlockHitResult result) 
