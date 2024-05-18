@@ -4,11 +4,8 @@ import javax.annotation.Nonnull;
 
 import org.joml.Vector3f;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.texture.Tickable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
@@ -22,15 +19,12 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.Level.ExplosionInteraction;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.define.TMWThrowables;
 
-public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tickable {
+public class SmokeThrowableEntity extends ThrowableItemProjectile {
 	protected Vector3f color;
 	protected int intColors;
 	protected int ticksAlive = 0;
@@ -170,5 +164,5 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile implements Tic
 	protected int getColor()
 	{
 		return this.entityData.get(COLOR);
-	}	
+	}
 }

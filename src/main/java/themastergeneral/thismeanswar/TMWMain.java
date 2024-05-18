@@ -3,26 +3,15 @@ package themastergeneral.thismeanswar;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.client.event.ViewportEvent.ComputeFov;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.config.TMWConfig;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
@@ -50,15 +39,10 @@ public class TMWMain
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
     	modBus.addListener(this::setup);
         modBus.addListener(this::fillTab);
-        modBus.addListener(this::clientSetup);
+        MinecraftForge.EVENT_BUS.register(this);
         //modBus.addListener(this::onFOVUpdate);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TMWConfig.COMMON);
     	
-    	DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(this::clientSetup));
-    	
-    	MinecraftForge.EVENT_BUS.register(this);
-    	MinecraftForge.EVENT_BUS.register(new TMWEvents());
-    	MinecraftForge.EVENT_BUS.addListener(this::onFOVUpdate);
         TMWItemRegistry.ITEMS.register(modBus);
         TMWEntityRegistry.ENTITES.register(modBus);
         TMWBlockRegistry.BLOCKS.register(modBus);
@@ -73,30 +57,6 @@ public class TMWMain
     public void setup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("This Means War, in active development.");
-    }
-    
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public void clientSetup(final FMLClientSetupEvent event)
-    {
-    	LOGGER.info("Loading client-side Block Render layers.");
-    	//TODO Fix this depre notice
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_medium, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_large, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_medium, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_large, RenderType.translucent());
-    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.barbed_wire, RenderType.translucent());
-    }
-    
-    @SubscribeEvent
-    public void onFOVUpdate(ComputeFov event) {
-    	if ((event.getCamera().getEntity() instanceof Player player) && ((event.getCamera().getEntity() != Entity.NULL)))
-    	{
-    		float fovModifier = (player.getPersistentData().getFloat("fovModifier") > 0.01F) ? player.getPersistentData().getFloat("fovModifier") : 1F;
-        	event.setFOV(event.getFOV() * fovModifier);
-    	}
     }
     
     private void fillTab(BuildCreativeModeTabContentsEvent ev)
