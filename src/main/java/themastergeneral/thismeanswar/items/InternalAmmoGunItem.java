@@ -10,10 +10,4 @@ public class InternalAmmoGunItem extends AbstractGunItem {
 			float bulletSpread) {
 		super(shotTime, bullet, damage, maxAmmo, bulletSpeed, bulletSpread);
 	}
-
-	@Override
-	public boolean isFoil(ItemStack stack)
-	{
-		return true;
-	}
 }
