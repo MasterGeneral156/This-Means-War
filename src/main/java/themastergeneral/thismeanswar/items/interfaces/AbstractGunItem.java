@@ -81,7 +81,7 @@ public class AbstractGunItem extends AbstractModItem {
 		this.magazine=magazine;
 		this.bullet=bullet;
 		this.damage=damage;
-		this.maxAmmo=magazine.maxAmmo;
+		this.maxAmmo=0;
 		this.magType=1;
 		this.bulletSpread = bulletSpread;
 		this.bulletSpeed = bulletSpeed;
