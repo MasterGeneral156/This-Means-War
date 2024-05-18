@@ -1,9 +1,5 @@
 package themastergeneral.thismeanswar.items.armors;
 
-import com.themastergeneral.ctdcore.helpers.ModUtils;
-
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
@@ -27,11 +23,11 @@ public class WarArmorItem extends ArmorItem {
 		if (!player.getCooldowns().isOnCooldown(stack.getItem()))
 		{
 			//player health less than max, and the armor set has at least 10% durability remaining
-			if ((player.getHealth() < player.getMaxHealth()) && (durabilityPercent > 10))
+			if ((player.getHealth() < player.getMaxHealth()) && (this.getDamage(stack)) > 10)
 			{
 				player.setHealth(player.getHealth() + 0.5F);
 				//deal 10% total damage for a health heal
-				stack.hurt(stack.getMaxDamage() / 10, RandomSource.createNewThreadLocalInstance(), null);
+				stack.hurt(10, RandomSource.createNewThreadLocalInstance(), null);
 				player.getCooldowns().addCooldown(stack.getItem(), 20);
 			}
 			else if (stack.isDamaged() && player.getHealth() == player.getMaxHealth())
@@ -53,7 +49,7 @@ public class WarArmorItem extends ArmorItem {
 	
 	@Override
     public boolean isFoil(ItemStack stack) {
-        if (this.getDurabilityPercent(stack) > 10)
+        if (this.getDamage(stack) > 10)
         	return true;
         else
         	return false;

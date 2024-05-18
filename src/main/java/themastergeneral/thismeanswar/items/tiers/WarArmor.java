@@ -19,7 +19,7 @@ public class WarArmor implements ArmorMaterial {
     
     @Override
 	public int getDurabilityForType(Type type) {
-		return 128;
+    	return 378 * (this.slotProtections[type.getSlot().getIndex()] / 10);
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class WarArmor implements ArmorMaterial {
 
 	@Override
 	public float getKnockbackResistance() {
-		return 1.3F;
+		return 0.55F;
 	}
 
 }
