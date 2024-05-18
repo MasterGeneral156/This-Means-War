@@ -87,7 +87,9 @@
 	"item.thismeanswar.hammer_iron": "Iron Hammer",
 	"item.thismeanswar.hammer_steel": "Steel Hammer",
 	"item.thismeanswar.hammer_diamond": "Diamond Hammer",
+	"item.thismeanswar.hammer_creative": "Creative Hammer",
 	"item.thismeanswar.hand_saw": "Manual Saw",
+	"item.thismeanswar.creative_hand_saw": "Creative Manual Saw",
 	
 	"item.thismeanswar.bullet_cast_9mm": "Bullet Cast (9mm)",
 	"item.thismeanswar.bullet_cast_556": "Bullet Cast (5.56)",
@@ -97,6 +99,14 @@
 	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
 	"item.thismeanswar.bullet_cast_762": "Bullet Cast (7.62)",
 	
+	"item.thismeanswar.creative_bulletcast_9mm": "Creative Bullet Cast (9mm)",
+	"item.thismeanswar.creative_bulletcast_556": "Creative Bullet Cast (5.56)",
+	"item.thismeanswar.creative_bulletcast_223": "Creative Bullet Cast (.223)",
+	"item.thismeanswar.creative_bulletcast_45": "Creative Bullet Cast (.45ACP)",
+	"item.thismeanswar.creative_bulletcast_38spec": "Creative Bullet Cast (38 Special)",
+	"item.thismeanswar.creative_bulletcast_12g": "Creative Bullet Cast (12G Buckshot)",
+	"item.thismeanswar.creative_bulletcast_762": "Creative Bullet Cast (7.62)",
+	
 	"item.thismeanswar.casing_cast_9mm": "Casing Cast (9mm)",
 	"item.thismeanswar.casing_cast_556": "Casing Cast (5.56)",
 	"item.thismeanswar.casing_cast_223": "Casing Cast (.223)",
@@ -104,6 +114,14 @@
 	"item.thismeanswar.casing_cast_38spec": "Casing Cast (38 Special)",
 	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Buckshot)",
 	"item.thismeanswar.casing_cast_762": "Casing Cast (7.62)",
+	
+	"item.thismeanswar.creative_casing_cast_9mm": "Creative Casing Cast (9mm)",
+	"item.thismeanswar.creative_casing_cast_556": "Creative Casing Cast (5.56)",
+	"item.thismeanswar.creative_casing_cast_223": "Creative Casing Cast (.223)",
+	"item.thismeanswar.creative_casing_cast_45": "Creative Casing Cast (.45ACP)",
+	"item.thismeanswar.creative_casing_cast_38spec": "Creative Casing Cast (38 Special)",
+	"item.thismeanswar.creative_casing_cast_12g": "Creative Casing Cast (12G Buckshot)",
+	"item.thismeanswar.creative_casing_cast_762": "Creative Casing Cast (7.62)",
 	
 	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
 	"item.thismeanswar.kevlar_chest": "US Army Top",

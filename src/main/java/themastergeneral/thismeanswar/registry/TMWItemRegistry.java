@@ -219,7 +219,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> hammer_iron = ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);
 	public static final RegistryObject<Item> hammer_diamond = ITEMS.register("hammer_diamond", () -> TMWItems.hammer_diamond);
 	public static final RegistryObject<Item> hammer_steel = ITEMS.register("hammer_steel", () -> TMWItems.hammer_steel);
+	public static final RegistryObject<Item> hammer_creative = ITEMS.register("hammer_creative", () -> TMWItems.hammer_creative);
 	public static final RegistryObject<Item> hand_saw = ITEMS.register("hand_saw", () -> TMWItems.hand_saw);
+	public static final RegistryObject<Item> creative_hand_saw = ITEMS.register("creative_hand_saw", () -> TMWItems.creative_hand_saw);
 	
 	//Bullet casts
 	public static final RegistryObject<Item> bullet_cast_9mm = ITEMS.register("bullet_cast_9mm", () -> TMWItems.bullet_cast_9mm);
@@ -230,6 +232,14 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_cast_12g = ITEMS.register("bullet_cast_12g", () -> TMWItems.bullet_cast_12g);
 	public static final RegistryObject<Item> bullet_cast_762 = ITEMS.register("bullet_cast_762", () -> TMWItems.bullet_cast_762);
 	
+	public static final RegistryObject<Item> creative_bullet_cast_9mm = ITEMS.register("creative_bullet_cast_9mm", () -> TMWItems.creative_bullet_cast_9mm);
+	public static final RegistryObject<Item> creative_bullet_cast_556 = ITEMS.register("creative_bullet_cast_556", () -> TMWItems.creative_bullet_cast_556);
+	public static final RegistryObject<Item> creative_bullet_cast_223 = ITEMS.register("creative_bullet_cast_223", () -> TMWItems.creative_bullet_cast_223);
+	public static final RegistryObject<Item> creative_bullet_cast_45 = ITEMS.register("creative_bullet_cast_45", () -> TMWItems.creative_bullet_cast_45);
+	public static final RegistryObject<Item> creative_bullet_cast_38spec = ITEMS.register("creative_bullet_cast_38spec", () -> TMWItems.creative_bullet_cast_38spec);
+	public static final RegistryObject<Item> creative_bullet_cast_12g = ITEMS.register("creative_bullet_cast_12g", () -> TMWItems.creative_bullet_cast_12g);
+	public static final RegistryObject<Item> creative_bullet_cast_762 = ITEMS.register("creative_bullet_cast_762", () -> TMWItems.creative_bullet_cast_762);
+	
 	//Casing casts
 	public static final RegistryObject<Item> casing_cast_9mm = ITEMS.register("casing_cast_9mm", () -> TMWItems.casing_cast_9mm);
 	public static final RegistryObject<Item> casing_cast_556 = ITEMS.register("casing_cast_556", () -> TMWItems.casing_cast_556);
@@ -238,6 +248,14 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_cast_38spec = ITEMS.register("casing_cast_38spec", () -> TMWItems.casing_cast_38spec);
 	public static final RegistryObject<Item> casing_cast_12g = ITEMS.register("casing_cast_12g", () -> TMWItems.casing_cast_12g);
 	public static final RegistryObject<Item> casing_cast_762 = ITEMS.register("casing_cast_762", () -> TMWItems.casing_cast_762);
+	
+	public static final RegistryObject<Item> creative_casing_cast_9mm = ITEMS.register("creative_casing_cast_9mm", () -> TMWItems.creative_casing_cast_9mm);
+	public static final RegistryObject<Item> creative_casing_cast_556 = ITEMS.register("creative_casing_cast_556", () -> TMWItems.creative_casing_cast_556);
+	public static final RegistryObject<Item> creative_casing_cast_223 = ITEMS.register("creative_casing_cast_223", () -> TMWItems.creative_casing_cast_223);
+	public static final RegistryObject<Item> creative_casing_cast_45 = ITEMS.register("creative_casing_cast_45", () -> TMWItems.creative_casing_cast_45);
+	public static final RegistryObject<Item> creative_casing_cast_38spec = ITEMS.register("creative_casing_cast_38spec", () -> TMWItems.creative_casing_cast_38spec);
+	public static final RegistryObject<Item> creative_casing_cast_12g = ITEMS.register("creative_casing_cast_12g", () -> TMWItems.creative_casing_cast_12g);
+	public static final RegistryObject<Item> creative_casing_cast_762 = ITEMS.register("creative_casing_cast_762", () -> TMWItems.creative_casing_cast_762);
 	
 	//Bullet Casings
 	public static final RegistryObject<Item> casing_9mm = ITEMS.register("casing_9mm", () -> TMWItems.casing_9mm);

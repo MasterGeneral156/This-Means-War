@@ -199,6 +199,14 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_cast_762);
 			ev.accept(TMWItems.bullet_cast_12g);
 			
+			ev.accept(TMWItems.creative_bullet_cast_223);
+			ev.accept(TMWItems.creative_bullet_cast_556);
+			ev.accept(TMWItems.creative_bullet_cast_9mm);
+			ev.accept(TMWItems.creative_bullet_cast_45);
+			ev.accept(TMWItems.creative_bullet_cast_38spec);
+			ev.accept(TMWItems.creative_bullet_cast_762);
+			ev.accept(TMWItems.creative_bullet_cast_12g);
+			
 			ev.accept(TMWItems.bullet_tip_223);
 			ev.accept(TMWItems.bullet_tip_556);
 			ev.accept(TMWItems.bullet_tip_9mm);
@@ -214,6 +222,14 @@ public class TMWMain
 			ev.accept(TMWItems.casing_cast_38spec);
 			ev.accept(TMWItems.casing_cast_762);
 			ev.accept(TMWItems.casing_cast_12g);
+			
+			ev.accept(TMWItems.creative_casing_cast_223);
+			ev.accept(TMWItems.creative_casing_cast_556);
+			ev.accept(TMWItems.creative_casing_cast_9mm);
+			ev.accept(TMWItems.creative_casing_cast_45);
+			ev.accept(TMWItems.creative_casing_cast_38spec);
+			ev.accept(TMWItems.creative_casing_cast_762);
+			ev.accept(TMWItems.creative_casing_cast_12g);
 			
 			ev.accept(TMWItems.casing_223);
 			ev.accept(TMWItems.casing_556);

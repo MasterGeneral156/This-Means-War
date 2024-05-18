@@ -135,7 +135,9 @@ public class TMWItems {
 	public static DurabilityItem hammer_iron = new DurabilityItem(128);
 	public static DurabilityItem hammer_steel = new DurabilityItem(224);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(469);
+	public static DurabilityItem hammer_creative = new TMWCreativeItem();
 	public static DurabilityItem hand_saw = new DurabilityItem(175);
+	public static DurabilityItem creative_hand_saw = new TMWCreativeItem();
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
@@ -146,6 +148,14 @@ public class TMWItems {
 	public static DurabilityItem bullet_cast_12g = new DurabilityItem(256);
 	public static DurabilityItem bullet_cast_762 = new DurabilityItem(256);
 	
+	public static DurabilityItem creative_bullet_cast_9mm = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_556 = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_223 = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_45 = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_38spec = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_12g = new TMWCreativeItem();
+	public static DurabilityItem creative_bullet_cast_762 = new TMWCreativeItem();
+	
 	//Casing Casts
 	public static DurabilityItem casing_cast_9mm = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_556 = new DurabilityItem(256);
@@ -154,6 +164,14 @@ public class TMWItems {
 	public static DurabilityItem casing_cast_38spec = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_12g = new DurabilityItem(256);
 	public static DurabilityItem casing_cast_762 = new DurabilityItem(256);
+	
+	public static DurabilityItem creative_casing_cast_9mm = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_556 = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_223 = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_45 = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_38spec = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_12g = new TMWCreativeItem();
+	public static DurabilityItem creative_casing_cast_762 = new TMWCreativeItem();
 	
 	//Musket Upgrade
 	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2.5);
