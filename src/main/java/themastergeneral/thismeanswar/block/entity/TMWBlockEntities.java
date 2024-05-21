@@ -11,5 +11,7 @@ public class TMWBlockEntities {
 	public static final BlockEntityType<BlockEntityAmmoStorage> MEDIC_STORAGE = BlockEntityType.Builder.of(BlockEntityAmmoStorage::new, TMWBlocks.medic_box).build(null);
 	public static final BlockEntityType<BlockEntityAmmoStorage> MEDIC_STORAGE_MEDIUM = BlockEntityType.Builder.of(BlockEntityAmmoStorage::new, TMWBlocks.medic_box_medium).build(null);
 	public static final BlockEntityType<BlockEntityAmmoStorage> MEDIC_STORAGE_LARGE = BlockEntityType.Builder.of(BlockEntityAmmoStorage::new, TMWBlocks.medic_box_large).build(null);
+	
+	public static final BlockEntityType<BlockEntityCasingRecycler> CASING_RECYCLER = BlockEntityType.Builder.of(BlockEntityCasingRecycler::new, TMWBlocks.casing_recycler).build(null);
 	//public static final BlockEntityType<BlockEntityCrusher> CRUSHER = BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null);
 }

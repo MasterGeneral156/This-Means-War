@@ -3,7 +3,9 @@ package themastergeneral.thismeanswar;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,10 +22,12 @@ import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.define.TMWShotguns;
 import themastergeneral.thismeanswar.items.define.TMWThrowables;
+import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
 import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWItemRegistry;
+import themastergeneral.thismeanswar.registry.TMWMenuRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 import themastergeneral.thismeanswar.registry.TMWSoundRegistry;
 
@@ -51,6 +55,7 @@ public class TMWMain
         TMWRecipeTypeRegistration.RECIPE_TYPES.register(modBus);
         TMWTabs.CREATIVE_MODE_TABS.register(modBus);
         TMWSoundRegistry.SOUNDS.register(modBus);
+        TMWMenuRegistry.CONTAINERS.register(modBus);
     }
 
     @SubscribeEvent
@@ -169,6 +174,7 @@ public class TMWMain
 			//ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.bullet_foundary);
+			ev.accept(TMWItems.casing_recycler);
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);

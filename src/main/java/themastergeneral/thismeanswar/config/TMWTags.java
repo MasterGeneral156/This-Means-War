@@ -30,6 +30,7 @@ public class TMWTags {
 	public static TagKey<Item> rounds762 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_762"));
 	public static TagKey<Item> rounds40mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_40mm"));
 	public static TagKey<Item> roundsexplosive = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/explosive"));
+	public static TagKey<Item> rounds_all = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_all"));
 	
 	//Magazine Tags
 	public static TagKey<Item> mags9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/9mm_magazines"));
@@ -38,4 +39,7 @@ public class TMWTags {
 	public static TagKey<Item> mags223 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/223_magazines"));
 	public static TagKey<Item> mags556 = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/556_magazines"));
 	public static TagKey<Item> magsEnergy = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/energy_magazines"));
+	
+	//Generic tags
+	public static TagKey<Item> casing_all = ItemTags.create(new ResourceLocation(TMWMain.MODID, "casing/all"));
 }

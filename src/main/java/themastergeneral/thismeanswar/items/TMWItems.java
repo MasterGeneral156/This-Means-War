@@ -263,4 +263,5 @@ public class TMWItems {
 	//public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
 	public static AbstractBlockItem barbed_wire = new AbstractBlockItem(TMWBlocks.barbed_wire);
 	public static AbstractBlockItem bullet_foundary = new AbstractBlockItem(TMWBlocks.bullet_foundary);
+	public static AbstractBlockItem casing_recycler = new AbstractBlockItem(TMWBlocks.casing_recycler);
 }

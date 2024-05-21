@@ -243,10 +243,12 @@
 	"block.thismeanswar.medic_box_medium": "Medium Medical Container",
 	"block.thismeanswar.medic_box_large": "Large Medical Container",
 	"block.thismeanswar.barbed_wire": "Barbed Wire",
-	
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",
+	"block.thismeanswar.casing_recycler": "Casing Recycler",
+	
 	"thismeanswar.container.smithing_table": "Bullet Foundary",
+	"thismeanswar.container.casing_recycler": "Casing Recycler",
 	
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",

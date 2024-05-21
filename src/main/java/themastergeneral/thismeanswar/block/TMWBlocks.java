@@ -25,4 +25,5 @@ public class TMWBlocks {
 	
 	//public static BlockCrusher crusher = new BlockCrusher();
 	public static BlockFoundary bullet_foundary = new BlockFoundary();
+	public static BlockCasingRecycler casing_recycler = new BlockCasingRecycler();
 }
