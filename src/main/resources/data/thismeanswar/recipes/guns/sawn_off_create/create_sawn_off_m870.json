@@ -6,7 +6,7 @@
       "item": "thismeanswar:remmington_m870", "data": 32767
     },
 	{
-		"item": "thismeanswar:hand_saw", "data": 32767
+		"tag": "thismeanswar:tools/saw", "data": 32767
 	}
   ],
   "result": {
