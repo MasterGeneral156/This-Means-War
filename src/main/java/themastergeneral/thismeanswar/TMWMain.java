@@ -175,6 +175,7 @@ public class TMWMain
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.bullet_foundary);
 			ev.accept(TMWItems.casing_recycler);
+			ev.accept(TMWItems.tip_recycler);
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);

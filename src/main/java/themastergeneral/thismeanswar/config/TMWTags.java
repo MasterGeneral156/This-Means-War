@@ -42,4 +42,5 @@ public class TMWTags {
 	
 	//Generic tags
 	public static TagKey<Item> casing_all = ItemTags.create(new ResourceLocation(TMWMain.MODID, "casing/all"));
+	public static TagKey<Item> bullet_tips = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tip/all"));
 }

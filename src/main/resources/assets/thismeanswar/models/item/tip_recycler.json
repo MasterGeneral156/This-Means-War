@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/tip_recycler",
+    "textures": {
+        "inventory": "thismeanswar:block/tip_recycler"
+    }
+}

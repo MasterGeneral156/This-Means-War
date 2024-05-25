@@ -37,4 +37,5 @@ public class TMWBlockRegistry {
 	//public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 	public static final RegistryObject<Block> bullet_foundary = BLOCKS.register("bullet_foundary", () ->TMWBlocks.bullet_foundary);
 	public static final RegistryObject<Block> casing_recycler = BLOCKS.register("casing_recycler", () ->TMWBlocks.casing_recycler);
+	public static final RegistryObject<Block> tip_recycler = BLOCKS.register("tip_recycler", () ->TMWBlocks.tip_recycler);
 }

@@ -5,6 +5,9 @@
 	"thismeanswar:ore_lead",
 	"thismeanswar:block_lead",
 	"thismeanswar:blue_stone_bricks",
-	"thismeanswar:red_stone_bricks"
+	"thismeanswar:red_stone_bricks",
+	"thismeanswar:casing_recycler",
+	"thismeanswar:tip_recycler",
+	"thismeanswar:bullet_foundary"
   ]
 }
