@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:hammer_diamond",
+	"thismeanswar:hammer_steel",
+	"thismeanswar:hammer_iron",
+	"thismeanswar:hammer_creative"
+  ]
+}
