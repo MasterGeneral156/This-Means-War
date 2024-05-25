@@ -246,9 +246,11 @@
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",
 	"block.thismeanswar.casing_recycler": "Casing Recycler",
+	"block.thismeanswar.tip_recycler": "Bullet Tip Reprocessor",
 	
 	"thismeanswar.container.smithing_table": "Bullet Foundary",
 	"thismeanswar.container.casing_recycler": "Casing Recycler",
+	"thismeanswar.container.tip_recycler": "Bullet Tip Reprocessor",
 	
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",
