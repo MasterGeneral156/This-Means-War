@@ -112,7 +112,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
                 fuelStack.shrink(1);
         }
         
-        if (isBurning && !inputStack.isEmpty()) 
+        if (isBurning && !inputStack.isEmpty() && (outputStack.getCount()) <= 64) 
         {
         	blockEntity.processTime++;
         	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
@@ -126,6 +126,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
 	                } 
 	                else if (outputStack.getItem() == TMWItems.nugget_brass) 
 	                {
+	                	if ((outputStack.getCount() + 1) < 64)
 	                    outputStack.grow(1);
 	                }
 	                inputStack.shrink(1);
