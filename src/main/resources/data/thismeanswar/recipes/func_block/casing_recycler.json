@@ -1,6 +1,6 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:ammo_box",
+    "group": "thismeanswar:recycler",
     "pattern": [
         " C ",
         "CFC",
