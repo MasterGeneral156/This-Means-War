@@ -5,35 +5,43 @@ import javax.annotation.Nullable;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCasingRecycler;
 
 public class BlockCasingRecycler extends Block implements EntityBlock {
+	
+	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public BlockCasingRecycler() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.METAL));
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false));
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false).setValue(FACING, Direction.NORTH));
 	}
 	
 	@Override
     protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.LIT);
+        builder.add(BlockStateProperties.LIT).add(FACING);
     }
 	
 	@Nullable
@@ -66,8 +74,12 @@ public class BlockCasingRecycler extends Block implements EntityBlock {
     }
 	
 	@Override
-    public void onRemove(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull BlockState pNewState, boolean pMovedByPiston) {
-		BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-	}
-
+	public BlockState getStateForPlacement(BlockPlaceContext place) {
+	      return this.defaultBlockState().setValue(FACING, place.getHorizontalDirection().getOpposite());
+   	}
+	
+	@Override
+	public BlockState rotate(BlockState blockstate, Rotation blockrot) {
+		return blockstate.setValue(FACING, blockrot.rotate(blockstate.getValue(FACING)));
+   	}
 }
