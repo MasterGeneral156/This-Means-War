@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "tag": "forge:leather"
+  },
+  "base": {
+    "tag": "forge:ingots/steel"
+  },
+  "addition": {
+	"tag": "thismeanswar:tools/hammer", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:kevlar_raw", "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "thismeanswar:dust_copper",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/copper"
+	  
+    },
+	{
+		"tag": "thismeanswar:tools/hammer", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:dust_copper",
+    "count": 1
+  }
+}
