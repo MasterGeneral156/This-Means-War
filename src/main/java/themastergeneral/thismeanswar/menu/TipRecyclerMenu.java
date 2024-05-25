@@ -22,7 +22,7 @@ public class TipRecyclerMenu extends AbstractContainerMenu {
 	
 	public TipRecyclerMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityTipRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+		this(id, playerInventory, (BlockEntityTipRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
     }
 	
 	public TipRecyclerMenu(int id, Inventory playerInventory, BlockEntityTipRecycler blockEntity, ContainerData data) {
@@ -49,7 +49,6 @@ public class TipRecyclerMenu extends AbstractContainerMenu {
         }
         
         addDataSlots(data);
-        TMWMain.debugLogger(data);
 	}
     
     @Override
@@ -75,6 +74,17 @@ public class TipRecyclerMenu extends AbstractContainerMenu {
 	public int getProcessTime()
 	{
 		return this.data.get(1);
+	}
+	
+	public int getMaxProcessTime()
+	{
+		return this.data.get(2);
+	}
+	
+	public int getProcessPercent()
+	{
+		int returned = (getProcessTime() / getMaxProcessTime()) * 100;
+		return returned;
 	}
 	
 	/*public int getMaxProcessTime()

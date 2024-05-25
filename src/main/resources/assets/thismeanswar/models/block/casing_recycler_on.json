@@ -1,7 +1,7 @@
 {
   "parent": "block/orientable",
   "textures": {
-    "front": "thismeanswar:block/recycler_front",
+    "front": "thismeanswar:block/recycler_front_on",
     "side": "thismeanswar:block/recycler_side",
     "top": "thismeanswar:block/recycler_top"
   }

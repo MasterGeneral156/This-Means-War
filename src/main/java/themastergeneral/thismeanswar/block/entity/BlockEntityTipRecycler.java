@@ -58,6 +58,7 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
             return switch (pIndex) {
                 case 0 -> BlockEntityTipRecycler.this.burnTime;
                 case 1 -> BlockEntityTipRecycler.this.processTime;
+                case 2 -> BlockEntityTipRecycler.this.maxProcessTime;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -67,12 +68,13 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
             switch (pIndex) {
                 case 0 -> BlockEntityTipRecycler.this.burnTime = pValue;
                 case 1 -> BlockEntityTipRecycler.this.processTime = pValue;
+                case 2 -> BlockEntityTipRecycler.this.maxProcessTime = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
     };
     
@@ -103,36 +105,37 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
         ItemStack fuelStack = blockEntity.itemHandler.getStackInSlot(FUEL_SLOT);
         ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
-        
-        if (!isBurning && !fuelStack.isEmpty() && !inputStack.isEmpty()) 
+        if (outputStack.getCount() < 64)
         {
-            blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
-            blockEntity.burnTimeTotal = blockEntity.burnTime;
-            if (blockEntity.burnTime > 0) 
-                fuelStack.shrink(1);
-        }
-        
-        if (isBurning && !inputStack.isEmpty() && (outputStack.getCount()) <= 64) 
-        {
-        	blockEntity.processTime++;
-        	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-            if (tagManager.getTag(TMWTags.bullet_tips).contains(inputStack.getItem())) 
-            {
-            	if (blockEntity.processTime == blockEntity.maxProcessTime)
-            	{
-	                if (outputStack.isEmpty()) 
-	                {
-	                    blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(TMWItems.nugget_lead));  // Example output item
-	                } 
-	                else if (outputStack.getItem() == TMWItems.nugget_lead) 
-	                {
-	                	if ((outputStack.getCount() + 1) < 64)
-	                		outputStack.grow(1);
-	                }
-	                inputStack.shrink(1);
-	                processTime = 0;
-            	}
-            }
+	        if (!isBurning && !fuelStack.isEmpty() && !inputStack.isEmpty()) 
+	        {
+	            blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
+	            blockEntity.burnTimeTotal = blockEntity.burnTime;
+	            if (blockEntity.burnTime > 0) 
+	                fuelStack.shrink(1);
+	        }
+	        
+	        if (isBurning && !inputStack.isEmpty()) 
+	        {
+	        	blockEntity.processTime++;
+	        	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+	            if (tagManager.getTag(TMWTags.bullet_tips).contains(inputStack.getItem())) 
+	            {
+	            	if (blockEntity.processTime == blockEntity.maxProcessTime)
+	            	{
+		                if (outputStack.isEmpty()) 
+		                {
+		                    blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(TMWItems.nugget_lead));  // Example output item
+		                } 
+		                else if (outputStack.getItem() == TMWItems.nugget_lead) 
+		                {
+		                		outputStack.grow(1);
+		                }
+		                inputStack.shrink(1);
+		                processTime = 0;
+	            	}
+	            }
+	        }
         }
         
         if (inputStack.isEmpty() && processTime > 0)

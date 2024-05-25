@@ -1,7 +1,7 @@
 {
   "parent": "block/orientable",
   "textures": {
-    "front": "thismeanswar:block/reprocessor_front",
+    "front": "thismeanswar:block/reprocessor_front_on",
     "side": "thismeanswar:block/reprocessor_side",
     "top": "thismeanswar:block/reprocessor_top"
   }

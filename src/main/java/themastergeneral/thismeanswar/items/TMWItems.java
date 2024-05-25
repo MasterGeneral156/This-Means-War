@@ -136,8 +136,13 @@ public class TMWItems {
 	public static DurabilityItem hammer_steel = new DurabilityItem(224);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(469);
 	public static DurabilityItem hammer_creative = new TMWCreativeItem();
+	
 	public static DurabilityItem hand_saw = new DurabilityItem(175);
 	public static DurabilityItem creative_hand_saw = new TMWCreativeItem();
+	
+	public static DurabilityItem cutter_iron = new WireCutters(128);
+	public static DurabilityItem cutter_steel = new WireCutters(224);
+	public static DurabilityItem cutter_diamond = new WireCutters(469);
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);

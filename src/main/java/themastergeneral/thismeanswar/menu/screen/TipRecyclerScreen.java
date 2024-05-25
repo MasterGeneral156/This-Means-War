@@ -35,10 +35,10 @@ public class TipRecyclerScreen extends AbstractContainerScreen<TipRecyclerMenu> 
 	@Override
 	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
         super.renderLabels(guigfx, x, y);
-        int processTime = this.menu.getProcessTime();
+        double processTime = Math.round(((double) this.menu.getProcessTime() / this.menu.getMaxProcessTime()) * 100);
         int burnTime = this.menu.getBurnTime();
         
-        guigfx.drawString(this.font, "Process: " + processTime, 84, 20, 4210752, false);
+        guigfx.drawString(this.font, "Process: " + processTime + "%", 84, 20, 4210752, false);
         guigfx.drawString(this.font, "Fuel: " + ModUtils.returnShortenedNumber(burnTime), 84, 32, 4210752, false);
     }
 

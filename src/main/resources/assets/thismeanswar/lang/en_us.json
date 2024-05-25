@@ -88,6 +88,11 @@
 	"item.thismeanswar.hammer_steel": "Steel Hammer",
 	"item.thismeanswar.hammer_diamond": "Diamond Hammer",
 	"item.thismeanswar.hammer_creative": "Creative Hammer",
+	
+	"item.thismeanswar.cutter_iron": "Iron Cutter",
+	"item.thismeanswar.cutter_steel": "Steel Cutter",
+	"item.thismeanswar.cutter_diamond": "Diamond Cutter",
+	
 	"item.thismeanswar.hand_saw": "Manual Saw",
 	"item.thismeanswar.creative_hand_saw": "Creative Manual Saw",
 	
@@ -319,5 +324,7 @@
 	"thismeanswar.subtitle.shot_mp40": "MP40 fired",
 	"thismeanswar.subtitle.shot_k98": "K98 fired",
 	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine fired",
-	"thismeanswar.subtitle.use_foundary": "Bullet Foundary crafting"
+	"thismeanswar.subtitle.use_foundary": "Bullet Foundary crafting",
+	
+	"item.thismeanswar.cutter.desc": "Can be used to quickly remove Barbed Wire"
 }
