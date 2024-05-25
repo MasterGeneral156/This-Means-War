@@ -4,12 +4,12 @@
     "tag": "forge:plates/steel"
   },
   "base": {
-    "tag": "thismeanswar:casing/9mm"
+    "tag": "thismeanswar:casing/45"
   },
   "addition": {
-	"item": "thismeanswar:hammer_diamond", "data": 32767
+	"tag": "thismeanswar:tools/hammer", "data": 32767
   },
   "result": {
-    "item": "thismeanswar:casing_cast_9mm", "count": 1
+    "item": "thismeanswar:casing_cast_45", "count": 1
   }
 }

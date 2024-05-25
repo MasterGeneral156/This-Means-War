@@ -7,7 +7,7 @@
     "tag": "thismeanswar:casing/9mm"
   },
   "addition": {
-	"item": "thismeanswar:hammer_steel", "data": 32767
+	"tag": "thismeanswar:tools/hammer", "data": 32767
   },
   "result": {
     "item": "thismeanswar:casing_cast_9mm", "count": 1
