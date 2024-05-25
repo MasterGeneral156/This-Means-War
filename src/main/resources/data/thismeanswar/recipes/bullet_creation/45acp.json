@@ -15,7 +15,7 @@
       "tag": "thismeanswar:tip/45" 
     },
 	{
-		"item": "thismeanswar:hammer_steel", "data": 32767
+		"tag": "thismeanswar:tools/hammer", "data": 32767
 	}
   ],
   "result": {

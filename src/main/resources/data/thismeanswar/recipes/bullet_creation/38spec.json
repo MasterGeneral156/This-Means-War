@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "thismeanswar:bullet_make_45",
+  "group": "thismeanswar:bullet_make_38spec",
   "ingredients": [
     {
-      "tag": "thismeanswar:casing/45" 
+      "tag": "thismeanswar:casing/38spec" 
     },
 	{
       "tag": "forge:gunpowder" 
@@ -12,14 +12,14 @@
       "tag": "thismeanswar:primer/pistol" 
     },
 	{
-      "tag": "thismeanswar:tip/45" 
+      "tag": "thismeanswar:tip/38spec" 
     },
 	{
-		"item": "thismeanswar:hammer_iron", "data": 32767
+		"tag": "thismeanswar:tools/hammer", "data": 32767
 	}
   ],
   "result": {
-    "item": "thismeanswar:round_45",
+    "item": "thismeanswar:round_38spec",
     "count": 1
   }
 }

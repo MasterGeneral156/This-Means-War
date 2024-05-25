@@ -15,7 +15,7 @@
       "tag": "thismeanswar:tip/12g" 
     },
 	{
-		"item": "thismeanswar:hammer_iron", "data": 32767
+		"tag": "thismeanswar:tools/hammer", "data": 32767
 	}
   ],
   "result": {
