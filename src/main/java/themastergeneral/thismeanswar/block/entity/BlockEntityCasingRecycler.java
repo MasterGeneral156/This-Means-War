@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -96,6 +97,19 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
 		this.maxProcessTime = processTime;
 	}
 	
+	public boolean canPlaceItem(int slot, ItemStack stack) 
+	{
+		if (slot == OUTPUT_SLOT)
+	         return false;
+        else if (slot == INPUT_SLOT)
+	         return true;
+        else {
+	         ItemStack itemstack = this.itemHandler.getStackInSlot(FUEL_SLOT);
+	         return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, null) > 0 || stack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
+         }
+	}
+	
+	
 	@Override
 	public void tick(Level level, BlockPos pos, BlockState state, BlockEntityCasingRecycler blockEntity) {
 		boolean isBurning = blockEntity.burnTime > 0;
@@ -107,15 +121,15 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
         if (outputStack.getCount() < 64)
         {
-	        if (!isBurning && !fuelStack.isEmpty() && !inputStack.isEmpty()) 
+        	Optional<RecyclerRecipe> recipe = level.getRecipeManager()
+                    .getRecipeFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get(), new SimpleContainer(inputStack), level);
+	        if (!isBurning && !fuelStack.isEmpty() && recipe.isPresent()) 
 	        {
 	            blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
 	            blockEntity.burnTimeTotal = blockEntity.burnTime;
 	            if (blockEntity.burnTime > 0) 
 	                fuelStack.shrink(1);
 	        }
-	        Optional<RecyclerRecipe> recipe = level.getRecipeManager()
-                    .getRecipeFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get(), new SimpleContainer(inputStack), level);
 	        if (isBurning && recipe.isPresent()) 
 	        {
 	        	blockEntity.processTime++;
