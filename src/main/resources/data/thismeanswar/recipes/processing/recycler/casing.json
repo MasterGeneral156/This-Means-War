@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:recycler",
+  "base": {
+    "tag": "thismeanswar:casing/all"
+  },
+  "result": {
+    "item": "thismeanswar:nugget_brass", "count": 1
+  }
+}

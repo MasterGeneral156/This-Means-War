@@ -1,5 +1,7 @@
 package themastergeneral.thismeanswar.block.entity;
 
+import java.util.Optional;
+
 import javax.annotation.Nullable;
 
 import org.jetbrains.annotations.NotNull;
@@ -9,18 +11,17 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -33,12 +34,10 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.tags.ITagManager;
-import themastergeneral.thismeanswar.config.TMWTags;
-import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
+import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
+import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
 public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvider, BlockEntityTicker<BlockEntityCasingRecycler>
 {
@@ -97,6 +96,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
 		this.maxProcessTime = processTime;
 	}
 	
+	@Override
 	public void tick(Level level, BlockPos pos, BlockState state, BlockEntityCasingRecycler blockEntity) {
 		boolean isBurning = blockEntity.burnTime > 0;
         if (isBurning)
@@ -106,7 +106,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
         ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
         if (outputStack.getCount() < 64)
-		{
+        {
 	        if (!isBurning && !fuelStack.isEmpty() && !inputStack.isEmpty()) 
 	        {
 	            blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
@@ -114,29 +114,28 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
 	            if (blockEntity.burnTime > 0) 
 	                fuelStack.shrink(1);
 	        }
-        
-	        if (isBurning && !inputStack.isEmpty()) 
+	        Optional<RecyclerRecipe> recipe = level.getRecipeManager()
+                    .getRecipeFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get(), new SimpleContainer(inputStack), level);
+	        if (isBurning && recipe.isPresent()) 
 	        {
 	        	blockEntity.processTime++;
-	        	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-	            if (tagManager.getTag(TMWTags.casing_all).contains(inputStack.getItem())) 
-	            {
-	            	if (blockEntity.processTime == blockEntity.maxProcessTime)
-	            	{
-		                if (outputStack.isEmpty()) 
-		                {
-		                    blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(TMWItems.nugget_brass));  // Example output item
-		                } 
-		                else if (outputStack.getItem() == TMWItems.nugget_brass) 
-		                {
-		                    outputStack.grow(1);
-		                }
-		                inputStack.shrink(1);
-		                processTime = 0;
-	            	}
-	            }
+        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess());
+        		if (blockEntity.processTime == blockEntity.maxProcessTime)
+            	{
+        			 if (outputStack.isEmpty()) 
+        			 {
+        				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
+        			 } 
+        			 else if (outputStack.getItem() == resultStack.getItem()) 
+        			 {
+        				 outputStack.grow(resultStack.getCount());
+        			 }
+        			 inputStack.shrink(resultStack.getCount());
+        			 processTime = 0;
+            	}
+	        		
 	        }
-		}
+        }
         
         if (inputStack.isEmpty() && processTime > 0)
         	processTime = 0;
