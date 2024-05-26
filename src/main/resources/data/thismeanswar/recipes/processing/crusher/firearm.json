@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "thismeanswar:guns"
+  },
+  "result": {
+    "item": "thismeanswar:dust_steel", "count": 1
+  }
+}
