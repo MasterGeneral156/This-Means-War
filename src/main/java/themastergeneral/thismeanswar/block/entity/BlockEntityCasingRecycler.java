@@ -36,6 +36,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
+import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
@@ -133,39 +134,41 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
         ItemStack fuelStack = blockEntity.itemHandler.getStackInSlot(FUEL_SLOT);
         ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
-        if (outputStack.getCount() < 64)
+        Optional<RecyclerRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get(), new SimpleContainer(inputStack), level);
+        if (outputStack.getCount() < itemHandler.getSlotLimit(OUTPUT_SLOT))
         {
-        	Optional<RecyclerRecipe> recipe = level.getRecipeManager()
-                    .getRecipeFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get(), new SimpleContainer(inputStack), level);
-	        if (!isBurning && !fuelStack.isEmpty() && recipe.isPresent()) 
-	        {
-	            blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
-	            blockEntity.burnTimeTotal = blockEntity.burnTime;
-	            if (blockEntity.burnTime > 0) 
-	                fuelStack.shrink(1);
-	        }
-	        if (isBurning && recipe.isPresent()) 
-	        {
-	        	blockEntity.processTime++;
-        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess());
-        		if (blockEntity.processTime == blockEntity.maxProcessTime)
-            	{
-        			 if (outputStack.isEmpty()) 
-        			 {
-        				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
-        			 } 
-        			 else if (outputStack.getItem() == resultStack.getItem()) 
-        			 {
-        				 outputStack.grow(resultStack.getCount());
-        			 }
-        			 inputStack.shrink(1);
-        			 processTime = 0;
-            	}
-	        		
-	        }
+        	if (recipe.isPresent())
+        	{
+        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess()).copy();
+        		if (!isBurning && !fuelStack.isEmpty() && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == ItemStack.EMPTY.getItem())))) 
+    	        {
+        			blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
+    	            blockEntity.burnTimeTotal = blockEntity.burnTime;
+    	            if (blockEntity.burnTime > 0) 
+    	                fuelStack.shrink(1);
+    	        }
+        		if (isBurning && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == Items.AIR))))
+    	        {
+        			blockEntity.processTime++;
+            		if (blockEntity.processTime == blockEntity.maxProcessTime)
+                	{
+            			 if (outputStack.isEmpty()) 
+            			 {
+            				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
+            			 } 
+            			 else if (outputStack.getItem() == resultStack.getItem()) 
+            			 {
+            				 outputStack.grow(resultStack.getCount());
+            			 }
+            			 inputStack.shrink(1);
+            			 processTime = 0;
+                	}
+    	        }
+        	}
         }
         
-        if (inputStack.isEmpty() && processTime > 0)
+        if ((inputStack.isEmpty() || !recipe.isPresent()) && processTime > 0)
         	processTime = 0;
         
         boolean wasLit = state.getValue(BlockStateProperties.LIT);
