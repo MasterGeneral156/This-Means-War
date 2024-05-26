@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:reprocessor",
+  "base": {
+    "tag": "thismeanswar:tip/all"
+  },
+  "result": {
+    "item": "thismeanswar:nugget_lead", "count": 1
+  }
+}

@@ -30,7 +30,7 @@ public class JEIPlugin implements IModPlugin {
 	    IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
 	    
 	    registration.addRecipeCategories(new BulletFoundaryCategory(guiHelper));
-	    
+	    registration.addRecipeCategories(new ReprocessorCategory(guiHelper));
 	}
 	
 	
@@ -66,10 +66,12 @@ public class JEIPlugin implements IModPlugin {
 		registration.addItemStackInfo(new ItemStack(TMWItems.mag_capacity_upgrade), ModUtils.displayTranslation("thismeanswar.jei.upgrade_magcap"));
 		
 		registration.addRecipes(RecipeTypes.BULLET_FOUNDARY, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.FOUNDARY_TYPE.get()));
+		registration.addRecipes(RecipeTypes.REPROCESSOR, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.REPROCESSOR_TYPE.get()));
 	}
 	
 	@Override
 	public void registerRecipeCatalysts(@Nonnull final IRecipeCatalystRegistration registration) {
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.bullet_foundary), RecipeTypes.BULLET_FOUNDARY);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.tip_recycler), RecipeTypes.REPROCESSOR);
 	}
 }
