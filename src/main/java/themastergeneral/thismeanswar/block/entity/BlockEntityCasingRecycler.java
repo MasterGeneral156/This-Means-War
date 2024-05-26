@@ -158,7 +158,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
         			 {
         				 outputStack.grow(resultStack.getCount());
         			 }
-        			 inputStack.shrink(resultStack.getCount());
+        			 inputStack.shrink(1);
         			 processTime = 0;
             	}
 	        		

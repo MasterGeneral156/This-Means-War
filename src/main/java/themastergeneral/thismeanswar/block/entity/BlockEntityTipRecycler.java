@@ -158,7 +158,7 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
         			 {
         				 outputStack.grow(resultStack.getCount());
         			 }
-        			 inputStack.shrink(resultStack.getCount());
+        			 inputStack.shrink(1);
         			 processTime = 0;
             	}
 	        		
