@@ -1,7 +1,7 @@
 {
   "type": "thismeanswar:bullet_foundary",
   "template": {
-    "item": "thismeanswar:bullet_cast_38spec", "data": 32767
+    "tag": "thismeanswar:casts/tip/38spec", "data": 32767
   },
   "base": {
     "tag": "forge:nuggets/lead"

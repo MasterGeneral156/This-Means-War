@@ -1,7 +1,7 @@
 {
   "type": "thismeanswar:bullet_foundary",
   "template": {
-    "item": "thismeanswar:casing_cast_9mm", "data": 32767
+    "tag": "thismeanswar:casts/casing/9mm", "data": 32767
   },
   "base": {
     "tag": "forge:nuggets/brass"
