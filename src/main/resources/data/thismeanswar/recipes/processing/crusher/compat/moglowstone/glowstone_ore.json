@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"moglowstone"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "item": "moglowstone:glowstone_ore"
+  },
+  "result": {
+    "item": "minecraft:glowstone_dust", "count": 2
+  }
+}
