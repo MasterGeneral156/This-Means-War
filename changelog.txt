@@ -1,5 +1,28 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
+Version: 0.2.3-Indev
+(//2023, 01:13)
+Target: Forge 1.20.1
+-=-=-=-=-=-=-=-=-=-=-=-
++Reimplemented crusher
+~Explosives have received a great buff.
++Added recipe to crush firearm
+-Removed recipe to smelt firearm
++Added Landmine
++Added Explosion Shelter Blocks
+	*High explosion resistance
+	*High strength
+	*Tiers!!
++Added Crusher mod compat!
+	*Create
+	*Thermal Series
+	*Mekanism
+	*Immersive Engineering
+	*More to come soon!
+	
+	
+-=-=-=-=-=-=-=-=-=-=-=-
+This Means War
 Version: 0.2.2-Indev
 (5/26/2023, 01:13)
 Target: Forge 1.20.1
