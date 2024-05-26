@@ -7,7 +7,7 @@
     "tag": "thismeanswar:tip/762"
   },
   "addition": {
-	"item": "thismeanswar:hammer_iron", "data": 32767
+	"tag": "thismeanswar:tools/hammer", "data": 32767
   },
   "result": {
     "item": "thismeanswar:bullet_cast_762", "count": 1

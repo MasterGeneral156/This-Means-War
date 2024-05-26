@@ -6,7 +6,7 @@
       "item": "minecraft:netherite_sword", "data": 32767
     },
 	{
-      "item": "thismeanswar:hammer_diamond", "data": 32767
+      "tag": "thismeanswar:tools/hammer", "data": 32767
     }
 	
   ],

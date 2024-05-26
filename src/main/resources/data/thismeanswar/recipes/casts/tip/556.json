@@ -4,12 +4,12 @@
     "tag": "forge:plates/steel"
   },
   "base": {
-    "tag": "thismeanswar:tip/9mm"
+    "tag": "thismeanswar:tip/556"
   },
   "addition": {
-	"item": "thismeanswar:hammer_iron", "data": 32767
+	"tag": "thismeanswar:tools/hammer", "data": 32767
   },
   "result": {
-    "item": "thismeanswar:bullet_cast_9mm", "count": 1
+    "item": "thismeanswar:bullet_cast_556", "count": 1
   }
 }
