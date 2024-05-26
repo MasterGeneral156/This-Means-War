@@ -54,7 +54,7 @@ public class RecyclerCategory implements IRecipeCategory<RecyclerRecipe> {
 			.addIngredients(recipe.returnBase());
 
 		builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 19)
-			.addItemStack(recipe.getResultItem(null));
+			.addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getResultItem(null).getCount()));
 	}
 
 }
