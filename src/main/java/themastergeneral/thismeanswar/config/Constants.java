@@ -297,7 +297,7 @@ public class Constants
 	public static float k98Spread = baseSpread762 * 1.0133F;
 	
 	//Throwables
-	public static float grenadeDamage = 1.75F;
-	public static float dynamiteStickDamage = 0.44F;
-	public static float nukeDamage = 345.67F;
+	public static float grenadeDamage = 3F;
+	public static float dynamiteStickDamage = 0.5F;
+	public static float nukeDamage = 789.12F;
 }
