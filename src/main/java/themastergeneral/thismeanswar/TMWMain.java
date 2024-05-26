@@ -172,10 +172,18 @@ public class TMWMain
 			ev.accept(TMWItems.medic_box_medium);
 			ev.accept(TMWItems.medic_box_large);
 			ev.accept(TMWItems.barbed_wire);
+			ev.accept(TMWItems.land_mine);
 			ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.bullet_foundary);
 			ev.accept(TMWItems.casing_recycler);
 			ev.accept(TMWItems.tip_recycler);
+			ev.accept(TMWItems.factory_holder);
+			
+			ev.accept(TMWItems.shelter_weak);
+			ev.accept(TMWItems.shelter_medium);
+			ev.accept(TMWItems.shelter_strong);
+			ev.accept(TMWItems.shelter_op);
+			ev.accept(TMWItems.shelter_creative);
 			
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);

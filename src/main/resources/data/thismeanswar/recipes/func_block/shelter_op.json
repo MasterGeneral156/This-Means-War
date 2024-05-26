@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SS"
+    ],
+    "key": {
+		"S": { "item": "thismeanswar:shelter_strong" }
+    },
+    "result": {
+        "item": "thismeanswar:shelter_op",
+		"count": 1
+    }
+}

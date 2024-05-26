@@ -20,6 +20,12 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> red_chiseled_brick = BLOCKS.register("red_chiseled_brick", () ->TMWBlocks.red_chiseled_bricks);
 	public static final RegistryObject<Block> blue_chiseled_brick = BLOCKS.register("blue_chiseled_brick", () ->TMWBlocks.blue_chiseled_bricks);
 	
+	public static final RegistryObject<Block> shelter_weak = BLOCKS.register("shelter_weak", () ->TMWBlocks.shelter_weak);
+	public static final RegistryObject<Block> shelter_medium = BLOCKS.register("shelter_medium", () ->TMWBlocks.shelter_medium);
+	public static final RegistryObject<Block> shelter_strong = BLOCKS.register("shelter_strong", () ->TMWBlocks.shelter_strong);
+	public static final RegistryObject<Block> shelter_op = BLOCKS.register("shelter_op", () ->TMWBlocks.shelter_op);
+	public static final RegistryObject<Block> shelter_creative = BLOCKS.register("shelter_creative", () ->TMWBlocks.shelter_creative);
+	
 	public static final RegistryObject<Block> block_lead = BLOCKS.register("block_lead", () ->TMWBlocks.block_lead);
 	public static final RegistryObject<Block> block_brass = BLOCKS.register("block_brass", () ->TMWBlocks.block_brass);
 	public static final RegistryObject<Block> block_steel = BLOCKS.register("block_steel", () ->TMWBlocks.block_steel);
@@ -33,9 +39,11 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> medic_box_large = BLOCKS.register("medic_box_large", () ->TMWBlocks.medic_box_large);
 	
 	public static final RegistryObject<Block> barbed_wire = BLOCKS.register("barbed_wire", () ->TMWBlocks.barbed_wire);
+	public static final RegistryObject<Block> land_mine = BLOCKS.register("land_mine", () ->TMWBlocks.land_mine);
 	
 	public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 	public static final RegistryObject<Block> bullet_foundary = BLOCKS.register("bullet_foundary", () ->TMWBlocks.bullet_foundary);
 	public static final RegistryObject<Block> casing_recycler = BLOCKS.register("casing_recycler", () ->TMWBlocks.casing_recycler);
 	public static final RegistryObject<Block> tip_recycler = BLOCKS.register("tip_recycler", () ->TMWBlocks.tip_recycler);
+	public static final RegistryObject<Block> factory_holder = BLOCKS.register("factory_holder", () ->TMWBlocks.factory_holder);
 }

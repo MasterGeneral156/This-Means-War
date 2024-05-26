@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/shelter_strong",
+    "textures": {
+        "inventory": "thismeanswar:block/shelter_strong"
+    }
+}

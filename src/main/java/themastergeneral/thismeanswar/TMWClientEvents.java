@@ -15,6 +15,7 @@ import themastergeneral.thismeanswar.block.entity.TMWBlockEntities;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
+import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
 import themastergeneral.thismeanswar.menu.screen.TipRecyclerScreen;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWMenuRegistry;
@@ -34,11 +35,13 @@ public class TMWClientEvents
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_medium, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.medic_box_large, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.barbed_wire, RenderType.translucent());
+    	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.land_mine, RenderType.translucent());
 
     	event.enqueueWork(() -> {
     		MenuScreens.register(TMWMenuRegistry.CASING_RECYCLER_MENU.get(), CasingRecyclerScreen::new);
     		MenuScreens.register(TMWMenuRegistry.TIP_RECYCLER_MENU.get(), TipRecyclerScreen::new);
     		MenuScreens.register(TMWMenuRegistry.CRUSHER_MENU.get(), CrusherScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.FACTORY_HOLDER_MENU.get(), FactoryHolderScreen::new);
     	});
     }
     

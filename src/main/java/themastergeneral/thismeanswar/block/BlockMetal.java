@@ -10,7 +10,8 @@ public class BlockMetal extends AbstractTMWBlock {
 		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.METAL)
 				.mapColor(MapColor.METAL)
-				.strength(5.0F, 6.0F));
+				.strength(5.0F, 6.0F)
+				.requiresCorrectToolForDrops());
 	}
 
 }

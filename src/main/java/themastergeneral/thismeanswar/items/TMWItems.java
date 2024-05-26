@@ -259,6 +259,12 @@ public class TMWItems {
 	public static AbstractBlockItem blue_chiseled_bricks = new AbstractBlockItem(TMWBlocks.blue_chiseled_bricks);
 	public static AbstractBlockItem red_chiseled_bricks = new AbstractBlockItem(TMWBlocks.red_chiseled_bricks);
 	
+	public static AbstractBlockItem shelter_weak = new AbstractBlockItem(TMWBlocks.shelter_weak);
+	public static AbstractBlockItem shelter_medium = new AbstractBlockItem(TMWBlocks.shelter_medium);
+	public static AbstractBlockItem shelter_strong = new AbstractBlockItem(TMWBlocks.shelter_strong);
+	public static AbstractBlockItem shelter_op = new AbstractBlockItem(TMWBlocks.shelter_op);
+	public static AbstractBlockItem shelter_creative = new AbstractBlockItem(TMWBlocks.shelter_creative);
+	
 	public static AbstractBlockItem ammo_box = new AbstractBlockItem(TMWBlocks.ammo_box);
 	public static AbstractBlockItem ammo_box_medium = new AbstractBlockItem(TMWBlocks.ammo_box_medium);
 	public static AbstractBlockItem ammo_box_large = new AbstractBlockItem(TMWBlocks.ammo_box_large);
@@ -270,4 +276,6 @@ public class TMWItems {
 	public static AbstractBlockItem bullet_foundary = new AbstractBlockItem(TMWBlocks.bullet_foundary);
 	public static AbstractBlockItem casing_recycler = new AbstractBlockItem(TMWBlocks.casing_recycler);
 	public static AbstractBlockItem tip_recycler = new AbstractBlockItem(TMWBlocks.tip_recycler);
+	public static AbstractBlockItem factory_holder = new AbstractBlockItem(TMWBlocks.factory_holder);
+	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 }

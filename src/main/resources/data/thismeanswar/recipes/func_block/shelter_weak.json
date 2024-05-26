@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "OSO"
+    ],
+    "key": {
+		"S": { "tag": "forge:storage_blocks/steel" },
+		"O": { "tag": "forge:obsidian" }
+    },
+    "result": {
+        "item": "thismeanswar:shelter_weak",
+		"count": 1
+    }
+}

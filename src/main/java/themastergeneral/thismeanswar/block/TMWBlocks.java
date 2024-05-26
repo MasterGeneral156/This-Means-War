@@ -27,4 +27,13 @@ public class TMWBlocks {
 	public static BlockFoundary bullet_foundary = new BlockFoundary();
 	public static BlockCasingRecycler casing_recycler = new BlockCasingRecycler();
 	public static BlockTipRecycler tip_recycler = new BlockTipRecycler();
+	public static BlockFactoryHolder factory_holder = new BlockFactoryHolder();
+	
+	public static BlockExplosiveResistive shelter_weak = new BlockExplosiveResistive();
+	public static BlockExplosiveResistive shelter_medium = new BlockExplosiveResistive(2);
+	public static BlockExplosiveResistive shelter_strong = new BlockExplosiveResistive(4);
+	public static BlockExplosiveResistive shelter_op = new BlockExplosiveResistive(8);
+	public static BlockExplosiveResistive shelter_creative = new BlockExplosiveResistive(64);
+	
+	public static BlockLandmine land_mine = new BlockLandmine(25F);
 }

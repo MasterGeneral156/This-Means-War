@@ -312,20 +312,30 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> red_chiseled_bricks = ITEMS.register("red_chiseled_bricks", () -> TMWItems.red_chiseled_bricks);
 	public static final RegistryObject<Item> blue_chiseled_bricks = ITEMS.register("blue_chiseled_bricks", () -> TMWItems.blue_chiseled_bricks);
 	
+	//Bomb Shelter
+	public static final RegistryObject<Item> shelter_weak = ITEMS.register("shelter_weak", () -> TMWItems.shelter_weak);
+	public static final RegistryObject<Item> shelter_medium = ITEMS.register("shelter_medium", () -> TMWItems.shelter_medium);
+	public static final RegistryObject<Item> shelter_strong = ITEMS.register("shelter_strong", () -> TMWItems.shelter_strong);
+	public static final RegistryObject<Item> shelter_op = ITEMS.register("shelter_op", () -> TMWItems.shelter_op);
+	public static final RegistryObject<Item> shelter_creative = ITEMS.register("shelter_creative", () -> TMWItems.shelter_creative);
+	
 	//Ammo Box
 	public static final RegistryObject<Item> ammo_box = ITEMS.register("ammo_box", () -> TMWItems.ammo_box);
 	public static final RegistryObject<Item> ammo_box_medium = ITEMS.register("ammo_box_medium", () -> TMWItems.ammo_box_medium);
 	public static final RegistryObject<Item> ammo_box_large = ITEMS.register("ammo_box_large", () -> TMWItems.ammo_box_large);
 	
+	//Medical Box
 	public static final RegistryObject<Item> medic_box = ITEMS.register("medic_box", () -> TMWItems.medic_box);
 	public static final RegistryObject<Item> medic_box_medium = ITEMS.register("medic_box_medium", () -> TMWItems.medic_box_medium);
 	public static final RegistryObject<Item> medic_box_large = ITEMS.register("medic_box_large", () -> TMWItems.medic_box_large);
 	
 	public static final RegistryObject<Item> barbed_wire = ITEMS.register("barbed_wire", () -> TMWItems.barbed_wire);
+	public static final RegistryObject<Item> land_mine = ITEMS.register("land_mine", () -> TMWItems.land_mine);
 	
 	//Processing
 	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 	public static final RegistryObject<Item> bullet_foundary = ITEMS.register("bullet_foundary", () -> TMWItems.bullet_foundary);
 	public static final RegistryObject<Item> casing_recycler = ITEMS.register("casing_recycler", () -> TMWItems.casing_recycler);
 	public static final RegistryObject<Item> tip_recycler = ITEMS.register("tip_recycler", () -> TMWItems.tip_recycler);
+	public static final RegistryObject<Item> factory_holder = ITEMS.register("factory_holder", () -> TMWItems.factory_holder);
 }

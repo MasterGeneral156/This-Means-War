@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/shelter_medium",
+    "textures": {
+        "inventory": "thismeanswar:block/shelter_medium"
+    }
+}

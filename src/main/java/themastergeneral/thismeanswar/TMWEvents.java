@@ -32,9 +32,9 @@ public class TMWEvents {
 	@SubscribeEvent
     public static void onVillagerTradesSetup(VillagerTradesEvent event) 
 	{
-		TMWMain.debugLogger("Giving trades to villagers...");
 		if (event.getType() != VillagerProfession.NONE)
 		{
+			TMWMain.debugLogger("Giving trades to villagers...");
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_12g, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_223, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_38spec, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));
