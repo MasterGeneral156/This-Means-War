@@ -85,6 +85,20 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
         protected void onContentsChanged(int slot) {
             setChanged();
         }
+        
+        @Override
+        public boolean isItemValid(int slot, @NotNull ItemStack stack)
+        {
+        	if (slot == OUTPUT_SLOT)
+        		return false;
+        	else if (slot == INPUT_SLOT)
+        		return true;
+        	else 
+        	{
+        		ItemStack itemstack = this.getStackInSlot(FUEL_SLOT);
+        		return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, null) > 0 || stack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
+        	}
+        }
     };
     
     private final LazyOptional<ItemStackHandler> handler = LazyOptional.of(() -> itemHandler);
