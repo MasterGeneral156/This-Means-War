@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/quartz"
+  },
+  "result": {
+    "item": "minecraft:quartz", "count": 2
+  }
+}

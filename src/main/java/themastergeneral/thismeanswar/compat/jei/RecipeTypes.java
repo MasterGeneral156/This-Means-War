@@ -3,6 +3,7 @@ package themastergeneral.thismeanswar.compat.jei;
 import mezz.jei.api.recipe.RecipeType;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.recipe.BulletRecipe;
+import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
 import themastergeneral.thismeanswar.recipe.ReprocessorRecipe;
 
@@ -19,4 +20,8 @@ public class RecipeTypes {
 	public static final RecipeType<RecyclerRecipe> RECYCLER =
 		      RecipeType.create(
 		          TMWMain.MODID, "recycler", RecyclerRecipe.class);
+	
+	public static final RecipeType<CrusherRecipe> CRUSHER =
+		      RecipeType.create(
+		          TMWMain.MODID, "crusher", CrusherRecipe.class);
 }

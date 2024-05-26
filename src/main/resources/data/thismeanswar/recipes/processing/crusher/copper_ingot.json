@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ingots/copper"
+  },
+  "result": {
+    "item": "thismeanswar:dust_copper", "count": 1
+  }
+}

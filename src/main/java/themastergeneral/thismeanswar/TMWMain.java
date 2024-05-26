@@ -171,8 +171,8 @@ public class TMWMain
 			ev.accept(TMWItems.medic_box);
 			ev.accept(TMWItems.medic_box_medium);
 			ev.accept(TMWItems.medic_box_large);
-			//ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.barbed_wire);
+			ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.bullet_foundary);
 			ev.accept(TMWItems.casing_recycler);
 			ev.accept(TMWItems.tip_recycler);

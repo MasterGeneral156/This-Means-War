@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
+import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.TipRecyclerMenu;
 
 public class TMWMenuRegistry {
@@ -18,4 +19,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<TipRecyclerMenu>> TIP_RECYCLER_MENU = CONTAINERS.register("tip_recycler_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new TipRecyclerMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<CrusherMenu>> CRUSHER_MENU = CONTAINERS.register("crusher_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new CrusherMenu(windowId, inv, data)));
 }

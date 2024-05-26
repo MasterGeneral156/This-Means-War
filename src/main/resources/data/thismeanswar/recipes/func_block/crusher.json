@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "thismeanswar:crusher",
+    "pattern": [
+        " C ",
+        "CFC",
+		" C "
+    ],
+    "key": {
+		"F": { "item": "minecraft:furnace" },
+		"C": { "item": "minecraft:flint" }
+    },
+    "result": {
+        "item": "thismeanswar:crusher",
+		"count": 1
+    }
+}

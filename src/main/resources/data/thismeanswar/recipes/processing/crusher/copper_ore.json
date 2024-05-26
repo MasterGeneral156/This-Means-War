@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/copper"
+  },
+  "result": {
+    "item": "minecraft:raw_copper", "count": 2
+  }
+}

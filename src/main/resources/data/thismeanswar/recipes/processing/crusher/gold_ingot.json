@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item": "thismeanswar:dust_gold", "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/gold"
+  },
+  "result": {
+    "item": "minecraft:raw_gold", "count": 2
+  }
+}

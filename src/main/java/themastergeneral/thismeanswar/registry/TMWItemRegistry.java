@@ -324,7 +324,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> barbed_wire = ITEMS.register("barbed_wire", () -> TMWItems.barbed_wire);
 	
 	//Processing
-	//public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
+	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 	public static final RegistryObject<Item> bullet_foundary = ITEMS.register("bullet_foundary", () -> TMWItems.bullet_foundary);
 	public static final RegistryObject<Item> casing_recycler = ITEMS.register("casing_recycler", () -> TMWItems.casing_recycler);
 	public static final RegistryObject<Item> tip_recycler = ITEMS.register("tip_recycler", () -> TMWItems.tip_recycler);

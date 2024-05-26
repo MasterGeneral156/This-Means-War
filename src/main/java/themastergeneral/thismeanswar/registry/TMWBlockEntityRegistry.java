@@ -8,6 +8,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCasingRecycler;
+import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 //import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.block.entity.BlockEntityTipRecycler;
@@ -25,5 +26,5 @@ public class TMWBlockEntityRegistry {
 	
 	public static final RegistryObject<BlockEntityType<BlockEntityCasingRecycler>> casing_recycler = TILES.register("casing_recycler", () -> BlockEntityType.Builder.of(BlockEntityCasingRecycler::new, TMWBlocks.casing_recycler).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityTipRecycler>> tip_recycler = TILES.register("tip_recycler", () -> BlockEntityType.Builder.of(BlockEntityTipRecycler::new, TMWBlocks.tip_recycler).build(null));
-	//public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> crusher = TILES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null));
+	public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> crusher = TILES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null));
 }

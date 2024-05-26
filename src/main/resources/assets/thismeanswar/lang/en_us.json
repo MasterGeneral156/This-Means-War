@@ -256,6 +256,7 @@
 	"thismeanswar.container.smithing_table": "Bullet Foundary",
 	"thismeanswar.container.casing_recycler": "Casing Recycler",
 	"thismeanswar.container.tip_recycler": "Bullet Tip Reprocessor",
+	"thismeanswar.container.crusher": "Burning Crusher",
 	
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",
@@ -309,6 +310,7 @@
 	"thismeanswar.jei.bullet_foundary": "Bullet Foundary",
 	"thismeanswar.jei.reprocessor": "Tip Reprocessing",
 	"thismeanswar.jei.recycler": "Casing Recycling",
+	"thismeanswar.jei.crusher": "Crushing",
 	"thismeanswar.jei.ammo_box_info": "Holds ammo/rounds. R-Click with rounds/ammo to place inside. Shift + R-Click to withdraw. Maximum stored based on tier.",
 	"thismeanswar.jei.medic_box_info": "Holds medical items to be used later. R-Click with item to place inside. Shift + R-Click to withdraw and heal. Maximum stored based on tier.",
 	"thismeanswar.jei.upgrade_info": "Can be applied by sneak + r-click with firearm/magazine in off-hand.",

@@ -1,6 +1,6 @@
 package themastergeneral.thismeanswar.recipe;
 
-import org.jetbrains.annotations.Nullable;
+import java.util.stream.Stream;
 
 import com.google.gson.JsonObject;
 
@@ -21,95 +21,82 @@ import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
 public class CrusherRecipe implements Recipe<Container> {
 	
-	protected final ResourceLocation id;
-   	protected final Ingredient ingredient;
-   	protected final ItemStack result;
-   	protected final int cookingTime;
-   	
-   	public CrusherRecipe(ResourceLocation ID, Ingredient input, ItemStack result, int time) {
-        this.id = ID;
-        this.ingredient = input;
-        this.result = result;
-        this.cookingTime = time;
-     }
-   
-	@Override
-	public boolean matches(Container container, Level lvl) {
-		return this.ingredient.test(container.getItem(0));
-	}
+	   private final ResourceLocation id;
+	   final Ingredient base;
+	   final ItemStack result;
 
-	@Override
-	public ItemStack assemble(Container container, RegistryAccess r) {
-		ItemStack itemstack = this.result.copy();
-	      CompoundTag compoundtag = container.getItem(1).getTag();
+	   public CrusherRecipe(ResourceLocation p_267143_, Ingredient p_266787_, ItemStack p_267031_) {
+	      this.id = p_267143_;
+	      this.base = p_266787_;
+	      this.result = p_267031_;
+	   }
+
+	   public boolean matches(Container p_266855_, Level p_266781_) {
+	      return this.base.test(p_266855_.getItem(0));
+	   }
+
+	   public ItemStack assemble(Container p_267036_, RegistryAccess p_266699_) {
+	      ItemStack itemstack = this.result.copy();
+	      CompoundTag compoundtag = p_267036_.getItem(0).getTag();
 	      if (compoundtag != null) {
 	         itemstack.setTag(compoundtag.copy());
 	      }
 
 	      return itemstack;
-	}
+	   }
 
-	@Override
-	public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
-		return true;
-	}
-	
-	public Ingredient getIngredientItem()
-	{
-		return this.ingredient;
-	}
-	
-	public int getCookTime()
-	{
-		return this.cookingTime;
-	}
+	   public ItemStack getResultItem(RegistryAccess p_267209_) {
+	      return this.result;
+	   }
 
-	@Override
-	public ItemStack getResultItem(RegistryAccess p_267052_) {
-		return this.result;
-	}
+	   public boolean isBaseIngredient(ItemStack p_267276_) {
+	      return this.base.test(p_267276_);
+	   }
 
-	@Override
-	public ResourceLocation getId() {
-		return this.id;
-	}
+	   public ResourceLocation getId() {
+	      return this.id;
+	   }
 
-	@Override
-	public RecipeSerializer<?> getSerializer() {
-		return TMWRecipeTypeRegistration.CRUSHER_SERIALIZER.get();
-	}
+	   public RecipeSerializer<?> getSerializer() {
+	      return TMWRecipeTypeRegistration.CRUSHER_SERIALIZER.get();
+	   }
 
-	@Override
-	public RecipeType<?> getType() {
-		return TMWRecipeTypeRegistration.CRUSHER_TYPE.get();
-	}
-	
-	public static class Serializer implements RecipeSerializer<CrusherRecipe>
-	{
+	   public boolean isIncomplete() {
+	      return Stream.of(this.base).anyMatch(net.minecraftforge.common.ForgeHooks::hasNoElements);
+	   }
+	   
+	   @Override
+	   public RecipeType<CrusherRecipe> getType() {
+	       // Return an instance of your recipe type
+	       return TMWRecipeTypeRegistration.CRUSHER_TYPE.get();
+	   }
+	   
+	   public Ingredient returnBase()
+	   {
+		   return this.base;
+	   }
 
-		@Override
-		public CrusherRecipe fromJson(ResourceLocation resource, JsonObject json) {
-			Ingredient ingredient = Ingredient.fromJson(GsonHelper.getNonNull(json, "ingredient"));
-			int cookTime = GsonHelper.getAsInt(json, "ingredient");
-			ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
-			return new CrusherRecipe(resource, ingredient, itemstack, cookTime);
-		}
+	   public static class Serializer implements RecipeSerializer<CrusherRecipe> {
+	      public CrusherRecipe fromJson(ResourceLocation p_266953_, JsonObject p_266720_) {
+	         Ingredient ingredient1 = Ingredient.fromJson(GsonHelper.getNonNull(p_266720_, "base"));
+	         ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(p_266720_, "result"));
+	         return new CrusherRecipe(p_266953_, ingredient1, itemstack);
+	      }
 
-		@Override
-		public @Nullable CrusherRecipe fromNetwork(ResourceLocation resource, FriendlyByteBuf fbyte) {
-			Ingredient ingredient = Ingredient.fromNetwork(fbyte);
-			int cookTime = fbyte.readVarInt();
-			ItemStack itemstack = fbyte.readItem();
-			return new CrusherRecipe(resource, ingredient, itemstack, cookTime);
-		}
+	      public CrusherRecipe fromNetwork(ResourceLocation p_267117_, FriendlyByteBuf p_267316_) {
+	         Ingredient ingredient1 = Ingredient.fromNetwork(p_267316_);
+	         ItemStack itemstack = p_267316_.readItem();
+	         return new CrusherRecipe(p_267117_, ingredient1, itemstack);
+	      }
+
+	      public void toNetwork(FriendlyByteBuf p_266746_, CrusherRecipe p_266927_) {
+	         p_266927_.base.toNetwork(p_266746_);
+	         p_266746_.writeItem(p_266927_.result);
+	      }
+	   }
 
 		@Override
-		public void toNetwork(FriendlyByteBuf fbyte, CrusherRecipe recipe) {
-			recipe.ingredient.toNetwork(fbyte);
-			fbyte.writeVarInt(recipe.cookingTime);
-			fbyte.writeItem(recipe.result);
+		public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
+			return true;
 		}
-		
 	}
-	
-}

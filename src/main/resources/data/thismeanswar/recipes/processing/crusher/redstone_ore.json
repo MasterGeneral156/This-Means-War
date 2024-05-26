@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/redstone"
+  },
+  "result": {
+    "item": "minecraft:redstone", "count": 2
+  }
+}

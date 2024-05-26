@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/gold"
+  },
+  "result": {
+    "item": "thismeanswar:dust_gold", "count": 1
+  }
+}

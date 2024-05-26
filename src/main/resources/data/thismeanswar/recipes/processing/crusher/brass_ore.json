@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/brass"
+  },
+  "result": {
+    "item": "thismeanswar:dust_brass", "count": 2
+  }
+}
