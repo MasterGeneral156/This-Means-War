@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/apatite"
+  },
+  "result": {
+    "item": "thermal:apatite", "count": 12
+  }
+}

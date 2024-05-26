@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"nuclearcraft"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/boron"
+  },
+  "result": {
+    "item": "nuclearcraft:boron_dust", "count": 2
+  }
+}

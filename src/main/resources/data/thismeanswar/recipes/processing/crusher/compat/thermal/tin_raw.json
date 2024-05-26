@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/tin"
+  },
+  "result": {
+    "item": "thermal:tin_dust", "count": 1
+  }
+}

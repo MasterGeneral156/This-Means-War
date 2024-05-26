@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"mekanism"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/osmium"
+  },
+  "result": {
+    "item": "mekanism:raw_osmium", "count": 2
+  }
+}

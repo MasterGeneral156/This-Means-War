@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"create"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/zinc"
+  },
+  "result": {
+    "item": "create:crushed_raw_zinc"
+  }
+}

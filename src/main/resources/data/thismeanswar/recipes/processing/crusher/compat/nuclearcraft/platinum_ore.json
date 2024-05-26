@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"nuclearcraft"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/platinum"
+  },
+  "result": {
+    "item": "nuclearcraft:platinum_dust", "count": 2
+  }
+}

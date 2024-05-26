@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"nuclearcraft"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/magnesium"
+  },
+  "result": {
+    "item": "nuclearcraft:magnesium_dust", "count": 2
+  }
+}

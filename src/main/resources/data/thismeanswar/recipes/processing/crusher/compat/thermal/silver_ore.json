@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/silver"
+  },
+  "result": {
+    "item": "thermal:raw_silver", "count": 2
+  }
+}

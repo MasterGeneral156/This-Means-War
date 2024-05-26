@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"mekanism"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/fluorite"
+  },
+  "result": {
+    "item": "mekanism:fluorite_gem", "count": 6
+  }
+}

@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"nuclearcraft"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/thorium"
+  },
+  "result": {
+    "item": "nuclearcraft:thorium_dust", "count": 2
+  }
+}

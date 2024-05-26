@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:ores/cinnabar"
+  },
+  "result": {
+    "item": "thermal:cinnabar", "count": 2
+  }
+}

@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/nickel"
+  },
+  "result": {
+    "item": "thermal:nickel_dust", "count": 1
+  }
+}
