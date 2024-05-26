@@ -1,7 +1,7 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
 Version: 0.2.2-Indev
-(xx/xx/2023, xxxx)
+(5/26/2023, 01:13)
 Target: Forge 1.20.1
 -=-=-=-=-=-=-=-=-=-=-=-
 *Energy Bolt tweaked to use bullet foundary.
@@ -61,7 +61,31 @@ Target: Forge 1.20.1
 +Added Barbed Wire
 	*Slows down entity
 	*Damages said entity.
++Added Wire Cutters
+	*Used to remove Barbed wire
 +Added MRE food.
++Ammo and Medical boxes now emit redstone signal based on how full they are.
++Began work on implementing zoom on Snipers
++Added creative variants of consumable items.
+	*Casts/hammer/saw/etc
+~Tweaked the War Armors
+	*Base durability increased to 378
+	*Durability is now scales per piece of armor
+	*Knockback Resistance reduced to 0.55F per armor piece.
+	*Healing costs a flat 5 durability.
++Can now get basic early game casts/casings/tips from trading with villagers.
++Added Casing Recyler
+	*Can smelt down old casings back into Brass Nuggets.
+	*JEI Supported!
+	*JSON recipe supported!
++Added Bullet Tip Processor
+	*Can smelt down old bullet tips into Lead Nuggets.
+	*JEI Supported!
+	*JSON recipe supported!
++Added 7.62 Casing texture
+~Reworked all the crafting recipes to use tags.
+	*Hammers/Saws/Cutters were added to tags, making recipe creation so much easier.
+
 
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
