@@ -196,26 +196,28 @@ public class TMWMain
 			ev.accept(TMWItems.hammer_iron);
 			ev.accept(TMWItems.hammer_steel);
 			ev.accept(TMWItems.hammer_diamond);
+			ev.accept(TMWItems.hammer_creative);
 			ev.accept(TMWItems.cutter_iron);
 			ev.accept(TMWItems.cutter_steel);
 			ev.accept(TMWItems.cutter_diamond);
 			ev.accept(TMWItems.hand_saw);
+			ev.accept(TMWItems.creative_hand_saw);
 			
 			ev.accept(TMWItems.bullet_cast_223);
-			ev.accept(TMWItems.bullet_cast_556);
-			ev.accept(TMWItems.bullet_cast_9mm);
-			ev.accept(TMWItems.bullet_cast_45);
-			ev.accept(TMWItems.bullet_cast_38spec);
-			ev.accept(TMWItems.bullet_cast_762);
-			ev.accept(TMWItems.bullet_cast_12g);
-			
 			ev.accept(TMWItems.creative_bullet_cast_223);
+			ev.accept(TMWItems.bullet_cast_556);
 			ev.accept(TMWItems.creative_bullet_cast_556);
+			ev.accept(TMWItems.bullet_cast_9mm);
 			ev.accept(TMWItems.creative_bullet_cast_9mm);
+			ev.accept(TMWItems.bullet_cast_45);
 			ev.accept(TMWItems.creative_bullet_cast_45);
+			ev.accept(TMWItems.bullet_cast_38spec);
 			ev.accept(TMWItems.creative_bullet_cast_38spec);
+			ev.accept(TMWItems.bullet_cast_762);
 			ev.accept(TMWItems.creative_bullet_cast_762);
+			ev.accept(TMWItems.bullet_cast_12g);
 			ev.accept(TMWItems.creative_bullet_cast_12g);
+			
 			
 			ev.accept(TMWItems.bullet_tip_223);
 			ev.accept(TMWItems.bullet_tip_556);
@@ -226,19 +228,18 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_tip_buckshot);
 			
 			ev.accept(TMWItems.casing_cast_223);
-			ev.accept(TMWItems.casing_cast_556);
-			ev.accept(TMWItems.casing_cast_9mm);
-			ev.accept(TMWItems.casing_cast_45);
-			ev.accept(TMWItems.casing_cast_38spec);
-			ev.accept(TMWItems.casing_cast_762);
-			ev.accept(TMWItems.casing_cast_12g);
-			
 			ev.accept(TMWItems.creative_casing_cast_223);
+			ev.accept(TMWItems.casing_cast_556);
 			ev.accept(TMWItems.creative_casing_cast_556);
+			ev.accept(TMWItems.casing_cast_9mm);
 			ev.accept(TMWItems.creative_casing_cast_9mm);
+			ev.accept(TMWItems.casing_cast_45);
 			ev.accept(TMWItems.creative_casing_cast_45);
+			ev.accept(TMWItems.casing_cast_38spec);
 			ev.accept(TMWItems.creative_casing_cast_38spec);
+			ev.accept(TMWItems.casing_cast_762);
 			ev.accept(TMWItems.creative_casing_cast_762);
+			ev.accept(TMWItems.casing_cast_12g);
 			ev.accept(TMWItems.creative_casing_cast_12g);
 			
 			ev.accept(TMWItems.casing_223);
