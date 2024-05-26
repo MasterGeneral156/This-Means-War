@@ -36,7 +36,9 @@ public class BlockCasingRecycler extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
 	public BlockCasingRecycler() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3.5F).mapColor(MapColor.STONE));
+		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3.5F).mapColor(MapColor.STONE).lightLevel((p_50763_) -> {
+	         return p_50763_.getValue(BlockStateProperties.LIT) ? 13 : 0;
+	      }).requiresCorrectToolForDrops());
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false).setValue(FACING, Direction.NORTH));
 	}
 	
