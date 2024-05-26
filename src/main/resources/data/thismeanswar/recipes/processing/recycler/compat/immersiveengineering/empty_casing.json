@@ -5,7 +5,7 @@
             "modid":"immersiveengineering"
         }
 	],
-  "type": "thismeanswar:crusher",
+  "type": "thismeanswar:recycler",
   "base": {
     "item": "immersiveengineering:empty_casing"
   },
