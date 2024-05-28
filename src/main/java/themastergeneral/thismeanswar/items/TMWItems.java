@@ -189,11 +189,11 @@ public class TMWItems {
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
 	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
-	public static AbstractHealingItem medic_kit = new AbstractHealingItem(12F, 10);
+	public static AbstractHealingItem medic_kit = new AbstractHealingItem(10.25F, 10);
 	
 	//Food
 	public static CTDConsumableItem mre = new CTDConsumableItem(2, 5.25F);
-	public static CTDConsumableItem instant_coffee = new CTDConsumableItem(2, 5.25F);
+	public static CTDConsumableItem instant_coffee = new CTDConsumableItem(0, 0.65F);
 	
 	
 	//Armor Material
