@@ -36,7 +36,6 @@ public class FactoryHolderScreen extends AbstractContainerScreen<FactoryHolderMe
 	@Override
 	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
         super.renderLabels(guigfx, x, y);
-        //TODO localize
         guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.desc.1"), 84, 20, 4210752, false);
         guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.desc.2"), 84, 32, 4210752, false);
         guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.desc.3"), 84, 44, 4210752, false);
