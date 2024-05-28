@@ -6,6 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.crafting.Ingredient;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class WarArmor implements ArmorMaterial {
@@ -14,7 +15,7 @@ public class WarArmor implements ArmorMaterial {
     private final int[] slotProtections = new int[]{13, 15, 16, 11};
 
     public WarArmor(String name) {
-        this.name = name;
+        this.name = TMWMain.MODID + name;
     }
     
     @Override

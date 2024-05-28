@@ -193,16 +193,18 @@ public class TMWItems {
 	
 	//Food
 	public static CTDConsumableItem mre = new CTDConsumableItem(2, 5.25F);
+	public static CTDConsumableItem instant_coffee = new CTDConsumableItem(2, 5.25F);
+	
 	
 	//Armor Material
-	public static ArmorMaterial kevlar_material = new KevlarArmor("thismeanswar:kevlar_armor");
-	public static ArmorMaterial ww2_russian_mat = new KevlarArmor("thismeanswar:ww2_russian_armor");
-	public static ArmorMaterial ww2_brit_mat = new KevlarArmor("thismeanswar:ww2_british_armor");
-	public static ArmorMaterial swat_mat = new KevlarArmor("thismeanswar:swat_armor");
-	public static ArmorMaterial basic_prot_material = new BasicProtArmor("thismeanswar:basic_prot");
-	public static ArmorMaterial blue_war_armor_material = new WarArmor("thismeanswar:blue_war_armor");
-	public static ArmorMaterial red_war_armor_material = new WarArmor("thismeanswar:red_war_armor");
-	public static ArmorMaterial green_war_armor_material = new WarArmor("thismeanswar:green_war_armor");
+	public static ArmorMaterial kevlar_material = new KevlarArmor("kevlar_armor");
+	public static ArmorMaterial ww2_russian_mat = new KevlarArmor("ww2_russian_armor");
+	public static ArmorMaterial ww2_brit_mat = new KevlarArmor("ww2_british_armor");
+	public static ArmorMaterial swat_mat = new KevlarArmor("swat_armor");
+	public static ArmorMaterial basic_prot_material = new BasicProtArmor("basic_prot");
+	public static ArmorMaterial blue_war_armor_material = new WarArmor("blue_war_armor");
+	public static ArmorMaterial red_war_armor_material = new WarArmor("red_war_armor");
+	public static ArmorMaterial green_war_armor_material = new WarArmor("green_war_armor");
 	
 	public static ArmorItem ww2_russian_helm = new ArmorItem(ww2_russian_mat, Type.HELMET, baseProp);
 	public static ArmorItem ww2_russian_chest = new ArmorItem(ww2_russian_mat, Type.CHESTPLATE, baseProp);

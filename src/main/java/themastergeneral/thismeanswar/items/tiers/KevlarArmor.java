@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class KevlarArmor implements ArmorMaterial {
@@ -13,7 +14,7 @@ public class KevlarArmor implements ArmorMaterial {
     private final int[] slotProtections = new int[]{2, 3, 5, 2};
 
     public KevlarArmor(String name) {
-        this.name = name;
+    	 this.name = TMWMain.MODID + name;
     }
     
     @Override
