@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "forge:ores/brass"
+      "tag": "forge:raw_materials/lead"
 	  
     },
 	{
@@ -10,7 +10,7 @@
 	}
   ],
   "result": {
-    "item": "thismeanswar:dust_brass",
-    "count": 2
+    "item": "thismeanswar:dust_lead",
+    "count": 1
   }
 }

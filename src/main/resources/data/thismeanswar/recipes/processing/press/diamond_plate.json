@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:gems/diamond"
+  },
+  "result": {
+    "item": "thismeanswar:plate_diamond", "count": 1
+  }
+}

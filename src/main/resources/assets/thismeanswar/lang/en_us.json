@@ -228,6 +228,10 @@
 	
 	"item.thismeanswar.plate_lead": "Lead Plate",
 	"item.thismeanswar.plate_steel": "Steel Plate",
+	"item.thismeanswar.plate_iron": "Iron Plate",
+	"item.thismeanswar.plate_diamond": "Diamond Plate",
+	"item.thismeanswar.plate_brass": "Brass Plate",
+	
 	"item.thismeanswar.kevlar_raw": "Raw Kevlar",
 	
 	"item.thismeanswar.mag_capacity_upgrade": "Magazine Capacity Upgrade",
@@ -253,6 +257,7 @@
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",
 	"block.thismeanswar.casing_recycler": "Casing Recycler",
 	"block.thismeanswar.tip_recycler": "Bullet Tip Reprocessor",
+	"block.thismeanswar.press": "Ingot Presser",
 	"block.thismeanswar.shelter_weak": "Weak Explosion Shelter",
 	"block.thismeanswar.shelter_medium": "Hardened Explosion Shelter",
 	"block.thismeanswar.shelter_strong": "Reinforced Explosion Shelter",
@@ -264,6 +269,7 @@
 	"thismeanswar.container.tip_recycler": "Bullet Tip Reprocessor",
 	"thismeanswar.container.crusher": "Burning Crusher",
 	"thismeanswar.container.factoryholder": "Factory Holder",
+	"thismeanswar.container.press": "Ingot Presser",
 	"thismeanswar.container.desc.1": "Requires Item:",
 	"thismeanswar.container.desc.2": "-Hammer",
 	"thismeanswar.container.desc.3": "-Press",
@@ -321,6 +327,7 @@
 	"thismeanswar.jei.reprocessor": "Tip Reprocessing",
 	"thismeanswar.jei.recycler": "Casing Recycling",
 	"thismeanswar.jei.crusher": "Crushing",
+	"thismeanswar.jei.press": "Pressing",
 	"thismeanswar.jei.ammo_box_info": "Holds ammo/rounds. R-Click with rounds/ammo to place inside. Shift + R-Click to withdraw. Maximum stored based on tier.",
 	"thismeanswar.jei.medic_box_info": "Holds medical items to be used later. R-Click with item to place inside. Shift + R-Click to withdraw and heal. Maximum stored based on tier.",
 	"thismeanswar.jei.upgrade_info": "Can be applied by sneak + r-click with firearm/magazine in off-hand.",

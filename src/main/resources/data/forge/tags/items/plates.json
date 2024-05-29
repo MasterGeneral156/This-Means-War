@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "thismeanswar:plate_lead",
-	"thismeanswar:plate_steel"
+	"thismeanswar:plate_steel",
+	"thismeanswar:plate_iron",
+	"thismeanswar:plate_diamond",
+	"thismeanswar:plate_brass"
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:plates/diamond"
+  },
+  "result": {
+    "item": "minecraft:diamond", "count": 1
+  }
+}

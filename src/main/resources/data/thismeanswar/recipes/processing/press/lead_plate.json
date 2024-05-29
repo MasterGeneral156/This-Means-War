@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/lead"
+  },
+  "result": {
+    "item": "thismeanswar:plate_lead", "count": 1
+  }
+}

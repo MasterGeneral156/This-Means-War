@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/brass"
+  },
+  "result": {
+    "item": "thismeanswar:plate_brass", "count": 1
+  }
+}

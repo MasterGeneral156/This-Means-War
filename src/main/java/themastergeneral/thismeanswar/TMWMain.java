@@ -178,6 +178,7 @@ public class TMWMain
 			ev.accept(TMWItems.casing_recycler);
 			ev.accept(TMWItems.tip_recycler);
 			ev.accept(TMWItems.factory_holder);
+			ev.accept(TMWItems.press);
 			
 			ev.accept(TMWItems.shelter_weak);
 			ev.accept(TMWItems.shelter_medium);
@@ -264,6 +265,9 @@ public class TMWMain
 			
 			ev.accept(TMWItems.plate_lead);
 			ev.accept(TMWItems.plate_steel);
+			ev.accept(TMWItems.plate_iron);
+			ev.accept(TMWItems.plate_diamond);
+			ev.accept(TMWItems.plate_brass);
 			
 			ev.accept(TMWItems.kevlar_raw);
 			
@@ -283,10 +287,14 @@ public class TMWMain
 			ev.accept(TMWItems.dust_gold);
 			
 			ev.accept(TMWItems.block_brass);
-			ev.accept(TMWItems.ore_brass);
 			ev.accept(TMWItems.block_lead);
-			ev.accept(TMWItems.ore_lead);
 			ev.accept(TMWItems.block_steel);
+			
+			ev.accept(TMWItems.raw_brass);
+			ev.accept(TMWItems.raw_lead);
+			
+			ev.accept(TMWItems.ore_brass);
+			ev.accept(TMWItems.ore_lead);
 			
 			ev.accept(TMWItems.blue_stone_bricks);
 			ev.accept(TMWItems.red_stone_bricks);

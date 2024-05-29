@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:plates/iron"
+  },
+  "result": {
+    "item": "thismeanswar:dust_iron", "count": 1
+  }
+}

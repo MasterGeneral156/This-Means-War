@@ -33,6 +33,7 @@ public class JEIPlugin implements IModPlugin {
 	    registration.addRecipeCategories(new ReprocessorCategory(guiHelper));
 	    registration.addRecipeCategories(new RecyclerCategory(guiHelper));
 	    registration.addRecipeCategories(new CrusherCategory(guiHelper));
+	    registration.addRecipeCategories(new PressCategory(guiHelper));
 	}
 	
 	
@@ -71,6 +72,7 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipes(RecipeTypes.REPROCESSOR, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.REPROCESSOR_TYPE.get()));
 		registration.addRecipes(RecipeTypes.RECYCLER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.CRUSHER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.CRUSHER_TYPE.get()));
+		registration.addRecipes(RecipeTypes.PRESS, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.PRESS_TYPE.get()));
 	}
 	
 	@Override
@@ -79,5 +81,6 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.tip_recycler), RecipeTypes.REPROCESSOR);
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.casing_recycler), RecipeTypes.RECYCLER);
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.crusher), RecipeTypes.CRUSHER);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.press), RecipeTypes.PRESS);
 	}
 }

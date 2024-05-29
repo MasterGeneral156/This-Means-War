@@ -28,6 +28,7 @@ public class TMWBlocks {
 	public static BlockCasingRecycler casing_recycler = new BlockCasingRecycler();
 	public static BlockTipRecycler tip_recycler = new BlockTipRecycler();
 	public static BlockFactoryHolder factory_holder = new BlockFactoryHolder();
+	public static BlockPress press = new BlockPress();
 	
 	public static BlockExplosiveResistive shelter_weak = new BlockExplosiveResistive();
 	public static BlockExplosiveResistive shelter_medium = new BlockExplosiveResistive(2);

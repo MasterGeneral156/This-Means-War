@@ -57,7 +57,7 @@ public class PressRecipe implements Recipe<Container> {
    }
 
    public RecipeSerializer<?> getSerializer() {
-      return TMWRecipeTypeRegistration.RECYCLER.get();
+      return TMWRecipeTypeRegistration.PRESS.get();
    }
 
    public boolean isIncomplete() {
@@ -67,7 +67,7 @@ public class PressRecipe implements Recipe<Container> {
    @Override
    public RecipeType<PressRecipe> getType() {
        // Return an instance of your recipe type
-       return TMWRecipeTypeRegistration.RECYCLER_TYPE.get();
+       return TMWRecipeTypeRegistration.PRESS_TYPE.get();
    }
    
    public Ingredient returnBase()

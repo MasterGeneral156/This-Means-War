@@ -46,4 +46,5 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> casing_recycler = BLOCKS.register("casing_recycler", () ->TMWBlocks.casing_recycler);
 	public static final RegistryObject<Block> tip_recycler = BLOCKS.register("tip_recycler", () ->TMWBlocks.tip_recycler);
 	public static final RegistryObject<Block> factory_holder = BLOCKS.register("factory_holder", () ->TMWBlocks.factory_holder);
+	public static final RegistryObject<Block> press = BLOCKS.register("press", () ->TMWBlocks.press);
 }

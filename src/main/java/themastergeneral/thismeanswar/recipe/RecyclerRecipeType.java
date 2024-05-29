@@ -2,7 +2,7 @@ package themastergeneral.thismeanswar.recipe;
 
 import net.minecraft.world.item.crafting.RecipeType;
 
-public class RecyclerRecipeType implements RecipeType<ReprocessorRecipe>
+public class RecyclerRecipeType implements RecipeType<RecyclerRecipe>
 {
 	@Override
     public String toString() 

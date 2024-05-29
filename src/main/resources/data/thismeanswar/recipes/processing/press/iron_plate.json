@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": {
+    "item": "thismeanswar:plate_iron", "count": 1
+  }
+}

@@ -170,6 +170,7 @@ public class TMWItemRegistry {
 	
 	//Food
 	public static final RegistryObject<Item> mre = ITEMS.register("mre", () -> TMWItems.mre);
+	public static final RegistryObject<Item> instant_coffee = ITEMS.register("instant_coffeee", () -> TMWItems.instant_coffee);
 	
 	//Upgrades
 	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
@@ -190,27 +191,34 @@ public class TMWItemRegistry {
 	 * Crafting Items
 	 */
 	
-	//Lead
-	public static final RegistryObject<Item> plate_lead = ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
-	public static final RegistryObject<Item> ingot_lead = ITEMS.register("ingot_lead", () -> TMWItems.ingot_lead);
-	public static final RegistryObject<Item> nugget_lead = ITEMS.register("nugget_lead", () -> TMWItems.nugget_lead);
-	public static final RegistryObject<Item> dust_lead = ITEMS.register("dust_lead", () -> TMWItems.dust_lead);
-	
-	//Brass
-	public static final RegistryObject<Item> ingot_brass = ITEMS.register("ingot_brass", () -> TMWItems.ingot_brass);
+	//Nuggies
 	public static final RegistryObject<Item> nugget_brass = ITEMS.register("nugget_brass", () -> TMWItems.nugget_brass);
-	public static final RegistryObject<Item> dust_brass = ITEMS.register("dust_brass", () -> TMWItems.dust_brass);
-	
-	//Steel
-	public static final RegistryObject<Item> ingot_steel = ITEMS.register("ingot_steel", () -> TMWItems.ingot_steel);
+	public static final RegistryObject<Item> nugget_lead = ITEMS.register("nugget_lead", () -> TMWItems.nugget_lead);
 	public static final RegistryObject<Item> nugget_steel = ITEMS.register("nugget_steel", () -> TMWItems.nugget_steel);
-	public static final RegistryObject<Item> dust_steel = ITEMS.register("dust_steel", () -> TMWItems.dust_steel);
-	public static final RegistryObject<Item> plate_steel = ITEMS.register("plate_steel", () -> TMWItems.plate_steel);
 	
-	//Vanilla dusts
+	//Ingots
+	public static final RegistryObject<Item> ingot_steel = ITEMS.register("ingot_steel", () -> TMWItems.ingot_steel);
+	public static final RegistryObject<Item> ingot_brass = ITEMS.register("ingot_brass", () -> TMWItems.ingot_brass);
+	public static final RegistryObject<Item> ingot_lead = ITEMS.register("ingot_lead", () -> TMWItems.ingot_lead);
+	
+	//Plates
+	public static final RegistryObject<Item> plate_lead = ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
+	public static final RegistryObject<Item> plate_steel = ITEMS.register("plate_steel", () -> TMWItems.plate_steel);
+	public static final RegistryObject<Item> plate_diamond = ITEMS.register("plate_diamond", () -> TMWItems.plate_diamond);
+	public static final RegistryObject<Item> plate_iron = ITEMS.register("plate_iron", () -> TMWItems.plate_iron);
+	public static final RegistryObject<Item> plate_brass = ITEMS.register("plate_brass", () -> TMWItems.plate_brass);
+	
+	//Dusts
+	public static final RegistryObject<Item> dust_lead = ITEMS.register("dust_lead", () -> TMWItems.dust_lead);
+	public static final RegistryObject<Item> dust_brass = ITEMS.register("dust_brass", () -> TMWItems.dust_brass);
+	public static final RegistryObject<Item> dust_steel = ITEMS.register("dust_steel", () -> TMWItems.dust_steel);
 	public static final RegistryObject<Item> dust_copper = ITEMS.register("dust_copper", () -> TMWItems.dust_copper);
 	public static final RegistryObject<Item> dust_iron = ITEMS.register("dust_iron", () -> TMWItems.dust_iron);
 	public static final RegistryObject<Item> dust_gold = ITEMS.register("dust_gold", () -> TMWItems.dust_gold);
+	
+	//Raw Ores
+	public static final RegistryObject<Item> raw_lead = ITEMS.register("raw_lead", () -> TMWItems.raw_lead);
+	public static final RegistryObject<Item> raw_brass = ITEMS.register("raw_brass", () -> TMWItems.raw_brass);
 	
 	//Misc
 	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
@@ -338,4 +346,5 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_recycler = ITEMS.register("casing_recycler", () -> TMWItems.casing_recycler);
 	public static final RegistryObject<Item> tip_recycler = ITEMS.register("tip_recycler", () -> TMWItems.tip_recycler);
 	public static final RegistryObject<Item> factory_holder = ITEMS.register("factory_holder", () -> TMWItems.factory_holder);
+	public static final RegistryObject<Item> press = ITEMS.register("press", () -> TMWItems.press);
 }

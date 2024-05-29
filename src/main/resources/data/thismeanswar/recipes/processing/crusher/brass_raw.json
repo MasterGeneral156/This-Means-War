@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/brass"
+  },
+  "result": {
+    "item": "thismeanswar:dust_brass", "count": 1
+  }
+}

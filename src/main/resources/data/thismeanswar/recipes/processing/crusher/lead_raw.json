@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:raw_materials/lead"
+  },
+  "result": {
+    "item": "thismeanswar:dust_lead", "count": 1
+  }
+}

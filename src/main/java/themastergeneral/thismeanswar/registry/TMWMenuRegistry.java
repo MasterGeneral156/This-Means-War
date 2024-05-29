@@ -9,6 +9,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
+import themastergeneral.thismeanswar.menu.PressMenu;
 import themastergeneral.thismeanswar.menu.TipRecyclerMenu;
 
 public class TMWMenuRegistry {
@@ -26,4 +27,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<FactoryHolderMenu>> FACTORY_HOLDER_MENU = CONTAINERS.register("factory_holder_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new FactoryHolderMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<PressMenu>> PRESS_MENU = CONTAINERS.register("press_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new PressMenu(windowId, inv, data)));
 }

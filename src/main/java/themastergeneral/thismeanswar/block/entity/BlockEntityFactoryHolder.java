@@ -118,4 +118,9 @@ public class BlockEntityFactoryHolder extends BlockEntity implements MenuProvide
     {
     	return ClientboundBlockEntityDataPacket.create(this);
     }
+    
+    public ItemStack getHolderStack()
+    {
+    	return this.itemHandler.getStackInSlot(INPUT_SLOT);
+    }
 }

@@ -94,15 +94,17 @@ public class TMWItems {
 	public static AbstractMagazineItem magazine_40mm_clip = new AbstractMagazineItem(round_40mm, Constants.magSizeClips);
 	public static AbstractMagazineItem magazine_38spec_clip = new AbstractMagazineItem(round_38spec, Constants.magSizeClips);
 	
-	//Crafting items
+	//Ingots
 	public static AbstractModItem ingot_lead = new BasicItem();
 	public static AbstractModItem ingot_brass = new BasicItem();
 	public static AbstractModItem ingot_steel = new BasicItem();
 	
+	//Nuggies
 	public static AbstractModItem nugget_steel = new BasicItem();
 	public static AbstractModItem nugget_brass = new BasicItem();
 	public static AbstractModItem nugget_lead = new BasicItem();
 	
+	//Dusts
 	public static AbstractModItem dust_steel = new BasicItem();
 	public static AbstractModItem dust_iron = new BasicItem();
 	public static AbstractModItem dust_gold = new BasicItem();
@@ -110,8 +112,16 @@ public class TMWItems {
 	public static AbstractModItem dust_brass = new BasicItem();
 	public static AbstractModItem dust_lead = new BasicItem();
 	
+	//Plates
 	public static AbstractModItem plate_lead = new BasicItem();
 	public static AbstractModItem plate_steel = new BasicItem();
+	public static AbstractModItem plate_iron = new BasicItem();
+	public static AbstractModItem plate_diamond = new BasicItem();
+	public static AbstractModItem plate_brass = new BasicItem();
+	
+	//Raw Ore
+	public static AbstractModItem raw_brass = new BasicItem();
+	public static AbstractModItem raw_lead = new BasicItem();
 	
 	//Upgrades
 	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
@@ -279,5 +289,6 @@ public class TMWItems {
 	public static AbstractBlockItem casing_recycler = new AbstractBlockItem(TMWBlocks.casing_recycler);
 	public static AbstractBlockItem tip_recycler = new AbstractBlockItem(TMWBlocks.tip_recycler);
 	public static AbstractBlockItem factory_holder = new AbstractBlockItem(TMWBlocks.factory_holder);
+	public static AbstractBlockItem press = new AbstractBlockItem(TMWBlocks.press);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 }
