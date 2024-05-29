@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " P ",
+        "PSS",
+		" S "
+    ],
+    "key": {
+		"P": { "tag": "forge:plates/steel" },
+		"S": { "tag": "forge:rods/wooden" }
+    },
+    "result": {
+        "item": "thismeanswar:cutter_steel",
+		"count": 1
+		}
+    }
+}
