@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:tools/steel"
+  },
+  "result": {
+    "item": "thismeanswar:ingot_steel"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:armors/netherite"
+  },
+  "result": {
+    "item": "minecraft:netherite_ingot", "count": 3
+  }
+}

@@ -1,7 +1,7 @@
 {
   "type": "thismeanswar:crusher",
   "base": {
-    "tag": "forge:armor/diamond"
+    "tag": "forge:armors/diamond"
   },
   "result": {
     "item": "minecraft:diamond", "count": 3

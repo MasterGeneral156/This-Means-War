@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:armors/golden"
+  },
+  "result": {
+    "item": "minecraft:gold_ingot", "count": 3
+  }
+}

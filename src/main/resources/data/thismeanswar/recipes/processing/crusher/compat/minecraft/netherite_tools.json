@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:tools/netherite"
+  },
+  "result": {
+    "item": "minecraft:netherite_ingot"
+  }
+}

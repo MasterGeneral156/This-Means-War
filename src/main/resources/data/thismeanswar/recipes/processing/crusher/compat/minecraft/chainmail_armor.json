@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:armors/chainmail"
+  },
+  "result": {
+    "item": "minecraft:iron_ingot", "count": 3
+  }
+}

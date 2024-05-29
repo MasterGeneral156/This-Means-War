@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:tools/golden"
+  },
+  "result": {
+    "item": "minecraft:gold_ingot"
+  }
+}

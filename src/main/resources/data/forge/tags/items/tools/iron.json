@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_sword",
+    "minecraft:iron_pickaxe",
+    "minecraft:iron_shovel",
+    "minecraft:iron_hoe",
+	"minecraft:iron_axe",
+	"thismeanswar:hammer_iron",
+	"thismeanswar:cutter_iron"
+  ]
+}
