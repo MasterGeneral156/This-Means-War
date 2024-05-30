@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -39,7 +40,10 @@ public class TipRecyclerScreen extends AbstractContainerScreen<TipRecyclerMenu> 
         int burnTime = this.menu.getBurnTime();
         
         guigfx.drawString(this.font, "Process: " + processTime + "%", 84, 20, 4210752, false);
-        guigfx.drawString(this.font, "Fuel: " + ModUtils.returnShortenedNumber(burnTime), 84, 32, 4210752, false);
+        if (Screen.hasShiftDown())
+        	guigfx.drawString(this.font, "Fuel: " + burnTime, 84, 32, 4210752, false);
+        else
+        	guigfx.drawString(this.font, "Fuel: " + ModUtils.returnShortenedNumber(burnTime), 84, 32, 4210752, false);
     }
 
 }
