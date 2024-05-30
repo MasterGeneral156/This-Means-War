@@ -203,9 +203,14 @@ public class TMWMain
 			
 			ev.accept(TMWItems.mre);
 			
+			ev.accept(TMWItems.hammer_wood);
+			ev.accept(TMWItems.hammer_stone);
+			ev.accept(TMWItems.hammer_gold);
 			ev.accept(TMWItems.hammer_iron);
 			ev.accept(TMWItems.hammer_steel);
 			ev.accept(TMWItems.hammer_diamond);
+			ev.accept(TMWItems.hammer_emerald);
+			ev.accept(TMWItems.hammer_netherite);
 			ev.accept(TMWItems.hammer_creative);
 			ev.accept(TMWItems.cutter_iron);
 			ev.accept(TMWItems.cutter_steel);

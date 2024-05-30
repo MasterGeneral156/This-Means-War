@@ -224,9 +224,14 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
 	
 	//Durability crafting items
+	public static final RegistryObject<Item> hammer_wood = ITEMS.register("hammer_wood", () -> TMWItems.hammer_wood);
+	public static final RegistryObject<Item> hammer_stone = ITEMS.register("hammer_stone", () -> TMWItems.hammer_stone);
+	public static final RegistryObject<Item> hammer_gold = ITEMS.register("hammer_gold", () -> TMWItems.hammer_gold);
 	public static final RegistryObject<Item> hammer_iron = ITEMS.register("hammer_iron", () -> TMWItems.hammer_iron);
 	public static final RegistryObject<Item> hammer_diamond = ITEMS.register("hammer_diamond", () -> TMWItems.hammer_diamond);
 	public static final RegistryObject<Item> hammer_steel = ITEMS.register("hammer_steel", () -> TMWItems.hammer_steel);
+	public static final RegistryObject<Item> hammer_emerald = ITEMS.register("hammer_emerald", () -> TMWItems.hammer_emerald);
+	public static final RegistryObject<Item> hammer_netherite = ITEMS.register("hammer_netherite", () -> TMWItems.hammer_netherite);
 	public static final RegistryObject<Item> hammer_creative = ITEMS.register("hammer_creative", () -> TMWItems.hammer_creative);
 	
 	public static final RegistryObject<Item> cutter_iron = ITEMS.register("cutter_iron", () -> TMWItems.cutter_iron);

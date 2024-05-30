@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+	"thismeanswar:hammer_wood",
+	"thismeanswar:hammer_stone",
+	"thismeanswar:hammer_gold",
+	"thismeanswar:hammer_emerald",
+	"thismeanswar:hammer_netherite",
     "thismeanswar:hammer_diamond",
 	"thismeanswar:hammer_steel",
 	"thismeanswar:hammer_iron",
