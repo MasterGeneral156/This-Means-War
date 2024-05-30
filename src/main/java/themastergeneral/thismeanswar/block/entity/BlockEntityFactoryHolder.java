@@ -128,7 +128,14 @@ public class BlockEntityFactoryHolder extends BlockEntity implements MenuProvide
     public void damageHolderStack()
     {
     	ItemStack newStack = getHolderStack().copy();
-    	newStack.hurt(1, RandomSource.create(), null);
+    	if (newStack.isDamageableItem())
+    	{
+    		if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+    			newStack = ItemStack.EMPTY;
+    	}
+    	else
+    		newStack.shrink(1);
     	this.itemHandler.setStackInSlot(INPUT_SLOT, newStack);
+    	
     }
 }
