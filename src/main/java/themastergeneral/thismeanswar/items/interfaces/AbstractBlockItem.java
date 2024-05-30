@@ -34,6 +34,9 @@ public class AbstractBlockItem extends BlockItem {
 			tooltip.add(ModUtils.displayTranslation("Holds 1,024 rounds."));
 		if (stack.getItem() == TMWItems.ammo_box_large)
 			tooltip.add(ModUtils.displayTranslation("Holds 2,048 rounds."));
+		if (stack.getItem() == TMWItems.factory_holder)
+			tooltip.add(ModUtils.displayTranslation("thismeanswar.factory_holder_desc"));
+		
 		if (stack.getItem() == TMWItems.medic_box)
 		{
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.medic_box_desc"));

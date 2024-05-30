@@ -347,4 +347,5 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> tip_recycler = ITEMS.register("tip_recycler", () -> TMWItems.tip_recycler);
 	public static final RegistryObject<Item> factory_holder = ITEMS.register("factory_holder", () -> TMWItems.factory_holder);
 	public static final RegistryObject<Item> press = ITEMS.register("press", () -> TMWItems.press);
+	public static final RegistryObject<Item> primer_popper = ITEMS.register("primer_popper", () -> TMWItems.primer_popper);
 }

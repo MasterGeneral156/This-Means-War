@@ -179,6 +179,7 @@ public class TMWMain
 			ev.accept(TMWItems.tip_recycler);
 			ev.accept(TMWItems.factory_holder);
 			ev.accept(TMWItems.press);
+			ev.accept(TMWItems.primer_popper);
 			
 			ev.accept(TMWItems.shelter_weak);
 			ev.accept(TMWItems.shelter_medium);

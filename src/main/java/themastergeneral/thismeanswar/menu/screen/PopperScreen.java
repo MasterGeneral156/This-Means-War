@@ -10,14 +10,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import themastergeneral.thismeanswar.TMWMain;
-import themastergeneral.thismeanswar.menu.CrusherMenu;
-import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
+import themastergeneral.thismeanswar.menu.PopperMenu;
+import themastergeneral.thismeanswar.menu.PressMenu;
 
-public class FactoryHolderScreen extends AbstractContainerScreen<FactoryHolderMenu> {
+public class PopperScreen extends AbstractContainerScreen<PopperMenu> {
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(TMWMain.MODID, "textures/gui/factory_holder.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(TMWMain.MODID, "textures/gui/popper.png");
 	
-	public FactoryHolderScreen(FactoryHolderMenu menu, Inventory p_97742_, Component p_97743_) 
+	public PopperScreen(PopperMenu menu, Inventory p_97742_, Component p_97743_) 
 	{
 		super(menu, p_97742_, p_97743_);
 	}
@@ -36,9 +36,14 @@ public class FactoryHolderScreen extends AbstractContainerScreen<FactoryHolderMe
 	@Override
 	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
         super.renderLabels(guigfx, x, y);
-        guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.fh.desc.1"), 84, 20, 4210752, false);
-        guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.fh.desc.2"), 84, 32, 4210752, false);
-        guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.fh.desc.3"), 84, 44, 4210752, false);
+        double processTime = Math.round(((double) this.menu.getProcessTime() / this.menu.getMaxProcessTime()) * 100);
+        int errorCode = this.menu.getErrorCode();
+        int burnTime = this.menu.getBurnTime();
+        
+        guigfx.drawString(this.font, "Process: " + processTime + "%", 84, 20, 4210752, false);
+        guigfx.drawString(this.font, "Fuel: " + ModUtils.returnShortenedNumber(burnTime), 84, 32, 4210752, false);
+        if (errorCode > 0)
+        	guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.popper.error." + errorCode), 84, 44, 4210752, false);
     }
 
 }

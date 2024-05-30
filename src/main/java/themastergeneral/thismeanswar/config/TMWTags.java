@@ -43,4 +43,9 @@ public class TMWTags {
 	//Generic tags
 	public static TagKey<Item> casing_all = ItemTags.create(new ResourceLocation(TMWMain.MODID, "casing/all"));
 	public static TagKey<Item> bullet_tips = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tip/all"));
+	
+	//Tools
+	public static TagKey<Item> hammer = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/hammer"));
+	public static TagKey<Item> saw = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/saw"));
+	public static TagKey<Item> cutter = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/cutter"));
 }

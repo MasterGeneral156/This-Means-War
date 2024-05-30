@@ -16,6 +16,7 @@ import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
 import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
+import themastergeneral.thismeanswar.menu.screen.PopperScreen;
 import themastergeneral.thismeanswar.menu.screen.PressScreen;
 import themastergeneral.thismeanswar.menu.screen.TipRecyclerScreen;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
@@ -44,6 +45,7 @@ public class TMWClientEvents
     		MenuScreens.register(TMWMenuRegistry.CRUSHER_MENU.get(), CrusherScreen::new);
     		MenuScreens.register(TMWMenuRegistry.FACTORY_HOLDER_MENU.get(), FactoryHolderScreen::new);
     		MenuScreens.register(TMWMenuRegistry.PRESS_MENU.get(), PressScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.POPPER_MENU.get(), PopperScreen::new);
     	});
     }
     

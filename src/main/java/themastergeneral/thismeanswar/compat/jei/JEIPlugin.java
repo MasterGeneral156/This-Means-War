@@ -34,6 +34,7 @@ public class JEIPlugin implements IModPlugin {
 	    registration.addRecipeCategories(new RecyclerCategory(guiHelper));
 	    registration.addRecipeCategories(new CrusherCategory(guiHelper));
 	    registration.addRecipeCategories(new PressCategory(guiHelper));
+	    registration.addRecipeCategories(new PopperCategory(guiHelper));
 	}
 	
 	
@@ -73,6 +74,7 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipes(RecipeTypes.RECYCLER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.RECYCLER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.CRUSHER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.CRUSHER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.PRESS, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.PRESS_TYPE.get()));
+		registration.addRecipes(RecipeTypes.POPPER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.POPPER_TYPE.get()));
 	}
 	
 	@Override
@@ -82,5 +84,7 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.casing_recycler), RecipeTypes.RECYCLER);
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.crusher), RecipeTypes.CRUSHER);
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.press), RecipeTypes.PRESS);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.primer_popper), RecipeTypes.POPPER);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.factory_holder), RecipeTypes.POPPER);
 	}
 }

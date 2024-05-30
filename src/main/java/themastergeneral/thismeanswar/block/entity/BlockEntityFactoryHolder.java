@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -122,5 +123,12 @@ public class BlockEntityFactoryHolder extends BlockEntity implements MenuProvide
     public ItemStack getHolderStack()
     {
     	return this.itemHandler.getStackInSlot(INPUT_SLOT);
+    }
+    
+    public void damageHolderStack()
+    {
+    	ItemStack newStack = getHolderStack().copy();
+    	newStack.hurt(1, RandomSource.create(), null);
+    	this.itemHandler.setStackInSlot(INPUT_SLOT, newStack);
     }
 }

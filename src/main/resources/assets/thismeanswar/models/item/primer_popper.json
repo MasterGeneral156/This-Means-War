@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/primer_popper",
+    "textures": {
+        "inventory": "thismeanswar:block/primer_popper"
+    }
+}

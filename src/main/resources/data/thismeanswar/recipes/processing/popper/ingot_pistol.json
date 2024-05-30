@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:popper",
+  "base": {
+    "tag": "forge:ingots/iron"
+  },
+  "extra": {
+    "item": "minecraft:fire_charge"
+  },
+  "result": {
+    "item": "thismeanswar:primer_pistol", "count": 6
+  }
+}

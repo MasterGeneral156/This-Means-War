@@ -4,6 +4,7 @@ import mezz.jei.api.recipe.RecipeType;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.recipe.BulletRecipe;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
+import themastergeneral.thismeanswar.recipe.PopperRecipe;
 import themastergeneral.thismeanswar.recipe.PressRecipe;
 import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
 import themastergeneral.thismeanswar.recipe.ReprocessorRecipe;
@@ -29,4 +30,8 @@ public class RecipeTypes {
 	public static final RecipeType<PressRecipe> PRESS =
 		      RecipeType.create(
 		          TMWMain.MODID, "press", PressRecipe.class);
+	
+	public static final RecipeType<PopperRecipe> POPPER =
+		      RecipeType.create(
+		          TMWMain.MODID, "popper", PopperRecipe.class);
 }

@@ -12,6 +12,7 @@ import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 import themastergeneral.thismeanswar.block.entity.BlockEntityFactoryHolder;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.block.entity.BlockEntityPress;
+import themastergeneral.thismeanswar.block.entity.BlockEntityPrimerPopper;
 import themastergeneral.thismeanswar.block.entity.BlockEntityTipRecycler;
 
 public class TMWBlockEntityRegistry {
@@ -30,4 +31,5 @@ public class TMWBlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> crusher = TILES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityFactoryHolder>> factory_holder = TILES.register("factory_holder", () -> BlockEntityType.Builder.of(BlockEntityFactoryHolder::new, TMWBlocks.factory_holder).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityPress>> press = TILES.register("press", () -> BlockEntityType.Builder.of(BlockEntityPress::new, TMWBlocks.press).build(null));
+	public static final RegistryObject<BlockEntityType<BlockEntityPrimerPopper>> popper = TILES.register("primer_popper", () -> BlockEntityType.Builder.of(BlockEntityPrimerPopper::new, TMWBlocks.primer_popper).build(null));
 }
