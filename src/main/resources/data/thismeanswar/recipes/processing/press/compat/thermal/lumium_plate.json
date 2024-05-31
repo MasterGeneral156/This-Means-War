@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/lumium"
+  },
+  "result": {
+    "item": "thermal:lumium_plate", "count": 1
+  }
+}

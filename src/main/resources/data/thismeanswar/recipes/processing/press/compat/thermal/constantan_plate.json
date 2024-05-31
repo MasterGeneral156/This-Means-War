@@ -1,0 +1,15 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"thermal"
+        }
+	],
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/constantan"
+  },
+  "result": {
+    "item": "thermal:constantan_plate", "count": 1
+  }
+}
