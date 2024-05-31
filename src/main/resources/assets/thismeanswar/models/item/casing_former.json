@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/casing_former",
+    "textures": {
+        "inventory": "thismeanswar:block/casing_former"
+    }
+}

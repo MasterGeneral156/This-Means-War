@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Container;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -22,6 +23,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -35,12 +37,15 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
-import themastergeneral.thismeanswar.menu.AlloySmelterMenu;
-import themastergeneral.thismeanswar.recipe.AlloySmelterRecipe;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.config.TMWTags;
+import themastergeneral.thismeanswar.menu.FormerMenu;
+import themastergeneral.thismeanswar.recipe.FormerRecipe;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
-public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider, BlockEntityTicker<BlockEntityAlloySmelter>
+public class BlockEntityCasingFormer extends BlockEntity implements MenuProvider, BlockEntityTicker<BlockEntityCasingFormer>
 {
     
 	private static final int FUEL_SLOT = 0;
@@ -52,14 +57,16 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
     private int burnTimeTotal;
     private int processTime;
     private int maxProcessTime;
+    private int errorCode;
     
     private final ContainerData containerData = new ContainerData() {
         @Override
         public int get(int pIndex) {
             return switch (pIndex) {
-                case 0 -> BlockEntityAlloySmelter.this.burnTime;
-                case 1 -> BlockEntityAlloySmelter.this.processTime;
-                case 2 -> BlockEntityAlloySmelter.this.maxProcessTime;
+                case 0 -> BlockEntityCasingFormer.this.burnTime;
+                case 1 -> BlockEntityCasingFormer.this.processTime;
+                case 2 -> BlockEntityCasingFormer.this.maxProcessTime;
+                case 3 -> BlockEntityCasingFormer.this.errorCode;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -67,15 +74,16 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
         @Override
         public void set(int pIndex, int pValue) {
             switch (pIndex) {
-                case 0 -> BlockEntityAlloySmelter.this.burnTime = pValue;
-                case 1 -> BlockEntityAlloySmelter.this.processTime = pValue;
-                case 2 -> BlockEntityAlloySmelter.this.maxProcessTime = pValue;
+                case 0 -> BlockEntityCasingFormer.this.burnTime = pValue;
+                case 1 -> BlockEntityCasingFormer.this.processTime = pValue;
+                case 2 -> BlockEntityCasingFormer.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityCasingFormer.this.errorCode = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     
@@ -102,13 +110,13 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
     
     private final LazyOptional<ItemStackHandler> handler = LazyOptional.of(() -> itemHandler);
     
-	public BlockEntityAlloySmelter(BlockPos pos, BlockState state) {
-		super(TMWBlockEntityRegistry.alloy_smelter.get(), pos, state);
+	public BlockEntityCasingFormer(BlockPos pos, BlockState state) {
+		super(TMWBlockEntityRegistry.casing_former.get(), pos, state);
 		this.maxProcessTime = 200;
 	}
 	
-	public BlockEntityAlloySmelter(BlockPos pos, BlockState state, int processTime) {
-		super(TMWBlockEntityRegistry.alloy_smelter.get(), pos, state);
+	public BlockEntityCasingFormer(BlockPos pos, BlockState state, int processTime) {
+		super(TMWBlockEntityRegistry.casing_former.get(), pos, state);
 		this.maxProcessTime = processTime;
 	}
 	
@@ -116,7 +124,7 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
 	{
 		if (slot == OUTPUT_SLOT)
 	         return false;
-        else if (slot == INPUT_SLOT)
+		else if (slot == INPUT_SLOT || slot == EXTRA_SLOT)
 	         return true;
         else {
 	         ItemStack itemstack = this.itemHandler.getStackInSlot(FUEL_SLOT);
@@ -125,51 +133,75 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
 	}
 	
 	@Override
-	public void tick(Level level, BlockPos pos, BlockState state, BlockEntityAlloySmelter blockEntity) {
+	public void tick(Level level, BlockPos pos, BlockState state, BlockEntityCasingFormer blockEntity) {
 		boolean isBurning = blockEntity.burnTime > 0;
         if (isBurning)
             blockEntity.burnTime--;
         
         ItemStack fuelStack = blockEntity.itemHandler.getStackInSlot(FUEL_SLOT);
-        ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
-        ItemStack inputStack2 = blockEntity.itemHandler.getStackInSlot(EXTRA_SLOT);
+        ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(EXTRA_SLOT);
+        ItemStack inputStack2 = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
-        Optional<AlloySmelterRecipe> recipe = level.getRecipeManager()
-                .getRecipeFor(TMWRecipeTypeRegistration.ALLOY_SMELTER_TYPE.get(), new SimpleContainer(inputStack, inputStack2), level);
-        if (outputStack.getCount() < itemHandler.getSlotLimit(OUTPUT_SLOT))
+        Optional<FormerRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(TMWRecipeTypeRegistration.FORMER_TYPE.get(), new SimpleContainer(inputStack, inputStack2), level);
+        if (this.checkForFactoryHolder())
         {
-        	if (recipe.isPresent())
+        	if (this.checkForRequiredTool())
         	{
-        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess()).copy();
-        		if (!isBurning && !fuelStack.isEmpty() && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == ItemStack.EMPTY.getItem())))) 
-    	        {
-        			blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
-    	            blockEntity.burnTimeTotal = blockEntity.burnTime;
-    	            if (blockEntity.burnTime > 0) 
-    	                fuelStack.shrink(1);
-    	        }
-        		if (isBurning && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == Items.AIR))))
-    	        {
-        			blockEntity.processTime++;
-            		if (blockEntity.processTime == blockEntity.maxProcessTime)
-                	{
-            			 if (outputStack.isEmpty()) 
-            			 {
-            				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
-            			 } 
-            			 else if (outputStack.getItem() == resultStack.getItem()) 
-            			 {
-            				 outputStack.grow(resultStack.getCount());
-            			 }
-            			 inputStack.shrink(1);
-            			 inputStack2.shrink(1);
-            			 processTime = 0;
-                	}
-    	        }
+		        if (outputStack.getCount() < itemHandler.getSlotLimit(OUTPUT_SLOT))
+		        {
+		        	if (recipe.isPresent())
+		        	{
+		        		errorCode = 0;
+		        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess()).copy();
+		        		if (!isBurning && !fuelStack.isEmpty() && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == ItemStack.EMPTY.getItem())))) 
+		    	        {
+		        			blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
+		    	            blockEntity.burnTimeTotal = blockEntity.burnTime;
+		    	            if (blockEntity.burnTime > 0) 
+		    	                fuelStack.shrink(1);
+		    	        }
+		        		if (isBurning && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == Items.AIR))))
+		    	        {
+		        			blockEntity.processTime++;
+		            		if (blockEntity.processTime == blockEntity.maxProcessTime)
+		                	{
+		            			 if (outputStack.isEmpty()) 
+		            			 {
+		            				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
+		            			 } 
+		            			 else if (outputStack.getItem() == resultStack.getItem()) 
+		            			 {
+		            				 outputStack.grow(resultStack.getCount());
+		            			 }
+		            			 damageFactoryItem();
+		            			 if (inputStack.isDamageableItem())
+		            			 {
+		            				 if(inputStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+		            					 inputStack = ItemStack.EMPTY;
+		            			 }
+		            			 else
+		            				 inputStack.shrink(1);
+		            			 if (inputStack2.isDamageableItem())
+		            			 {
+		            				 if(inputStack2.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+		            					 inputStack2 = ItemStack.EMPTY;
+		            			 }
+		            			 else
+		            				 inputStack2.shrink(1);
+		            			 processTime = 0;
+		                	}
+		    	        }
+		        	}
+		        }
         	}
+        	else	//no hammer detected
+        		errorCode = 2;
         }
+        else
+        	errorCode = 1;	//no factory holder detected
         
-        if ((inputStack.isEmpty() || !recipe.isPresent()) && processTime > 0)
+        if ((inputStack.isEmpty() || !recipe.isPresent()) && processTime > 0 || errorCode > 1)
         	processTime = 0;
         
         boolean wasLit = state.getValue(BlockStateProperties.LIT);
@@ -178,6 +210,34 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, shouldBeLit), 3);
         this.level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
         setChanged();
+	}
+	
+	protected boolean checkForFactoryHolder()
+	{
+		BlockPos pos = this.getBlockPos();
+		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder)
+			return true;
+		else
+			return false;
+	}
+	
+	protected void damageFactoryItem()
+	{
+		BlockPos pos = this.getBlockPos();
+		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+			holder.damageHolderStack();
+	}
+	
+	protected boolean checkForRequiredTool()
+	{
+		BlockPos pos = this.getBlockPos();
+		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+		{
+			ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+			return tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem());
+		}
+		else
+			return false;
 	}
 
 	@Override
@@ -219,12 +279,12 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
 
 	@Override
 	public AbstractContainerMenu createMenu(int number, Inventory inv, Player player) {
-		return new AlloySmelterMenu(number, inv, this, this.containerData);
+		return new FormerMenu(number, inv, this, this.containerData);
 	}
 
 	@Override
 	public Component getDisplayName() {
-		return ModUtils.displayTranslation("thismeanswar.container.alloy_smelter");
+		return ModUtils.displayTranslation("thismeanswar.container.former");
 	}
     
     @Override

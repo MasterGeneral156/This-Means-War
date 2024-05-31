@@ -8,6 +8,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAlloySmelter;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
+import themastergeneral.thismeanswar.block.entity.BlockEntityCasingFormer;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCasingRecycler;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
 import themastergeneral.thismeanswar.block.entity.BlockEntityFactoryHolder;
@@ -34,4 +35,5 @@ public class TMWBlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<BlockEntityPress>> press = TILES.register("press", () -> BlockEntityType.Builder.of(BlockEntityPress::new, TMWBlocks.press).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityPrimerPopper>> popper = TILES.register("primer_popper", () -> BlockEntityType.Builder.of(BlockEntityPrimerPopper::new, TMWBlocks.primer_popper).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityAlloySmelter>> alloy_smelter = TILES.register("alloy_smelter", () -> BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, TMWBlocks.alloy_smelter).build(null));
+	public static final RegistryObject<BlockEntityType<BlockEntityCasingFormer>> casing_former = TILES.register("casing_former", () -> BlockEntityType.Builder.of(BlockEntityCasingFormer::new, TMWBlocks.casing_former).build(null));
 }

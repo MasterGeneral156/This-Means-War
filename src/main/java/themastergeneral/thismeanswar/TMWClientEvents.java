@@ -17,6 +17,7 @@ import themastergeneral.thismeanswar.menu.screen.AlloySmelterScreen;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
 import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
+import themastergeneral.thismeanswar.menu.screen.FormerScreen;
 import themastergeneral.thismeanswar.menu.screen.PopperScreen;
 import themastergeneral.thismeanswar.menu.screen.PressScreen;
 import themastergeneral.thismeanswar.menu.screen.TipRecyclerScreen;
@@ -48,6 +49,7 @@ public class TMWClientEvents
     		MenuScreens.register(TMWMenuRegistry.PRESS_MENU.get(), PressScreen::new);
     		MenuScreens.register(TMWMenuRegistry.POPPER_MENU.get(), PopperScreen::new);
     		MenuScreens.register(TMWMenuRegistry.ALLOY_SMELTER_MENU.get(), AlloySmelterScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.FORMER_MENU.get(), FormerScreen::new);
     	});
     }
     

@@ -355,4 +355,5 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> press = ITEMS.register("press", () -> TMWItems.press);
 	public static final RegistryObject<Item> primer_popper = ITEMS.register("primer_popper", () -> TMWItems.primer_popper);
 	public static final RegistryObject<Item> alloy_smelter = ITEMS.register("alloy_smelter", () -> TMWItems.alloy_smelter);
+	public static final RegistryObject<Item> casing_former = ITEMS.register("casing_former", () -> TMWItems.casing_former);
 }

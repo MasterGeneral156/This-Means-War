@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:former",
+  "base": {
+    "tag": "forge:plates/steel"
+  },
+  "cast": {
+    "tag": "thismeanswar:casts/casing/9mm", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_cast_9mm"
+  }
+}

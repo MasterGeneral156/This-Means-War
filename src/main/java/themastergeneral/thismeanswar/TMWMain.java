@@ -175,9 +175,10 @@ public class TMWMain
 			ev.accept(TMWItems.land_mine);
 			ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.bullet_foundary);
+			ev.accept(TMWItems.factory_holder);
+			ev.accept(TMWItems.casing_former);
 			ev.accept(TMWItems.casing_recycler);
 			ev.accept(TMWItems.tip_recycler);
-			ev.accept(TMWItems.factory_holder);
 			ev.accept(TMWItems.press);
 			ev.accept(TMWItems.primer_popper);
 			ev.accept(TMWItems.alloy_smelter);

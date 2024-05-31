@@ -5,6 +5,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.recipe.AlloySmelterRecipe;
 import themastergeneral.thismeanswar.recipe.BulletRecipe;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
+import themastergeneral.thismeanswar.recipe.FormerRecipe;
 import themastergeneral.thismeanswar.recipe.PopperRecipe;
 import themastergeneral.thismeanswar.recipe.PressRecipe;
 import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
@@ -39,4 +40,8 @@ public class RecipeTypes {
 	public static final RecipeType<AlloySmelterRecipe> ALLOY_SMELTER =
 		      RecipeType.create(
 		          TMWMain.MODID, "alloy_smelter", AlloySmelterRecipe.class);
+	
+	public static final RecipeType<FormerRecipe> FORMER =
+		      RecipeType.create(
+		          TMWMain.MODID, "former", FormerRecipe.class);
 }

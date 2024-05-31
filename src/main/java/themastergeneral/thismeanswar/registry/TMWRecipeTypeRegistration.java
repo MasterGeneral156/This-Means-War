@@ -12,6 +12,8 @@ import themastergeneral.thismeanswar.recipe.BulletRecipe;
 import themastergeneral.thismeanswar.recipe.BulletRecipeType;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.recipe.CrusherRecipeType;
+import themastergeneral.thismeanswar.recipe.FormerRecipe;
+import themastergeneral.thismeanswar.recipe.FormerRecipeType;
 import themastergeneral.thismeanswar.recipe.PopperRecipe;
 import themastergeneral.thismeanswar.recipe.PopperRecipeType;
 import themastergeneral.thismeanswar.recipe.PressRecipe;
@@ -33,6 +35,7 @@ public class TMWRecipeTypeRegistration
 	public static final RegistryObject<RecipeSerializer<?>> PRESS = RECIPE_SERIALIZER.register("press", () -> new PressRecipe.Serializer());
 	public static final RegistryObject<RecipeSerializer<?>> POPPER = RECIPE_SERIALIZER.register("popper", () -> new PopperRecipe.Serializer());
 	public static final RegistryObject<RecipeSerializer<?>> ALLOY_SMELTER = RECIPE_SERIALIZER.register("alloy_smelter", () -> new AlloySmelterRecipe.Serializer());
+	public static final RegistryObject<RecipeSerializer<?>> CASING_FORMER = RECIPE_SERIALIZER.register("former", () -> new FormerRecipe.Serializer());
 	
 	public static final RegistryObject<RecipeType> FOUNDARY_TYPE = RECIPE_TYPES.register("bullet_foundary", () -> new BulletRecipeType());
 	public static final RegistryObject<RecipeType> CRUSHER_TYPE = RECIPE_TYPES.register("crusher", () -> new CrusherRecipeType());
@@ -41,4 +44,5 @@ public class TMWRecipeTypeRegistration
 	public static final RegistryObject<RecipeType> PRESS_TYPE = RECIPE_TYPES.register("press", () -> new PressRecipeType());
 	public static final RegistryObject<RecipeType> POPPER_TYPE = RECIPE_TYPES.register("popper", () -> new PopperRecipeType());
 	public static final RegistryObject<RecipeType> ALLOY_SMELTER_TYPE = RECIPE_TYPES.register("alloy_smelter", () -> new AlloySmelterRecipeType());
+	public static final RegistryObject<RecipeType> FORMER_TYPE = RECIPE_TYPES.register("former", () -> new FormerRecipeType());
 }

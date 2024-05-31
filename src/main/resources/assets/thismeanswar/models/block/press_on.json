@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "top": "thismeanswar:block/press_top",
-    "front": "thismeanswar:block/press_front_on",
+    "top": "thismeanswar:block/press_top_on",
+    "front": "thismeanswar:block/press_front",
     "side": "thismeanswar:block/press_side"
   }
 }
