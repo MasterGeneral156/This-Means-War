@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:popper",
+  "base": {
+    "tag": "forge:plates/steel"
+  },
+  "extra": {
+    "item": "minecraft:fire_charge"
+  },
+  "result": {
+    "item": "thismeanswar:primer_rifle", "count": 12
+  }
+}
