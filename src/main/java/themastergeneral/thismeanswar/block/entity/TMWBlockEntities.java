@@ -17,4 +17,5 @@ public class TMWBlockEntities {
 	public static final BlockEntityType<BlockEntityFactoryHolder> FACTORY_HOLDER = BlockEntityType.Builder.of(BlockEntityFactoryHolder::new, TMWBlocks.factory_holder).build(null);
 	public static final BlockEntityType<BlockEntityCrusher> CRUSHER = BlockEntityType.Builder.of(BlockEntityCrusher::new, TMWBlocks.crusher).build(null);
 	public static final BlockEntityType<BlockEntityPrimerPopper> PRIMER_POPPER = BlockEntityType.Builder.of(BlockEntityPrimerPopper::new, TMWBlocks.primer_popper).build(null);
+	public static final BlockEntityType<BlockEntityAlloySmelter> ALLOY_SMELTER = BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, TMWBlocks.alloy_smelter).build(null);
 }
