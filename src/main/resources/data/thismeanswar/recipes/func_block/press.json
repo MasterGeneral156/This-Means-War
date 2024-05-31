@@ -7,7 +7,7 @@
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
-		"C": { "tag": "forge:plates/lead" }
+		"C": { "tag": "forge:plates" }
     },
     "result": {
         "item": "thismeanswar:press",
