@@ -24,7 +24,7 @@ public class AlloySmelterMenu extends AbstractContainerMenu {
     }
 	
 	public AlloySmelterMenu(int id, Inventory playerInventory, BlockEntityAlloySmelter blockEntity, ContainerData data) {
-        super(TMWMenuRegistry.POPPER_MENU.get(), id);
+        super(TMWMenuRegistry.ALLOY_SMELTER_MENU.get(), id);
         this.blockEntity = blockEntity;
         
         // Add custom block entity slots
