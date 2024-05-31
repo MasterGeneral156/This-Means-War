@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " C ",
+        "CFC",
+		"CFC"
+    ],
+    "key": {
+		"F": { "item": "minecraft:furnace" },
+		"C": { "tag": "forge:plates" }
+    },
+    "result": {
+        "item": "thismeanswar:alloy_smelter",
+		"count": 1
+    }
+}
