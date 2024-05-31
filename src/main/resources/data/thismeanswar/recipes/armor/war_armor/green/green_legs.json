@@ -1,14 +1,12 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:war_armor",
     "pattern": [
-        "SSS",
-		"N N",
-		"S S"
+        "HHH",
+		"H H",
+		"H H"
     ],
     "key": {
-		"S": { "tag": "forge:storage_blocks/steel" },
-		"N": { "tag": "forge:ingots/netherite" }
+		"H": { "tag": "forge:ingots/halominium" }
     },
     "result": {
         "item": "thismeanswar:green_war_armor_legs",
