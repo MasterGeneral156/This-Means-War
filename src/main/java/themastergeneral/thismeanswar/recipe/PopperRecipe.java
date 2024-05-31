@@ -102,7 +102,8 @@ public class PopperRecipe implements Recipe<Container> {
       }
 
       public void toNetwork(FriendlyByteBuf p_266746_, PopperRecipe p_266927_) {
-         p_266927_.base.toNetwork(p_266746_);
+    	  p_266927_.extra.toNetwork(p_266746_);
+    	  p_266927_.base.toNetwork(p_266746_);
          p_266746_.writeItem(p_266927_.result);
       }
    }
