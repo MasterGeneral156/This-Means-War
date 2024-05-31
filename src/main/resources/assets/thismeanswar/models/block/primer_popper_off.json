@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "top": "minecraft:block/primer_popper_top",
-    "front": "thismeanswar:block/primer_popper_front_off",
-    "side": "minecraft:block/primer_popper_side"
-  }
-}

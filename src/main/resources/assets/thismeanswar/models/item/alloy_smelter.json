@@ -1,0 +1,6 @@
+{
+    "parent": "thismeanswar:block/alloy_smelter",
+    "textures": {
+        "inventory": "thismeanswar:block/alloy_smelter"
+    }
+}

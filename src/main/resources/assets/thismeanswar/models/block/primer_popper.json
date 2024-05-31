@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "top": "thismeanswar:block/primer_popper_top",
-    "front": "thismeanswar:block/primer_popper_front_on",
+    "front": "thismeanswar:block/primer_popper_front",
     "side": "thismeanswar:block/primer_popper_side"
   }
 }

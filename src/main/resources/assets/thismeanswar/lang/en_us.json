@@ -101,6 +101,9 @@
 	"item.thismeanswar.hand_saw": "Manual Saw",
 	"item.thismeanswar.creative_hand_saw": "Creative Manual Saw",
 	
+	"item.thismeanswar.raw_brass": "Raw Brass",
+	"item.thismeanswar.raw_lead": "Raw Lead",
+	
 	"item.thismeanswar.bullet_cast_9mm": "Bullet Cast (9mm)",
 	"item.thismeanswar.bullet_cast_556": "Bullet Cast (5.56)",
 	"item.thismeanswar.bullet_cast_223": "Bullet Cast (.223)",
@@ -266,6 +269,7 @@
 	"block.thismeanswar.tip_recycler": "Bullet Tip Reprocessor",
 	"block.thismeanswar.press": "Ingot Presser",
 	"block.thismeanswar.primer_popper": "Primer Popper",
+	"block.thismeanswar.alloy_smelter": "Alloy Smelter",
 	"block.thismeanswar.shelter_weak": "Weak Explosion Shelter",
 	"block.thismeanswar.shelter_medium": "Hardened Explosion Shelter",
 	"block.thismeanswar.shelter_strong": "Reinforced Explosion Shelter",
@@ -279,6 +283,7 @@
 	"thismeanswar.container.factoryholder": "Factory Holder",
 	"thismeanswar.container.press": "Ingot Presser",
 	"thismeanswar.container.popper": "Primer Popper",
+	"thismeanswar.container.alloy_smelter": "Alloy Smelter",
 	"thismeanswar.container.popper.error.1": "§4Missing Holder",
 	"thismeanswar.container.popper.error.2": "§4Need Hammer",
 	"thismeanswar.container.fh.desc.1": "Holds Item:",
@@ -341,6 +346,7 @@
 	"thismeanswar.jei.crusher": "Crushing",
 	"thismeanswar.jei.press": "Pressing",
 	"thismeanswar.jei.popper": "Primer Popping",
+	"thismeanswar.jei.alloy_smelter": "Alloy Smelting",
 	"thismeanswar.jei.ammo_box_info": "Holds ammo/rounds. R-Click with rounds/ammo to place inside. Shift + R-Click to withdraw. Maximum stored based on tier.",
 	"thismeanswar.jei.medic_box_info": "Holds medical items to be used later. R-Click with item to place inside. Shift + R-Click to withdraw and heal. Maximum stored based on tier.",
 	"thismeanswar.jei.upgrade_info": "Can be applied by sneak + r-click with firearm/magazine in off-hand.",
