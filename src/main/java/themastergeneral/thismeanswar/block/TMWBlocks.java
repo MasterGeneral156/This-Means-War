@@ -39,5 +39,5 @@ public class TMWBlocks {
 	public static BlockExplosiveResistive shelter_op = new BlockExplosiveResistive(8);
 	public static BlockExplosiveResistive shelter_creative = new BlockExplosiveResistive(64);
 	
-	public static BlockLandmine land_mine = new BlockLandmine(25F);
+	public static BlockLandmine land_mine = new BlockLandmine(20F);
 }
