@@ -275,6 +275,7 @@ public class TMWMain
 			ev.accept(TMWItems.plate_iron);
 			ev.accept(TMWItems.plate_diamond);
 			ev.accept(TMWItems.plate_brass);
+			ev.accept(TMWItems.plate_gold);
 			
 			ev.accept(TMWItems.kevlar_raw);
 			

@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item": "thismeanswar:plate_gold", "count": 1
+  }
+}

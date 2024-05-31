@@ -118,6 +118,7 @@ public class TMWItems {
 	public static AbstractModItem plate_iron = new BasicItem();
 	public static AbstractModItem plate_diamond = new BasicItem();
 	public static AbstractModItem plate_brass = new BasicItem();
+	public static AbstractModItem plate_gold = new BasicItem();
 	
 	//Raw Ore
 	public static AbstractModItem raw_brass = new BasicItem();

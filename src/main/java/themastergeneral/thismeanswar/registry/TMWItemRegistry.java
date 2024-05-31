@@ -207,6 +207,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> plate_diamond = ITEMS.register("plate_diamond", () -> TMWItems.plate_diamond);
 	public static final RegistryObject<Item> plate_iron = ITEMS.register("plate_iron", () -> TMWItems.plate_iron);
 	public static final RegistryObject<Item> plate_brass = ITEMS.register("plate_brass", () -> TMWItems.plate_brass);
+	public static final RegistryObject<Item> plate_gold = ITEMS.register("plate_gold", () -> TMWItems.plate_gold);
 	
 	//Dusts
 	public static final RegistryObject<Item> dust_lead = ITEMS.register("dust_lead", () -> TMWItems.dust_lead);

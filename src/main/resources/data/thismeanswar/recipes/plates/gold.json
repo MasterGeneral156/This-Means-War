@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "H",
+        "B"
+    ],
+    "key": {
+		"H": { "tag": "thismeanswar:tools/hammer", "data": 32767 },
+		"B": { "tag": "forge:ingots/gold" }
+    },
+    "result": {
+        "item": "thismeanswar:plate_gold",
+		"count": 1
+		}
+    }
+}
