@@ -180,6 +180,7 @@ public class TMWMain
 			ev.accept(TMWItems.factory_holder);
 			ev.accept(TMWItems.press);
 			ev.accept(TMWItems.primer_popper);
+			ev.accept(TMWItems.alloy_smelter);
 			
 			ev.accept(TMWItems.shelter_weak);
 			ev.accept(TMWItems.shelter_medium);

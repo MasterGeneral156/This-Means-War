@@ -13,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.block.entity.TMWBlockEntities;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
+import themastergeneral.thismeanswar.menu.screen.AlloySmelterScreen;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
 import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
@@ -46,6 +47,7 @@ public class TMWClientEvents
     		MenuScreens.register(TMWMenuRegistry.FACTORY_HOLDER_MENU.get(), FactoryHolderScreen::new);
     		MenuScreens.register(TMWMenuRegistry.PRESS_MENU.get(), PressScreen::new);
     		MenuScreens.register(TMWMenuRegistry.POPPER_MENU.get(), PopperScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.ALLOY_SMELTER_MENU.get(), AlloySmelterScreen::new);
     	});
     }
     

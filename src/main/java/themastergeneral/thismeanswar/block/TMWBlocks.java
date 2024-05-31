@@ -30,6 +30,7 @@ public class TMWBlocks {
 	public static BlockFactoryHolder factory_holder = new BlockFactoryHolder();
 	public static BlockPress press = new BlockPress();
 	public static BlockPrimerPopper primer_popper = new BlockPrimerPopper();
+	public static BlockAlloySmelter alloy_smelter = new BlockAlloySmelter();
 	
 	public static BlockExplosiveResistive shelter_weak = new BlockExplosiveResistive();
 	public static BlockExplosiveResistive shelter_medium = new BlockExplosiveResistive(2);

@@ -48,4 +48,5 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> factory_holder = BLOCKS.register("factory_holder", () ->TMWBlocks.factory_holder);
 	public static final RegistryObject<Block> press = BLOCKS.register("press", () ->TMWBlocks.press);
 	public static final RegistryObject<Block> primer_popper = BLOCKS.register("primer_popper", () ->TMWBlocks.primer_popper);
+	public static final RegistryObject<Block> alloy_smelter = BLOCKS.register("alloy_smelter", () ->TMWBlocks.alloy_smelter);
 }

@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.menu.AlloySmelterMenu;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
@@ -34,4 +35,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<PopperMenu>> POPPER_MENU = CONTAINERS.register("popper_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new PopperMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<AlloySmelterMenu>> ALLOY_SMELTER_MENU = CONTAINERS.register("alloy_smelter_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new AlloySmelterMenu(windowId, inv, data)));
 }

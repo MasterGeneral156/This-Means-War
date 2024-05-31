@@ -296,5 +296,6 @@ public class TMWItems {
 	public static AbstractBlockItem factory_holder = new AbstractBlockItem(TMWBlocks.factory_holder);
 	public static AbstractBlockItem press = new AbstractBlockItem(TMWBlocks.press);
 	public static AbstractBlockItem primer_popper = new AbstractBlockItem(TMWBlocks.primer_popper);
+	public static AbstractBlockItem alloy_smelter = new AbstractBlockItem(TMWBlocks.alloy_smelter);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 }

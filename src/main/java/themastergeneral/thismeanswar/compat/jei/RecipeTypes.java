@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.compat.jei;
 
 import mezz.jei.api.recipe.RecipeType;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.recipe.AlloySmelterRecipe;
 import themastergeneral.thismeanswar.recipe.BulletRecipe;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.recipe.PopperRecipe;
@@ -34,4 +35,8 @@ public class RecipeTypes {
 	public static final RecipeType<PopperRecipe> POPPER =
 		      RecipeType.create(
 		          TMWMain.MODID, "popper", PopperRecipe.class);
+	
+	public static final RecipeType<AlloySmelterRecipe> ALLOY_SMELTER =
+		      RecipeType.create(
+		          TMWMain.MODID, "alloy_smelter", AlloySmelterRecipe.class);
 }

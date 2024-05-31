@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:ingots/copper"
+  },
+  "extra": {
+    "tag": "forge:ingots/iron"
+  },
+  "result": {
+    "item": "thismeanswar:ingot_lead", "count": 2
+  }
+}

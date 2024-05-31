@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:dusts/iron"
+  },
+  "extra": {
+    "tag": "minecraft:coals"
+  },
+  "result": {
+    "item": "thismeanswar:ingot_steel", "count": 2
+  }
+}

@@ -6,6 +6,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.recipe.AlloySmelterRecipe;
+import themastergeneral.thismeanswar.recipe.AlloySmelterRecipeType;
 import themastergeneral.thismeanswar.recipe.BulletRecipe;
 import themastergeneral.thismeanswar.recipe.BulletRecipeType;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
@@ -30,6 +32,7 @@ public class TMWRecipeTypeRegistration
 	public static final RegistryObject<RecipeSerializer<?>> RECYCLER = RECIPE_SERIALIZER.register("recycler", () -> new RecyclerRecipe.Serializer());
 	public static final RegistryObject<RecipeSerializer<?>> PRESS = RECIPE_SERIALIZER.register("press", () -> new PressRecipe.Serializer());
 	public static final RegistryObject<RecipeSerializer<?>> POPPER = RECIPE_SERIALIZER.register("popper", () -> new PopperRecipe.Serializer());
+	public static final RegistryObject<RecipeSerializer<?>> ALLOY_SMELTER = RECIPE_SERIALIZER.register("alloy_smelter", () -> new AlloySmelterRecipe.Serializer());
 	
 	public static final RegistryObject<RecipeType> FOUNDARY_TYPE = RECIPE_TYPES.register("bullet_foundary", () -> new BulletRecipeType());
 	public static final RegistryObject<RecipeType> CRUSHER_TYPE = RECIPE_TYPES.register("crusher", () -> new CrusherRecipeType());
@@ -37,4 +40,5 @@ public class TMWRecipeTypeRegistration
 	public static final RegistryObject<RecipeType> RECYCLER_TYPE = RECIPE_TYPES.register("recycler", () -> new RecyclerRecipeType());
 	public static final RegistryObject<RecipeType> PRESS_TYPE = RECIPE_TYPES.register("press", () -> new PressRecipeType());
 	public static final RegistryObject<RecipeType> POPPER_TYPE = RECIPE_TYPES.register("popper", () -> new PopperRecipeType());
+	public static final RegistryObject<RecipeType> ALLOY_SMELTER_TYPE = RECIPE_TYPES.register("alloy_smelter", () -> new AlloySmelterRecipeType());
 }
