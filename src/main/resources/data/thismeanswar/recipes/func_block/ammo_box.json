@@ -1,6 +1,5 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:ammo_box",
     "pattern": [
         "SFS",
         "WAW",

@@ -6,13 +6,13 @@
 		"WAW"
     ],
     "key": {
-		"S": { "item": "minecraft:smooth_stone_slab" },
+		"S": { "tag": "minecraft:smooth_stone_slab" },
 		"F": { "tag": "minecraft:wool_carpets" },
-		"A": { "item": "thismeanswar:ammo_box" },
+		"A": { "item": "thismeanswar:medic_box" },
 		"W": { "tag": "minecraft:terracotta" }
     },
     "result": {
-        "item": "thismeanswar:ammo_box_medium",
+        "item": "thismeanswar:medic_box_medium",
 		"count": 1
     }
 }
