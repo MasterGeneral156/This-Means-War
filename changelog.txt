@@ -19,6 +19,9 @@ Target: Forge 1.20.1
 	*Mekanism
 	*Immersive Engineering
 	*More to come soon!
++Added Primer Popper
+	*Creates Primers from metals and Fire Charges
+	*Requires Factory Holder with Hammer installed ontop
 	
 	
 -=-=-=-=-=-=-=-=-=-=-=-
