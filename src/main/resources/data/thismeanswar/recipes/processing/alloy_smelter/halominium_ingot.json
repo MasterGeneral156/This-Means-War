@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:storage_blocks/steel"
+  },
+  "extra": {
+    "tag": "forge:ingots/netherite"
+  },
+  "result": {
+    "item": "thismeanswar:ingot_halominium", "count": 2
+  }
+}

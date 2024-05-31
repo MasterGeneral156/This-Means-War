@@ -200,6 +200,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> ingot_steel = ITEMS.register("ingot_steel", () -> TMWItems.ingot_steel);
 	public static final RegistryObject<Item> ingot_brass = ITEMS.register("ingot_brass", () -> TMWItems.ingot_brass);
 	public static final RegistryObject<Item> ingot_lead = ITEMS.register("ingot_lead", () -> TMWItems.ingot_lead);
+	public static final RegistryObject<Item> ingot_halominium = ITEMS.register("ingot_halominium", () -> TMWItems.ingot_halominium);
 	
 	//Plates
 	public static final RegistryObject<Item> plate_lead = ITEMS.register("plate_lead", () -> TMWItems.plate_lead);

@@ -98,6 +98,7 @@ public class TMWItems {
 	public static AbstractModItem ingot_lead = new BasicItem();
 	public static AbstractModItem ingot_brass = new BasicItem();
 	public static AbstractModItem ingot_steel = new BasicItem();
+	public static AbstractModItem ingot_halominium = new BasicItem();
 	
 	//Nuggies
 	public static AbstractModItem nugget_steel = new BasicItem();

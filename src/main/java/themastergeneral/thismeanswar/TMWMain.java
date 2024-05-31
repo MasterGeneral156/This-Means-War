@@ -283,6 +283,7 @@ public class TMWMain
 			ev.accept(TMWItems.ingot_brass);
 			ev.accept(TMWItems.ingot_steel);
 			ev.accept(TMWItems.ingot_lead);
+			ev.accept(TMWItems.ingot_halominium);
 			
 			ev.accept(TMWItems.nugget_brass);
 			ev.accept(TMWItems.nugget_steel);
