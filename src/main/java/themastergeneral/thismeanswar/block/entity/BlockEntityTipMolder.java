@@ -39,6 +39,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.menu.MolderMenu;
 import themastergeneral.thismeanswar.recipe.MolderRecipe;
@@ -143,7 +144,7 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
         ItemStack inputStack2 = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
         Optional<MolderRecipe> recipe = level.getRecipeManager()
-                .getRecipeFor(TMWRecipeTypeRegistration.FORMER_TYPE.get(), new SimpleContainer(inputStack, inputStack2), level);
+                .getRecipeFor(TMWRecipeTypeRegistration.MOLDER_TYPE.get(), new SimpleContainer(inputStack, inputStack2), level);
         if (this.checkForFactoryHolder())
         {
         	if (this.checkForRequiredTool())
@@ -175,20 +176,8 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
 		            				 outputStack.grow(resultStack.getCount());
 		            			 }
 		            			 damageFactoryItem();
-		            			 if (inputStack.isDamageableItem())
-		            			 {
-		            				 if(inputStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
-		            					 inputStack = ItemStack.EMPTY;
-		            			 }
-		            			 else
-		            				 inputStack.shrink(1);
-		            			 if (inputStack2.isDamageableItem())
-		            			 {
-		            				 if(inputStack2.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
-		            					 inputStack2 = ItemStack.EMPTY;
-		            			 }
-		            			 else
-		            				 inputStack2.shrink(1);
+		            			 this.damageFirstInputSlot(inputStack2);
+		            			 this.damageSecondInputSlot(inputStack);
 		            			 processTime = 0;
 		                	}
 		    	        }
@@ -212,10 +201,38 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
         setChanged();
 	}
 	
+	public void damageFirstInputSlot(ItemStack stack)
+    {
+    	ItemStack newStack = stack.copy();
+    	if (newStack.isDamageableItem())
+    	{
+    		if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+    			newStack = ItemStack.EMPTY;
+    	}
+    	else
+    		newStack.shrink(1);
+    	this.itemHandler.setStackInSlot(INPUT_SLOT, newStack);
+    	
+    }
+	
+	public void damageSecondInputSlot(ItemStack stack)
+    {
+    	ItemStack newStack = stack.copy();
+    	if (newStack.isDamageableItem())
+    	{
+    		if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+    			newStack = ItemStack.EMPTY;
+    	}
+    	else
+    		newStack.shrink(1);
+    	this.itemHandler.setStackInSlot(EXTRA_SLOT, newStack);
+    	
+    }
+	
 	protected boolean checkForFactoryHolder()
 	{
-		BlockPos pos = this.getBlockPos();
-		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder)
+		BlockPos pos = this.getBlockPos().above();
+		if (this.getLevel().getBlockEntity(pos) instanceof BlockEntityFactoryHolder)
 			return true;
 		else
 			return false;
@@ -223,17 +240,19 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
 	
 	protected void damageFactoryItem()
 	{
-		BlockPos pos = this.getBlockPos();
-		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+		BlockPos pos = this.getBlockPos().above();
+		if (this.getLevel().getBlockEntity(pos) instanceof BlockEntityFactoryHolder holder)
 			holder.damageHolderStack();
 	}
 	
 	protected boolean checkForRequiredTool()
 	{
-		BlockPos pos = this.getBlockPos();
-		if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+		BlockPos pos = this.getBlockPos().above();
+		if (this.getLevel().getBlockEntity(pos) instanceof BlockEntityFactoryHolder holder)
 		{
+			TMWMain.debugLogger("Passed holder check");
 			ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+			TMWMain.debugLogger(tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem()));
 			return tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem());
 		}
 		else
