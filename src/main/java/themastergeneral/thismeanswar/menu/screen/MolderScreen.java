@@ -23,7 +23,8 @@ public class MolderScreen extends AbstractContainerScreen<MolderMenu> {
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float p_97788_, int p_97789_, int p_97790_) {
+	protected void renderBg(GuiGraphics guiGraphics, float p_97788_, int mouseX, int mouseY) {
+		renderTooltip(guiGraphics, mouseX, mouseY);
 		renderBackground(guiGraphics);
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
