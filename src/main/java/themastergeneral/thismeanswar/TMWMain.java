@@ -182,6 +182,7 @@ public class TMWMain
 			ev.accept(TMWItems.press);
 			ev.accept(TMWItems.primer_popper);
 			ev.accept(TMWItems.alloy_smelter);
+			ev.accept(TMWItems.tip_molder);
 			
 			ev.accept(TMWItems.shelter_weak);
 			ev.accept(TMWItems.shelter_medium);

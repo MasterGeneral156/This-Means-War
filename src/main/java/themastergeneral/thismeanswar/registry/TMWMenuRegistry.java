@@ -11,6 +11,7 @@ import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
 import themastergeneral.thismeanswar.menu.FormerMenu;
+import themastergeneral.thismeanswar.menu.MolderMenu;
 import themastergeneral.thismeanswar.menu.PopperMenu;
 import themastergeneral.thismeanswar.menu.PressMenu;
 import themastergeneral.thismeanswar.menu.TipRecyclerMenu;
@@ -42,4 +43,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<FormerMenu>> FORMER_MENU = CONTAINERS.register("former_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new FormerMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<MolderMenu>> MOLDER_MENU = CONTAINERS.register("molder_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new MolderMenu(windowId, inv, data)));
 }

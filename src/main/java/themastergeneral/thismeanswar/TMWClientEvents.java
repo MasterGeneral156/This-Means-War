@@ -11,17 +11,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import themastergeneral.thismeanswar.block.TMWBlocks;
-import themastergeneral.thismeanswar.block.entity.TMWBlockEntities;
-import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.screen.AlloySmelterScreen;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
 import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
 import themastergeneral.thismeanswar.menu.screen.FormerScreen;
+import themastergeneral.thismeanswar.menu.screen.MolderScreen;
 import themastergeneral.thismeanswar.menu.screen.PopperScreen;
 import themastergeneral.thismeanswar.menu.screen.PressScreen;
 import themastergeneral.thismeanswar.menu.screen.TipRecyclerScreen;
-import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 import themastergeneral.thismeanswar.registry.TMWMenuRegistry;
 
 @Mod.EventBusSubscriber(modid = "thismeanswar", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -50,6 +48,7 @@ public class TMWClientEvents
     		MenuScreens.register(TMWMenuRegistry.POPPER_MENU.get(), PopperScreen::new);
     		MenuScreens.register(TMWMenuRegistry.ALLOY_SMELTER_MENU.get(), AlloySmelterScreen::new);
     		MenuScreens.register(TMWMenuRegistry.FORMER_MENU.get(), FormerScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.MOLDER_MENU.get(), MolderScreen::new);
     	});
     }
     

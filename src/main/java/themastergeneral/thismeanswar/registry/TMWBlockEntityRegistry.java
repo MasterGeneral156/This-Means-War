@@ -15,6 +15,7 @@ import themastergeneral.thismeanswar.block.entity.BlockEntityFactoryHolder;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
 import themastergeneral.thismeanswar.block.entity.BlockEntityPress;
 import themastergeneral.thismeanswar.block.entity.BlockEntityPrimerPopper;
+import themastergeneral.thismeanswar.block.entity.BlockEntityTipMolder;
 import themastergeneral.thismeanswar.block.entity.BlockEntityTipRecycler;
 
 public class TMWBlockEntityRegistry {
@@ -36,4 +37,5 @@ public class TMWBlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<BlockEntityPrimerPopper>> popper = TILES.register("primer_popper", () -> BlockEntityType.Builder.of(BlockEntityPrimerPopper::new, TMWBlocks.primer_popper).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityAlloySmelter>> alloy_smelter = TILES.register("alloy_smelter", () -> BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, TMWBlocks.alloy_smelter).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityCasingFormer>> casing_former = TILES.register("casing_former", () -> BlockEntityType.Builder.of(BlockEntityCasingFormer::new, TMWBlocks.casing_former).build(null));
+	public static final RegistryObject<BlockEntityType<BlockEntityTipMolder>> tip_molder = TILES.register("tip_molder", () -> BlockEntityType.Builder.of(BlockEntityTipMolder::new, TMWBlocks.tip_molder).build(null));
 }

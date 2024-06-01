@@ -6,11 +6,11 @@
 		" C "
     ],
     "key": {
-		"F": { "item": "minecraft:furnace" },
+		"F": { "item": "thismeanswar:tip_recycler" },
 		"C": { "tag": "thismeanswar:tip/all" }
     },
     "result": {
-        "item": "thismeanswar:tip_recycler",
+        "item": "thismeanswar:tip_molder",
 		"count": 1
     }
 }

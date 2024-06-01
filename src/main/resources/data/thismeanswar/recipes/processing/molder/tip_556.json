@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:molder",
+  "base": {
+    "tag": "forge:nuggets/brass"
+  },
+  "cast": {
+    "tag": "thismeanswar:casts/tip/556", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bullet_tip_556"
+  }
+}

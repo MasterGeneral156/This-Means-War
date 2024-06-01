@@ -37,6 +37,7 @@ public class JEIPlugin implements IModPlugin {
 	    registration.addRecipeCategories(new PopperCategory(guiHelper));
 	    registration.addRecipeCategories(new AlloySmeltCategory(guiHelper));
 	    registration.addRecipeCategories(new FormerCategory(guiHelper));
+	    registration.addRecipeCategories(new MolderCategory(guiHelper));
 	}
 	
 	
@@ -79,6 +80,7 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipes(RecipeTypes.POPPER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.POPPER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.ALLOY_SMELTER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.ALLOY_SMELTER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.FORMER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.FORMER_TYPE.get()));
+		registration.addRecipes(RecipeTypes.MOLDER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.MOLDER_TYPE.get()));
 	}
 	
 	@Override
@@ -94,6 +96,9 @@ public class JEIPlugin implements IModPlugin {
 		
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.casing_former), RecipeTypes.FORMER);
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.factory_holder), RecipeTypes.FORMER);
+		
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.tip_molder), RecipeTypes.MOLDER);
+		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.factory_holder), RecipeTypes.MOLDER);
 		
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.alloy_smelter), RecipeTypes.ALLOY_SMELTER);
 	}

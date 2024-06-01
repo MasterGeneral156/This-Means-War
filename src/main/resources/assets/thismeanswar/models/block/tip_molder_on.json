@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "front": "thismeanswar:block/tip_molder_front_on",
+    "side": "thismeanswar:block/tip_molder_side",
+    "top": "thismeanswar:block/tip_molder_top"
+  }
+}
