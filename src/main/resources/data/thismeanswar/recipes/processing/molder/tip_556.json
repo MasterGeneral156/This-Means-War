@@ -1,7 +1,7 @@
 {
   "type": "thismeanswar:molder",
   "base": {
-    "tag": "forge:nuggets/brass"
+    "tag": "forge:nuggets/lead"
   },
   "cast": {
     "tag": "thismeanswar:casts/tip/556", "data": 32767
