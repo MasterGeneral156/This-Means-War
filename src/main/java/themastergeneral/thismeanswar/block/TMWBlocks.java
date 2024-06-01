@@ -34,6 +34,8 @@ public class TMWBlocks {
 	public static BlockCasingFormer casing_former = new BlockCasingFormer();
 	public static BlockTipMolder tip_molder = new BlockTipMolder();
 	
+	public static BlockFirearmInspector firearm_inspector = new BlockFirearmInspector();
+	
 	public static BlockExplosiveResistive shelter_weak = new BlockExplosiveResistive();
 	public static BlockExplosiveResistive shelter_medium = new BlockExplosiveResistive(2);
 	public static BlockExplosiveResistive shelter_strong = new BlockExplosiveResistive(4);

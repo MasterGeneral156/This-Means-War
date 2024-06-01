@@ -20,4 +20,5 @@ public class TMWBlockEntities {
 	public static final BlockEntityType<BlockEntityAlloySmelter> ALLOY_SMELTER = BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, TMWBlocks.alloy_smelter).build(null);
 	public static final BlockEntityType<BlockEntityCasingFormer> CASING_FORMER = BlockEntityType.Builder.of(BlockEntityCasingFormer::new, TMWBlocks.casing_former).build(null);
 	public static final BlockEntityType<BlockEntityTipMolder> TIP_MOLDER = BlockEntityType.Builder.of(BlockEntityTipMolder::new, TMWBlocks.tip_molder).build(null);
+	public static final BlockEntityType<BlockEntityGunInspector> FIREARM_INSPECTOR = BlockEntityType.Builder.of(BlockEntityGunInspector::new, TMWBlocks.firearm_inspector).build(null);
 }

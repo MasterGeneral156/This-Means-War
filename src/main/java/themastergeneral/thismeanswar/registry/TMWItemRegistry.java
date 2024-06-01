@@ -358,4 +358,5 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> alloy_smelter = ITEMS.register("alloy_smelter", () -> TMWItems.alloy_smelter);
 	public static final RegistryObject<Item> casing_former = ITEMS.register("casing_former", () -> TMWItems.casing_former);
 	public static final RegistryObject<Item> tip_molder = ITEMS.register("tip_molder", () -> TMWItems.tip_molder);
+	public static final RegistryObject<Item> firearm_inspector = ITEMS.register("firearm_inspector", () -> TMWItems.firearm_inspector);
 }

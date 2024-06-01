@@ -301,5 +301,6 @@ public class TMWItems {
 	public static AbstractBlockItem alloy_smelter = new AbstractBlockItem(TMWBlocks.alloy_smelter);
 	public static AbstractBlockItem casing_former = new AbstractBlockItem(TMWBlocks.casing_former);
 	public static AbstractBlockItem tip_molder = new AbstractBlockItem(TMWBlocks.tip_molder);
+	public static AbstractBlockItem firearm_inspector = new AbstractBlockItem(TMWBlocks.firearm_inspector);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 }

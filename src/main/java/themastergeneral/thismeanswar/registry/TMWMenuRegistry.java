@@ -10,6 +10,7 @@ import themastergeneral.thismeanswar.menu.AlloySmelterMenu;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
+import themastergeneral.thismeanswar.menu.FirearmInspectorMenu;
 import themastergeneral.thismeanswar.menu.FormerMenu;
 import themastergeneral.thismeanswar.menu.MolderMenu;
 import themastergeneral.thismeanswar.menu.PopperMenu;
@@ -46,4 +47,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<MolderMenu>> MOLDER_MENU = CONTAINERS.register("molder_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new MolderMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<FirearmInspectorMenu>> GUN_INSPECTOR_MENU = CONTAINERS.register("inspector_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new FirearmInspectorMenu(windowId, inv, data)));
 }
