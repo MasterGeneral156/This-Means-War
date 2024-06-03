@@ -15,7 +15,7 @@ public class WarArmor implements ArmorMaterial {
     private final int[] slotProtections = new int[]{13, 15, 16, 11};
 
     public WarArmor(String name) {
-        this.name = TMWMain.MODID + name;
+    	this.name = TMWMain.MODID + ":" + name;
     }
     
     @Override

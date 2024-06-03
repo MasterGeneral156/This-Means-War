@@ -14,7 +14,7 @@ public class KevlarArmor implements ArmorMaterial {
     private final int[] slotProtections = new int[]{2, 3, 5, 2};
 
     public KevlarArmor(String name) {
-    	 this.name = TMWMain.MODID + name;
+    	 this.name = TMWMain.MODID + ":" + name;
     }
     
     @Override
