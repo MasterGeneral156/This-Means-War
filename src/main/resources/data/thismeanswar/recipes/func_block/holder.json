@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " C ",
+        "CFC",
+		" C "
+    ],
+    "key": {
+		"F": { "item": "minecraft:furnace" },
+		"C": { "item": "minecraft:bucket" }
+    },
+    "result": {
+        "item": "thismeanswar:factory_holder",
+		"count": 1
+    }
+}
