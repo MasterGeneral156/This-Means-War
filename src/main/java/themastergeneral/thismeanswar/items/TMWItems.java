@@ -233,7 +233,7 @@ public class TMWItems {
 	public static ArmorItem ww2_british_legs = new ArmorItem(ww2_brit_mat, Type.LEGGINGS, baseProp);
 	public static ArmorItem ww2_british_boots = new ArmorItem(ww2_brit_mat, Type.BOOTS, baseProp);
 	
-	public static ArmorItem swat_helm = new ArmorItem(swat_mat, Type.HELMET, baseProp);
+	public static ArmorItem           swat_helm = new ArmorItem(swat_mat, Type.HELMET, baseProp);
 	public static ArmorItem swat_chest = new ArmorItem(swat_mat, Type.CHESTPLATE, baseProp);
 	public static ArmorItem swat_legs = new ArmorItem(swat_mat, Type.LEGGINGS, baseProp);
 	public static ArmorItem swat_boots = new ArmorItem(swat_mat, Type.BOOTS, baseProp);

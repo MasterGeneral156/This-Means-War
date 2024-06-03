@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:dynamite_stick",
+	"thismeanswar:hand_grenade",
+	"thismeanswar:stick_grenade",
+	"thismeanswar:grenade_frag",
+	"thismeanswar:grenade_fire",
+	"thismeanswar:grenade_tank_buster",
+  ]
+}

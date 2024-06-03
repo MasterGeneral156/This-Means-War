@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:hand_grenade",
-	"thismeanswar:nuclear_warhead",
-	"thismeanswar:dynamite_stick",
 	"thismeanswar:rocket_bazooka",
 	"thismeanswar:round_40mm"
   ]

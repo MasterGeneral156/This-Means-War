@@ -155,6 +155,9 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> nuclear_warhead = ITEMS.register("nuclear_warhead", () -> TMWThrowables.nuclear_warhead);
 	public static final RegistryObject<Item> hand_grenade = ITEMS.register("hand_grenade", () -> TMWThrowables.hand_grenade);
 	public static final RegistryObject<Item> stick_grenade = ITEMS.register("stick_grenade", () -> TMWThrowables.stick_grenade);
+	public static final RegistryObject<Item> grenade_fire = ITEMS.register("grenade_fire", () -> TMWThrowables.grenade_fire);
+	public static final RegistryObject<Item> grenade_frag = ITEMS.register("grenade_frag", () -> TMWThrowables.grenade_frag);
+	public static final RegistryObject<Item> grenade_tank_buster = ITEMS.register("grenade_tank_buster", () -> TMWThrowables.tank_buster);
 	public static final RegistryObject<Item> smoke_grenade_red = ITEMS.register("smoke_grenade_red", () -> TMWThrowables.smoke_grenade_red);
 	public static final RegistryObject<Item> smoke_grenade_green = ITEMS.register("smoke_grenade_green", () -> TMWThrowables.smoke_grenade_green);
 	public static final RegistryObject<Item> smoke_grenade_orange = ITEMS.register("smoke_grenade_orange", () -> TMWThrowables.smoke_grenade_orange);

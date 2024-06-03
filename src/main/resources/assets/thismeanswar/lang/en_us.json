@@ -80,6 +80,9 @@
 	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
 	"item.thismeanswar.hand_grenade": "Hand Grenade",
 	"item.thismeanswar.stick_grenade": "Stick Grenade",
+	"item.thismeanswar.grenade_frag": "Frag Grenade",
+	"item.thismeanswar.grenade_fire": "Fire Grenade",
+	"item.thismeanswar.grenade_tank_buster": "Tank Buster Grenade",
 	"item.thismeanswar.smoke_grenade_red": "§4Smoke Grenade",
 	"item.thismeanswar.smoke_grenade_green": "§2Smoke Grenade",
 	"item.thismeanswar.smoke_grenade_orange": "§6Smoke Grenade",
@@ -384,5 +387,6 @@
 	"thismeanswar.subtitle.shot_tmg_carbine": "TMG's Carbine fired",
 	"thismeanswar.subtitle.use_foundary": "Bullet Foundary crafting",
 	
-	"item.thismeanswar.cutter.desc": "Can be used to quickly remove Barbed Wire"
+	"item.thismeanswar.cutter.desc": "Can be used to quickly remove Barbed Wire",
+	"item.thismeanswar.explosive.desc": "Explosive Rating"
 }

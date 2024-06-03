@@ -193,6 +193,9 @@ public class TMWMain
 			ev.accept(TMWThrowables.dynamite_stick);
 			ev.accept(TMWThrowables.hand_grenade);
 			ev.accept(TMWThrowables.stick_grenade);
+			ev.accept(TMWThrowables.grenade_frag);
+			ev.accept(TMWThrowables.grenade_fire);
+			ev.accept(TMWThrowables.tank_buster);
 			ev.accept(TMWThrowables.nuclear_warhead);
 			ev.accept(TMWThrowables.smoke_grenade_green);
 			ev.accept(TMWThrowables.smoke_grenade_red);
