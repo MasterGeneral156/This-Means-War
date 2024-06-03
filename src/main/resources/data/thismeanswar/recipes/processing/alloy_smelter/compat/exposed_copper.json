@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:storage_blocks/copper"
+  },
+  "extra": {
+    "tag": "forge:vines"
+  },
+  "result": {
+    "item": "minecraft:exposed_copper"
+  }
+}
