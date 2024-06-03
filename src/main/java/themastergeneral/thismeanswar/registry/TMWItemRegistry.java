@@ -227,6 +227,10 @@ public class TMWItemRegistry {
 	
 	//Misc
 	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
+	public static final RegistryObject<Item> ancient_fabric = ITEMS.register("ancient_fabric", () -> TMWItems.ancient_fabric);
+	public static final RegistryObject<Item> ancient_fabric_british = ITEMS.register("ancient_fabric_british", () -> TMWItems.ancient_fabric_british);
+	public static final RegistryObject<Item> ancient_fabric_russia = ITEMS.register("ancient_fabric_russia", () -> TMWItems.ancient_fabric_russia);
+	public static final RegistryObject<Item> ancient_fabric_us = ITEMS.register("ancient_fabric_us", () -> TMWItems.ancient_fabric_us);
 	
 	//Durability crafting items
 	public static final RegistryObject<Item> hammer_wood = ITEMS.register("hammer_wood", () -> TMWItems.hammer_wood);

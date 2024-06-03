@@ -121,6 +121,11 @@ public class TMWItems {
 	public static AbstractModItem plate_brass = new BasicItem();
 	public static AbstractModItem plate_gold = new BasicItem();
 	
+	public static AbstractModItem ancient_fabric = new BasicItem();
+	public static AbstractModItem ancient_fabric_russia = new BasicItem();
+	public static AbstractModItem ancient_fabric_british = new BasicItem();
+	public static AbstractModItem ancient_fabric_us = new BasicItem();
+	
 	//Raw Ore
 	public static AbstractModItem raw_brass = new BasicItem();
 	public static AbstractModItem raw_lead = new BasicItem();

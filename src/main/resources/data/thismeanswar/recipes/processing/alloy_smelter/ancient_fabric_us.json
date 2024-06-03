@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "item": "thismeanswar:ancient_fabric"
+  },
+  "extra": {
+    "tag": "forge:dyes/white"
+  },
+  "result": {
+    "item": "thismeanswar:ancient_fabric_us"
+  }
+}

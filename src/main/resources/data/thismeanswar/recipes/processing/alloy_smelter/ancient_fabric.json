@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "item": "thismeanswar:gauze"
+  },
+  "extra": {
+    "tag": "forge:heads"
+  },
+  "result": {
+    "item": "thismeanswar:ancient_fabric"
+  }
+}

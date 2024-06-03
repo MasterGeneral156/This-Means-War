@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "RRR",
+		"RGR"
+    ],
+    "key": {
+		"R": { "item": "thismeanswar:ancient_fabric_russia" },
+		"G": { "item": "thismeanswar:basic_prot_goggles" }
+    },
+    "result": {
+        "item": "thismeanswar:ww2_russian_helm",
+		"count": 1
+    }
+}

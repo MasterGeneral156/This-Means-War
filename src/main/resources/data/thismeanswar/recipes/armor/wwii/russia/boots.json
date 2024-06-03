@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "R R",
+		"R R"
+    ],
+    "key": {
+		"R": { "item": "thismeanswar:ancient_fabric_russia" }
+    },
+    "result": {
+        "item": "thismeanswar:ww2_russian_boots",
+		"count": 1
+    }
+}

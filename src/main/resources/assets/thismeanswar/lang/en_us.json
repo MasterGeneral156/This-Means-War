@@ -231,6 +231,11 @@
 	"item.thismeanswar.dust_iron": "Iron Dust",
 	"item.thismeanswar.dust_gold": "Gold Dust",
 	
+	"item.thismeanswar.ancient_fabric_russia": "Russian Ancient Fabric [WWII]",
+	"item.thismeanswar.ancient_fabric_british": "British Ancient Fabric [WWII]",
+	"item.thismeanswar.ancient_fabric_us": "US Ancient Fabric [WWII]",
+	"item.thismeanswar.ancient_fabric": "Ancient Fabric [WWII]",
+	
 	"item.thismeanswar.bayonet_wood": "Wooden Bayonet Upgrade",
 	"item.thismeanswar.bayonet_stone": "Stone Bayonet Upgrade",
 	"item.thismeanswar.bayonet_iron": "Iron Bayonet Upgrade",

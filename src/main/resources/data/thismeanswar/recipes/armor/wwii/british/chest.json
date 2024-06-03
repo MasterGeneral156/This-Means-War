@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "R R",
+		"RAR",
+		"RRR"
+    ],
+    "key": {
+		"R": { "item": "thismeanswar:ancient_fabric_british" },
+		"A": { "item": "thismeanswar:basic_prot_chest" }
+    },
+    "result": {
+        "item": "thismeanswar:ww2_russian_british",
+		"count": 1
+    }
+}

@@ -300,6 +300,11 @@ public class TMWMain
 			ev.accept(TMWItems.dust_iron);
 			ev.accept(TMWItems.dust_gold);
 			
+			ev.accept(TMWItems.ancient_fabric);
+			ev.accept(TMWItems.ancient_fabric_russia);
+			ev.accept(TMWItems.ancient_fabric_british);
+			ev.accept(TMWItems.ancient_fabric_us);
+			
 			ev.accept(TMWItems.block_brass);
 			ev.accept(TMWItems.block_lead);
 			ev.accept(TMWItems.block_steel);
