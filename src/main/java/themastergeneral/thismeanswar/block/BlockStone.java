@@ -10,7 +10,8 @@ public class BlockStone extends AbstractTMWBlock {
 		super(BlockBehaviour.Properties.of()
 				.sound(SoundType.STONE)
 				.mapColor(MapColor.STONE)
-				.strength(1.0F, 1.5F));
+				.strength(1.0F, 1.5F)
+				.requiresCorrectToolForDrops());
 	}
 
 }

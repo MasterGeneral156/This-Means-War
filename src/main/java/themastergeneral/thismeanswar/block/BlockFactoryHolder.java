@@ -21,7 +21,6 @@ import themastergeneral.thismeanswar.block.entity.BlockEntityFactoryHolder;
 
 public class BlockFactoryHolder extends Block implements EntityBlock {
 	
-
 	public BlockFactoryHolder() {
 		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3.5F).mapColor(MapColor.STONE).requiresCorrectToolForDrops());
 	}

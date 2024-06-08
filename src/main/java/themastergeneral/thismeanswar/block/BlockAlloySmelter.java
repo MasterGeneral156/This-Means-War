@@ -28,21 +28,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAlloySmelter;
 
-public class BlockAlloySmelter extends Block implements EntityBlock {
-	
-	public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-
-	public BlockAlloySmelter() {
-		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3.5F).mapColor(MapColor.STONE).lightLevel((p_50763_) -> {
-	         return p_50763_.getValue(BlockStateProperties.LIT) ? 13 : 0;
-	      }).requiresCorrectToolForDrops());
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false).setValue(FACING, Direction.NORTH));
-	}
-	
-	@Override
-    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.LIT).add(FACING);
-    }
+public class BlockAlloySmelter extends TMWRotatableBlock implements EntityBlock {
 	
 	@Nullable
 	@Override
@@ -72,14 +58,4 @@ public class BlockAlloySmelter extends Block implements EntityBlock {
 			NetworkHooks.openScreen(splayer, (BlockEntityAlloySmelter) blockEntity, pos);
         return InteractionResult.CONSUME;
     }
-	
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext place) {
-	      return this.defaultBlockState().setValue(FACING, place.getHorizontalDirection().getOpposite());
-   	}
-	
-	@Override
-	public BlockState rotate(BlockState blockstate, Rotation blockrot) {
-		return blockstate.setValue(FACING, blockrot.rotate(blockstate.getValue(FACING)));
-   	}
 }
