@@ -56,7 +56,40 @@ public class CrusherMenu extends AbstractContainerMenu {
     
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
-        return ItemStack.EMPTY;
+    	ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(index);
+        if (slot != null && slot.hasItem()) 
+        {
+            ItemStack itemstack1 = slot.getItem();
+            itemstack = itemstack1.copy();
+            int containerSlotCount = 4; // Number of slots in the block entity
+
+            if (index < containerSlotCount) {
+                // If the slot is in the block entity, move item to the player inventory
+                if (!this.moveItemStackTo(itemstack1, containerSlotCount, this.slots.size(), true)) {
+                    return ItemStack.EMPTY;
+                }
+            } else {
+                // If the slot is in the player inventory, move item to the block entity
+                if (!this.moveItemStackTo(itemstack1, 0, containerSlotCount, false)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (itemstack1.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+
+            if (itemstack1.getCount() == itemstack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTake(player, itemstack1);
+        }
+
+        return itemstack;
     }
     
     public int getBurnTime()
