@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:leather"
+  },
+  "extra": {
+    "tag": "forge:ingots/steel"
+  },
+  "result": {
+    "item": "thismeanswar:raw_kevlar", "count": 2
+  }
+}
