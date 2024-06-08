@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:sandstone"
+  },
+  "result": {
+    "item": "minecraft:sand", "count": 4
+  }
+}

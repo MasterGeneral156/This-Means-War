@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "forge:stone"
+  },
+  "result": {
+    "item": "minecraft:cobblestone", "count": 1
+  }
+}
