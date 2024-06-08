@@ -1,14 +1,14 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "IHI"
+        "IH"
     ],
     "key": {
 		"I": { "item": "minecraft:iron_bars" },
-		"H": { "tag": "thismeanswar:tools/hammer", "data": 32767 }
+		"H": { "tag": "thismeanswar:tools/cutter", "data": 32767 }
     },
     "result": {
         "item": "thismeanswar:barbed_wire",
-		"count": 1
+		"count": 2
     }
 }
