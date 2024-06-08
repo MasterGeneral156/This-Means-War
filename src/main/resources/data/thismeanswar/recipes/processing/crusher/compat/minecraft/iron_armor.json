@@ -4,6 +4,6 @@
     "tag": "forge:armors/iron"
   },
   "result": {
-    "item": "minecraft:iron_ingot", "count": 3
+    "item": "thismeanswar:dust_iron", "count": 3
   }
 }

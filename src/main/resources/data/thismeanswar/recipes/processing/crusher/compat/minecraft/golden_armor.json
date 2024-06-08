@@ -4,6 +4,6 @@
     "tag": "forge:armors/golden"
   },
   "result": {
-    "item": "minecraft:gold_ingot", "count": 3
+    "item": "thismeanswar:dust_gold", "count": 3
   }
 }
