@@ -157,4 +157,12 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     	else
     		return -1;
     }
+    
+    public int getGunROF(ItemStack stack)
+    {
+    	if (stack.getItem() instanceof AbstractGunItem gun)
+    		return gun.getRateOfFire(stack);
+    	else
+    		return -1;
+    }
 }

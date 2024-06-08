@@ -25,7 +25,6 @@ public class PopperScreen extends AbstractContainerScreen<PopperMenu> {
 
 	@Override
 	protected void renderBg(GuiGraphics guiGraphics, float p_97788_, int mouseX, int mouseY) {
-		renderTooltip(guiGraphics, mouseX, mouseY);
 		renderBackground(guiGraphics);
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -33,6 +32,7 @@ public class PopperScreen extends AbstractContainerScreen<PopperMenu> {
         int x = (this.width - this.imageWidth) / 2;
         int y = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(TEXTURE, x, y, 0, 0, this.imageWidth, this.imageHeight);
+        renderTooltip(guiGraphics, mouseX, mouseY);
 	}
 	
 	@Override

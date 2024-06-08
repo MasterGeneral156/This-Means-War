@@ -66,11 +66,6 @@ public class CasingRecyclerMenu extends AbstractContainerMenu {
 		return this.data.get(0);
 	}
 	
-	/*public int getTotalBurnTime()
-	{
-		return this.blockEntity.getTotalBurnTime();
-	}*/
-	
 	public int getProcessTime()
 	{
 		return this.data.get(1);
@@ -86,30 +81,4 @@ public class CasingRecyclerMenu extends AbstractContainerMenu {
 		int returned = (getProcessTime() / getMaxProcessTime()) * 100;
 		return returned;
 	}
-	
-	/*public int getMaxProcessTime()
-	{
-		return this.blockEntity.getMaxProcessTime();
-	}
-	
-	public int getBurnProgress() 
-	{
-	      int i = this.getTotalBurnTime();
-	      int j = this.getBurnTime();
-	      return (j != 0 && i != 0) ? i * 24 / j : 0;
-   }
-
-   public int getLitProgress() 
-   {
-      int i = this.getMaxProcessTime();
-      if (i == 0) {
-         i = 200;
-      }
-
-      return this.getProcessTime() * 13 / i;
-   }
-
-	public boolean isLit() {
-		return this.blockEntity.isLit();
-	}*/
 }
