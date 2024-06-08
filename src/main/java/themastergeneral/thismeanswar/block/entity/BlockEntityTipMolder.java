@@ -250,9 +250,7 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
 		BlockPos pos = this.getBlockPos().above();
 		if (this.getLevel().getBlockEntity(pos) instanceof BlockEntityFactoryHolder holder)
 		{
-			TMWMain.debugLogger("Passed holder check");
 			ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-			TMWMain.debugLogger(tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem()));
 			return tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem());
 		}
 		else
