@@ -79,10 +79,10 @@ public class AbstractGunItem extends AbstractModItem {
 		this.shotTime=shotTime;
 		this.reloadTime=reloadTime;
 		this.magazine=magazine;
-		this.bullet=bullet;
+		this.bullet=magazine.returnBulletItem();
 		this.damage=damage;
 		this.maxAmmo=0;
-		this.magType=1;
+		this.magType=Constants.external_mag;
 		this.bulletSpread = bulletSpread;
 		this.bulletSpeed = bulletSpeed;
 	}
@@ -105,7 +105,7 @@ public class AbstractGunItem extends AbstractModItem {
 		this.bullet=bullet;
 		this.damage=damage;
 		this.maxAmmo=maxAmmo;
-		this.magType=2;
+		this.magType=Constants.internal_mag;
 		this.bulletSpread = bulletSpread;
 		this.bulletSpeed = bulletSpeed;
 		this.baseAmmoSize = maxAmmo;
