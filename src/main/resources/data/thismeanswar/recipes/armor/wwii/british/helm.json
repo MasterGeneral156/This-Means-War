@@ -1,6 +1,5 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:combat_armor",
     "pattern": [
         "RRR",
 		"RGR"
@@ -10,7 +9,7 @@
 		"G": { "item": "thismeanswar:basic_prot_goggles" }
     },
     "result": {
-        "item": "thismeanswar:ww2_russian_british",
+        "item": "thismeanswar:ww2_british_helm",
 		"count": 1
     }
 }
