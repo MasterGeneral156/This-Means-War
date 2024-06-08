@@ -25,12 +25,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import themastergeneral.thismeanswar.TMWMain;
-import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
-import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractHealingItem;
 
 public class BlockMedicBox extends GlassBlock implements EntityBlock 
