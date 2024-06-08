@@ -6,7 +6,7 @@
 		"WAW"
     ],
     "key": {
-		"S": { "tag": "minecraft:smooth_stone_slab" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
 		"F": { "tag": "minecraft:wool_carpets" },
 		"A": { "item": "thismeanswar:medic_box" },
 		"W": { "tag": "minecraft:terracotta" }
