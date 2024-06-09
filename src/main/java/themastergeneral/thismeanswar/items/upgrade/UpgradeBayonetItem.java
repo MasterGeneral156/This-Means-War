@@ -33,6 +33,11 @@ public class UpgradeBayonetItem extends BasicItem
 		this.increaseMusketLevel = increaseMusketLevel;
 	}
 	
+	public double returnBayonetLevel()
+	{
+		return increaseMusketLevel;
+	}
+	
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
