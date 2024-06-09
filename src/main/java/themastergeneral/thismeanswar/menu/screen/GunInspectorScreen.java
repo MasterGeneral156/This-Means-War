@@ -53,7 +53,6 @@ public class GunInspectorScreen extends AbstractContainerScreen<FirearmInspector
 	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
         super.renderLabels(guigfx, x, y);
         ItemStack menuStack = menu.getSlotStack();
-        TMWMain.debugLogger(timer);
         if (menu.isGunItem(menuStack))
 		{
         	timer++;
