@@ -23,7 +23,7 @@
 	
 	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
 	"item.thismeanswar.magazine_38spec_clip": "38 Special Clip",
-	"item.thismeanswar.magazine_12g_clip": "12G Buckshot Clip",
+	"item.thismeanswar.magazine_12g_clip": "12G Slug Clip",
 	"item.thismeanswar.magazine_40mm_clip": "40mm HE Clip",
 	"item.thismeanswar.energy_cell": "Energy Cell",
 	
@@ -65,7 +65,7 @@
 	"item.thismeanswar.dragunov": "SVD Dragunov",
 	"item.thismeanswar.k98": "K98",
 	
-	"item.thismeanswar.round_12g": "12G Buckshot",
+	"item.thismeanswar.round_12g": "12G Slug",
 	"item.thismeanswar.rocket_bazooka": "Bazooka Rocket",
 	"item.thismeanswar.round_9mm": "9mm Round",
 	"item.thismeanswar.round_556": "5.56 Round",
@@ -112,7 +112,7 @@
 	"item.thismeanswar.bullet_cast_223": "Bullet Cast (.223)",
 	"item.thismeanswar.bullet_cast_45": "Bullet Cast (.45ACP)",
 	"item.thismeanswar.bullet_cast_38spec": "Bullet Cast (38 Special)",
-	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Buckshot)",
+	"item.thismeanswar.bullet_cast_12g": "Bullet Cast (12G Slug)",
 	"item.thismeanswar.bullet_cast_762": "Bullet Cast (7.62)",
 	
 	"item.thismeanswar.creative_bullet_cast_9mm": "Creative Bullet Cast (9mm)",
@@ -120,7 +120,7 @@
 	"item.thismeanswar.creative_bullet_cast_223": "Creative Bullet Cast (.223)",
 	"item.thismeanswar.creative_bullet_cast_45": "Creative Bullet Cast (.45ACP)",
 	"item.thismeanswar.creative_bullet_cast_38spec": "Creative Bullet Cast (38 Special)",
-	"item.thismeanswar.creative_bullet_cast_12g": "Creative Bullet Cast (12G Buckshot)",
+	"item.thismeanswar.creative_bullet_cast_12g": "Creative Bullet Cast (12G Slug)",
 	"item.thismeanswar.creative_bullet_cast_762": "Creative Bullet Cast (7.62)",
 	
 	"item.thismeanswar.casing_cast_9mm": "Casing Cast (9mm)",
@@ -128,7 +128,7 @@
 	"item.thismeanswar.casing_cast_223": "Casing Cast (.223)",
 	"item.thismeanswar.casing_cast_45": "Casing Cast (.45ACP)",
 	"item.thismeanswar.casing_cast_38spec": "Casing Cast (38 Special)",
-	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Buckshot)",
+	"item.thismeanswar.casing_cast_12g": "Casing Cast (12G Slug)",
 	"item.thismeanswar.casing_cast_762": "Casing Cast (7.62)",
 	
 	"item.thismeanswar.creative_casing_cast_9mm": "Creative Casing Cast (9mm)",
@@ -136,7 +136,7 @@
 	"item.thismeanswar.creative_casing_cast_223": "Creative Casing Cast (.223)",
 	"item.thismeanswar.creative_casing_cast_45": "Creative Casing Cast (.45ACP)",
 	"item.thismeanswar.creative_casing_cast_38spec": "Creative Casing Cast (38 Special)",
-	"item.thismeanswar.creative_casing_cast_12g": "Creative Casing Cast (12G Buckshot)",
+	"item.thismeanswar.creative_casing_cast_12g": "Creative Casing Cast (12G Slug)",
 	"item.thismeanswar.creative_casing_cast_762": "Creative Casing Cast (7.62)",
 	
 	"item.thismeanswar.kevlar_helmet": "US Army Helmet",
