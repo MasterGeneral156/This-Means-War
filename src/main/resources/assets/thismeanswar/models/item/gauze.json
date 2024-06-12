@@ -1,6 +1,77 @@
 {
-    "parent": "item/handheld",
-    "textures": {
-        "layer0": "thismeanswar:item/gauze"
-    }
+	"textures": {
+		"0": "thismeanswar:item/gauze",
+		"particle": "thismeanswar:item/gauze"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 5],
+			"to": [9, 2, 9],
+			"rotation": {"angle": 0, "axis": "x", "origin": [5, 0, -2]},
+			"faces": {
+				"north": {"uv": [10, 10, 6, 6], "texture": "#0"},
+				"east": {"uv": [12, 10, 4, 6], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [10, 10, 6, 6], "texture": "#0"},
+				"west": {"uv": [8, 11, 4, 5], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [8, 12, 4, 5], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [8, 12, 4, 5], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"from": [10, -1, 5],
+			"to": [10, 1.25, 9],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [8, -1, -2]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 2.25], "texture": "#0"},
+				"east": {"uv": [7.75, 11.25, 4, 5.25], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 2.25], "texture": "#0"},
+				"west": {"uv": [7.75, 11.25, 4, 5.25], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 0, 0, 4], "texture": "#0"},
+				"down": {"uv": [0, 0, 0, 4], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 135],
+			"translation": [-5, 0, -3.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 135],
+			"translation": [-5, 0, -3.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [-90, 180, 45],
+			"translation": [2.25, 4, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-90, 180, 45],
+			"translation": [2.25, 4, 0]
+		},
+		"ground": {
+			"translation": [0, 5, 0]
+		},
+		"gui": {
+			"rotation": [-67.5, 0, 67.5],
+			"translation": [-13.25, 2.25, 0],
+			"scale": [2, 2, 2]
+		},
+		"head": {
+			"translation": [0, 36, 4],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -15],
+			"scale": [2, 2, 2]
+		}
+	},
+	"groups": [
+		{
+			"name": "gauze",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
 }

@@ -1,5 +1,4 @@
 {
-	"parent": "minecraft:item/handheld",
 	"textures": {
 		"0": "thismeanswar:item/nuclear_warhead",
 		"particle": "thismeanswar:item/nuclear_warhead"
