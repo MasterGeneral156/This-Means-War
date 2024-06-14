@@ -1,6 +1,53 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "thismeanswar:item/m4ar_mag"
-    }
+	"textures": {
+		"0": "thismeanswar:item/m4ar_mag",
+		"particle": "thismeanswar:item/m4ar_mag"
+	},
+	"elements": [
+		{
+			"from": [6.5, 1, 5],
+			"to": [9.5, 2, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1, 8]},
+			"faces": {
+				"north": {"uv": [4.5, 1, 11, 1.5], "texture": "#0"},
+				"east": {"uv": [4.5, 1, 11, 1.5], "texture": "#0"},
+				"south": {"uv": [4.5, 1, 11, 1.5], "texture": "#0"},
+				"west": {"uv": [4.5, 1, 11, 1.5], "texture": "#0"},
+				"up": {"uv": [4.5, 15, 11, 1], "texture": "#0"},
+				"down": {"uv": [4.5, 15, 11, 1], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [112.5, 0, 90],
+			"translation": [-6.5, 0, 0]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [112.5, 0, 90],
+			"translation": [-6.5, 0, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [112.5, 0, 90],
+			"translation": [-6.5, 3, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [112.5, 0, 90],
+			"translation": [-6.5, 3.25, 0]
+		},
+		"ground": {
+			"rotation": [112.5, 0, 90],
+			"translation": [-6.5, 0, 0]
+		},
+		"gui": {
+			"rotation": [112.5, 0, -135],
+			"translation": [8.75, 3.5, 0],
+			"scale": [2, 2, 2]
+		},
+		"fixed": {
+			"rotation": [90, -22.5, 0],
+			"translation": [0, 0, 13.25],
+			"scale": [2, 2, 2]
+		}
+	}
 }
