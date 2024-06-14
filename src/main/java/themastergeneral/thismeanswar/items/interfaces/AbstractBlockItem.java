@@ -29,11 +29,11 @@ public class AbstractBlockItem extends BlockItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		if (stack.getItem() == TMWItems.ammo_box)
-			tooltip.add(ModUtils.displayTranslation("Holds 512 rounds."));
-		if (stack.getItem() == TMWItems.ammo_box_medium)
 			tooltip.add(ModUtils.displayTranslation("Holds 1,024 rounds."));
-		if (stack.getItem() == TMWItems.ammo_box_large)
+		if (stack.getItem() == TMWItems.ammo_box_medium)
 			tooltip.add(ModUtils.displayTranslation("Holds 2,048 rounds."));
+		if (stack.getItem() == TMWItems.ammo_box_large)
+			tooltip.add(ModUtils.displayTranslation("Holds 4,096 rounds."));
 		if (stack.getItem() == TMWItems.factory_holder)
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.factory_holder_desc"));
 		
