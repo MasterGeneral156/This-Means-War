@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "tag": "thismeanswar:tip/all"
+    },
+    "Y": {
+      "tag": "forge:heads"
+    }
+  },
+  "result": {
+    "item": "minecraft:player_head",
+    "count": 1,
+    "nbt": "{SkullOwner:ThePurpleGeneral}"
+  }
+}
