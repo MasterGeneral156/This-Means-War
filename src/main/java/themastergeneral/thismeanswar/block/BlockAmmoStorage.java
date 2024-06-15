@@ -1,7 +1,5 @@
 package themastergeneral.thismeanswar.block;
 
-import java.text.NumberFormat;
-
 import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -13,9 +11,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -26,7 +22,6 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.JukeboxBlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -35,12 +30,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
-import themastergeneral.thismeanswar.block.entity.BlockEntityMedicBox;
+import themastergeneral.thismeanswar.items.NuMagazineItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
-import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 
 public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 
@@ -91,7 +84,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		    			return addAmmoToStorage(ammostorage, world, player, blockpos, stack);
 					}
 		    		//user holding magazine
-		    		if (stack.getItem() instanceof AbstractMagazineItem)
+		    		if (stack.getItem() instanceof NuMagazineItem)
 		    		{
 		    			return fillHeldMagazine(ammostorage, player, stack);
 		    		}
@@ -244,7 +237,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 	
 	private InteractionResult fillHeldMagazine(BlockEntityAmmoStorage ammostorage, Player player, ItemStack stack)
 	{
-		AbstractMagazineItem magStack = (AbstractMagazineItem) stack.getItem();
+		NuMagazineItem magStack = (NuMagazineItem) stack.getItem();
 		//fill mag
 		if (magStack.getCurrentAmmo(stack) < magStack.getMaxAmmo(stack))
 		{

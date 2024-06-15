@@ -858,7 +858,7 @@ public class AbstractGunItem extends AbstractModItem {
 				addAmmoToMag(mag);
 				ibullet.shrink(1);
 				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
-				playerIn.getCooldowns().addCooldown(this, 8);
+				playerIn.getCooldowns().addCooldown(mag.getItem(), 8);
 				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
 			}
 		}

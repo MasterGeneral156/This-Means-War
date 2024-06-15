@@ -2,31 +2,32 @@ package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.ExternalAmmoGunItem;
+import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class TMWCarbines 
 {
-	public static ExternalAmmoGunItem tmg_carbine = new ExternalAmmoGunItem(
+	public static NuGunItem tmg_carbine = new NuGunItem(
 		Constants.tmgCarbineFireRate, Constants.tmgCarbineReloadTime,
 		TMWItems.magazine_9mm_large,  Constants.tmgCarbineDamage,
 		Constants.tmgCarbineSpeed, Constants.tmgCarbineSpread);
 	
-	public static ExternalAmmoGunItem mp40 = new ExternalAmmoGunItem(
+	public static NuGunItem mp40 = new NuGunItem(
 		Constants.mp40FireRate, Constants.mp40ReloadTime,
 		TMWItems.magazine_9mm_large,  Constants.mp40Damage,
 		Constants.mp40Speed, Constants.mp40Spread);
 	
-	public static ExternalAmmoGunItem ump9 = new ExternalAmmoGunItem(
+	public static NuGunItem ump9 = new NuGunItem(
 		Constants.ump9FireRate, Constants.ump9ReloadTime,
 		TMWItems.magazine_9mm_large, Constants.ump9Damage,
 		Constants.ump9Speed, Constants.ump9Spread);
 	
-	public static ExternalAmmoGunItem uzi = new ExternalAmmoGunItem(
+	public static NuGunItem uzi = new NuGunItem(
 		Constants.uziFireRate, Constants.uziReloadTime,
 		TMWItems.magazine_9mm_large, Constants.uziDamage,
 		Constants.uziSpeed, Constants.uziSpread);
 	
-	public static ExternalAmmoGunItem g36 = new ExternalAmmoGunItem(
+	public static NuGunItem g36 = new NuGunItem(
 		Constants.g36FireRate, Constants.g36ReloadTime,
 		TMWItems.magazine_g36, Constants.g36Damage,
 		Constants.g36Speed, Constants.g36Spread);

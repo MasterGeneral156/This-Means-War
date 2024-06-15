@@ -221,6 +221,7 @@ public class TMWMain
 			ev.accept(TMWItems.cutter_iron);
 			ev.accept(TMWItems.cutter_steel);
 			ev.accept(TMWItems.cutter_diamond);
+			ev.accept(TMWItems.cutter_creative);
 			ev.accept(TMWItems.hand_saw);
 			ev.accept(TMWItems.creative_hand_saw);
 			

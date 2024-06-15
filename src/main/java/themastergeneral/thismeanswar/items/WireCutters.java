@@ -31,14 +31,21 @@ public class WireCutters extends DurabilityItem {
 		if (block instanceof BlockBarbedWire wire)
 			return 20F;
 		else
-			return 1.0F;
+			return 0.5F;
     }
+	
+	@Override
+	public boolean isFoil(ItemStack stack)
+	{
+		return (stack.getItem() == TMWItems.cutter_creative);
+	}
 	
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		tooltip.add(ModUtils.displayTranslation("item.thismeanswar.cutter.desc"));
+		super.appendHoverText(stack, worldIn, tooltip, flagIn);
 	}
 	
 }

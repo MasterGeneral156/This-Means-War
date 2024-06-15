@@ -17,7 +17,6 @@ import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBlockItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractHealingItem;
-import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 //import themastergeneral.thismeanswar.items.charms.CharmStealth;
 import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
@@ -72,27 +71,27 @@ public class TMWItems {
 	public static AbstractBulletItem energy_bolt = new AbstractBulletItem(TMWTags.roundsenergy);
 	
 	//Magazines
-	public static AbstractMagazineItem magazine_9mm = new AbstractMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);
-	public static AbstractMagazineItem magazine_9mm_large = new AbstractMagazineItem(round_9mm, Constants.magSizeLarge9mm, TMWTags.mags9mm);
-	public static AbstractMagazineItem magazine_9mm_short = new AbstractMagazineItem(round_9mm, Constants.magSizeShort9mm, TMWTags.mags9mm);
-	public static AbstractMagazineItem magazine_9mm_drum = new AbstractMagazineItem(round_9mm, Constants.magSizeDrum9mm, TMWTags.mags9mm);
-	public static AbstractMagazineItem magazine_9mm_clip = new AbstractMagazineItem(round_9mm, Constants.magSizeClips);
+	public static NuMagazineItem magazine_9mm = new NuMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);
+	public static NuMagazineItem magazine_9mm_large = new NuMagazineItem(round_9mm, Constants.magSizeLarge9mm, TMWTags.mags9mm);
+	public static NuMagazineItem magazine_9mm_short = new NuMagazineItem(round_9mm, Constants.magSizeShort9mm, TMWTags.mags9mm);
+	public static NuMagazineItem magazine_9mm_drum = new NuMagazineItem(round_9mm, Constants.magSizeDrum9mm, TMWTags.mags9mm);
+	public static NuMagazineItem magazine_9mm_clip = new NuMagazineItem(round_9mm, Constants.magSizeClips);
 	
-	public static AbstractMagazineItem magazine_556 = new AbstractMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
-	public static AbstractMagazineItem magazine_556_clip = new AbstractMagazineItem(round_556, Constants.magSizeClips);
+	public static NuMagazineItem magazine_556 = new NuMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
+	public static NuMagazineItem magazine_556_clip = new NuMagazineItem(round_556, Constants.magSizeClips);
 	
-	public static AbstractMagazineItem magazine_223 = new AbstractMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
-	public static AbstractMagazineItem magazine_223_clip = new AbstractMagazineItem(round_223, Constants.magSizeClips);
+	public static NuMagazineItem magazine_223 = new NuMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
+	public static NuMagazineItem magazine_223_clip = new NuMagazineItem(round_223, Constants.magSizeClips);
 	
-	public static AbstractMagazineItem magazine_dragunov = new AbstractMagazineItem(round_762, Constants.magSizeDragunov);
-	public static AbstractMagazineItem magazine_m1911 = new AbstractMagazineItem(round_45, Constants.magSize1911);
-	public static AbstractMagazineItem magazine_g36 = new AbstractMagazineItem(round_556, Constants.magSizeG36);
-	public static AbstractMagazineItem energy_cell = new AbstractMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
+	public static NuMagazineItem magazine_dragunov = new NuMagazineItem(round_762, Constants.magSizeDragunov);
+	public static NuMagazineItem magazine_m1911 = new NuMagazineItem(round_45, Constants.magSize1911);
+	public static NuMagazineItem magazine_g36 = new NuMagazineItem(round_556, Constants.magSizeG36);
+	public static NuMagazineItem energy_cell = new NuMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
 	
-	public static AbstractMagazineItem magazine_45_clip = new AbstractMagazineItem(round_45, Constants.magSizeClips);
-	public static AbstractMagazineItem magazine_12g_clip = new AbstractMagazineItem(round_12g, Constants.magSizeClips);
-	public static AbstractMagazineItem magazine_40mm_clip = new AbstractMagazineItem(round_40mm, Constants.magSizeClips);
-	public static AbstractMagazineItem magazine_38spec_clip = new AbstractMagazineItem(round_38spec, Constants.magSizeClips);
+	public static NuMagazineItem magazine_45_clip = new NuMagazineItem(round_45, Constants.magSizeClips);
+	public static NuMagazineItem magazine_12g_clip = new NuMagazineItem(round_12g, Constants.magSizeClips);
+	public static NuMagazineItem magazine_40mm_clip = new NuMagazineItem(round_40mm, Constants.magSizeClips);
+	public static NuMagazineItem magazine_38spec_clip = new NuMagazineItem(round_38spec, Constants.magSizeClips);
 	
 	//Ingots
 	public static AbstractModItem ingot_lead = new BasicItem();
@@ -165,6 +164,7 @@ public class TMWItems {
 	public static DurabilityItem cutter_iron = new WireCutters(128);
 	public static DurabilityItem cutter_steel = new WireCutters(224);
 	public static DurabilityItem cutter_diamond = new WireCutters(469);
+	public static DurabilityItem cutter_creative = new WireCutters(Short.MAX_VALUE);
 	
 	//Bullet Casts
 	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);

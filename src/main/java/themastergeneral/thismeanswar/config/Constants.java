@@ -57,37 +57,37 @@ public class Constants
 	public static double magIncreasePerLevel = 0.15;
 	
 	//Base Round Damage
-	//Updated 12/15/23
+	//Updated 6/14/24
 	public static float baseDamage9mm = 3.8712F;
-	public static float baseDamage45 = 4.432F;
-	public static float baseDamage38spec = 4.944F;
-	public static float baseDamage223 = 6.432F;
-	public static float baseDamage556 = 8.3441F;
-	public static float baseDamage762 = 9.1244F;
-	public static float baseDamage12g = 11.8981F;
-	public static float baseDamageEnergy = 21.5124F;
+	public static float baseDamage45 = baseDamage9mm * 1.08F;
+	public static float baseDamage38spec = baseDamage9mm * 1.12F;
+	public static float baseDamage223 = baseDamage9mm * 2.1F;
+	public static float baseDamage556 = baseDamage9mm * 2.4F;
+	public static float baseDamage762 = baseDamage9mm * 2.56F;
+	public static float baseDamage12g = baseDamage9mm * 3F;
+	public static float baseDamageEnergy = baseDamage9mm * 3.5F;
 	
 	//Base Round Speed
-	//Updated 5/18/24
-	public static float baseSpeed9mm = 3.81243F;
-	public static float baseSpeed45 = 5.214F;
-	public static float baseSpeed38spec = 8.324F;
-	public static float baseSpeed223 = 10.241F;
-	public static float baseSpeed556 = 15.454F;
-	public static float baseSpeed762 = 18.971F;
-	public static float baseSpeed12g = 17.81243F;
-	public static float baseSpeedEnergy = 20.34F;
+	//Updated 6/14/24
+	public static float baseSpeed9mm = 		3.81243F;
+	public static float baseSpeed45 = 		baseSpeed9mm * 1.08F;
+	public static float baseSpeed38spec = 	baseSpeed9mm * 1.12F;
+	public static float baseSpeed223 = 		baseSpeed9mm * 1.2F;
+	public static float baseSpeed556 = 		baseSpeed9mm * 1.28F;
+	public static float baseSpeed762 = 		baseSpeed9mm * 1.3F;
+	public static float baseSpeed12g = 		baseSpeed9mm * 1.45F;
+	public static float baseSpeedEnergy = 	baseSpeed9mm * 1.5F;
 	
 	//Base Round Spread
-	//Updated 5/18/24
-	public static float baseSpread9mm = 0.00272133F;
-	public static float baseSpread45 = 0.00378341F;
-	public static float baseSpread556 = 0.004415126F;
-	public static float baseSpread223 = 0.003947547F;
-	public static float baseSpread12g = 0.00714574579F;
-	public static float baseSpread762 = 0.00494404F;
-	public static float baseSpread38spec = 0.002814004F;
-	public static float baseSpreadEnergy = 0.00926561F;
+	//Updated 6/14/24
+	public static float baseSpread9mm = 	0.000027F;
+	public static float baseSpread45 = 		baseSpread9mm * 0.92F;
+	public static float baseSpread556 = 	baseSpread9mm * 0.72F;
+	public static float baseSpread223 = 	baseSpread9mm * 0.8F;
+	public static float baseSpread12g = 	baseSpread9mm * 0.55F;
+	public static float baseSpread762 = 	baseSpread9mm * 0.7F;
+	public static float baseSpread38spec = 	baseSpread9mm * 0.88F;
+	public static float baseSpreadEnergy = 	baseSpread9mm * 0.5F;
 
 	//TMG Carbine
 	//Updated 5/18/24

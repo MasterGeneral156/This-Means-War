@@ -100,6 +100,7 @@
 	"item.thismeanswar.cutter_iron": "Iron Cutter",
 	"item.thismeanswar.cutter_steel": "Steel Cutter",
 	"item.thismeanswar.cutter_diamond": "Diamond Cutter",
+	"item.thismeanswar.cutter_creative": "Creative Cutter",
 	
 	"item.thismeanswar.hand_saw": "Manual Saw",
 	"item.thismeanswar.creative_hand_saw": "Creative Manual Saw",
@@ -318,6 +319,7 @@
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",
 	"thismeanswar.bullet_loaded": "Round has been inserted.",
+	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.upgrade_rof_full": "Firearm has been upgraded to full-auto.",
 	"thismeanswar.upgrade_rof_semi": "Firearm has been upgraded to 'fully semi-automatic'.",

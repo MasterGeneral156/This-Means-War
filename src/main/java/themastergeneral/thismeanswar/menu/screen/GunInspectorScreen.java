@@ -22,7 +22,7 @@ public class GunInspectorScreen extends AbstractContainerScreen<FirearmInspector
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(TMWMain.MODID, "textures/gui/inspector.png");
 	int timer = 0;
-	int maxTime = 2000;
+	int maxTime = 1000;
 	public GunInspectorScreen(FirearmInspectorMenu menu, Inventory p_97742_, Component p_97743_) 
 	{
 		super(menu, p_97742_, p_97743_);
@@ -50,66 +50,51 @@ public class GunInspectorScreen extends AbstractContainerScreen<FirearmInspector
 	}
 	
 	@Override
-	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
-        super.renderLabels(guigfx, x, y);
-        ItemStack menuStack = menu.getSlotStack();
-        if (menu.isGunItem(menuStack))
-		{
-        	timer++;
-        	if (timer <= maxTime)
-        	{
-        		String rofString = (menu.getGunROF(menuStack) == Constants.fireRateAuto) ? "thismeanswar.firearm_rof_full" : "thismeanswar.firearm_rof_semi";
-        		int height = 18;
-	        	if (menu.getGunDamage(menuStack) > -1F)
-	        	{
-	        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.damage").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunDamage(menuStack)), 34, height, 4210752, false); // +12 down +16 spacing
-	        		height = height + 12;
-	        	}
-	        	if (menu.getGunSpread(menuStack) > -1F)
-	        	{
-	        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.spread").getString() + ": " + menu.getGunSpread(menuStack), 34, height, 4210752, false); // +12 down +16 spacing
-	        		height = height + 12;
-	        	}
-	        	if (menu.getGunSpeed(menuStack) > -1F)
-	        	{
-	        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.velocity").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunSpeed(menuStack)), 34, height, 4210752, false); // +12 down +16 spacing
-	        		height = height + 12;
-	        	}
-	        	if (menu.getGunROF(menuStack) > -1)
-	        	{
-	        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.rof").getString() + ": " + ModUtils.displayTranslation(rofString).getString(), 34, height, 4210752, false); // +12 down +16 spacing
-	        		height = height + 12;
-	        	}
-	        	//TODO add firearm ROF
-        	}
-        	else
-        	{
-        		int height = 18;
-        		if (menu.getGunBayonetLevel(menuStack) > -1D)
-	        	{
-	        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.bayonet").getString() + ": " + TMWUtils.makeDoubleReadable(menu.getGunBayonetLevel(menuStack)), 34, height, 4210752, false); // +12 down +16 spacing
-	        		height = height + 12;
-	        	}
-        	}
+	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		super.renderLabels(guiGraphics, mouseX, mouseY);
+		ItemStack menuStack = menu.getSlotStack();
+		int yPosition = 18; // Initial Y position for label placement
+
+		if (menu.isGunItem(menuStack)) {
+				displayGunInfo(guiGraphics, menuStack, yPosition);
+		} else if (menu.isMagItem(menuStack)) {
+			displayMagInfo(guiGraphics, menuStack, yPosition);
 		}
-        if (menu.isMagItem(menuStack))
-		{
-        	if ((menu.getMagRoundItem(menuStack) != Items.AIR))
-        	{
-        		guigfx.drawString(this.font, ModUtils.displayTranslation(menu.getMagRoundItem(menuStack).getDescriptionId()), 34, height, 4210752, false); // +12 down +16 spacing
-        		height = height + 12;
-        	}
-        	if ((menu.getMagAmmo(menuStack) > -1) && (menu.getMagMaxAmmo(menuStack) > -1))
-        	{
-        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.capacity").getString() + ": " + menu.getMagAmmo(menuStack)+ " / " + menu.getMagMaxAmmo(menuStack), 34, height, 4210752, false); // +12 down +16 spacing
-        		height = height + 12;
-        	}
-        	if (menu.getMagCapUpgrades(menuStack) > -1)
-        	{
-        		guigfx.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.cap_upgrades").getString() + ": " + menu.getMagCapUpgrades(menuStack), 34, height, 4210752, false); // +12 down +16 spacing
-        		height = height + 12;
-        	}
+	}
+
+	private void displayGunInfo(GuiGraphics guiGraphics, ItemStack menuStack, int yPosition) {
+		if (menu.getGunDamage(menuStack) > -1F) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.damage").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunDamage(menuStack)), 34, yPosition, 4210752, false);
+			yPosition += 10;
 		}
-    }
+		if (menu.getGunSpread(menuStack) > -1F) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.spread").getString() + ": " + menu.getGunSpread(menuStack)*100000, 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+		if (menu.getGunSpeed(menuStack) > -1F) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.velocity").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunSpeed(menuStack)), 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+		if (menu.getGunROF(menuStack) > -1) {
+			String rofString = (menu.getGunROF(menuStack) == Constants.fireRateAuto) ? "thismeanswar.firearm_rof_full" : "thismeanswar.firearm_rof_semi";
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.rof").getString() + ": " + ModUtils.displayTranslation(rofString).getString(), 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+	}
+
+	private void displayMagInfo(GuiGraphics guiGraphics, ItemStack menuStack, int yPosition) {
+		if (menu.getMagRoundItem(menuStack) != Items.AIR) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation(menu.getMagRoundItem(menuStack).getDescriptionId()), 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+		if (menu.getMagAmmo(menuStack) > -1 && menu.getMagMaxAmmo(menuStack) > -1) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.capacity").getString() + ": " + menu.getMagAmmo(menuStack) + " / " + menu.getMagMaxAmmo(menuStack), 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+		if (menu.getMagCapUpgrades(menuStack) > -1) {
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.cap_upgrades").getString() + ": " + menu.getMagCapUpgrades(menuStack), 34, yPosition, 4210752, false);
+			yPosition += 10;
+		}
+	}
 
 }

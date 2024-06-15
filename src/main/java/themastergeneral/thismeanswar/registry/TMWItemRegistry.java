@@ -246,6 +246,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> cutter_iron = ITEMS.register("cutter_iron", () -> TMWItems.cutter_iron);
 	public static final RegistryObject<Item> cutter_diamond = ITEMS.register("cutter_diamond", () -> TMWItems.cutter_diamond);
 	public static final RegistryObject<Item> cutter_steel = ITEMS.register("cutter_steel", () -> TMWItems.cutter_steel);
+	public static final RegistryObject<Item> cutter_creative = ITEMS.register("cutter_creative", () -> TMWItems.cutter_creative);
 	
 	public static final RegistryObject<Item> hand_saw = ITEMS.register("hand_saw", () -> TMWItems.hand_saw);
 	public static final RegistryObject<Item> creative_hand_saw = ITEMS.register("creative_hand_saw", () -> TMWItems.creative_hand_saw);

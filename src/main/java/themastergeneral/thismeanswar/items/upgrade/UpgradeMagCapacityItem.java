@@ -25,6 +25,7 @@ import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
+import themastergeneral.thismeanswar.items.NuMagazineItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
@@ -34,6 +35,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
+		ItemStack mainHandStack = playerIn.getMainHandItem();
 		ItemStack offHandStack = playerIn.getOffhandItem();
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 		
@@ -41,57 +43,31 @@ public class UpgradeMagCapacityItem extends BasicItem
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHandStack.getItem())) && 
 				(!tagManager.getTag(TMWTags.disableMagUpgrade).contains(offHandStack.getItem())))
 		{
-			if (offHandStack.getItem() instanceof AbstractGunItem)
+			if (offHandStack.getItem() instanceof NuMagazineItem mag)
 			{
-				AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
-				if (offhand.getMagType(offHandStack) == Constants.internal_mag)
+				if (mag.getCapacityUpgrades(offHandStack) < Constants.maxMagUpgrades)
 				{
-					if (offhand.getCapUpgrades(offHandStack) < Constants.maxMagUpgrades)
-					{
-						offhand.upgradeMagCapacity(offHandStack);
-						playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
-						playerIn.getMainHandItem().shrink(1);
-						return InteractionResultHolder.pass(playerIn.getMainHandItem());
-					}
-					else
-					{
-						playerIn.getCooldowns().addCooldown(this, 10);
-						return InteractionResultHolder.fail(playerIn.getMainHandItem());
-					}
-				}
-				else
-				{
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_mag_fail_invalid_gun"), true);
-					playerIn.getCooldowns().addCooldown(this, 10);
-					return InteractionResultHolder.fail(playerIn.getMainHandItem());
-				}
-			}
-			else if (offHandStack.getItem() instanceof AbstractMagazineItem)
-			{
-				AbstractMagazineItem offhand = (AbstractMagazineItem) playerIn.getOffhandItem().getItem();
-				if (offhand.getCapacityUpgrades(offHandStack) < offhand.maxCapacityUpgrades)
-				{
-					offhand.upgradeMagCapacity(offHandStack);
-					playerIn.getCooldowns().addCooldown(playerIn.getMainHandItem().getItem(), 10);
+					mag.addCapacityUpgrade(offHandStack);
+					playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 20);
 					playerIn.getMainHandItem().shrink(1);
 					return InteractionResultHolder.pass(playerIn.getMainHandItem());
 				}
 				else
 				{
-					playerIn.getCooldowns().addCooldown(this, 10);
+					playerIn.getCooldowns().addCooldown(this, 5);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
 			}
 			else
 			{
-				playerIn.getCooldowns().addCooldown(this, 10);
+				playerIn.getCooldowns().addCooldown(this, 5);
 				return InteractionResultHolder.fail(playerIn.getMainHandItem());
 			}
 		}
 		else
 		{
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
-			playerIn.getCooldowns().addCooldown(this, 10);
+			playerIn.getCooldowns().addCooldown(this, 5);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}

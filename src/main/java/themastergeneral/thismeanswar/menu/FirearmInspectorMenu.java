@@ -11,6 +11,8 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import themastergeneral.thismeanswar.block.entity.BlockEntityGunInspector;
+import themastergeneral.thismeanswar.items.NuGunItem;
+import themastergeneral.thismeanswar.items.NuMagazineItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
@@ -95,17 +97,29 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     
     public boolean isGunItem(ItemStack stack)
     {
-    	return stack.getItem() instanceof AbstractGunItem;
+    	if (stack.getItem() instanceof AbstractGunItem)
+    		return true;
+    	else if (stack.getItem() instanceof NuGunItem)
+    		return true;
+    	else 
+    		return false;
     }
     
     public boolean isMagItem(ItemStack stack)
     {
-    	return stack.getItem() instanceof AbstractMagazineItem;
+    	if (stack.getItem() instanceof AbstractMagazineItem)
+    		return true;
+    	else if (stack.getItem() instanceof NuMagazineItem)
+    		return true;
+    	else
+    		return false;
     }
     
     public int getMagAmmo(ItemStack stack)
     {
     	if (stack.getItem() instanceof AbstractMagazineItem mag)
+    		return mag.getCurrentAmmo(stack);
+    	else if (stack.getItem() instanceof NuMagazineItem mag)
     		return mag.getCurrentAmmo(stack);
     	else
     		return -1;
@@ -115,6 +129,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractMagazineItem mag)
     		return mag.returnBulletItem().asItem();
+    	else if (stack.getItem() instanceof NuMagazineItem mag)
+    		return mag.returnBulletItem().asItem();
     	else
     		return Items.AIR;
     }
@@ -122,6 +138,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     public int getMagMaxAmmo(ItemStack stack)
     {
     	if (stack.getItem() instanceof AbstractMagazineItem mag)
+    		return mag.getMaxAmmo(stack);
+    	else if (stack.getItem() instanceof NuMagazineItem mag)
     		return mag.getMaxAmmo(stack);
     	else
     		return -1;
@@ -131,6 +149,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractMagazineItem mag)
     		return mag.getCapacityUpgrades(stack);
+    	else if (stack.getItem() instanceof NuMagazineItem mag)
+    		return mag.getCapacityUpgrades(stack);
     	else
     		return -1;
     }
@@ -139,6 +159,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.returnBulletDamage(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.getBulletDamage(stack);
     	else
     		return -1F;
     }
@@ -147,6 +169,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.returnBulletSpread(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.getBulletSpread(stack);	//TODO add spread
     	else
     		return -1F;
     }
@@ -155,6 +179,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.returnBulletSpeed(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.getBulletSpeed(stack);
     	else
     		return -1F;
     }
@@ -171,6 +197,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.getMagType(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.returnMagType();
     	else
     		return -1;
     }
@@ -179,6 +207,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.getBayonetLevel(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.getBayonetDamage(stack);	//TODO return gun.getBayonetDamage(stack);
     	else
     		return -1D;
     }
@@ -187,6 +217,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
     		return gun.getMaxAmmo(stack);
+    	else if (stack.getItem() instanceof NuGunItem gun)
+    		return gun.getMaxAmmo(stack);
     	else
     		return -1;
     }
@@ -194,6 +226,8 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     public int getGunROF(ItemStack stack)
     {
     	if (stack.getItem() instanceof AbstractGunItem gun)
+    		return gun.getRateOfFire(stack);
+    	if (stack.getItem() instanceof NuGunItem gun)
     		return gun.getRateOfFire(stack);
     	else
     		return -1;
