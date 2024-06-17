@@ -23,6 +23,7 @@ import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeGunROFItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeROFAutoItem;
@@ -131,8 +132,8 @@ public class TMWItems {
 	
 	//Upgrades
 	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
-	public static UpgradeROFAutoItem gun_rof_upgrade = new UpgradeROFAutoItem();
-	public static UpgradeROFSemiItem gun_rof_downgrade = new UpgradeROFSemiItem();
+	public static UpgradeGunROFItem gun_rof_upgrade = new UpgradeGunROFItem();
+	public static UpgradeGunROFItem gun_rof_downgrade = new UpgradeGunROFItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
 	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(Constants.bulletUpgradeAP, TMWTags.disableAPUpgrade);
 	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(Constants.bulletUpgradeNull, TMWTags.disableAPUpgrade);

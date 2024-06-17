@@ -352,5 +352,20 @@ public class NuMagazineItem extends AbstractModItem {
 			return cap == ForgeCapabilities.ITEM_HANDLER ? LazyOptional.of(() -> (T) itemHandler) : LazyOptional.empty();
 		}
 	}
+	
+	@Override
+	public String getDescriptionId(ItemStack stack) 
+	{
+		String returned = this.getDescriptionId();
+		if (this.getCapacityUpgrades(stack) > 0)
+		{
+			//returned = "Extended " + returned;
+			returned = ModUtils.displayTranslation("thismeanswar.mag.extended").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		return returned;
+	   
+	}
 }
 

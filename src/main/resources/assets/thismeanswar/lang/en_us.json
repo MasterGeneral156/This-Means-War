@@ -318,6 +318,9 @@
 	
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",
+	"thismeanswar.mag.extended": "Extended",
+	"thismeanswar.gun.fullauto": "Full-Auto",
+	"thismeanswar.gun.semiauto": "Semi-Auto",
 	"thismeanswar.bullet_loaded": "Round has been inserted.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",

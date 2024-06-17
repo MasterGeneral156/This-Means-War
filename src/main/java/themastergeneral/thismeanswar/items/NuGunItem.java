@@ -251,19 +251,6 @@ public class NuGunItem extends AbstractModItem {
         return (NuMagazineItem) getMagazineStack(stack).getItem();
     }
     
-    /*public int getCurrentAmmo(ItemStack stack) {
-        int returned = 0;
-        if (returnMagType() == Constants.external_mag)
-        {
-            if (inventory.getStackInSlot(SLOT_MAG).getItem() instanceof NuMagazineItem mag)
-                returned = mag.getCurrentAmmo(stack);
-        }
-        else if (returnMagType() == Constants.internal_mag)
-            returned = inventory.getStackInSlot(SLOT_ROUNDS).getCount();
-        TMWMain.debugLogger("Current ammo:" + returned);
-        return returned;
-    }*/
-    
     public int getCurrentAmmo(ItemStack stack) {
     	AtomicInteger returned = new AtomicInteger(0);
         if (returnMagType() == Constants.external_mag) {
@@ -309,10 +296,6 @@ public class NuGunItem extends AbstractModItem {
         return inventory.getStackInSlot(SLOT_ROUND_UPGRADE);
     }
     
-    public ItemStack getROFUpgrade(ItemStack stack) {
-        return inventory.getStackInSlot(SLOT_ROF_UPGRADE);
-    }
-    
     public int returnInternalAmmo(ItemStack stack)
     {
         return getMaxAmmo(stack) - inventory.getStackInSlot(SLOT_ROUNDS).getCount();
@@ -324,6 +307,21 @@ public class NuGunItem extends AbstractModItem {
             inventory.insertItem(SLOT_ROUNDS, toAdd.copyWithCount(qtyToAdd), false);
             saveInventory(stack); // Save state after change
         });
+    }
+    
+    public void setROFUpgrade(ItemStack stack, ItemStack toAdd)
+    {
+    	getInventory(stack).ifPresent(inventory -> {
+    		inventory.insertItem(SLOT_ROF_UPGRADE, toAdd.copyWithCount(1), false);
+            saveInventory(stack); // Save state after change
+        });
+    }
+    
+    public ItemStack returnROFUpgrade(ItemStack stack)
+    {
+    	final ItemStack[] rofUpgrade = {ItemStack.EMPTY};
+        getInventory(stack).ifPresent(inv -> rofUpgrade[0] = inv.getStackInSlot(SLOT_ROF_UPGRADE));
+        return rofUpgrade[0];
     }
     
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand)
@@ -352,11 +350,11 @@ public class NuGunItem extends AbstractModItem {
 						//Up+Down
 						//bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
 						//bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0F, getBulletSpeed(gun), 1.0F);
-						bulletEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
+						bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
 						//bulletEntity.applyRandomSpread(returnBulletSpread(mag));
 						world.addFreshEntity(bulletEntity);
 						player.awardStat(Stats.ITEM_USED.get(asItem()));
-						player.getCooldowns().addCooldown(asItem(), shotTime);
+						player.getCooldowns().addCooldown(asItem(), getRateOfFire(gun));
 						giveBulletCasing(player);
 						float minPitch = 0F;
 					    float maxPitch = 1F;
@@ -605,7 +603,7 @@ public class NuGunItem extends AbstractModItem {
     @Override
 	public boolean isBarVisible(ItemStack stack)
 	{
-    	if (getCurrentAmmo(stack) > 0)
+    	if (getMaxAmmo(stack) > 0)
     		return true;
     	else
     		return false;
@@ -620,17 +618,60 @@ public class NuGunItem extends AbstractModItem {
     public float getBulletSpread(ItemStack gun)
     {
     	float returned = this.bulletSpread;
+    	//ROF modifiers
+    	if (!returnROFUpgrade(gun).isEmpty())
+    	{
+    		if (returnROFUpgrade(gun).getItem() == TMWItems.gun_rof_upgrade)
+    			returned *= 1.1F;
+    		else if (returnROFUpgrade(gun).getItem() == TMWItems.gun_rof_downgrade)
+    			returned *= 0.8F;
+    	}
     	return returned;
     }
     public float getBulletDamage(ItemStack stack)
 	{
     	float returned = this.damage;
+    	//ROF modifiers
+    	if (!returnROFUpgrade(stack).isEmpty())
+    	{
+    		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_upgrade)
+    			returned *= 0.5F;
+    		else if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_downgrade)
+    			returned *= 1.25F;
+    	}
     	return returned;
 	}
     
     public int getRateOfFire(ItemStack stack)
     {
     	int returned = this.shotTime;
+    	if (!returnROFUpgrade(stack).isEmpty())
+    	{
+    		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_upgrade)
+    			returned = Constants.fireRateAuto;
+    		else if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_downgrade)
+    			returned = Constants.fireRateSemi;
+    	}
     	return returned;
     }
+    
+    @Override
+	public String getDescriptionId(ItemStack stack) 
+	{
+		String returned = this.getDescriptionId();
+		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_upgrade)
+		{
+			returned = ModUtils.displayTranslation("thismeanswar.gun.fullauto").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_downgrade)
+		{
+			returned = ModUtils.displayTranslation("thismeanswar.gun.semiauto").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		return returned;
+	   
+	}
 }
