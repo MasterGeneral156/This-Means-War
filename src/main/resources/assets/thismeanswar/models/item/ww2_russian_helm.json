@@ -1,6 +1,53 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "thismeanswar:item/ww2_russian_helm"
-    }
+	"credit": "Made with Blockbench",
+	"textures": {
+		"2": "thismeanswar:item/ww2_helm",
+		"particle": "thismeanswar:item/war_helm"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [10, 4.25, 12, 8.25], "texture": "#2"},
+				"east": {"uv": [8, 4.25, 10, 8.25], "texture": "#2"},
+				"south": {"uv": [14, 4.25, 16, 8.25], "texture": "#2"},
+				"west": {"uv": [12, 4.25, 14, 8.25], "texture": "#2"},
+				"up": {"uv": [10, 0.25, 12, 4.25], "texture": "#2"},
+				"down": {"uv": [12, 0.25, 14, 4.25], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 22.5, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 22.5, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 135, 0],
+			"translation": [0, 6, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 135, 0],
+			"translation": [0, 6, 0]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [-152.96, -20.38, -178.33],
+			"translation": [0, 3.5, 0]
+		},
+		"head": {
+			"translation": [0, 6.5, 0],
+			"scale": [1.61, 1.61, 1.61]
+		}
+	}
 }
