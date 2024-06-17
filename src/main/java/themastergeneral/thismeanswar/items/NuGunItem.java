@@ -6,7 +6,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.annotation.Nullable;
 
-import org.jetbrains.annotations.NotNull;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -37,15 +36,9 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.entity.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
-import themastergeneral.thismeanswar.entity.BulletFireEntity;
-import themastergeneral.thismeanswar.entity.BulletTracerEntity;
-import themastergeneral.thismeanswar.items.NuMagazineItem.CustomItemHandler;
-import themastergeneral.thismeanswar.items.NuMagazineItem.CustomItemHandlerProvider;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
