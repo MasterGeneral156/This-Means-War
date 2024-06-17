@@ -149,14 +149,14 @@ public class TMWItems {
 	public static AbstractModItem kevlar_raw = new BasicItem();
 	
 	//Durability crafting items
-	public static DurabilityItem hammer_wood = new DurabilityItem(32);
-	public static DurabilityItem hammer_stone = new DurabilityItem(64);
-	public static DurabilityItem hammer_gold = new DurabilityItem(96);
-	public static DurabilityItem hammer_iron = new DurabilityItem(128);
-	public static DurabilityItem hammer_steel = new DurabilityItem(224);
-	public static DurabilityItem hammer_diamond = new DurabilityItem(469);
-	public static DurabilityItem hammer_emerald = new DurabilityItem(1222);
-	public static DurabilityItem hammer_netherite = new DurabilityItem(1948);
+	public static DurabilityItem hammer_wood = new DurabilityItem(59);
+	public static DurabilityItem hammer_stone = new DurabilityItem(131);
+	public static DurabilityItem hammer_gold = new DurabilityItem(223);
+	public static DurabilityItem hammer_iron = new DurabilityItem(250);
+	public static DurabilityItem hammer_steel = new DurabilityItem(993);
+	public static DurabilityItem hammer_diamond = new DurabilityItem(1561);
+	public static DurabilityItem hammer_emerald = new DurabilityItem(1745);
+	public static DurabilityItem hammer_netherite = new DurabilityItem(2031);
 	public static DurabilityItem hammer_creative = new TMWCreativeItem();
 	
 	public static DurabilityItem hand_saw = new DurabilityItem(175);
