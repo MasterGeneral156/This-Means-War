@@ -658,19 +658,19 @@ public class NuGunItem extends AbstractModItem {
     @Override
 	public String getDescriptionId(ItemStack stack) 
 	{
-		String returned = this.getDescriptionId();
+		String returned = "";
 		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_upgrade)
 		{
 			returned = ModUtils.displayTranslation("thismeanswar.gun.fullauto").getString();
 			returned = returned.concat(" ");
-			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
 		}
 		if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_downgrade)
 		{
 			returned = ModUtils.displayTranslation("thismeanswar.gun.semiauto").getString();
 			returned = returned.concat(" ");
-			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+			
 		}
+		returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
 		return returned;
 	   
 	}
