@@ -147,9 +147,11 @@ public class TMWMain
 			ev.accept(TMWItems.energy_cell);
 			
 			ev.accept(TMWItems.magazine_223);
+			ev.accept(TMWItems.magazine_223_large);
 			ev.accept(TMWItems.magazine_223_clip);
 			
 			ev.accept(TMWItems.magazine_556);
+			ev.accept(TMWItems.magazine_556_large);
 			ev.accept(TMWItems.magazine_556_clip);
 			
 			ev.accept(TMWItems.magazine_dragunov);

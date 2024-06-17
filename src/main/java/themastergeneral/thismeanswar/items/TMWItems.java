@@ -23,11 +23,9 @@ import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunROFItem;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeROFAutoItem;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeROFSemiItem;
 
 import com.themastergeneral.ctdcore.item.CTDConsumableItem;
 
@@ -79,9 +77,11 @@ public class TMWItems {
 	public static NuMagazineItem magazine_9mm_clip = new NuMagazineItem(round_9mm, Constants.magSizeClips);
 	
 	public static NuMagazineItem magazine_556 = new NuMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
+	public static NuMagazineItem magazine_556_large = new NuMagazineItem(round_556, Constants.magSizeAR15*2, TMWTags.mags556);
 	public static NuMagazineItem magazine_556_clip = new NuMagazineItem(round_556, Constants.magSizeClips);
 	
 	public static NuMagazineItem magazine_223 = new NuMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
+	public static NuMagazineItem magazine_223_large = new NuMagazineItem(round_223, Constants.magSizeAR15*2, TMWTags.mags223);
 	public static NuMagazineItem magazine_223_clip = new NuMagazineItem(round_223, Constants.magSizeClips);
 	
 	public static NuMagazineItem magazine_dragunov = new NuMagazineItem(round_762, Constants.magSizeDragunov);
@@ -202,12 +202,12 @@ public class TMWItems {
 	public static DurabilityItem creative_casing_cast_762 = new TMWCreativeItem();
 	
 	//Musket Upgrade
-	public static UpgradeBayonetItem bayonet_wood = new UpgradeBayonetItem(2.5);
-	public static UpgradeBayonetItem bayonet_stone = new UpgradeBayonetItem(4.5);
-	public static UpgradeBayonetItem bayonet_iron = new UpgradeBayonetItem(6.5);
-	public static UpgradeBayonetItem bayonet_gold = new UpgradeBayonetItem(5.5);
-	public static UpgradeBayonetItem bayonet_diamond = new UpgradeBayonetItem(8.5);
-	public static UpgradeBayonetItem bayonet_netherrite = new UpgradeBayonetItem(10.5);
+	public static UpgradeGunBayonetItem bayonet_wood = new UpgradeGunBayonetItem(2.5);
+	public static UpgradeGunBayonetItem bayonet_stone = new UpgradeGunBayonetItem(4.5);
+	public static UpgradeGunBayonetItem bayonet_iron = new UpgradeGunBayonetItem(6.5);
+	public static UpgradeGunBayonetItem bayonet_gold = new UpgradeGunBayonetItem(5.5);
+	public static UpgradeGunBayonetItem bayonet_diamond = new UpgradeGunBayonetItem(8.5);
+	public static UpgradeGunBayonetItem bayonet_netherrite = new UpgradeGunBayonetItem(10.5);
 	
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);

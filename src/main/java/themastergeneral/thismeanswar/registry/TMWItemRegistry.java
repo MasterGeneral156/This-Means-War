@@ -36,9 +36,11 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_9mm_clip = ITEMS.register("magazine_9mm_clip", () -> TMWItems.magazine_9mm_clip);
 	
 	public static final RegistryObject<Item> magazine_556 = ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
+	public static final RegistryObject<Item> magazine_556_large = ITEMS.register("magazine_556_large", () -> TMWItems.magazine_556_large);
 	public static final RegistryObject<Item> magazine_556_clip = ITEMS.register("magazine_556_clip", () -> TMWItems.magazine_556_clip);
 	
 	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
+	public static final RegistryObject<Item> magazine_223_large = ITEMS.register("magazine_223_large", () -> TMWItems.magazine_223_large);
 	public static final RegistryObject<Item> magazine_223_clip = ITEMS.register("magazine_223_clip", () -> TMWItems.magazine_223_clip);
 	
 	public static final RegistryObject<Item> magazine_dragunov = ITEMS.register("magazine_dragunov", () -> TMWItems.magazine_dragunov);
