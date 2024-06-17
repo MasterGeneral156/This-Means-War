@@ -151,7 +151,7 @@ public class TMWItems {
 	//Durability crafting items
 	public static DurabilityItem hammer_wood = new DurabilityItem(59);
 	public static DurabilityItem hammer_stone = new DurabilityItem(131);
-	public static DurabilityItem hammer_gold = new DurabilityItem(223);
+	public static DurabilityItem hammer_gold = new DurabilityItem(488);
 	public static DurabilityItem hammer_iron = new DurabilityItem(250);
 	public static DurabilityItem hammer_steel = new DurabilityItem(993);
 	public static DurabilityItem hammer_diamond = new DurabilityItem(1561);
