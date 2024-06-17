@@ -8,7 +8,7 @@
 		"G": { "item": "thismeanswar:gauze" }
     },
     "result": {
-        "item": "thismeanswar:medical_kit",
+        "item": "thismeanswar:medic_kit",
 		"count": 1
     }
 }
