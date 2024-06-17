@@ -51,7 +51,7 @@ import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeBayonetItem;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 
 public class NuGunItem extends AbstractModItem {
 
@@ -285,8 +285,15 @@ public class NuGunItem extends AbstractModItem {
         return returned.get();
     }
     
+    public ItemStack returnBayonetStack(ItemStack stack)
+    {
+    	final ItemStack[] bayonet = {ItemStack.EMPTY};
+        getInventory(stack).ifPresent(inv -> bayonet[0] = inv.getStackInSlot(SLOT_BAYONET));
+        return bayonet[0];
+    }
+    
     public double getBayonetDamage(ItemStack stack) {
-        if (inventory.getStackInSlot(SLOT_BAYONET).getItem() instanceof UpgradeBayonetItem bayonet)
+        if (inventory.getStackInSlot(SLOT_BAYONET).getItem() instanceof UpgradeGunBayonetItem bayonet)
             return bayonet.returnBayonetLevel();
         else
             return Double.NaN;
@@ -313,6 +320,14 @@ public class NuGunItem extends AbstractModItem {
     {
     	getInventory(stack).ifPresent(inventory -> {
     		inventory.insertItem(SLOT_ROF_UPGRADE, toAdd.copyWithCount(1), false);
+            saveInventory(stack); // Save state after change
+        });
+    }
+    
+    public void setBayonetUpgrade(ItemStack stack, ItemStack toAdd)
+    {
+    	getInventory(stack).ifPresent(inventory -> {
+    		inventory.insertItem(SLOT_BAYONET, toAdd.copyWithCount(1), false);
             saveInventory(stack); // Save state after change
         });
     }
@@ -668,9 +683,14 @@ public class NuGunItem extends AbstractModItem {
 		{
 			returned = ModUtils.displayTranslation("thismeanswar.gun.semiauto").getString();
 			returned = returned.concat(" ");
-			
 		}
 		returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		if (!returnBayonetStack(stack).isEmpty())
+		{
+			returned = returned.concat(" w/ ");
+			returned = returned.concat(ModUtils.displayTranslation(returnBayonetStack(stack).getDescriptionId()).getString());
+		}
+		
 		return returned;
 	   
 	}
