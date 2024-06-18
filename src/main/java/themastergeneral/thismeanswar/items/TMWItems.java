@@ -160,7 +160,7 @@ public class TMWItems {
 	public static DurabilityItem hammer_netherite = new DurabilityItem(2031);
 	public static DurabilityItem hammer_creative = new TMWCreativeItem();
 	
-	public static DurabilityItem hand_saw = new DurabilityItem(175);
+	public static DurabilityItem hand_saw = new DurabilityItem(993);
 	public static DurabilityItem creative_hand_saw = new TMWCreativeItem();
 	
 	public static DurabilityItem cutter_iron = new WireCutters(250);
