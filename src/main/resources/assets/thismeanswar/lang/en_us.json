@@ -7,6 +7,7 @@
 	
 	"item.thismeanswar.magazine_9mm": "9mm Magazine",
 	"item.thismeanswar.magazine_9mm_large": "9mm Stick Magazine",
+	"item.thismeanswar.magazine_9mm_large_double": "9mm Double Stick Magazine",
 	"item.thismeanswar.magazine_9mm_clip": "9mm Clip",
 	"item.thismeanswar.magazine_9mm_drum": "9mm Drum Magazine",
 	"item.thismeanswar.magazine_9mm_short": "9mm Short Magazine",
@@ -321,8 +322,8 @@
 	"thismeanswar.mag_loaded": "Magazine has been inserted.",
 	"thismeanswar.mag_unloaded": "Magazine has been removed.",
 	"thismeanswar.mag.extended": "Extended",
-	"thismeanswar.gun.fullauto": "Full-Auto",
-	"thismeanswar.gun.semiauto": "Semi-Auto",
+	"thismeanswar.gun.fullauto": "Fully Automatic",
+	"thismeanswar.gun.semiauto": "Semi Automatic",
 	"thismeanswar.bullet_loaded": "Round has been inserted.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",

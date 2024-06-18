@@ -72,6 +72,7 @@ public class TMWItems {
 	//Magazines
 	public static NuMagazineItem magazine_9mm = new NuMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);
 	public static NuMagazineItem magazine_9mm_large = new NuMagazineItem(round_9mm, Constants.magSizeLarge9mm, TMWTags.mags9mm);
+	public static NuMagazineItem magazine_9mm_large_double = new NuMagazineItem(round_9mm, Constants.magSizeLarge9mm*2, TMWTags.mags9mm);
 	public static NuMagazineItem magazine_9mm_short = new NuMagazineItem(round_9mm, Constants.magSizeShort9mm, TMWTags.mags9mm);
 	public static NuMagazineItem magazine_9mm_drum = new NuMagazineItem(round_9mm, Constants.magSizeDrum9mm, TMWTags.mags9mm);
 	public static NuMagazineItem magazine_9mm_clip = new NuMagazineItem(round_9mm, Constants.magSizeClips);
