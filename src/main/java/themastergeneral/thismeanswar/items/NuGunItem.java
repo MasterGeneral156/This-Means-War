@@ -505,7 +505,7 @@ public class NuGunItem extends AbstractModItem {
 		//int bulletUpgrade = getBulletUpgrade(stack);
 		//Show the current firearm capacity if its max ammo is greater than 0
 		if (maxAmmo > 0)
-			tooltip.add(ModUtils.displayString("Capacity: " + currentAmmo + " / " + maxAmmo));
+			tooltip.add(ModUtils.displayString("Capacity: " + ModUtils.returnShortenedNumber(currentAmmo) + " / " + ModUtils.returnShortenedNumber(maxAmmo)));
 		else if (maxAmmo == 0)
 		{
 			//Missing magazine, no ammo.

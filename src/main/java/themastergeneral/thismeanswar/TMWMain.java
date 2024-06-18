@@ -109,6 +109,9 @@ public class TMWMain
 			
 			ev.accept(TMWItems.base_upgrade);
 			ev.accept(TMWItems.mag_capacity_upgrade);
+			ev.accept(TMWItems.mag_capacity_upgrade_t2);
+			ev.accept(TMWItems.mag_capacity_upgrade_t3);
+			ev.accept(TMWItems.creative_mag_capacity_upgrade);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bullet_upgrade_ap);
@@ -165,6 +168,9 @@ public class TMWMain
 			ev.accept(TMWItems.base_upgrade);
 			
 			ev.accept(TMWItems.mag_capacity_upgrade);
+			ev.accept(TMWItems.mag_capacity_upgrade_t2);
+			ev.accept(TMWItems.mag_capacity_upgrade_t3);
+			ev.accept(TMWItems.creative_mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	

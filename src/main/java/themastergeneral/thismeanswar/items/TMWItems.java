@@ -132,7 +132,10 @@ public class TMWItems {
 	public static AbstractModItem raw_lead = new BasicItem();
 	
 	//Upgrades
-	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem();
+	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem(Constants.magIncreasePerLevel);
+	public static UpgradeMagCapacityItem mag_capacity_upgrade_t2 = new UpgradeMagCapacityItem(Constants.magIncreaseT2PerLevel);
+	public static UpgradeMagCapacityItem mag_capacity_upgrade_t3 = new UpgradeMagCapacityItem(Constants.magIncreaseT3PerLevel);
+	public static UpgradeMagCapacityItem creative_mag_capacity_upgrade = new UpgradeMagCapacityItem(1000D);
 	public static UpgradeGunROFItem gun_rof_upgrade = new UpgradeGunROFItem();
 	public static UpgradeGunROFItem gun_rof_downgrade = new UpgradeGunROFItem();
 	public static AbstractModItem base_upgrade = new BasicItem();

@@ -38,6 +38,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
+import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
 
 public class NuMagazineItem extends AbstractModItem {
 
@@ -97,13 +98,24 @@ public class NuMagazineItem extends AbstractModItem {
         getInventory(stack).ifPresent(inv -> currentAmmo[0] = inv.getStackInSlot(SLOT_AMMO).getItem());
         return currentAmmo[0];
     }
+    
+    public ItemStack getMagazineCapacityStack(ItemStack stack) {
+    	final ItemStack[] currentAmmo = {ItemStack.EMPTY};
+        getInventory(stack).ifPresent(inv -> currentAmmo[0] = inv.getStackInSlot(SLOT_CAP_UPGRADES));
+        return currentAmmo[0];
+    }
 
     public int getMaxAmmo(ItemStack stack) {
         final int[] maxAmmo = {this.baseAmmoSize};
-        getInventory(stack).ifPresent(inv -> {
-            int capUpgrades = inv.getStackInSlot(SLOT_CAP_UPGRADES).getCount();
-            double capBonus = (maxAmmo[0] * Constants.magIncreasePerLevel) * capUpgrades;
-            if ((capBonus < 1.0D * capUpgrades) && capUpgrades > 0)
+        getInventory(stack).ifPresent(inv -> 
+        {
+        	double capBonus = 0;
+        	int capUpgrades = inv.getStackInSlot(SLOT_CAP_UPGRADES).getCount();
+        	if (inv.getStackInSlot(SLOT_CAP_UPGRADES).getItem() instanceof UpgradeMagCapacityItem magUpgrade)
+        	{
+                capBonus = (maxAmmo[0] * magUpgrade.returnMagIncrease()) * capUpgrades;
+        	}
+        	if ((capBonus < 1.0D * capUpgrades) && capUpgrades > 0)
                 capBonus = 1.0D * capUpgrades;
             maxAmmo[0] += capBonus;
         });
@@ -134,11 +146,11 @@ public class NuMagazineItem extends AbstractModItem {
         });
     }
     
-    public void addCapacityUpgrade(ItemStack stack) {
+    public void addCapacityUpgrade(ItemStack stack, ItemStack toAdd) {
         getInventory(stack).ifPresent(inventory -> {
         	int caps = getCapacityUpgrades(stack);
             if ((caps + 1) <= Constants.maxMagUpgrades)
-                inventory.insertItem(SLOT_CAP_UPGRADES, new ItemStack(TMWItems.mag_capacity_upgrade, 1), false);
+                inventory.insertItem(SLOT_CAP_UPGRADES, toAdd.copyWithCount(1), false);
             saveInventory(stack);
         });
     }
@@ -210,7 +222,7 @@ public class NuMagazineItem extends AbstractModItem {
         int maxAmmo = getMaxAmmo(stack);
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         tooltip.add(ModUtils.displayTranslation(this.returnBulletItem().getDescriptionId()));
-        tooltip.add(ModUtils.displayString("(" + currentAmmo + "/" + maxAmmo + ")"));
+        tooltip.add(ModUtils.displayString("(" + ModUtils.returnShortenedNumber(currentAmmo) + "/" + ModUtils.returnShortenedNumber(maxAmmo) + ")"));
     }
 
     @Override
@@ -357,9 +369,32 @@ public class NuMagazineItem extends AbstractModItem {
 	public String getDescriptionId(ItemStack stack) 
 	{
 		String returned = this.getDescriptionId();
-		if (this.getCapacityUpgrades(stack) > 0)
+		if (this.getMagazineCapacityStack(stack).getItem() == TMWItems.mag_capacity_upgrade)
 		{
-			//returned = "Extended " + returned;
+			returned = ModUtils.displayTranslation("thismeanswar.mag.extended").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		else if (this.getMagazineCapacityStack(stack).getItem() == TMWItems.mag_capacity_upgrade_t2)
+		{
+			returned = ModUtils.displayTranslation("thismeanswar.mag.extended_t2").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		else if (this.getMagazineCapacityStack(stack).getItem() == TMWItems.mag_capacity_upgrade_t3)
+		{
+			returned = ModUtils.displayTranslation("thismeanswar.mag.extended_t3").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		else if (this.getMagazineCapacityStack(stack).getItem() == TMWItems.creative_mag_capacity_upgrade)
+		{
+			returned = ModUtils.displayTranslation("thismeanswar.mag.extended_creative").getString();
+			returned = returned.concat(" ");
+			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
+		}
+		else if (this.getCapacityUpgrades(stack) > 0)
+		{
 			returned = ModUtils.displayTranslation("thismeanswar.mag.extended").getString();
 			returned = returned.concat(" ");
 			returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
