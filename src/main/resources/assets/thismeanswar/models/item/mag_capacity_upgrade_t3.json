@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"0": "thismeanswar:item/mag_capacity_upgrade",
-		"particle": "thismeanswar:item/mag_capacity_upgrade"
+		"0": "thismeanswar:item/mag_capacity_upgrade_t3",
+		"particle": "thismeanswar:item/mag_capacity_upgrade_t3"
 	},
 	"elements": [
 		{

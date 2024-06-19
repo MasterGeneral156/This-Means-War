@@ -64,6 +64,7 @@ public class AbstractHealingItem extends AbstractModItem {
 	protected void doTreatmentTick(Player playerIn)
 	{
 		playerIn.getCooldowns().addCooldown(this, ticks);
+		playerIn.addEffect(new MobEffectInstance(MobEffects.JUMP, this.ticks, -25, false, false));
 		playerIn.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, this.ticks, 25, false, false));
 	}
 	

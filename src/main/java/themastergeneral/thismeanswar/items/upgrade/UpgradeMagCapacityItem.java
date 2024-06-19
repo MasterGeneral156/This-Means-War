@@ -16,6 +16,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -32,6 +33,13 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractMagazineItem;
 
 public class UpgradeMagCapacityItem extends BasicItem 
 {
+	protected double multiplier;
+	public UpgradeMagCapacityItem(double increased) 
+	{
+		super();
+		this.multiplier = increased;
+	}
+	
 	@Override
 	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
 	{
@@ -45,29 +53,41 @@ public class UpgradeMagCapacityItem extends BasicItem
 		{
 			if (offHandStack.getItem() instanceof NuMagazineItem mag)
 			{
-				if (mag.getCapacityUpgrades(offHandStack) < Constants.maxMagUpgrades)
+				if ((mag.getMagazineCapacityStack(offHandStack).getItem() == mainHandStack.getItem()) || (mag.getMagazineCapacityStack(offHandStack) == ItemStack.EMPTY))
 				{
-					mag.addCapacityUpgrade(offHandStack);
-					playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 20);
-					playerIn.getMainHandItem().shrink(1);
-					return InteractionResultHolder.pass(playerIn.getMainHandItem());
+					if (mag.getCapacityUpgrades(offHandStack) < Constants.maxMagUpgrades)
+					{
+						mag.addCapacityUpgrade(offHandStack, mainHandStack);
+						playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 5);
+						playerIn.getMainHandItem().shrink(1);
+						playerIn.displayClientMessage(ModUtils.displayTranslation("item.thismeanswar.mag_capacity_upgrade.success"), true);
+						return InteractionResultHolder.pass(playerIn.getMainHandItem());
+					}
+					else
+					{
+						playerIn.displayClientMessage(ModUtils.displayTranslation("item.thismeanswar.mag_capacity_upgrade.max"), true);
+						playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 100);
+						return InteractionResultHolder.fail(playerIn.getMainHandItem());
+					}
 				}
 				else
 				{
-					playerIn.getCooldowns().addCooldown(this, 5);
+					playerIn.displayClientMessage(ModUtils.displayTranslation("item.thismeanswar.mag_capacity_upgrade.different"), true);
+					playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 100);
 					return InteractionResultHolder.fail(playerIn.getMainHandItem());
 				}
 			}
 			else
 			{
-				playerIn.getCooldowns().addCooldown(this, 5);
+				playerIn.displayClientMessage(ModUtils.displayTranslation("item.thismeanswar.mag_capacity_upgrade.invalid"), true);
+				playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 100);
 				return InteractionResultHolder.fail(playerIn.getMainHandItem());
 			}
 		}
 		else
 		{
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
-			playerIn.getCooldowns().addCooldown(this, 5);
+			playerIn.getCooldowns().addCooldown(mainHandStack.getItem(), 100);
 			return InteractionResultHolder.fail(playerIn.getMainHandItem());
 		}
 	}
@@ -79,8 +99,11 @@ public class UpgradeMagCapacityItem extends BasicItem
 		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
 		tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
 		if (Screen.hasShiftDown())
-		{
-			tooltip.add(ModUtils.displayString("§2+" + Constants.magIncreasePerLevel * 100 + "% Magazine capacity"));
-		}
+			tooltip.add(ModUtils.displayString("§2+" + multiplier * 100 + "% Magazine capacity"));
+	}
+	
+	public double returnMagIncrease()
+	{
+		return multiplier;
 	}
 }

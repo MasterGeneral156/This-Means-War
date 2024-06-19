@@ -31,14 +31,17 @@ public class TMWItemRegistry {
 	//Mags
 	public static final RegistryObject<Item> magazine_9mm = ITEMS.register("magazine_9mm", () -> TMWItems.magazine_9mm);
 	public static final RegistryObject<Item> magazine_9mm_large = ITEMS.register("magazine_9mm_large", () -> TMWItems.magazine_9mm_large);
+	public static final RegistryObject<Item> magazine_9mm_large_double = ITEMS.register("magazine_9mm_large_double", () -> TMWItems.magazine_9mm_large_double);
 	public static final RegistryObject<Item> magazine_9mm_short = ITEMS.register("magazine_9mm_short", () -> TMWItems.magazine_9mm_short);
 	public static final RegistryObject<Item> magazine_9mm_drum = ITEMS.register("magazine_9mm_drum", () -> TMWItems.magazine_9mm_drum);
 	public static final RegistryObject<Item> magazine_9mm_clip = ITEMS.register("magazine_9mm_clip", () -> TMWItems.magazine_9mm_clip);
 	
 	public static final RegistryObject<Item> magazine_556 = ITEMS.register("magazine_556", () -> TMWItems.magazine_556);
+	public static final RegistryObject<Item> magazine_556_large = ITEMS.register("magazine_556_large", () -> TMWItems.magazine_556_large);
 	public static final RegistryObject<Item> magazine_556_clip = ITEMS.register("magazine_556_clip", () -> TMWItems.magazine_556_clip);
 	
 	public static final RegistryObject<Item> magazine_223 = ITEMS.register("magazine_223", () -> TMWItems.magazine_223);
+	public static final RegistryObject<Item> magazine_223_large = ITEMS.register("magazine_223_large", () -> TMWItems.magazine_223_large);
 	public static final RegistryObject<Item> magazine_223_clip = ITEMS.register("magazine_223_clip", () -> TMWItems.magazine_223_clip);
 	
 	public static final RegistryObject<Item> magazine_dragunov = ITEMS.register("magazine_dragunov", () -> TMWItems.magazine_dragunov);
@@ -177,6 +180,9 @@ public class TMWItemRegistry {
 	
 	//Upgrades
 	public static final RegistryObject<Item> mag_capacity_upgrade = ITEMS.register("mag_capacity_upgrade", () -> TMWItems.mag_capacity_upgrade);
+	public static final RegistryObject<Item> mag_capacity_upgrade_t2 = ITEMS.register("mag_capacity_upgrade_t2", () -> TMWItems.mag_capacity_upgrade_t2);
+	public static final RegistryObject<Item> mag_capacity_upgrade_t3 = ITEMS.register("mag_capacity_upgrade_t3", () -> TMWItems.mag_capacity_upgrade_t3);
+	public static final RegistryObject<Item> creative_mag_capacity_upgrade = ITEMS.register("creative_mag_capacity_upgrade", () -> TMWItems.creative_mag_capacity_upgrade);
 	public static final RegistryObject<Item> gun_rof_upgrade = ITEMS.register("gun_rof_upgrade", () -> TMWItems.gun_rof_upgrade);
 	public static final RegistryObject<Item> gun_rof_downgrade = ITEMS.register("gun_rof_downgrade", () -> TMWItems.gun_rof_downgrade);
 	public static final RegistryObject<Item> creative_charm = ITEMS.register("creative_charm", () -> TMWItems.creative_charm);

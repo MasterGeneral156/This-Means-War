@@ -109,6 +109,9 @@ public class TMWMain
 			
 			ev.accept(TMWItems.base_upgrade);
 			ev.accept(TMWItems.mag_capacity_upgrade);
+			ev.accept(TMWItems.mag_capacity_upgrade_t2);
+			ev.accept(TMWItems.mag_capacity_upgrade_t3);
+			ev.accept(TMWItems.creative_mag_capacity_upgrade);
 			ev.accept(TMWItems.gun_rof_upgrade);
 			ev.accept(TMWItems.gun_rof_downgrade);
 			ev.accept(TMWItems.bullet_upgrade_ap);
@@ -139,6 +142,7 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWItems.magazine_9mm_clip);
 			ev.accept(TMWItems.magazine_9mm_large);
+			ev.accept(TMWItems.magazine_9mm_large_double);
 			ev.accept(TMWItems.magazine_9mm_short);
 			ev.accept(TMWItems.magazine_9mm_drum);
 			
@@ -147,9 +151,11 @@ public class TMWMain
 			ev.accept(TMWItems.energy_cell);
 			
 			ev.accept(TMWItems.magazine_223);
+			ev.accept(TMWItems.magazine_223_large);
 			ev.accept(TMWItems.magazine_223_clip);
 			
 			ev.accept(TMWItems.magazine_556);
+			ev.accept(TMWItems.magazine_556_large);
 			ev.accept(TMWItems.magazine_556_clip);
 			
 			ev.accept(TMWItems.magazine_dragunov);
@@ -162,6 +168,9 @@ public class TMWMain
 			ev.accept(TMWItems.base_upgrade);
 			
 			ev.accept(TMWItems.mag_capacity_upgrade);
+			ev.accept(TMWItems.mag_capacity_upgrade_t2);
+			ev.accept(TMWItems.mag_capacity_upgrade_t3);
+			ev.accept(TMWItems.creative_mag_capacity_upgrade);
     	}
 		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	

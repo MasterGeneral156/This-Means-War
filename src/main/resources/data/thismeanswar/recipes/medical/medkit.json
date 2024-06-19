@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GG",
+		"GG"
+    ],
+    "key": {
+		"G": { "item": "thismeanswar:gauze" }
+    },
+    "result": {
+        "item": "thismeanswar:medic_kit",
+		"count": 1
+    }
+}

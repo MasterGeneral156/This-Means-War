@@ -8,6 +8,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -33,16 +34,18 @@ public class BasicItem extends AbstractModItem {
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
-		if (stack.getItem() == TMWItems.creative_charm)
-		{
+		Item item = stack.getItem();
+		if (item == TMWItems.creative_charm)
 			tooltip.add(ModUtils.displayTranslation("thismeanswar.creative_charm_directions"));
-		}
 	}
 	
 	@Override
 	public boolean isFoil(ItemStack stack) 
 	{
-	      if (stack.getItem() == TMWItems.creative_charm)
+		Item item = stack.getItem();
+	      if (item == TMWItems.creative_charm)
+	    	  return true;
+	      else if (item == TMWItems.creative_mag_capacity_upgrade)
 	    	  return true;
 	      else
 	    	  return false;
