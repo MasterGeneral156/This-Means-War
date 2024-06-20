@@ -125,6 +125,7 @@ public class TMWMain
 			ev.accept(TMWItems.bayonet_gold);
 			ev.accept(TMWItems.bayonet_diamond);
 			ev.accept(TMWItems.bayonet_netherrite);
+			ev.accept(TMWItems.bayonet_creative);
     	}
     	if (ev.getTab() == TMWTabs.AMMO_TAB.get())
     	{

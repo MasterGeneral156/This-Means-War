@@ -47,6 +47,8 @@ public class BasicItem extends AbstractModItem {
 	    	  return true;
 	      else if (item == TMWItems.creative_mag_capacity_upgrade)
 	    	  return true;
+	      else if (item == TMWItems.bayonet_creative)
+	    	  return true;
 	      else
 	    	  return false;
 	}

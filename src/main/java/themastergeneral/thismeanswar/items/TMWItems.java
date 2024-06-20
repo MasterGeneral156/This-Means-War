@@ -212,6 +212,7 @@ public class TMWItems {
 	public static UpgradeGunBayonetItem bayonet_gold = new UpgradeGunBayonetItem(5.5);
 	public static UpgradeGunBayonetItem bayonet_diamond = new UpgradeGunBayonetItem(8.5);
 	public static UpgradeGunBayonetItem bayonet_netherrite = new UpgradeGunBayonetItem(10.5);
+	public static UpgradeGunBayonetItem bayonet_creative = new UpgradeGunBayonetItem(256);
 	
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
