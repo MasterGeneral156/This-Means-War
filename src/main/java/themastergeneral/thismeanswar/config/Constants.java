@@ -19,6 +19,7 @@ public class Constants
 	public static float sawnOffBonusSpread = 1.51356F;
 	public static float sawnOffBonusDamage = 2.682F;
 	public static float baseSpread = 1.4F;
+	public static float baseSpeed = 3.5F;
 	public static float directHitExplosionMulti = 10F;
 	
 	public static int external_mag = 1;
@@ -55,8 +56,8 @@ public class Constants
 	//Mag Upgrade
 	public static int maxMagUpgrades = 5;
 	public static double magIncreasePerLevel = 0.15;
-	public static double magIncreaseT2PerLevel = 0.35;
-	public static double magIncreaseT3PerLevel = 0.75;
+	public static double magIncreaseT2PerLevel = 0.325;
+	public static double magIncreaseT3PerLevel = 0.7;
 	
 	//Base Round Damage
 	//Updated 6/14/24
@@ -71,7 +72,7 @@ public class Constants
 	
 	//Base Round Speed
 	//Updated 6/14/24
-	public static float baseSpeed9mm = 		3.81243F;
+	public static float baseSpeed9mm = 		baseSpeed * 1.02F;
 	public static float baseSpeed45 = 		baseSpeed9mm * 1.08F;
 	public static float baseSpeed38spec = 	baseSpeed9mm * 1.12F;
 	public static float baseSpeed223 = 		baseSpeed9mm * 1.2F;
@@ -82,7 +83,7 @@ public class Constants
 	
 	//Base Round Spread
 	//Updated 6/14/24
-	public static float baseSpread9mm = 	0.000027F;
+	public static float baseSpread9mm = 	0.9997F;
 	public static float baseSpread45 = 		baseSpread9mm * 0.92F;
 	public static float baseSpread556 = 	baseSpread9mm * 0.72F;
 	public static float baseSpread223 = 	baseSpread9mm * 0.8F;

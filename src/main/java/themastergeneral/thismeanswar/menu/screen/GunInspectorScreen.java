@@ -68,7 +68,7 @@ public class GunInspectorScreen extends AbstractContainerScreen<FirearmInspector
 			yPosition += 10;
 		}
 		if (menu.getGunSpread(menuStack) > -1F) {
-			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.spread").getString() + ": " + menu.getGunSpread(menuStack)*100000, 34, yPosition, 4210752, false);
+			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.spread").getString() + ": " + menu.getGunSpread(menuStack), 34, yPosition, 4210752, false);
 			yPosition += 10;
 		}
 		if (menu.getGunSpeed(menuStack) > -1F) {

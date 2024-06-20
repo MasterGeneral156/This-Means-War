@@ -148,7 +148,9 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_9mm_drum);
 			
 			ev.accept(TMWItems.magazine_m1911);
-			ev.accept(TMWItems.magazine_g36);
+			ev.accept(TMWItems.magazine_m1911_large);
+			ev.accept(TMWItems.magazine_45_clip);
+			
 			ev.accept(TMWItems.energy_cell);
 			
 			ev.accept(TMWItems.magazine_223);
@@ -158,12 +160,12 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWItems.magazine_556_large);
 			ev.accept(TMWItems.magazine_556_clip);
+			ev.accept(TMWItems.magazine_g36);
 			
 			ev.accept(TMWItems.magazine_dragunov);
 			
 			ev.accept(TMWItems.magazine_12g_clip);
 			ev.accept(TMWItems.magazine_38spec_clip);
-			ev.accept(TMWItems.magazine_45_clip);
 			ev.accept(TMWItems.magazine_40mm_clip);
 			
 			ev.accept(TMWItems.base_upgrade);

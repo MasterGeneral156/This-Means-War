@@ -60,7 +60,8 @@ public class TMWClientEvents
     	if ((event.getCamera().getEntity() instanceof Player player) && ((event.getCamera().getEntity() != Entity.NULL)))
     	{
     		float fovModifier = (player.getPersistentData().getFloat("fovModifier") > 0.01F) ? player.getPersistentData().getFloat("fovModifier") : 1F;
-        	event.setFOV(event.getFOV() * fovModifier);
+        	TMWMain.debugLogger(fovModifier);
+    		event.setFOV(event.getFOV() * fovModifier);
     	}
     }
 }

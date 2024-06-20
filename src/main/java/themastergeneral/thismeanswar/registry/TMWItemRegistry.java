@@ -46,6 +46,7 @@ public class TMWItemRegistry {
 	
 	public static final RegistryObject<Item> magazine_dragunov = ITEMS.register("magazine_dragunov", () -> TMWItems.magazine_dragunov);
 	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
+	public static final RegistryObject<Item> magazine_m1911_large = ITEMS.register("magazine_m1911_large", () -> TMWItems.magazine_m1911_large);
 	public static final RegistryObject<Item> magazine_g36 = ITEMS.register("magazine_g36", () -> TMWItems.magazine_g36);
 	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
 	
@@ -307,6 +308,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bayonet_gold = ITEMS.register("bayonet_gold", () -> TMWItems.bayonet_gold);
 	public static final RegistryObject<Item> bayonet_diamond = ITEMS.register("bayonet_diamond", () -> TMWItems.bayonet_diamond);
 	public static final RegistryObject<Item> bayonet_netherrite = ITEMS.register("bayonet_netherrite", () -> TMWItems.bayonet_netherrite);
+	public static final RegistryObject<Item> bayonet_creative = ITEMS.register("bayonet_creative", () -> TMWItems.bayonet_creative);
 	
 	//Primers
 	public static final RegistryObject<Item> primer_pistol = ITEMS.register("primer_pistol", () -> TMWItems.primer_pistol);

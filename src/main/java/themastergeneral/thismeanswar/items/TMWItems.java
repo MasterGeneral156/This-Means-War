@@ -87,6 +87,7 @@ public class TMWItems {
 	
 	public static NuMagazineItem magazine_dragunov = new NuMagazineItem(round_762, Constants.magSizeDragunov);
 	public static NuMagazineItem magazine_m1911 = new NuMagazineItem(round_45, Constants.magSize1911);
+	public static NuMagazineItem magazine_m1911_large = new NuMagazineItem(round_45, Constants.magSize1911 * 2);
 	public static NuMagazineItem magazine_g36 = new NuMagazineItem(round_556, Constants.magSizeG36);
 	public static NuMagazineItem energy_cell = new NuMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
 	

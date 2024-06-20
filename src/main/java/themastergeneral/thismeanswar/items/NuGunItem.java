@@ -36,14 +36,17 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.entity.BulletBaseEntity;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
+import themastergeneral.thismeanswar.items.interfaces.WeaponSniper;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 
 public class NuGunItem extends AbstractModItem {
@@ -135,6 +138,8 @@ public class NuGunItem extends AbstractModItem {
         if (counter == 20)
         {
             doSetupGun(stack);
+            Player player = (Player) entityIn;
+            doZoom(player.getItemInHand(InteractionHand.MAIN_HAND), player);
             counter = 0;
         }
     }
@@ -350,7 +355,7 @@ public class NuGunItem extends AbstractModItem {
 		        }
 		        else
 		        {
-		        	if (this.canFire(gun))
+		        	if (canFire(gun))
 		        	{
 		        		fireRoundLogic(gun);
 		        		BulletBaseEntity bulletEntity = new BulletBaseEntity(world, player, getBulletDamage(gun), bullet);
@@ -562,7 +567,7 @@ public class NuGunItem extends AbstractModItem {
 				if (this.bulletSpread > 0)
 				{
 					MutableComponent bulletSprdString = ModUtils.displayTranslation("thismeanswar.firearm_bullet_sprd");
-					bulletSprdString = bulletSprdString.append(colorFormat2 + formatter.format(getBulletSpread(stack) * 100000));
+					bulletSprdString = bulletSprdString.append(colorFormat2 + formatter.format(getBulletSpread(stack)));
 					tooltip.add(bulletSprdString);
 				}
 				
@@ -687,4 +692,19 @@ public class NuGunItem extends AbstractModItem {
 		return returned;
 	   
 	}
+    
+    protected void doZoom(ItemStack stack, Player player)
+    {
+    	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+    	if (tagManager.getTag(TMWTags.snipers).contains(stack.getItem()))
+    	{
+			if (player.getCommandSenderWorld().isClientSide())
+			{
+				if (Screen.hasAltDown())
+					player.getPersistentData().putFloat("fovModifier", 0.75F);
+				else
+					player.getPersistentData().remove("fovModifier");
+			}
+    	}
+    }
 }

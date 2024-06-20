@@ -21,7 +21,7 @@ public class TMWRifles
 	public static NuGunItem m16 = new NuGunItem(
 		Constants.fireRateAuto, (int) Math.round(Constants.ar15ReloadTime223 * 0.9), 
 		TMWItems.magazine_556, Constants.ar15Damage556 * 1.1F,
-		Constants.ar15Speed556 * 0.9F, Constants.ar15Spread556 * 0.9F);
+		Constants.ar15Speed556 * 0.9F, Constants.ar15Spread556 * 2.75F);
 	
 	public static NuGunItem thunderclaw = new NuGunItem(
 		Constants.thunderclawireRate, Constants.thunderclawReloadTime, 
@@ -31,7 +31,7 @@ public class TMWRifles
 	public static NuGunItem m16_223 = new NuGunItem(
 		Constants.fireRateAuto, (int) Math.round(Constants.ar15ReloadTime223 * 0.9), 
 		TMWItems.magazine_223, Constants.ar15Damage223 * 1.1F,
-		Constants.ar15Speed223 * 0.9F, Constants.ar15Spread223 * 0.9F);
+		Constants.ar15Speed223 * 0.9F, Constants.ar15Spread223 * 2.75F);
 	
 	public static NuGunItem quantum_disruptor = new NuGunItem(
 		Constants.quantumDisruptorRate, Constants.quantumDisruptorReloadTime, 

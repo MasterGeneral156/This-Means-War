@@ -48,4 +48,13 @@ public class TMWTags {
 	public static TagKey<Item> hammer = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/hammer"));
 	public static TagKey<Item> saw = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/saw"));
 	public static TagKey<Item> cutter = ItemTags.create(new ResourceLocation(TMWMain.MODID, "tools/cutter"));
+
+	//Gun Type
+	public static TagKey<Item> launchers = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/launchers"));
+	public static TagKey<Item> pistols = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/pistols"));
+	public static TagKey<Item> rifles = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/rifles"));
+	public static TagKey<Item> shotguns = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/shotguns"));
+	public static TagKey<Item> snipers = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/snipers"));
+	public static TagKey<Item> energy = ItemTags.create(new ResourceLocation(TMWMain.MODID, "gun/energy"));
+	public static TagKey<Item> guns = ItemTags.create(new ResourceLocation(TMWMain.MODID, "guns"));
 }
