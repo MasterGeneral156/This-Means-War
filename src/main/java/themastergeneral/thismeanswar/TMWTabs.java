@@ -7,6 +7,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.items.define.TMWExplosiveProjectile;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 
 public class TMWTabs {
@@ -20,20 +21,20 @@ public class TMWTabs {
             .build());
 	
 	public static final RegistryObject<CreativeModeTab> AMMO_TAB = CREATIVE_MODE_TABS.register("tmw_ammo", () -> CreativeModeTab.builder()
-			.icon(() -> TMWItems.round_40mm.getDefaultInstance())
+			.icon(() -> TMWItems.magazine_556.getDefaultInstance())
             .title(Component.translatable("itemGroup.thismeanswar.ammo"))
             .build());
 	
 	public static final RegistryObject<CreativeModeTab> GUN_TAB = CREATIVE_MODE_TABS.register("tmw_guns", () -> CreativeModeTab.builder()
             .withTabsBefore(MAIN_TAB.getKey())
             .withTabsAfter(AMMO_TAB.getKey())
-			.icon(() -> TMWPistols.m1911.getDefaultInstance())
+			.icon(() -> TMWExplosiveProjectile.bazooka.getDefaultInstance())
             .title(Component.translatable("itemGroup.thismeanswar.guns"))
             .build());
 	
 	public static final RegistryObject<CreativeModeTab> ARMOR_TAB = CREATIVE_MODE_TABS.register("tmw_armor", () -> CreativeModeTab.builder()
             .withTabsBefore(AMMO_TAB.getKey())
-			.icon(() -> TMWItems.basic_prot_chest.getDefaultInstance())
+			.icon(() -> TMWItems.blue_war_armor_helm.getDefaultInstance())
             .title(Component.translatable("itemGroup.thismeanswar.armor"))
             .build());
 }
