@@ -36,6 +36,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
+import themastergeneral.thismeanswar.items.DurabilityItem;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
 import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
 
@@ -53,7 +54,7 @@ public class BlockEntityFactoryHolder extends BlockEntity implements MenuProvide
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack)
         {
-        	return true;
+        	return (stack.getItem() instanceof DurabilityItem);
         }
     };
     
@@ -61,6 +62,11 @@ public class BlockEntityFactoryHolder extends BlockEntity implements MenuProvide
 	
 	public BlockEntityFactoryHolder(BlockPos pos, BlockState state) {
 		super(TMWBlockEntityRegistry.factory_holder.get(), pos, state);
+	}
+	
+	public boolean canPlaceItem(int slot, ItemStack stack) 
+	{
+		return itemHandler.isItemValid(slot, stack);
 	}
 	
 

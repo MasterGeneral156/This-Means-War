@@ -27,7 +27,6 @@ public class AbstractBulletItem extends AbstractModItem {
 		this.bulletCasing = casing;
 		this.bulletTip = tip;
 		this.compatBullet = compatBullet;
-		
 	}
 	
 	public AbstractBulletItem() 

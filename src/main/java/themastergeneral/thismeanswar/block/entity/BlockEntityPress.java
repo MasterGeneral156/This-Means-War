@@ -114,14 +114,7 @@ public class BlockEntityPress extends BlockEntity implements MenuProvider, Block
 	
 	public boolean canPlaceItem(int slot, ItemStack stack) 
 	{
-		if (slot == OUTPUT_SLOT)
-	         return false;
-        else if (slot == INPUT_SLOT)
-	         return true;
-        else {
-	         ItemStack itemstack = this.itemHandler.getStackInSlot(FUEL_SLOT);
-	         return net.minecraftforge.common.ForgeHooks.getBurnTime(stack, null) > 0 || stack.is(Items.BUCKET) && !itemstack.is(Items.BUCKET);
-         }
+		return itemHandler.isItemValid(slot, stack);
 	}
 	
 	@Override

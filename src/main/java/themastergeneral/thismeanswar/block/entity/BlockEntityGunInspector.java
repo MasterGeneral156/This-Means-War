@@ -35,6 +35,8 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
+import themastergeneral.thismeanswar.items.NuGunItem;
+import themastergeneral.thismeanswar.items.NuMagazineItem;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.FirearmInspectorMenu;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
@@ -55,7 +57,12 @@ public class BlockEntityGunInspector extends BlockEntity implements MenuProvider
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack)
         {
-        	return true;
+        	if (stack.getItem() instanceof NuGunItem)
+        		return true;
+        	else if (stack.getItem() instanceof NuMagazineItem)
+        		return true;
+        	else
+        		return false;
         }
     };
     
@@ -71,7 +78,7 @@ public class BlockEntityGunInspector extends BlockEntity implements MenuProvider
 	
 	public boolean canPlaceItem(int slot, ItemStack stack) 
 	{
-		return true;
+		return itemHandler.isItemValid(slot, stack);
 	}
 
 	@Override
