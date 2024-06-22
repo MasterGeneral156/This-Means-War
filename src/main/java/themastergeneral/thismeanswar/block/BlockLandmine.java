@@ -1,19 +1,26 @@
 package themastergeneral.thismeanswar.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Level.ExplosionInteraction;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BlockLandmine extends AbstractTMWBlock {
 
 	protected float explosionDamage;
+	protected static final VoxelShape SHAPE = Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D);
+	
 	public BlockLandmine(float explosionDamage) 
 	{
 		super(BlockBehaviour.Properties.of()
@@ -55,5 +62,11 @@ public class BlockLandmine extends AbstractTMWBlock {
 		level.removeBlock(pos, false);
 		level.explode(entity, pos.getX(), pos.getY(), pos.getZ(), explosionDamage, ExplosionInteraction.TNT);
 		super.stepOn(level, pos, state, entity);
+	}
+	
+	@Override
+	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) 
+	{
+		return SHAPE;
 	}
 }
