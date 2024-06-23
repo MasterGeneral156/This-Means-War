@@ -423,7 +423,7 @@ public class NuGunItem extends AbstractModItem {
                 int slotID = -1;
                 for (int i = 0; i < playerIn.getInventory().getContainerSize(); ++i) {
                     ItemStack itemstack1 = playerIn.getInventory().getItem(i);
-                    if (itemstack1.getItem() instanceof NuMagazineItem mag) {
+                    if ((itemstack1.getItem() instanceof NuMagazineItem mag) && (!(itemstack1.getItem() instanceof NuBulletBoxItem))) {
                         if (mag.getCurrentAmmoItem(itemstack1) == bullet && mag.getCurrentAmmo(itemstack1) > 0) {
                             slotID = i;
                             break;

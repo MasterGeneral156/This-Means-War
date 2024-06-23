@@ -96,6 +96,15 @@ public class TMWItems {
 	public static NuMagazineItem magazine_40mm_clip = new NuMagazineItem(round_40mm, Constants.magSizeClips);
 	public static NuMagazineItem magazine_38spec_clip = new NuMagazineItem(round_38spec, Constants.magSizeClips);
 	
+	//Ammo Boxes
+	public static NuBulletBoxItem box_round_9mm = new NuBulletBoxItem(round_9mm, 50);
+	public static NuBulletBoxItem box_round_38spec = new NuBulletBoxItem(round_38spec, 50);
+	public static NuBulletBoxItem box_round_45 = new NuBulletBoxItem(round_45, 50);
+	public static NuBulletBoxItem box_round_12g = new NuBulletBoxItem(round_12g, 25);
+	public static NuBulletBoxItem box_round_223 = new NuBulletBoxItem(round_223, 20);
+	public static NuBulletBoxItem box_round_556 = new NuBulletBoxItem(round_556, 20);
+	public static NuBulletBoxItem box_round_762 = new NuBulletBoxItem(round_762, 20);
+	
 	//Ingots
 	public static AbstractModItem ingot_lead = new BasicItem();
 	public static AbstractModItem ingot_brass = new BasicItem();

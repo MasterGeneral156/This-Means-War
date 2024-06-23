@@ -140,6 +140,14 @@ public class TMWMain
 			ev.accept(TMWItems.round_40mm);
 			ev.accept(TMWItems.energy_bolt);
 			
+			ev.accept(TMWItems.box_round_12g);
+			ev.accept(TMWItems.box_round_45);
+			ev.accept(TMWItems.box_round_9mm);
+			ev.accept(TMWItems.box_round_38spec);
+			ev.accept(TMWItems.box_round_223);
+			ev.accept(TMWItems.box_round_556);
+			ev.accept(TMWItems.box_round_762);
+			
 			ev.accept(TMWItems.magazine_9mm);
 			ev.accept(TMWItems.magazine_9mm_clip);
 			ev.accept(TMWItems.magazine_9mm_large);

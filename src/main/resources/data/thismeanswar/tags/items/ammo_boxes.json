@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#thismeanswar:boxes/round_9mm",
+	"#thismeanswar:boxes/round_45",
+	"#thismeanswar:boxes/round_38spec",
+	"#thismeanswar:boxes/round_223",
+	"#thismeanswar:boxes/round_556",
+	"#thismeanswar:boxes/round_762",
+	"#thismeanswar:boxes/round_12g"
+  ]
+}

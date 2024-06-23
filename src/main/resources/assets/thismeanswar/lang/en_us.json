@@ -80,6 +80,14 @@
 	"item.thismeanswar.round_38spec": "38 Special Round",
 	"item.thismeanswar.energy_bolt": "Energy Bolt",
 	
+	"item.thismeanswar.box_round_9mm": "Box of 9mm Rounds",
+	"item.thismeanswar.box_round_12g": "Box of 12G Slugs",
+	"item.thismeanswar.box_round_38spec": "Box of 38 Special Rounds",
+	"item.thismeanswar.box_round_45": "Box of .45ACP Rounds",
+	"item.thismeanswar.box_round_223": "Box of .223 Rounds",
+	"item.thismeanswar.box_round_556": "Box of 5.56 Rounds",
+	"item.thismeanswar.box_round_762": "Box of 7.62 Rounds",
+	
 	"item.thismeanswar.dynamite_stick": "Stick of Dynamite",
 	"item.thismeanswar.nuclear_warhead": "Captain Boom Boom",
 	"item.thismeanswar.hand_grenade": "Hand Grenade",

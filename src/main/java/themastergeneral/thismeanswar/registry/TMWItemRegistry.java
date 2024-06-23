@@ -55,6 +55,15 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_40mm_clip = ITEMS.register("magazine_40mm_clip", () -> TMWItems.magazine_40mm_clip);
 	public static final RegistryObject<Item> magazine_38spec_clip = ITEMS.register("magazine_38spec_clip", () -> TMWItems.magazine_38spec_clip);
 	
+	//Ammo boxes
+	public static final RegistryObject<Item> box_round_9mm = ITEMS.register("box_round_9mm", () -> TMWItems.box_round_9mm);
+	public static final RegistryObject<Item> box_round_12g = ITEMS.register("box_round_12g", () -> TMWItems.box_round_12g);
+	public static final RegistryObject<Item> box_round_45 = ITEMS.register("box_round_45", () -> TMWItems.box_round_45);
+	public static final RegistryObject<Item> box_round_38spec = ITEMS.register("box_round_38spec", () -> TMWItems.box_round_38spec);
+	public static final RegistryObject<Item> box_round_223 = ITEMS.register("box_round_223", () -> TMWItems.box_round_223);
+	public static final RegistryObject<Item> box_round_556 = ITEMS.register("box_round_556", () -> TMWItems.box_round_556);
+	public static final RegistryObject<Item> box_round_762 = ITEMS.register("box_round_762", () -> TMWItems.box_round_762);
+	
 	/**
 	 * Firearms
 	 */
