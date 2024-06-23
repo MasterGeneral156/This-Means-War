@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 import com.themastergeneral.ctdcore.item.CTDDurabilityItem;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -28,6 +29,9 @@ public class DurabilityItem extends CTDDurabilityItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		if (stack.isDamageableItem())
-			tooltip.add(ModUtils.displayString("Durability: " + this.getMaxDamage(stack)));
+			if (Screen.hasShiftDown())
+				tooltip.add(ModUtils.displayString("Durability: " + this.getDamage(stack) + " / " + this.getMaxDamage(stack)));
+			else
+				tooltip.add(ModUtils.displayString("Durability: " + ModUtils.returnShortenedNumber(this.getDamage(stack)) + " / " + ModUtils.returnShortenedNumber(this.getMaxDamage(stack))));
 	}
 }
