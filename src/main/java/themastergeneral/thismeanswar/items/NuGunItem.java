@@ -76,10 +76,6 @@ public class NuGunItem extends AbstractModItem {
     
     protected int counter = 0;
     
-    private final ItemStackHandler inventory = new ItemStackHandler(4);
-    
-    private final LazyOptional<ItemStackHandler> handler = LazyOptional.of(() -> inventory);
-    
     /**
      * Use to create a firearm that's magazine fed.
      * @param Integer shotTime            Ticks between shots
@@ -175,13 +171,13 @@ public class NuGunItem extends AbstractModItem {
 
         private final ItemStack stack;
 
-        public CustomItemHandler(ItemStack stack) {
-            super(5);
-            this.stack = stack;
-            if (stack.hasTag() && stack.getTag().contains("Inventory")) {
-                this.deserializeNBT(stack.getTag().getCompound("Inventory"));
-            }
-        }
+        public CustomItemHandler(ItemStack stack) 
+		{
+			super(6);
+			this.stack = stack;
+			if (stack.hasTag() && stack.getTag().contains("Inventory"))
+				this.deserializeNBT(stack.getTag().getCompound("Inventory"));
+		}
         
         /*@Override
         protected int getStackLimit(int slot, @NotNull ItemStack stack)
@@ -313,19 +309,27 @@ public class NuGunItem extends AbstractModItem {
     }
     
     public double getBayonetDamage(ItemStack stack) {
-        if (inventory.getStackInSlot(SLOT_BAYONET).getItem() instanceof UpgradeGunBayonetItem bayonet)
-            return bayonet.returnBayonetLevel();
-        else
-            return Double.NaN;
+    	final double[] returned = {Double.NaN};
+    	getInventory(stack).ifPresent(inventory -> {
+            ItemStack magStack = inventory.getStackInSlot(SLOT_MAG);
+            if (magStack.getItem() instanceof UpgradeGunBayonetItem bayonet) {
+                returned[0] = bayonet.returnBayonetLevel();
+            }
+        });
+    	return returned[0];
     }
     
     public ItemStack getRoundUpgrade(ItemStack stack) {
-        return inventory.getStackInSlot(SLOT_ROUND_UPGRADE);
+    	final ItemStack[] roundType = {ItemStack.EMPTY};
+        getInventory(stack).ifPresent(inv -> roundType[0] = inv.getStackInSlot(SLOT_ROUND_UPGRADE));
+        return roundType[0];
     }
     
     public int returnInternalAmmo(ItemStack stack)
     {
-        return getMaxAmmo(stack) - inventory.getStackInSlot(SLOT_ROUNDS).getCount();
+    	final AtomicInteger rounds = new AtomicInteger(0);
+        getInventory(stack).ifPresent(inv -> rounds.set(inv.getStackInSlot(SLOT_ROUND_UPGRADE).getCount()));
+        return rounds.get();
     }
     
     public void addInternalAmmo(ItemStack stack, ItemStack toAdd, int qtyToAdd)
@@ -558,7 +562,6 @@ public class NuGunItem extends AbstractModItem {
 		{
 			MutableComponent magComp = ModUtils.displayTranslation(magazine.getDescriptionId());
 			MutableComponent bulletComp = ModUtils.displayTranslation(bullet.getDescriptionId());
-			//getMagazineStack(ItemStack stack)
 			if (!getMagazineStack(stack).isEmpty())
 			{
 				magComp = ModUtils.displayTranslation(getMagazineStack(stack).getDescriptionId());
@@ -758,8 +761,9 @@ public class NuGunItem extends AbstractModItem {
     	int returned = reloadTime;
     	if (returnMagType() == Constants.external_mag)
     	{
-    		if ((getMagazineStack(stack).getItem() != magazine.asItem()) && (getMagazineStack(stack) != ItemStack.EMPTY))
-    			returned *= 1.3;
+    		if (getMagazineStack(stack) != ItemStack.EMPTY)
+    			if (getMagazineStack(stack).getItem() != magazine.asItem())
+    				returned *= 1.3;
     	}
     	return returned;
     }
