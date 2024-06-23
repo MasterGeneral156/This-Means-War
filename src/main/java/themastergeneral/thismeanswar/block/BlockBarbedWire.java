@@ -12,6 +12,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class BlockBarbedWire extends AbstractTMWBlock {
 
+	protected float dmg;
 	public BlockBarbedWire() 
 	{
 		super(BlockBehaviour.Properties.of()
@@ -22,6 +23,20 @@ public class BlockBarbedWire extends AbstractTMWBlock {
 				.requiresCorrectToolForDrops()
 				.strength(4.0F)
 				.pushReaction(PushReaction.DESTROY));
+		this.dmg = 2.85F;
+	}
+	
+	public BlockBarbedWire(float damage) 
+	{
+		super(BlockBehaviour.Properties.of()
+				.sound(SoundType.WOOD)
+				.mapColor(MapColor.METAL)
+				.forceSolidOn()
+				.noCollission()
+				.requiresCorrectToolForDrops()
+				.strength(4.0F)
+				.pushReaction(PushReaction.DESTROY));
+		this.dmg = damage;
 	}
 	
 	@Override
@@ -41,6 +56,6 @@ public class BlockBarbedWire extends AbstractTMWBlock {
 	   
 	protected void damageEntityInside(Entity entity)
 	{
-		entity.hurt(entity.damageSources().cactus(), 2.85F);
+		entity.hurt(entity.damageSources().cactus(), dmg);
 	}
 }
