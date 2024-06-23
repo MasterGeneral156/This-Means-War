@@ -8,6 +8,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAlloySmelter;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
+import themastergeneral.thismeanswar.block.entity.BlockEntityAutomatedLoader;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCasingFormer;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCasingRecycler;
 import themastergeneral.thismeanswar.block.entity.BlockEntityCrusher;
@@ -40,4 +41,6 @@ public class TMWBlockEntityRegistry {
 	public static final RegistryObject<BlockEntityType<BlockEntityCasingFormer>> casing_former = TILES.register("casing_former", () -> BlockEntityType.Builder.of(BlockEntityCasingFormer::new, TMWBlocks.casing_former).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityTipMolder>> tip_molder = TILES.register("tip_molder", () -> BlockEntityType.Builder.of(BlockEntityTipMolder::new, TMWBlocks.tip_molder).build(null));
 	public static final RegistryObject<BlockEntityType<BlockEntityGunInspector>> firearm_inspector = TILES.register("firearm_inspector", () -> BlockEntityType.Builder.of(BlockEntityGunInspector::new, TMWBlocks.firearm_inspector).build(null));
+	
+	public static final RegistryObject<BlockEntityType<BlockEntityAutomatedLoader>> automated_loader = TILES.register("automated_loader", () -> BlockEntityType.Builder.of(BlockEntityAutomatedLoader::new, TMWBlocks.automated_loader).build(null));
 }

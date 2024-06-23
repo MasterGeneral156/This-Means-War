@@ -50,6 +50,7 @@ public class NuMagazineItem extends AbstractModItem {
     
     public static int SLOT_AMMO = 0;
     public static int SLOT_CAP_UPGRADES = 1;
+    public static int SLOT_OVERFLOW = 2;
 
     public NuMagazineItem(AbstractBulletItem bulletRequired, int maxAmmoSize, TagKey<Item> compatMag) {
         super(new Properties().stacksTo(1));
@@ -90,7 +91,7 @@ public class NuMagazineItem extends AbstractModItem {
     public int getCurrentAmmo(ItemStack stack) {
         final int[] currentAmmo = {0};
         getInventory(stack).ifPresent(inv -> currentAmmo[0] = inv.getStackInSlot(SLOT_AMMO).getCount());
-        return currentAmmo[0];
+        return currentAmmo[0] + (getOverflow(stack) * 126);
     }
     
     public Item getCurrentAmmoItem(ItemStack stack) {
@@ -131,8 +132,19 @@ public class NuMagazineItem extends AbstractModItem {
     public void removeAmmoFromMag(ItemStack stack, int toRemove) {
         getInventory(stack).ifPresent(inventory -> {
             int currentAmmo = getCurrentAmmo(stack);
-            if ((currentAmmo - toRemove) >= 0)
-                inventory.extractItem(SLOT_AMMO, toRemove, false);
+            if ((currentAmmo - toRemove) >= 0) 
+            {
+            	TMWMain.debugLogger(currentAmmo - toRemove);
+            	TMWMain.debugLogger(126 * (getOverflow(stack) + 1));
+            	if ((currentAmmo - toRemove) > 127 * (getOverflow(stack)))	//hack because max stack is 127
+            		inventory.extractItem(SLOT_AMMO, toRemove, false);
+            	else
+            	{
+            		removeOverflow(stack);
+            		inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(127));
+            	}
+            }
+                
             saveInventory(stack);
         });
     }
@@ -154,6 +166,26 @@ public class NuMagazineItem extends AbstractModItem {
             saveInventory(stack);
         });
     }
+    
+    public void addOverflow(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.insertItem(SLOT_OVERFLOW, new ItemStack(TMWItems.creative_charm, 1), false);
+            saveInventory(stack);
+        });
+    }
+    
+    public int getOverflow(ItemStack stack) {
+        final int[] capacityUpgrades = {0};
+        getInventory(stack).ifPresent(inv -> capacityUpgrades[0] = inv.getStackInSlot(SLOT_OVERFLOW).getCount());
+        return capacityUpgrades[0];
+    }
+    
+    public void removeOverflow(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.extractItem(SLOT_OVERFLOW, 1, false);
+            saveInventory(stack);
+        });
+    }
 
     public void removeAmmoFromMag(ItemStack stack) {
         removeAmmoFromMag(stack, 1);
@@ -162,8 +194,17 @@ public class NuMagazineItem extends AbstractModItem {
     public void addAmmoToMag(ItemStack stack, int toAdd) {
         getInventory(stack).ifPresent(inventory -> {
             int currentAmmo = getCurrentAmmo(stack);
+    		
             if ((currentAmmo + toAdd) <= getMaxAmmo(stack))
-                inventory.insertItem(SLOT_AMMO, new ItemStack(bulletRequired, toAdd), false);
+            {
+            	if ((currentAmmo + toAdd) < 126 * (getOverflow(stack) + 1))	//hack because max stack is 127
+            		inventory.insertItem(SLOT_AMMO, new ItemStack(bulletRequired, toAdd), false);
+            	else
+            	{
+            		addOverflow(stack);
+            		inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(0));
+            	}
+            }
             saveInventory(stack);
         });
     }
@@ -210,8 +251,8 @@ public class NuMagazineItem extends AbstractModItem {
     }
     
     public int getBarColor(ItemStack stack) {
-        float stackMaxDamage = this.getMaxAmmo(stack);
-        float f = Math.max(0.0F, (stackMaxDamage - (float) (stackMaxDamage - this.getCurrentAmmo(stack))) / stackMaxDamage);
+        float stackMaxDamage = getMaxAmmo(stack);
+        float f = Math.max(0.0F, (stackMaxDamage - (float) (stackMaxDamage - getCurrentAmmo(stack))) / stackMaxDamage);
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 
@@ -312,7 +353,7 @@ public class NuMagazineItem extends AbstractModItem {
 	
 		public CustomItemHandler(ItemStack stack) 
 		{
-			super(2);
+			super(3);
 			this.stack = stack;
 			if (stack.hasTag() && stack.getTag().contains("Inventory"))
 				this.deserializeNBT(stack.getTag().getCompound("Inventory"));
@@ -342,7 +383,6 @@ public class NuMagazineItem extends AbstractModItem {
 			{
 			    CompoundTag tag = stack.getOrCreateTag();
 			    tag.put("Inventory", this.serializeNBT());
-				
 			}
 		}
 	}
@@ -401,6 +441,14 @@ public class NuMagazineItem extends AbstractModItem {
 		}
 		return returned;
 	   
+	}
+	
+	public TagKey<Item> getCompatMag()
+	{
+		if (compatMags != null)
+			return compatMags;
+		else
+			return null;
 	}
 }
 

@@ -37,6 +37,7 @@ public class TMWBlocks {
 	public static BlockAlloySmelter alloy_smelter = new BlockAlloySmelter();
 	public static BlockCasingFormer casing_former = new BlockCasingFormer();
 	public static BlockTipMolder tip_molder = new BlockTipMolder();
+	public static BlockAutomatedLoader automated_loader = new BlockAutomatedLoader();
 	
 	public static BlockFirearmInspector firearm_inspector = new BlockFirearmInspector();
 	

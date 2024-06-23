@@ -198,6 +198,7 @@ public class TMWMain
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.land_mine);
 			ev.accept(TMWItems.crusher);
+			ev.accept(TMWItems.automated_loader);
 			ev.accept(TMWItems.bullet_foundary);
 			ev.accept(TMWItems.factory_holder);
 			ev.accept(TMWItems.casing_former);

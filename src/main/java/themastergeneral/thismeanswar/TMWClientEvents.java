@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.menu.screen.AlloySmelterScreen;
+import themastergeneral.thismeanswar.menu.screen.AutomatedLoaderScreen;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
 import themastergeneral.thismeanswar.menu.screen.CrusherScreen;
 import themastergeneral.thismeanswar.menu.screen.FactoryHolderScreen;
@@ -51,6 +52,7 @@ public class TMWClientEvents
     		MenuScreens.register(TMWMenuRegistry.FORMER_MENU.get(), FormerScreen::new);
     		MenuScreens.register(TMWMenuRegistry.MOLDER_MENU.get(), MolderScreen::new);
     		MenuScreens.register(TMWMenuRegistry.GUN_INSPECTOR_MENU.get(), GunInspectorScreen::new);
+    		MenuScreens.register(TMWMenuRegistry.AUTOMATED_LOADER_MENU.get(), AutomatedLoaderScreen::new);
     	});
     }
     

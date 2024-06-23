@@ -14,6 +14,8 @@
 	"thismeanswar:primer_popper",
 	"thismeanswar:alloy_smelter",
 	"thismeanswar:crusher",
-	"thismeanswar:casing_former"
+	"thismeanswar:casing_former",
+	"thismeanswar:automated_loader",
+	"thismeanswar:firearm_inspector"
   ]
 }

@@ -385,6 +385,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_former = ITEMS.register("casing_former", () -> TMWItems.casing_former);
 	public static final RegistryObject<Item> tip_molder = ITEMS.register("tip_molder", () -> TMWItems.tip_molder);
 	public static final RegistryObject<Item> firearm_inspector = ITEMS.register("firearm_inspector", () -> TMWItems.firearm_inspector);
+	public static final RegistryObject<Item> automated_loader = ITEMS.register("automated_loader", () -> TMWItems.automated_loader);
 	
 	public static final RegistryObject<Item> supplies_ammo = ITEMS.register("supplies_ammo", () -> TMWItems.supplies_ammo);
 	public static final RegistryObject<Item> supplies_guns = ITEMS.register("supplies_guns", () -> TMWItems.supplies_guns);

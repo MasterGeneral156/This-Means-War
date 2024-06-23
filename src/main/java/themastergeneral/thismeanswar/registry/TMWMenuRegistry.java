@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.menu.AlloySmelterMenu;
+import themastergeneral.thismeanswar.menu.AutomatedLoaderMenu;
 import themastergeneral.thismeanswar.menu.CasingRecyclerMenu;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.menu.FactoryHolderMenu;
@@ -50,4 +51,7 @@ public class TMWMenuRegistry {
 	
 	public static final RegistryObject<MenuType<FirearmInspectorMenu>> GUN_INSPECTOR_MENU = CONTAINERS.register("inspector_menu",
 	        () -> IForgeMenuType.create((windowId, inv, data) -> new FirearmInspectorMenu(windowId, inv, data)));
+	
+	public static final RegistryObject<MenuType<AutomatedLoaderMenu>> AUTOMATED_LOADER_MENU = CONTAINERS.register("automated_loader_menu",
+	        () -> IForgeMenuType.create((windowId, inv, data) -> new AutomatedLoaderMenu(windowId, inv, data)));
 }

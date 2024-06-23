@@ -53,8 +53,8 @@ public class NuGunItem extends AbstractModItem {
 
     public int shotTime;
     protected int reloadTime;
-    protected NuMagazineItem magazine;
-    protected AbstractBulletItem bullet;
+    public NuMagazineItem magazine;
+    public AbstractBulletItem bullet;
     protected float damage;
     protected int baseAmmoSize;
     protected int maxAmmo;
@@ -70,6 +70,7 @@ public class NuGunItem extends AbstractModItem {
     public int SLOT_BAYONET = 1;
     public int SLOT_ROUND_UPGRADE = 2;
     public int SLOT_ROF_UPGRADE = 3;
+    public int SLOT_OVERFLOW = 4;
     
     protected double bayonetUpgradeLvl = 0.0;
     
@@ -154,14 +155,14 @@ public class NuGunItem extends AbstractModItem {
         }
     }
     
-    private void saveInventory(ItemStack stack) {
+    public void saveInventory(ItemStack stack) {
         getInventory(stack).ifPresent(inventory -> {
             CompoundTag tag = stack.getOrCreateTag();
             tag.put("Inventory", inventory.serializeNBT());
         });
     }
 
-    private LazyOptional<ItemStackHandler> getInventory(ItemStack stack) {
+    public LazyOptional<ItemStackHandler> getInventory(ItemStack stack) {
         return stack.getCapability(ForgeCapabilities.ITEM_HANDLER, null).cast();
     }
     
@@ -175,7 +176,7 @@ public class NuGunItem extends AbstractModItem {
         private final ItemStack stack;
 
         public CustomItemHandler(ItemStack stack) {
-            super(4);
+            super(5);
             this.stack = stack;
             if (stack.hasTag() && stack.getTag().contains("Inventory")) {
                 this.deserializeNBT(stack.getTag().getCompound("Inventory"));
@@ -259,12 +260,33 @@ public class NuGunItem extends AbstractModItem {
                     returned.set(mag.getCurrentAmmo(magStack));
                 }
             });
-        } else if (returnMagType() == Constants.internal_mag) {
+        } else if (returnMagType() == Constants.internal_mag) 
+        {
             getInventory(stack).ifPresent(inventory -> {
-            	returned.set(inventory.getStackInSlot(SLOT_MAG).getCount());
+            	returned.set(inventory.getStackInSlot(SLOT_MAG).getCount() + (getOverflow(stack) * 126));
             });
         }
         return returned.get();
+    }
+    
+    public int getOverflow(ItemStack stack) {
+        final int[] capacityUpgrades = {0};
+        getInventory(stack).ifPresent(inv -> capacityUpgrades[0] = inv.getStackInSlot(SLOT_OVERFLOW).getCount());
+        return capacityUpgrades[0];
+    }
+    
+    public void addOverflow(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.insertItem(SLOT_OVERFLOW, new ItemStack(TMWItems.creative_charm, 1), false);
+            saveInventory(stack);
+        });
+    }
+    
+    public void removeOverflow(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.extractItem(SLOT_OVERFLOW, 1, false);
+            saveInventory(stack);
+        });
     }
     
     public int getMaxAmmo(ItemStack stack) {
@@ -309,7 +331,18 @@ public class NuGunItem extends AbstractModItem {
     public void addInternalAmmo(ItemStack stack, ItemStack toAdd, int qtyToAdd)
     {
     	getInventory(stack).ifPresent(inventory -> {
-            inventory.insertItem(SLOT_ROUNDS, toAdd.copyWithCount(qtyToAdd), false);
+        	int currentAmmo = getAmmoStack(stack).getCount();
+    		
+            if ((currentAmmo + qtyToAdd) <= getMaxAmmo(stack))
+            {
+            	if ((currentAmmo + qtyToAdd) < 126 * (getOverflow(stack) + 1))	//hack because max stack is 127
+            		inventory.insertItem(SLOT_ROUNDS, toAdd.copyWithCount(qtyToAdd), false);
+            	else
+            	{
+            		addOverflow(stack);
+            		inventory.setStackInSlot(SLOT_ROUNDS, inventory.getStackInSlot(SLOT_ROUNDS).copyWithCount(0));
+            	}
+            }
             saveInventory(stack); // Save state after change
         });
     }
@@ -435,14 +468,14 @@ public class NuGunItem extends AbstractModItem {
                     inventory.insertItem(SLOT_MAG, itemstack2.copy(), false);
                     playerIn.getInventory().removeItem(slotID, 1);
                     saveInventory(gun); // Save inventory state here
-                    playerIn.getCooldowns().addCooldown(this.asItem(), reloadTime);
+                    playerIn.getCooldowns().addCooldown(this.asItem(), getReloadTime(gun));
                     playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_loaded"), true);
                 }
             } else {
                 playerIn.getInventory().add(inventory.getStackInSlot(SLOT_MAG));
                 inventory.extractItem(SLOT_MAG, 1, false);
                 saveInventory(gun); // Save inventory state here
-                playerIn.getCooldowns().addCooldown(this.asItem(), reloadTime);
+                playerIn.getCooldowns().addCooldown(this.asItem(), getReloadTime(gun));
                 playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_unloaded"), true);
             }
         });
@@ -559,6 +592,18 @@ public class NuGunItem extends AbstractModItem {
 			tooltip.add(bulletDmgString);
 			if (Screen.hasControlDown())
 			{
+				String colorFormat4 = "";
+				if (getReloadTime(stack) > this.reloadTime)
+					colorFormat4 = "§4";
+				else if (getReloadTime(stack) < this.reloadTime)
+					colorFormat4 = "§2";
+				if (this.reloadTime > 0)
+				{
+					MutableComponent bulletSprdString = ModUtils.displayTranslation("thismeanswar.firearm_reload_time");
+					bulletSprdString = bulletSprdString.append(colorFormat4 + formatter.format(getReloadTime(stack)));
+					tooltip.add(bulletSprdString);
+				}
+				
 				String colorFormat2 = "";
 				if (getBulletSpread(stack) > this.bulletSpread)
 					colorFormat2 = "§4";
@@ -706,5 +751,16 @@ public class NuGunItem extends AbstractModItem {
 					player.getPersistentData().remove("fovModifier");
 			}
     	}
+    }
+    
+    public int getReloadTime(ItemStack stack)
+    {
+    	int returned = reloadTime;
+    	if (returnMagType() == Constants.external_mag)
+    	{
+    		if ((getMagazineStack(stack).getItem() != magazine.asItem()) && (getMagazineStack(stack) != ItemStack.EMPTY))
+    			returned *= 1.3;
+    	}
+    	return returned;
     }
 }

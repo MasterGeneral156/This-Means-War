@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+	  "name": "thismeanswar:automated_loader",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "thismeanswar:automated_loader"
+        }
+      ]
+    }
+  ]
+}

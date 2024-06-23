@@ -21,4 +21,5 @@ public class TMWBlockEntities {
 	public static final BlockEntityType<BlockEntityCasingFormer> CASING_FORMER = BlockEntityType.Builder.of(BlockEntityCasingFormer::new, TMWBlocks.casing_former).build(null);
 	public static final BlockEntityType<BlockEntityTipMolder> TIP_MOLDER = BlockEntityType.Builder.of(BlockEntityTipMolder::new, TMWBlocks.tip_molder).build(null);
 	public static final BlockEntityType<BlockEntityGunInspector> FIREARM_INSPECTOR = BlockEntityType.Builder.of(BlockEntityGunInspector::new, TMWBlocks.firearm_inspector).build(null);
+	public static final BlockEntityType<BlockEntityAutomatedLoader> AUTOMATED_LOADER = BlockEntityType.Builder.of(BlockEntityAutomatedLoader::new, TMWBlocks.automated_loader).build(null);
 }

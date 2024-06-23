@@ -52,6 +52,7 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> casing_former = BLOCKS.register("casing_former", () ->TMWBlocks.casing_former);
 	public static final RegistryObject<Block> tip_molder = BLOCKS.register("tip_molder", () ->TMWBlocks.tip_molder);
 	public static final RegistryObject<Block> firearm_inspector = BLOCKS.register("firearm_inspector", () ->TMWBlocks.firearm_inspector);
+	public static final RegistryObject<Block> automated_loader = BLOCKS.register("automated_loader", () ->TMWBlocks.automated_loader);
 	
 	public static final RegistryObject<Block> supplies_ammo = BLOCKS.register("supplies_ammo", () ->TMWBlocks.supplies_ammo);
 	public static final RegistryObject<Block> supplies_guns = BLOCKS.register("supplies_guns", () ->TMWBlocks.supplies_guns);
