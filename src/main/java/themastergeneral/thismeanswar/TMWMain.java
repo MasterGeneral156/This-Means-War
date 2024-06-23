@@ -169,6 +169,7 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_556_large);
 			ev.accept(TMWItems.magazine_556_clip);
 			ev.accept(TMWItems.magazine_g36);
+			ev.accept(TMWItems.magazine_g36_large);
 			
 			ev.accept(TMWItems.magazine_dragunov);
 			
@@ -191,6 +192,9 @@ public class TMWMain
 			ev.accept(TMWItems.medic_box);
 			ev.accept(TMWItems.medic_box_medium);
 			ev.accept(TMWItems.medic_box_large);
+			ev.accept(TMWItems.supplies_ammo);
+			ev.accept(TMWItems.supplies_guns);
+			ev.accept(TMWItems.supplies_mags);
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.land_mine);
 			ev.accept(TMWItems.crusher);

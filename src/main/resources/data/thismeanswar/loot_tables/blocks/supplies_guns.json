@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"name": "thismeanswar:supplies_guns",
+			"rolls": 3,
+			"bonus_rolls": {
+				"min": 1,
+				"max": 2
+			},
+			"entries": [
+				{
+					"type": "minecraft:tag",
+					"name": "thismeanswar:guns",
+					"expand": true
+				}
+			]
+		}
+	]
+}

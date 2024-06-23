@@ -8,6 +8,10 @@ public class TMWBlocks {
 	public static BlockMetal block_steel = new BlockMetal();
 	public static BlockMetal block_brass = new BlockMetal();
 	
+	public static SupplyBlock supplies_ammo = new SupplyBlock();
+	public static SupplyBlock supplies_guns = new SupplyBlock();
+	public static SupplyBlock supplies_mags = new SupplyBlock();
+	
 	public static RedTeamBlock red_stone_bricks = new RedTeamBlock();
 	public static BlueTeamBlock blue_stone_bricks = new BlueTeamBlock();
 	public static RedTeamBlock red_chiseled_bricks = new RedTeamBlock();

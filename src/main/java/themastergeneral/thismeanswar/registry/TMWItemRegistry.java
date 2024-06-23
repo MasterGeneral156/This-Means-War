@@ -48,6 +48,7 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> magazine_m1911 = ITEMS.register("magazine_m1911", () -> TMWItems.magazine_m1911);
 	public static final RegistryObject<Item> magazine_m1911_large = ITEMS.register("magazine_m1911_large", () -> TMWItems.magazine_m1911_large);
 	public static final RegistryObject<Item> magazine_g36 = ITEMS.register("magazine_g36", () -> TMWItems.magazine_g36);
+	public static final RegistryObject<Item> magazine_g36_large = ITEMS.register("magazine_g36_large", () -> TMWItems.magazine_g36_large);
 	public static final RegistryObject<Item> energy_cell = ITEMS.register("energy_cell", () -> TMWItems.energy_cell);
 	
 	public static final RegistryObject<Item> magazine_45_clip = ITEMS.register("magazine_45_clip", () -> TMWItems.magazine_45_clip);
@@ -384,4 +385,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> casing_former = ITEMS.register("casing_former", () -> TMWItems.casing_former);
 	public static final RegistryObject<Item> tip_molder = ITEMS.register("tip_molder", () -> TMWItems.tip_molder);
 	public static final RegistryObject<Item> firearm_inspector = ITEMS.register("firearm_inspector", () -> TMWItems.firearm_inspector);
+	
+	public static final RegistryObject<Item> supplies_ammo = ITEMS.register("supplies_ammo", () -> TMWItems.supplies_ammo);
+	public static final RegistryObject<Item> supplies_guns = ITEMS.register("supplies_guns", () -> TMWItems.supplies_guns);
+	public static final RegistryObject<Item> supplies_mags = ITEMS.register("supplies_mags", () -> TMWItems.supplies_mags);
 }

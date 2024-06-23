@@ -89,6 +89,7 @@ public class TMWItems {
 	public static NuMagazineItem magazine_m1911 = new NuMagazineItem(round_45, Constants.magSize1911);
 	public static NuMagazineItem magazine_m1911_large = new NuMagazineItem(round_45, Constants.magSize1911 * 2);
 	public static NuMagazineItem magazine_g36 = new NuMagazineItem(round_556, Constants.magSizeG36);
+	public static NuMagazineItem magazine_g36_large = new NuMagazineItem(round_556, Constants.magSizeG36*2);
 	public static NuMagazineItem energy_cell = new NuMagazineItem(energy_bolt, Constants.magSizeEnergyCell, TMWTags.magsEnergy);
 	
 	public static NuMagazineItem magazine_45_clip = new NuMagazineItem(round_45, Constants.magSizeClips);
@@ -324,4 +325,8 @@ public class TMWItems {
 	public static AbstractBlockItem tip_molder = new AbstractBlockItem(TMWBlocks.tip_molder);
 	public static AbstractBlockItem firearm_inspector = new AbstractBlockItem(TMWBlocks.firearm_inspector);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
+	
+	public static AbstractBlockItem supplies_ammo = new AbstractBlockItem(TMWBlocks.supplies_ammo);
+	public static AbstractBlockItem supplies_guns = new AbstractBlockItem(TMWBlocks.supplies_guns);
+	public static AbstractBlockItem supplies_mags = new AbstractBlockItem(TMWBlocks.supplies_mags);
 }

@@ -23,6 +23,7 @@
 	"item.thismeanswar.magazine_m1911": "M1911 Magazine",
 	"item.thismeanswar.magazine_m1911_large": "M1911 Stick Magazine",
 	"item.thismeanswar.magazine_g36": "G36 Magazine",
+	"item.thismeanswar.magazine_g36_large": "G36 Double Magazine",
 	"item.thismeanswar.magazine_dragunov": "Dragunov Magazine",
 	
 	"item.thismeanswar.magazine_45_clip": ".45ACP Clip",
@@ -222,6 +223,10 @@
 	"block.thismeanswar.block_lead": "Block of Lead",
 	"block.thismeanswar.block_brass": "Block of Brass",
 	"block.thismeanswar.block_steel": "Block of Steel",
+	
+	"block.thismeanswar.supplies_ammo": "Ammo Supply Crate",
+	"block.thismeanswar.supplies_guns": "Firearm Supply Crate",
+	"block.thismeanswar.supplies_mags": "Magazine Supply Crate",
 	
 	"block.thismeanswar.blue_stone_bricks": "§1Stone Bricks",
 	"block.thismeanswar.red_stone_bricks": "§4Stone Bricks",
