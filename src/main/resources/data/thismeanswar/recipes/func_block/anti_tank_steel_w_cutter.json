@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IH"
+    ],
+    "key": {
+		"I": { "tag": "forge:storage_blocks/steel" },
+		"H": { "tag": "thismeanswar:tools/cutter", "data": 32767 }
+    },
+    "result": {
+        "item": "thismeanswar:anti_tank_steel",
+		"count": 2
+    }
+}

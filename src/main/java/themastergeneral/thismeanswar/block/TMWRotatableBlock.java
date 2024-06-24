@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -21,6 +22,11 @@ public class TMWRotatableBlock extends Block {
 		super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(3.5F).mapColor(MapColor.STONE).lightLevel((p_50763_) -> {
 	         return p_50763_.getValue(BlockStateProperties.LIT) ? 13 : 0;
 	      }).requiresCorrectToolForDrops());
+		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false).setValue(FACING, Direction.NORTH));
+	}
+	
+	public TMWRotatableBlock(Properties prop) {
+		super(prop);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.LIT, false).setValue(FACING, Direction.NORTH));
 	}
 	

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/anti_tank_brass",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/anti_tank_brass"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/anti_tank_brass",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/anti_tank_brass",
+      "y": 270
+    }
+  }
+}

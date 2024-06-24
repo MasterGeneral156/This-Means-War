@@ -10,21 +10,9 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.Vec3;
 
-public class BlockBarbedWire extends AbstractTMWBlock {
+public class BlockBarbedWire extends TMWRotatableBlock {
 
 	protected float dmg;
-	public BlockBarbedWire() 
-	{
-		super(BlockBehaviour.Properties.of()
-				.sound(SoundType.WOOD)
-				.mapColor(MapColor.METAL)
-				.forceSolidOn()
-				.noCollission()
-				.requiresCorrectToolForDrops()
-				.strength(4.0F)
-				.pushReaction(PushReaction.DESTROY));
-		this.dmg = 2.85F;
-	}
 	
 	public BlockBarbedWire(float damage) 
 	{

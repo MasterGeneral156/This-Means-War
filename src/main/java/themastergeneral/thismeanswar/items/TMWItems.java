@@ -312,8 +312,8 @@ public class TMWItems {
 	public static AbstractBlockItem medic_box = new AbstractBlockItem(TMWBlocks.medic_box);
 	public static AbstractBlockItem medic_box_medium = new AbstractBlockItem(TMWBlocks.medic_box_medium);
 	public static AbstractBlockItem medic_box_large = new AbstractBlockItem(TMWBlocks.medic_box_large);
+	
 	public static AbstractBlockItem crusher = new AbstractBlockItem(TMWBlocks.crusher);
-	public static AbstractBlockItem barbed_wire = new AbstractBlockItem(TMWBlocks.barbed_wire);
 	public static AbstractBlockItem bullet_foundary = new AbstractBlockItem(TMWBlocks.bullet_foundary);
 	public static AbstractBlockItem casing_recycler = new AbstractBlockItem(TMWBlocks.casing_recycler);
 	public static AbstractBlockItem tip_recycler = new AbstractBlockItem(TMWBlocks.tip_recycler);
@@ -325,6 +325,12 @@ public class TMWItems {
 	public static AbstractBlockItem tip_molder = new AbstractBlockItem(TMWBlocks.tip_molder);
 	public static AbstractBlockItem firearm_inspector = new AbstractBlockItem(TMWBlocks.firearm_inspector);
 	public static AbstractBlockItem automated_loader = new AbstractBlockItem(TMWBlocks.automated_loader);
+	
+	public static AbstractBlockItem barbed_wire = new AbstractBlockItem(TMWBlocks.barbed_wire);
+	public static AbstractBlockItem anti_tank_wooden = new AbstractBlockItem(TMWBlocks.anti_tank_wooden);
+	public static AbstractBlockItem anti_tank_brass = new AbstractBlockItem(TMWBlocks.anti_tank_brass);
+	public static AbstractBlockItem anti_tank_lead = new AbstractBlockItem(TMWBlocks.anti_tank_lead);
+	public static AbstractBlockItem anti_tank_steel = new AbstractBlockItem(TMWBlocks.anti_tank_steel);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 	
 	public static AbstractBlockItem supplies_ammo = new AbstractBlockItem(TMWBlocks.supplies_ammo);

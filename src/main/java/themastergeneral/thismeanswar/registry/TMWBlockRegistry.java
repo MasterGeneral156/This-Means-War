@@ -40,6 +40,10 @@ public class TMWBlockRegistry {
 	
 	public static final RegistryObject<Block> barbed_wire = BLOCKS.register("barbed_wire", () ->TMWBlocks.barbed_wire);
 	public static final RegistryObject<Block> land_mine = BLOCKS.register("land_mine", () ->TMWBlocks.land_mine);
+	public static final RegistryObject<Block> anti_tank_wooden = BLOCKS.register("anti_tank_wooden", () ->TMWBlocks.anti_tank_wooden);
+	public static final RegistryObject<Block> anti_tank_steel = BLOCKS.register("anti_tank_steel", () ->TMWBlocks.anti_tank_steel);
+	public static final RegistryObject<Block> anti_tank_lead = BLOCKS.register("anti_tank_lead", () ->TMWBlocks.anti_tank_lead);
+	public static final RegistryObject<Block> anti_tank_brass = BLOCKS.register("anti_tank_brass", () ->TMWBlocks.anti_tank_brass);
 	
 	public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 	public static final RegistryObject<Block> bullet_foundary = BLOCKS.register("bullet_foundary", () ->TMWBlocks.bullet_foundary);

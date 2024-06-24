@@ -25,7 +25,11 @@ public class TMWBlocks {
 	public static BlockMedicBox medic_box_medium = new BlockMedicBox(2048F);
 	public static BlockMedicBox medic_box_large = new BlockMedicBox(4096F);
 	
-	public static BlockBarbedWire barbed_wire = new BlockBarbedWire();
+	public static BlockBarbedWire barbed_wire = new BlockBarbedWire(1.25F);
+	public static BlockBarbedWire anti_tank_wooden = new BlockBarbedWire(2.75F);
+	public static BlockBarbedWire anti_tank_brass = new BlockBarbedWire(5.5F);
+	public static BlockBarbedWire anti_tank_lead = new BlockBarbedWire(8.75F);
+	public static BlockBarbedWire anti_tank_steel = new BlockBarbedWire(13.75F);
 	
 	public static BlockCrusher crusher = new BlockCrusher();
 	public static BlockFoundary bullet_foundary = new BlockFoundary();

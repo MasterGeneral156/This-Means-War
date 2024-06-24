@@ -189,14 +189,22 @@ public class TMWMain
 			ev.accept(TMWItems.ammo_box);
 			ev.accept(TMWItems.ammo_box_medium);
 			ev.accept(TMWItems.ammo_box_large);
+			
 			ev.accept(TMWItems.medic_box);
 			ev.accept(TMWItems.medic_box_medium);
 			ev.accept(TMWItems.medic_box_large);
+			
 			ev.accept(TMWItems.supplies_ammo);
 			ev.accept(TMWItems.supplies_guns);
 			ev.accept(TMWItems.supplies_mags);
+			
 			ev.accept(TMWItems.barbed_wire);
+			ev.accept(TMWItems.anti_tank_wooden);
+			ev.accept(TMWItems.anti_tank_brass);
+			ev.accept(TMWItems.anti_tank_lead);
+			ev.accept(TMWItems.anti_tank_steel);
 			ev.accept(TMWItems.land_mine);
+			
 			ev.accept(TMWItems.crusher);
 			ev.accept(TMWItems.automated_loader);
 			ev.accept(TMWItems.bullet_foundary);

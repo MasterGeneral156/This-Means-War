@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/anti_tank_steel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/anti_tank_steel"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/anti_tank_steel",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/anti_tank_steel",
+      "y": 270
+    }
+  }
+}

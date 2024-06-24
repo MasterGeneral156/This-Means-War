@@ -295,8 +295,14 @@
 	"block.thismeanswar.medic_box": "Small Medical Container",
 	"block.thismeanswar.medic_box_medium": "Medium Medical Container",
 	"block.thismeanswar.medic_box_large": "Large Medical Container",
+	
 	"block.thismeanswar.barbed_wire": "Barbed Wire",
 	"block.thismeanswar.land_mine": "Land Mine",
+	"block.thismeanswar.anti_tank_wooden": "Wooden Tank Obstacle",
+	"block.thismeanswar.anti_tank_steel": "Steel Tank Obstacle",
+	"block.thismeanswar.anti_tank_lead": "Lead Tank Obstacle",
+	"block.thismeanswar.anti_tank_brass": "Brass Tank Obstacle",
+	
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.factory_holder": "Factory Holder",
 	"block.thismeanswar.bullet_foundary": "Bullet Foundary",

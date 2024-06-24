@@ -1,5 +1,19 @@
 {
-    "variants": {
-        "": { "model": "thismeanswar:block/barbed_wire" }
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/barbed_wire",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/barbed_wire"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/barbed_wire",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/barbed_wire",
+      "y": 270
     }
+  }
 }

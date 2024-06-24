@@ -372,6 +372,10 @@ public class TMWItemRegistry {
 	
 	public static final RegistryObject<Item> barbed_wire = ITEMS.register("barbed_wire", () -> TMWItems.barbed_wire);
 	public static final RegistryObject<Item> land_mine = ITEMS.register("land_mine", () -> TMWItems.land_mine);
+	public static final RegistryObject<Item> anti_tank_wooden = ITEMS.register("anti_tank_wooden", () -> TMWItems.anti_tank_wooden);
+	public static final RegistryObject<Item> anti_tank_lead = ITEMS.register("anti_tank_lead", () -> TMWItems.anti_tank_lead);
+	public static final RegistryObject<Item> anti_tank_steel = ITEMS.register("anti_tank_steel", () -> TMWItems.anti_tank_steel);
+	public static final RegistryObject<Item> anti_tank_brass = ITEMS.register("anti_tank_brass", () -> TMWItems.anti_tank_brass);
 	
 	//Processing
 	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);

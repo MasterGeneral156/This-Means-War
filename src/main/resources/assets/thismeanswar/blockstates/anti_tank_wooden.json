@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/anti_tank_wooden",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/anti_tank_wooden"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/anti_tank_wooden",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/anti_tank_wooden",
+      "y": 270
+    }
+  }
+}
