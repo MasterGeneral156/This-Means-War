@@ -32,6 +32,8 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
+			property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
@@ -125,7 +127,9 @@ dependencies {
 	implementation fg.deobf('curse.maven:ctd-core-' + project.property('ctd_core_ver'))
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-common-api:" + project.property('jei_ver'))
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge-api:" + project.property('jei_ver'))
+	compileOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('patchouli_ver') + ":api")
 	
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('patchouli_ver'))
 	runtimeOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge:" + project.property('jei_ver'))
 }
 
