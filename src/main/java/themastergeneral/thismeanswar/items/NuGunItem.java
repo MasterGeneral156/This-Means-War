@@ -746,13 +746,10 @@ public class NuGunItem extends AbstractModItem {
     	ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
     	if (tagManager.getTag(TMWTags.snipers).contains(stack.getItem()))
     	{
-			if (player.getCommandSenderWorld().isClientSide())
-			{
-				if (Screen.hasAltDown())
-					player.getPersistentData().putFloat("fovModifier", 0.75F);
-				else
-					player.getPersistentData().remove("fovModifier");
-			}
+			if (Screen.hasAltDown())
+				player.getPersistentData().putFloat("fovModifier", 0.75F);
+			else
+				player.getPersistentData().remove("fovModifier");
     	}
     }
     
