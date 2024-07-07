@@ -19,6 +19,12 @@ public class TMWTabs {
             .icon(() -> TMWItems.ammo_box.getDefaultInstance())
             .title(Component.translatable("itemGroup.thismeanswar"))
             .build());
+
+	public static final RegistryObject<CreativeModeTab> TOOL_TAB = CREATIVE_MODE_TABS.register("tmw_tools", () -> CreativeModeTab.builder()
+			.withTabsBefore(MAIN_TAB.getKey())
+			.icon(() -> TMWItems.hammer_creative.getDefaultInstance())
+			.title(Component.translatable("itemGroup.thismeanswar.tools"))
+			.build());
 	
 	public static final RegistryObject<CreativeModeTab> AMMO_TAB = CREATIVE_MODE_TABS.register("tmw_ammo", () -> CreativeModeTab.builder()
 			.icon(() -> TMWItems.magazine_556.getDefaultInstance())

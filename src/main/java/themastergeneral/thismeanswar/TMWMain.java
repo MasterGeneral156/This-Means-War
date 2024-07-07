@@ -127,6 +127,53 @@ public class TMWMain
 			ev.accept(TMWItems.bayonet_netherrite);
 			ev.accept(TMWItems.bayonet_creative);
     	}
+		if (ev.getTab() == TMWTabs.TOOL_TAB.get())
+		{
+			ev.accept(TMWItems.hammer_wood);
+			ev.accept(TMWItems.hammer_stone);
+			ev.accept(TMWItems.hammer_gold);
+			ev.accept(TMWItems.hammer_iron);
+			ev.accept(TMWItems.hammer_steel);
+			ev.accept(TMWItems.hammer_diamond);
+			ev.accept(TMWItems.hammer_emerald);
+			ev.accept(TMWItems.hammer_netherite);
+			ev.accept(TMWItems.hammer_creative);
+			ev.accept(TMWItems.cutter_iron);
+			ev.accept(TMWItems.cutter_steel);
+			ev.accept(TMWItems.cutter_diamond);
+			ev.accept(TMWItems.cutter_creative);
+			ev.accept(TMWItems.hand_saw);
+			ev.accept(TMWItems.creative_hand_saw);
+
+			ev.accept(TMWItems.bullet_cast_223);
+			ev.accept(TMWItems.creative_bullet_cast_223);
+			ev.accept(TMWItems.bullet_cast_556);
+			ev.accept(TMWItems.creative_bullet_cast_556);
+			ev.accept(TMWItems.bullet_cast_9mm);
+			ev.accept(TMWItems.creative_bullet_cast_9mm);
+			ev.accept(TMWItems.bullet_cast_45);
+			ev.accept(TMWItems.creative_bullet_cast_45);
+			ev.accept(TMWItems.bullet_cast_38spec);
+			ev.accept(TMWItems.creative_bullet_cast_38spec);
+			ev.accept(TMWItems.bullet_cast_762);
+			ev.accept(TMWItems.creative_bullet_cast_762);
+			ev.accept(TMWItems.bullet_cast_12g);
+			ev.accept(TMWItems.creative_bullet_cast_12g);
+			ev.accept(TMWItems.casing_cast_223);
+			ev.accept(TMWItems.creative_casing_cast_223);
+			ev.accept(TMWItems.casing_cast_556);
+			ev.accept(TMWItems.creative_casing_cast_556);
+			ev.accept(TMWItems.casing_cast_9mm);
+			ev.accept(TMWItems.creative_casing_cast_9mm);
+			ev.accept(TMWItems.casing_cast_45);
+			ev.accept(TMWItems.creative_casing_cast_45);
+			ev.accept(TMWItems.casing_cast_38spec);
+			ev.accept(TMWItems.creative_casing_cast_38spec);
+			ev.accept(TMWItems.casing_cast_762);
+			ev.accept(TMWItems.creative_casing_cast_762);
+			ev.accept(TMWItems.casing_cast_12g);
+			ev.accept(TMWItems.creative_casing_cast_12g);
+		}
     	if (ev.getTab() == TMWTabs.AMMO_TAB.get())
     	{
     		ev.accept(TMWItems.round_12g);
@@ -183,6 +230,8 @@ public class TMWMain
 			ev.accept(TMWItems.mag_capacity_upgrade_t2);
 			ev.accept(TMWItems.mag_capacity_upgrade_t3);
 			ev.accept(TMWItems.creative_mag_capacity_upgrade);
+
+			ev.accept(TMWItems.creative_charm);
     	}
 		if (ev.getTab() == TMWTabs.MAIN_TAB.get())
 		{	
@@ -234,45 +283,11 @@ public class TMWMain
 			ev.accept(TMWThrowables.smoke_grenade_red);
 			ev.accept(TMWThrowables.smoke_grenade_orange);
 			
-			ev.accept(TMWItems.creative_charm);
-			
 			ev.accept(TMWItems.bandage);
 			ev.accept(TMWItems.gauze);
 			ev.accept(TMWItems.medic_kit);
 			
 			ev.accept(TMWItems.mre);
-			
-			ev.accept(TMWItems.hammer_wood);
-			ev.accept(TMWItems.hammer_stone);
-			ev.accept(TMWItems.hammer_gold);
-			ev.accept(TMWItems.hammer_iron);
-			ev.accept(TMWItems.hammer_steel);
-			ev.accept(TMWItems.hammer_diamond);
-			ev.accept(TMWItems.hammer_emerald);
-			ev.accept(TMWItems.hammer_netherite);
-			ev.accept(TMWItems.hammer_creative);
-			ev.accept(TMWItems.cutter_iron);
-			ev.accept(TMWItems.cutter_steel);
-			ev.accept(TMWItems.cutter_diamond);
-			ev.accept(TMWItems.cutter_creative);
-			ev.accept(TMWItems.hand_saw);
-			ev.accept(TMWItems.creative_hand_saw);
-			
-			ev.accept(TMWItems.bullet_cast_223);
-			ev.accept(TMWItems.creative_bullet_cast_223);
-			ev.accept(TMWItems.bullet_cast_556);
-			ev.accept(TMWItems.creative_bullet_cast_556);
-			ev.accept(TMWItems.bullet_cast_9mm);
-			ev.accept(TMWItems.creative_bullet_cast_9mm);
-			ev.accept(TMWItems.bullet_cast_45);
-			ev.accept(TMWItems.creative_bullet_cast_45);
-			ev.accept(TMWItems.bullet_cast_38spec);
-			ev.accept(TMWItems.creative_bullet_cast_38spec);
-			ev.accept(TMWItems.bullet_cast_762);
-			ev.accept(TMWItems.creative_bullet_cast_762);
-			ev.accept(TMWItems.bullet_cast_12g);
-			ev.accept(TMWItems.creative_bullet_cast_12g);
-			
 			
 			ev.accept(TMWItems.bullet_tip_223);
 			ev.accept(TMWItems.bullet_tip_556);
@@ -281,21 +296,6 @@ public class TMWMain
 			ev.accept(TMWItems.bullet_tip_38spec);
 			ev.accept(TMWItems.bullet_tip_762);
 			ev.accept(TMWItems.bullet_tip_buckshot);
-			
-			ev.accept(TMWItems.casing_cast_223);
-			ev.accept(TMWItems.creative_casing_cast_223);
-			ev.accept(TMWItems.casing_cast_556);
-			ev.accept(TMWItems.creative_casing_cast_556);
-			ev.accept(TMWItems.casing_cast_9mm);
-			ev.accept(TMWItems.creative_casing_cast_9mm);
-			ev.accept(TMWItems.casing_cast_45);
-			ev.accept(TMWItems.creative_casing_cast_45);
-			ev.accept(TMWItems.casing_cast_38spec);
-			ev.accept(TMWItems.creative_casing_cast_38spec);
-			ev.accept(TMWItems.casing_cast_762);
-			ev.accept(TMWItems.creative_casing_cast_762);
-			ev.accept(TMWItems.casing_cast_12g);
-			ev.accept(TMWItems.creative_casing_cast_12g);
 			
 			ev.accept(TMWItems.casing_223);
 			ev.accept(TMWItems.casing_556);

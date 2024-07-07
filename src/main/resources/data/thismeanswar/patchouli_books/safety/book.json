@@ -2,7 +2,7 @@
 	"name": "Firearm Safety",
 	"landing_text": "This book is your guide to safety while using firearms. They are very deadly tools, similar to that of like a saw or a car.",
 	"version": 101,
-	"creative_tab": "thismeanswar",
+	"creative_tab": "minecraft:tools_and_utilities",
 	"show_progress": false,
 	"show_toasts": false
 }
