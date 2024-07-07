@@ -1,0 +1,10 @@
+{
+  "type": "thismeanswar:press",
+  "base": 
+  {
+    "item": "minecraft:netherite_sword", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bayonet_netherite", "count": 1
+  }
+}

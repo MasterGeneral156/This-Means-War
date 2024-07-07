@@ -1,0 +1,10 @@
+{
+  "type": "thismeanswar:press",
+  "base": 
+  {
+    "item": "minecraft:diamond_sword", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bayonet_diamond", "count": 1
+  }
+}

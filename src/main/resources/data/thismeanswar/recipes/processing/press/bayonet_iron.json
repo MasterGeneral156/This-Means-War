@@ -1,0 +1,10 @@
+{
+  "type": "thismeanswar:press",
+  "base": 
+  {
+    "item": "minecraft:iron_sword", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bayonet_iron", "count": 1
+  }
+}
