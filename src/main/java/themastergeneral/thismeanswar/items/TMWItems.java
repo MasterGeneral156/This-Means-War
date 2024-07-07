@@ -80,11 +80,13 @@ public class TMWItems {
 	public static NuMagazineItem magazine_556 = new NuMagazineItem(round_556, Constants.magSizeAR15, TMWTags.mags556);
 	public static NuMagazineItem magazine_556_large = new NuMagazineItem(round_556, Constants.magSizeAR15*2, TMWTags.mags556);
 	public static NuMagazineItem magazine_556_clip = new NuMagazineItem(round_556, Constants.magSizeClips);
-	
+	public static NuMagazineItem magazine_556_box = new NuMagazineItem(round_556, (int) Math.round(Constants.magSizeAR15 * 3.75));
+
 	public static NuMagazineItem magazine_223 = new NuMagazineItem(round_223, Constants.magSizeAR15, TMWTags.mags223);
 	public static NuMagazineItem magazine_223_large = new NuMagazineItem(round_223, Constants.magSizeAR15*2, TMWTags.mags223);
 	public static NuMagazineItem magazine_223_clip = new NuMagazineItem(round_223, Constants.magSizeClips);
-	
+	public static NuMagazineItem magazine_223_box = new NuMagazineItem(round_223, (int) Math.round(Constants.magSizeAR15 * 3.75));
+
 	public static NuMagazineItem magazine_dragunov = new NuMagazineItem(round_762, Constants.magSizeDragunov);
 	public static NuMagazineItem magazine_m1911 = new NuMagazineItem(round_45, Constants.magSize1911);
 	public static NuMagazineItem magazine_m1911_large = new NuMagazineItem(round_45, Constants.magSize1911 * 2);

@@ -37,7 +37,7 @@ public class TMWMain
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
     public static String MODID = "thismeanswar";
-    public static boolean debugEnabled = true;
+    public static boolean debugEnabled = false;
 
     public TMWMain() {
     	IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -211,10 +211,12 @@ public class TMWMain
 			ev.accept(TMWItems.magazine_223);
 			ev.accept(TMWItems.magazine_223_large);
 			ev.accept(TMWItems.magazine_223_clip);
+			ev.accept(TMWItems.magazine_223_box);
 			
 			ev.accept(TMWItems.magazine_556);
 			ev.accept(TMWItems.magazine_556_large);
 			ev.accept(TMWItems.magazine_556_clip);
+			ev.accept(TMWItems.magazine_556_box);
 			ev.accept(TMWItems.magazine_g36);
 			ev.accept(TMWItems.magazine_g36_large);
 			
