@@ -30,8 +30,13 @@ public class DurabilityItem extends CTDDurabilityItem {
 	{
 		if (stack.isDamageableItem())
 			if (Screen.hasShiftDown())
-				tooltip.add(ModUtils.displayString("Durability: " + this.getDamage(stack) + " / " + this.getMaxDamage(stack)));
+				tooltip.add(ModUtils.displayString("Durability: " + this.remainingDamage(stack) + " / " + this.getMaxDamage(stack)));
 			else
-				tooltip.add(ModUtils.displayString("Durability: " + ModUtils.returnShortenedNumber(this.getDamage(stack)) + " / " + ModUtils.returnShortenedNumber(this.getMaxDamage(stack))));
+				tooltip.add(ModUtils.displayString("Durability: " + ModUtils.returnShortenedNumber(this.remainingDamage(stack)) + " / " + ModUtils.returnShortenedNumber(this.getMaxDamage(stack))));
+	}
+
+	protected int remainingDamage(ItemStack stack)
+	{
+		return stack.getMaxDamage() - stack.getDamageValue();
 	}
 }
