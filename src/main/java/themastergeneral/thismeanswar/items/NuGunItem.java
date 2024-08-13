@@ -392,9 +392,10 @@ public class NuGunItem extends AbstractModItem {
 		        }
 		        else
 		        {
-		        	if (canFire(gun))
+		        	if (canFire(gun, player))
 		        	{
-		        		fireRoundLogic(gun);
+                        if (!player.isCreative())
+		        		    fireRoundLogic(gun);
 		        		BulletBaseEntity bulletEntity = new BulletBaseEntity(world, player, getBulletDamage(gun), bullet);
 						bulletEntity.setItem(new ItemStack(bullet));
 						//Up+Down
@@ -513,9 +514,12 @@ public class NuGunItem extends AbstractModItem {
         	return false;
     }
     
-    protected boolean canFire(ItemStack stackIn)
+    protected boolean canFire(ItemStack stackIn, Player player)
 	{
-		return getCurrentAmmo(stackIn) >= 1;
+        if (!player.isCreative())
+		    return getCurrentAmmo(stackIn) >= 1;
+        else
+            return true;
 	}
     
     protected void fireRoundLogic(ItemStack stackin) {
