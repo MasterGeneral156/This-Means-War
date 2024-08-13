@@ -108,27 +108,24 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile {
 		super.tick();
 		Vector3f vecColor = Vec3.fromRGB24(getColor()).toVector3f();
 		int failCon = 0;
-		if (this.isInWater())
-			failCon++;
-		if (this.isOnFire())
-			failCon++;
-		if (this.isInLava())
-			failCon++;
-		if (this.isInWall())
-			failCon++;
+		if (this.isInWater())failCon++;
+		if (this.isOnFire()) failCon++;
+		if (this.isInLava()) failCon++;
+		if (this.isInWall()) failCon++;
 		int aliveTick = getTicksAlive();
 		if ((aliveTick > 100) && (failCon == 0))
 		{
-			if (this.level().isClientSide) 
-				this.level().addParticle(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 2.5D, 100D, 1D);
+
+			level().addAlwaysVisibleParticle(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 2.5D, 2D, 1D);
+			TMWMain.debugLogger("win con");
 			if (aliveTick >= (60 * 60 * 20) + 100)	//72100 ticks we die
 				kill();
 		}
 		//kill earlier if its wet or on fire...
 		if ((failCon > 0) || (aliveTick >= 700))
 		{
-			if (this.level().isClientSide) 
-	            this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5D, this.getZ(), 0.0D, 0.0D, 0.0D);
+			TMWMain.debugLogger("fail con");
+			level().addAlwaysVisibleParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5D, this.getZ(), 0.0D, 1D, 0.0D);
 			kill();
 		}
 		TMWMain.debugLogger("Alive: " + getTicksAlive());
