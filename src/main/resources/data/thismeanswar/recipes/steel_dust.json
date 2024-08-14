@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "thismeanswar:dusts",
   "ingredients": [
     {
       "tag": "forge:dusts/iron"
