@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:press",
+  "base": {
+    "tag": "forge:ingots/copper"
+  },
+  "result": {
+    "item": "thismeanswar:plate_copper", "count": 1
+  }
+}

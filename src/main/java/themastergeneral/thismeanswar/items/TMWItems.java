@@ -129,6 +129,7 @@ public class TMWItems {
 	
 	//Plates
 	public static AbstractModItem plate_lead = new BasicItem();
+	public static AbstractModItem plate_copper = new BasicItem();
 	public static AbstractModItem plate_steel = new BasicItem();
 	public static AbstractModItem plate_iron = new BasicItem();
 	public static AbstractModItem plate_diamond = new BasicItem();

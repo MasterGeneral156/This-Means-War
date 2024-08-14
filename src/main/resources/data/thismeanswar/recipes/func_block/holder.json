@@ -3,10 +3,11 @@
     "pattern": [
         " C ",
         "CFC",
-		" C "
+		"SSS"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
 		"C": { "item": "minecraft:bucket" }
     },
     "result": {

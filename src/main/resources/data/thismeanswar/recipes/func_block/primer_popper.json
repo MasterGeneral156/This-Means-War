@@ -3,11 +3,12 @@
     "pattern": [
         " C ",
         "CFC",
-		" C "
+		"SSS"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
-		"C": { "tag": "thismeanswar:primer/all" }
+		"S": { "item": "minecraft:smooth_stone_slab" },
+		"C": { "tag": "minecraft:creeper_igniters" }
     },
     "result": {
         "item": "thismeanswar:primer_popper",

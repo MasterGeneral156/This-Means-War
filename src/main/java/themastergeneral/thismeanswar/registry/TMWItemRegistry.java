@@ -226,6 +226,7 @@ public class TMWItemRegistry {
 	
 	//Plates
 	public static final RegistryObject<Item> plate_lead = ITEMS.register("plate_lead", () -> TMWItems.plate_lead);
+	public static final RegistryObject<Item> plate_copper = ITEMS.register("plate_copper", () -> TMWItems.plate_copper);
 	public static final RegistryObject<Item> plate_steel = ITEMS.register("plate_steel", () -> TMWItems.plate_steel);
 	public static final RegistryObject<Item> plate_diamond = ITEMS.register("plate_diamond", () -> TMWItems.plate_diamond);
 	public static final RegistryObject<Item> plate_iron = ITEMS.register("plate_iron", () -> TMWItems.plate_iron);

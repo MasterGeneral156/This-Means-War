@@ -312,6 +312,7 @@ public class TMWMain
 			ev.accept(TMWItems.primer_shotgun);
 			
 			ev.accept(TMWItems.plate_lead);
+			ev.accept(TMWItems.plate_copper);
 			ev.accept(TMWItems.plate_steel);
 			ev.accept(TMWItems.plate_iron);
 			ev.accept(TMWItems.plate_diamond);

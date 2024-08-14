@@ -1,13 +1,13 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:crusher",
     "pattern": [
         " C ",
         "CFC",
-		" C "
+		"SSS"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
 		"C": { "item": "minecraft:flint" }
     },
     "result": {
