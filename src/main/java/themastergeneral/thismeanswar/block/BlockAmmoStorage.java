@@ -30,6 +30,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.block.entity.BlockEntityAmmoStorage;
 import themastergeneral.thismeanswar.items.NuMagazineItem;
 import themastergeneral.thismeanswar.items.TMWItems;
@@ -86,6 +87,7 @@ public class BlockAmmoStorage extends GlassBlock implements EntityBlock {
 		    		//user holding magazine
 		    		if (stack.getItem() instanceof NuMagazineItem)
 		    		{
+						//player.playSound(TMWSounds., 0.1F, randPitch);
 		    			return fillHeldMagazine(ammostorage, player, stack);
 		    		}
 		    		else
