@@ -306,6 +306,9 @@
 	"block.thismeanswar.anti_tank_steel": "Steel Tank Obstacle",
 	"block.thismeanswar.anti_tank_lead": "Lead Tank Obstacle",
 	"block.thismeanswar.anti_tank_brass": "Brass Tank Obstacle",
+	"block.thismeanswar.anti_tank_iron": "Iron Tank Obstacle",
+	"block.thismeanswar.anti_tank_copper": "Copper Tank Obstacle",
+	"block.thismeanswar.anti_tank_gold": "Gold Tank Obstacle",
 	
 	"block.thismeanswar.crusher": "Burning Crusher",
 	"block.thismeanswar.factory_holder": "Factory Holder",

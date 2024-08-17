@@ -334,6 +334,9 @@ public class TMWItems {
 	public static AbstractBlockItem anti_tank_brass = new AbstractBlockItem(TMWBlocks.anti_tank_brass);
 	public static AbstractBlockItem anti_tank_lead = new AbstractBlockItem(TMWBlocks.anti_tank_lead);
 	public static AbstractBlockItem anti_tank_steel = new AbstractBlockItem(TMWBlocks.anti_tank_steel);
+	public static AbstractBlockItem anti_tank_copper = new AbstractBlockItem(TMWBlocks.anti_tank_copper);
+	public static AbstractBlockItem anti_tank_iron = new AbstractBlockItem(TMWBlocks.anti_tank_iron);
+	public static AbstractBlockItem anti_tank_gold = new AbstractBlockItem(TMWBlocks.anti_tank_gold);
 	public static AbstractBlockItem land_mine = new AbstractBlockItem(TMWBlocks.land_mine);
 	
 	public static AbstractBlockItem supplies_ammo = new AbstractBlockItem(TMWBlocks.supplies_ammo);

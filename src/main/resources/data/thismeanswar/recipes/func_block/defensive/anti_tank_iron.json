@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "IHI"
+    ],
+    "key": {
+		"I": { "tag": "forge:storage_blocks/iron" },
+		"H": { "tag": "thismeanswar:tools/hammer", "data": 32767 }
+    },
+    "result": {
+        "item": "thismeanswar:anti_tank_iron",
+		"count": 1
+    }
+}

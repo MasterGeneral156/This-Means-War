@@ -44,7 +44,10 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> anti_tank_steel = BLOCKS.register("anti_tank_steel", () ->TMWBlocks.anti_tank_steel);
 	public static final RegistryObject<Block> anti_tank_lead = BLOCKS.register("anti_tank_lead", () ->TMWBlocks.anti_tank_lead);
 	public static final RegistryObject<Block> anti_tank_brass = BLOCKS.register("anti_tank_brass", () ->TMWBlocks.anti_tank_brass);
-	
+	public static final RegistryObject<Block> anti_tank_copper = BLOCKS.register("anti_tank_copper", () ->TMWBlocks.anti_tank_copper);
+	public static final RegistryObject<Block> anti_tank_iron = BLOCKS.register("anti_tank_iron", () ->TMWBlocks.anti_tank_iron);
+	public static final RegistryObject<Block> anti_tank_gold = BLOCKS.register("anti_tank_gold", () ->TMWBlocks.anti_tank_gold);
+
 	public static final RegistryObject<Block> crusher = BLOCKS.register("crusher", () ->TMWBlocks.crusher);
 	public static final RegistryObject<Block> bullet_foundary = BLOCKS.register("bullet_foundary", () ->TMWBlocks.bullet_foundary);
 	public static final RegistryObject<Block> casing_recycler = BLOCKS.register("casing_recycler", () ->TMWBlocks.casing_recycler);

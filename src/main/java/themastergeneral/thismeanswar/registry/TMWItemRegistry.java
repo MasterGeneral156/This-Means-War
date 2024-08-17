@@ -379,7 +379,10 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> anti_tank_lead = ITEMS.register("anti_tank_lead", () -> TMWItems.anti_tank_lead);
 	public static final RegistryObject<Item> anti_tank_steel = ITEMS.register("anti_tank_steel", () -> TMWItems.anti_tank_steel);
 	public static final RegistryObject<Item> anti_tank_brass = ITEMS.register("anti_tank_brass", () -> TMWItems.anti_tank_brass);
-	
+	public static final RegistryObject<Item> anti_tank_copper = ITEMS.register("anti_tank_copper", () -> TMWItems.anti_tank_copper);
+	public static final RegistryObject<Item> anti_tank_iron = ITEMS.register("anti_tank_iron", () -> TMWItems.anti_tank_iron);
+	public static final RegistryObject<Item> anti_tank_gold = ITEMS.register("anti_tank_gold", () -> TMWItems.anti_tank_gold);
+
 	//Processing
 	public static final RegistryObject<Item> crusher = ITEMS.register("crusher", () -> TMWItems.crusher);
 	public static final RegistryObject<Item> bullet_foundary = ITEMS.register("bullet_foundary", () -> TMWItems.bullet_foundary);

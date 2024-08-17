@@ -27,7 +27,10 @@ public class TMWBlocks {
 	
 	public static BlockBarbedWire barbed_wire = new BlockBarbedWire(1.25F);
 	public static BlockBarbedWire anti_tank_wooden = new BlockBarbedWire(2.75F);
+	public static BlockBarbedWire anti_tank_copper = new BlockBarbedWire(4.25F);
 	public static BlockBarbedWire anti_tank_brass = new BlockBarbedWire(5.5F);
+	public static BlockBarbedWire anti_tank_iron = new BlockBarbedWire(6.15F);
+	public static BlockBarbedWire anti_tank_gold = new BlockBarbedWire(7.42F);
 	public static BlockBarbedWire anti_tank_lead = new BlockBarbedWire(8.75F);
 	public static BlockBarbedWire anti_tank_steel = new BlockBarbedWire(13.75F);
 	

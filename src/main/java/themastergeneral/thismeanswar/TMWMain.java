@@ -251,7 +251,10 @@ public class TMWMain
 			
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.anti_tank_wooden);
+			ev.accept(TMWItems.anti_tank_copper);
 			ev.accept(TMWItems.anti_tank_brass);
+			ev.accept(TMWItems.anti_tank_iron);
+			ev.accept(TMWItems.anti_tank_gold);
 			ev.accept(TMWItems.anti_tank_lead);
 			ev.accept(TMWItems.anti_tank_steel);
 			ev.accept(TMWItems.land_mine);
