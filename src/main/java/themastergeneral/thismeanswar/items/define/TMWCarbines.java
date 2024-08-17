@@ -1,7 +1,6 @@
 package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.items.ExternalAmmoGunItem;
 import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
