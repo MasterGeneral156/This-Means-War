@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " G ",
+        "RFM",
+		"SSS"
+    ],
+    "key": {
+		"F": { "item": "thismeanswar:factory_holder" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
+		"R": { "tag": "thismeanswar:ammo/rounds_all" },
+		"M": { "tag": "thismeanswar:magazines", "data": 32767 },
+		"G": { "tag": "thismeanswar:guns", "data": 32767 }
+    },
+    "result": {
+        "item": "thismeanswar:automated_loader",
+		"count": 1
+    }
+}
