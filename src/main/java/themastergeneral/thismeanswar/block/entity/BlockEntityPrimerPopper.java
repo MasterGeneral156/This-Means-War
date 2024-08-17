@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -167,9 +168,9 @@ public class BlockEntityPrimerPopper extends BlockEntity implements MenuProvider
 		            				 outputStack.grow(resultStack.getCount());
 		            			 }
 		            			 damageFactoryItem();
-		            			 inputStack.shrink(1);
-		            			 inputStack2.shrink(1);
-		            			 processTime = 0;
+								 this.damageFirstInputSlot(inputStack);
+								 this.damageSecondInputSlot(inputStack2);
+								 processTime = 0;
 		                	}
 		    	        }
 		        	}
@@ -190,6 +191,34 @@ public class BlockEntityPrimerPopper extends BlockEntity implements MenuProvider
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, shouldBeLit), 3);
         this.level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
         setChanged();
+	}
+
+	public void damageFirstInputSlot(ItemStack stack)
+	{
+		ItemStack newStack = stack.copy();
+		if (newStack.isDamageableItem())
+		{
+			if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+				newStack = ItemStack.EMPTY;
+		}
+		else
+			newStack.shrink(1);
+		this.itemHandler.setStackInSlot(INPUT_SLOT, newStack);
+
+	}
+
+	public void damageSecondInputSlot(ItemStack stack)
+	{
+		ItemStack newStack = stack.copy();
+		if (newStack.isDamageableItem())
+		{
+			if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+				newStack = ItemStack.EMPTY;
+		}
+		else
+			newStack.shrink(1);
+		this.itemHandler.setStackInSlot(EXTRA_SLOT, newStack);
+
 	}
 	
 	protected boolean checkForFactoryHolder()

@@ -168,20 +168,8 @@ public class BlockEntityCasingFormer extends BlockEntity implements MenuProvider
 		            				 outputStack.grow(resultStack.getCount());
 		            			 }
 		            			 damageFactoryItem();
-		            			 if (inputStack.isDamageableItem())
-		            			 {
-		            				 if(inputStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
-		            					 inputStack = ItemStack.EMPTY;
-		            			 }
-		            			 else
-		            				 inputStack.shrink(1);
-		            			 if (inputStack2.isDamageableItem())
-		            			 {
-		            				 if(inputStack2.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
-		            					 inputStack2 = ItemStack.EMPTY;
-		            			 }
-		            			 else
-		            				 inputStack2.shrink(1);
+								 this.damageFirstInputSlot(inputStack);
+								 this.damageSecondInputSlot(inputStack2);
 		            			 processTime = 0;
 		                	}
 		    	        }
@@ -203,6 +191,34 @@ public class BlockEntityCasingFormer extends BlockEntity implements MenuProvider
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, shouldBeLit), 3);
         this.level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
         setChanged();
+	}
+
+	public void damageFirstInputSlot(ItemStack stack)
+	{
+		ItemStack newStack = stack.copy();
+		if (newStack.isDamageableItem())
+		{
+			if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+				newStack = ItemStack.EMPTY;
+		}
+		else
+			newStack.shrink(1);
+		this.itemHandler.setStackInSlot(INPUT_SLOT, newStack);
+
+	}
+
+	public void damageSecondInputSlot(ItemStack stack)
+	{
+		ItemStack newStack = stack.copy();
+		if (newStack.isDamageableItem())
+		{
+			if(newStack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+				newStack = ItemStack.EMPTY;
+		}
+		else
+			newStack.shrink(1);
+		this.itemHandler.setStackInSlot(EXTRA_SLOT, newStack);
+
 	}
 	
 	protected boolean checkForFactoryHolder()
