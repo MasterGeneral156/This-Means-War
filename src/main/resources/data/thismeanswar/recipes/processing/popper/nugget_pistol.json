@@ -4,7 +4,7 @@
     "tag": "forge:nuggets/iron"
   },
   "extra": {
-    "item": "minecraft:fire_charge"
+    "tag": "minecraft:creeper_igniters", "data": 32767
   },
   "result": {
     "item": "thismeanswar:primer_pistol", "count": 1

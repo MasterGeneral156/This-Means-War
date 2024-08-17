@@ -3,14 +3,15 @@
     "pattern": [
         " C ",
         "CFC",
-		"CFC"
+		"SSS"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
 		"C": { "tag": "forge:plates" }
     },
     "result": {
-        "item": "thismeanswar:alloy_smelter",
+        "item": "thismeanswar:press",
 		"count": 1
     }
 }

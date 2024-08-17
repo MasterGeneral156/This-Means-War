@@ -4,7 +4,7 @@
     "tag": "forge:ingots/steel"
   },
   "extra": {
-    "item": "minecraft:fire_charge"
+    "tag": "minecraft:creeper_igniters", "data": 32767
   },
   "result": {
     "item": "thismeanswar:primer_rifle", "count": 6

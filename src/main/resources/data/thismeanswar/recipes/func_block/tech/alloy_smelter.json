@@ -1,16 +1,17 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " C ",
-        "CFC",
-		" C "
+        "CCC",
+        "FCF",
+		"SSS"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
+		"S": { "item": "minecraft:smooth_stone_slab" },
 		"C": { "tag": "forge:plates" }
     },
     "result": {
-        "item": "thismeanswar:press",
+        "item": "thismeanswar:alloy_smelter",
 		"count": 1
     }
 }

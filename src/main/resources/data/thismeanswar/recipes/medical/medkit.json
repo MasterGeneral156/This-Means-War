@@ -1,12 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "GG",
-		"GG"
-    ],
-    "key": {
-		"G": { "item": "thismeanswar:gauze" }
+    "type": "minecraft:crafting_shapeless",
+	"ingredients": [
+    {
+		"item": "thismeanswar:gauze"
     },
+	{
+		"item": "thismeanswar:gauze"
+    },
+	{
+		"item": "thismeanswar:gauze"
+    },
+	{
+		"item": "thismeanswar:gauze"
+	}
+  ],
     "result": {
         "item": "thismeanswar:medic_kit",
 		"count": 1

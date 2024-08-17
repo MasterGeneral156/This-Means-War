@@ -3,6 +3,6 @@
   "ingredient": {
     "tag": "forge:ingots/steel"
   },
-  "result": "thismeanswar:magazine_9mm_short",
-  "count": 3
+  "result": "thismeanswar:magazine_223_clip",
+  "count": 1
 }
