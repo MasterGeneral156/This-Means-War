@@ -516,10 +516,12 @@ public class NuGunItem extends AbstractModItem {
     
     protected boolean canFire(ItemStack stackIn, Player player)
 	{
-        if (!player.isCreative())
-		    return getCurrentAmmo(stackIn) >= 1;
-        else
+        if (player.isCreative())
             return true;
+        else {
+            TMWMain.debugLogger(getCurrentAmmo(stackIn));
+            return getCurrentAmmo(stackIn) >= 1;
+        }
 	}
     
     protected void fireRoundLogic(ItemStack stackin) {

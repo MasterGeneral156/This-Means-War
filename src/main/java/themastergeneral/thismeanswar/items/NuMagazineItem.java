@@ -132,19 +132,30 @@ public class NuMagazineItem extends AbstractModItem {
     public void removeAmmoFromMag(ItemStack stack, int toRemove) {
         getInventory(stack).ifPresent(inventory -> {
             int currentAmmo = getCurrentAmmo(stack);
-            if ((currentAmmo - toRemove) >= 0) 
-            {
-            	TMWMain.debugLogger(currentAmmo - toRemove);
-            	TMWMain.debugLogger(126 * (getOverflow(stack) + 1));
-            	if ((currentAmmo - toRemove) > 127 * (getOverflow(stack)))	//hack because max stack is 127
-            		inventory.extractItem(SLOT_AMMO, toRemove, false);
-            	else
-            	{
-            		removeOverflow(stack);
-            		inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(127));
-            	}
+
+            if (currentAmmo <= toRemove) {
+                // Case when ammo will drop to 0 or below
+                inventory.extractItem(SLOT_AMMO, toRemove, false);
+                if (getOverflow(stack) > 0) {
+                    removeOverflow(stack);
+                    inventory.setStackInSlot(SLOT_AMMO, ItemStack.EMPTY);
+                }
+            } else {
+                // Regular case, just reduce the ammo count
+                if ((currentAmmo - toRemove) > 127 * (getOverflow(stack))) {
+                    inventory.extractItem(SLOT_AMMO, toRemove, false);
+                } else {
+                    if (getOverflow(stack) > 0) {
+                        removeOverflow(stack);
+                        int remainingAmmo = currentAmmo - toRemove;
+                        int ammoInMainSlot = remainingAmmo % 127;
+                        inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(ammoInMainSlot));
+                    } else {
+                        inventory.extractItem(SLOT_AMMO, toRemove, false);
+                    }
+                }
             }
-                
+
             saveInventory(stack);
         });
     }
@@ -194,16 +205,15 @@ public class NuMagazineItem extends AbstractModItem {
     public void addAmmoToMag(ItemStack stack, int toAdd) {
         getInventory(stack).ifPresent(inventory -> {
             int currentAmmo = getCurrentAmmo(stack);
-    		
-            if ((currentAmmo + toAdd) <= getMaxAmmo(stack))
-            {
-            	if ((currentAmmo + toAdd) < 126 * (getOverflow(stack) + 1))	//hack because max stack is 127
-            		inventory.insertItem(SLOT_AMMO, new ItemStack(bulletRequired, toAdd), false);
-            	else
-            	{
-            		addOverflow(stack);
-            		inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(0));
-            	}
+
+            if ((currentAmmo + toAdd) <= getMaxAmmo(stack)) {
+                if ((currentAmmo + toAdd) < 127 * (getOverflow(stack) + 1)) {
+                    inventory.insertItem(SLOT_AMMO, new ItemStack(bulletRequired, toAdd), false);
+                } else {
+                    int ammoToAddToOverflow = (currentAmmo + toAdd) - (127 * (getOverflow(stack) + 1));
+                    inventory.setStackInSlot(SLOT_AMMO, inventory.getStackInSlot(SLOT_AMMO).copyWithCount(127 * (getOverflow(stack) + 1)));
+                    addOverflow(stack);
+                }
             }
             saveInventory(stack);
         });
@@ -298,13 +308,11 @@ public class NuMagazineItem extends AbstractModItem {
             }
         }
     }
-    
-    protected void playerRemoveAmmo(ItemStack stack, Player player, int removed)
-    {
-    	if (getCurrentAmmo(stack) > 0) 
-    	{
+
+    protected void playerRemoveAmmo(ItemStack stack, Player player, int removed) {
+        if (getCurrentAmmo(stack) > 0) {
             removeAmmoFromMag(stack, removed);
-            player.getInventory().add(new ItemStack(returnBulletItem(), 1));
+            player.getInventory().add(new ItemStack(returnBulletItem(), removed));
             player.getCooldowns().addCooldown(this, 8);
             player.awardStat(Stats.ITEM_USED.get(this));
             player.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
