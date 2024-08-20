@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:mag_capacity_upgrade"
+  },
+  "base": {
+    "item": "thismeanswar:kevlar_raw"
+  },
+  "addition": {
+    "item": "thismeanswar:mag_capacity_upgrade"
+  },
+  "result": {
+    "item": "thismeanswar:mag_capacity_upgrade_t2",
+	"count": 1
+  }
+}
