@@ -10,7 +10,7 @@
 		"S": { "item": "minecraft:smooth_stone_slab" },
 		"R": { "tag": "thismeanswar:ammo/round_all" },
 		"M": { "tag": "thismeanswar:magazines", "data": 32767 },
-		"G": { "tag": "thismeanswar:guns", "data": 32767 }
+		"G": { "tag": "forge:dusts/redstone" }
     },
     "result": {
         "item": "thismeanswar:automated_loader",
