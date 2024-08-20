@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+		" H ",
+        "CFS",
+		"BBB"
+    ],
+    "key": {
+		"F": { "item": "thismeanswar:factory_holder" },
+		"B": { "tag": "forge:storage_blocks/steel" },
+		"C": { "tag": "thismeanswar:tools/cutter", "data": 32767 },
+		"S": { "tag": "thismeanswar:tools/saw", "data": 32767 },
+		"H": { "tag": "thismeanswar:tools/hammer", "data": 32767 }
+    },
+    "result": {
+        "item": "thismeanswar:bullet_foundary",
+		"count": 1
+    }
+}
