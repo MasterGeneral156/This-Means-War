@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:bullet_cast_12g",
-	"thismeanswar:creative_bullet_cast_12g"
+    "thismeanswar:casing_cast_12g",
+	"thismeanswar:creative_casing_cast_12g"
   ]
 }
