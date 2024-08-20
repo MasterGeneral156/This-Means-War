@@ -81,8 +81,65 @@ public class JEIPlugin implements IModPlugin {
 		registration.addRecipes(RecipeTypes.ALLOY_SMELTER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.ALLOY_SMELTER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.FORMER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.FORMER_TYPE.get()));
 		registration.addRecipes(RecipeTypes.MOLDER, Minecraft.getInstance().level.getRecipeManager().getAllRecipesFor(TMWRecipeTypeRegistration.MOLDER_TYPE.get()));
+
+		//Mag Info
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_short), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_short), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_drum), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_drum), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_large_double), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_9mm_large_double), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_box), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_box), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_223_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_box), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_box), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_556_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_12g_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_12g_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_45_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_45_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_m1911), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_m1911), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_m1911_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_m1911_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_g36), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_g36), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_g36_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_g36_large), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_dragunov), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_dragunov), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_38spec_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_38spec_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_40mm_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_load"));
+		registration.addItemStackInfo(new ItemStack(TMWItems.magazine_40mm_clip), ModUtils.displayTranslation("thismeanswar.jei.mag_info_unload"));
+
 	}
-	
+
 	@Override
 	public void registerRecipeCatalysts(@Nonnull final IRecipeCatalystRegistration registration) {
 		registration.addRecipeCatalyst(new ItemStack(TMWBlocks.bullet_foundary), RecipeTypes.BULLET_FOUNDARY);

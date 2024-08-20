@@ -367,7 +367,6 @@
 	"thismeanswar.gun.semiauto": "Semi Automatic",
 	"thismeanswar.bullet_loaded": "Round has been inserted.",
 	"thismeanswar.bullet_unloaded": "Round has been removed.",
-	"thismeanswar.bullet_unloaded": "Round has been removed.",
 	"thismeanswar.upgrade_rof_full": "Firearm in offhand has been upgraded to fully automatic.",
 	"thismeanswar.upgrade_rof_semi": "Firearm in offhand has been upgraded to semi-automatic.",
 	"thismeanswar.upgrade_mag_fail_invalid_gun": "This upgrade may only be only applied to magazines, or firearms with internal magazines.",
@@ -435,6 +434,9 @@
 	"thismeanswar.jei.upgrade_info_rofup": "Applies fully automatic upgrade to firearm. Spray and pray.",
 	"thismeanswar.jei.upgrade_info_rofdown": "Applies semi-automatic upgrade to firearm. One click, one bang.",
 	"thismeanswar.jei.upgrade_magcap": "Increases magazine/ammo capacity when applied.",
+	"thismeanswar.jei.mag_info_load": "Load Magazines\\nRight Click with compatible ammo in inventory. ",
+	"thismeanswar.jei.mag_info_unload": "lUnloading Magazines\\nShift right click, removed ammo will be depositied in inventory.",
+	
 	
 	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw fired",
 	"thismeanswar.subtitle.shot_1911": "M1911 fired",
