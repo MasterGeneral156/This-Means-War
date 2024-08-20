@@ -1,14 +1,15 @@
 {
     "type": "minecraft:crafting_shaped",
-    "group": "thismeanswar:recycler",
     "pattern": [
-        " C ",
-        "CFC",
-		" C "
+        " M ",
+        "SPS",
+		"LLL"
     ],
     "key": {
-		"F": { "item": "minecraft:furnace" },
-		"C": { "tag": "thismeanswar:casing/all" }
+		"M": { "tag": "thismeanswar:casts/casing/all" , "data": 32767 },
+		"P": { "item": "thismeanswar:crusher" },
+		"S": { "tag": "forge:storage_blocks/steel" },
+		"L": { "item": "minecraft:smooth_stone_slab" }
     },
     "result": {
         "item": "thismeanswar:casing_recycler",

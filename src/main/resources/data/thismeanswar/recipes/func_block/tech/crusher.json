@@ -1,13 +1,14 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " C ",
-        "CFC",
-		"SSS"
+        "CCC",
+        "SFS",
+		"LLL"
     ],
     "key": {
 		"F": { "item": "minecraft:furnace" },
-		"S": { "item": "minecraft:smooth_stone_slab" },
+		"L": { "item": "minecraft:smooth_stone_slab" },
+		"S": { "tag": "forge:storage_blocks/steel" },
 		"C": { "item": "minecraft:flint" }
     },
     "result": {
