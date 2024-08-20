@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#thismeanswar:casts/tip/9mm",
+	"#thismeanswar:casts/tip/12g",
+	"#thismeanswar:casts/tip/38spec",
+	"#thismeanswar:casts/tip/45acp",
+	"#thismeanswar:casts/tip/223",
+	"#thismeanswar:casts/tip/556",
+	"#thismeanswar:casts/tip/762"
+  ]
+}

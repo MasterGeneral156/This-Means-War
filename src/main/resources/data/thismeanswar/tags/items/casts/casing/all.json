@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#thismeanswar:casts/casing/9mm",
+	"#thismeanswar:casts/casing/12g",
+	"#thismeanswar:casts/casing/38spec",
+	"#thismeanswar:casts/casing/45acp",
+	"#thismeanswar:casts/casing/223",
+	"#thismeanswar:casts/casing/556",
+	"#thismeanswar:casts/casing/762"
+  ]
+}
