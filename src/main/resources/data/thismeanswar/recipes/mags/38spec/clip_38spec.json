@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "tag": "forge:ingots/brass"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "tag": "thismeanswar:ammo/round_38spec"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_38spec_clip",
+	"count": 1
+  }
+}

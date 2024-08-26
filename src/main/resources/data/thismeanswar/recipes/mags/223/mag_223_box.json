@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:magazine_223_large"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "item": "thismeanswar:mag_capacity_upgrade_t3"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_223_box",
+	"count": 1
+  }
+}

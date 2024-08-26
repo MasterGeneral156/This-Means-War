@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:kevlar_raw"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "tag": "thismeanswar:ammo/round_762"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_dragunov",
+	"count": 1
+  }
+}

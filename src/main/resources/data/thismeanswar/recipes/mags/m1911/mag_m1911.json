@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:kevlar_raw"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "tag": "thismeanswar:ammo/round_45"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_m1911",
+	"count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "CCC",
+        "SFS",
+		"LLL"
+    ],
+    "key": {
+		"F": { "item": "minecraft:furnace" },
+		"L": { "item": "minecraft:smooth_stone_slab" },
+		"S": { "tag": "forge:storage_blocks/steel" },
+		"C": { "tag": "thismeanswar:primer/all" }
+    },
+    "result": {
+        "item": "thismeanswar:primer_popper",
+		"count": 1
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:magazine_9mm_large"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "item": "thismeanswar:mag_capacity_upgrade_t2"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_9mm_large_double",
+	"count": 1
+  }
+}

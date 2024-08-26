@@ -1,18 +1,18 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " M ",
+        "MMM",
         "SPS",
 		"LLL"
     ],
     "key": {
-		"M": { "tag": "thismeanswar:casts/casing/all" , "data": 32767 },
+		"M": { "tag": "thismeanswar:tip/all" },
 		"P": { "item": "thismeanswar:press" },
 		"S": { "tag": "forge:storage_blocks/steel" },
 		"L": { "item": "minecraft:smooth_stone_slab" }
     },
     "result": {
-        "item": "thismeanswar:casing_former",
+        "item": "thismeanswar:tip_molder",
 		"count": 1
     }
 }

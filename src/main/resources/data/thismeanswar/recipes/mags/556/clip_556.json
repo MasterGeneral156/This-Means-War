@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "tag": "forge:ingots/brass"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/hammer"
+  },
+  "addition": {
+    "tag": "thismeanswar:ammo/round_556"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_556_clip",
+	"count": 1
+  }
+}

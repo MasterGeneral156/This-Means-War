@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:former",
+  "base": {
+    "tag": "forge:plates/steel"
+  },
+  "cast": {
+    "tag": "thismeanswar:casing/12g"
+  },
+  "result": {
+    "item": "thismeanswar:casing_cast_12g"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "item": "thismeanswar:magazine_9mm"
+  },
+  "base": {
+    "tag": "thismeanswar:tools/cutter"
+  },
+  "addition": {
+    "tag": "forge:nuggets"
+  },
+  "result": {
+    "item": "thismeanswar:magazine_9mm_short",
+	"count": 2
+  }
+}

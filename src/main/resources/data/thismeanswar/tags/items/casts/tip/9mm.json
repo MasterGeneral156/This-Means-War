@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thismeanswar:casing_cast_9mm",
-	"thismeanswar:creative_casing_cast_9mm"
+    "thismeanswar:bullet_cast_9mm",
+	"thismeanswar:creative_bullet_cast_9mm"
   ]
 }

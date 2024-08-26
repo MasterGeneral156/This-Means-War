@@ -1,12 +1,12 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        " M ",
+        "MMM",
         "SPS",
 		"LLL"
     ],
     "key": {
-		"M": { "tag": "thismeanswar:casts/casing/all" , "data": 32767 },
+		"M": { "tag": "thismeanswar:casing/all"},
 		"P": { "item": "thismeanswar:press" },
 		"S": { "tag": "forge:storage_blocks/steel" },
 		"L": { "item": "minecraft:smooth_stone_slab" }
