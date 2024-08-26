@@ -93,6 +93,7 @@ public class UpgradeBulletType extends BasicItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
+		tooltip.add(ModUtils.displayTranslation("item.thismeanswar.nonfunc.desc"));
 		if (Screen.hasShiftDown())
 		{
 			if (stack.getItem() == TMWItems.bullet_upgrade_ap)

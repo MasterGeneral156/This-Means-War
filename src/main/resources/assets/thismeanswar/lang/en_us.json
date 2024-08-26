@@ -397,8 +397,8 @@
 	"thismeanswar.medic_box_desc": "Stores medical items for instant health later",
 	"thismeanswar.factory_holder_desc": "Placed above processing block with tool",
 	
-	"thismeanswar.firearm_no_mag_warning": "§4Missing magazine",
-	"thismeanswar.firearm_no_rounds_warning": "§4Missing rounds",
+	"thismeanswar.firearm_no_mag_warning": "§4§oMissing magazine",
+	"thismeanswar.firearm_no_rounds_warning": "§4§oMissing rounds",
 	"thismeanswar.firearm_more_info": "§9§oHold shift for more info",
 	"thismeanswar.firearm_more_info_display": "§9=====Firearm Info=====",
 	"thismeanswar.firearm_bullet_dmg": "Bullet Damage: ",
@@ -423,9 +423,9 @@
 	"thismeanswar.jei.former": "Forming Casings",
 	"thismeanswar.jei.molder": "Molding Bullets",
 	"thismeanswar.jei.alloy_smelter": "Alloy Smelting",
-	"thismeanswar.jei.ammo_box_info": "Holds ammo/rounds. R-Click with rounds/ammo to place inside. Shift + R-Click to withdraw. Maximum stored based on tier.",
-	"thismeanswar.jei.medic_box_info": "Holds medical items to be used later. R-Click with item to place inside. Shift + R-Click to withdraw and heal. Maximum stored based on tier.",
-	"thismeanswar.jei.upgrade_info": "Can be applied by sneak + r-click with firearm/magazine in off-hand.",
+	"thismeanswar.jei.ammo_box_info": "Holds ammo/rounds. Right with rounds/ammo to place inside. Shift & Right Click to withdraw. Maximum stored based on tier.",
+	"thismeanswar.jei.medic_box_info": "Holds medical items to be used later. Right Click with item to place inside. Shift & Right Click to withdraw and heal. Maximum stored based on tier.",
+	"thismeanswar.jei.upgrade_info": "Can be applied by Shift & Right clicking with firearm/magazine in off-hand.",
 	"thismeanswar.jei.upgrade_info_ap": "Applies armor piercing rounds upgrade to firearm. Damage bypasses armor. Reduces damage.",
 	"thismeanswar.jei.upgrade_info_fire": "Applies fiery rounds upgrade to firearm. Entities are set on fire when hit.",
 	"thismeanswar.jei.upgrade_info_inert": "Applies inert round upgrade to firearm. Reduces damage by 95%.",
@@ -446,5 +446,6 @@
 	"thismeanswar.subtitle.use_foundary": "Bullet Foundary crafting",
 	
 	"item.thismeanswar.cutter.desc": "Can be used to quickly remove Barbed Wire",
+	"item.thismeanswar.nonfunc.desc": "This item is not currently functioning as intended.",
 	"item.thismeanswar.explosive.desc": "Explosive Rating"
 }

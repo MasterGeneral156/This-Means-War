@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.client.gui.screens.Screen;
 import org.jetbrains.annotations.NotNull;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -35,6 +36,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
@@ -273,7 +275,10 @@ public class NuMagazineItem extends AbstractModItem {
         int maxAmmo = getMaxAmmo(stack);
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
         tooltip.add(ModUtils.displayTranslation(this.returnBulletItem().getDescriptionId()));
-        tooltip.add(ModUtils.displayString("(" + ModUtils.returnShortenedNumber(currentAmmo) + "/" + ModUtils.returnShortenedNumber(maxAmmo) + ")"));
+        if (!Screen.hasShiftDown())
+            tooltip.add(ModUtils.displayString("(" + ModUtils.returnShortenedNumber(currentAmmo) + "/" + ModUtils.returnShortenedNumber(maxAmmo) + ")"));
+        else
+            tooltip.add(ModUtils.displayString(TMWUtils.ammoFillBar(currentAmmo, maxAmmo)));
     }
 
     @Override
