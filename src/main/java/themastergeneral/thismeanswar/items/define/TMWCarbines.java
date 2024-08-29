@@ -15,6 +15,11 @@ public class TMWCarbines
 		Constants.mp40FireRate, Constants.mp40ReloadTime,
 		TMWItems.magazine_9mm_large,  Constants.mp40Damage,
 		Constants.mp40Speed, Constants.mp40Spread);
+
+	public static NuGunItem sten = new NuGunItem(
+			Constants.mp40FireRate, Math.round(Constants.mp40ReloadTime*1.1F),
+			TMWItems.magazine_9mm_large,  Constants.mp40Damage*1.2F,
+			Constants.mp40Speed*0.86F, Constants.mp40Spread*1.15F);
 	
 	public static NuGunItem ump9 = new NuGunItem(
 		Constants.ump9FireRate, Constants.ump9ReloadTime,

@@ -83,6 +83,7 @@ public class TMWMain
     		ev.accept(TMWCarbines.ump9);
     		ev.accept(TMWCarbines.g36);
     		ev.accept(TMWCarbines.mp40);
+			ev.accept(TMWCarbines.sten);
 			
 			ev.accept(TMWRifles.springfield_saint_223);
 			ev.accept(TMWRifles.springfield_saint_556);

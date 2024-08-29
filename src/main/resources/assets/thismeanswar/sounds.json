@@ -52,5 +52,14 @@
 			}
 		],
 		"subtitle": "thismeanswar.subtitle.use_foundary"
+	},
+	"shot_sten": {
+		"sounds": [
+			{
+				"name": "thismeanswar:shot_sten",
+				"volume": 1.00
+			}
+		],
+		"subtitle": "thismeanswar.subtitle.shot_sten"
 	}
 }

@@ -498,6 +498,8 @@ public class NuGunItem extends AbstractModItem {
 			return TMWSounds.shot_mp40;
 		else if (asItem() == TMWRifles.k98)
 			return TMWSounds.shot_k98;
+        else if (asItem() == TMWCarbines.sten)
+            return TMWSounds.shot_sten;
 		else
 			return SoundEvents.GENERIC_EXPLODE;
 	}
