@@ -1,5 +1,19 @@
 {
-    "variants": {
-        "": { "model": "thismeanswar:block/bullet_foundary" }
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/bullet_foundary",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/bullet_foundary"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/bullet_foundary",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/bullet_foundary",
+      "y": 270
     }
+  }
 }
