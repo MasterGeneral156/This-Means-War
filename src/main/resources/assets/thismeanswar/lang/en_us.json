@@ -435,7 +435,7 @@
 	"thismeanswar.jei.upgrade_info_rofdown": "Applies semi-automatic upgrade to firearm. One click, one bang.",
 	"thismeanswar.jei.upgrade_magcap": "Increases magazine/ammo capacity when applied.",
 	"thismeanswar.jei.mag_info_load": "Load Magazines\\nRight Click with compatible ammo in inventory. ",
-	"thismeanswar.jei.mag_info_unload": "lUnloading Magazines\\nShift right click, removed ammo will be depositied in inventory.",
+	"thismeanswar.jei.mag_info_unload": "Unloading Magazines\\nShift right click, removed ammo will be depositied in inventory.",
 	
 	
 	"thismeanswar.subtitle.shot_thunderclaw": "Thunderclaw fired",
