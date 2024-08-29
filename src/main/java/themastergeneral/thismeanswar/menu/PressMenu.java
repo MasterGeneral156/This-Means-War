@@ -20,7 +20,7 @@ public class PressMenu extends AbstractContainerMenu {
 	
 	public PressMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityPress) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+		this(id, playerInventory, (BlockEntityPress) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 	
 	public PressMenu(int id, Inventory playerInventory, BlockEntityPress blockEntity, ContainerData data) {
@@ -96,6 +96,11 @@ public class PressMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(3);
+    }
 	
 	public int getProcessTime()
 	{

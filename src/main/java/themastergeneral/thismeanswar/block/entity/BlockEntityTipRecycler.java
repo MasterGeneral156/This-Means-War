@@ -63,6 +63,7 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
                 case 0 -> BlockEntityTipRecycler.this.burnTime;
                 case 1 -> BlockEntityTipRecycler.this.processTime;
                 case 2 -> BlockEntityTipRecycler.this.maxProcessTime;
+                case 3 -> BlockEntityTipRecycler.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -73,12 +74,13 @@ public class BlockEntityTipRecycler extends BlockEntity implements MenuProvider,
                 case 0 -> BlockEntityTipRecycler.this.burnTime = pValue;
                 case 1 -> BlockEntityTipRecycler.this.processTime = pValue;
                 case 2 -> BlockEntityTipRecycler.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityTipRecycler.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

@@ -68,6 +68,7 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
                 case 1 -> BlockEntityTipMolder.this.processTime;
                 case 2 -> BlockEntityTipMolder.this.maxProcessTime;
                 case 3 -> BlockEntityTipMolder.this.errorCode;
+				case 4 -> BlockEntityTipMolder.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -79,12 +80,13 @@ public class BlockEntityTipMolder extends BlockEntity implements MenuProvider, B
                 case 1 -> BlockEntityTipMolder.this.processTime = pValue;
                 case 2 -> BlockEntityTipMolder.this.maxProcessTime = pValue;
                 case 3 -> BlockEntityTipMolder.this.errorCode = pValue;
+				case 4 -> BlockEntityTipMolder.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
     };
     

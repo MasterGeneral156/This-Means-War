@@ -20,7 +20,7 @@ public class MolderMenu extends AbstractContainerMenu {
 	
 	public MolderMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityTipMolder) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+		this(id, playerInventory, (BlockEntityTipMolder) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 	
 	public MolderMenu(int id, Inventory playerInventory, BlockEntityTipMolder blockEntity, ContainerData data) {
@@ -97,6 +97,11 @@ public class MolderMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(4);
+    }
 	
 	public int getProcessTime()
 	{

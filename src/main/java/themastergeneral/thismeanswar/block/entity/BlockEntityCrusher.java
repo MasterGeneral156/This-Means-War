@@ -60,6 +60,7 @@ public class BlockEntityCrusher extends BlockEntity implements MenuProvider, Blo
                 case 0 -> BlockEntityCrusher.this.burnTime;
                 case 1 -> BlockEntityCrusher.this.processTime;
                 case 2 -> BlockEntityCrusher.this.maxProcessTime;
+                case 3 -> BlockEntityCrusher.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -70,12 +71,13 @@ public class BlockEntityCrusher extends BlockEntity implements MenuProvider, Blo
                 case 0 -> BlockEntityCrusher.this.burnTime = pValue;
                 case 1 -> BlockEntityCrusher.this.processTime = pValue;
                 case 2 -> BlockEntityCrusher.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityCrusher.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

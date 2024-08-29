@@ -67,6 +67,7 @@ public class BlockEntityPrimerPopper extends BlockEntity implements MenuProvider
                 case 1 -> BlockEntityPrimerPopper.this.processTime;
                 case 2 -> BlockEntityPrimerPopper.this.maxProcessTime;
                 case 3 -> BlockEntityPrimerPopper.this.errorCode;
+				case 4 -> BlockEntityPrimerPopper.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -78,12 +79,13 @@ public class BlockEntityPrimerPopper extends BlockEntity implements MenuProvider
                 case 1 -> BlockEntityPrimerPopper.this.processTime = pValue;
                 case 2 -> BlockEntityPrimerPopper.this.maxProcessTime = pValue;
                 case 3 -> BlockEntityPrimerPopper.this.errorCode = pValue;
+				case 4 -> BlockEntityPrimerPopper.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
     };
     

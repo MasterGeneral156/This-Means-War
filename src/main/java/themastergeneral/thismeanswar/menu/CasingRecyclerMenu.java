@@ -22,7 +22,7 @@ public class CasingRecyclerMenu extends AbstractContainerMenu {
 	
 	public CasingRecyclerMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityCasingRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+		this(id, playerInventory, (BlockEntityCasingRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 	
 	public CasingRecyclerMenu(int id, Inventory playerInventory, BlockEntityCasingRecycler blockEntity, ContainerData data) {
@@ -98,6 +98,11 @@ public class CasingRecyclerMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(3);
+    }
 	
 	public int getProcessTime()
 	{

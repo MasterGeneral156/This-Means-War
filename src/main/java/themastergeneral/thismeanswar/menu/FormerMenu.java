@@ -20,7 +20,7 @@ public class FormerMenu extends AbstractContainerMenu {
 	
 	public FormerMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityCasingFormer) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+		this(id, playerInventory, (BlockEntityCasingFormer) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 	
 	public FormerMenu(int id, Inventory playerInventory, BlockEntityCasingFormer blockEntity, ContainerData data) {
@@ -97,6 +97,11 @@ public class FormerMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(4);
+    }
 	
 	public int getProcessTime()
 	{

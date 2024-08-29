@@ -65,6 +65,7 @@ public class BlockEntityAutomatedLoader extends BlockEntity implements MenuProvi
                 case 0 -> BlockEntityAutomatedLoader.this.burnTime;
                 case 1 -> BlockEntityAutomatedLoader.this.processTime;
                 case 2 -> BlockEntityAutomatedLoader.this.maxProcessTime;
+				case 3 -> BlockEntityAutomatedLoader.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -75,12 +76,13 @@ public class BlockEntityAutomatedLoader extends BlockEntity implements MenuProvi
                 case 0 -> BlockEntityAutomatedLoader.this.burnTime = pValue;
                 case 1 -> BlockEntityAutomatedLoader.this.processTime = pValue;
                 case 2 -> BlockEntityAutomatedLoader.this.maxProcessTime = pValue;
+				case 3 -> BlockEntityAutomatedLoader.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

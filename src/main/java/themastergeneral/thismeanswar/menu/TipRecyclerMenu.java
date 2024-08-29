@@ -22,7 +22,7 @@ public class TipRecyclerMenu extends AbstractContainerMenu {
 	
 	public TipRecyclerMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityTipRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+		this(id, playerInventory, (BlockEntityTipRecycler) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 	
 	public TipRecyclerMenu(int id, Inventory playerInventory, BlockEntityTipRecycler blockEntity, ContainerData data) {
@@ -98,8 +98,12 @@ public class TipRecyclerMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
-	
-	
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(3);
+    }
+
 	public int getProcessTime()
 	{
 		return this.data.get(1);

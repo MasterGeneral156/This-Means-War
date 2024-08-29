@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import themastergeneral.thismeanswar.TMWMain;
+import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.menu.TipRecyclerMenu;
 
 public class TipRecyclerScreen extends AbstractContainerScreen<TipRecyclerMenu> {
@@ -37,14 +38,15 @@ public class TipRecyclerScreen extends AbstractContainerScreen<TipRecyclerMenu> 
 	@Override
 	protected void renderLabels(GuiGraphics guigfx, int x, int y) {
         super.renderLabels(guigfx, x, y);
-        double processTime = Math.round(((double) this.menu.getProcessTime() / this.menu.getMaxProcessTime()) * 100);
-        int burnTime = this.menu.getBurnTime();
-        
-        guigfx.drawString(this.font, "Process: " + processTime + "%", 84, 20, 4210752, false);
-        if (Screen.hasShiftDown())
-        	guigfx.drawString(this.font, "Fuel: " + burnTime, 84, 32, 4210752, false);
-        else
-        	guigfx.drawString(this.font, "Fuel: " + ModUtils.returnShortenedNumber(burnTime), 84, 32, 4210752, false);
+		float processTime = this.menu.getProcessTime();
+		int burnTime = this.menu.getBurnTime();
+		int burnTimeTotal = this.menu.getTotalBurnTime();
+		float maxProcessTime = this.menu.getMaxProcessTime();
+
+		guigfx.drawString(this.font, "Process", 83, 20, 4210752, false);
+		guigfx.drawString(this.font, TMWUtils.guiScaleBar(processTime, maxProcessTime, 38), 83, 30, 4210752, false);
+		guigfx.drawString(this.font, "Fuel", 83, 40, 4210752, false);
+		guigfx.drawString(this.font, TMWUtils.guiScaleBar((float) burnTime, burnTimeTotal, 38), 83, 50, 4210752, false);
     }
 
 }

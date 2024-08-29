@@ -60,6 +60,7 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
                 case 0 -> BlockEntityAlloySmelter.this.burnTime;
                 case 1 -> BlockEntityAlloySmelter.this.processTime;
                 case 2 -> BlockEntityAlloySmelter.this.maxProcessTime;
+                case 3 -> BlockEntityAlloySmelter.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -70,12 +71,13 @@ public class BlockEntityAlloySmelter extends BlockEntity implements MenuProvider
                 case 0 -> BlockEntityAlloySmelter.this.burnTime = pValue;
                 case 1 -> BlockEntityAlloySmelter.this.processTime = pValue;
                 case 2 -> BlockEntityAlloySmelter.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityAlloySmelter.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

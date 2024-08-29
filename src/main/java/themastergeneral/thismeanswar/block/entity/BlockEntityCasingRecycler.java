@@ -60,6 +60,7 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
                 case 0 -> BlockEntityCasingRecycler.this.burnTime;
                 case 1 -> BlockEntityCasingRecycler.this.processTime;
                 case 2 -> BlockEntityCasingRecycler.this.maxProcessTime;
+                case 3 -> BlockEntityCasingRecycler.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -70,12 +71,13 @@ public class BlockEntityCasingRecycler extends BlockEntity implements MenuProvid
                 case 0 -> BlockEntityCasingRecycler.this.burnTime = pValue;
                 case 1 -> BlockEntityCasingRecycler.this.processTime = pValue;
                 case 2 -> BlockEntityCasingRecycler.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityCasingRecycler.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

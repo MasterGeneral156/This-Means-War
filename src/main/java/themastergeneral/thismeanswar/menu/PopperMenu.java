@@ -21,7 +21,7 @@ public class PopperMenu extends AbstractContainerMenu {
 	
 	public PopperMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityPrimerPopper) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+		this(id, playerInventory, (BlockEntityPrimerPopper) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 	
 	public PopperMenu(int id, Inventory playerInventory, BlockEntityPrimerPopper blockEntity, ContainerData data) {
@@ -98,6 +98,11 @@ public class PopperMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(4);
+    }
 	
 	public int getProcessTime()
 	{

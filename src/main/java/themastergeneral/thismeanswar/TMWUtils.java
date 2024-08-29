@@ -25,7 +25,7 @@ public class TMWUtils {
 
 	public static String ammoFillBar(int current, int max)
 	{
-        int barLength = Math.min(max, 30);  // Length of the progress bar
+        int barLength = Math.min(max, 50);  // Length of the progress bar
 		int progress = (int) (((double) current / max) * barLength);
 
 		StringBuilder bar = new StringBuilder();
@@ -39,6 +39,43 @@ public class TMWUtils {
 		}
 		bar.append("§r]");
 
+		return bar.toString();
+	}
+
+	public static String infoScaleBar(float current, float max)
+	{
+		return infoScaleBar(current, max, 15);
+	}
+
+	public static String infoScaleBar(float current, float max, int scale)
+	{
+		int barLength = Math.min((int) max, scale);  // Length of the progress bar
+		int progress = (int) (((double) current / max) * barLength);
+
+		StringBuilder bar = new StringBuilder();
+		for (int i = 0; i < barLength; i++) {
+			if (i < progress) {
+				bar.append("§2-");
+			} else {
+				bar.append("§4-");
+			}
+		}
+		return bar.toString();
+	}
+
+	public static String guiScaleBar(float current, float max, int scale)
+	{
+		float barLength = Math.min(max, scale);  // Length of the progress bar
+		float progress = (float) (((double) current / max) * barLength);
+
+		StringBuilder bar = new StringBuilder();
+		for (int i = 0; i < scale; i++) {
+			if (i < progress) {
+				bar.append("§2|");
+			} else {
+				bar.append("§4|");
+			}
+		}
 		return bar.toString();
 	}
 

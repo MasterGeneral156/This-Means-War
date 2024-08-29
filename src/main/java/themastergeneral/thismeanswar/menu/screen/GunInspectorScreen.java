@@ -64,20 +64,22 @@ public class GunInspectorScreen extends AbstractContainerScreen<FirearmInspector
 
 	private void displayGunInfo(GuiGraphics guiGraphics, ItemStack menuStack, int yPosition) {
 		if (menu.getGunDamage(menuStack) > -1F) {
-			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.damage").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunDamage(menuStack)), 34, yPosition, 4210752, false);
+			guiGraphics.drawString(this.font, ModUtils.displayString("Damage " + TMWUtils.guiScaleBar(menu.getGunDamage(menuStack), 30, 42)), 34, yPosition, 4210752, false);
 			yPosition += 10;
 		}
 		if (menu.getGunSpread(menuStack) > -1F) {
-			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.spread").getString() + ": " + menu.getGunSpread(menuStack), 34, yPosition, 4210752, false);
+			guiGraphics.drawString(this.font, ModUtils.displayString("Spread " + TMWUtils.guiScaleBar(menu.getGunSpread(menuStack), 5, 42)), 34, yPosition, 4210752, false);
 			yPosition += 10;
 		}
 		if (menu.getGunSpeed(menuStack) > -1F) {
-			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.velocity").getString() + ": " + TMWUtils.makeFloatReadable(menu.getGunSpeed(menuStack)), 34, yPosition, 4210752, false);
+			guiGraphics.drawString(this.font, ModUtils.displayString("Speed " + TMWUtils.guiScaleBar(menu.getGunSpeed(menuStack), 12, 45)), 34, yPosition, 4210752, false);
 			yPosition += 10;
 		}
-		if (menu.getGunROF(menuStack) > -1) {
-			String rofString = (menu.getGunROF(menuStack) == Constants.fireRateAuto) ? "thismeanswar.firearm_rof_full" : "thismeanswar.firearm_rof_semi";
+		if (menu.getGunReload(menuStack) > -1) {
+			/*String rofString = (menu.getGunROF(menuStack) == Constants.fireRateAuto) ? "thismeanswar.firearm_rof_full" : "thismeanswar.firearm_rof_semi";
 			guiGraphics.drawString(this.font, ModUtils.displayTranslation("thismeanswar.container.firearm_inspector.rof").getString() + ": " + ModUtils.displayTranslation(rofString).getString(), 34, yPosition, 4210752, false);
+			*/
+			guiGraphics.drawString(this.font, ModUtils.displayString("Reload " + TMWUtils.guiScaleBar(menu.getGunReload(menuStack), 100, 44)), 34, yPosition, 4210752, false);
 			yPosition += 10;
 		}
 	}

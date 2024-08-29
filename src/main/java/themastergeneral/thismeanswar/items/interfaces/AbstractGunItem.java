@@ -932,4 +932,9 @@ public class AbstractGunItem extends AbstractModItem {
 			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.mag_unloaded"), true);
 		}
 	}
+
+	public int returnReloadTime(ItemStack stack)
+	{
+		return reloadTime;
+	}
 }

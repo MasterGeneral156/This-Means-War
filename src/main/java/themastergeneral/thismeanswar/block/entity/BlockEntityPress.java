@@ -60,6 +60,7 @@ public class BlockEntityPress extends BlockEntity implements MenuProvider, Block
                 case 0 -> BlockEntityPress.this.burnTime;
                 case 1 -> BlockEntityPress.this.processTime;
                 case 2 -> BlockEntityPress.this.maxProcessTime;
+                case 3 -> BlockEntityPress.this.burnTimeTotal;
                 default -> throw new UnsupportedOperationException("Unexpected value: " + pIndex);
             };
         }
@@ -70,12 +71,13 @@ public class BlockEntityPress extends BlockEntity implements MenuProvider, Block
                 case 0 -> BlockEntityPress.this.burnTime = pValue;
                 case 1 -> BlockEntityPress.this.processTime = pValue;
                 case 2 -> BlockEntityPress.this.maxProcessTime = pValue;
+                case 3 -> BlockEntityPress.this.burnTimeTotal = pValue;
             }
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
     };
     

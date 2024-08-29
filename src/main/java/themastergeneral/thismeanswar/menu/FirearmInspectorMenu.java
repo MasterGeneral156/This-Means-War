@@ -184,6 +184,16 @@ public class FirearmInspectorMenu extends AbstractContainerMenu {
     	else
     		return -1F;
     }
+
+	public float getGunReload(ItemStack stack)
+	{
+		if (stack.getItem() instanceof AbstractGunItem gun)
+			return gun.returnReloadTime(stack);
+		else if (stack.getItem() instanceof NuGunItem gun)
+			return gun.getReloadTime(stack);
+		else
+			return -1F;
+	}
     
     public int getGunBulletType(ItemStack stack)
     {

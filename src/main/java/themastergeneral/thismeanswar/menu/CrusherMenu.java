@@ -20,7 +20,7 @@ public class CrusherMenu extends AbstractContainerMenu {
 	
 	public CrusherMenu(int id, Inventory playerInventory, FriendlyByteBuf extraData) 
 	{
-		this(id, playerInventory, (BlockEntityCrusher) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(3));
+		this(id, playerInventory, (BlockEntityCrusher) playerInventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 	
 	public CrusherMenu(int id, Inventory playerInventory, BlockEntityCrusher blockEntity, ContainerData data) {
@@ -101,6 +101,11 @@ public class CrusherMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(1);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(3);
+    }
 	
 	public int getMaxProcessTime()
 	{

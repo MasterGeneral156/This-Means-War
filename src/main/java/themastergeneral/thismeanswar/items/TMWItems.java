@@ -8,10 +8,7 @@ import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.Item.Properties;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
-import themastergeneral.thismeanswar.config.Constants;
-import themastergeneral.thismeanswar.config.DurabilityItemConfig;
-import themastergeneral.thismeanswar.config.MagazineConfigs;
-import themastergeneral.thismeanswar.config.TMWTags;
+import themastergeneral.thismeanswar.config.*;
 import themastergeneral.thismeanswar.items.armors.WarArmorItem;
 import themastergeneral.thismeanswar.items.charms.CharmCreative;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBlockItem;
@@ -58,16 +55,16 @@ public class TMWItems {
 	public static AbstractModItem bullet_tip_38spec = new BasicItem();
 	
 	//Bullets & Shells
-	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm, TMWTags.rounds9mm);
-	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot, TMWTags.rounds12g);
-	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem();
-	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556, TMWTags.rounds556);
-	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, TMWTags.rounds223);
-	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, TMWTags.rounds45);
-	public static AbstractBulletItem round_38spec = new AbstractBulletItem(casing_38spec, bullet_tip_38spec, TMWTags.rounds38spec);
-	public static AbstractBulletItem round_40mm = new AbstractBulletItem(TMWTags.rounds40mm);
-	public static AbstractBulletItem round_762 = new AbstractBulletItem(casing_762, bullet_tip_762, TMWTags.rounds762);
-	public static AbstractBulletItem energy_bolt = new AbstractBulletItem(TMWTags.roundsenergy);
+	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm, Constants.baseDamage9mm, TMWTags.rounds9mm);
+	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot, Constants.baseDamage12g, TMWTags.rounds12g);
+	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem(Constants.bazookaDamage);
+	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556, Constants.baseDamage556, TMWTags.rounds556);
+	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, Constants.baseDamage223, TMWTags.rounds223);
+	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, Constants.baseDamage45, TMWTags.rounds45);
+	public static AbstractBulletItem round_38spec = new AbstractBulletItem(casing_38spec, bullet_tip_38spec, Constants.baseDamage38spec, TMWTags.rounds38spec);
+	public static AbstractBulletItem round_40mm = new AbstractBulletItem(Constants.bazookaDamage, TMWTags.rounds40mm);
+	public static AbstractBulletItem round_762 = new AbstractBulletItem(casing_762, bullet_tip_762, Constants.baseDamage762, TMWTags.rounds762);
+	public static AbstractBulletItem energy_bolt = new AbstractBulletItem(Constants.baseDamageEnergy, TMWTags.roundsenergy);
 	
 	//Magazines
 	public static NuMagazineItem magazine_9mm = new NuMagazineItem(round_9mm, Constants.magSize9mm, TMWTags.mags9mm);

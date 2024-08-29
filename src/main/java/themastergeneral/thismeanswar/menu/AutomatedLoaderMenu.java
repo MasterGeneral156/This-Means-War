@@ -97,6 +97,11 @@ public class AutomatedLoaderMenu extends AbstractContainerMenu {
 	{
 		return this.data.get(0);
 	}
+
+    public int getTotalBurnTime()
+    {
+        return this.data.get(3);
+    }
 	
 	public int getProcessTime()
 	{
