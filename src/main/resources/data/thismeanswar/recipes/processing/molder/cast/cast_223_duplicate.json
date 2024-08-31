@@ -1,0 +1,12 @@
+{
+  "type": "thismeanswar:molder",
+  "base": {
+    "tag": "forge:plates/steel"
+  },
+  "cast": {
+    "item": "thismeanswar:bullet_cast_223", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:bullet_cast_223"
+  }
+}

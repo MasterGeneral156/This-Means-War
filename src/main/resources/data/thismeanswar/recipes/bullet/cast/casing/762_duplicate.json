@@ -1,0 +1,15 @@
+{
+  "type": "thismeanswar:bullet_foundary",
+  "template": {
+    "tag": "forge:plates/steel"
+  },
+  "base": {
+    "item": "thismeanswar:casing_cast_762", "data": 32767
+  },
+  "addition": {
+	"tag": "thismeanswar:tools/hammer", "data": 32767
+  },
+  "result": {
+    "item": "thismeanswar:casing_cast_762", "count": 1
+  }
+}
