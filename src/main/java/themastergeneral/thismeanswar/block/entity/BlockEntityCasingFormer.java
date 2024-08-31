@@ -170,8 +170,8 @@ public class BlockEntityCasingFormer extends BlockEntity implements MenuProvider
 		            				 outputStack.grow(resultStack.getCount());
 		            			 }
 		            			 damageFactoryItem();
-								 this.damageFirstInputSlot(inputStack);
-								 this.damageSecondInputSlot(inputStack2);
+								 this.damageFirstInputSlot(inputStack2);
+								 this.damageSecondInputSlot(inputStack);
 		            			 processTime = 0;
 		                	}
 		    	        }
