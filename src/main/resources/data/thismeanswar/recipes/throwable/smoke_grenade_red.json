@@ -1,7 +1,7 @@
 {
   "type": "thismeanswar:bullet_foundary",
   "template": {
-    "item": "thismeanswar:hand_grenade"
+    "tag": "thismeanswar:throwables/grenades"
   },
   "base": {
     "tag": "forge:dyes/red"
