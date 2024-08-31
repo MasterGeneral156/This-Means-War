@@ -1,7 +1,7 @@
 -=-=-=-=-=-=-=-=-=-=-=-
 This Means War
-Version: 0.2.3-Indev
-(//2023, 01:13)
+Version: 0.3.0-Indev
+(08/31/2024, 01:13)
 Target: Forge 1.20.1
 -=-=-=-=-=-=-=-=-=-=-=-
 +Reimplemented crusher
@@ -9,19 +9,38 @@ Target: Forge 1.20.1
 +Added recipe to crush firearm
 -Removed recipe to smelt firearm
 +Added Landmine
-+Added Explosion Shelter Blocks
-	*High explosion resistance
-	*High strength
-	*Tiers!!
-+Added Crusher mod compat!
-	*Create
-	*Thermal Series
-	*Mekanism
-	*Immersive Engineering
-	*More to come soon!
-+Added Primer Popper
-	*Creates Primers from metals and Fire Charges
-	*Requires Factory Holder with Hammer installed ontop
++Added numerous machines for crafting.
+	i) Can autocraft parts to create rounds.
+		1) Can not assemble the finished round yet.
+	ii) Automated Loader
+		a) Can insert rounds into magazines.
+		b) Can insert magazines into guns.
+		c) Inserting rounds into internal fed guns coming soon.
+	iii) Factory Holder
+		a) Placed ontop of select machines
+		b) Holds either Saw, Hammer or Cutter tools.
+	iv) Casing Former
+		a) Requires Factory Holder with Hammer
+		b) Creates Casings from casts and metals.
+	v) Casing Recycler
+		a) Recycles old casings back into nuggets for reuse.
+	vi) Tip Molder
+		a) Requires Factory Holder with Hammer
+		b) Creates bullet tips from casts and metals.
+	vii) Bullet Tip Reprocessor
+		a) Recycles old bullet tips back into nuggets for reuse.
+	viii) Ingot Presser
+		a) Presses items into other items
+	vix) Primer Popper
+		a) Crafts Primers using igniters and metals.
+		b) Requires Factory Holder with Hammer.
+	x) Alloy Smelter
+		a) Smelts items together to create alloys
+		b) Used to make steel/lead/brass
+~Major mag/gun rewrite.
+~3D models in some places
++Added boxes of ammo to store ammo on a person.
+~Numerous recipe rebalances.
 	
 	
 -=-=-=-=-=-=-=-=-=-=-=-
