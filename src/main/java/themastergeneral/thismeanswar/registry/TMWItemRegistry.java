@@ -248,6 +248,7 @@ public class TMWItemRegistry {
 	
 	//Misc
 	public static final RegistryObject<Item> kevlar_raw = ITEMS.register("kevlar_raw", () -> TMWItems.kevlar_raw);
+	public static final RegistryObject<Item> tiny_gunpowder = ITEMS.register("tiny_gunpowder", () -> TMWItems.tiny_gunpowder);
 	public static final RegistryObject<Item> ancient_fabric = ITEMS.register("ancient_fabric", () -> TMWItems.ancient_fabric);
 	public static final RegistryObject<Item> ancient_fabric_british = ITEMS.register("ancient_fabric_british", () -> TMWItems.ancient_fabric_british);
 	public static final RegistryObject<Item> ancient_fabric_russia = ITEMS.register("ancient_fabric_russia", () -> TMWItems.ancient_fabric_russia);

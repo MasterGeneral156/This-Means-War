@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "item": "minecraft:flint"
+  },
+  "result": {
+    "item": "thismeanswar:tiny_gunpowder", "count": 1
+  }
+}

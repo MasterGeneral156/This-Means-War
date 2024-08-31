@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "item": "thismeanswar:dynamite_stick"
+  },
+  "result": {
+    "item": "thismeanswar:tiny_gunpowder", "count": 6
+  }
+}

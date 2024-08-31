@@ -1,12 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "thismeanswar:bullet_make_45",
   "ingredients": [
     {
       "tag": "thismeanswar:casing/45" 
     },
 	{
-      "tag": "forge:gunpowder" 
+      "item": "thismeanswar:tiny_gunpowder" 
     },
 	{
       "tag": "thismeanswar:primer/pistol" 

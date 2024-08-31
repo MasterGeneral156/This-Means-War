@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "item": "minecraft:fire_charge"
+  },
+  "result": {
+    "item": "minecraft:gunpowder", "count": 1
+  }
+}

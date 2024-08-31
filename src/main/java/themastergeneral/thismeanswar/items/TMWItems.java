@@ -162,6 +162,7 @@ public class TMWItems {
 	
 	//Parts for gun craftings
 	public static AbstractModItem kevlar_raw = new BasicItem();
+	public static AbstractModItem tiny_gunpowder = new BasicItem();
 	
 	//Durability crafting items
 	public static DurabilityItem hammer_wood = new DurabilityItem(59);

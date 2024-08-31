@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "tag": "thismeanswar:ammo/round_all"
+  },
+  "result": {
+    "item": "thismeanswar:tiny_gunpowder", "count": 1
+  }
+}

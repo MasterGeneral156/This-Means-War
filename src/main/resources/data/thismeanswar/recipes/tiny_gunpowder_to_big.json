@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "NNN",
+        "NNN",
+		"NNN"
+    ],
+    "key": {
+		"N": { "item": "thismeanswar:tiny_gunpowder" }
+    },
+    "result": {
+        "item": "minecraft:gunpowder",
+		"count": 1
+    }
+}

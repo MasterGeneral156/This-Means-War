@@ -324,6 +324,7 @@ public class TMWMain
 			ev.accept(TMWItems.plate_gold);
 			
 			ev.accept(TMWItems.kevlar_raw);
+			ev.accept(TMWItems.tiny_gunpowder);
 			
 			ev.accept(TMWItems.ingot_brass);
 			ev.accept(TMWItems.ingot_steel);

@@ -1,0 +1,9 @@
+{
+  "type": "thismeanswar:crusher",
+  "base": {
+    "item": "minecraft:tnt"
+  },
+  "result": {
+    "item": "minecraft:gunpowder", "count": 3
+  }
+}

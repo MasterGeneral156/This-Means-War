@@ -1,12 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "thismeanswar:bullet_make_556",
   "ingredients": [
     {
       "tag": "thismeanswar:casing/556" 
     },
 	{
-      "tag": "forge:gunpowder" 
+      "item": "thismeanswar:tiny_gunpowder"
     },
 	{
       "tag": "thismeanswar:primer/rifle" 

@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " FG",
+        "FAF",
+		"AF "
+    ],
+    "key": {
+		"G": { "tag": "thismeanswar:throwables/grenades" },
+		"A": { "tag": "minecraft:arrows" },
+		"F": { "item": "thismeanswar:tiny_gunpowder" }
+    },
+    "result": {
+        "item": "thismeanswar:rocket_bazooka",
+		"count": 1
+		}
+    }
+}
