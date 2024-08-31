@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick_grenade"
+    },
+	{
+		"tag": "thismeanswar:tools/saw", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:grenade_fire",
+    "count": 2
+  }
+}

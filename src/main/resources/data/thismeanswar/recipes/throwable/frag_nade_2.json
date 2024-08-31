@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick_grenade"
+    },
+	{
+      "item": "minecraft:stick_grenade"
+    },
+	{
+		"tag": "thismeanswar:tools/hammer", "data": 32767
+	}
+  ],
+  "result": {
+    "item": "thismeanswar:grenade_frag",
+    "count": 2
+  }
+}

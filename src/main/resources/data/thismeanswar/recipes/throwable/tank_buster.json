@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GKG",
+        "KGK",
+		"GKG"
+    ],
+    "key": {
+		"K": { "item": "thismeanswar:kevlar_raw" },
+		"G": { "item": "thismeanswar:stick_grenade" }
+    },
+    "result": {
+        "item": "thismeanswar:grenade_tank_buster",
+		"count": 1
+		}
+    }
+}

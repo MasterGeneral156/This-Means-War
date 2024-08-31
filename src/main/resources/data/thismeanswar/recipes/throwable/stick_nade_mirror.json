@@ -1,17 +1,17 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "BS",
-        "G ",
-		"B "
+        "SG",
+        " B",
+		" B"
     ],
     "key": {
 		"S": { "tag": "forge:string" },
 		"G": { "item": "minecraft:tnt" },
-		"B": { "item": "minecraft:bowl" }
+		"B": { "tag": "forge:rods/wooden" }
     },
     "result": {
-        "item": "thismeanswar:hand_grenade",
+        "item": "thismeanswar:stick_grenade",
 		"count": 1
 		}
     }
