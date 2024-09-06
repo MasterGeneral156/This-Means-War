@@ -110,6 +110,10 @@ repositories {
         }
     }
 	maven {
+		name = "MasterGeneral156"
+		url = "https://chivalryengine.com/maven/"
+	}
+	maven {
 		name = "JEI"
 		url = "https://dvs1.progwml6.com/files/maven/"
 	}
@@ -125,6 +129,7 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 	implementation fg.deobf('curse.maven:ctd-core-' + project.property('ctd_core_ver'))
+	implementation fg.deobf('mastergeneral156.chasethedragon:ctd-radial:forge-1.20.1-0.0.1')
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-common-api:" + project.property('jei_ver'))
 	compileOnly fg.deobf("mezz.jei:jei-" + project.property('minecraft_version') + "-forge-api:" + project.property('jei_ver'))
 	compileOnly fg.deobf("vazkii.patchouli:Patchouli:" + project.property('patchouli_ver') + ":api")

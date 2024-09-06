@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import mastergeneral156.chasethedragon.radial.CTDRadial;
+import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
 import net.minecraft.client.gui.screens.Screen;
 import org.jetbrains.annotations.NotNull;
 
@@ -79,6 +82,10 @@ public class NuMagazineItem extends AbstractModItem {
     @Override
     public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         setupMag(stack);
+        if (worldIn.isClientSide) {
+            if (RadialClientEvents.openRadial.isDown())
+                CTDRadialAPI.openRadialMenu();
+        }
     }
 
     private void setupMag(ItemStack stack) {
