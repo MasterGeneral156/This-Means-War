@@ -450,5 +450,8 @@
 	
 	"item.thismeanswar.cutter.desc": "Can be used to quickly remove Barbed Wire",
 	"item.thismeanswar.nonfunc.desc": "This item is not currently functioning as intended.",
-	"item.thismeanswar.explosive.desc": "Explosive Rating"
+	"item.thismeanswar.explosive.desc": "Explosive Rating",
+	
+	"radial.thismeanswar.add_round": "Add Round",
+	"radial.thismeanswar.remove_round": "Remove Round"
 }

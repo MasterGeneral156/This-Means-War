@@ -1,13 +1,20 @@
 package themastergeneral.thismeanswar.items;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import mastergeneral156.chasethedragon.radial.CTDRadial;
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.RadialMenuOption;
+import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
 import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -40,6 +47,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWUtils;
+import themastergeneral.thismeanswar.block.entity.BlockEntityAlloySmelter;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
@@ -56,6 +64,7 @@ public class NuMagazineItem extends AbstractModItem {
     public static int SLOT_AMMO = 0;
     public static int SLOT_CAP_UPGRADES = 1;
     public static int SLOT_OVERFLOW = 2;
+
 
     public NuMagazineItem(AbstractBulletItem bulletRequired, int maxAmmoSize, TagKey<Item> compatMag) {
         super(new Properties().stacksTo(1));
@@ -82,10 +91,33 @@ public class NuMagazineItem extends AbstractModItem {
     @Override
     public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         setupMag(stack);
-        if (worldIn.isClientSide) {
-            if (RadialClientEvents.openRadial.isDown())
-                CTDRadialAPI.openRadialMenu();
+        List<RadialMenuOption> optionList = new ArrayList<>();
+        if (entityIn instanceof Player player) {
+            if (getCurrentAmmo(stack) > 0) {
+                optionList.add(new RadialMenuOption(
+                        () -> playerRemoveAmmo(stack, player, 1),
+                        Constants.removeAmmoIcon,
+                        ModUtils.displayTranslation("radial.thismeanswar.remove_round")
+                ));
+            }
+            if (getCurrentAmmo(stack) < getMaxAmmo(stack)) {
+
+                optionList.add(new RadialMenuOption(
+                        () -> playerAddAmmo(stack, player, 1),
+                        Constants.addAmmoIcon,
+                        ModUtils.displayTranslation("radial.thismeanswar.add_round")
+                ));
+            }
+            if (worldIn.isClientSide && isSelected)
+            {
+                if (RadialClientEvents.openRadial.isDown())
+                    Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+
+                NetworkHooks.openScreen((ServerPlayer) player, new RadialMenuScreen(optionList), player.getOnPos());
+            }
         }
+
+
     }
 
     private void setupMag(ItemStack stack) {

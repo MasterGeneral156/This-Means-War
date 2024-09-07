@@ -1,6 +1,7 @@
 package themastergeneral.thismeanswar.config;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -9,6 +10,8 @@ import themastergeneral.thismeanswar.TMWMain;
 
 public class Constants 
 {
+	public static ResourceLocation removeAmmoIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/remove_ammo.png");
+	public static ResourceLocation addAmmoIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/add_ammo.png");
 	public static int fireRateAuto = 1;
 	public static int fireRateSemi = 2;
 	public static int fireRateBurst = 3;
