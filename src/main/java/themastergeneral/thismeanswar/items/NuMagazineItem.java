@@ -113,7 +113,7 @@ public class NuMagazineItem extends AbstractModItem {
                 if (RadialClientEvents.openRadial.isDown())
                     Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
 
-                NetworkHooks.openScreen((ServerPlayer) player, new RadialMenuScreen(optionList), player.getOnPos());
+                //NetworkHooks.openScreen((ServerPlayer) player, new RadialMenuScreen(optionList), player.getOnPos());
             }
         }
 
