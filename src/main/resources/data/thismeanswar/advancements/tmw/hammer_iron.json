@@ -13,11 +13,7 @@
 			"conditions": {
 				"items": [
 					{
-						"items": [
-							"thismeanswar:hammer_iron",
-							"thismeanswar:hammer_diamond",
-							"thismeanswar:hammer_steel"
-						]
+						"tag": "thismeanswar:tools/hammer"
 					}
 				]
 			}
