@@ -1,0 +1,12 @@
+{
+    "name": "Quantum Disruptor",
+    "icon": "thismeanswar:quantum_disruptor",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:quantum_disruptor",
+            "text": "The Quantum Disruptor is a cutting-edge weapon that utilizes advanced quantum technology to fire concentrated energy bolts at high velocities. It harnesses unstable quantum particles, which are contained within the weapon's core, to create devastating energy projectiles. In game, it uses Energy Cells filled with Energy Bolts to fire."
+        }
+    ]
+}

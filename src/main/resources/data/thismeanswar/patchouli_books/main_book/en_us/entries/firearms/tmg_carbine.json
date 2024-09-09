@@ -1,0 +1,12 @@
+{
+    "name": "Master General's Carbine",
+    "icon": "thismeanswar:tmg_carbine",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:tmg_carbine",
+            "text": "For obvious reasons, this is fictional. Its lightweight, fully automatic and chambered in 9mm. However, its specifically designed to take 9mm Stick Magazines."
+        }
+    ]
+}

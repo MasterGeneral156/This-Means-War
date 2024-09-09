@@ -1,0 +1,12 @@
+{
+    "name": "Thunderclaw 45",
+    "icon": "thismeanswar:thunderclaw",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:thunderclaw",
+            "text": "Combines both strong impact and a touch of sharpness, the Thunderclaw 45 is a unique firearm chambered with 45 ACP Stripper Clips."
+        }
+    ]
+}

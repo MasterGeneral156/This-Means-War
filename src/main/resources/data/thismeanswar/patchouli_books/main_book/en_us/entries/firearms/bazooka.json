@@ -1,0 +1,12 @@
+{
+    "name": "Bazooka",
+    "icon": "thismeanswar:bazooka",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:bazooka",
+            "text": "A single-loaded rocket launcher capable of destroying tanks. In game it uses rockets and causes significant splash damage on contact."
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "M17 'Viper'",
+    "icon": "thismeanswar:m17_viper",
+    "category": "thismeanswar:firearm_category",
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+			"item": "thismeanswar:m17_viper",
+            "text": "Sleek and modern semi-automatic pistol designed for efficiency and reliability. It features a polymer frame with textured grips for enhanced ergonomics and control. The pistol has a striker-fired action and a compact slide, making it suitable for both concealed carry and general-purpose use."
+        }
+    ]
+}
