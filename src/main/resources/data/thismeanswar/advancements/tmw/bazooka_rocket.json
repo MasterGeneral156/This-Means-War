@@ -3,8 +3,13 @@
 		"icon": {
 			"item": "thismeanswar:rocket_bazooka"
 		},
-		"title": "Rocketted Explosion",
-		"description": "Craft a Bazooka Rocket"
+		{
+		  "translate": "advancement.thismeanswar.bazooka_rocket"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.bazooka_rocket.description"
+		}
 	},
 	"parent": "thismeanswar:tmw/grenade",
 	"criteria": {

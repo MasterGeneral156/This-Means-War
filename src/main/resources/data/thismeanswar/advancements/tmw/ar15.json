@@ -3,8 +3,13 @@
 		"icon": {
 			"item": "thismeanswar:springfield_saint_556"
 		},
-		"title": "tErRoRiSt!",
-		"description": "Obtain an AR15"
+		{
+		  "translate": "advancement.thismeanswar.ar15"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.ar15.description"
+		}
 	},
 	"parent": "thismeanswar:tmw/tmg_carbine",
 	"criteria": {

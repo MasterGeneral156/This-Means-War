@@ -3,8 +3,14 @@
 		"icon": {
 			"item": "thismeanswar:hammer_iron"
 		},
-		"title": "Hammer Time",
-		"description": "Obtain a Hammer, used for bullet creation."
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.hammer"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.hammer.description"
+		}
 	},
 	"parent": "thismeanswar:tmw/root",
 	"criteria": {

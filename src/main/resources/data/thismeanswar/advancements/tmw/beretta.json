@@ -3,8 +3,13 @@
 		"icon": {
 			"item": "thismeanswar:beretta_92_fs"
 		},
-		"title": "Modern Handgun",
-		"description": "Obtain a Beretta 92"
+		{
+		  "translate": "advancement.thismeanswar.beretta"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.beretta.description"
+		}
 	},
 	"parent": "thismeanswar:tmw/m1911",
 	"criteria": {

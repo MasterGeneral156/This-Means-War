@@ -459,7 +459,20 @@
 	"radial.thismeanswar.remove_gun_round": "Remove Round from Firearm",
 	"radial.thismeanswar.add_gun_round": "Insert Round into Firearm",
 	
-	
+	"advancement.thismeanswar.ar15": "AnvilR15",
+	"advancement.thismeanswar.ar15.description": "Semi-automatic rifle chambered in 5.56",
 	"advancement.thismeanswar.bazooka": "Blazeooka",
-	"advancement.thismeanswar.bazooka.description": "Fires destructive rockets"
+	"advancement.thismeanswar.bazooka.description": "Explosive projectile launcher that fires Blazeooka Rockets",
+	"advancement.thismeanswar.beretta": "Bricketta 92 FS",
+	"advancement.thismeanswar.beretta.description": "Semi-automatic pistol chambered in 9mm",
+	"advancement.thismeanswar.bfg": "BFG-8K1",
+	"advancement.thismeanswar.bfg.description": "Energy Bolt based rifle",
+	
+	"advancement.thismeanswar.40mm": "40 Mike Mike",
+	"advancement.thismeanswar.40mm.description": "Explosive projectile used in numerous launchers",
+	"advancement.thismeanswar.bazooka_rocket": "Blazezooka Rocket",
+	"advancement.thismeanswar.bazooka_rocket.description": "Used with the Blazeooka",
+	
+	"advancement.thismeanswar.hammer": "Hammer Time",
+	"advancement.thismeanswar.hammer.description": "Hammers are used heavily in firearm assembly"
 }

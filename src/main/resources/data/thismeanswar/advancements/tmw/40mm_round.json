@@ -3,8 +3,14 @@
 		"icon": {
 			"item": "thismeanswar:round_40mm"
 		},
-		"title": "Propelled Explosion",
-		"description": "Craft a 40mm HE Round"
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.40mm"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.40mm.description"
+		}
 	},
 	"parent": "thismeanswar:tmw/grenade",
 	"criteria": {
