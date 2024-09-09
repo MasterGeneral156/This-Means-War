@@ -197,8 +197,10 @@ public class NuGunItem extends AbstractModItem {
                 }
             }
             // Client-side: Open the radial menu screen
-            if (worldIn.isClientSide && isSelected) {
-                handleClientRadialMenu(optionList);
+            if (!player.getCooldowns().isOnCooldown(this)) {
+                if (worldIn.isClientSide && isSelected) {
+                    handleClientRadialMenu(optionList);
+                }
             }
         }
     }
