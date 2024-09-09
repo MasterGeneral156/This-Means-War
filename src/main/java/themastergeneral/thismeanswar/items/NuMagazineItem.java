@@ -5,29 +5,23 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import mastergeneral156.chasethedragon.radial.CTDRadial;
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
-import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.network.NetworkHooks;
+
+import net.minecraftforge.fml.DistExecutor;
 import org.jetbrains.annotations.NotNull;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -45,9 +39,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWUtils;
-import themastergeneral.thismeanswar.block.entity.BlockEntityAlloySmelter;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
@@ -92,37 +84,44 @@ public class NuMagazineItem extends AbstractModItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        setupMag(stack);
-        List<RadialMenuOption> optionList = new ArrayList<>();
-        if (entityIn instanceof Player player) {
-            if (getCurrentAmmo(stack) > 0) {
-                optionList.add(new RadialMenuOption(
-                        () -> {
-                            // Send a packet to the server to remove ammo
-                            TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, -1));
-                        },
-                        Constants.removeAmmoIcon,
-                        ModUtils.displayTranslation("radial.thismeanswar.remove_round")
-                ));
-            }
-            if (getCurrentAmmo(stack) < getMaxAmmo(stack)) {
+        setupMag(stack);  // Ensure this method does not contain client-side code
 
-                optionList.add(new RadialMenuOption(
-                        () -> {
-                            // Send a packet to the server to remove ammo
-                            TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, 1));
-                        },
-                        Constants.addAmmoIcon,
-                        ModUtils.displayTranslation("radial.thismeanswar.add_round")
-                ));
-            }
-            if (!player.getCooldowns().isOnCooldown(this))
-            {
-                if (worldIn.isClientSide && isSelected) {
-                    if (RadialClientEvents.openRadial.isDown())
-                        Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
-                }
-            }
+        if (!(entityIn instanceof Player player)) {
+            return;  // Exit early if the entity is not a player
+        }
+
+        List<RadialMenuOption> optionList = new ArrayList<>();
+        if (getCurrentAmmo(stack) > 0) {
+            optionList.add(new RadialMenuOption(
+                    () -> {
+                        // Send a packet to the server to remove ammo
+                        TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, -1));
+                    },
+                    Constants.removeAmmoIcon,
+                    ModUtils.displayTranslation("radial.thismeanswar.remove_round")
+            ));
+        }
+        if (getCurrentAmmo(stack) < getMaxAmmo(stack)) {
+            optionList.add(new RadialMenuOption(
+                    () -> {
+                        // Send a packet to the server to add ammo
+                        TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, 1));
+                    },
+                    Constants.addAmmoIcon,
+                    ModUtils.displayTranslation("radial.thismeanswar.add_round")
+            ));
+        }
+
+        // Client-side: Open the radial menu screen
+        if (worldIn.isClientSide && isSelected) {
+            handleClientRadialMenu(optionList);
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
+        if (RadialClientEvents.openRadial.isDown()) {
+            Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
         }
     }
 

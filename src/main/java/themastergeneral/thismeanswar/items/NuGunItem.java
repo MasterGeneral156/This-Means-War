@@ -11,6 +11,7 @@ import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.DistExecutor;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -51,11 +52,9 @@ import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
-import themastergeneral.thismeanswar.items.interfaces.WeaponSniper;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 import themastergeneral.thismeanswar.network.packet.GunAmmoChangePacket;
 import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
-import themastergeneral.thismeanswar.network.packet.MagAmmoChangePacket;
 import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class NuGunItem extends AbstractModItem {
@@ -197,11 +196,17 @@ public class NuGunItem extends AbstractModItem {
                     ));
                 }
             }
-            if (!player.getCooldowns().isOnCooldown(this))
-                if (worldIn.isClientSide && isSelected) {
-                    if (RadialClientEvents.openRadial.isDown())
-                        Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
-                }
+            // Client-side: Open the radial menu screen
+            if (worldIn.isClientSide && isSelected) {
+                handleClientRadialMenu(optionList);
+            }
+        }
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
+        if (RadialClientEvents.openRadial.isDown()) {
+            Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
         }
     }
     
