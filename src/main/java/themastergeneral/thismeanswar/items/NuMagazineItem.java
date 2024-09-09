@@ -116,10 +116,12 @@ public class NuMagazineItem extends AbstractModItem {
                         ModUtils.displayTranslation("radial.thismeanswar.add_round")
                 ));
             }
-            if (worldIn.isClientSide && isSelected)
+            if (!player.getCooldowns().isOnCooldown(this))
             {
-                if (RadialClientEvents.openRadial.isDown())
-                    Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+                if (worldIn.isClientSide && isSelected) {
+                    if (RadialClientEvents.openRadial.isDown())
+                        Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+                }
             }
         }
     }

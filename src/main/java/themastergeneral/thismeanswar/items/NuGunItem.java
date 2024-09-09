@@ -1,11 +1,16 @@
 package themastergeneral.thismeanswar.items;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.annotation.Nullable;
 
+import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.RadialMenuOption;
+import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import net.minecraft.client.Minecraft;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -48,6 +53,10 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.interfaces.WeaponSniper;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
+import themastergeneral.thismeanswar.network.packet.GunAmmoChangePacket;
+import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
+import themastergeneral.thismeanswar.network.packet.MagAmmoChangePacket;
+import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class NuGunItem extends AbstractModItem {
 
@@ -132,12 +141,67 @@ public class NuGunItem extends AbstractModItem {
     public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) 
     {
         counter++;
+        List<RadialMenuOption> optionList = new ArrayList<>();
         if (counter == 20)
         {
             doSetupGun(stack);
             Player player = (Player) entityIn;
             doZoom(player.getItemInHand(InteractionHand.MAIN_HAND), player);
             counter = 0;
+        }
+        if (entityIn instanceof Player player) {
+            //External ammo
+            if (this.magType == Constants.external_mag) {
+                if (this.getMaxAmmo(stack) == 0) {
+                    optionList.add(new RadialMenuOption(
+                            () -> {
+                                // Send a packet to the server to remove ammo
+                                TMWNetworkManager.INSTANCE.sendToServer(new GunItemMagPacket(itemSlot));
+                            },
+                            Constants.addMagIcon,
+                            ModUtils.displayTranslation("radial.thismeanswar.add_mag")
+                    ));
+                } else {
+                    optionList.add(new RadialMenuOption(
+                            () -> {
+                                // Send a packet to the server to remove ammo
+                                TMWNetworkManager.INSTANCE.sendToServer(new GunItemMagPacket(itemSlot));
+                            },
+                            Constants.removeMagIcon,
+                            ModUtils.displayTranslation("radial.thismeanswar.remove_mag")
+                    ));
+                }
+            }
+            //Internal ammo
+            if (this.magType == Constants.internal_mag) {
+                if (this.getCurrentAmmo(stack) < this.getMaxAmmo(stack))
+                {
+                    optionList.add(new RadialMenuOption(
+                            () -> {
+                                // Send a packet to the server to remove ammo
+                                TMWNetworkManager.INSTANCE.sendToServer(new GunAmmoChangePacket(itemSlot, 1));
+                            },
+                            Constants.addGunAmmoIcon,
+                            ModUtils.displayTranslation("radial.thismeanswar.add_gun_round")
+                    ));
+                }
+                if (this.getCurrentAmmo(stack) > 0)
+                {
+                    optionList.add(new RadialMenuOption(
+                            () -> {
+                                // Send a packet to the server to remove ammo
+                                TMWNetworkManager.INSTANCE.sendToServer(new GunAmmoChangePacket(itemSlot, -1));
+                            },
+                            Constants.removeGunAmmoIcon,
+                            ModUtils.displayTranslation("radial.thismeanswar.remove_gun_round")
+                    ));
+                }
+            }
+            if (!player.getCooldowns().isOnCooldown(this))
+                if (worldIn.isClientSide && isSelected) {
+                    if (RadialClientEvents.openRadial.isDown())
+                        Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+                }
         }
     }
     
@@ -386,8 +450,6 @@ public class NuGunItem extends AbstractModItem {
 		        	//attempt reload
 		        	if (returnMagType() == Constants.internal_mag)
 		        		handleFillInternalMag(gun, player);
-		        	else if (returnMagType() == Constants.external_mag)
-		        		handleMagazineInsertion(gun, player);
 		        	return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
 		        }
 		        else
@@ -426,7 +488,7 @@ public class NuGunItem extends AbstractModItem {
 			player.getInventory().add(new ItemStack(casing));
 	}
     
-    protected void handleFillInternalMag(ItemStack gun, Player playerIn)
+    public void handleFillInternalMag(ItemStack gun, Player playerIn)
 	{
 		//Add ammo into internal fed firearms
 		if ((getCurrentAmmo(gun) < getMaxAmmo(gun)) && (getMaxAmmo(gun) > 0))
@@ -454,8 +516,27 @@ public class NuGunItem extends AbstractModItem {
 			}
 		}
 	}
+
+    public void removeInternalAmmo(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.extractItem(this.SLOT_ROUNDS, 1, false);
+            saveInventory(stack);
+        });
+    }
+
+    public void handleRemoveInternalMag(ItemStack gun, Player player)
+    {
+        if (getCurrentAmmo(gun) > 0)
+        {
+            removeInternalAmmo(gun);
+            player.getInventory().add(new ItemStack(bullet, 1));
+            player.getCooldowns().addCooldown(this, 8);
+            player.awardStat(Stats.ITEM_USED.get(this));
+            player.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
+        }
+    }
     
-    protected void handleMagazineInsertion(ItemStack gun, Player playerIn) {
+    public void handleMagazineInsertion(ItemStack gun, Player playerIn) {
         getInventory(gun).ifPresent(inventory -> {
             if (inventory.getStackInSlot(SLOT_MAG).isEmpty()) {
                 int slotID = -1;
