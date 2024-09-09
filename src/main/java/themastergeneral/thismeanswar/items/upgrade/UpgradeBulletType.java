@@ -1,16 +1,20 @@
 package themastergeneral.thismeanswar.items.upgrade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.RadialMenuOption;
+import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -20,10 +24,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
+import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
-import themastergeneral.thismeanswar.items.interfaces.AbstractGunItem;
+import themastergeneral.thismeanswar.network.packet.GunAddBulletUpgradePacket;
+import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class UpgradeBulletType extends BasicItem {
 
@@ -35,59 +42,61 @@ public class UpgradeBulletType extends BasicItem {
 		this.bulletUpgradeLvl = bulletUpgrade;
 		this.disableUpgrade = blockItemTag;
 	}
+
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
+	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
-		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(playerIn.getOffhandItem().getItem())) && 
-				(!tagManager.getTag(disableUpgrade).contains(playerIn.getOffhandItem().getItem())))
-		{
-			if (playerIn.getOffhandItem().getItem() instanceof AbstractGunItem)
-			{
-				AbstractGunItem offhand = (AbstractGunItem) playerIn.getOffhandItem().getItem();
-				int upgradeLevel = offhand.getBulletUpgrade(playerIn.getOffhandItem());
-				if (upgradeLevel == bulletUpgradeLvl)
-				{
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bullet_fail_same"), true);
-					playerIn.getCooldowns().addCooldown(this, 10);
-					return InteractionResultHolder.fail(playerIn.getMainHandItem());
-				}
-				else if (upgradeLevel == 0 && bulletUpgradeLvl > 0)
-				{
-					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
-					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getMainHandItem().shrink(1);
-					return InteractionResultHolder.pass(playerIn.getMainHandItem());
-				}
-				else if (upgradeLevel > 0 && bulletUpgradeLvl == 0)
-				{
-					offhand.upgradeBullet(playerIn.getOffhandItem(), bulletUpgradeLvl);
-					playerIn.getCooldowns().addCooldown(this, 20);
-					playerIn.getMainHandItem().shrink(1);
-					return InteractionResultHolder.pass(playerIn.getMainHandItem());
-				}
-				else
-				{
-					playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bullet_fail_already_done"), true);
-					playerIn.getCooldowns().addCooldown(this, 10);
-					return InteractionResultHolder.fail(playerIn.getMainHandItem());
+		List<RadialMenuOption> optionList = new ArrayList<>();
+		if (entityIn instanceof Player player) {
+			optionList.add(new RadialMenuOption(
+					() -> {
+						// Send a packet to the server to remove ammo
+						TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot, player.getOffhandItem()));
+					},
+					Constants.addMagIcon,
+					ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
+			));
+
+			if (!player.getCooldowns().isOnCooldown(this)) {
+				if (worldIn.isClientSide && isSelected) {
+					handleClientRadialMenu(optionList);
 				}
 			}
-			else
-			{
-				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bayonet_fail_nocompat"), true);
-				playerIn.getCooldowns().addCooldown(this, 10);
-				return InteractionResultHolder.fail(playerIn.getMainHandItem());
+		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
+		if (RadialClientEvents.openRadial.isDown()) {
+			Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+		}
+	}
+
+	public void playerApplyUpgrade(Player player, ItemStack stack, ItemStack offHand)
+	{
+		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHand.getItem())) &&
+				(!tagManager.getTag(disableUpgrade).contains(offHand.getItem()))) {
+			if (offHand.getItem() instanceof NuGunItem gun) {
+				if (gun.getRoundUpgrade(offHand) == ItemStack.EMPTY) {
+					gun.setRoundUpgrade(stack, offHand);
+					player.getCooldowns().addCooldown(this, 10);
+					player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_success"), true);
+				} else {
+					player.getCooldowns().addCooldown(this, 10);
+					player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_bullet_fail_already_done"), true);
+				}
+			} else {
+				player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
+				player.getCooldowns().addCooldown(this, 10);
 			}
 		}
 		else
 		{
-			playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
-			playerIn.getCooldowns().addCooldown(this, 10);
-			return InteractionResultHolder.fail(playerIn.getMainHandItem());
+			player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_fail_disabled"), true);
+			player.getCooldowns().addCooldown(this, 10);
 		}
 	}
-	
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 

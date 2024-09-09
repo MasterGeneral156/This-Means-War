@@ -196,6 +196,17 @@ public class NuGunItem extends AbstractModItem {
                     ));
                 }
             }
+            if (!returnBayonetStack(stack).isEmpty())
+            {
+                optionList.add(new RadialMenuOption(
+                        () -> {
+                            // Send a packet to the server to remove ammo
+                            //TMWNetworkManager.INSTANCE.sendToServer(new GunAmmoChangePacket(itemSlot, -1));
+                        },
+                        Constants.removeBayonetIcon,
+                        ModUtils.displayTranslation("radial.thismeanswar.remove_bayonet")
+                ));
+            }
             // Client-side: Open the radial menu screen
             if (!player.getCooldowns().isOnCooldown(this)) {
                 if (worldIn.isClientSide && isSelected) {
@@ -391,15 +402,28 @@ public class NuGunItem extends AbstractModItem {
     }
     
     public ItemStack getRoundUpgrade(ItemStack stack) {
-    	final ItemStack[] roundType = {ItemStack.EMPTY};
-        getInventory(stack).ifPresent(inv -> roundType[0] = inv.getStackInSlot(SLOT_ROUND_UPGRADE));
-        return roundType[0];
+        final ItemStack[] roundUpgrade = {ItemStack.EMPTY};
+
+        // Get the inventory from the ItemStack
+        getInventory(stack).ifPresent(inv -> {
+            roundUpgrade[0] = inv.getStackInSlot(SLOT_ROUND_UPGRADE);
+        });
+
+        return roundUpgrade[0];
+    }
+
+    public void setRoundUpgrade(ItemStack stack, ItemStack toAdd)
+    {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.insertItem(SLOT_ROUND_UPGRADE, toAdd.copyWithCount(1), false);
+            saveInventory(stack); // Save state after change
+        });
     }
     
     public int returnInternalAmmo(ItemStack stack)
     {
     	final AtomicInteger rounds = new AtomicInteger(0);
-        getInventory(stack).ifPresent(inv -> rounds.set(inv.getStackInSlot(SLOT_ROUND_UPGRADE).getCount()));
+        getInventory(stack).ifPresent(inv -> rounds.set(inv.getStackInSlot(SLOT_ROUNDS).getCount()));
         return rounds.get();
     }
     
@@ -449,9 +473,11 @@ public class NuGunItem extends AbstractModItem {
     {
     	if (world instanceof ServerLevel)
     	{
+            //ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
     		if (hand == InteractionHand.MAIN_HAND)
     		{
 		        ItemStack gun = player.getItemInHand(hand);
+                TMWMain.debugLogger(this.getRoundUpgrade(gun));
                 if (canFire(gun, player))
                 {
                     if (!player.isCreative())
@@ -470,7 +496,7 @@ public class NuGunItem extends AbstractModItem {
                     float minPitch = 0F;
                     float maxPitch = 1F;
                     float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
-                    player.playSound(getGunFireSound(), 0.1F, randPitch);
+                    player.playSound(getGunFireSound(), Constants.modVolume, randPitch);
                     return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
                 }
     		}
@@ -722,13 +748,13 @@ public class NuGunItem extends AbstractModItem {
 				tooltip.add(bayonetString);
 			}
 			//display bullet damage upgrade type
-			if (bulletUpgrade == Constants.bulletUpgradeAP)
+			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
-			if (bulletUpgrade == Constants.bulletUpgradeFire)
+            if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
-			if (bulletUpgrade == Constants.bulletUpgradeTracer)
+			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_tracer"));
-			if (bulletUpgrade == Constants.bulletUpgradeInert)
+			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_inert"));
 		}
 			
@@ -816,6 +842,31 @@ public class NuGunItem extends AbstractModItem {
 			returned = ModUtils.displayTranslation("thismeanswar.gun.semiauto").getString();
 			returned = returned.concat(" ");
 		}
+
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.ap").getString();
+            returned = returned.concat(" ");
+        }
+
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.inert").getString();
+            returned = returned.concat(" ");
+        }
+
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.fire").getString();
+            returned = returned.concat(" ");
+        }
+
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.tracer").getString();
+            returned = returned.concat(" ");
+        }
+
 		returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
 		if (!returnBayonetStack(stack).isEmpty())
 		{
