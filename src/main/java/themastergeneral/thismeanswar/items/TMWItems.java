@@ -1,12 +1,9 @@
 package themastergeneral.thismeanswar.items;
 
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.Item.Properties;
-import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 import themastergeneral.thismeanswar.config.*;
 import themastergeneral.thismeanswar.items.armors.WarArmorItem;
@@ -15,7 +12,6 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractBlockItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractHealingItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
-//import themastergeneral.thismeanswar.items.charms.CharmStealth;
 import themastergeneral.thismeanswar.items.tiers.BasicProtArmor;
 import themastergeneral.thismeanswar.items.tiers.KevlarArmor;
 import themastergeneral.thismeanswar.items.tiers.WarArmor;
