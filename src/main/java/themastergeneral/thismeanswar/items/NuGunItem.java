@@ -445,37 +445,27 @@ public class NuGunItem extends AbstractModItem {
     		if (hand == InteractionHand.MAIN_HAND)
     		{
 		        ItemStack gun = player.getItemInHand(hand);
-		        if (player.isCrouching())
-		        {
-		        	//attempt reload
-		        	if (returnMagType() == Constants.internal_mag)
-		        		handleFillInternalMag(gun, player);
-		        	return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
-		        }
-		        else
-		        {
-		        	if (canFire(gun, player))
-		        	{
-                        if (!player.isCreative())
-		        		    fireRoundLogic(gun);
-		        		BulletBaseEntity bulletEntity = new BulletBaseEntity(world, player, getBulletDamage(gun), bullet);
-						bulletEntity.setItem(new ItemStack(bullet));
-						//Up+Down
-						//bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
-						//bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0F, getBulletSpeed(gun), 1.0F);
-						bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
-						//bulletEntity.applyRandomSpread(returnBulletSpread(mag));
-						world.addFreshEntity(bulletEntity);
-						player.awardStat(Stats.ITEM_USED.get(asItem()));
-						player.getCooldowns().addCooldown(asItem(), getRateOfFire(gun));
-						giveBulletCasing(player);
-						float minPitch = 0F;
-					    float maxPitch = 1F;
-					    float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
-						player.playSound(getGunFireSound(), 0.1F, randPitch);
-						return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
-		        	}
-		        }
+                if (canFire(gun, player))
+                {
+                    if (!player.isCreative())
+                        fireRoundLogic(gun);
+                    BulletBaseEntity bulletEntity = new BulletBaseEntity(world, player, getBulletDamage(gun), bullet);
+                    bulletEntity.setItem(new ItemStack(bullet));
+                    //Up+Down
+                    //bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
+                    //bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0F, getBulletSpeed(gun), 1.0F);
+                    bulletEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
+                    //bulletEntity.applyRandomSpread(returnBulletSpread(mag));
+                    world.addFreshEntity(bulletEntity);
+                    player.awardStat(Stats.ITEM_USED.get(asItem()));
+                    player.getCooldowns().addCooldown(asItem(), getRateOfFire(gun));
+                    giveBulletCasing(player);
+                    float minPitch = 0F;
+                    float maxPitch = 1F;
+                    float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
+                    player.playSound(getGunFireSound(), 0.1F, randPitch);
+                    return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
+                }
     		}
     	}
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide());
