@@ -23,13 +23,7 @@ import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.define.TMWShotguns;
 import themastergeneral.thismeanswar.items.define.TMWThrowables;
 import themastergeneral.thismeanswar.menu.screen.CasingRecyclerScreen;
-import themastergeneral.thismeanswar.registry.TMWBlockEntityRegistry;
-import themastergeneral.thismeanswar.registry.TMWBlockRegistry;
-import themastergeneral.thismeanswar.registry.TMWEntityRegistry;
-import themastergeneral.thismeanswar.registry.TMWItemRegistry;
-import themastergeneral.thismeanswar.registry.TMWMenuRegistry;
-import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
-import themastergeneral.thismeanswar.registry.TMWSoundRegistry;
+import themastergeneral.thismeanswar.registry.*;
 
 @Mod("thismeanswar")
 public class TMWMain
@@ -56,6 +50,7 @@ public class TMWMain
         TMWTabs.CREATIVE_MODE_TABS.register(modBus);
         TMWSoundRegistry.SOUNDS.register(modBus);
         TMWMenuRegistry.CONTAINERS.register(modBus);
+		TMWNetworkManager.registerMessages();
     }
 
     @SubscribeEvent

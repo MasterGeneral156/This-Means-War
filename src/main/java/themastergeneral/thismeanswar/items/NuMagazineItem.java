@@ -52,6 +52,8 @@ import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
+import themastergeneral.thismeanswar.network.packet.MagAmmoChangePacket;
+import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class NuMagazineItem extends AbstractModItem {
 
@@ -95,7 +97,10 @@ public class NuMagazineItem extends AbstractModItem {
         if (entityIn instanceof Player player) {
             if (getCurrentAmmo(stack) > 0) {
                 optionList.add(new RadialMenuOption(
-                        () -> playerRemoveAmmo(stack, player, 1),
+                        () -> {
+                            // Send a packet to the server to remove ammo
+                            TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, -1));
+                        },
                         Constants.removeAmmoIcon,
                         ModUtils.displayTranslation("radial.thismeanswar.remove_round")
                 ));
@@ -103,7 +108,10 @@ public class NuMagazineItem extends AbstractModItem {
             if (getCurrentAmmo(stack) < getMaxAmmo(stack)) {
 
                 optionList.add(new RadialMenuOption(
-                        () -> playerAddAmmo(stack, player, 1),
+                        () -> {
+                            // Send a packet to the server to remove ammo
+                            TMWNetworkManager.INSTANCE.sendToServer(new MagAmmoChangePacket(itemSlot, 1));
+                        },
                         Constants.addAmmoIcon,
                         ModUtils.displayTranslation("radial.thismeanswar.add_round")
                 ));
@@ -170,7 +178,7 @@ public class NuMagazineItem extends AbstractModItem {
         return capacityUpgrades[0];
     }
 
-    public void removeAmmoFromMag(ItemStack stack, int toRemove) {
+    protected void removeAmmoFromMag(ItemStack stack, int toRemove) {
         getInventory(stack).ifPresent(inventory -> {
             int currentAmmo = getCurrentAmmo(stack);
 
@@ -337,7 +345,7 @@ public class NuMagazineItem extends AbstractModItem {
         return InteractionResultHolder.sidedSuccess(playerIn.getItemInHand(handIn), worldIn.isClientSide());
 	}
     
-    protected void playerAddAmmo(ItemStack stack, Player player, int added)
+    public void playerAddAmmo(ItemStack stack, Player player, int added)
     {
     	if ((getCurrentAmmo(stack) < getMaxAmmo(stack)) && (getMaxAmmo(stack) > 0)) 
     	{
@@ -353,7 +361,7 @@ public class NuMagazineItem extends AbstractModItem {
         }
     }
 
-    protected void playerRemoveAmmo(ItemStack stack, Player player, int removed) {
+    public void playerRemoveAmmo(ItemStack stack, Player player, int removed) {
         if (getCurrentAmmo(stack) > 0) {
             removeAmmoFromMag(stack, removed);
             player.getInventory().add(new ItemStack(returnBulletItem(), removed));
