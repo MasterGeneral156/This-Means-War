@@ -120,12 +120,8 @@ public class NuMagazineItem extends AbstractModItem {
             {
                 if (RadialClientEvents.openRadial.isDown())
                     Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
-
-                //NetworkHooks.openScreen((ServerPlayer) player, new RadialMenuScreen(optionList), player.getOnPos());
             }
         }
-
-
     }
 
     private void setupMag(ItemStack stack) {
@@ -327,23 +323,6 @@ public class NuMagazineItem extends AbstractModItem {
         else
             tooltip.add(ModUtils.displayString(TMWUtils.ammoFillBar(currentAmmo, maxAmmo)));
     }
-
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
-        if (worldIn instanceof ServerLevel) {
-            ItemStack mag = playerIn.getItemInHand(handIn);
-            if (handIn == InteractionHand.MAIN_HAND && playerIn.getOffhandItem().isEmpty()) {
-                if (playerIn.isCrouching()) {
-                    if (getCurrentAmmo(mag) > 0) {
-                        playerRemoveAmmo(mag, playerIn);
-                    }
-                } else {
-                    playerAddAmmo(mag, playerIn);
-                }
-            }
-        }
-        return InteractionResultHolder.sidedSuccess(playerIn.getItemInHand(handIn), worldIn.isClientSide());
-	}
     
     public void playerAddAmmo(ItemStack stack, Player player, int added)
     {
