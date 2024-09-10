@@ -283,6 +283,7 @@ public class NuGunItem extends AbstractModItem {
 	                CompoundTag tag = stack.getOrCreateTag();
 	                tag.putInt("MagType", gun.returnMagType());
 	                tag.put("Inventory", this.serializeNBT());
+                    stack.setTag(tag);
             	}
             }
         }
@@ -402,19 +403,14 @@ public class NuGunItem extends AbstractModItem {
     }
     
     public ItemStack getRoundUpgrade(ItemStack stack) {
-        final ItemStack[] roundUpgrade = {ItemStack.EMPTY};
-
-        // Get the inventory from the ItemStack
-        getInventory(stack).ifPresent(inv -> {
-            roundUpgrade[0] = inv.getStackInSlot(SLOT_ROUND_UPGRADE);
-        });
-
-        return roundUpgrade[0];
+        final ItemStack[] currentAmmo = {ItemStack.EMPTY};
+        getInventory(stack).ifPresent(inv -> currentAmmo[0] = inv.getStackInSlot(SLOT_ROUND_UPGRADE));
+        return currentAmmo[0];
     }
 
-    public void setRoundUpgrade(ItemStack stack, ItemStack toAdd)
-    {
+    public void setRoundUpgrade(ItemStack stack, ItemStack toAdd) {
         getInventory(stack).ifPresent(inventory -> {
+            TMWMain.debugLogger(toAdd + " was applied to " + stack);
             inventory.insertItem(SLOT_ROUND_UPGRADE, toAdd.copyWithCount(1), false);
             saveInventory(stack); // Save state after change
         });
@@ -625,7 +621,6 @@ public class NuGunItem extends AbstractModItem {
         if (player.isCreative())
             return true;
         else {
-            TMWMain.debugLogger(getCurrentAmmo(stackIn));
             return getCurrentAmmo(stackIn) >= 1;
         }
 	}

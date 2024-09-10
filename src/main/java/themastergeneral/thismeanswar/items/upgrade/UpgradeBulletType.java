@@ -46,20 +46,24 @@ public class UpgradeBulletType extends BasicItem {
 	@Override
 	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
-		List<RadialMenuOption> optionList = new ArrayList<>();
-		if (entityIn instanceof Player player) {
-			optionList.add(new RadialMenuOption(
-					() -> {
-						// Send a packet to the server to remove ammo
-						TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot, player.getOffhandItem()));
-					},
-					Constants.addMagIcon,
-					ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
-			));
+		if (isSelected) {
+			List<RadialMenuOption> optionList = new ArrayList<>();
+			if (entityIn instanceof Player player) {
+				if (player.getOffhandItem().getItem() instanceof NuGunItem) {
+					optionList.add(new RadialMenuOption(
+							() -> {
+								// Send a packet to the server to remove ammo
+								TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot, player.getOffhandItem()));
+							},
+							Constants.addMagIcon,
+							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
+					));
+				}
 
-			if (!player.getCooldowns().isOnCooldown(this)) {
-				if (worldIn.isClientSide && isSelected) {
-					handleClientRadialMenu(optionList);
+				if (!player.getCooldowns().isOnCooldown(this)) {
+					if (worldIn.isClientSide) {
+						handleClientRadialMenu(optionList);
+					}
 				}
 			}
 		}
@@ -78,8 +82,9 @@ public class UpgradeBulletType extends BasicItem {
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHand.getItem())) &&
 				(!tagManager.getTag(disableUpgrade).contains(offHand.getItem()))) {
 			if (offHand.getItem() instanceof NuGunItem gun) {
-				if (gun.getRoundUpgrade(offHand) == ItemStack.EMPTY) {
-					gun.setRoundUpgrade(stack, offHand);
+				if (gun.getRoundUpgrade(offHand).isEmpty()) {
+					gun.setRoundUpgrade(offHand, stack);
+					stack.shrink(1);
 					player.getCooldowns().addCooldown(this, 10);
 					player.displayClientMessage(ModUtils.displayTranslation("thismeanswar.upgrade_success"), true);
 				} else {

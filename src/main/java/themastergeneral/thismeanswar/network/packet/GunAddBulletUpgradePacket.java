@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkEvent;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
+import themastergeneral.thismeanswar.items.NuGunItem;
 
 import java.util.function.Supplier;
 
@@ -33,9 +34,8 @@ public class GunAddBulletUpgradePacket {
             ServerPlayer player = context.getSender();
             if (player != null) {
                 ItemStack stack = player.getInventory().getItem(msg.itemSlot);
-                if (stack.getItem() instanceof UpgradeBulletType upgrade)
-                {
-                    upgrade.playerApplyUpgrade(player, stack, msg.offHand);
+                if (stack.getItem() instanceof UpgradeBulletType upgrade) {
+                    upgrade.playerApplyUpgrade(player, stack, msg.offHand); // Apply the upgrade on the server side
                 }
             }
         });
