@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import org.joml.Vector3f;
 
@@ -122,6 +123,25 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile {
 			}
 			this.setAliveTick();
 		}
+	}
+
+	// Save entity data to NBT
+	@Override
+	public void addAdditionalSaveData(CompoundTag compound) {
+		super.addAdditionalSaveData(compound);
+		compound.putInt("TicksAlive", this.ticksAlive);
+		compound.putInt("Bounces", this.bounces);
+		compound.putInt("Color", this.intColors);
+	}
+
+	// Load entity data from NBT
+	@Override
+	public void readAdditionalSaveData(CompoundTag compound) {
+		super.readAdditionalSaveData(compound);
+		this.ticksAlive = compound.getInt("TicksAlive");
+		this.bounces = compound.getInt("Bounces");
+		this.intColors = compound.getInt("Color");
+		this.color = Vec3.fromRGB24(this.intColors).toVector3f();  // Ensure color is restored
 	}
 	
 	protected int getTicksAlive()
