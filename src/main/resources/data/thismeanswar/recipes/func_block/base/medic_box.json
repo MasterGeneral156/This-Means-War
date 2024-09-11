@@ -6,7 +6,7 @@
 		"WCW"
     ],
     "key": {
-		"C": { "tag": "forge:chests/wooden" },
+		"C": { "item": "thismeanswar:factory_holder" },
 		"S": { "tag": "minecraft:wooden_slabs" },
 		"F": { "tag": "minecraft:wool_carpets" },
 		"A": { "tag": "thismeanswar:health_items" },
