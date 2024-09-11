@@ -607,7 +607,7 @@ public class NuGunItem extends AbstractModItem {
     @Override
 	public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity)
     {
-        if (getBayonetDamage(stack) > 0)
+        if (getBayonetDamage(stack) > 0D)
         {
         	entity.hurt(player.damageSources().playerAttack(player), (float) getBayonetDamage(stack));
         	return true;
