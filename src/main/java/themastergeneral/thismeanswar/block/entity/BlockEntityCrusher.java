@@ -1,9 +1,13 @@
 package themastergeneral.thismeanswar.block.entity;
 
 import java.util.Optional;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.ITagManager;
 import org.jetbrains.annotations.NotNull;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -35,6 +39,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
+import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.menu.CrusherMenu;
 import themastergeneral.thismeanswar.recipe.CrusherRecipe;
 import themastergeneral.thismeanswar.recipe.RecyclerRecipe;
@@ -118,60 +123,106 @@ public class BlockEntityCrusher extends BlockEntity implements MenuProvider, Blo
 	{
 		return itemHandler.isItemValid(slot, stack);
 	}
-	
-	@Override
-	public void tick(Level level, BlockPos pos, BlockState state, BlockEntityCrusher blockEntity) {
-		boolean isBurning = blockEntity.burnTime > 0;
+
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state, BlockEntityCrusher blockEntity) {
+        boolean isBurning = blockEntity.burnTime > 0;
         if (isBurning)
             blockEntity.burnTime--;
-        
+
         ItemStack fuelStack = blockEntity.itemHandler.getStackInSlot(FUEL_SLOT);
         ItemStack inputStack = blockEntity.itemHandler.getStackInSlot(INPUT_SLOT);
         ItemStack outputStack = blockEntity.itemHandler.getStackInSlot(OUTPUT_SLOT);
+
+        // Check if the input matches the recipe and if there's space in the output slot
         Optional<CrusherRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(TMWRecipeTypeRegistration.CRUSHER_TYPE.get(), new SimpleContainer(inputStack), level);
-        if (outputStack.getCount() < itemHandler.getSlotLimit(OUTPUT_SLOT))
-        {
-        	if (recipe.isPresent())
-        	{
-        		ItemStack resultStack = recipe.get().getResultItem(level.registryAccess()).copy();
-        		if (!isBurning && !fuelStack.isEmpty() && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == ItemStack.EMPTY.getItem())))) 
-    	        {
-        			blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
-    	            blockEntity.burnTimeTotal = blockEntity.burnTime;
-    	            if (blockEntity.burnTime > 0) 
-    	                fuelStack.shrink(1);
-    	        }
-        		if (isBurning && ((outputStack.getItem() == resultStack.getItem() || (outputStack.getItem() == Items.AIR))))
-    	        {
-        			blockEntity.processTime++;
-            		if (blockEntity.processTime == blockEntity.maxProcessTime)
-                	{
-            			 if (outputStack.isEmpty()) 
-            			 {
-            				 blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);  // Example output item
-            			 } 
-            			 else if (outputStack.getItem() == resultStack.getItem()) 
-            			 {
-            				 outputStack.grow(resultStack.getCount());
-            			 }
-            			 inputStack.shrink(1);
-            			 processTime = 0;
-                	}
-    	        }
-        	}
+
+        if (outputStack.getCount() < blockEntity.itemHandler.getSlotLimit(OUTPUT_SLOT)) {
+            if (recipe.isPresent() && recipe.get().matches(new SimpleContainer(inputStack), level)) {
+                // Use the assemble method to get the result from the recipe
+                ItemStack resultStack = recipe.get().getResultItem(level.registryAccess()).copy();
+
+                if (!isBurning && !fuelStack.isEmpty() &&
+                        (outputStack.isEmpty() || outputStack.getItem() == resultStack.getItem())) {
+
+                    blockEntity.burnTime = ForgeHooks.getBurnTime(fuelStack, null);
+                    blockEntity.burnTimeTotal = blockEntity.burnTime;
+                    if (blockEntity.burnTime > 0)
+                        fuelStack.shrink(1); // Consume fuel
+                }
+
+                // If burning, proceed to process the input item
+                if (isBurning && (outputStack.isEmpty() || outputStack.getItem() == resultStack.getItem())) {
+                    blockEntity.processTime++;
+                    if (blockEntity.processTime >= blockEntity.maxProcessTime) {
+                        // Add result to the output slot
+                        if (outputStack.isEmpty()) {
+                            blockEntity.itemHandler.setStackInSlot(OUTPUT_SLOT, resultStack);
+                        } else if (outputStack.getItem() == resultStack.getItem()) {
+                            outputStack.grow(resultStack.getCount());
+
+                            // Check for bonus output based on tool in factory holder
+                            if (this.checkForFactoryHolder()) {
+                                if (this.checkForRequiredTool()) {
+                                    this.damageFactoryItem();
+                                    if (new Random().nextInt(100) <= 20) {
+                                        outputStack.grow(resultStack.getCount());  // 20% chance to double output
+                                    }
+                                }
+                            }
+                        }
+                        // Reduce the input stack after process completes
+                        inputStack.shrink(recipe.get().returnBase().getItems()[0].getCount());
+                        blockEntity.processTime = 0;  // Reset processing time
+                    }
+                }
+            }
         }
-        
-        if ((inputStack.isEmpty() || !recipe.isPresent()) && processTime > 0)
-        	processTime = 0;
-        
+
+        // Reset processing time if the input is empty or no recipe is found
+        if (inputStack.isEmpty() || !recipe.isPresent() || !recipe.get().matches(new SimpleContainer(inputStack), level)) {
+            blockEntity.processTime = 0;
+        }
+
+        // Update the block state for the burning status (lit or unlit)
         boolean wasLit = state.getValue(BlockStateProperties.LIT);
         boolean shouldBeLit = blockEntity.burnTime > 0;
-        if (wasLit != shouldBeLit) 
+        if (wasLit != shouldBeLit) {
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, shouldBeLit), 3);
+        }
+
         this.level.sendBlockUpdated(pos, state, state, Block.UPDATE_ALL);
         setChanged();
-	}
+    }
+
+    protected boolean checkForFactoryHolder()
+    {
+        BlockPos pos = this.getBlockPos();
+        if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder)
+            return true;
+        else
+            return false;
+    }
+
+    protected void damageFactoryItem()
+    {
+        BlockPos pos = this.getBlockPos();
+        if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+            holder.damageHolderStack();
+    }
+
+    protected boolean checkForRequiredTool()
+    {
+        BlockPos pos = this.getBlockPos();
+        if (this.getLevel().getBlockEntity(new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ())) instanceof BlockEntityFactoryHolder holder)
+        {
+            ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+            return tagManager.getTag(TMWTags.hammer).contains(holder.getHolderStack().getItem());
+        }
+        else
+            return false;
+    }
 
 	@Override
     public void load(CompoundTag tag) {

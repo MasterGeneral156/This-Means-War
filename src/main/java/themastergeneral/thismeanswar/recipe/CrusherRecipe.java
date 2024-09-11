@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 import themastergeneral.thismeanswar.registry.TMWRecipeTypeRegistration;
 
 public class CrusherRecipe implements Recipe<Container> {
-	
+
 	   private final ResourceLocation id;
 	   final Ingredient base;
 	   final ItemStack result;
@@ -31,19 +31,28 @@ public class CrusherRecipe implements Recipe<Container> {
 	      this.result = p_267031_;
 	   }
 
-	   public boolean matches(Container p_266855_, Level p_266781_) {
-	      return this.base.test(p_266855_.getItem(0));
+	   public boolean matches(Container container, Level level) {
+		   ItemStack inputStack = container.getItem(0);  // Get the item from the container
+		   int requiredCount = this.base.getItems()[0].getCount();
+
+		   return this.base.test(inputStack) && inputStack.getCount() >= requiredCount;
 	   }
 
-	   public ItemStack assemble(Container p_267036_, RegistryAccess p_266699_) {
-	      ItemStack itemstack = this.result.copy();
-	      CompoundTag compoundtag = p_267036_.getItem(0).getTag();
-	      if (compoundtag != null) {
-	         itemstack.setTag(compoundtag.copy());
-	      }
+	public ItemStack assemble(Container container, RegistryAccess registryAccess) {
+		ItemStack inputStack = container.getItem(0);
+		int requiredCount = this.base.getItems()[0].getCount();
 
-	      return itemstack;
-	   }
+		inputStack.shrink(requiredCount);
+
+		ItemStack resultStack = this.result.copy();
+		CompoundTag tag = inputStack.getTag();
+
+		if (tag != null) {
+			resultStack.setTag(tag.copy());
+		}
+
+		return resultStack;
+	}
 
 	   public ItemStack getResultItem(RegistryAccess p_267209_) {
 	      return this.result;
@@ -64,13 +73,13 @@ public class CrusherRecipe implements Recipe<Container> {
 	   public boolean isIncomplete() {
 	      return Stream.of(this.base).anyMatch(net.minecraftforge.common.ForgeHooks::hasNoElements);
 	   }
-	   
+
 	   @Override
 	   public RecipeType<CrusherRecipe> getType() {
 	       // Return an instance of your recipe type
 	       return TMWRecipeTypeRegistration.CRUSHER_TYPE.get();
 	   }
-	   
+
 	   public Ingredient returnBase()
 	   {
 		   return this.base;
