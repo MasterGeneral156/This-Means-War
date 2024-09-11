@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:glock_26"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.first_pistol"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.first_pistol.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/root",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "thismeanswar:gun/pistols"
+					}
+				]
+			}
+		}
+	}
+}

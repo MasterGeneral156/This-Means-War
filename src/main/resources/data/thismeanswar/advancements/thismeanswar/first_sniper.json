@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:mosin_nagant"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.first_sniper"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.first_sniper.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/first_shotgun",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "thismeanswar:gun/snipers"
+					}
+				]
+			}
+		}
+	}
+}

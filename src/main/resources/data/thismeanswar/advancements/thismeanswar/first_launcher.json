@@ -5,23 +5,21 @@
 		},
 		"title": 
 		{
-		  "translate": "advancement.thismeanswar.bazooka"
+		  "translate": "advancement.thismeanswar.first_launcher"
 		},
 		"description": 
 		{
-		  "translate": "advancement.thismeanswar.bazooka.description"
+		  "translate": "advancement.thismeanswar.first_launcher.desc"
 		}
 	},
-	"parent": "thismeanswar:tmw/steel_block",
+	"parent": "thismeanswar:thismeanswar/first_sniper",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
 			"conditions": {
 				"items": [
 					{
-						"items": [
-							"thismeanswar:bazooka"
-						]
+						"tag": "thismeanswar:gun/launchers"
 					}
 				]
 			}

@@ -1,18 +1,18 @@
 {
 	"display": {
 		"icon": {
-			"item": "thismeanswar:round_40mm"
+			"item": "thismeanswar:mosin_nagant"
 		},
 		"title": 
 		{
-		  "translate": "advancement.thismeanswar.40mm"
+		  "translate": "advancement.thismeanswar.factory_holder"
 		},
 		"description": 
 		{
-		  "translate": "advancement.thismeanswar.40mm.description"
+		  "translate": "advancement.thismeanswar.factory_holder.desc"
 		}
 	},
-	"parent": "thismeanswar:tmw/grenade",
+	"parent": "thismeanswar:thismeanswar/root",
 	"criteria": {
 		"requirement": {
 			"trigger": "minecraft:inventory_changed",
@@ -20,7 +20,7 @@
 				"items": [
 					{
 						"items": [
-							"thismeanswar:round_40mm"
+							"thismeanswar:factory_holder"
 						]
 					}
 				]

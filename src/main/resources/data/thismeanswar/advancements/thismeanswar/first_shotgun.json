@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:double_barrel_12g"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.first_shotgun"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.first_shotgun.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/first_rifle",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "thismeanswar:gun/shotguns"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:tmg_carbine"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.first_rifle"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.first_rifle.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/first_pistol",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "thismeanswar:gun/rifles"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,11 +1,13 @@
 {
     "display": {
-        "title": {
-            "text": "This Means WAR!"
-        },
-        "description": {
-            "text": "Obtain a copy of Documentation of War"
-        },
+        "title": 
+		{
+		  "translate": "advancement.thismeanswar.root"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.root.desc"
+		},
         "icon": {
             "item": "thismeanswar:nuclear_warhead"
         },
