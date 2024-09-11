@@ -7,6 +7,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
+import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 
@@ -15,15 +16,15 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class GunBayonetUpdatePacket {
-    private final ItemStack offHand;
+    private final ItemStack mainHand;
 
-    public GunBayonetUpdatePacket(ItemStack offHand) {
-        this.offHand = offHand;
+    public GunBayonetUpdatePacket(ItemStack mainHand) {
+        this.mainHand = mainHand;
     }
 
     // Methods to encode/decode the packet
     public static void encode(GunBayonetUpdatePacket msg, FriendlyByteBuf buffer) {
-        buffer.writeItem(msg.offHand);
+        buffer.writeItem(msg.mainHand);
     }
 
     public static GunBayonetUpdatePacket decode(FriendlyByteBuf buffer) {
@@ -35,8 +36,11 @@ public class GunBayonetUpdatePacket {
         context.enqueueWork(() -> {
             ServerPlayer player = context.getSender();
             if (player != null) {
-                if (player.getMainHandItem().getItem() instanceof UpgradeGunBayonetItem bayonet)
+                if (msg.mainHand.getItem() instanceof UpgradeGunBayonetItem bayonet)
                     bayonet.applyBayonetToGun(player.getOffhandItem(), player);
+                else if (msg.mainHand.getItem() instanceof NuGunItem gun)
+                    gun.playerRemoveBayonet(player.getMainHandItem(), player);
+
             }
         });
         context.setPacketHandled(true);

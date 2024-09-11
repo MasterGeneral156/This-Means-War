@@ -65,11 +65,11 @@ public class UpgradeGunBayonetItem extends BasicItem {
 			ItemStack offhand = player.getOffhandItem();
 			if (offhand.getItem() instanceof NuGunItem gun)
 			{
-				if (gun.getBayonetDamage(offhand) == Double.NaN) {
+				if (gun.returnBayonetStack(stack) == ItemStack.EMPTY) {
 					optionList.add(new RadialMenuOption(
 							() -> {
 								// Send a packet to the server to remove ammo
-								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(player.getOffhandItem()));
+								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(player.getMainHandItem()));
 							},
 							Constants.removeBayonetIcon,
 							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")

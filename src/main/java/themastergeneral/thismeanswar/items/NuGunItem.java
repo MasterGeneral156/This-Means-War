@@ -54,6 +54,7 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 import themastergeneral.thismeanswar.network.packet.GunAmmoChangePacket;
+import themastergeneral.thismeanswar.network.packet.GunBayonetUpdatePacket;
 import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
 import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
@@ -201,7 +202,7 @@ public class NuGunItem extends AbstractModItem {
                 optionList.add(new RadialMenuOption(
                         () -> {
                             // Send a packet to the server to remove ammo
-                            //TMWNetworkManager.INSTANCE.sendToServer(new GunAmmoChangePacket(itemSlot, -1));
+                            TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(stack));
                         },
                         Constants.removeBayonetIcon,
                         ModUtils.displayTranslation("radial.thismeanswar.remove_bayonet")
@@ -393,12 +394,9 @@ public class NuGunItem extends AbstractModItem {
     
     public double getBayonetDamage(ItemStack stack) {
     	final double[] returned = {Double.NaN};
-    	getInventory(stack).ifPresent(inventory -> {
-            ItemStack magStack = inventory.getStackInSlot(SLOT_MAG);
-            if (magStack.getItem() instanceof UpgradeGunBayonetItem bayonet) {
-                returned[0] = bayonet.returnBayonetLevel();
-            }
-        });
+        if (returnBayonetStack(stack).getItem() instanceof UpgradeGunBayonetItem bayonet) {
+            returned[0] = bayonet.returnBayonetLevel();
+        }
     	return returned[0];
     }
     
@@ -541,6 +539,23 @@ public class NuGunItem extends AbstractModItem {
             inventory.extractItem(this.SLOT_ROUNDS, 1, false);
             saveInventory(stack);
         });
+    }
+
+    public void removeBayonet(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.extractItem(this.SLOT_BAYONET, 1, false);
+            saveInventory(stack);
+        });
+    }
+
+    public void playerRemoveBayonet(ItemStack stack, Player player)
+    {
+        if (this.returnBayonetStack(stack) != ItemStack.EMPTY)
+        {
+            ItemStack returned = this.returnBayonetStack(stack).copy();
+            this.removeBayonet(stack);
+            player.getInventory().add(returned);
+        }
     }
 
     public void handleRemoveInternalMag(ItemStack gun, Player player)
