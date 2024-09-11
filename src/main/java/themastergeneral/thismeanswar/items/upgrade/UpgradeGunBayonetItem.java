@@ -1,15 +1,21 @@
 package themastergeneral.thismeanswar.items.upgrade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.RadialMenuOption;
+import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,10 +25,14 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
 import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
+import themastergeneral.thismeanswar.network.packet.GunBayonetUpdatePacket;
+import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
+import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class UpgradeGunBayonetItem extends BasicItem {
 
@@ -46,8 +56,42 @@ public class UpgradeGunBayonetItem extends BasicItem {
 		if (Screen.hasShiftDown())
 			tooltip.add(ModUtils.displayString("§2" + this.increaseMusketLevel + " Melee Damage"));
 	}
+
+	@Override
+	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected)
+	{
+		List<RadialMenuOption> optionList = new ArrayList<>();
+		if (entityIn instanceof Player player) {
+			ItemStack offhand = player.getOffhandItem();
+			if (offhand.getItem() instanceof NuGunItem gun)
+			{
+				if (gun.getBayonetDamage(offhand) == Double.NaN) {
+					optionList.add(new RadialMenuOption(
+							() -> {
+								// Send a packet to the server to remove ammo
+								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(player.getOffhandItem()));
+							},
+							Constants.removeBayonetIcon,
+							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
+					));
+				}
+			}
+			if (!player.getCooldowns().isOnCooldown(this)) {
+				if (worldIn.isClientSide && isSelected) {
+					handleClientRadialMenu(optionList);
+				}
+			}
+		}
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
+		if (RadialClientEvents.openRadial.isDown()) {
+			Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+		}
+	}
 	
-	protected void applyBayonetToGun(ItemStack offHandStack, Player player)
+	public void applyBayonetToGun(ItemStack offHandStack, Player player)
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(player.getOffhandItem().getItem())) && 
