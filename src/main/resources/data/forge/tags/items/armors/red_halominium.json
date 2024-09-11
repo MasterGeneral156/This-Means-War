@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:red_war_armor_helm",
+	"thismeanswar:red_war_armor_chest",
+	"thismeanswar:red_war_armor_legs",
+	"thismeanswar:red_war_armor_boots"
+  ]
+}

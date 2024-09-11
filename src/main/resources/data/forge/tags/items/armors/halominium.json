@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:green_war_armor_helm",
+    "thismeanswar:red_war_armor_helm",
+    "thismeanswar:blue_war_armor_helm",
+    "thismeanswar:green_war_armor_chest",
+	"thismeanswar:red_war_armor_chest",
+	"thismeanswar:blue_war_armor_chest",
+	"thismeanswar:green_war_armor_legs",
+	"thismeanswar:red_war_armor_legs",
+	"thismeanswar:blue_war_armor_legs",
+	"thismeanswar:green_war_armor_boots",
+	"thismeanswar:red_war_armor_boots",
+	"thismeanswar:blue_war_armor_boots"
+  ]
+}

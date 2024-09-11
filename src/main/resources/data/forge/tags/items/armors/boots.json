@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:green_war_armor_boots",
+    "thismeanswar:red_war_armor_boots",
+    "thismeanswar:blue_war_armor_boots",
+	"thismeanswar:kevlar_boots",
+	"thismeanswar:ww2_russian_boots",
+	"thismeanswar:swat_boots",
+	"thismeanswar:ww2_british_boots"
+  ]
+}

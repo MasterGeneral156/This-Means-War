@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:green_war_armor_helm",
+    "thismeanswar:red_war_armor_helm",
+    "thismeanswar:blue_war_armor_helm",
+	"thismeanswar:basic_prot_goggles",
+	"thismeanswar:kevlar_helmet",
+	"thismeanswar:ww2_russian_helm",
+	"thismeanswar:swat_helm",
+	"thismeanswar:ww2_british_helm"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:green_war_armor_legs",
+    "thismeanswar:red_war_armor_legs",
+    "thismeanswar:blue_war_armor_legs",
+	"thismeanswar:kevlar_legs",
+	"thismeanswar:ww2_russian_legs",
+	"thismeanswar:swat_legs",
+	"thismeanswar:ww2_british_legs"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:green_war_armor_chest",
+    "thismeanswar:red_war_armor_chest",
+    "thismeanswar:blue_war_armor_chest",
+	"thismeanswar:basic_prot_chest",
+	"thismeanswar:kevlar_chest",
+	"thismeanswar:ww2_russian_chest",
+	"thismeanswar:swat_chest",
+	"thismeanswar:ww2_british_chest"
+  ]
+}
