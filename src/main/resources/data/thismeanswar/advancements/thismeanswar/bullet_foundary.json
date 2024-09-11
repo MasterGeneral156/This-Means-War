@@ -1,0 +1,30 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:bullet_foundary"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.bullet_foundary"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.bullet_foundary.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/factory_holder",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"thismeanswar:bullet_foundary"
+						]
+					}
+				]
+			}
+		}
+	}
+}

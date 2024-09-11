@@ -1,0 +1,28 @@
+{
+	"display": {
+		"icon": {
+			"item": "thismeanswar:medic_box"
+		},
+		"title": 
+		{
+		  "translate": "advancement.thismeanswar.medic_box"
+		},
+		"description": 
+		{
+		  "translate": "advancement.thismeanswar.medic_box.desc"
+		}
+	},
+	"parent": "thismeanswar:thismeanswar/factory_holder",
+	"criteria": {
+		"requirement": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "thismeanswar:func_blocks/medical"
+					}
+				]
+			}
+		}
+	}
+}

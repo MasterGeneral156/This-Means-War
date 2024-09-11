@@ -464,6 +464,7 @@
 	"radial.thismeanswar.add_mag": "Insert Magazine into Firearm",
 	"radial.thismeanswar.remove_gun_round": "Remove Round from Firearm",
 	"radial.thismeanswar.add_gun_round": "Insert Round into Firearm",
+	"radial.thismeanswar.add_bayonet": "Add Bayonet to Firearm",
 	"radial.thismeanswar.remove_bayonet": "Remove Bayonet from Firearm",
 	
 	"advancement.thismeanswar.root": "This Means War",
@@ -481,5 +482,11 @@
 	"advancement.thismeanswar.first_energy": "Baby's First Energy Weapon",
 	"advancement.thismeanswar.first_energy.desc": "Obtain your first energy weapon",
 	"advancement.thismeanswar.factory_holder": "Start of the War Machine",
-	"advancement.thismeanswar.factory_holder.desc": "Factory Holder is used to craft other machines, or on top of existing machines to help with processing"
+	"advancement.thismeanswar.factory_holder.desc": "Factory Holder is used to craft other machines, or on top of existing machines to help with processing",
+	"advancement.thismeanswar.bullet_foundary": "Firearm Workstation",
+	"advancement.thismeanswar.bullet_foundary.desc": "Bullet Foundary is used for numerous crafting recipes",
+	"advancement.thismeanswar.ammo_box": "Ammunition Storage",
+	"advancement.thismeanswar.ammo_box.desc": "You can use your magazines on ammo boxes to fill them more quickly",
+	"advancement.thismeanswar.medic_box": "Emergency Services",
+	"advancement.thismeanswar.medic_box.desc": "Store medical items for instant-use later"
 }

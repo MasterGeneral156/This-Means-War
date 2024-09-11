@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "thismeanswar:ammo_box",
+	"thismeanswar:ammo_box_medium",
+	"thismeanswar:ammo_box_large"
+  ]
+}
