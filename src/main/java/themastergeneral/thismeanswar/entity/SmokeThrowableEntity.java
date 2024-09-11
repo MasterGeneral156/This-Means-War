@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.entity;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.server.level.ServerLevel;
 import org.joml.Vector3f;
 
 import net.minecraft.core.BlockPos;
@@ -27,50 +28,44 @@ import themastergeneral.thismeanswar.items.define.TMWThrowables;
 
 public class SmokeThrowableEntity extends ThrowableItemProjectile {
 	protected Vector3f color;
+	protected int ticksAlive;
+	protected int bounces;
 	protected int intColors;
-	protected int ticksAlive = 0;
-	protected int bounces = 0;
-	
-	protected EntityDataAccessor<Integer> COLOR = SynchedEntityData.defineId(SmokeThrowableEntity.class, EntityDataSerializers.INT);
-	protected EntityDataAccessor<Integer> TICKS_ALIVE = SynchedEntityData.defineId(SmokeThrowableEntity.class, EntityDataSerializers.INT);
-	protected EntityDataAccessor<Integer> BOUNCES_DONE = SynchedEntityData.defineId(SmokeThrowableEntity.class, EntityDataSerializers.INT);   
 	
 	public SmokeThrowableEntity(EntityType<? extends SmokeThrowableEntity> p_i50159_1_, Level p_i50159_2_) {
       super(p_i50159_1_, p_i50159_2_);
       this.color = Vec3.fromRGB24(2551600).toVector3f();
-      
       this.setInvulnerable(true);
       this.canBeCollidedWith();
       setItem(new ItemStack(getDefaultItem()));
-      this.entityData.define(COLOR, 2551600);
-      this.entityData.define(TICKS_ALIVE, 0);
-      this.entityData.define(BOUNCES_DONE, 0);
+	  this.ticksAlive = 0;
+	  this.bounces = 0;
+	  this.intColors = 2551600;
    }
 
    public SmokeThrowableEntity(Level worldIn, LivingEntity throwerIn, int Colors) {
       super(EntityType.SNOWBALL, throwerIn, worldIn);
       this.color = Vec3.fromRGB24(Colors).toVector3f();
-      
       this.setInvulnerable(true);
       this.canBeCollidedWith();
-      this.entityData.define(COLOR, 2551600);
-      this.entityData.define(TICKS_ALIVE, 0);
-      this.entityData.define(BOUNCES_DONE, 0);
+	  this.ticksAlive = 0;
+	  this.bounces = 0;
+	  this.intColors = Colors;
       setItem(new ItemStack(getDefaultItem()));
    }
 
    public SmokeThrowableEntity(Level worldIn, double x, double y, double z, int Colors) {
       super(EntityType.SNOWBALL, x, y, z, worldIn);
       this.color = Vec3.fromRGB24(Colors).toVector3f();
-      
       this.setInvulnerable(true);
       this.canBeCollidedWith();
-      this.entityData.define(COLOR, 2551600);
-      this.entityData.define(TICKS_ALIVE, 0);
-      this.entityData.define(BOUNCES_DONE, 0);
+	  this.ticksAlive = 0;
+	  this.bounces = 0;
+	  this.intColors = Colors;
       setItem(new ItemStack(getDefaultItem()));
    }
 
+   @Override
    protected Item getDefaultItem() {
       return TMWThrowables.smoke_grenade_red;
    }
@@ -106,66 +101,56 @@ public class SmokeThrowableEntity extends ThrowableItemProjectile {
 	public void tick() 
 	{
 		super.tick();
-		Vector3f vecColor = Vec3.fromRGB24(getColor()).toVector3f();
-		int failCon = 0;
-		if (this.isInWater())failCon++;
-		if (this.isOnFire()) failCon++;
-		if (this.isInLava()) failCon++;
-		if (this.isInWall()) failCon++;
-		int aliveTick = getTicksAlive();
-		if ((aliveTick > 100) && (failCon == 0))
-		{
+		if (!level().isClientSide()) {
+			Vector3f vecColor = Vec3.fromRGB24(getColor()).toVector3f();
+			int failCon = 0;
+			if (this.isInWater()) failCon++;
+			if (this.isOnFire()) failCon++;
+			if (this.isInLava()) failCon++;
+			if (this.isInWall()) failCon++;
+			int aliveTick = getTicksAlive();
+			if ((aliveTick > 100) && (failCon == 0)) {
 
-			level().addAlwaysVisibleParticle(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 2.5D, 2D, 1D);
-			TMWMain.debugLogger("win con");
-			if (aliveTick >= (60 * 60 * 20) + 100)	//72100 ticks we die
+				((ServerLevel) level()).sendParticles(new DustParticleOptions(vecColor, 1F), getX(), getEyeY(), getZ(), 5, 0.1, 0.1, 0.1, 0.02);
+				if (aliveTick >= (60 * 60 * 20) + 100)    //72100 ticks we die
+					kill();
+			}
+			//kill earlier if its wet or on fire...
+			if ((failCon > 0) || (aliveTick >= 700)) {
+				((ServerLevel) level()).sendParticles(ParticleTypes.SMOKE, getX(), getEyeY(), getZ(), 5, 0.1, 0.1, 0.1, 0.02);
 				kill();
+			}
+			this.setAliveTick();
 		}
-		//kill earlier if its wet or on fire...
-		if ((failCon > 0) || (aliveTick >= 700))
-		{
-			TMWMain.debugLogger("fail con");
-			level().addAlwaysVisibleParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5D, this.getZ(), 0.0D, 1D, 0.0D);
-			kill();
-		}
-		TMWMain.debugLogger("Alive: " + getTicksAlive());
-		TMWMain.debugLogger("Bounces: " + getBounces());
-		TMWMain.debugLogger("Color: " + getColor());
-		this.setAliveTick();
 	}
 	
 	protected int getTicksAlive()
 	{
-		return this.entityData.get(TICKS_ALIVE);
+		return this.ticksAlive;
 	}
 	
 	protected void setAliveTick()
 	{
 		ticksAlive++;
-		this.entityData.set(TICKS_ALIVE, ticksAlive);
-		
 	}
 	
 	protected void setBounces()
 	{
 		bounces++;
-		this.entityData.set(BOUNCES_DONE, bounces);
 	}
 	
 	protected int getBounces()
 	{
-		return this.entityData.get(BOUNCES_DONE);
+		return this.bounces;
 	}
 	
 	protected void setColor(int color)
 	{
 		intColors = color;
-		this.entityData.set(COLOR, intColors);
-		
 	}
 	
 	protected int getColor()
 	{
-		return this.entityData.get(COLOR);
+		return this.intColors;
 	}
 }
