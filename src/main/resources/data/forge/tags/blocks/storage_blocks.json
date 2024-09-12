@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#thismeanswar:storage_blocks/brass",
+    "#thismeanswar:storage_blocks/lead",
+	"#thismeanswar:storage_blocks/steel"
+  ]
+}
