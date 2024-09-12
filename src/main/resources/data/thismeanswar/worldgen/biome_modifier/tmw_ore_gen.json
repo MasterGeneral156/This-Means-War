@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "thismeanswar:ore_brass",
+	"thismeanswar:ore_lead"
+  ],
+  "step": "underground_ores"
+}
