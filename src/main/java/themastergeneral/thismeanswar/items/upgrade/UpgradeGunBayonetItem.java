@@ -124,20 +124,4 @@ public class UpgradeGunBayonetItem extends BasicItem {
 			player.getCooldowns().addCooldown(asItem(), 100);
 		}
 	}
-	
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) 
-	{
-		ItemStack offHandStack = playerIn.getOffhandItem();
-		ItemStack activeHandStack = playerIn.getItemInHand(handIn);
-		if (offHandStack.getItem() instanceof NuGunItem gun)
-		{
-			applyBayonetToGun(offHandStack, playerIn);
-			return InteractionResultHolder.pass(activeHandStack);
-		}
-		else
-		{
-			return InteractionResultHolder.fail(activeHandStack);
-		}
-	}
 }
