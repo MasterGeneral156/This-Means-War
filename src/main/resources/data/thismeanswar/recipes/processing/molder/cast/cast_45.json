@@ -4,7 +4,7 @@
     "tag": "forge:plates/steel"
   },
   "cast": {
-    "tag": "thismeanswar:tip/45acp"
+    "tag": "thismeanswar:tip/45"
   },
   "result": {
     "item": "thismeanswar:bullet_cast_45"
