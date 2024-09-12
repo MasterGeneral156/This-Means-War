@@ -1,20 +1,20 @@
 {
 	"textures": {
-		"0": "thismeanswar:block/block_steel",
-		"particle": "thismeanswar:block/block_steel"
+		"0": "thismeanswar:item/m4ar_mag",
+		"particle": "thismeanswar:item/m4ar_mag"
 	},
 	"elements": [
 		{
 			"name": "magwell",
-			"from": [7.5, 0.01, 7.75],
-			"to": [8.25, 2.31, 8.25],
+			"from": [7.51, 0.01, 7.75],
+			"to": [8.26, 2.31, 8.25],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7.75, 0, 7.5]},
 			"faces": {
-				"north": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"east": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"south": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"west": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"up": {"uv": [15, 12, 15.75, 12.5], "texture": "#0"},
+				"north": {"uv": [4.5, 1, 11, 14.5], "texture": "#0"},
+				"east": {"uv": [4.5, 1, 11, 14.5], "texture": "#0"},
+				"south": {"uv": [4.5, 1, 11, 14.5], "texture": "#0"},
+				"west": {"uv": [4.5, 1, 11, 14.5], "texture": "#0"},
+				"up": {"uv": [4.5, 1, 11, 1.5], "texture": "#0"},
 				"down": {"uv": [15, 12, 15.75, 12.5], "texture": "#0"}
 			}
 		},
@@ -24,12 +24,12 @@
 			"to": [8.5, 0.25, 8.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7.75, 0, 7.5]},
 			"faces": {
-				"north": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"east": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"south": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"west": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"up": {"uv": [8, 5, 9.75, 9], "texture": "#0"},
-				"down": {"uv": [8, 5, 9.75, 9], "texture": "#0"}
+				"north": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"},
+				"east": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"},
+				"south": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"},
+				"west": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"},
+				"up": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"},
+				"down": {"uv": [4.5, 1, 5, 14.875], "texture": "#0"}
 			}
 		}
 	],
