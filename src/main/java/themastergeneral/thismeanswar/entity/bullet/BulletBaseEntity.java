@@ -7,6 +7,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,6 +24,7 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 public class BulletBaseEntity extends ThrowableItemProjectile {
 	protected float bulletDmg;
 	protected AbstractBulletItem bulletItm;
+	protected DamageSource damageSource;
 	
 	   public BulletBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
@@ -30,6 +32,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.bulletItm = TMWItems.round_12g;
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
+		  this.damageSource = this.damageSources().thrown(this, this);
 	   }
 
 	   public BulletBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
@@ -39,6 +42,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
 	      this.setItem(new ItemStack(bullet));
+		   this.damageSource = this.damageSources().thrown(this, this);
 	   }
 
 	   public BulletBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
@@ -48,6 +52,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
 	      this.setItem(new ItemStack(bullet));
+		  this.damageSource = this.damageSources().thrown(this, this);
 	   }
 
 	   protected Item getDefaultItem() {
@@ -60,7 +65,7 @@ public class BulletBaseEntity extends ThrowableItemProjectile {
 	   protected void onHitEntity(EntityHitResult p_213868_1_) {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
-	      entity.hurt(this.damageSources().thrown(this, this), bulletDmg);
+	      entity.hurt(damageSource, bulletDmg);
 	      this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 	      this.kill();
 	   }

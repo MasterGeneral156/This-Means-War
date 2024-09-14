@@ -16,52 +16,23 @@ import net.minecraft.world.level.Level.ExplosionInteraction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
-public class RocketBaseEntity extends ThrowableItemProjectile {
+public class RocketBaseEntity extends BulletBaseEntity {
 	
 	protected float bulletDmg;
-	protected float maxSpeed;
-	   public RocketBaseEntity(EntityType<? extends RocketBaseEntity> p_i50159_1_, Level p_i50159_2_) {
-	      super(p_i50159_1_, p_i50159_2_);
-	      this.bulletDmg = 0.0F;
-	      this.maxSpeed = 0.0F;
-	      this.setInvulnerable(true);
-	   }
 
-	   public RocketBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, Item bullet, float maxSpd) {
-	      super(EntityType.SNOWBALL, throwerIn, worldIn);
-	      this.bulletDmg = explosionRadius;
-	      this.maxSpeed = maxSpd;
-	      this.setInvulnerable(true);
-	   }
-
-	   public RocketBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, float maxSpd) {
-	      super(EntityType.SNOWBALL, x, y, z, worldIn);
-	      this.bulletDmg = explosionRadius;
-	      this.maxSpeed = maxSpd;
-	      this.setInvulnerable(true);
-	   }
-
-	@Override
-	protected Item getDefaultItem() {
-		return null;
+	public RocketBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
+		super(p_i50159_1_, p_i50159_2_);
 	}
-	
-	@Nonnull
-	@Override
-	public Packet<ClientGamePacketListener> getAddEntityPacket() {
-		Entity entity = this.getOwner();
-		return new ClientboundAddEntityPacket(this, entity == null ? 0 : entity.getId());
+
+	public RocketBaseEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
+		super(worldIn, throwerIn, explosionRadius, bullet);
 	}
-	
-	public void applyRandomSpread(float spreadAmount) {
-        // Adjust the motion (velocity) based on random spread
-        this.setDeltaMovement(this.getDeltaMovement().add(
-                this.random.nextFloat() * spreadAmount,
-                this.random.nextFloat() * spreadAmount,
-                this.random.nextFloat() * spreadAmount
-        ));
-    }
+
+	public RocketBaseEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
+		super(worldIn, x, y, z, explosionRadius, bullet);
+	}
 	
 	@Override
 	protected void onHitEntity(EntityHitResult p_213868_1_) {
@@ -87,15 +58,4 @@ public class RocketBaseEntity extends ThrowableItemProjectile {
 	      }
 
 	   }
-	   
-   @Override
-   public void tick() 
-   {
-	   super.tick();
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, -0.3D, 0.0D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, +0.3D, 0.0D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, +0.3D);
-	   this.getCommandSenderWorld().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
-   }
-
 }
