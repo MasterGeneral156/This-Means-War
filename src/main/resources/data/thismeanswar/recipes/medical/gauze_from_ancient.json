@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "SWS"
+    ],
+    "key": {
+		"S": { "tag": "forge:string" },
+		"W": { "tag": "thismeanswar:fabrics/ancient" }
+    },
+    "result": {
+        "item": "thismeanswar:gauze",
+		"count": 2
+    }
+}
