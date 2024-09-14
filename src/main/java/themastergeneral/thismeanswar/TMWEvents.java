@@ -15,26 +15,12 @@ import themastergeneral.thismeanswar.items.TMWItems;
 
 @Mod.EventBusSubscriber(modid = "thismeanswar")
 public class TMWEvents {
-
-	@SubscribeEvent
-    public void onLevelTick(TickEvent.LevelTickEvent event) 
-	{
-        for (Entity entity : event.level.getEntitiesOfClass(SmokeThrowableEntity.class, AABB.of(BoundingBox.infinite()))) 
-    	{
-            if (entity instanceof SmokeThrowableEntity) 
-            {
-            	SmokeThrowableEntity yourEntity = (SmokeThrowableEntity) entity;
-                yourEntity.tick();
-            }
-        }
-    }
 	
 	@SubscribeEvent
     public static void onVillagerTradesSetup(VillagerTradesEvent event) 
 	{
 		if (event.getType() != VillagerProfession.NONE)
 		{
-			TMWMain.debugLogger("Giving trades to villagers...");
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_12g, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_223, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));
 			event.getTrades().get(1).add(new TMWTrades(TMWItems.nugget_lead, 16, TMWItems.round_38spec, 16, 8, 0, new Random().nextFloat(0.5F, 2.0F)));

@@ -11,7 +11,6 @@ import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
 import net.minecraft.client.Minecraft;
-import net.minecraftforge.fml.DistExecutor;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -46,7 +45,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
-import themastergeneral.thismeanswar.entity.BulletBaseEntity;
+import themastergeneral.thismeanswar.entity.bullet.BulletBaseEntity;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;

@@ -14,17 +14,18 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
+import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTestType;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.registries.ForgeRegistries;
 import themastergeneral.thismeanswar.block.TMWBlocks;
 
 public class TMWFeatures {
 
-		public static final ConfiguredFeature<?, ?> ORE_BRASS = Feature.ORE
+		/*public static final ConfiguredFeature<?, ?> ORE_BRASS = Feature.ORE
 				.configuredCodec(new OreConfiguration(
-						OreConfiguration.target(RuleTest),
+						OreConfiguration.target(),
 						TMWBlocks.ore_brass.defaultBlockState(),
 						9));
-	} 
+	} */
 
 }

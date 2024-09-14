@@ -1,7 +1,8 @@
-package themastergeneral.thismeanswar.entity;
+package themastergeneral.thismeanswar.entity.bullet;
 
 import javax.annotation.Nonnull;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -14,43 +15,41 @@ import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
-public class BulletTracerEntity extends ThrowableItemProjectile {
+public class BulletFireEntity extends ThrowableItemProjectile {
 
 	protected float bulletDmg;
 	protected AbstractBulletItem bulletItm;
 	
-	protected int ticksAlive = 0;
-	public BulletTracerEntity(EntityType<? extends BulletTracerEntity> p_i50159_1_, Level p_i50159_2_) {
+	public BulletFireEntity(EntityType<? extends BulletFireEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.bulletItm = TMWItems.round_12g;
 	      this.setNoGravity(true);
-	      this.setGlowingTag(true);
 	      this.setInvulnerable(true);
 	   }
 
-	   public BulletTracerEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
+	   public BulletFireEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
-	      this.setGlowingTag(true);
 	      this.setItem(new ItemStack(bullet));
 	   }
 
-	   public BulletTracerEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
+	   public BulletFireEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
-	      this.setGlowingTag(true);
 	      this.setItem(new ItemStack(bullet));
 	   }
     
@@ -59,16 +58,27 @@ public class BulletTracerEntity extends ThrowableItemProjectile {
     {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
+	      entity.setSecondsOnFire((int) this.bulletDmg);
 	      entity.hurt(this.damageSources().magic(), bulletDmg);
 	      this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
 	      this.kill();
-	   }
-
+   }
+    
 	@Override
-	protected Item getDefaultItem() {
+	protected Item getDefaultItem() 
+	{
 		return null;
 	}
-	   
+	  
+	@Override
+	protected void onHitBlock(BlockHitResult result) 
+    {
+		Level world = this.level();
+		BlockPos pos = result.getBlockPos();
+		world.setBlock(pos, Blocks.FIRE.defaultBlockState(), 0);
+		this.playSound(SoundEvents.GLASS_BREAK, 0.1F, 0.75F);
+		this.kill();
+    }
 	@Nonnull
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() 
@@ -87,5 +97,5 @@ public class BulletTracerEntity extends ThrowableItemProjectile {
 	   	this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
 	   	if (this.tickCount > Constants.projectileKillTime)
 	   		this.kill();
-	}	   
+	}  
 }

@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.entity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import themastergeneral.thismeanswar.entity.bullet.*;
 
 public class TMWEntities {
 	public static final EntityType<BulletBaseEntity> BULLET_ENTITY = EntityType.Builder.<BulletBaseEntity>of(

@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.entity;
+package themastergeneral.thismeanswar.entity.bullet;
 
 import javax.annotation.Nonnull;
 

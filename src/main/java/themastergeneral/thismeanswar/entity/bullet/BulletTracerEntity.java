@@ -1,4 +1,4 @@
-package themastergeneral.thismeanswar.entity;
+package themastergeneral.thismeanswar.entity.bullet;
 
 import javax.annotation.Nonnull;
 
@@ -19,34 +19,38 @@ import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.TMWItems;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
-public class BulletAPEntity extends ThrowableItemProjectile {
+public class BulletTracerEntity extends ThrowableItemProjectile {
 
 	protected float bulletDmg;
 	protected AbstractBulletItem bulletItm;
 	
-	public BulletAPEntity(EntityType<? extends BulletAPEntity> p_i50159_1_, Level p_i50159_2_) {
+	protected int ticksAlive = 0;
+	public BulletTracerEntity(EntityType<? extends BulletTracerEntity> p_i50159_1_, Level p_i50159_2_) {
 	      super(p_i50159_1_, p_i50159_2_);
 	      this.bulletDmg = 0.0F;
 	      this.bulletItm = TMWItems.round_12g;
 	      this.setNoGravity(true);
+	      this.setGlowingTag(true);
 	      this.setInvulnerable(true);
 	   }
 
-	   public BulletAPEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
+	   public BulletTracerEntity(Level worldIn, LivingEntity throwerIn, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, throwerIn, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
+	      this.setGlowingTag(true);
 	      this.setItem(new ItemStack(bullet));
 	   }
 
-	   public BulletAPEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
+	   public BulletTracerEntity(Level worldIn, double x, double y, double z, float explosionRadius, AbstractBulletItem bullet) {
 	      super(EntityType.SNOWBALL, x, y, z, worldIn);
 	      this.bulletDmg = explosionRadius;
 	      this.bulletItm = bullet;
 	      this.setNoGravity(true);
 	      this.setInvulnerable(true);
+	      this.setGlowingTag(true);
 	      this.setItem(new ItemStack(bullet));
 	   }
     
@@ -64,7 +68,7 @@ public class BulletAPEntity extends ThrowableItemProjectile {
 	protected Item getDefaultItem() {
 		return null;
 	}
-	
+	   
 	@Nonnull
 	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() 
@@ -83,7 +87,5 @@ public class BulletAPEntity extends ThrowableItemProjectile {
 	   	this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, -0.3D);
 	   	if (this.tickCount > Constants.projectileKillTime)
 	   		this.kill();
-	}
-	   
-	   
+	}	   
 }
