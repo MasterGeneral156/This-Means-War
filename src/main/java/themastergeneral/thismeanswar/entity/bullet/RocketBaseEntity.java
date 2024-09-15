@@ -19,8 +19,6 @@ import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
 public class RocketBaseEntity extends BulletBaseEntity {
-	
-	protected float bulletDmg;
 
 	public RocketBaseEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 		super(p_i50159_1_, p_i50159_2_);
