@@ -123,7 +123,11 @@ public class UpgradeBulletType extends BasicItem {
 					tooltip.add(ModUtils.displayString("§4+11% recoil"));
 			}
 			if (stack.getItem() == TMWItems.bullet_upgrade_fire)
-				tooltip.add(ModUtils.displayString("§2Flamable Rounds Conversion"));
+			{
+				tooltip.add(ModUtils.displayString("§2Flammable Rounds Conversion"));
+				tooltip.add(ModUtils.displayString("§4-45% bullet damage"));
+				tooltip.add(ModUtils.displayString("§4+65% reloading time"));
+			}
 			if (stack.getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayString("§2Tracer Rounds Conversion"));
 			if (stack.getItem() == TMWItems.bullet_upgrade_inert)
