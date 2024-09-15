@@ -34,6 +34,9 @@ public class GunAddBulletUpgradePacket {
                 if (stack.getItem() instanceof UpgradeBulletType upgrade) {
                     upgrade.playerApplyUpgrade(player, stack); // Apply the upgrade on the server side
                 }
+                else if (stack.getItem() instanceof NuGunItem gun) {
+                    gun.playerRemoveRoundUpgrade(player, stack); // Apply the upgrade on the server side
+                }
             }
         });
         context.setPacketHandled(true);

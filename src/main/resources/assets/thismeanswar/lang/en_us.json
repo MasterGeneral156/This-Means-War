@@ -466,6 +466,8 @@
 	"radial.thismeanswar.add_gun_round": "Insert Round into Firearm",
 	"radial.thismeanswar.add_bayonet": "Add Bayonet to Firearm",
 	"radial.thismeanswar.remove_bayonet": "Remove Bayonet from Firearm",
+	"radial.thismeanswar.add_round_upgrade": "Add Round Upgrade to Firearm",
+	"radial.thismeanswar.remove_round_upgrade": "Remove Round Upgrade from Firearm",
 	
 	"advancement.thismeanswar.root": "This Means War",
 	"advancement.thismeanswar.root.desc": "Find yourself a weapon, soldier",

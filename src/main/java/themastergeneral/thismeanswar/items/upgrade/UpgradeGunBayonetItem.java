@@ -25,6 +25,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
@@ -71,7 +72,7 @@ public class UpgradeGunBayonetItem extends BasicItem {
 								// Send a packet to the server to remove ammo
 								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(player.getMainHandItem()));
 							},
-							Constants.removeBayonetIcon,
+							TMWUtils.getIconByStack(stack),
 							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
 					));
 				}

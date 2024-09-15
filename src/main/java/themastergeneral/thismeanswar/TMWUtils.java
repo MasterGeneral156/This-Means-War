@@ -1,5 +1,7 @@
 package themastergeneral.thismeanswar;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import themastergeneral.thismeanswar.items.NuBulletBoxItem;
@@ -77,6 +79,11 @@ public class TMWUtils {
 			}
 		}
 		return bar.toString();
+	}
+
+	public static ResourceLocation getIconByStack(ItemStack stack)
+	{
+		return Minecraft.getInstance().getItemRenderer().getItemModelShaper().getItemModel(stack.getItem()).getParticleIcon().contents().name().withPrefix("textures/").withSuffix(".png");
 	}
 
 }

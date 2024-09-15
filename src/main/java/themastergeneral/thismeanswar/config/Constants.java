@@ -17,6 +17,9 @@ public class Constants
 	public static ResourceLocation removeGunAmmoIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/remove_round_gun.png");
 	public static ResourceLocation addGunAmmoIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/add_round_gun.png");
 	public static ResourceLocation removeBayonetIcon = new ResourceLocation(TMWMain.MODID, "textures/item/bayonet_stone.png");
+	public static ResourceLocation addGunRoundUpgradeIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/add_bullet_upgrade.png");
+	public static ResourceLocation removeGunRoundUpgradeIcon = new ResourceLocation(TMWMain.MODID, "textures/gui/remove_bullet_upgrade.png");
+
 
 	public static int fireRateAuto = 1;
 	public static int fireRateSemi = 2;

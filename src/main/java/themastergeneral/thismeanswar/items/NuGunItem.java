@@ -9,8 +9,8 @@ import javax.annotation.Nullable;
 
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
-import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
-import net.minecraft.client.Minecraft;
+import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
+import net.minecraft.world.item.Items;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -43,15 +43,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
+import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
+import themastergeneral.thismeanswar.entity.bullet.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.bullet.BulletBaseEntity;
+import themastergeneral.thismeanswar.entity.bullet.BulletFireEntity;
+import themastergeneral.thismeanswar.entity.bullet.BulletTracerEntity;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
+import themastergeneral.thismeanswar.network.packet.GunAddBulletUpgradePacket;
 import themastergeneral.thismeanswar.network.packet.GunAmmoChangePacket;
 import themastergeneral.thismeanswar.network.packet.GunBayonetUpdatePacket;
 import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
@@ -203,8 +208,20 @@ public class NuGunItem extends AbstractModItem {
                             // Send a packet to the server to remove ammo
                             TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(stack));
                         },
-                        Constants.removeBayonetIcon,
+                        TMWUtils.getIconByStack(returnBayonetStack(stack)),
                         ModUtils.displayTranslation("radial.thismeanswar.remove_bayonet")
+                ));
+            }
+
+            if (!getRoundUpgrade(stack).isEmpty())
+            {
+                optionList.add(new RadialMenuOption(
+                        () -> {
+                            // Send a packet to the server to remove ammo
+                            TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot));
+                        },
+                        TMWUtils.getIconByStack(getRoundUpgrade(stack)),
+                        ModUtils.displayTranslation("radial.thismeanswar.remove_round_upgrade")
                 ));
             }
             // Client-side: Open the radial menu screen
@@ -219,7 +236,8 @@ public class NuGunItem extends AbstractModItem {
     @OnlyIn(Dist.CLIENT)
     private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
         if (RadialClientEvents.openRadial.isDown()) {
-            Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+            //respect the API
+            CTDRadialAPI.openRadialMenu(optionList);
         }
     }
     
@@ -253,7 +271,7 @@ public class NuGunItem extends AbstractModItem {
 
         private final ItemStack stack;
 
-        public CustomItemHandler(ItemStack stack) 
+        public CustomItemHandler(ItemStack stack)
 		{
 			super(6);
 			this.stack = stack;
@@ -475,7 +493,7 @@ public class NuGunItem extends AbstractModItem {
                 {
                     if (!player.isCreative())
                         fireRoundLogic(gun);
-                    BulletBaseEntity bulletEntity = new BulletBaseEntity(world, player, getBulletDamage(gun), bullet);
+                    BulletBaseEntity bulletEntity = this.getRoundEntity(gun, player);
                     bulletEntity.setItem(new ItemStack(bullet));
                     //Up+Down
                     //bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
@@ -547,12 +565,29 @@ public class NuGunItem extends AbstractModItem {
         });
     }
 
+    public void removeRoundUpgade(ItemStack stack) {
+        getInventory(stack).ifPresent(inventory -> {
+            inventory.extractItem(this.SLOT_ROUND_UPGRADE, 1, false);
+            saveInventory(stack);
+        });
+    }
+
     public void playerRemoveBayonet(ItemStack stack, Player player)
     {
         if (this.returnBayonetStack(stack) != ItemStack.EMPTY)
         {
             ItemStack returned = this.returnBayonetStack(stack).copy();
             this.removeBayonet(stack);
+            player.getInventory().add(returned);
+        }
+    }
+
+    public void playerRemoveRoundUpgrade( Player player, ItemStack stack)
+    {
+        if (getRoundUpgrade(stack) != ItemStack.EMPTY)
+        {
+            ItemStack returned = getRoundUpgrade(stack).copy();
+            removeRoundUpgade(stack);
             player.getInventory().add(returned);
         }
     }
@@ -794,6 +829,9 @@ public class NuGunItem extends AbstractModItem {
     public float getBulletSpeed(ItemStack gun)
     {
     	float returned = this.bulletSpeed;
+        Item upgradeItem = getRoundUpgrade(gun).getItem();
+        if (upgradeItem == TMWItems.bullet_upgrade_ap)
+            returned *= 1.21;
     	return returned;
     }
     
@@ -801,6 +839,7 @@ public class NuGunItem extends AbstractModItem {
     {
     	float returned = this.bulletSpread;
     	//ROF modifiers
+        Item upgradeItem = getRoundUpgrade(gun).getItem();
     	if (!returnROFUpgrade(gun).isEmpty())
     	{
     		if (returnROFUpgrade(gun).getItem() == TMWItems.gun_rof_upgrade)
@@ -808,6 +847,8 @@ public class NuGunItem extends AbstractModItem {
     		else if (returnROFUpgrade(gun).getItem() == TMWItems.gun_rof_downgrade)
     			returned *= 0.8F;
     	}
+        if (upgradeItem == TMWItems.bullet_upgrade_ap)
+            returned *= 1.11;
     	return returned;
     }
     public float getBulletDamage(ItemStack stack)
@@ -821,6 +862,10 @@ public class NuGunItem extends AbstractModItem {
     		else if (returnROFUpgrade(stack).getItem() == TMWItems.gun_rof_downgrade)
     			returned *= 1.25F;
     	}
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
+            returned *= 0.82;
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
+            returned *= 0.05;
     	return returned;
 	}
     
@@ -909,5 +954,18 @@ public class NuGunItem extends AbstractModItem {
     				returned *= 1.3;
     	}
     	return returned;
+    }
+
+    public BulletBaseEntity getRoundEntity(ItemStack stack, Player player)
+    {
+        Item roundUpgrade = getRoundUpgrade(stack).getItem();
+        if (roundUpgrade == TMWItems.bullet_upgrade_ap)
+            return new BulletAPEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
+        else if (roundUpgrade == TMWItems.bullet_upgrade_fire)
+            return new BulletFireEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
+        else if (roundUpgrade == TMWItems.bullet_upgrade_tracer)
+            return new BulletTracerEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
+        else
+            return new BulletBaseEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
     }
 }
