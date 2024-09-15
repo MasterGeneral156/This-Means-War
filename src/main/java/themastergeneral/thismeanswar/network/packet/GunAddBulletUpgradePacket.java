@@ -11,21 +11,18 @@ import java.util.function.Supplier;
 
 public class GunAddBulletUpgradePacket {
     private final int itemSlot;
-    private final ItemStack offHand;
 
-    public GunAddBulletUpgradePacket(int itemSlot, ItemStack offHand) {
+    public GunAddBulletUpgradePacket(int itemSlot) {
         this.itemSlot = itemSlot;
-        this.offHand = offHand;
     }
 
     // Methods to encode/decode the packet
     public static void encode(GunAddBulletUpgradePacket msg, FriendlyByteBuf buffer) {
         buffer.writeInt(msg.itemSlot);
-        buffer.writeItem(msg.offHand);
     }
 
     public static GunAddBulletUpgradePacket decode(FriendlyByteBuf buffer) {
-        return new GunAddBulletUpgradePacket(buffer.readInt(), buffer.readItem());
+        return new GunAddBulletUpgradePacket(buffer.readInt());
     }
 
     public static void handle(GunAddBulletUpgradePacket msg, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -35,7 +32,7 @@ public class GunAddBulletUpgradePacket {
             if (player != null) {
                 ItemStack stack = player.getInventory().getItem(msg.itemSlot);
                 if (stack.getItem() instanceof UpgradeBulletType upgrade) {
-                    upgrade.playerApplyUpgrade(player, stack, msg.offHand); // Apply the upgrade on the server side
+                    upgrade.playerApplyUpgrade(player, stack); // Apply the upgrade on the server side
                 }
             }
         });

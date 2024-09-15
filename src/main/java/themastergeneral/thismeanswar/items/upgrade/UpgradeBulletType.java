@@ -53,7 +53,7 @@ public class UpgradeBulletType extends BasicItem {
 					optionList.add(new RadialMenuOption(
 							() -> {
 								// Send a packet to the server to remove ammo
-								TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot, player.getOffhandItem()));
+								TMWNetworkManager.INSTANCE.sendToServer(new GunAddBulletUpgradePacket(itemSlot));
 							},
 							Constants.addMagIcon,
 							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
@@ -76,9 +76,10 @@ public class UpgradeBulletType extends BasicItem {
 		}
 	}
 
-	public void playerApplyUpgrade(Player player, ItemStack stack, ItemStack offHand)
+	public void playerApplyUpgrade(Player player, ItemStack stack)
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+		ItemStack offHand = player.getOffhandItem();
 		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHand.getItem())) &&
 				(!tagManager.getTag(disableUpgrade).contains(offHand.getItem()))) {
 			if (offHand.getItem() instanceof NuGunItem gun) {
