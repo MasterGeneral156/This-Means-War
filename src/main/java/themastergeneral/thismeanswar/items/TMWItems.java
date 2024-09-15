@@ -53,7 +53,7 @@ public class TMWItems {
 	//Bullets & Shells
 	public static AbstractBulletItem round_9mm = new AbstractBulletItem(casing_9mm, bullet_tip_9mm, Constants.baseDamage9mm, TMWTags.rounds9mm);
 	public static AbstractBulletItem round_12g = new AbstractBulletItem(casing_12g, bullet_tip_buckshot, Constants.baseDamage12g, TMWTags.rounds12g);
-	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem(Constants.bazookaDamage);
+	public static AbstractBulletItem rocket_bazooka = new AbstractBulletItem(Constants.bazookaDamage, TMWTags.rounds_bazooka);
 	public static AbstractBulletItem round_556 = new AbstractBulletItem(casing_556, bullet_tip_556, Constants.baseDamage556, TMWTags.rounds556);
 	public static AbstractBulletItem round_223 = new AbstractBulletItem(casing_223, bullet_tip_223, Constants.baseDamage223, TMWTags.rounds223);
 	public static AbstractBulletItem round_45 = new AbstractBulletItem(casing_45, bullet_tip_45, Constants.baseDamage45, TMWTags.rounds45);
@@ -146,11 +146,10 @@ public class TMWItems {
 	public static UpgradeGunROFItem gun_rof_upgrade = new UpgradeGunROFItem();
 	public static UpgradeGunROFItem gun_rof_downgrade = new UpgradeGunROFItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
-	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(Constants.bulletUpgradeAP, TMWTags.disableAPUpgrade);
-	public static UpgradeBulletType bullet_upgrade_normal = new UpgradeBulletType(Constants.bulletUpgradeNull, TMWTags.disableAPUpgrade);
-	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(Constants.bulletUpgradeFire, TMWTags.disableFireUpgrade);
-	public static UpgradeBulletType bullet_upgrade_tracer = new UpgradeBulletType(Constants.bulletUpgradeTracer, TMWTags.disableTracerUpgrade);
-	public static UpgradeBulletType bullet_upgrade_inert = new UpgradeBulletType(Constants.bulletUpgradeInert, TMWTags.disableInertUpgrade);
+	public static UpgradeBulletType bullet_upgrade_ap = new UpgradeBulletType(Constants.bulletUpgradeAP, TMWTags.apUpgrade);
+	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(Constants.bulletUpgradeFire, TMWTags.fireUpgrade);
+	public static UpgradeBulletType bullet_upgrade_tracer = new UpgradeBulletType(Constants.bulletUpgradeTracer, TMWTags.tracerUpgrade);
+	public static UpgradeBulletType bullet_upgrade_inert = new UpgradeBulletType(Constants.bulletUpgradeInert, TMWTags.inertUpgrade);
 	
 	//Charms
 	//public static CharmStealth charm_stealth = new CharmStealth();

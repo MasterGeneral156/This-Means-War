@@ -95,9 +95,8 @@ public class UpgradeGunBayonetItem extends BasicItem {
 	public void applyBayonetToGun(ItemStack offHandStack, Player player)
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(player.getOffhandItem().getItem())) && 
-				(!tagManager.getTag(TMWTags.disableBayonetUpgrade).contains(player.getOffhandItem().getItem())))
-		{
+		ItemStack offHand = player.getOffhandItem();
+		if (tagManager.getTag(TMWTags.bayonetUpgrade).contains(offHand.getItem())) {
 			if (offHandStack.getItem() instanceof NuGunItem gun)
 			{
 				if (gun.returnBayonetStack(offHandStack).isEmpty())

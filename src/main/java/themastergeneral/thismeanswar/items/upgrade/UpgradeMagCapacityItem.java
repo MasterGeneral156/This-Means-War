@@ -46,11 +46,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 		ItemStack mainHandStack = playerIn.getMainHandItem();
 		ItemStack offHandStack = playerIn.getOffhandItem();
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-		
-		//thismeanswar:upgrades/disable_mag_capacity
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHandStack.getItem())) && 
-				(!tagManager.getTag(TMWTags.disableMagUpgrade).contains(offHandStack.getItem())))
-		{
+		if (tagManager.getTag(TMWTags.magUpgrade).contains(offHandStack.getItem())) {
 			if (offHandStack.getItem() instanceof NuMagazineItem mag)
 			{
 				if ((mag.getMagazineCapacityStack(offHandStack).getItem() == mainHandStack.getItem()) || (mag.getMagazineCapacityStack(offHandStack) == ItemStack.EMPTY))

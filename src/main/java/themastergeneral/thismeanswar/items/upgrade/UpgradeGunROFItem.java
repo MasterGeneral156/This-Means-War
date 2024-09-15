@@ -102,9 +102,8 @@ public class UpgradeGunROFItem extends BasicItem {
 	protected void convertToFullAuto(ItemStack offHandStack, Player player)
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHandStack.getItem())) && 
-				(!tagManager.getTag(TMWTags.disableFullAutoUpgrade).contains(offHandStack.getItem())))
-		{
+		ItemStack offHand = player.getOffhandItem();
+		if (tagManager.getTag(TMWTags.fullAutoUpgrade).contains(offHand.getItem())) {
 			if (offHandStack.getItem() instanceof NuGunItem gun)
 			{
 				if (gun.returnROFUpgrade(offHandStack).isEmpty())
@@ -144,9 +143,8 @@ public class UpgradeGunROFItem extends BasicItem {
 	protected void convertToSemiAuto(ItemStack offHandStack, Player player)
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHandStack.getItem())) && 
-				(!tagManager.getTag(TMWTags.disableSemiAutoUpgrade).contains(offHandStack.getItem())))
-		{
+		ItemStack offHand = player.getOffhandItem();
+		if (tagManager.getTag(TMWTags.semiAutoUpgrade).contains(offHand.getItem())) {
 			if (offHandStack.getItem() instanceof NuGunItem gun)
 			{
 				if (gun.returnROFUpgrade(offHandStack).isEmpty())

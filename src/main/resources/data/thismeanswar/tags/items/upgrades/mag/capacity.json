@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+	"thismeanswar:magazine_9mm",
+	"thismeanswar:magazine_9mm_large",
+	"thismeanswar:magazine_9mm_large_double",
+	"thismeanswar:magazine_9mm_short",
+	"thismeanswar:magazine_9mm_drum",
+	"thismeanswar:magazine_m1911",
+	"thismeanswar:magazine_m1911_large",
+	"thismeanswar:magazine_223",
+	"thismeanswar:magazine_223_large",
+	"thismeanswar:magazine_223_box",
+	"thismeanswar:magazine_556",
+	"thismeanswar:magazine_556_large",
+	"thismeanswar:magazine_556_box",
+	"thismeanswar:magazine_g36",
+	"thismeanswar:magazine_g36_large",
+	"thismeanswar:magazine_dragunov",
+	"thismeanswar:magazine_9mm_clip",
+	"thismeanswar:magazine_45_clip",
+	"thismeanswar:magazine_223_clip",
+	"thismeanswar:magazine_556_clip",
+	"thismeanswar:magazine_12g_clip",
+	"thismeanswar:magazine_38spec_clip",
+	"thismeanswar:magazine_40mm_clip"
+  ]
+}

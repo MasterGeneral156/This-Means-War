@@ -202,7 +202,6 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> creative_charm = ITEMS.register("creative_charm", () -> TMWItems.creative_charm);
 	public static final RegistryObject<Item> base_upgrade = ITEMS.register("base_upgrade", () -> TMWItems.base_upgrade);
 	public static final RegistryObject<Item> bullet_upgrade_ap = ITEMS.register("bullet_upgrade_ap", () -> TMWItems.bullet_upgrade_ap);
-	public static final RegistryObject<Item> bullet_upgrade_normal = ITEMS.register("bullet_upgrade_normal", () -> TMWItems.bullet_upgrade_normal);
 	public static final RegistryObject<Item> bullet_upgrade_fire = ITEMS.register("bullet_upgrade_fire", () -> TMWItems.bullet_upgrade_fire);
 	public static final RegistryObject<Item> bullet_upgrade_tracer = ITEMS.register("bullet_upgrade_tracer", () -> TMWItems.bullet_upgrade_tracer);
 	public static final RegistryObject<Item> bullet_upgrade_inert = ITEMS.register("bullet_upgrade_inert", () -> TMWItems.bullet_upgrade_inert);

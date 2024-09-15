@@ -85,8 +85,7 @@ public class UpgradeBulletType extends BasicItem {
 	{
 		ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
 		ItemStack offHand = player.getOffhandItem();
-		if ((!tagManager.getTag(TMWTags.disableAllUpgrade).contains(offHand.getItem())) &&
-				(!tagManager.getTag(disableUpgrade).contains(offHand.getItem()))) {
+		if (tagManager.getTag(disableUpgrade).contains(offHand.getItem())) {
 			if (offHand.getItem() instanceof NuGunItem gun) {
 				if (gun.getRoundUpgrade(offHand).isEmpty()) {
 					gun.setRoundUpgrade(offHand, stack);

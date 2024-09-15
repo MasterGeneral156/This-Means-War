@@ -9,15 +9,14 @@ import themastergeneral.thismeanswar.TMWMain;
 public class TMWTags {
 	
 	//Upgrade tags
-	public static TagKey<Item> disableAPUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_armor_piercing"));
-	public static TagKey<Item> disableFireUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_flame_rounds"));
-	public static TagKey<Item> disableMagUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_mag_capacity"));
-	public static TagKey<Item> disableFullAutoUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_full_rof"));
-	public static TagKey<Item> disableSemiAutoUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_semi_rof"));
-	public static TagKey<Item> disableBayonetUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_bayonet"));
-	public static TagKey<Item> disableTracerUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_tracer_rounds"));
-	public static TagKey<Item> disableInertUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_inert_rounds"));
-	public static TagKey<Item> disableAllUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/disable_all_upgrade"));
+	public static TagKey<Item> apUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/ap"));
+	public static TagKey<Item> fireUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/flame"));
+	public static TagKey<Item> magUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/mag/capacity"));
+	public static TagKey<Item> fullAutoUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/gun/rof_full"));
+	public static TagKey<Item> semiAutoUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/gun/rof_semi"));
+	public static TagKey<Item> bayonetUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/gun/bayonet"));
+	public static TagKey<Item> tracerUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/tracer"));
+	public static TagKey<Item> inertUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/inert"));
 
 	//Rounds tags
 	public static TagKey<Item> rounds9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_9mm"));
@@ -31,6 +30,7 @@ public class TMWTags {
 	public static TagKey<Item> rounds40mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_40mm"));
 	public static TagKey<Item> roundsexplosive = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/explosive"));
 	public static TagKey<Item> rounds_all = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_all"));
+	public static TagKey<Item> rounds_bazooka = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/rocket_bazooka"));
 	
 	//Magazine Tags
 	public static TagKey<Item> mags9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "magazines/9mm_magazines"));

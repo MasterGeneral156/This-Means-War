@@ -61,8 +61,6 @@ public class JEIPlugin implements IModPlugin {
 		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_fire), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info_fire"));
 		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_inert), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info"));
 		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_inert), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info_inert"));
-		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_normal), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info"));
-		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_normal), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info_normal"));
 		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_tracer), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info"));
 		registration.addItemStackInfo(new ItemStack(TMWItems.bullet_upgrade_tracer), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info_tracer"));
 		registration.addItemStackInfo(new ItemStack(TMWItems.gun_rof_upgrade), ModUtils.displayTranslation("thismeanswar.jei.upgrade_info"));
