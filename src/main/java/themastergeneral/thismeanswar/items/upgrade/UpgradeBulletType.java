@@ -128,6 +128,11 @@ public class UpgradeBulletType extends BasicItem {
 				tooltip.add(ModUtils.displayString("§4-45% bullet damage"));
 				tooltip.add(ModUtils.displayString("§4+65% reloading time"));
 			}
+			if (stack.getItem() == TMWItems.bullet_upgrade_medical)
+			{
+				tooltip.add(ModUtils.displayString("§2Medical Rounds Conversion"));
+				tooltip.add(ModUtils.displayString("§2Health Healed = Damage/2"));
+			}
 			if (stack.getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayString("§2Tracer Rounds Conversion"));
 			if (stack.getItem() == TMWItems.bullet_upgrade_inert)

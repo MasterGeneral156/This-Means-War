@@ -205,7 +205,8 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> bullet_upgrade_fire = ITEMS.register("bullet_upgrade_fire", () -> TMWItems.bullet_upgrade_fire);
 	public static final RegistryObject<Item> bullet_upgrade_tracer = ITEMS.register("bullet_upgrade_tracer", () -> TMWItems.bullet_upgrade_tracer);
 	public static final RegistryObject<Item> bullet_upgrade_inert = ITEMS.register("bullet_upgrade_inert", () -> TMWItems.bullet_upgrade_inert);
-	
+	public static final RegistryObject<Item> bullet_upgrade_medical = ITEMS.register("bullet_upgrade_medical", () -> TMWItems.bullet_upgrade_medical);
+
 	//Charms
 	//public static final RegistryObject<Item> charm_stealth = ITEMS.register("charm_stealth", () -> TMWItems.charm_stealth);
 	

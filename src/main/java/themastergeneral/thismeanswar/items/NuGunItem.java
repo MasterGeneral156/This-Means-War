@@ -46,10 +46,7 @@ import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
-import themastergeneral.thismeanswar.entity.bullet.BulletAPEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletBaseEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletFireEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletTracerEntity;
+import themastergeneral.thismeanswar.entity.bullet.*;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
@@ -793,12 +790,14 @@ public class NuGunItem extends AbstractModItem {
 			//display bullet damage upgrade type
 			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
-            if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
-			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_tracer"));
-			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_inert"));
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+                tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_medical"));
 		}
 			
 	}
@@ -867,6 +866,8 @@ public class NuGunItem extends AbstractModItem {
             returned *= 0.05F;
         if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
             returned *= 0.65F;
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+            returned *= 0.5F;
     	return returned;
 	}
     
@@ -922,6 +923,12 @@ public class NuGunItem extends AbstractModItem {
             returned = returned.concat(" ");
         }
 
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.medical").getString();
+            returned = returned.concat(" ");
+        }
+
 		returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
 		if (!returnBayonetStack(stack).isEmpty())
 		{
@@ -968,6 +975,8 @@ public class NuGunItem extends AbstractModItem {
             return new BulletFireEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
         else if (roundUpgrade == TMWItems.bullet_upgrade_tracer)
             return new BulletTracerEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
+        else if (roundUpgrade == TMWItems.bullet_upgrade_medical)
+            return new BulletMedicalEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
         else
             return new BulletBaseEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
     }

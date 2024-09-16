@@ -150,7 +150,8 @@ public class TMWItems {
 	public static UpgradeBulletType bullet_upgrade_fire = new UpgradeBulletType(Constants.bulletUpgradeFire, TMWTags.fireUpgrade);
 	public static UpgradeBulletType bullet_upgrade_tracer = new UpgradeBulletType(Constants.bulletUpgradeTracer, TMWTags.tracerUpgrade);
 	public static UpgradeBulletType bullet_upgrade_inert = new UpgradeBulletType(Constants.bulletUpgradeInert, TMWTags.inertUpgrade);
-	
+	public static UpgradeBulletType bullet_upgrade_medical = new UpgradeBulletType(Constants.bulletUpgradeInert, TMWTags.medicalUpgrade);
+
 	//Charms
 	//public static CharmStealth charm_stealth = new CharmStealth();
 	public static CharmCreative creative_charm = new CharmCreative();
@@ -220,7 +221,7 @@ public class TMWItems {
 	public static UpgradeGunBayonetItem bayonet_diamond = new UpgradeGunBayonetItem(8.5);
 	public static UpgradeGunBayonetItem bayonet_netherrite = new UpgradeGunBayonetItem(10.5);
 	public static UpgradeGunBayonetItem bayonet_creative = new UpgradeGunBayonetItem(256);
-	
+
 	//Health items
 	public static AbstractHealingItem bandage = new AbstractHealingItem(2.5F, 3);
 	public static AbstractHealingItem gauze = new AbstractHealingItem(4.75F, 5);
