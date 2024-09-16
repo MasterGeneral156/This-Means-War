@@ -962,7 +962,6 @@ public class NuGunItem extends AbstractModItem {
     public Entity getRoundEntity(ItemStack stack, Player player)
     {
         Item roundUpgrade = getRoundUpgrade(stack).getItem();
-        TMWMain.debugLogger(roundUpgrade);
         if (roundUpgrade == TMWItems.bullet_upgrade_ap)
             return new BulletAPEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
         else if (roundUpgrade == TMWItems.bullet_upgrade_fire)
