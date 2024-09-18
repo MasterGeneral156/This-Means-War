@@ -482,8 +482,6 @@ public class NuGunItem extends AbstractModItem {
     
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand)
     {
-    	if (world instanceof ServerLevel)
-    	{
             //ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
     		if (hand == InteractionHand.MAIN_HAND)
     		{
@@ -510,7 +508,6 @@ public class NuGunItem extends AbstractModItem {
                     player.playSound(getGunFireSound(), Constants.modVolume, randPitch);
                     return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
                 }
-    		}
     	}
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide());
     }
