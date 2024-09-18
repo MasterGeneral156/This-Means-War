@@ -24,8 +24,6 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 
 public class BulletFireEntity extends BulletBaseEntity {
 
-	protected float bulletDmg;
-
 	public BulletFireEntity(EntityType<? extends BulletBaseEntity> p_i50159_1_, Level p_i50159_2_) {
 		super(p_i50159_1_, p_i50159_2_);
 		this.damageSource = this.damageSources().onFire();
@@ -42,10 +40,10 @@ public class BulletFireEntity extends BulletBaseEntity {
 	}
 
 	@Override
-    protected void onHitEntity(EntityHitResult p_213868_1_) 
+    protected void onHitEntity(EntityHitResult result)
     {
-	      super.onHitEntity(p_213868_1_);
-	      Entity entity = p_213868_1_.getEntity();
-	      entity.setSecondsOnFire((int) this.bulletDmg);
+		super.onHitEntity(result);
+		Entity entity = result.getEntity();
+		entity.setSecondsOnFire(Math.max(1, Math.round(this.bulletDmg)));
    }
 }

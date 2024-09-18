@@ -45,7 +45,7 @@ public class BulletTracerEntity extends BulletBaseEntity {
     {
 	      super.onHitEntity(p_213868_1_);
 	      Entity entity = p_213868_1_.getEntity();
-		  if (entity instanceof Player player)
-			  player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 30, 30));
+		  if (entity instanceof LivingEntity living)
+			  living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 30, 30));
    }
 }

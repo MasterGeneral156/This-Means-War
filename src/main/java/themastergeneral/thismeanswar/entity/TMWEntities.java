@@ -48,6 +48,17 @@ public class TMWEntities {
 			.noSummon()
 			.fireImmune()
 			.build("tracer_bullet_entity");
+
+	public static final EntityType<BulletMedicalEntity> MEDICAL_BULLET_ENTITY = EntityType.Builder.<BulletMedicalEntity>of(
+					BulletMedicalEntity::new, MobCategory.MISC)
+			.sized(0.05F, 0.05F)
+			.setUpdateInterval(2)
+			.setShouldReceiveVelocityUpdates(true)
+			.setTrackingRange(128)
+			.clientTrackingRange(128)
+			.noSummon()
+			.fireImmune()
+			.build("medical_bullet_entity");
 	
 	public static final EntityType<ContactGrenadeEntity> CONTACT_GRENADE_ENTITY = EntityType.Builder.<ContactGrenadeEntity>of(
 			ContactGrenadeEntity::new, MobCategory.MISC)

@@ -180,7 +180,7 @@ public class Constants
 	public static int bazookaFireRate = cooldownSemiAuto;
 	public static int bazookaReloadTime = 35;
 	public static float bazookaDamage = 5.75F;
-	public static float bazookaSpeed = 50.53F;
+	public static float bazookaSpeed = 7.671F;
 	
 	//Beretta 92
 	//Updated 5/18/24

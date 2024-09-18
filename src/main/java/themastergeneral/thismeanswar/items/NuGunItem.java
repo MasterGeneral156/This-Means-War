@@ -46,10 +46,7 @@ import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
-import themastergeneral.thismeanswar.entity.bullet.BulletAPEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletBaseEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletFireEntity;
-import themastergeneral.thismeanswar.entity.bullet.BulletTracerEntity;
+import themastergeneral.thismeanswar.entity.bullet.*;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
 import themastergeneral.thismeanswar.items.define.TMWPistols;
 import themastergeneral.thismeanswar.items.define.TMWRifles;
@@ -482,32 +479,34 @@ public class NuGunItem extends AbstractModItem {
     
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand)
     {
-            //ITagManager<Item> tagManager = ForgeRegistries.ITEMS.tags();
+    	if (world instanceof ServerLevel)
+    	{
     		if (hand == InteractionHand.MAIN_HAND)
     		{
 		        ItemStack gun = player.getItemInHand(hand);
-                TMWMain.debugLogger(this.getRoundUpgrade(gun));
                 if (canFire(gun, player))
                 {
                     if (!player.isCreative())
                         fireRoundLogic(gun);
-                    BulletBaseEntity bulletEntity = this.getRoundEntity(gun, player);
-                    bulletEntity.setItem(new ItemStack(bullet));
-                    //Up+Down
-                    //bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
-                    //bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0F, getBulletSpeed(gun), 1.0F);
-                    bulletEntity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
-                    //bulletEntity.applyRandomSpread(returnBulletSpread(mag));
-                    world.addFreshEntity(bulletEntity);
-                    player.awardStat(Stats.ITEM_USED.get(asItem()));
-                    player.getCooldowns().addCooldown(asItem(), getRateOfFire(gun));
-                    giveBulletCasing(player);
-                    float minPitch = 0F;
-                    float maxPitch = 1F;
-                    float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
-                    player.playSound(getGunFireSound(), Constants.modVolume, randPitch);
+                    Entity bentity = this.getRoundEntity(gun, player);
+                    if (bentity instanceof BulletBaseEntity bulletEntity) {
+                        TMWMain.debugLogger(bulletEntity);
+                        bulletEntity.setItem(new ItemStack(bullet));
+                        //Up+Down
+                        bulletEntity.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
+                        bulletEntity.shootFromRotation(player, player.getXRot(), player.getYHeadRot(), 0.0F, getBulletSpeed(gun), getBulletSpread(gun));
+                        world.addFreshEntity(bulletEntity);
+                        player.awardStat(Stats.ITEM_USED.get(asItem()));
+                        player.getCooldowns().addCooldown(asItem(), getRateOfFire(gun));
+                        giveBulletCasing(player);
+                        float minPitch = 0F;
+                        float maxPitch = 1F;
+                        float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
+                        player.playSound(getGunFireSound(), Constants.modVolume, randPitch);
+                    }
                     return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
                 }
+    		}
     	}
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), world.isClientSide());
     }
@@ -791,12 +790,14 @@ public class NuGunItem extends AbstractModItem {
 			//display bullet damage upgrade type
 			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_ap"));
-            if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_fire"));
-			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_tracer)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_tracer"));
-			if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
 				tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_inert"));
+            else if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+                tooltip.add(ModUtils.displayTranslation("thismeanswar.firearm_upgrade_medical"));
 		}
 			
 	}
@@ -860,9 +861,13 @@ public class NuGunItem extends AbstractModItem {
     			returned *= 1.25F;
     	}
         if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_ap)
-            returned *= 0.82;
+            returned *= 0.82F;
         if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_inert)
-            returned *= 0.05;
+            returned *= 0.05F;
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
+            returned *= 0.65F;
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+            returned *= 0.5F;
     	return returned;
 	}
     
@@ -918,6 +923,12 @@ public class NuGunItem extends AbstractModItem {
             returned = returned.concat(" ");
         }
 
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_medical)
+        {
+            returned = ModUtils.displayTranslation("thismeanswar.gun.medical").getString();
+            returned = returned.concat(" ");
+        }
+
 		returned = returned.concat(ModUtils.displayTranslation(this.getDescriptionId()).getString());
 		if (!returnBayonetStack(stack).isEmpty())
 		{
@@ -950,10 +961,12 @@ public class NuGunItem extends AbstractModItem {
     			if (getMagazineStack(stack).getItem() != magazine.asItem())
     				returned *= 1.3;
     	}
+        if (getRoundUpgrade(stack).getItem() == TMWItems.bullet_upgrade_fire)
+            returned *= 1.65;
     	return returned;
     }
 
-    public BulletBaseEntity getRoundEntity(ItemStack stack, Player player)
+    public Entity getRoundEntity(ItemStack stack, Player player)
     {
         Item roundUpgrade = getRoundUpgrade(stack).getItem();
         if (roundUpgrade == TMWItems.bullet_upgrade_ap)
@@ -962,6 +975,8 @@ public class NuGunItem extends AbstractModItem {
             return new BulletFireEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
         else if (roundUpgrade == TMWItems.bullet_upgrade_tracer)
             return new BulletTracerEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
+        else if (roundUpgrade == TMWItems.bullet_upgrade_medical)
+            return new BulletMedicalEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
         else
             return new BulletBaseEntity(player.getCommandSenderWorld(), player, getBulletDamage(stack), bullet);
     }

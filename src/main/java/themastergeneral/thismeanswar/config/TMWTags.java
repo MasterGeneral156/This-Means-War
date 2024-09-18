@@ -17,6 +17,7 @@ public class TMWTags {
 	public static TagKey<Item> bayonetUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/gun/bayonet"));
 	public static TagKey<Item> tracerUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/tracer"));
 	public static TagKey<Item> inertUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/inert"));
+	public static TagKey<Item> medicalUpgrade = ItemTags.create(new ResourceLocation(TMWMain.MODID, "upgrades/round/medical"));
 
 	//Rounds tags
 	public static TagKey<Item> rounds9mm = ItemTags.create(new ResourceLocation(TMWMain.MODID, "ammo/round_9mm"));
