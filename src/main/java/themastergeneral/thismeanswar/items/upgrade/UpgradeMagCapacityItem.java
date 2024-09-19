@@ -6,6 +6,11 @@ import javax.annotation.Nullable;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
 
+import mastergeneral156.chasethedragon.radial.RadialClientEvents;
+import mastergeneral156.chasethedragon.radial.RadialMenuOption;
+import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.network.chat.Component;
@@ -38,6 +43,13 @@ public class UpgradeMagCapacityItem extends BasicItem
 	{
 		super();
 		this.multiplier = increased;
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
+		if (RadialClientEvents.openRadial.isDown()) {
+			CTDRadialAPI.openRadialMenu(optionList);
+		}
 	}
 	
 	@Override

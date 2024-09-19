@@ -10,6 +10,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -77,7 +78,7 @@ public class UpgradeBulletType extends BasicItem {
 	@OnlyIn(Dist.CLIENT)
 	private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
 		if (RadialClientEvents.openRadial.isDown()) {
-			Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+			CTDRadialAPI.openRadialMenu(optionList);
 		}
 	}
 
