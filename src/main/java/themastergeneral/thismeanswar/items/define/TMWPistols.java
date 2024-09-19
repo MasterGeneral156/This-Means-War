@@ -2,8 +2,6 @@ package themastergeneral.thismeanswar.items.define;
 
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.NuGunItem;
-import themastergeneral.thismeanswar.items.InternalAmmoGunItem;
-import themastergeneral.thismeanswar.items.NuGunItem;
 import themastergeneral.thismeanswar.items.TMWItems;
 
 public class TMWPistols 
