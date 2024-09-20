@@ -39,12 +39,14 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
+import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
 import themastergeneral.thismeanswar.network.packet.MagAmmoChangePacket;
+import themastergeneral.thismeanswar.network.packet.MagCapUpgradePacket;
 import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class NuMagazineItem extends AbstractModItem {
@@ -109,6 +111,17 @@ public class NuMagazineItem extends AbstractModItem {
                     },
                     Constants.addAmmoIcon,
                     ModUtils.displayTranslation("radial.thismeanswar.add_round")
+            ));
+        }
+
+        if (getMagazineCapacityStack(stack) != ItemStack.EMPTY) {
+            optionList.add(new RadialMenuOption(
+                    () -> {
+                        // Send a packet to the server to add ammo
+                        TMWNetworkManager.INSTANCE.sendToServer(new MagCapUpgradePacket(stack));
+                    },
+                    TMWUtils.getIconByStack(getMagazineCapacityStack(stack)),
+                    ModUtils.displayTranslation("radial.thismeanswar.remove_mag_cap_upgrade")
             ));
         }
 
@@ -210,9 +223,7 @@ public class NuMagazineItem extends AbstractModItem {
     
     public void removeCapacityUpgrade(ItemStack stack) {
         getInventory(stack).ifPresent(inventory -> {
-            int caps = getCapacityUpgrades(stack);
-            if ((caps - 1) >= 0)
-                inventory.extractItem(SLOT_CAP_UPGRADES, 1, false);
+            inventory.extractItem(SLOT_CAP_UPGRADES, 1, false);
             saveInventory(stack);
         });
     }
@@ -340,6 +351,17 @@ public class NuMagazineItem extends AbstractModItem {
                 player.awardStat(Stats.ITEM_USED.get(this.asItem()));
                 player.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
             }
+        }
+    }
+
+    public void playerRemoveCapUpgrade(ItemStack stack, Player player)
+    {
+        TMWMain.debugLogger(getMagazineCapacityStack(stack));
+        if (getMagazineCapacityStack(stack) != ItemStack.EMPTY)
+        {
+            removeCapacityUpgrade(stack);
+            player.getInventory().add(getMagazineCapacityStack(stack).copyWithCount(1));
+            player.getCooldowns().addCooldown(this, 8);
         }
     }
 

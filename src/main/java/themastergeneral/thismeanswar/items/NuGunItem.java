@@ -421,7 +421,6 @@ public class NuGunItem extends AbstractModItem {
 
     public void setRoundUpgrade(ItemStack stack, ItemStack toAdd) {
         getInventory(stack).ifPresent(inventory -> {
-            TMWMain.debugLogger(toAdd + " was applied to " + stack);
             inventory.insertItem(SLOT_ROUND_UPGRADE, toAdd.copyWithCount(1), false);
             saveInventory(stack); // Save state after change
         });
