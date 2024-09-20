@@ -1,37 +1,31 @@
 package themastergeneral.thismeanswar.network.packet;
 
-import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
 import themastergeneral.thismeanswar.items.NuGunItem;
-import themastergeneral.thismeanswar.items.upgrade.UpgradeBulletType;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
-public class GunBayonetUpdatePacket {
+public class GunBayonetUpgradePacket {
     private final ItemStack mainHand;
 
-    public GunBayonetUpdatePacket(ItemStack mainHand) {
+    public GunBayonetUpgradePacket(ItemStack mainHand) {
         this.mainHand = mainHand;
     }
 
     // Methods to encode/decode the packet
-    public static void encode(GunBayonetUpdatePacket msg, FriendlyByteBuf buffer) {
+    public static void encode(GunBayonetUpgradePacket msg, FriendlyByteBuf buffer) {
         buffer.writeItem(msg.mainHand);
     }
 
-    public static GunBayonetUpdatePacket decode(FriendlyByteBuf buffer) {
-        return new GunBayonetUpdatePacket( buffer.readItem());
+    public static GunBayonetUpgradePacket decode(FriendlyByteBuf buffer) {
+        return new GunBayonetUpgradePacket( buffer.readItem());
     }
 
-    public static void handle(GunBayonetUpdatePacket msg, Supplier<NetworkEvent.Context> contextSupplier) {
+    public static void handle(GunBayonetUpgradePacket msg, Supplier<NetworkEvent.Context> contextSupplier) {
         NetworkEvent.Context context = contextSupplier.get();
         context.enqueueWork(() -> {
             ServerPlayer player = context.getSender();

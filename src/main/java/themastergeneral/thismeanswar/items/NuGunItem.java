@@ -10,7 +10,6 @@ import javax.annotation.Nullable;
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
-import net.minecraft.world.item.Items;
 import org.joml.Random;
 
 import com.themastergeneral.ctdcore.helpers.ModUtils;
@@ -55,7 +54,7 @@ import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeGunBayonetItem;
 import themastergeneral.thismeanswar.network.packet.GunAddBulletUpgradePacket;
 import themastergeneral.thismeanswar.network.packet.GunAmmoChangePacket;
-import themastergeneral.thismeanswar.network.packet.GunBayonetUpdatePacket;
+import themastergeneral.thismeanswar.network.packet.GunBayonetUpgradePacket;
 import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
 import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
@@ -203,7 +202,7 @@ public class NuGunItem extends AbstractModItem {
                 optionList.add(new RadialMenuOption(
                         () -> {
                             // Send a packet to the server to remove ammo
-                            TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(stack));
+                            TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpgradePacket(stack));
                         },
                         TMWUtils.getIconByStack(returnBayonetStack(stack)),
                         ModUtils.displayTranslation("radial.thismeanswar.remove_bayonet")

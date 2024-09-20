@@ -20,6 +20,6 @@ public class TMWNetworkManager {
         INSTANCE.registerMessage(id++, GunItemMagPacket.class, GunItemMagPacket::encode, GunItemMagPacket::decode, GunItemMagPacket::handle);
         INSTANCE.registerMessage(id++, GunAmmoChangePacket.class, GunAmmoChangePacket::encode, GunAmmoChangePacket::decode, GunAmmoChangePacket::handle);
         INSTANCE.registerMessage(id++, GunAddBulletUpgradePacket.class, GunAddBulletUpgradePacket::encode, GunAddBulletUpgradePacket::decode, GunAddBulletUpgradePacket::handle);
-        INSTANCE.registerMessage(id++, GunBayonetUpdatePacket.class, GunBayonetUpdatePacket::encode, GunBayonetUpdatePacket::decode, GunBayonetUpdatePacket::handle);
+        INSTANCE.registerMessage(id++, GunBayonetUpgradePacket.class, GunBayonetUpgradePacket::encode, GunBayonetUpgradePacket::decode, GunBayonetUpgradePacket::handle);
     }
 }

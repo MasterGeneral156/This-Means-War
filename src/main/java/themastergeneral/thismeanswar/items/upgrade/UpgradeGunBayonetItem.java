@@ -9,13 +9,9 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
-import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
 import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -27,13 +23,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWUtils;
-import themastergeneral.thismeanswar.config.Constants;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
 import themastergeneral.thismeanswar.items.NuGunItem;
-import themastergeneral.thismeanswar.items.TMWItems;
-import themastergeneral.thismeanswar.network.packet.GunBayonetUpdatePacket;
-import themastergeneral.thismeanswar.network.packet.GunItemMagPacket;
+import themastergeneral.thismeanswar.network.packet.GunBayonetUpgradePacket;
 import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class UpgradeGunBayonetItem extends BasicItem {
@@ -71,7 +64,7 @@ public class UpgradeGunBayonetItem extends BasicItem {
 					optionList.add(new RadialMenuOption(
 							() -> {
 								// Send a packet to the server to remove ammo
-								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpdatePacket(player.getMainHandItem()));
+								TMWNetworkManager.INSTANCE.sendToServer(new GunBayonetUpgradePacket(player.getMainHandItem()));
 							},
 							TMWUtils.getIconByStack(stack),
 							ModUtils.displayTranslation("radial.thismeanswar.add_bayonet")
