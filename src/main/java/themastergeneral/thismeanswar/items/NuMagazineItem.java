@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 import mastergeneral156.chasethedragon.radial.RadialClientEvents;
 import mastergeneral156.chasethedragon.radial.RadialMenuOption;
 import mastergeneral156.chasethedragon.radial.RadialMenuScreen;
+import mastergeneral156.chasethedragon.radial.api.CTDRadialAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 
@@ -114,7 +115,7 @@ public class NuMagazineItem extends AbstractModItem {
             ));
         }
 
-        if (getMagazineCapacityStack(stack) != ItemStack.EMPTY) {
+        /*if (getMagazineCapacityStack(stack) != ItemStack.EMPTY) {
             optionList.add(new RadialMenuOption(
                     () -> {
                         // Send a packet to the server to add ammo
@@ -123,7 +124,7 @@ public class NuMagazineItem extends AbstractModItem {
                     TMWUtils.getIconByStack(getMagazineCapacityStack(stack)),
                     ModUtils.displayTranslation("radial.thismeanswar.remove_mag_cap_upgrade")
             ));
-        }
+        }*/
 
         // Client-side: Open the radial menu screen
         if (!player.getCooldowns().isOnCooldown(this)) {
@@ -136,7 +137,7 @@ public class NuMagazineItem extends AbstractModItem {
     @OnlyIn(Dist.CLIENT)
     private void handleClientRadialMenu(List<RadialMenuOption> optionList) {
         if (RadialClientEvents.openRadial.isDown()) {
-            Minecraft.getInstance().setScreen(new RadialMenuScreen(optionList));
+            CTDRadialAPI.openRadialMenu(optionList);
         }
     }
 
@@ -356,11 +357,11 @@ public class NuMagazineItem extends AbstractModItem {
 
     public void playerRemoveCapUpgrade(ItemStack stack, Player player)
     {
-        TMWMain.debugLogger(getMagazineCapacityStack(stack));
-        if (getMagazineCapacityStack(stack) != ItemStack.EMPTY)
-        {
+        ItemStack upgradeStack = getMagazineCapacityStack(stack);
+        TMWMain.debugLogger(upgradeStack);
+        if (!upgradeStack.isEmpty()) {
             removeCapacityUpgrade(stack);
-            player.getInventory().add(getMagazineCapacityStack(stack).copyWithCount(1));
+            player.getInventory().add(upgradeStack.copyWithCount(1));
             player.getCooldowns().addCooldown(this, 8);
         }
     }
