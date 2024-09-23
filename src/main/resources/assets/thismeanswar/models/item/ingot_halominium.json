@@ -1,7 +1,6 @@
 {
 	"textures": {
-		"1": "thismeanswar:item/war_helm",
-		"particle": "thismeanswar:block/block_brass"
+		"1": "thismeanswar:item/war_helm"
 	},
 	"elements": [
 		{
