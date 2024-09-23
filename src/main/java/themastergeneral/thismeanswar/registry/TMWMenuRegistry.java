@@ -23,35 +23,35 @@ public class TMWMenuRegistry {
 	public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.MENU_TYPES, TMWMain.MODID);
 	
 	public static final RegistryObject<MenuType<CasingRecyclerMenu>> CASING_RECYCLER_MENU = CONTAINERS.register("casing_recycler_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new CasingRecyclerMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(CasingRecyclerMenu::new));
 	
 	public static final RegistryObject<MenuType<TipRecyclerMenu>> TIP_RECYCLER_MENU = CONTAINERS.register("tip_recycler_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new TipRecyclerMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(TipRecyclerMenu::new));
 	
 	public static final RegistryObject<MenuType<CrusherMenu>> CRUSHER_MENU = CONTAINERS.register("crusher_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new CrusherMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(CrusherMenu::new));
 	
 	public static final RegistryObject<MenuType<FactoryHolderMenu>> FACTORY_HOLDER_MENU = CONTAINERS.register("factory_holder_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new FactoryHolderMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(FactoryHolderMenu::new));
 	
 	public static final RegistryObject<MenuType<PressMenu>> PRESS_MENU = CONTAINERS.register("press_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new PressMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(PressMenu::new));
 	
 	public static final RegistryObject<MenuType<PopperMenu>> POPPER_MENU = CONTAINERS.register("popper_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new PopperMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(PopperMenu::new));
 	
 	public static final RegistryObject<MenuType<AlloySmelterMenu>> ALLOY_SMELTER_MENU = CONTAINERS.register("alloy_smelter_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new AlloySmelterMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(AlloySmelterMenu::new));
 	
 	public static final RegistryObject<MenuType<FormerMenu>> FORMER_MENU = CONTAINERS.register("former_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new FormerMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(FormerMenu::new));
 	
 	public static final RegistryObject<MenuType<MolderMenu>> MOLDER_MENU = CONTAINERS.register("molder_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new MolderMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(MolderMenu::new));
 	
 	public static final RegistryObject<MenuType<FirearmInspectorMenu>> GUN_INSPECTOR_MENU = CONTAINERS.register("inspector_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new FirearmInspectorMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(FirearmInspectorMenu::new));
 	
 	public static final RegistryObject<MenuType<AutomatedLoaderMenu>> AUTOMATED_LOADER_MENU = CONTAINERS.register("automated_loader_menu",
-	        () -> IForgeMenuType.create((windowId, inv, data) -> new AutomatedLoaderMenu(windowId, inv, data)));
+	        () -> IForgeMenuType.create(AutomatedLoaderMenu::new));
 }
