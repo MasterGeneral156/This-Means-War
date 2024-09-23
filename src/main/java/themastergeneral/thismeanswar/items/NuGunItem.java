@@ -44,6 +44,7 @@ import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.TMWClientConfig;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.entity.bullet.*;
 import themastergeneral.thismeanswar.items.define.TMWCarbines;
@@ -500,7 +501,7 @@ public class NuGunItem extends AbstractModItem {
                         float minPitch = 0F;
                         float maxPitch = 1F;
                         float randPitch = minPitch + new Random().nextFloat() * (maxPitch - minPitch);
-                        player.playSound(getGunFireSound(), Constants.modVolume, randPitch);
+                        player.playSound(getGunFireSound(), TMWClientConfig.volume_gun.get().floatValue(), randPitch);
                     }
                     return InteractionResultHolder.sidedSuccess(gun, world.isClientSide());
                 }
@@ -540,7 +541,7 @@ public class NuGunItem extends AbstractModItem {
 				ibullet.shrink(1);
 				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
 				playerIn.getCooldowns().addCooldown(gun.getItem(), 8);
-				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
+				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, TMWClientConfig.volume_gun.get().floatValue(), 0.75F);
 			}
 		}
 	}
@@ -594,7 +595,7 @@ public class NuGunItem extends AbstractModItem {
             player.getInventory().add(new ItemStack(bullet, 1));
             player.getCooldowns().addCooldown(this, 8);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
+            player.playSound(SoundEvents.DISPENSER_FAIL, TMWClientConfig.volume_gun.get().floatValue(), 0.25F);
         }
     }
     

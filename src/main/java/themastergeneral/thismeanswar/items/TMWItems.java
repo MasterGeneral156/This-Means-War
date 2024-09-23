@@ -139,10 +139,10 @@ public class TMWItems {
 	public static AbstractModItem raw_lead = new BasicItem();
 	
 	//Upgrades
-	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem(Constants.magIncreasePerLevel);
-	public static UpgradeMagCapacityItem mag_capacity_upgrade_t2 = new UpgradeMagCapacityItem(Constants.magIncreaseT2PerLevel);
-	public static UpgradeMagCapacityItem mag_capacity_upgrade_t3 = new UpgradeMagCapacityItem(Constants.magIncreaseT3PerLevel);
-	public static UpgradeMagCapacityItem creative_mag_capacity_upgrade = new UpgradeMagCapacityItem(1000D);
+	public static UpgradeMagCapacityItem mag_capacity_upgrade = new UpgradeMagCapacityItem(MagazineConfigs.MAG_CAP_T1, 0.15D);
+	public static UpgradeMagCapacityItem mag_capacity_upgrade_t2 = new UpgradeMagCapacityItem(MagazineConfigs.MAG_CAP_T2, 0.325D);
+	public static UpgradeMagCapacityItem mag_capacity_upgrade_t3 = new UpgradeMagCapacityItem(MagazineConfigs.MAG_CAP_T3, 0.7D);
+	public static UpgradeMagCapacityItem creative_mag_capacity_upgrade = new UpgradeMagCapacityItem(MagazineConfigs.MAG_CAP_CREATIVE,1000D);
 	public static UpgradeGunROFItem gun_rof_upgrade = new UpgradeGunROFItem();
 	public static UpgradeGunROFItem gun_rof_downgrade = new UpgradeGunROFItem();
 	public static AbstractModItem base_upgrade = new BasicItem();
@@ -161,32 +161,32 @@ public class TMWItems {
 	public static AbstractModItem tiny_gunpowder = new BasicItem();
 	
 	//Durability crafting items
-	public static DurabilityItem hammer_wood = new DurabilityItem(59);
-	public static DurabilityItem hammer_stone = new DurabilityItem(131);
-	public static DurabilityItem hammer_gold = new DurabilityItem(488);
-	public static DurabilityItem hammer_iron = new DurabilityItem(250);
-	public static DurabilityItem hammer_steel = new DurabilityItem(993);
-	public static DurabilityItem hammer_diamond = new DurabilityItem(1561);
-	public static DurabilityItem hammer_emerald = new DurabilityItem(1745);
-	public static DurabilityItem hammer_netherite = new DurabilityItem(2031);
+	public static DurabilityItem hammer_wood = new DurabilityItem(DurabilityItemConfig.WOODEN_TOOL, 59);
+	public static DurabilityItem hammer_stone = new DurabilityItem(DurabilityItemConfig.STONE_TOOL, 131);
+	public static DurabilityItem hammer_gold = new DurabilityItem(DurabilityItemConfig.GOLD_TOOL, 25);
+	public static DurabilityItem hammer_iron = new DurabilityItem(DurabilityItemConfig.IRON_TOOL, 128);
+	public static DurabilityItem hammer_steel = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 933);
+	public static DurabilityItem hammer_diamond = new DurabilityItem(DurabilityItemConfig.DIAMOND_TOOL, 1561);
+	public static DurabilityItem hammer_emerald = new DurabilityItem(DurabilityItemConfig.EMERALD_TOOL, 1745);
+	public static DurabilityItem hammer_netherite = new DurabilityItem(DurabilityItemConfig.NETHERITE_TOOL, 2031);
 	public static DurabilityItem hammer_creative = new TMWCreativeItem();
 	
-	public static DurabilityItem hand_saw = new DurabilityItem(993);
+	public static DurabilityItem hand_saw = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 933);
 	public static DurabilityItem creative_hand_saw = new TMWCreativeItem();
 	
-	public static DurabilityItem cutter_iron = new WireCutters(250);
-	public static DurabilityItem cutter_steel = new WireCutters(993);
-	public static DurabilityItem cutter_diamond = new WireCutters(1561);
-	public static DurabilityItem cutter_creative = new WireCutters(Short.MAX_VALUE);
+	public static DurabilityItem cutter_iron = new WireCutters(DurabilityItemConfig.IRON_TOOL, 250);
+	public static DurabilityItem cutter_steel = new WireCutters(DurabilityItemConfig.STEEL_TOOL, 933);
+	public static DurabilityItem cutter_diamond = new WireCutters(DurabilityItemConfig.DIAMOND_TOOL, 1561);
+	public static DurabilityItem cutter_creative = new WireCutters(() -> (int) Short.MAX_VALUE, (int) Short.MAX_VALUE);
 	
 	//Bullet Casts
-	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_556 = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_223 = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_45 = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_38spec = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_12g = new DurabilityItem(256);
-	public static DurabilityItem bullet_cast_762 = new DurabilityItem(256);
+	public static DurabilityItem bullet_cast_9mm = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_556 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_223 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_45 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_38spec = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_12g = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem bullet_cast_762 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
 	
 	public static DurabilityItem creative_bullet_cast_9mm = new TMWCreativeItem();
 	public static DurabilityItem creative_bullet_cast_556 = new TMWCreativeItem();
@@ -197,13 +197,13 @@ public class TMWItems {
 	public static DurabilityItem creative_bullet_cast_762 = new TMWCreativeItem();
 	
 	//Casing Casts
-	public static DurabilityItem casing_cast_9mm = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_556 = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_223 = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_45 = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_38spec = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_12g = new DurabilityItem(256);
-	public static DurabilityItem casing_cast_762 = new DurabilityItem(256);
+	public static DurabilityItem casing_cast_9mm = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_556 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_223 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_45 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_38spec = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_12g = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
+	public static DurabilityItem casing_cast_762 = new DurabilityItem(DurabilityItemConfig.STEEL_TOOL, 256);
 	
 	public static DurabilityItem creative_casing_cast_9mm = new TMWCreativeItem();
 	public static DurabilityItem creative_casing_cast_556 = new TMWCreativeItem();

@@ -26,6 +26,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import net.minecraftforge.api.distmarker.Dist;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.config.TMWClientConfig;
 import themastergeneral.thismeanswar.config.TMWTags;
 
 public class AbstractMagazineItem extends AbstractModItem {
@@ -35,7 +37,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 	protected AbstractBulletItem bulletRequired;
 	private TagKey<Item> compatMags;
 	private int capacityUpgrades;
-	public int maxCapacityUpgrades = Constants.maxMagUpgrades;
+	public int maxCapacityUpgrades = MagazineConfigs.MAX_MAG_CAP_UPGRADES.get();
 	
 	public AbstractMagazineItem(AbstractBulletItem Ammo, int maxAmmoSize) 
 	{
@@ -111,7 +113,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 					playerIn.getInventory().add(new ItemStack(returnBulletItem(), 1));
 					playerIn.getCooldowns().addCooldown(this, 8);
 					playerIn.awardStat(Stats.ITEM_USED.get(this));
-					playerIn.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
+					playerIn.playSound(SoundEvents.DISPENSER_FAIL, TMWClientConfig.volume_gun.get().floatValue(), 0.25F);
 				}
 			}
 			//fill mag when not crouching
@@ -149,7 +151,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 						ibullet.shrink(1);
 						playerIn.getCooldowns().addCooldown(this, 8);
 						playerIn.awardStat(Stats.ITEM_USED.get(this));
-						playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
+						playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, TMWClientConfig.volume_gun.get().floatValue(), 0.75F);
 					}
 				}
 			}
@@ -256,7 +258,7 @@ public class AbstractMagazineItem extends AbstractModItem {
 		{
 			int capUpgrades = getCapacityUpgrades(stackIn);
 			int maxAmmo = baseAmmoSize;
-			double capBonus = (maxAmmo * Constants.magIncreasePerLevel) * capUpgrades;
+			double capBonus = (maxAmmo * MagazineConfigs.MAG_CAP_T1.get()) * capUpgrades;
 			
 			//Just in case the mags are too small ;)
 			//Yw you pistol users

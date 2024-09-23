@@ -1,6 +1,7 @@
 package themastergeneral.thismeanswar.items;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
@@ -19,9 +20,8 @@ import themastergeneral.thismeanswar.block.BlockBarbedWire;
 
 public class WireCutters extends DurabilityItem {
 
-	public WireCutters(int durability) 
-	{
-		super(durability);
+	public WireCutters(Supplier<Integer> durabilitySupplier, int placeholderDurability) {
+		super(durabilitySupplier, placeholderDurability);
 	}
 
 	@Override

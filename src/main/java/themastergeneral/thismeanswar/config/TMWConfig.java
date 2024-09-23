@@ -15,6 +15,7 @@ public class TMWConfig {
 	static 
 	{
 	    //BalanceConfig.registerCommonConfig(GENERAL_SPEC);
+		TMWClientConfig.registerConfig(GENERAL_SPEC);
 	    MagazineConfigs.registerMagConfig(GENERAL_SPEC);
 	    DurabilityItemConfig.registerHammerConfig(GENERAL_SPEC);
 	    //BalanceConfig.register12gConfig(GENERAL_SPEC);

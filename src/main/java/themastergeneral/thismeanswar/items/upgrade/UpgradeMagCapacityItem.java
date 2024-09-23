@@ -2,6 +2,7 @@ package themastergeneral.thismeanswar.items.upgrade;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
 
@@ -24,6 +25,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
 import themastergeneral.thismeanswar.config.TMWTags;
 import themastergeneral.thismeanswar.items.BasicItem;
 import themastergeneral.thismeanswar.items.NuMagazineItem;
@@ -32,15 +34,26 @@ import themastergeneral.thismeanswar.registry.TMWNetworkManager;
 
 public class UpgradeMagCapacityItem extends BasicItem 
 {
+	private final Supplier<Double> multiplierSupplier;
 	protected double multiplier;
-	public UpgradeMagCapacityItem(double increased) 
+
+	public UpgradeMagCapacityItem(Supplier<Double> multiplierSupplier, double placeholderIncreased)
 	{
 		super();
-		this.multiplier = increased;
+		this.multiplierSupplier = multiplierSupplier;
+		this.multiplier = placeholderIncreased;
 	}
+
+	public void updateMultiplier() {
+		this.multiplier = multiplierSupplier.get();  // Update durability to the config value
+	}
+
 
 	@Override
 	public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+		if (this.multiplier != multiplierSupplier.get())
+			this.updateMultiplier();
+
 		if (!(entityIn instanceof Player player)) {
 			return;  // Exit early if the entity is not a player
 		}
@@ -87,7 +100,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 			{
 				if ((mag.getMagazineCapacityStack(offHandStack).getItem() == mainHandStack.getItem()) || (mag.getMagazineCapacityStack(offHandStack) == ItemStack.EMPTY))
 				{
-					if (mag.getCapacityUpgrades(offHandStack) < Constants.maxMagUpgrades)
+					if (mag.getCapacityUpgrades(offHandStack) < MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
 					{
 						mag.addCapacityUpgrade(offHandStack, mainHandStack);
 						player.getCooldowns().addCooldown(mainHandStack.getItem(), 5);
@@ -124,7 +137,7 @@ public class UpgradeMagCapacityItem extends BasicItem
 	public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) 
 	{
 		tooltip.add(ModUtils.displayTranslation("thismeanswar.upgrade_directions"));
-		tooltip.add(ModUtils.displayString("Max Upgrades: " + Constants.maxMagUpgrades));
+		tooltip.add(ModUtils.displayString("Max Upgrades: " + MagazineConfigs.MAX_MAG_CAP_UPGRADES.get()));
 		if (Screen.hasShiftDown())
 			tooltip.add(ModUtils.displayString("§2+" + multiplier * 100 + "% Magazine capacity"));
 	}

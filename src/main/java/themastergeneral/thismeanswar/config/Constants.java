@@ -37,8 +37,6 @@ public class Constants
 	public static int external_mag = 1;
 	public static int internal_mag = 2;
 	
-	public static float modVolume = 0.25F;
-	
 	//Upgrade constants
 	public static int bulletUpgradeNull = 0;
 	public static int bulletUpgradeAP = 1;
@@ -64,12 +62,6 @@ public class Constants
 	public static int magSizeG36 = 25;
 	public static int magSizeShortG36 = 10;
 	public static int magSizeLargeG36 = 52;
-	
-	//Mag Upgrade
-	public static int maxMagUpgrades = 5;
-	public static double magIncreasePerLevel = 0.15;
-	public static double magIncreaseT2PerLevel = 0.325;
-	public static double magIncreaseT3PerLevel = 0.7;
 	
 	//Base Round Damage
 	//Updated 6/14/24

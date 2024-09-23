@@ -32,6 +32,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWSounds;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.config.TMWClientConfig;
 import themastergeneral.thismeanswar.entity.bullet.BulletAPEntity;
 import themastergeneral.thismeanswar.entity.bullet.BulletBaseEntity;
 import themastergeneral.thismeanswar.entity.bullet.BulletFireEntity;
@@ -146,7 +148,7 @@ public class AbstractGunItem extends AbstractModItem {
 			{
 				int capUpgrades = getCapUpgrades(stackIn);
 				int maxAmmo = baseAmmoSize;
-				double capBonus = (maxAmmo * Constants.magIncreasePerLevel) * capUpgrades;
+				double capBonus = (maxAmmo * MagazineConfigs.MAG_CAP_T1.get()) * capUpgrades;
 				
 				//Just in case the mags are too small ;)
 				//Yw you pistol users
@@ -580,7 +582,7 @@ public class AbstractGunItem extends AbstractModItem {
 				}
 				else
 				{
-					playerIn.playSound(SoundEvents.FLINTANDSTEEL_USE, Constants.modVolume, 0.75F);
+					playerIn.playSound(SoundEvents.FLINTANDSTEEL_USE, TMWClientConfig.volume_gun.get().floatValue(), 0.75F);
 				}
 			}
 		}
@@ -635,7 +637,7 @@ public class AbstractGunItem extends AbstractModItem {
 	public void upgradeMagCapacity(ItemStack mag)
 	{
 		int capUpgrades = getCapUpgrades(mag);
-		if ((capUpgrades + 1) <= Constants.maxMagUpgrades)
+		if ((capUpgrades + 1) <= MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
 		{
 			CompoundTag compoundnbt = new CompoundTag();
 			compoundnbt.putInt("currentAmmo", getCurrentAmmo(mag));
@@ -856,7 +858,7 @@ public class AbstractGunItem extends AbstractModItem {
 				ibullet.shrink(1);
 				playerIn.displayClientMessage(ModUtils.displayTranslation("thismeanswar.bullet_loaded"), true);
 				playerIn.getCooldowns().addCooldown(mag.getItem(), 8);
-				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
+				playerIn.playSound(SoundEvents.DISPENSER_DISPENSE, TMWClientConfig.volume_gun.get().floatValue(), 0.75F);
 			}
 		}
 	}

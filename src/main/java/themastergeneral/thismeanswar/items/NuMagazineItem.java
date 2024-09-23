@@ -43,6 +43,8 @@ import net.minecraftforge.registries.tags.ITagManager;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.TMWUtils;
 import themastergeneral.thismeanswar.config.Constants;
+import themastergeneral.thismeanswar.config.MagazineConfigs;
+import themastergeneral.thismeanswar.config.TMWClientConfig;
 import themastergeneral.thismeanswar.items.interfaces.AbstractBulletItem;
 import themastergeneral.thismeanswar.items.interfaces.AbstractModItem;
 import themastergeneral.thismeanswar.items.upgrade.UpgradeMagCapacityItem;
@@ -232,7 +234,7 @@ public class NuMagazineItem extends AbstractModItem {
     public void addCapacityUpgrade(ItemStack stack, ItemStack toAdd) {
         getInventory(stack).ifPresent(inventory -> {
         	int caps = getCapacityUpgrades(stack);
-            if ((caps + 1) <= Constants.maxMagUpgrades)
+            if ((caps + 1) <= MagazineConfigs.MAX_MAG_CAP_UPGRADES.get())
                 inventory.insertItem(SLOT_CAP_UPGRADES, toAdd.copyWithCount(1), false);
             saveInventory(stack);
         });
@@ -350,7 +352,7 @@ public class NuMagazineItem extends AbstractModItem {
                 ibullet.shrink(added);
                 player.getCooldowns().addCooldown(stack.getItem(), 8);
                 player.awardStat(Stats.ITEM_USED.get(this.asItem()));
-                player.playSound(SoundEvents.DISPENSER_DISPENSE, Constants.modVolume, 0.75F);
+                player.playSound(SoundEvents.DISPENSER_DISPENSE, TMWClientConfig.volume_gun.get().floatValue(), 0.75F);
             }
         }
     }
@@ -372,7 +374,7 @@ public class NuMagazineItem extends AbstractModItem {
             player.getInventory().add(new ItemStack(returnBulletItem(), removed));
             player.getCooldowns().addCooldown(this, 8);
             player.awardStat(Stats.ITEM_USED.get(this));
-            player.playSound(SoundEvents.DISPENSER_FAIL, Constants.modVolume, 0.25F);
+            player.playSound(SoundEvents.DISPENSER_FAIL, TMWClientConfig.volume_gun.get().floatValue(), 0.25F);
         }
     }
     
@@ -435,7 +437,7 @@ public class NuMagazineItem extends AbstractModItem {
 					return 1;
 			}
 			else if (slot == SLOT_CAP_UPGRADES)
-				return Constants.maxMagUpgrades;
+				return MagazineConfigs.MAX_MAG_CAP_UPGRADES.get();
 			else
 				return 64;
 		}
