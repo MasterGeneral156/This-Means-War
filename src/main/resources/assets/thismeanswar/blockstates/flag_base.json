@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thismeanswar:block/flag_base",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thismeanswar:block/flag_base"
+    },
+    "facing=south": {
+      "model": "thismeanswar:block/flag_base",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thismeanswar:block/flag_base",
+      "y": 270
+    }
+  }
+}

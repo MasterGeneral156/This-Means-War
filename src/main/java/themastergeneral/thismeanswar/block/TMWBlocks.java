@@ -3,6 +3,8 @@ package themastergeneral.thismeanswar.block;
 public class TMWBlocks {
 	public static BlockOre ore_lead = new BlockOre();
 	public static BlockOre ore_brass = new BlockOre();
+
+	public static TMWRotatableBlock flag_base = new TMWRotatableBlock();
 	
 	public static BlockMetal block_lead = new BlockMetal();
 	public static BlockMetal block_steel = new BlockMetal();

@@ -402,4 +402,6 @@ public class TMWItemRegistry {
 	public static final RegistryObject<Item> supplies_ammo = ITEMS.register("supplies_ammo", () -> TMWItems.supplies_ammo);
 	public static final RegistryObject<Item> supplies_guns = ITEMS.register("supplies_guns", () -> TMWItems.supplies_guns);
 	public static final RegistryObject<Item> supplies_mags = ITEMS.register("supplies_mags", () -> TMWItems.supplies_mags);
+
+	public static final RegistryObject<Item> flag_base = ITEMS.register("flag_base", () -> TMWItems.flag_base);
 }

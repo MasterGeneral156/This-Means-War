@@ -336,4 +336,6 @@ public class TMWItems {
 	public static AbstractBlockItem supplies_ammo = new AbstractBlockItem(TMWBlocks.supplies_ammo);
 	public static AbstractBlockItem supplies_guns = new AbstractBlockItem(TMWBlocks.supplies_guns);
 	public static AbstractBlockItem supplies_mags = new AbstractBlockItem(TMWBlocks.supplies_mags);
+
+	public static AbstractBlockItem flag_base = new AbstractBlockItem(TMWBlocks.flag_base);
 }

@@ -244,6 +244,8 @@ public class TMWMain
 			ev.accept(TMWItems.supplies_ammo);
 			ev.accept(TMWItems.supplies_guns);
 			ev.accept(TMWItems.supplies_mags);
+
+			ev.accept(TMWItems.flag_base);
 			
 			ev.accept(TMWItems.barbed_wire);
 			ev.accept(TMWItems.anti_tank_wooden);

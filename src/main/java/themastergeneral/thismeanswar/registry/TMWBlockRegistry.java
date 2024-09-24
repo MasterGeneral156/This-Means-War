@@ -7,6 +7,7 @@ import net.minecraftforge.registries.RegistryObject;
 import themastergeneral.thismeanswar.TMWMain;
 import themastergeneral.thismeanswar.block.BlockBarbedWire;
 import themastergeneral.thismeanswar.block.TMWBlocks;
+import themastergeneral.thismeanswar.items.interfaces.AbstractBlockItem;
 
 public class TMWBlockRegistry {
 
@@ -64,4 +65,6 @@ public class TMWBlockRegistry {
 	public static final RegistryObject<Block> supplies_ammo = BLOCKS.register("supplies_ammo", () ->TMWBlocks.supplies_ammo);
 	public static final RegistryObject<Block> supplies_guns = BLOCKS.register("supplies_guns", () ->TMWBlocks.supplies_guns);
 	public static final RegistryObject<Block> supplies_mags = BLOCKS.register("supplies_mags", () ->TMWBlocks.supplies_mags);
+
+	public static final RegistryObject<Block> flag_base = BLOCKS.register("flag_base", () ->TMWBlocks.flag_base);
 }

@@ -32,6 +32,7 @@ public class TMWClientEvents
     {
     	TMWMain.LOGGER.info("Loading client-side Block Render layers.");
     	//TODO Fix this depre notice
+		ItemBlockRenderTypes.setRenderLayer(TMWBlocks.flag_base, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_medium, RenderType.translucent());
     	ItemBlockRenderTypes.setRenderLayer(TMWBlocks.ammo_box_large, RenderType.translucent());
