@@ -9,6 +9,7 @@ import com.themastergeneral.ctdcore.helpers.ModUtils;
 import com.themastergeneral.ctdcore.item.CTDDurabilityItem;
 
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.util.RandomSource;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -58,8 +59,25 @@ public class DurabilityItem extends AbstractModItem {
 				tooltip.add(ModUtils.displayString("Durability: " + ModUtils.returnShortenedNumber(this.remainingDamage(stack)) + " / " + ModUtils.returnShortenedNumber(this.getMaxDamage(stack))));
 	}
 
+	@Override
+	public ItemStack getCraftingRemainingItem(ItemStack itemStack)
+	{
+		ItemStack stack = itemStack.copy();
+		if(stack.hurt(1, RandomSource.createNewThreadLocalInstance(), null))
+			return ItemStack.EMPTY;
+		else
+			return stack;
+	}
+
+	@Override
+	public boolean hasCraftingRemainingItem(ItemStack stack)
+	{
+		return true;
+	}
+
 	protected int remainingDamage(ItemStack stack)
 	{
 		return stack.getMaxDamage() - stack.getDamageValue();
 	}
+
 }
