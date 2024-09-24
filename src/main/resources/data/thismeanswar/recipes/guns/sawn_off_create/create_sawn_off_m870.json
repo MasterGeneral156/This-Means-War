@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "thismeanswar:create_sawn_off",
   "ingredients": [
     {
       "item": "thismeanswar:remmington_m870", "data": 32767
