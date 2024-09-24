@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:blue_banner", "data": 32767
+    },
+	{
+		"item": "thismeanswar:ancient_fabric_british"
+	}
+  ],
+  "result": {
+    "item": "minecraft:blue_banner",
+	"count": 1,
+	"nbt": "{BlockEntityTag:{Base:4,Patterns:[{Pattern:dls,Color:0},{Pattern:drs,Color:0},{Pattern:dls,Color:0},{Pattern:drs,Color:0},{Pattern:cr,Color:14},{Pattern:cs,Color:0},{Pattern:cs,Color:0},{Pattern:ms,Color:0},{Pattern:ms,Color:0},{Pattern:sc,Color:14}]}}"
+  }
+}

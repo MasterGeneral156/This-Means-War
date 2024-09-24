@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:white_banner", "data": 32767
+    },
+	{
+		"item": "thismeanswar:ancient_fabric_us"
+	}
+  ],
+  "result": {
+    "item": "minecraft:white_banner",
+	"count": 1,
+	"nbt": "{BlockEntityTag:{Base:15,Patterns:[{Pattern:ss,Color:14},{Pattern:tr,Color:11}]}}"
+  }
+}
