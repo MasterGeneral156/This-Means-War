@@ -7,7 +7,7 @@
 		"  S"
     ],
     "key": {
-		"C": { "tag": "thismeanswar:casing/all" },
+		"C": { "tag": "forge:ingots/brass" },
 		"S": { "tag": "forge:rods/wooden" },
 		"I": { "tag": "forge:ingots/steel" }
     },
