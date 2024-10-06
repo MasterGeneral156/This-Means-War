@@ -1,0 +1,19 @@
+{
+	"conditions":[
+        {
+            "type":"forge:mod_loaded",
+            "modid":"immersiveengineering"
+        }
+	],
+  "type": "thismeanswar:alloy_smelter",
+  "base": {
+    "tag": "forge:ingots/silver"
+  },
+  "extra": {
+    "tag": "forge:ingots/gold"
+  },
+  "result": {
+    "item": "immersiveengineering:ingot_electrum", 
+	"count": 2
+  }
+}
